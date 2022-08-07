@@ -22,3 +22,6 @@ HL or Custom?
 # RPI / HL
 
 # Controlling from Gloves?
+
+
+# Battery???
