@@ -1,6 +1,6 @@
 # People Tracking
 - Recognize people, estimate age, gender and ethnicity/origin (Simple AI)
-- Indoor Navigation
+- Indoor Navigation (outdoor https://github.com/TNOCS/WorldExplorer)
 - Music Player
 - Movie Player (Oled darken instead of transparent)
 - AI / Cortana -> Home Control etc.
@@ -9,9 +9,14 @@
 - RFID -> Contact Change? 
 - Realtime Subtitle - https://github.com/la-wu/SubtitlesIRL
 - Realtime Translations
-
+- Distance Calculation http://blainefricks.github.io/spartan
 
 
 
 - Hud -> https://github.com/xSmoking/Hololens_IronMan
 - https://github.com/xSmoking/Hololens_IronMan
+
+
+
+
+- https://github.com/DataMesh-OpenSource/SolarSystemExplorer
