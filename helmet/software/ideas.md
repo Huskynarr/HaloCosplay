@@ -7,3 +7,11 @@
 - Object Recognition
 - Tools -> distance recognition, size recognition, calculator
 - RFID -> Contact Change? 
+- Realtime Subtitle - https://github.com/la-wu/SubtitlesIRL
+- Realtime Translations
+
+
+
+
+- Hud -> https://github.com/xSmoking/Hololens_IronMan
+- https://github.com/xSmoking/Hololens_IronMan
