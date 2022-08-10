@@ -20,3 +20,7 @@
 
 
 - https://github.com/DataMesh-OpenSource/SolarSystemExplorer
+
+Cortana Hololens
+subtitle -> Translations
+
