@@ -7,11 +7,13 @@
 HL or Custom?
 
 # Sound
-
+- Sorround Set
 
 # Microphone inside
 
+
 # Microphone outside
+
 
 # Eyetracking
 
@@ -19,13 +21,21 @@ HL or Custom?
 
 # Camera outside
 
-# RPI / HL
+# RPI / HL / Controller
 
 # Controlling from Gloves?
 
 
 # Battery???
+- 2x 3x 18650 (on each shoulder)
+- LED indicator in neck for power status
 
 
+#Connection
+- USB-C (https://usb.org/document-library/usb-type-cr-cable-and-connector-specification-revision-20)
+- 
+
+
+# Other
 
 https://www.etsy.com/de/listing/225313442/ultimativer-halo-4-master-chief-helm
