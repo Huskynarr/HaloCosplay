@@ -1,4 +1,5 @@
-# People Tracking
+# Ideas 
+- People Tracking
 - Recognize people, estimate age, gender and ethnicity/origin (Simple AI)
 - Indoor Navigation (outdoor https://github.com/TNOCS/WorldExplorer)
 - Music Player
@@ -24,3 +25,7 @@
 Cortana Hololens
 subtitle -> Translations
 
+
+
+https://github.com/hanseuljun/kinect-to-hololens
+https://github.com/MarekKowalski/LiveScan3D-Hololens
