@@ -2,6 +2,10 @@
 
 Ziel: sichere, modulare Verkabelung mit sauberer Trennung von Logik und Leistung.
 
+## Diagramm (SVG)
+
+![Wiring diagram](Elektronik-Verdrahtung.svg)
+
 ## Grundschema (vereinfacht)
 
 ```
