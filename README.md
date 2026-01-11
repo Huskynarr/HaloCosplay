@@ -1,58 +1,48 @@
-# Master Chief Cosplay Project
+# HaloCosplay: Master Chief MJOLNIR Projekt
 
-Welcome to the Master Chief Cosplay Project repository! This project aims to create an authentic and detailed Master Chief cosplay, including the iconic helmet with electronic components, armor, accessories, and an integrated HUD using the Hololens 2 and Unreal Engine 4.
+Dieses Repository ist eine vollstaendige DIY-Projektmappe fuer ein moeglichst authentisches Halo Master Chief Cosplay mit Ruestung, Helm, Prop-Waffe und optionaler Elektronik (HUD, Akku-Backpack, AR/Display). Das Projekt ist in drei Varianten strukturiert: Einsteiger (Foam), Fortgeschritten (3D-Druck/Hybrid) und Profi (Exoskelett + Premium-Materialien).
 
-## Project Structure
+## Varianten im Ueberblick
 
-The project is organized into various directories for better navigation and clarity:
+| Variante | Ziel | Materialien | Technik | Budget (Richtwert) | Dauer (Richtwert) |
+| --- | --- | --- | --- | --- | --- |
+| V1 Einsteiger | klassisches Cosplay | EVA-Foam, Kunststoff, Holz | einfache LEDs | 400-900 EUR | 2-5 Monate |
+| V2 Fortgeschritten | detailstark + stabil | 3D-Druck + Foam | HUD + Pi, Akku | 1.200-2.200 EUR | 4-8 Monate |
+| V3 Profi | High-End + Exoskelett | Alu/Carbon, CNC/3D | HUD, Sensorik, Exo | 3.000+ EUR | 8-14 Monate |
 
-- **Documentation:** Contains guides, references, and electronic documentation.
-- **Design:** Includes sketches and 3D models for the helmet, armor, and HUD.
-- **Materials:** Lists the required materials and electronics for the cosplay, including those for the HUD.
-- **BuildGuides:** Step-by-step guides for building the helmet, armor, electronic components, and integrating the HUD.
-- **Progress:** Weekly reports and photos documenting the project's progress.
-- **License:** Information about the project's license.
-- **Tests:** Reports and photos of testing procedures.
-- **Code:** Codebase for controlling the helmet and armor lighting effects, as well as Unreal Engine 4 scripts for the integrated HUD.
-- **Resources:** Additional guides, tools, and accessories.
-- **Support:** Frequently Asked Questions (FAQ) and contact information.
+## Projektziele
 
-## Character References
+- Authentische MJOLNIR-Optik (Mark VII/Classic Mix)
+- Tragbare, sichere Bauweise fuer Conventions
+- Modulare Elektronik (Pi Zero 2 W, transparentes OLED, LEDs)
+- Drei Ausbaustufen von Einsteiger bis Profi-Exoskelett
 
-- **Master Chief:**
-    - Front view: [MasterChief-Front.jpg](Documentation/References/CharacterReferences/MasterChief-Front.jpg)
-    - Side view: [MasterChief-Side.jpg](Documentation/References/CharacterReferences/MasterChief-Side.jpg)
+## Quick Start
 
-- **Cortana:**
-    - Front view: [Cortana-Front.jpg](Documentation/References/CharacterReferences/Cortana/Cortana-Front.jpg)
-    - Side view: [Cortana-Side.jpg](Documentation/References/CharacterReferences/Cortana/Cortana-Side.jpg)
-    - Accessories: [HaloCortanaDataChip1.jpg](Documentation/References/CharacterReferences/Cortana/Accessories/HaloCortanaDataChip1.jpg), [HaloCortanaDataChip2.jpg](Documentation/References/CharacterReferences/Cortana/Accessories/HaloCortanaDataChip2.jpg)
+1. Lies den Projektueberblick: `Documentation/README.md`
+2. Waehle eine Variante: `Documentation/Guides/Varianten.md`
+3. Starte mit den Bauphasen: `BuildGuides/Armor/Step1.md`
+4. Elektronik planen: `Documentation/Guides/Elektronik-HUD.md`
+5. Materialliste checken: `Materials/ShoppingList.md`
 
-## HUD Integration
+## Projektstruktur
 
-- **Hololens 2:**
-    - Front view: [Hololens2-Front.jpg](Documentation/References/HUDReferences/Hololens2-Front.jpg)
-    - Side view: [Hololens2-Side.jpg](Documentation/References/HUDReferences/Hololens2-Side.jpg)
+- `Documentation/` Projektuebersicht, Sicherheits- und Technikdokumentation
+- `BuildGuides/` Schritt-fuer-Schritt Bauphasen (Ruestung, Helm, Elektronik)
+- `Materials/` Einkaufslisten, Komponenten und Quellen
+- `Code/` Beispielcode fuer HUD, LEDs und Controller
+- `Design/` Skizzen, Vorlagen, 3D-Modelle
+- `Resources/` Tools, Links, Community, Referenzen
+- `Support/` FAQ und Kontakt
 
-- **Integrated HUD with Unreal Engine 4:**
-    - [HUD-Sketch1.jpg](Design/Designs/Sketches/HUD-Sketch1.jpg)
-    - [HUD-3D-Model.stl](Design/Designs/3D-Models/HUD-3D-Model.stl)
-    - Unreal Engine 4 Scripts: [UE4-HUD-Scripts](Code/UE4-HUD-Scripts)
+## Sicherheit und Conventions
 
-## Build Guides and Resources
+- Siehe `Documentation/Guides/Sicherheit.md`
+- Siehe `Documentation/Guides/Convention-Regeln.md`
 
-- [Helmet Build Guide (PDF)](Resources/Guides/HelmetBuildGuide.pdf)
-- [Electronics Guide (DOCX)](Resources/Guides/ElectronicsGuide.docx)
-- [Integrated HUD Guide (PDF)](Resources/Guides/IntegratedHUDGuide.pdf)
-- [Tool List](Resources/Tools/ToolList.md)
-- [Software](Resources/Tools/Software.md)
+## Community
 
-## Support
+- 405th Infantry Division: https://www.405th.com/
+- RPF: https://www.therpf.com/
 
-- [Community](https://www.405th.com/forums/threads/suit-up-introduce-yourself.48251/)
-- [FAQ](Support/FAQ.md)
-- [Contact](Support/Contact.md)
-
-Feel free to explore the project and use the provided resources to create your own Master Chief cosplay with an integrated HUD using the Hololens 2 and Unreal Engine 4! If you have any questions or need assistance, check the FAQ or contact us.
-
-Happy cosplaying!
+Viel Erfolg beim Bau. Schritt fuer Schritt, und immer zuerst die sichere Tragbarkeit testen.
