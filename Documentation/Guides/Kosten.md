@@ -1,0 +1,51 @@
+# Kosten (Richtwerte)
+
+Alle Zahlen sind Schaetzungen und haengen stark von vorhandenen Tools, lokalen Preisen und Eigenleistung ab.
+
+## Schnelluebersicht
+
+| Variante | Gesamt | Hinweis |
+| --- | --- | --- |
+| V1 Einsteiger | 400-900 EUR | Foam, wenig Elektronik |
+| V2 Fortgeschritten | 1.200-2.200 EUR | 3D-Druck + HUD |
+| V3 Profi | 3.000+ EUR | Exoskelett, Premium-Finish |
+
+## Detailkosten (Beispiele)
+
+### V1 Einsteiger
+
+| Kategorie | Kosten | Notizen |
+| --- | --- | --- |
+| Ruestung (Foam) | 150-300 EUR | Foam, Kleber, Versiegelung |
+| Helm/Visor | 80-200 EUR | DIY-Visor oder Fertighelm |
+| Prop-Waffe | 40-120 EUR | Foam/PVC |
+| Lack/Finish | 60-150 EUR | Primer, Farben, Klarlack |
+| Gurte/Trage | 40-80 EUR | Klettergurt, Gurtband |
+| Tools/Verbrauch | 30-80 EUR | Klingen, Schleifpapier |
+
+### V2 Fortgeschritten
+
+| Kategorie | Kosten | Notizen |
+| --- | --- | --- |
+| 3D-Druck (Material) | 200-500 EUR | PLA+/PETG, je nach Umfang |
+| Helm (3D) | 100-250 EUR | Spachtel, Schleifen, Visor |
+| Ruestung (Hybrid) | 250-600 EUR | Foam + 3D-Details |
+| Elektronik (HUD) | 250-600 EUR | Pi, OLED, Akku, Luefter |
+| Lack/Finish | 100-250 EUR | Filler, Lack, Weathering |
+| Trage/Straps | 60-120 EUR | Harness, Schnelltrennung |
+
+### V3 Profi
+
+| Kategorie | Kosten | Notizen |
+| --- | --- | --- |
+| Exoskelett | 600-1.500 EUR | Alu, Lager, Verbinder |
+| Premium-Materialien | 500-1.200 EUR | Carbon/Glasfaser, CNC |
+| Elektronik/Sensorik | 400-1.000 EUR | HUD, LEDs, Audio, Sensoren |
+| Finish/Coating | 200-600 EUR | Airbrush, Speziallacke |
+| Sicherheit/Extras | 100-300 EUR | Not-Aus, Redundanz |
+
+## Spartipps
+
+- Hybrid-Bauweise spart Gewicht und Geld.
+- Helm ist der beste Ort fuer Detailinvestitionen.
+- Gebrauchte Werkzeuge oder Makerspace nutzen.

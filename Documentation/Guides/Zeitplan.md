@@ -7,12 +7,14 @@
 
 ## Phasen
 
-1. Planung und Skalierung (2-4 Wochen)
-2. Unteranzug und Tragesystem (1-2 Wochen)
-3. Ruestung (Foam/3D) (6-12 Wochen)
-4. Helm und Visor (3-6 Wochen)
-5. Elektronik und Tests (2-6 Wochen)
-6. Finish, Weathering, Final Tests (2-4 Wochen)
+| Phase | Inhalt | Dauer (Richtwert) |
+| --- | --- | --- |
+| 1 | Planung, Skalierung, Templates | 2-4 Wochen |
+| 2 | Unteranzug + Tragesystem | 1-2 Wochen |
+| 3 | Ruestung (Foam/3D) | 6-12 Wochen |
+| 4 | Helm + Visor | 3-6 Wochen |
+| 5 | Elektronik + Tests | 2-6 Wochen |
+| 6 | Finish + Weathering | 2-4 Wochen |
 
 ## Puffer
 

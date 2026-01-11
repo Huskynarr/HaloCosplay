@@ -9,9 +9,12 @@ Dieses Verzeichnis sammelt alle Kerninhalte fuer das Halo MJOLNIR Cosplay Projek
 - Elektronik und HUD: `Documentation/Guides/Elektronik-HUD.md`
 - Exoskelett (Profi): `Documentation/Guides/Exoskelett.md`
 - Material- und Toolliste: `Documentation/Guides/Materialien.md`
+- STL-Quellen: `Resources/STL-Quellen.md`
 - Waffen-Prop: `Documentation/Guides/Waffen-Prop.md`
 - Zeitplan: `Documentation/Guides/Zeitplan.md`
+- Kosten: `Documentation/Guides/Kosten.md`
 - Fehlerbehebung: `Documentation/Guides/Fehlerbehebung.md`
+- Best Practices: `Documentation/Guides/Best-Practices.md`
 - Sicherheit und Conventions: `Documentation/Guides/Sicherheit.md`
 - Convention-Regeln: `Documentation/Guides/Convention-Regeln.md`
 
