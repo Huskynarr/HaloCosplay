@@ -2,6 +2,8 @@
 
 Diese drei Varianten sind kompatibel und bauen aufeinander auf. Du kannst mit V1 starten und spaeter schrittweise upgraden.
 
+Hinweis: Kosten sind stark tool- und materialabhaengig. Rechne realistisch mit dem 2-3x der Minimalannahmen (siehe `Documentation/Guides/Kosten.md`).
+
 ## Kurzvergleich
 
 | Variante | Fokus | Optik | Gewicht | Elektronik | Empfohlen fuer |
@@ -25,7 +27,7 @@ Diese drei Varianten sind kompatibel und bauen aufeinander auf. Du kannst mit V1
 - Kein HUD notwendig
 
 **Typische Kosten/Dauer**
-- 400-900 EUR, 2-5 Monate
+- 800-2.700 EUR, 2-5 Monate
 
 **Risiken und Tipps**
 - Passform frueh testen (Bewegung, Treppen, Sitzen)
@@ -48,7 +50,7 @@ Diese drei Varianten sind kompatibel und bauen aufeinander auf. Du kannst mit V1
 - Optional: Arduino fuer LEDs/Luefter
 
 **Typische Kosten/Dauer**
-- 1.200-2.200 EUR, 4-8 Monate
+- 2.400-6.600 EUR, 4-8 Monate
 
 **Risiken und Tipps**
 - Gewicht auf die Huefte (Klettergurt)
@@ -70,7 +72,7 @@ Diese drei Varianten sind kompatibel und bauen aufeinander auf. Du kannst mit V1
 - Aktive Lueftung, Audio, LEDs
 
 **Typische Kosten/Dauer**
-- 3.000+ EUR, 8-14 Monate
+- 6.000+ EUR, 8-14 Monate
 
 **Risiken und Tipps**
 - Exoskelett strikt passiv halten (keine Motoren fuer Cons)

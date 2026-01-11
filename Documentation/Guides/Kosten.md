@@ -6,11 +6,13 @@ Alle Zahlen sind Schaetzungen und haengen stark von vorhandenen Tools, lokalen P
 
 | Variante | Gesamt | Hinweis |
 | --- | --- | --- |
-| V1 Einsteiger | 400-900 EUR | Foam, wenig Elektronik |
-| V2 Fortgeschritten | 1.200-2.200 EUR | 3D-Druck + HUD |
-| V3 Profi | 3.000+ EUR | Exoskelett, Premium-Finish |
+| V1 Einsteiger | 800-2.700 EUR | Foam, wenig Elektronik |
+| V2 Fortgeschritten | 2.400-6.600 EUR | 3D-Druck + HUD |
+| V3 Profi | 6.000+ EUR | Exoskelett, Premium-Finish |
 
 ## Detailkosten (Beispiele)
+
+Die folgenden Detailkosten sind Basiskosten. Realistische Gesamtkosten liegen oft beim 2-3x dieser Summen (Tools, Fehlversuche, Versand, Premium-Finish).
 
 ### V1 Einsteiger
 

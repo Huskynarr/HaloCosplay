@@ -6,9 +6,13 @@ Dieses Repository ist eine vollstaendige DIY-Projektmappe fuer ein moeglichst au
 
 | Variante | Ziel | Materialien | Technik | Budget (Richtwert) | Dauer (Richtwert) |
 | --- | --- | --- | --- | --- | --- |
-| V1 Einsteiger | klassisches Cosplay | EVA-Foam, Kunststoff, Holz | einfache LEDs | 400-900 EUR | 2-5 Monate |
-| V2 Fortgeschritten | detailstark + stabil | 3D-Druck + Foam | HUD + Pi, Akku | 1.200-2.200 EUR | 4-8 Monate |
-| V3 Profi | High-End + Exoskelett | Alu/Carbon, CNC/3D | HUD, Sensorik, Exo | 3.000+ EUR | 8-14 Monate |
+| V1 Einsteiger | klassisches Cosplay | EVA-Foam, Kunststoff, Holz | einfache LEDs | 800-2.700 EUR | 2-5 Monate |
+| V2 Fortgeschritten | detailstark + stabil | 3D-Druck + Foam | HUD + Pi, Akku | 2.400-6.600 EUR | 4-8 Monate |
+| V3 Profi | High-End + Exoskelett | Alu/Carbon, CNC/3D | HUD, Sensorik, Exo | 6.000+ EUR | 8-14 Monate |
+
+## Hinweis zu Kosten
+
+Die Kosten sind stark abhaengig von Tools, Fehlversuchen, Versand und Premium-Materialien. Realistisch ist oft das 2-3x der Minimalannahmen.
 
 ## Projektziele
 
