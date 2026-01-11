@@ -7,6 +7,7 @@ Dieses Verzeichnis enthaelt Beispielcode fuer Helm- und Ruestungs-LEDs sowie das
 - `hud_display.py` - einfacher HUD-Demo-Loop fuer OLED
 - `requirements.txt` - Python-Dependencies
 - `config.example.json` - Beispiel-Konfiguration (als `config.json` kopieren)
+- `battery.example.json` - Beispiel fuer Batteriestatus
 - `MainControlCode.ino` - I2C-Empfang fuer LED-Helligkeit
 - `LightingEffectsCode.ino` - einfacher LED-Lauf
 

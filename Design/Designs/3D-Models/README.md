@@ -6,6 +6,7 @@ Dieses Verzeichnis enthaelt STL-Dateien fuer Helm, Ruestung und Props.
 
 - Aktuelle STL-Dateien sind Platzhalter und sollten durch echte Dateien ersetzt werden.
 - Bitte jede Datei mit Quelle, Lizenz und Skalierung dokumentieren.
+- Quellenliste: `Resources/STL-Quellen.md`
 
 ## Vorlage (Bitte ausfuellen)
 

@@ -3,5 +3,11 @@
   "i2c_address": "0x3C",
   "width": 128,
   "height": 64,
-  "refresh_ms": 100
+  "refresh_ms": 100,
+  "show_battery": true,
+  "battery_path": "battery.json",
+  "battery_field": "battery_percent",
+  "voltage_field": "voltage",
+  "log_path": "hud_log.txt",
+  "log_interval_s": 5
 }

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="920" height="520" viewBox="0 0 920 520">
+  <defs>
+    <style>
+      .box { fill: #f5f5f5; stroke: #333; stroke-width: 2; }
+      .label { font-family: Arial, sans-serif; font-size: 14px; fill: #222; }
+      .line { stroke: #333; stroke-width: 2; fill: none; }
+      .bus { stroke: #666; stroke-width: 3; }
+    </style>
+  </defs>
+
+  <text class="label" x="30" y="30">LED Strip Module (WS2812)</text>
+
+  <rect class="box" x="40" y="60" width="160" height="50" />
+  <text class="label" x="60" y="90">5V Power In</text>
+
+  <rect class="box" x="40" y="130" width="160" height="50" />
+  <text class="label" x="60" y="160">GND</text>
+
+  <rect class="box" x="40" y="200" width="160" height="50" />
+  <text class="label" x="60" y="230">Data In</text>
+
+  <rect class="box" x="240" y="60" width="180" height="60" />
+  <text class="label" x="250" y="95">1000 uF Cap</text>
+
+  <rect class="box" x="240" y="140" width="180" height="60" />
+  <text class="label" x="250" y="175">330-470 Ohm</text>
+
+  <rect class="box" x="460" y="90" width="200" height="80" />
+  <text class="label" x="475" y="130">Level Shifter</text>
+  <text class="label" x="475" y="150">(3.3V -> 5V)</text>
+
+  <rect class="box" x="700" y="100" width="180" height="80" />
+  <text class="label" x="715" y="135">LED Strip</text>
+
+  <line class="line" x1="200" y1="85" x2="240" y2="85" />
+  <line class="line" x1="200" y1="155" x2="240" y2="170" />
+  <line class="line" x1="200" y1="225" x2="240" y2="170" />
+
+  <line class="line" x1="420" y1="170" x2="460" y2="130" />
+  <line class="line" x1="660" y1="140" x2="700" y2="140" />
+
+  <line class="bus" x1="40" y1="470" x2="880" y2="470" />
+  <text class="label" x="40" y="495">Common GND bus</text>
+
+  <line class="line" x1="120" y1="180" x2="120" y2="470" />
+  <line class="line" x1="330" y1="200" x2="330" y2="470" />
+  <line class="line" x1="560" y1="180" x2="560" y2="470" />
+  <line class="line" x1="790" y1="180" x2="790" y2="470" />
+</svg>

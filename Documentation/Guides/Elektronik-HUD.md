@@ -66,12 +66,18 @@ Test: `i2cdetect -y 1` (Adresse meist 0x3C/0x3D)
 - Beispiel: `Code/HelmetControl/hud_display.py`
 - Dependencies: `Code/HelmetControl/requirements.txt`
 - Konfig: `Code/HelmetControl/config.example.json` (als `config.json` kopieren)
+- Batterie-Input: `Code/HelmetControl/battery.example.json`
 - Arduino: `Code/HelmetControl/MainControlCode.ino`
 
 ## Weitere Guides
 
 - Strombudget: `Documentation/Guides/Elektronik-Strombudget.md`
 - Verdrahtung: `Documentation/Guides/Elektronik-Verdrahtung.md`
+
+## HUD-Erweiterungen (optional)
+
+- Batterieanzeige aus Datei (siehe `battery.example.json`)
+- Logging zu `hud_log.txt` (konfigurierbar)
 
 ## Guenstige HUD-Alternative
 

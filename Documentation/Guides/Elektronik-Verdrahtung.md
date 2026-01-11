@@ -22,7 +22,13 @@ Ziel: sichere, modulare Verkabelung mit sauberer Trennung von Logik und Leistung
 GND aller Systeme verbinden!
 ```
 
+## Helm-Modul (Detail)
+
+![Helmet module](Elektronik-Helm-Modul.svg)
+
 ## LED-Verkabelung (WS2812)
+
+![LED strip module](Elektronik-LED-Strip.svg)
 
 - 5V direkt von der LED-Stromschiene
 - Datenleitung von Arduino (oder Pi) ueber 330-470 Ohm Serienwiderstand

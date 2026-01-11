@@ -35,6 +35,11 @@ Diese Liste ist modular aufgebaut. Waehlte je nach Variante die passenden Abschn
 - Gold-/Spiegel-Folie (Heat-Tint)
 - Halterungen (3D-Druck oder Alu-Winkel)
 
+## Schuhe
+
+- Platform/Chunky Sneaker als Basis
+- Beispiele und Tipps: `Materials/Shoes.md`
+
 ## Prop-Waffe
 
 - PVC-Rohr, EVA-Foam, Holzduempel

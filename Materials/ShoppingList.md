@@ -10,10 +10,11 @@ Diese Liste ist nach Varianten gegliedert. Preise sind Richtwerte.
 - PETG-Visor + Tint-Folie
 - Prop-Waffe aus PVC/Foam
 
-### Boots (Beispiele, DE)
+### Schuhe (Beispiele, DE)
 
-- https://www.zalando.de/buffalo-london-sneaker-high-black-bub12n001-q11.html
-- https://www.zalando.de/buffalo-london-sneaker-low-black-bub12o001-q11.html
+- Buffalo London Sneaker High (Basis, Plattform): https://www.zalando.de/buffalo-london-sneaker-high-black-bub12n001-q11.html
+- Buffalo London Sneaker Low (Basis, Plattform): https://www.zalando.de/buffalo-london-sneaker-low-black-bub12o001-q11.html
+- Weitere Hinweise: `Materials/Shoes.md`
 
 ## V2 Fortgeschritten
 
