@@ -64,7 +64,14 @@ Test: `i2cdetect -y 1` (Adresse meist 0x3C/0x3D)
 - Raspberry Pi OS Lite
 - Python + luma.oled
 - Beispiel: `Code/HelmetControl/hud_display.py`
+- Dependencies: `Code/HelmetControl/requirements.txt`
+- Konfig: `Code/HelmetControl/config.example.json` (als `config.json` kopieren)
 - Arduino: `Code/HelmetControl/MainControlCode.ino`
+
+## Weitere Guides
+
+- Strombudget: `Documentation/Guides/Elektronik-Strombudget.md`
+- Verdrahtung: `Documentation/Guides/Elektronik-Verdrahtung.md`
 
 ## Guenstige HUD-Alternative
 

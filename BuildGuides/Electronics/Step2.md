@@ -4,10 +4,12 @@
 
 1. Raspberry Pi OS Lite installieren
 2. I2C aktivieren und OLED testen
-3. HUD-Software starten (siehe `Code/HelmetControl/hud_display.py`)
-4. Optional: Arduino fuer LED/Luefter anbinden
-5. Dauerlauf-Test (2-4 Stunden) ausserhalb der Ruestung
-6. Finaler Einbau und Kabelsicherung
+3. Dependencies installieren (siehe `Code/HelmetControl/requirements.txt`)
+4. HUD-Software starten (siehe `Code/HelmetControl/hud_display.py`)
+5. Konfig anpassen (siehe `Code/HelmetControl/config.example.json`)
+6. Optional: Arduino fuer LED/Luefter anbinden
+7. Dauerlauf-Test (2-4 Stunden) ausserhalb der Ruestung
+8. Finaler Einbau und Kabelsicherung
 
 ## Fehleranalyse
 

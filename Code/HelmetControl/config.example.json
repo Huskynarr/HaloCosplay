@@ -1,0 +1,7 @@
+{
+  "i2c_port": 1,
+  "i2c_address": "0x3C",
+  "width": 128,
+  "height": 64,
+  "refresh_ms": 100
+}

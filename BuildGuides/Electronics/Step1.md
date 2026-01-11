@@ -8,10 +8,11 @@
 ## Schritte
 
 1. Komponentenliste finalisieren (Pi, OLED, Akku, LEDs)
-2. Strombudget kalkulieren (Pi + Display + Luefter)
+2. Strombudget kalkulieren (siehe `Documentation/Guides/Elektronik-Strombudget.md`)
 3. Akku-Backpack planen (Gewicht, Zugriff, Luft)
 4. Kabelwege im Under-Suit definieren
-5. Steckverbinder standardisieren (JST, XT30)
+5. Verdrahtung planen (siehe `Documentation/Guides/Elektronik-Verdrahtung.md`)
+6. Steckverbinder standardisieren (JST, XT30)
 
 ## Hinweis
 
