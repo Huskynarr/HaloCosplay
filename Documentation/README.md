@@ -4,7 +4,9 @@ Dieses Verzeichnis sammelt alle Kerninhalte fuer das Halo MJOLNIR Cosplay Projek
 
 ## Einstieg
 
+- Start hier: `Documentation/Guides/Start-Hier.md`
 - Variantenvergleich und Auswahl: `Documentation/Guides/Varianten.md`
+- Checklisten: `Documentation/Guides/Checklisten.md`
 - Bauphasen und Reihenfolge: `BuildGuides/Armor/Step1.md`
 - Elektronik und HUD: `Documentation/Guides/Elektronik-HUD.md`
 - Exoskelett (Profi): `Documentation/Guides/Exoskelett.md`

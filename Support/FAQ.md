@@ -1,7 +1,10 @@
 # FAQ
 
+**Wie starte ich am besten?**
+- Starte mit `Documentation/Guides/Start-Hier.md` und V1, wenn es dein erstes Cosplay ist.
+
 **Welche Variante soll ich waehlen?**
-- Starte mit V1, wenn es dein erstes Cosplay ist. V2 lohnt sich, wenn du einen 3D-Drucker hast und Elektronik willst.
+- V1 fuer den Einstieg, V2 fuer detailierte Builds mit HUD, V3 fuer Showpiece-Exos.
 
 **Wie schwer ist die Ruestung?**
 - V1 ca. 8-15 kg, V2 ca. 15-25 kg, V3 variabel (gewichtskritisch).

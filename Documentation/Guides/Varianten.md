@@ -85,3 +85,12 @@ Diese drei Varianten sind kompatibel und bauen aufeinander auf. Du kannst mit V1
 ## Empfehlung
 
 Starte mit V1 oder V2. Die groessten Zeitfresser sind Passform und Finish. Ein guter Helm mit sauberem Visor wirkt oft staerker als zu viele Features.
+
+## Minimal Build (Einsteiger)
+
+- Helm + Visor
+- Brustplatte
+- Unterarme + Schienbeine
+- Guertel/Utility (optional)
+
+Damit sieht man sofort wie Master Chief aus und kann spaeter aufruesten.

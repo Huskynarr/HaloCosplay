@@ -25,6 +25,14 @@ Dieses Projekt verlinkt nur auf externe STL-Quellen. Bitte pruefe die jeweilige 
 - Lizenz erlaubt private Nutzung?
 - Ist die Quelle aktiv und dokumentiert Skalierung/Passform?
 - Wird das Modell in Segmenten angeboten (Druckbarkeit)?
+- Enthaltene Visor-Datei getrennt? (praktisch fuer Anpassung)
+
+## Suchbegriffe (Beispiele)
+
+- "Halo Mark VI helmet"
+- "Halo Mark VII armor"
+- "Master Chief chest" / "forearm" / "shin"
+- "M6D pistol" / "MA5 assault rifle" (Prop)
 
 ## Ablage im Repo
 

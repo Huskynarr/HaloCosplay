@@ -19,12 +19,13 @@ Dieses Repository ist eine vollstaendige DIY-Projektmappe fuer ein moeglichst au
 
 ## Quick Start
 
-1. Lies den Projektueberblick: `Documentation/README.md`
-2. Waehle eine Variante: `Documentation/Guides/Varianten.md`
-3. Starte mit den Bauphasen: `BuildGuides/Armor/Step1.md`
-4. Kosten/Zeit checken: `Documentation/Guides/Kosten.md` und `Documentation/Guides/Zeitplan.md`
-5. Elektronik planen: `Documentation/Guides/Elektronik-HUD.md`
-6. Materialliste checken: `Materials/ShoppingList.md`
+1. Start-Guide lesen: `Documentation/Guides/Start-Hier.md`
+2. Lies den Projektueberblick: `Documentation/README.md`
+3. Waehle eine Variante: `Documentation/Guides/Varianten.md`
+4. Starte mit den Bauphasen: `BuildGuides/Armor/Step1.md`
+5. Kosten/Zeit checken: `Documentation/Guides/Kosten.md` und `Documentation/Guides/Zeitplan.md`
+6. Elektronik planen: `Documentation/Guides/Elektronik-HUD.md`
+7. Materialliste checken: `Materials/ShoppingList.md`
 
 ## Projektstruktur
 
