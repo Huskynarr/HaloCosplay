@@ -13,27 +13,27 @@ Ziel ist ein tragbares, modulares HUD-System mit sicherer Stromversorgung. Die B
 ## Systemdiagramm (Uebersicht)
 
 ```
-┌─────────────────────┐
-│   PiSugar 3 Plus    │
-│     5000mAh         │
-└──────────┬──────────┘
-           │ 5V/3A
-           ▼
-┌─────────────────────┐      I2C        ┌──────────────────┐
-│  Raspberry Pi       │◄──────────────►│  Transparent     │
-│    Zero 2 W         │                 │  OLED Display    │
-└──────────┬──────────┘                 └──────────────────┘
-           │
-           │ I2C/Serial
-           ▼
-┌─────────────────────┐
-│  Arduino Nano       │
-│  (optional)         │
-└──────────┬──────────┘
-           │
-           ├──► LED Strips
-           ├──► Helmet Fans
-           └──► Audio Amp
++---------------------+
+|   PiSugar 3 Plus    |
+|     5000mAh         |
++----------+----------+
+           | 5V/3A
+           v
++---------------------+      I2C        +------------------+
+|  Raspberry Pi       |<-------------> |  Transparent     |
+|    Zero 2 W         |                |  OLED Display    |
++----------+----------+                +------------------+
+           |
+           | I2C/Serial
+           v
++---------------------+
+|  Arduino Nano       |
+|  (optional)         |
++----------+----------+
+           |
+           +--> LED Strips
+           +--> Helmet Fans
+           +--> Audio Amp
 ```
 
 ## Verkabelung (OLED via I2C)

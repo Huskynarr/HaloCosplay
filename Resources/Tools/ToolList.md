@@ -13,7 +13,7 @@
 
 ## Elektronik
 
-- Loetstation, Lötzinn
+- Loetstation, Loetzinn
 - Multimeter
 - Abisolierzange, Crimpzange
 - Schrumpfschlauch, Heissluft
