@@ -11,6 +11,21 @@ Dieses Verzeichnis enthaelt Beispielcode fuer Helm- und Ruestungs-LEDs sowie das
 - `config.example.json` — Beispiel-Konfiguration (als `config.json` kopieren)
 - `battery.example.json` — Beispiel fuer Batteriestatus-Datei
 
+### AR-Passthrough (V3, Python, Raspberry Pi 4/5)
+
+Im Unterordner `HelmetControl/AR/` (eigene `README.md` dort):
+
+- `ar_passthrough.py` — Voll-AR-Pipeline: Kamera -> HUD-Overlay -> Display, mit
+  Failsafe (Watchdog/Latenz-Warnung/Akku-Warnung) und Latenzmessung
+- `hud_overlay.py` — Halo-HUD-Zeichenmodul (Schild, Kompass, Bewegungsmelder,
+  Munition, Status, Warnbanner), hardwarefrei testbar
+- `ar_config.example.json` — Konfiguration (als `ar_config.json` kopieren)
+- `requirements.txt` — OpenCV, numpy, pyserial (picamera2 via apt)
+- `SensorFeeder/SensorFeeder.ino` — ESP32: IMU + Akku -> JSON ueber Serial
+
+Hardwarefreier Test: `python3 ar_passthrough.py --selftest hud_test.png`.
+Hintergrund und **Sicherheit**: `Documentation/Guides/Elektronik-AR-Display.md`.
+
 ### Arduino (Helm)
 
 - `MainControlCode.ino` — I2C-Slave, empfaengt Helligkeit vom Pi (Adresse 0x08)
@@ -62,5 +77,6 @@ Dieses Verzeichnis enthaelt Beispielcode fuer Helm- und Ruestungs-LEDs sowie das
 
 - LED-Effekte Erklaerung: `Documentation/Guides/LED-Effekte.md`
 - Elektronik-Uebersicht: `Documentation/Guides/Elektronik-HUD.md`
+- AR-Display (V3, Passthrough): `Documentation/Guides/Elektronik-AR-Display.md`
 - Verdrahtung: `Documentation/Guides/Elektronik-Verdrahtung.md`
 - Pi-Autostart: `Documentation/Guides/Elektronik-Autostart.md`

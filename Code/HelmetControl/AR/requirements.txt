@@ -1,0 +1,11 @@
+# AR-Passthrough (V3) - Python-Dependencies
+# Installation:  pip install -r requirements.txt
+#
+# Hinweis Raspberry Pi: picamera2 wird NICHT ueber pip installiert, sondern
+# ueber das System-Paket:   sudo apt install -y python3-picamera2
+# Ohne picamera2 faellt ar_passthrough.py automatisch auf eine USB-Webcam
+# (OpenCV-VideoCapture) zurueck.
+
+opencv-python>=4.5
+numpy>=1.21
+pyserial>=3.5

@@ -87,7 +87,16 @@ Die Pipeline ist im Kern simpel, die Tuecke steckt in der Latenz:
 - Kein Desktop, keine WLAN-Last, GPU-Pfad nutzen wo moeglich
 - Jede zusaetzliche "intelligente" Funktion (Objekterkennung, Tracking) kostet Latenz und Strom
 
-Hinweis: Der bestehende Code im Repo (`Code/HelmetControl/hud_display.py`) ist ein Stufe-A-HUD fuer das transparente OLED, **kein** Passthrough-Code. Eine Passthrough-Pipeline ist ein eigenes, deutlich groesseres Software-Projekt.
+Beispielcode im Repo:
+- **Stufe A (statisches OLED-HUD):** `Code/HelmetControl/hud_display.py`
+- **Stufe C (Passthrough-Pipeline):** `Code/HelmetControl/AR/` — lauffaehiges Beispiel mit
+  Kamera-Anbindung (picamera2/OpenCV), Halo-HUD-Overlay (`hud_overlay.py`), Latenzmessung
+  und Sicherheits-Failsafe (`ar_passthrough.py`), dazu ein ESP32-Sensor-Feeder
+  (`SensorFeeder/SensorFeeder.ino`). Hardwarefreier Test:
+  `python3 ar_passthrough.py --selftest hud_test.png`. Details: `Code/HelmetControl/AR/README.md`.
+
+Das Beispiel ist bewusst schlank gehalten; eine produktive, ruckelfreie Passthrough-Pipeline
+mit niedriger Latenz bleibt ein eigenes, groesseres Software-Projekt.
 
 ## 3. Sicherheit (zwingend lesen)
 

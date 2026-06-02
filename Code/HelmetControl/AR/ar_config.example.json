@@ -1,0 +1,18 @@
+{
+  "camera_backend": "auto",
+  "camera_index": 0,
+  "width": 1280,
+  "height": 720,
+  "target_fps": 60,
+  "fullscreen": true,
+  "flip_horizontal": false,
+  "flip_vertical": false,
+  "latency_limit_ms": 40,
+  "frame_timeout_ms": 250,
+  "low_battery_percent": 15,
+  "sensor_serial_port": "",
+  "sensor_baud": 115200,
+  "default_shield": 100,
+  "default_ammo": 32,
+  "window_name": "MJOLNIR AR"
+}
