@@ -36,15 +36,16 @@ Die folgenden Detailkosten sind Basiskosten. Realistische Gesamtkosten liegen of
 | Lack/Finish | 100-250 EUR | Filler, Lack, Weathering |
 | Trage/Straps | 60-120 EUR | Harness, Schnelltrennung |
 
-### V3 Profi
+### V3 Profi (Exoskelett)
 
 | Kategorie | Kosten | Notizen |
 | --- | --- | --- |
-| Exoskelett | 600-1.500 EUR | Alu, Lager, Verbinder |
-| Premium-Materialien | 500-1.200 EUR | Carbon/Glasfaser, CNC |
+| Exo-Rahmen (Alu-Profile, Lager, Hardware) | 365-880 EUR | Siehe `Exoskelett.md` fuer Details |
+| Stelzen (optional, 15-20 cm Hoehe) | 50-120 EUR | Modifizierte Trockenbau-Stelzen |
+| Ruestungsmaterial (Foam/3D-Druck) | 200-600 EUR | Auf Exo-Rahmen montiert |
 | Elektronik/Sensorik | 400-1.000 EUR | HUD, LEDs, Audio, Sensoren |
 | Finish/Coating | 200-600 EUR | Airbrush, Speziallacke |
-| Sicherheit/Extras | 100-300 EUR | Not-Aus, Redundanz |
+| Sicherheit/Extras | 100-300 EUR | Not-Aus, Kantenschutz, Redundanz |
 
 ## Spartipps
 

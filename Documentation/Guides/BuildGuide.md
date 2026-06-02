@@ -1,18 +1,39 @@
-# Build Guide Uebersicht
+# Build Guide (Uebersicht)
 
-Dieses Dokument verlinkt die detaillierten Bauphasen.
+Einstiegspunkt fuer die Bauphasen. Fuer die detaillierten Schritt-fuer-Schritt Anleitungen siehe die BuildGuides.
 
-## Ruestung
+## Empfohlene Reihenfolge
 
-- Planung und Skalierung: `BuildGuides/Armor/Step1.md`
-- Bau und Finish: `BuildGuides/Armor/Step2.md`
+### Phase 1: Planung
 
-## Helm
+- Variante waehlen: `Documentation/Guides/Varianten.md`
+- Kosten und Zeit abschaetzen: `Documentation/Guides/Kosten.md` und `Zeitplan.md`
+- TODO-Liste nutzen: `Documentation/TODO.md`
 
-- Shell und Visor: `BuildGuides/Helmet/Step1.md`
+### Phase 2: Helm (Prioritaet)
+
+- Shell, Visor, Innenraum: `BuildGuides/Helmet/Step1.md`
 - Elektronik und Finish: `BuildGuides/Helmet/Step2.md`
 
-## Elektronik
+### Phase 3: Ruestung
+
+- Planung und Skalierung: `BuildGuides/Armor/Step1.md`
+- Druck, Finish, Montage: `BuildGuides/Armor/Step2.md`
+
+### Phase 4: Elektronik
 
 - Systemplanung: `BuildGuides/Electronics/Step1.md`
 - Software und Integration: `BuildGuides/Electronics/Step2.md`
+
+### Phase 5: Convention-Vorbereitung
+
+- Checklisten: `Documentation/Guides/Checklisten.md`
+- Convention-Regeln: `Documentation/Guides/Convention-Regeln.md`
+- Convention-Alltag: `Documentation/Guides/Convention-Alltag.md`
+
+## Ergaenzende Guides
+
+- 3D-Druck (H2C): `Documentation/Guides/3D-Druck.md`
+- Lackierung/Finishing: `Documentation/Guides/Lackierung-Finishing.md`
+- Anfaengerfehler: `Documentation/Guides/Anfaengerfehler.md`
+- Fehlerbehebung: `Documentation/Guides/Fehlerbehebung.md`

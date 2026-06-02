@@ -6,21 +6,82 @@ Dieses Verzeichnis sammelt alle Kerninhalte fuer das Halo MJOLNIR Cosplay Projek
 
 - Start hier: `Documentation/Guides/Start-Hier.md`
 - Variantenvergleich und Auswahl: `Documentation/Guides/Varianten.md`
+- **Messblatt (Koerpermasse):** `Documentation/Guides/Messblatt.md`
+- **Anfaengerfehler (Top 15):** `Documentation/Guides/Anfaengerfehler.md`
 - Checklisten: `Documentation/Guides/Checklisten.md`
-- Bauphasen und Reihenfolge: `BuildGuides/Armor/Step1.md`
-- Elektronik und HUD: `Documentation/Guides/Elektronik-HUD.md`
-- Strombudget: `Documentation/Guides/Elektronik-Strombudget.md`
-- Verdrahtung: `Documentation/Guides/Elektronik-Verdrahtung.md`
-- Exoskelett (Profi): `Documentation/Guides/Exoskelett.md`
-- Material- und Toolliste: `Documentation/Guides/Materialien.md`
+- **TODO-Liste (Gesamtprojekt):** `Documentation/TODO.md`
+- **Glossar:** `Documentation/Guides/Glossar.md`
+
+## Bauphasen
+
+- Ruestung Planung: `BuildGuides/Armor/Step1.md`
+- Ruestung Bau: `BuildGuides/Armor/Step2.md`
+- Helm Shell/Visor: `BuildGuides/Helmet/Step1.md`
+- Helm Elektronik/Finish: `BuildGuides/Helmet/Step2.md`
+- Elektronik Planung: `BuildGuides/Electronics/Step1.md`
+- Elektronik Integration: `BuildGuides/Electronics/Step2.md`
+
+## 3D-Druck
+
+- **3D-Druck Guide (Bambu Lab H2C):** `Documentation/Guides/3D-Druck.md`
 - STL-Quellen: `Resources/STL-Quellen.md`
-- Waffen-Prop: `Documentation/Guides/Waffen-Prop.md`
-- Zeitplan: `Documentation/Guides/Zeitplan.md`
+
+## Lackierung und Finishing
+
+- **Lackierung, Finishing, Weathering:** `Documentation/Guides/Lackierung-Finishing.md`
+
+## Elektronik
+
+- HUD und Systemuebersicht: `Documentation/Guides/Elektronik-HUD.md`
+- **Pi-Einrichtung und Autostart:** `Documentation/Guides/Elektronik-Autostart.md`
+- Strombudget: `Documentation/Guides/Elektronik-Strombudget.md`
+- **Batterieloesungen (8+ Stunden):** `Documentation/Guides/Elektronik-Batterie.md`
+- Verdrahtung: `Documentation/Guides/Elektronik-Verdrahtung.md`
+- **Helm-Belueftung (Luefter):** `Documentation/Guides/Elektronik-Luefter.md`
+- **Audio und Voice Changer:** `Documentation/Guides/Elektronik-Audio.md`
+
+## Unteranzug und Befestigung
+
+- **Unteranzug und Befestigungssysteme:** `Documentation/Guides/Unteranzug-Befestigung.md`
+
+## Materialien und Kosten
+
+- Material- und Toolliste: `Documentation/Guides/Materialien.md`
+- **Einkaufsliste (detailliert):** `Materials/ShoppingList.md`
 - Kosten: `Documentation/Guides/Kosten.md`
-- Fehlerbehebung: `Documentation/Guides/Fehlerbehebung.md`
+- Zeitplan: `Documentation/Guides/Zeitplan.md`
+
+## Sicherheit und Conventions
+
+- Sicherheit: `Documentation/Guides/Sicherheit.md`
+- **Convention-Regeln (DE, detailliert):** `Documentation/Guides/Convention-Regeln.md`
+- **Transport zur Convention:** `Documentation/Guides/Transport.md`
+
+## LED-Effekte
+
+- **LED-Muster und Code-Beispiele:** `Documentation/Guides/LED-Effekte.md`
+- **LED-Visor-Forschung (Diffusion, Foto-Probleme, COB Strips):** `Documentation/Guides/LED-Visor-Forschung.md`
+
+## Schuhe und Boot Covers
+
+- **Schuhe, Boot Covers, TPU/PETG/Foam (sehr ausfuehrlich):** `Materials/Shoes.md`
+
+## Fortgeschrittene Praxis-Tipps
+
+- **Praxis-Tipps (Flex-Lack, Visor-Beschlag, Schweiss, Sitz-Problem):** `Documentation/Guides/Praxis-Tipps-Fortgeschritten.md`
+
+## Convention-Leben
+
+- **Convention-Alltag (Essen, Trinken, Toilette, Pausen):** `Documentation/Guides/Convention-Alltag.md`
+- **Fotoshooting-Tipps:** `Documentation/Guides/Fotoshooting.md`
+
+## Weitere Guides
+
+- Waffen-Prop: `Documentation/Guides/Waffen-Prop.md`
+- **Pflege und Wartung:** `Documentation/Guides/Pflege-Wartung.md`
+- Exoskelett (Profi): `Documentation/Guides/Exoskelett.md`
 - Best Practices: `Documentation/Guides/Best-Practices.md`
-- Sicherheit und Conventions: `Documentation/Guides/Sicherheit.md`
-- Convention-Regeln: `Documentation/Guides/Convention-Regeln.md`
+- Fehlerbehebung: `Documentation/Guides/Fehlerbehebung.md`
 
 ## Projektprinzipien
 
@@ -33,6 +94,10 @@ Dieses Verzeichnis sammelt alle Kerninhalte fuer das Halo MJOLNIR Cosplay Projek
 
 - `BuildGuides/` Schrittfolgen fuer Helm, Ruestung, Elektronik
 - `Materials/` Einkaufslisten, Quellen, Preisklassen
+- `Materials/Shoes.md` Schuh-Guide mit Bezugsquellen
 - `Code/` Beispielcode fuer HUD, LED, Controller
 - `Design/` Templates, Skizzen, 3D-Modelle
-- `Resources/` Communities, Tutorials, Referenzen
+- `Resources/Community.md` **Communities, YouTube, Wettbewerbe, deutsche Szene**
+- `Resources/STL-Quellen.md` STL-Quellen und Druckeinstellungen
+- `Resources/Tools/Software.md` **Software-Tools (Armorsmith, Bambu Studio, WLED, Fritzing...)**
+- `Resources/Tools/ToolList.md` Hardware-Werkzeuge

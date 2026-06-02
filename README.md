@@ -26,19 +26,23 @@ Die Kosten sind stark abhaengig von Tools, Fehlversuchen, Versand und Premium-Ma
 1. Start-Guide lesen: `Documentation/Guides/Start-Hier.md`
 2. Lies den Projektueberblick: `Documentation/README.md`
 3. Waehle eine Variante: `Documentation/Guides/Varianten.md`
-4. Starte mit den Bauphasen: `BuildGuides/Armor/Step1.md`
-5. Kosten/Zeit checken: `Documentation/Guides/Kosten.md` und `Documentation/Guides/Zeitplan.md`
-6. Elektronik planen: `Documentation/Guides/Elektronik-HUD.md`
-7. Materialliste checken: `Materials/ShoppingList.md`
+4. **TODO-Liste nutzen:** `Documentation/TODO.md`
+5. Starte mit den Bauphasen: `BuildGuides/Armor/Step1.md`
+6. 3D-Druck planen: `Documentation/Guides/3D-Druck.md`
+7. Kosten/Zeit checken: `Documentation/Guides/Kosten.md` und `Documentation/Guides/Zeitplan.md`
+8. Elektronik planen: `Documentation/Guides/Elektronik-HUD.md`
+9. Materialliste checken: `Materials/ShoppingList.md`
+10. Checklisten durchgehen: `Documentation/Guides/Checklisten.md`
 
 ## Projektstruktur
 
 - `Documentation/` Projektuebersicht, Sicherheits- und Technikdokumentation
+- `Documentation/TODO.md` **Haupt-Todoliste** fuer das gesamte Projekt
 - `BuildGuides/` Schritt-fuer-Schritt Bauphasen (Ruestung, Helm, Elektronik)
 - `Materials/` Einkaufslisten, Komponenten und Quellen
 - `Code/` Beispielcode fuer HUD, LEDs und Controller
 - `Design/` Skizzen, Vorlagen, 3D-Modelle
-- `Resources/` Tools, Links, Community, Referenzen
+- `Resources/` Tools, Links, STL-Quellen, Community, Referenzen
 - `Support/` FAQ und Kontakt
 
 ## Sicherheit und Conventions

@@ -4,18 +4,63 @@ Dieses Verzeichnis enthaelt Beispielcode fuer Helm- und Ruestungs-LEDs sowie das
 
 ## HelmetControl
 
-- `hud_display.py` - einfacher HUD-Demo-Loop fuer OLED
-- `requirements.txt` - Python-Dependencies
-- `config.example.json` - Beispiel-Konfiguration (als `config.json` kopieren)
-- `battery.example.json` - Beispiel fuer Batteriestatus
-- `MainControlCode.ino` - I2C-Empfang fuer LED-Helligkeit
-- `LightingEffectsCode.ino` - einfacher LED-Lauf
+### HUD (Python, Raspberry Pi Zero 2 W)
+
+- `hud_display.py` — HUD-Demo-Loop fuer transparentes OLED (SSD1309)
+- `requirements.txt` — Python-Dependencies (`pip install -r requirements.txt`)
+- `config.example.json` — Beispiel-Konfiguration (als `config.json` kopieren)
+- `battery.example.json` — Beispiel fuer Batteriestatus-Datei
+
+### Arduino (Helm)
+
+- `MainControlCode.ino` — I2C-Slave, empfaengt Helligkeit vom Pi (Adresse 0x08)
+- `LightingEffectsCode.ino` — Einfacher LED-Lauf (12 LEDs, Pin 6)
+- **`HelmetMultiEffects.ino`** — Erweiterter Controller mit:
+  - 5 Visor-LED-Effekte (Static, Breathing, Heartbeat, Chase, Flicker)
+  - Taster-Umschaltung zwischen Effekten
+  - I2C-Kommandos vom Pi (Helligkeit, Luefter-Speed, Effekt-Wahl)
+  - Luefter-PWM Steuerung
+  - Boot-Sequence beim Einschalten
 
 ## ArmorControl
 
-- `MainControlCode.ino` - LED-Breathing
-- `LightingEffectsCode.ino` - LED-Chase
+- `MainControlCode.ino` — LED-Breathing (24 LEDs, Pin 5)
+- `LightingEffectsCode.ino` — LED-Chase (24 LEDs, Pin 5)
+- **`MultiEffects.ino`** — Erweiterter Controller mit:
+  - 5 Effekte (Static, Breathing, Heartbeat, Chase, Flicker)
+  - Taster-Umschaltung (Pin 2)
+  - Boot-Sequence beim Einschalten
+  - Konfigurierbarer Farbe und Helligkeit
 
-## Hinweis
+## Pin-Belegung (Uebersicht)
 
-Anpassen auf die eigene Verkabelung (Pins, LED-Anzahl, Spannung).
+### Helm-Arduino (HelmetMultiEffects.ino)
+
+| Pin | Funktion | Hinweis |
+| --- | --- | --- |
+| 6 | Visor LED Data | WS2812B, ueber 330 Ohm Widerstand |
+| 2 | Taster (Effekt-Wechsel) | Gegen GND, interner Pull-Up |
+| 9 | Luefter PWM | 5V Luefter ueber MOSFET |
+| A4 | I2C SDA | Zum Pi (Slave Adresse 0x08) |
+| A5 | I2C SCL | Zum Pi |
+
+### Ruestungs-Arduino (MultiEffects.ino)
+
+| Pin | Funktion | Hinweis |
+| --- | --- | --- |
+| 5 | LED Strip Data | WS2812B, ueber 330 Ohm Widerstand |
+| 2 | Taster (Effekt-Wechsel) | Gegen GND, interner Pull-Up |
+
+## Anpassung
+
+- `LED_COUNT` in jedem Sketch auf die eigene LED-Anzahl setzen
+- `LED_PIN` auf den tatsaechlichen Daten-Pin anpassen
+- Farbe ueber `COLOR_R/G/B` oder `VIS_R/G/B` Defines aendern
+- Helligkeit ueber `BRIGHTNESS` Define (0-255, 128 = 50%)
+
+## Weitere Guides
+
+- LED-Effekte Erklaerung: `Documentation/Guides/LED-Effekte.md`
+- Elektronik-Uebersicht: `Documentation/Guides/Elektronik-HUD.md`
+- Verdrahtung: `Documentation/Guides/Elektronik-Verdrahtung.md`
+- Pi-Autostart: `Documentation/Guides/Elektronik-Autostart.md`
