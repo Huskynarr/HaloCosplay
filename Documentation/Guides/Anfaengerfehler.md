@@ -1,5 +1,7 @@
 # Die 15 haeufigsten Anfaengerfehler
 
+> **Level:** [A] Anfaenger | [F] Fortgeschritten  ·  **Varianten:** alle (V1/V2/V3)
+
 Gesammelt aus der 405th, RPF und Punished Props Community. Jeder dieser Fehler kostet Zeit und Geld — lerne aus den Erfahrungen anderer.
 
 ## 1. Lackieren vor der Passformkontrolle

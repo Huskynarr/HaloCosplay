@@ -1,5 +1,7 @@
 # Helmet Step 2: Elektronik, Lackierung und Finish
 
+> **Level:** [F] Fortgeschritten | [P] Profi  ·  **Varianten:** V2/V3 (HUD)  ·  **Voraussetzungen:** Step 1 abgeschlossen, Loet- und Lackier-Werkzeug, getestete Elektronik-Komponenten; Begriffe siehe `Documentation/Guides/Glossar.md`
+
 ## Voraussetzung
 
 - Helm-Shell ist fertig (Step 1 abgeschlossen)

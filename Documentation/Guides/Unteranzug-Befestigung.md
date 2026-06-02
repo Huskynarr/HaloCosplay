@@ -1,5 +1,7 @@
 # Unteranzug und Befestigungssysteme
 
+> **Level:** [A] Anfaenger | [F] Fortgeschritten | [P] Profi  ·  **Varianten:** alle  ·  **Voraussetzungen:** keine (Referenz/Optionen); fuer Custom-Suit Naehkenntnisse
+
 Wie die Ruestung am Koerper befestigt wird und was man drunter traegt.
 
 ## Unteranzug-Optionen

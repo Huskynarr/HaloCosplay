@@ -1,5 +1,7 @@
 # Waffen-Prop (Master Chief)
 
+> **Level:** [A] Anfaenger | [F] Fortgeschritten | [P] Profi  ·  **Varianten:** alle  ·  **Voraussetzungen:** Foam- oder 3D-Druck-Grundkenntnisse; Waffengesetz und Con-Regeln vorab pruefen
+
 Ziel ist eine sichere, konforme Prop-Waffe mit authentischer Silhouette.
 
 ## Typische Master Chief Waffen

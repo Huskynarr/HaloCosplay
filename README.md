@@ -23,7 +23,8 @@ Die Kosten sind stark abhaengig von Tools, Fehlversuchen, Versand und Premium-Ma
 
 ## Quick Start
 
-1. Start-Guide lesen: `Documentation/Guides/Start-Hier.md`
+1. **Roter Faden / Komplett-Walkthrough (Anfaenger bis Profi):** `Documentation/Guides/Komplett-Walkthrough.md`
+2. Start-Guide lesen: `Documentation/Guides/Start-Hier.md`
 2. Lies den Projektueberblick: `Documentation/README.md`
 3. Waehle eine Variante: `Documentation/Guides/Varianten.md`
 4. **TODO-Liste nutzen:** `Documentation/TODO.md`

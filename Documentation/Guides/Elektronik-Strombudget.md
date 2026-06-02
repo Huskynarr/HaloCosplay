@@ -1,5 +1,7 @@
 # Elektronik: Strombudget und Laufzeit
 
+> **Level:** [A] Anfaenger | [F] Fortgeschritten | [P] Profi  ·  **Varianten:** alle
+
 Dieser Guide hilft beim realistischen Power-Budget und bei der Laufzeitplanung.
 
 ## Typische Stromwerte (Richtwerte)

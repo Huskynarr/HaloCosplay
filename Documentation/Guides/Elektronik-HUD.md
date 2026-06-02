@@ -1,5 +1,8 @@
 # Elektronik und HUD
 
+> **Level:** [F] Fortgeschritten | [P] Profi  ·  **Varianten:** V2/V3
+> **Voraussetzungen:** Strombudget gerechnet (`Documentation/Guides/Elektronik-Strombudget.md`), Loetkenntnisse, Grundlagen Raspberry Pi/I2C.
+
 Ziel ist ein tragbares, modulares HUD-System mit sicherer Stromversorgung. Die Basis ist ein Raspberry Pi Zero 2 W mit transparentem OLED-Display. Eine guenstige Alternative ist ein einfarbiges, gruener LED-HUD ohne AR-Funktionen.
 
 ## Kernkomponenten

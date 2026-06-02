@@ -1,5 +1,7 @@
 # Electronics Step 1: Systemplanung und Verkabelung
 
+> **Level:** [F] Fortgeschritten | [P] Profi  ·  **Varianten:** V2/V3 (HUD/LEDs)  ·  **Voraussetzungen:** Loetkolben und Multimeter, Komponentenliste beschafft; Begriffe siehe `Documentation/Guides/Glossar.md`
+
 ## Ziele
 
 - Modulare, sichere Stromversorgung fuer 8+ Stunden
@@ -58,7 +60,7 @@
 
 ## 2. Strombudget kalkulieren
 
-Detailliert: `Documentation/Guides/Elektronik-Strombudget.md` und `Elektronik-Batterie.md`
+Detailliert: `Documentation/Guides/Elektronik-Strombudget.md` und `Documentation/Guides/Elektronik-Batterie.md`
 
 **Schnell-Uebersicht (V2 typisch):**
 

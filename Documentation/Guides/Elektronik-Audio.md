@@ -1,5 +1,8 @@
 # Elektronik: Audio und Voice Changer
 
+> **Level:** [A] Anfaenger (Option A) | [F] Fortgeschritten (Option B/C)  ·  **Varianten:** alle (optional)
+> **Voraussetzungen:** Fuer Option B/C Loetkenntnisse und 5V-Versorgung; Option A ist Plug-and-Play.
+
 Optionale Audio-Erweiterung fuer den Helm — Stimmverstaerker, Lautsprecher und Voice Changer.
 
 ## Option A: Einfacher Stimmverstaerker (kein Pitch-Shift)

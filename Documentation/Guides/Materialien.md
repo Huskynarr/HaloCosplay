@@ -1,5 +1,7 @@
 # Materialien und Tools
 
+> **Level:** [A] Anfaenger | [F] Fortgeschritten | [P] Profi  ·  **Varianten:** alle (V1/V2/V3)
+
 Diese Liste ist modular aufgebaut. Waehlte je nach Variante die passenden Abschnitte.
 
 ## Grundmaterialien (alle Varianten)

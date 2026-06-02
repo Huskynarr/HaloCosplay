@@ -1,5 +1,7 @@
 # Checklisten
 
+> **Level:** [A] Anfaenger | [F] Fortgeschritten | [P] Profi  ·  **Varianten:** alle
+
 Diese Listen helfen, nichts zu vergessen. Drucke sie aus oder nutze sie als Issue-Vorlage.
 
 ## Planung
@@ -18,7 +20,7 @@ Diese Listen helfen, nichts zu vergessen. Drucke sie aus oder nutze sie als Issu
 - [ ] STLs skaliert auf eigene Masse
 - [ ] Teile gesplittet die nicht ins Bauvolumen passen
 - [ ] Testdruck eines kleinen Teils (Passform + Einstellungen)
-- [ ] Alle Teile gedruckt (siehe `TODO.md`)
+- [ ] Alle Teile gedruckt (siehe `Documentation/TODO.md`)
 - [ ] Teile zusammengeklebt (CA + Epoxy)
 - [ ] Passform-Test mit Rohteilen
 

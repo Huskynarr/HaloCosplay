@@ -1,5 +1,7 @@
 # Fehlerbehebung
 
+> **Level:** [A] Anfaenger | [F] Fortgeschritten | [P] Profi  ·  **Varianten:** alle
+
 Haeufige Probleme und Loesungen, geordnet nach Kategorie.
 
 ## Elektronik

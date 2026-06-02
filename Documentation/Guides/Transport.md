@@ -1,5 +1,7 @@
 # Transport von Ruestung zur Convention
 
+> **Level:** [A] Anfaenger | [F] Fortgeschritten | [P] Profi  ·  **Varianten:** alle  ·  **Voraussetzungen:** fertige, modular zerlegbare Ruestungsteile
+
 Wie man eine volle Master Chief Ruestung sicher zur Convention transportiert.
 
 ## Fahrzeug (ideale Methode)

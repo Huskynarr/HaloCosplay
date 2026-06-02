@@ -1,5 +1,8 @@
 # Messblatt (Koerpermasse)
 
+> **Level:** [A] Anfaenger | [F] Fortgeschritten | [P] Profi  ·  **Varianten:** alle (V1/V2/V3)
+> **Voraussetzungen:** Massband, zweite Person, Unteranzug + Klettergurt (Tragezustand)
+
 Drucke dieses Blatt aus oder kopiere die Tabelle. Miss mit Hilfe einer zweiten Person. Trage dabei den Unteranzug + Klettergurt (das was du unter der Ruestung tragen wirst).
 
 ## So misst du richtig

@@ -1,5 +1,7 @@
 # Kosten (Richtwerte)
 
+> **Level:** [A] Anfaenger | [F] Fortgeschritten | [P] Profi  ·  **Varianten:** alle (V1/V2/V3)
+
 Alle Zahlen sind Schaetzungen und haengen stark von vorhandenen Tools, lokalen Preisen und Eigenleistung ab.
 
 ## Schnelluebersicht

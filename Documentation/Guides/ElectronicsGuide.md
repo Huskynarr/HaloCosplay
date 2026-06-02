@@ -1,5 +1,7 @@
 # Elektronik-Guide
 
+> **Level:** [A] Anfaenger | [F] Fortgeschritten | [P] Profi  ·  **Varianten:** alle
+
 Diese Seite ist die zentrale Uebersicht ueber die gesamte Elektronik im MJOLNIR-Suit
 (Master Chief, HALO INFINITE, GEN3-Proportionen). Sie ordnet die Einzel-Guides ein,
 zeigt welches Modul fuer welche Variante sinnvoll ist und gibt eine empfohlene

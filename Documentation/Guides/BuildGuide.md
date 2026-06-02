@@ -1,6 +1,10 @@
 # Build Guide (Uebersicht)
 
-Einstiegspunkt fuer die Bauphasen. Fuer die detaillierten Schritt-fuer-Schritt Anleitungen siehe die BuildGuides.
+> **Level:** [A][F][P]  ·  **Varianten:** alle (Kurzuebersicht der Bauphasen)
+
+**Der vollstaendige, durchnummerierte rote Faden** (Phase 0-10, mit Skill-Level und
+Variante pro Schritt) steht in `Documentation/Guides/Komplett-Walkthrough.md`. Diese
+Seite ist nur eine knappe Phasen-Uebersicht; folge im Zweifel dem Walkthrough.
 
 ## Empfohlene Reihenfolge
 

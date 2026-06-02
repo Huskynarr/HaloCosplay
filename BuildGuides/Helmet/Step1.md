@@ -1,5 +1,7 @@
 # Helmet Step 1: Shell, Visor, Innenraum
 
+> **Level:** [F] Fortgeschritten | [P] Profi  ·  **Varianten:** V2/V3 (3D-Druck mit HUD)  ·  **Voraussetzungen:** Massband, 3D-Drucker und Slicer, Schleif-/Klebewerkzeug; Begriffe siehe `Documentation/Guides/Glossar.md`
+
 ## Ziele
 
 - Stabiler Helm mit klarer Sicht und Platz fuer Elektronik

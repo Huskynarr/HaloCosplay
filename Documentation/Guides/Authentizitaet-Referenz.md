@@ -1,5 +1,7 @@
 # Authentizitaets-Referenz: Master Chief (Halo Infinite)
 
+> **Level:** [A] Anfaenger | [F] Fortgeschritten | [P] Profi  ·  **Varianten:** alle (V1/V2/V3)
+
 Dieser Guide beschreibt, woran ein **authentischer Master Chief nach HALO INFINITE** erkennbar ist. Ziel ist es, beim Bauen bewusst beim Infinite-Look (MJOLNIR GEN3, klassisches Olivgruen, aktuelle Proportionen) zu bleiben und nicht ungewollt in Halo-4/5- oder Halo-3-Stilelemente abzudriften.
 
 Der Guide gilt fuer alle drei Bauvarianten gleichermassen:

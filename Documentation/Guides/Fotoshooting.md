@@ -1,5 +1,7 @@
 # Fotoshooting-Guide
 
+> **Level:** [A] Anfaenger | [F] Fortgeschritten | [P] Profi  ·  **Varianten:** alle  ·  **Voraussetzungen:** tragbare Ruestung, Helm sauber und LEDs geladen
+
 Tipps fuer beeindruckende Fotos in voller Master Chief Ruestung.
 
 ## Vorbereitung

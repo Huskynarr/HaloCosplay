@@ -1,5 +1,7 @@
 # Lackierung, Finishing und Weathering
 
+> **Level:** [A] Anfaenger | [F] Fortgeschritten | [P] Profi  ·  **Varianten:** alle (Abschnitt 8 fuer V1-Foam, Rest fuer 3D-Druck V2/V3)  ·  **Voraussetzungen:** fertig gebaute Rohteile (Foam oder 3D-Druck), belueftbarer Arbeitsplatz, Schleif-/Lackmaterial. Fachbegriffe siehe `Documentation/Guides/Glossar.md`.
+
 Dieser Guide beschreibt den vollstaendigen Finishing-Prozess von rohem 3D-Druck bis zum fertigen, convention-ready Armor-Stueck.
 
 ## 1. Oberflaechenvorbereitung (3D-Druck)

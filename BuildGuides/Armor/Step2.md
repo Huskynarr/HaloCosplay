@@ -1,5 +1,7 @@
 # Armor Step 2: Druck, Zusammenbau, Finish, Montage
 
+> **Level:** [F] Fortgeschritten | [P] Profi  ·  **Varianten:** V2/V3 (3D-Druck)  ·  **Voraussetzungen:** Step 1 abgeschlossen, Slicer, Schleif-/Lackier-Werkzeug; Begriffe siehe `Documentation/Guides/Glossar.md`
+
 ## Voraussetzung
 
 - Skalierung getestet (Step 1)
@@ -71,7 +73,7 @@ Detailliert: `Documentation/Guides/Unteranzug-Befestigung.md`
    - Fokus auf Druckstellen: Kanten die auf Haut treffen, Auflagepunkte
    - NICHT die gesamte Innenseite — Luft muss zirkulieren
 2. **Klett-Felder:** Industrial Velcro (Hook-Seite) auf Innenseite kleben
-   - Korrespondierende Loop-Seite auf Morphsuit naeaehen
+   - Korrespondierende Loop-Seite auf Morphsuit naehen
 3. **Magnete:** Neodym 10x3 mm in 3D-gedruckten Haltern mit Epoxy einkleben
    - **Polaritaet pruefen und markieren!** (mit Edding vor dem Einkleben)
 4. **Gurt-Schlaufen:** Nylon-Gurtband (25 mm) Schlaufen an schweren Teilen mit Nieten oder Schrauben

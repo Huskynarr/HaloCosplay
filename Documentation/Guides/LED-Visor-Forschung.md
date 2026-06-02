@@ -1,5 +1,7 @@
 # LED-Visor-Forschung: Praxiswissen fuer Cosplay-Helme
 
+> **Level:** [A] Anfaenger | [F] Fortgeschritten | [P] Profi  ·  **Varianten:** alle
+
 Gesammelte Erkenntnisse zu LED-Problemen in Cosplay-Helmen und -Ruestungen, mit konkreten Loesungen, Produktnamen und Techniken aus der Community (405th, RPF, Hackaday, Adafruit, u.a.).
 
 ---

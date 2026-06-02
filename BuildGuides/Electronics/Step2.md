@@ -1,5 +1,7 @@
 # Electronics Step 2: Software, Tests, Integration
 
+> **Level:** [F] Fortgeschritten | [P] Profi  ·  **Varianten:** V2/V3 (HUD/LEDs)  ·  **Voraussetzungen:** Step 1 bestanden, Raspberry Pi und Arduino mit PC verbindbar, Grundkenntnisse Linux/SSH; Begriffe siehe `Documentation/Guides/Glossar.md`
+
 ## Voraussetzung
 
 - Hardware auf dem Tisch getestet (Step 1 bestanden)

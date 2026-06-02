@@ -1,5 +1,8 @@
 # Elektronik: Batterieloesungen und Laufzeitplanung
 
+> **Level:** [A] Anfaenger | [F] Fortgeschritten | [P] Profi  ·  **Varianten:** alle
+> **Voraussetzungen:** Strombudget gerechnet (`Documentation/Guides/Elektronik-Strombudget.md`); fuer Option C (LiPo) Wissen zu BMS/Schutzschaltung (Batterie-Management-System, schuetzt vor Ueberladung/Tiefentladung).
+
 Wie man genug Strom fuer einen ganzen Convention-Tag mitbringt.
 
 ## Laufzeitberechnung

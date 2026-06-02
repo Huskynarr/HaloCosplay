@@ -1,5 +1,7 @@
 # Foam-Bau (V1 Einsteiger, EVA-Foam)
 
+> **Level:** [A] Anfaenger  ·  **Varianten:** V1 (Foam-Korpus auch in V2 nutzbar)  ·  **Voraussetzungen:** Koerpermasse (siehe `Documentation/Guides/Messblatt.md`), Templates, Grundwerkzeug; keine Vorerfahrung noetig. Fachbegriffe siehe `Documentation/Guides/Glossar.md`.
+
 Dieser Guide deckt den kompletten preiswerten Weg ueber EVA-Foam ab — die empfohlene
 Methode fuer das **erste** Halo-Cosplay (Variante V1, siehe `Documentation/Guides/Varianten.md`).
 Foam ist guenstig, leicht, verzeihend und braucht keinen Drucker. Der 3D-Druck-Weg

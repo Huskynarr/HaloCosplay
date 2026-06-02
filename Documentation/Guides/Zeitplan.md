@@ -1,5 +1,7 @@
 # Zeitplan (Richtwerte)
 
+> **Level:** [A] Anfaenger | [F] Fortgeschritten | [P] Profi  ·  **Varianten:** alle (V1/V2/V3)
+
 ## Gesamtdauer
 
 | Tempo | Stunden/Woche | Gesamtdauer |

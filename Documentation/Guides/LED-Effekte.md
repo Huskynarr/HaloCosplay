@@ -1,5 +1,8 @@
 # LED-Effekte und Programmierung
 
+> **Level:** [F] Fortgeschritten | [P] Profi  ·  **Varianten:** V2/V3
+> **Voraussetzungen:** Arduino IDE eingerichtet, WS2812B-LEDs verdrahtet (`Documentation/Guides/Elektronik-Verdrahtung.md`), Grundlagen Arduino-Sketch (PWM = Pulsweitenmodulation, regelt Helligkeit ueber schnelles Ein/Aus).
+
 Bewaehrte LED-Muster fuer Cosplay und wie man sie programmiert.
 
 ## Empfohlene Effekte

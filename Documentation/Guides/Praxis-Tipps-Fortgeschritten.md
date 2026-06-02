@@ -1,5 +1,7 @@
 # Fortgeschrittene Praxis-Tipps: Erfahrungswissen fuer Armor Builder
 
+> **Level:** [F] Fortgeschritten | [P] Profi  ·  **Varianten:** alle (Erfahrungs-/Referenzsammlung, vertieft die Bau- und Finishing-Guides)
+
 Gesammelt aus der 405th, RPF, Punished Props, Kamui Cosplay, und Maker-Communities. Das Wissen, das nur aus Erfahrung kommt.
 
 ---

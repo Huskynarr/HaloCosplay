@@ -1,5 +1,7 @@
 # Klebetechniken und Klebstoffauswahl
 
+> **Level:** [A] Anfaenger | [F] Fortgeschritten | [P] Profi  ·  **Varianten:** alle (Referenz/Auswahlhilfe)
+
 Der richtige Kleber haengt vom Materialpaar ab. Foam, PLA/PETG und TPU verhalten sich
 voellig unterschiedlich. Diese Uebersicht gilt fuer alle Varianten (siehe
 `Documentation/Guides/Varianten.md`).

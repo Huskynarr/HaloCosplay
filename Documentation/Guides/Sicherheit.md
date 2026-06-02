@@ -1,5 +1,7 @@
 # Sicherheit
 
+> **Level:** [A] Anfaenger | [F] Fortgeschritten | [P] Profi  ·  **Varianten:** alle  ·  **Voraussetzungen:** keine, vor dem ersten Tragen lesen
+
 Sicherheit hat Prioritaet. Teste jede Baugruppe einzeln und plane immer einen schnellen Ausstieg.
 
 ## Bauphase

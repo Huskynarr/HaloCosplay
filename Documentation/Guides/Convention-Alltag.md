@@ -1,5 +1,7 @@
 # Convention-Alltag in voller Ruestung
 
+> **Level:** [A] Anfaenger | [F] Fortgeschritten | [P] Profi  ·  **Varianten:** alle  ·  **Voraussetzungen:** tragbare Ruestung, idealerweise mit Quick-Release; Handler eingeplant
+
 Praktische Tipps fuer Essen, Trinken, Toilette und Pausen — die Themen die niemand gerne bespricht, aber jeder wissen muss.
 
 ## Trinken

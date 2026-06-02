@@ -1,5 +1,7 @@
 # Pflege und Wartung
 
+> **Level:** [A] Anfaenger | [F] Fortgeschritten | [P] Profi  ·  **Varianten:** alle  ·  **Voraussetzungen:** fertige Ruestung; Reinigungs-/Reparaturmaterial. Fachbegriffe siehe `Documentation/Guides/Glossar.md`.
+
 Wie man die Ruestung zwischen Conventions in gutem Zustand haelt.
 
 ## Nach jeder Convention

@@ -1,5 +1,7 @@
 # Exoskelett (Profi-Variante V3)
 
+> **Level:** [P] Profi  ·  **Varianten:** V3  ·  **Voraussetzungen:** Erfahrung mit Alu-Profil-Bau, Werkzeug (Saege, Bohrer, Gewindeschneider), Verstaendnis von Lastpfaden; Handler beim Tragen Pflicht
+
 Das Exoskelett dient der optischen Verstaerkung der Spartan-Aesthetik. Es macht den Traeger groesser und massiver. Empfohlen wird ein passives System (Skeletonics-Stil), das die Bewegung des Traegers rein mechanisch uebertraegt.
 
 ## Prinzip: Pantograph-Linkage

@@ -1,5 +1,7 @@
 # Best Practices (Cosplay + Wearables)
 
+> **Level:** [A] Anfaenger | [F] Fortgeschritten | [P] Profi  ·  **Varianten:** alle (V1/V2/V3)
+
 Bewaehrte Methoden aus der 405th, RPF, Punished Props und Kamui Cosplay Community. Auf Halo-MJOLNIR Builds angepasst.
 
 ## Die goldenen Regeln

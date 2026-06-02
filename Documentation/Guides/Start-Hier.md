@@ -2,6 +2,10 @@
 
 Dieser Guide holt neue und erfahrene Cosplayer ab und fuehrt dich in einen sicheren, planbaren Build.
 
+**Der rote Faden:** Den kompletten Weg von der Entscheidung bis zur Convention - Schritt fuer
+Schritt, mit Skill-Level und Variante pro Schritt - findest du im
+`Documentation/Guides/Komplett-Walkthrough.md`. Diese Seite hier ist der Schnelleinstieg dorthin.
+
 ## Wenn du neu bist (V1 empfohlen)
 
 1. Lies kurz: `Documentation/Guides/Varianten.md`

@@ -1,5 +1,7 @@
 # 3D-Druck Guide (Bambu Lab H2C)
 
+> **Level:** [F] Fortgeschritten | [P] Profi  ·  **Varianten:** V2/V3  ·  **Voraussetzungen:** FDM-Drucker (Bambu Lab H2C), Slicer (Bambu Studio), STL-Dateien (siehe `Resources/STL-Quellen.md`), Grundkenntnisse 3D-Druck. Fachbegriffe siehe `Documentation/Guides/Glossar.md`.
+
 Dieser Guide beschreibt den 3D-Druck-Workflow fuer ein vollstaendiges Master Chief MJOLNIR Armor Set mit dem Bambu Lab H2C.
 
 ## Drucker-Spezifikationen (H2C)

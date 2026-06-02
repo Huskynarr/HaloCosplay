@@ -1,5 +1,8 @@
 # Elektronik: AR-Display fuer den Helm
 
+> **Level:** [A] Stufe A (alle) | [F] Stufe B | [P] Stufe C (Profi)  ·  **Varianten:** Stufe A alle, Stufe C nur V3
+> **Voraussetzungen:** Fuer Stufe C solides Strom-/Hitzebudget (`Documentation/Guides/Elektronik-Strombudget.md`), Linux/OpenCV-Kenntnisse und zwingend ein Sicherheits-Failsafe (Abschnitt 3).
+
 Dieser Guide behandelt das Thema "Augmented Reality" im Master-Chief-Helm (HALO INFINITE, MJOLNIR GEN3) ehrlich und technisch fundiert. Das Wunschziel vieler Builder ist ein Voll-AR-Helm mit Kamera-Passthrough wie im Spiel. Das ist machbar, aber teuer, schwer, stromhungrig und sicherheitskritisch. Dieser Guide erklaert die Stufen, das Endausbau-Konzept (V3) und vor allem die Grenzen und Risiken.
 
 **Kurzfassung:** Fuer fast alle Conventions ist Stufe A (statischer HUD-Look) die richtige Wahl. Stufe C (Kamera-Passthrough) ist ein Showpiece fuer kontrollierte Umgebungen, kein Alltags-Setup.

@@ -1,5 +1,7 @@
 # Convention-Regeln (Deutschland)
 
+> **Level:** [A] Anfaenger | [F] Fortgeschritten | [P] Profi  ·  **Varianten:** alle
+
 Regeln unterscheiden sich je nach Veranstaltung. Hier die wichtigsten deutschen Conventions mit konkreten Vorschriften.
 
 ## Gamescom (Koeln)

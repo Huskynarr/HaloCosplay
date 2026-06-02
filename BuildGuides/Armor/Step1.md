@@ -1,5 +1,7 @@
 # Armor Step 1: Planung, Skalierung, Unteranzug
 
+> **Level:** [A] Anfaenger | [F] Fortgeschritten | [P] Profi  ·  **Varianten:** V2/V3 (3D-Druck)  ·  **Voraussetzungen:** Massband, Zugang zu STL-Set und Slicer; Begriffe siehe `Documentation/Guides/Glossar.md`
+
 ## Ziele
 
 - Richtige Passform und Bewegungsfreiheit sichern
