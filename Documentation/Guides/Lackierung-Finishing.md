@@ -92,7 +92,7 @@ Master Chief's Farbe ist ein **Oliv-/Salbeigruen**, kein leuchtend helles Gruen.
 ## 5. Klarlack / Schutzschicht
 
 - **Rust-Oleum Matte Clear Coat** — am weitesten verbreitet, matte Oberflaeche ist kritisch (Glanz wirkt wie Spielzeug)
-- **Testors Dullcote** — excellenter Matt-Finish, keine Reaktionen mit anderen Farben
+- **Testors Dullcote** — exzellenter Matt-Finish, keine Reaktionen mit anderen Farben
 - **Krylon Matte Finish** — guenstige Alternative
 
 ### Auftrags-Regeln
@@ -132,3 +132,113 @@ Master Chief's Farbe ist ein **Oliv-/Salbeigruen**, kein leuchtend helles Gruen.
 ## 7. Zeitaufwand Finishing
 
 Das Post-Processing (Schleifen, Fuellen, Grundieren, Lackieren, Weathering) braucht oft **genauso viel oder mehr Zeit wie der Druck selbst**. Plane entsprechend grosszuegig.
+
+## 8. Foam-Finishing (V1)
+
+Foam (EVA-Schaum, Bodenmatten oder Craft Foam) verhaelt sich beim Finishing **grundlegend anders** als ein starrer 3D-Druck. Schaum biegt und staucht sich bei jeder Bewegung — eine harte Lackschicht macht diese Bewegung nicht mit und **reisst, platzt ab oder bekommt Risse**. Die gesamte Finishing-Kette muss daher **flexibel** sein. Details zum Schaumbau selbst in `Documentation/Guides/Foam-Bau.md`.
+
+### Was beim Foam anders ist
+
+| Schritt | 3D-Druck (V2/V3) | Foam (V1) |
+|---|---|---|
+| Glaetten | Schleifen mit 80-800er | Hitze-Sealing (kein Schleifen) |
+| Grundierung | Filler Primer (hart) | Flexible Versiegelung (Plasti Dip, PVA, Mod Podge) |
+| Lack | beliebig (auf hartem Substrat) | Flexibler Lack / dehnbar |
+| Klarlack | Matt-Klarlack | Flexibler Matt-Klarlack |
+| Weathering | siehe Abschnitt 4 | identisch zu Abschnitt 4 |
+
+**Wichtig:** Auf rohem Foam **niemals** Rust-Oleum Filler Primer oder andere harte Fueller-Grundierungen direkt auftragen. Sie haerten starr aus und reissen beim ersten Tragen entlang der Bewegungsfalten. Auch hartes Schleifen entfaellt — Foam laesst sich nicht glaetten wie Kunststoff, sondern wird durch Hitze versiegelt.
+
+### Schritt 1: Hitze-Sealing (Schleifen entfaellt)
+
+Foam hat eine offene, poroese Oberflaeche. Statt zu schleifen wird die Oberflaeche durch Hitze geschlossen:
+
+1. **Heissluftpistole** (oder Heissluftfoehn) auf mittlere Stufe, Abstand 5-10 cm halten
+2. Gleichmaessig ueber die Oberflaeche fahren, bis sie leicht glaenzt und sich glaettet — **nicht** zu lange auf einer Stelle (Foam schmilzt/wirft Blasen)
+3. Die Hitze schliesst die Poren und macht die Oberflaeche fester und glatter
+4. Schnittkanten und Fugen besonders behandeln, damit sie nicht Farbe aufsaugen
+
+**Tipp:** Bei sehr poroesem Schaum vor dem Sealing eine duenne Schicht Versiegelung (siehe Schritt 2) auftragen und nach Trocknung erneut leicht erhitzen.
+
+### Schritt 2: Flexible Grundierung / Versiegelung
+
+Die Versiegelung verschliesst die Poren und gibt eine lackierbare, dehnbare Basis. Bewaehrte Optionen:
+
+- **Plasti Dip (Spray)** — Gummi-artige Beschichtung, sehr flexibel, exzellente Haftung auf Foam, beliebteste Wahl. 2-3 duenne Schichten. Schwarzes Plasti Dip ergibt zugleich eine dunkle Basis fuer Weathering.
+- **Verduennter PVA (Holzleim, ca. 1:1 mit Wasser)** — guenstig, mehrere Schichten aufpinseln, jede trocknen lassen. Bleibt flexibel, fuellt Poren.
+- **Mod Podge (Matt)** — aufpinseln oder spruehen, bildet flexiblen Film, gut als Poren-Sealer.
+- **Hexflex / Flexbond (Cosplay-Sealer)** — speziell fuer EVA-Foam entwickelt, sehr flexibel, fuellt Poren, ideale Basis fuer Lack.
+
+**Empfehlung:** Plasti Dip als Basis-Versiegelung, danach gleichmaessige Deckung. Mehrere duenne Schichten statt einer dicken.
+
+### Schritt 3: Flexibler Lack (Halo-Infinite-Gruen)
+
+- Auf der flexiblen Versiegelung haftet **flexibler Lack** dauerhaft, ohne zu reissen.
+- Fuer das Master-Chief-Olivgruen aus **Halo Infinite** (klassisches Olivgruen, RGB R:89 G:120 B:89, Hex #597859) gilt dieselbe Farbreferenz wie in Abschnitt 3.
+- **Flexible Lacke:** Acryl-Bastelfarben (mit etwas Flexibilisator/Textilmedium) oder spezielle flexible Spruehlacke. Reine harte Auto-Spruehlacke koennen auf grossen Bewegungsflaechen reissen — auf duennen, gebogenen Foam-Teilen testen.
+- **Plasti Dip in Farbe** ist ebenfalls als farbige Variante erhaeltlich und bleibt dehnbar — gute Wahl fuer grosse Flaechen.
+- Mehrere duenne Schichten auftragen, Bewegungsbereiche (Gelenke, Falten) bewusst beruecksichtigen.
+
+### Schritt 4: Weathering
+
+Das Weathering ist **identisch** zum 3D-Druck-Workflow (siehe Abschnitt 4): schwarze Wash, Dry Brushing mit Schwarz und Silber/Gunmetal, Battle Damage mit Paint Pen / Rub 'n Buff, Schwammtechnik und Pigmentpulver. Auf Foam wirkt das Dry Brushing entlang der Kanten besonders gut, weil Schaumkanten ohnehin leicht abgerundet sind.
+
+### Schritt 5: Flexibler Klarlack
+
+- **Wichtig:** auch der Klarlack muss flexibel sein. Harter Matt-Klarlack auf Foam reisst genau wie harte Grundierung.
+- **Flexible Optionen:** Mod Podge (Matt) als Schutzschicht, flexibler Acryl-Klarlack, oder klares Plasti Dip / Matt-Versiegler fuer Foam.
+- 2-3 duenne Schichten, vorher alle Weathering-Arbeiten vollstaendig durchtrocknen lassen.
+- An einem Foam-Probestueck testen, ob der Klarlack die Mattigkeit bringt und beim Biegen nicht reisst.
+
+## 9. Visor-Troubleshooting
+
+Der Visor ist optisch das Herzstueck (siehe Herstellung in Abschnitt 6) und gleichzeitig die haeufigste Problemquelle. Hier die typischen Fehler und ihre Loesungen. Weitere Praxiserfahrungen in `Documentation/Guides/Praxis-Tipps-Fortgeschritten.md`.
+
+### Beschlag (Visor laeuft von innen an)
+
+Ursache: Atemluft und Koerperwaerme kondensieren auf der kuehlen Visor-Innenseite.
+
+- **Anti-Fog-Mittel** auf die Innenseite auftragen (Tauchmasken-/Skibrillen-Anti-Fog, oder ein Tropfen Spuelmittel duenn verrieben).
+- **Belueftung verbessern:** Luftschlitze oder Oeffnungen unterhalb des Visors, damit Atemluft nicht direkt an die Scheibe stroemt.
+- **Aktive Luefter** einbauen (5 V Mini-Luefter), die Frischluft an die Innenseite fuehren — siehe `Documentation/Guides/Elektronik-Luefter.md`.
+- Atemluft per kleinem **Kanal/Maske nach unten ableiten**, weg vom Visor.
+
+### Kratzer
+
+- **Politur:** feine Kunststoff-Politur (z. B. fuer Acrylglas/Plexiglas) oder Autoscheinwerfer-Politur in kreisenden Bewegungen — entfernt leichte Kratzer.
+- **Schutzfolie:** transparente Displayschutz- oder Lackschutzfolie auf die Aussenseite, vor Transport und Lagerung. Schuetzt die empfindliche getoente Oberflaeche.
+- Tiefe Kratzer lassen sich kaum entfernen — Visor dann neu vakuumformen.
+
+### Folie reisst oder wird zu duenn beim Vakuumformen
+
+Ursache: ungleichmaessige Erwaermung oder falsche Temperatur (siehe Abschnitt 6, PETG ca. 140-155 C).
+
+- **Temperatur kontrollieren:** zu heiss = Folie wird zu duenn und reisst, zu kalt = formt nicht sauber.
+- **Gleichmaessig erhitzen:** Folie muss ueber die ganze Flaeche gleichmaessig durchhaengen, bevor das Vakuum kommt. Punktuelle Ueberhitzung fuehrt zu duennen Stellen.
+- **Buck-Form (Positivform) optimieren:** keine scharfen Kanten oder zu tiefen Hinterschnitte — die Folie zieht sich an steilen Stellen am staerksten und wird dort am duennsten. Buck leicht konisch gestalten.
+- Dickere Ausgangsfolie (1.0 mm statt 0.75 mm) verzeiht mehr.
+
+### Ungleichmaessige Toenung
+
+Ursache: ungleichmaessiges iDye-Poly-Bad (siehe Abschnitt 6).
+
+- **Bad-Zeit und Bewegung:** Visor waehrend des Faerbens staendig bewegen und vollstaendig untergetaucht halten. Standzeiten an der Oberflaeche ergeben Streifen.
+- Laengere Bad-Zeit = dunklere Toenung; gleichmaessige Zeit ueber die ganze Flaeche ist entscheidend.
+- Wasser gleichmaessig heiss halten, Farbpulver vor dem Eintauchen vollstaendig aufloesen.
+
+### Chrome-Schicht loest sich
+
+Ursache: die Krylon-Looking-Glass-Verspiegelung auf der Innenseite ist empfindlich gegen Feuchtigkeit und Beruehrung (siehe Abschnitt 6).
+
+- **Duennen Klarlack innen** ueber die Chrome-Schicht spruehen — schuetzt vor Abrieb und Feuchtigkeit. An Probestueck testen, da manche Klarlacke den Spiegeleffekt trueben.
+- Innenseite nicht mit den Fingern beruehren; nur mit weichem Tuch reinigen.
+- Bei Ablosung: Schicht abwischen und neu auftragen (in den Nebel spruehen, Visor durchfuehren).
+
+### Zu dunkel — schlechte Sicht von innen
+
+Ursache: zu viele Looking-Glass-Schichten oder zu lange iDye-Toenung. Von aussen sieht der Visor toll aus, von innen sieht man fast nichts.
+
+- **Weniger Looking-Glass-Schichten** auftragen — jede Schicht reduziert die Durchsicht. Lieber zu wenig und nachlegen.
+- Toenung heller halten (kuerzere iDye-Bad-Zeit).
+- Kompromiss finden: genug Reflexion fuer den Look, aber sichere Sicht. Vor der Convention mit aufgesetztem Helm in verschiedenen Lichtverhaeltnissen testen (siehe `Documentation/Guides/Praxis-Tipps-Fortgeschritten.md`).
+- Bei HUD-Helmen (V2/V3) muss die Sicht zusaetzlich fuer das Display ausreichen.

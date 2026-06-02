@@ -7,9 +7,10 @@ Dieser Guide holt neue und erfahrene Cosplayer ab und fuehrt dich in einen siche
 1. Lies kurz: `Documentation/Guides/Varianten.md`
 2. Lies die **Top 15 Anfaengerfehler**: `Documentation/Guides/Anfaengerfehler.md`
 3. Waehle V1 Einsteiger und setze ein klares Ziel (Con-Datum oder Foto-Shoot)
-4. Baue zuerst Unteranzug + Tragegurt (siehe `BuildGuides/Armor/Step1.md`)
-5. Erstelle 1-2 Ruestungsteile als Test (Schienbein + Unterarm)
-6. Finish erst nach Passformtests
+4. Lies den **Foam-Bau-Guide**: `Documentation/Guides/Foam-Bau.md` (kompletter V1-Weg)
+5. Baue zuerst Unteranzug + Tragegurt (siehe `BuildGuides/Armor/Step1.md`)
+6. Erstelle 1-2 Ruestungsteile aus Foam als Test (Schienbein + Unterarm)
+7. Finish erst nach Passformtests (Foam-Finishing in `Documentation/Guides/Lackierung-Finishing.md`)
 
 **Minimalziel fuer die erste Con**
 - Helm + Brust + Unterarme + Schienbeine

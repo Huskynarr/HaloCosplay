@@ -47,7 +47,7 @@ Starre Farbe auf flexiblem oder beweglichem Untergrund bricht und platzt ab — 
 
 ---
 
-## 2. Visor-Beschlagen — Loesungen jenseits von Lüeftern
+## 2. Visor-Beschlagen — Loesungen jenseits von Lueftern
 
 ### Anti-Beschlag-Beschichtungen
 

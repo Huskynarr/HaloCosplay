@@ -6,6 +6,7 @@ Dieses Verzeichnis sammelt alle Kerninhalte fuer das Halo MJOLNIR Cosplay Projek
 
 - Start hier: `Documentation/Guides/Start-Hier.md`
 - Variantenvergleich und Auswahl: `Documentation/Guides/Varianten.md`
+- **Authentischer Halo-Infinite-Look (Referenz):** `Documentation/Guides/Authentizitaet-Referenz.md`
 - **Messblatt (Koerpermasse):** `Documentation/Guides/Messblatt.md`
 - **Anfaengerfehler (Top 15):** `Documentation/Guides/Anfaengerfehler.md`
 - Checklisten: `Documentation/Guides/Checklisten.md`
@@ -20,6 +21,8 @@ Dieses Verzeichnis sammelt alle Kerninhalte fuer das Halo MJOLNIR Cosplay Projek
 - Helm Elektronik/Finish: `BuildGuides/Helmet/Step2.md`
 - Elektronik Planung: `BuildGuides/Electronics/Step1.md`
 - Elektronik Integration: `BuildGuides/Electronics/Step2.md`
+- **Foam-Bau (V1, EVA-Foam, kompletter Weg):** `Documentation/Guides/Foam-Bau.md`
+- **Klebetechniken (Foam / 3D-Druck / TPU):** `Documentation/Guides/Klebetechniken.md`
 
 ## 3D-Druck
 
@@ -39,6 +42,8 @@ Dieses Verzeichnis sammelt alle Kerninhalte fuer das Halo MJOLNIR Cosplay Projek
 - Verdrahtung: `Documentation/Guides/Elektronik-Verdrahtung.md`
 - **Helm-Belueftung (Luefter):** `Documentation/Guides/Elektronik-Luefter.md`
 - **Audio und Voice Changer:** `Documentation/Guides/Elektronik-Audio.md`
+- **AR-Display und Kamera-Passthrough (V3, ehrliche Grenzen):** `Documentation/Guides/Elektronik-AR-Display.md`
+- **Elektronik-Gesamtuebersicht + Modulmatrix V1/V2/V3:** `Documentation/Guides/ElectronicsGuide.md`
 
 ## Unteranzug und Befestigung
 

@@ -52,6 +52,28 @@ Phase 9                                     [====]
 | Passform-Korrekturen | Teile passen nicht beim ersten Mal | Testdrucke frueh machen, nicht erst am Ende |
 | Elektronik-Debugging | "Funktioniert auf dem Tisch, nicht im Helm" | Frueh integrieren, nicht alles auf die letzten Wochen |
 
+## Varianten-Abweichungen (V1 Foam / V3 Exoskelett)
+
+Die Phasen oben beschreiben den **3D-Druck-Pfad (V2)**. Fuer die anderen Varianten
+verschieben sich die Zeitfresser:
+
+### V1 (Foam)
+
+- **Kein Druck-Engpass** (Phase 3 entfaellt). Dafuer wird das Zuschneiden, Heat-Forming
+  und vor allem das **Versiegeln** zum Zeitfresser (jede Versiegelungsschicht muss trocknen).
+- Schleifen/Spachteln entfaellt weitgehend; Lackierung braucht flexible Produkte.
+- Realistisch insgesamt schneller: oft **2-5 Monate** statt 4-8 (siehe
+  `Documentation/Guides/Foam-Bau.md`).
+- Kritischer Pfad: Schneiden/Kleben -> Versiegeln -> Lackieren -> Befestigung.
+
+### V3 (Exoskelett)
+
+- Zusaetzlich zur V2-Spine: **Exoskelett-Prototyp (PVC) -> Alu/Carbon-Rahmen -> Einlaufen/
+  Bewegungstraining**. Plane dafuer **+4-8 Wochen** zusaetzlich ein.
+- Exoskelett-Bau laeuft parallel zum Druck, der **Geh-/Lasttest** muss aber vor Lackierung
+  und Integration abgeschlossen sein (Aenderungen am Rahmen sind danach teuer).
+- Details: `Documentation/Guides/Exoskelett.md`.
+
 ## Meilensteine setzen
 
 | Meilenstein | Bedeutung |
@@ -80,4 +102,4 @@ Falls die Zeit nicht reicht fuer alles:
 3. **Unterarme + Schienbeine** (komplettiert den Look)
 4. Rest spaeter nachruesten
 
-Damit sieht man sofort wie Master Chief aus und kann schrittweise aufrüsten.
+Damit sieht man sofort wie Master Chief aus und kann schrittweise aufruesten.

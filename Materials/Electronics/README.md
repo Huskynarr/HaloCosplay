@@ -14,7 +14,7 @@ Bilddateien sind Platzhalter (0 Bytes) und sollten durch eigene Schaltplaene und
 
 **Empfehlung:** Nutze Fritzing (https://fritzing.org/) fuer Verdrahtungsdiagramme und exportiere als PNG hierher.
 
-## Weiterführende Guides
+## Weiterfuehrende Guides
 
 - Elektronik-Uebersicht: `Documentation/Guides/Elektronik-HUD.md`
 - Verdrahtung: `Documentation/Guides/Elektronik-Verdrahtung.md`

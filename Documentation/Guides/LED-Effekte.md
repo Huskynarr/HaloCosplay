@@ -186,7 +186,7 @@ Loesung: Timer-basiertes PWM oder NeoPixel-Library (diese nutzt eigenes Timing u
 - Fuer Convention: lieber **konstant hell** oder **deutliches Breathing** statt zu subtile Muster
 - Komplexe Muster fuer **Fotoshootings und dunkle Raeume** aufheben
 
-## Weiterführend
+## Weiterfuehrend
 
 - **LED-Visor-Forschung (Diffusion, Foto-Probleme, COB Strips, 9mm-Regel):** `Documentation/Guides/LED-Visor-Forschung.md`
 - **Helm LED-Controller Code:** `Code/HelmetControl/HelmetMultiEffects.ino`

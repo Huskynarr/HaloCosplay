@@ -2,6 +2,15 @@
 
 Hauptliste aller offenen Aufgaben, gegliedert nach Phasen. Hake ab was erledigt ist.
 
+**Varianten-Hinweis:** Diese Liste ist fuer den **3D-Druck-Pfad (V2)** geschrieben.
+- **V1 (Foam):** Ersetze Phase 2 "3D-Druck" durch den Foam-Bau (`Documentation/Guides/Foam-Bau.md`):
+  Templates skalieren, schneiden, Heat-Forming, kleben, **flexibel** versiegeln. Phase 3/4
+  (Finishing/Lack) sinngemaess mit flexiblen Produkten, siehe Lackierung-Finishing Abschnitt
+  "Foam-Finishing". Elektronik/Befestigung/Convention identisch.
+- **V3 (Exoskelett + AR):** Zusaetzlich zu allem unten: Exoskelett bauen, auf der Ruestung
+  montieren und Geh-/Lasttest bestehen (`Documentation/Guides/Exoskelett.md`); AR-Display
+  planen (`Documentation/Guides/Elektronik-AR-Display.md`). Beides VOR der Integration (Phase 8).
+
 ## Phase 1: Planung und Vorbereitung
 
 - [ ] Variante festlegen (V2 empfohlen mit H2C + Loetkolben)
@@ -132,6 +141,6 @@ Hauptliste aller offenen Aufgaben, gegliedert nach Phasen. Hake ab was erledigt 
 ## Notizen
 
 - Fertigungszeit: Poste-Processing (Schleifen/Lackieren) braucht oft genauso lang wie der Druck selbst
-- Helm zuerst fertigstellen — er ist das Herzstück und braucht am meisten Iterationen
+- Helm zuerst fertigstellen — er ist das Herzstueck und braucht am meisten Iterationen
 - Immer erst Passform, dann Details
 - Elektronik modular halten — wenn etwas ausfaellt, muss der Rest trotzdem funktionieren

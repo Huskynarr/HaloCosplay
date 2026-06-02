@@ -218,7 +218,7 @@ Der vorhandene Code (`Code/HelmetControl/MainControlCode.ino`) empfaengt Helligk
 | LEDs zeigen falsche Farbe | Falsche LED-Reihenfolge im Code | LED-Typ pruefen (WS2812B vs SK6812), Code anpassen |
 | Luefter vibrieren | Lose Montage, Unwucht | Fester mit Klett fixieren, anderen Luefter testen |
 | Audio brummt/rauscht | Ground Loop, zu lange Kabel | AC-Koppelkondensator pruefen, Kabel kuerzen |
-| Batterie hält nicht lang genug | Stromverbrauch hoeher als kalkuliert | LED-Helligkeit reduzieren, WiFi aus, zweite Powerbank |
+| Batterie haelt nicht lang genug | Stromverbrauch hoeher als kalkuliert | LED-Helligkeit reduzieren, WiFi aus, zweite Powerbank |
 
 ## 8. Wartung und Pflege
 

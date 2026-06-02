@@ -4,7 +4,7 @@ Das Exoskelett dient der optischen Verstaerkung der Spartan-Aesthetik. Es macht 
 
 ## Prinzip: Pantograph-Linkage
 
-Ein Pantograph ist ein Parallelogramm-basiertes Gestänge, das Bewegungen vergroessert uebertragen. Der Traeger bewegt den inneren Arm, der aeussere Arm folgt vergroessert.
+Ein Pantograph ist ein Parallelogramm-basiertes Gestaenge, das Bewegungen vergroessert uebertraegt. Der Traeger bewegt den inneren Arm, der aeussere Arm folgt vergroessert.
 
 **Verstaerkungsverhaeltnis:**
 ```
@@ -183,3 +183,136 @@ Fuer Spartan-Builds: 1.3-1.5x Verstaerkung an den Armen reicht fuer imposante Wi
 | Ruestungsmaterial (Foam / 3D-Druck) | 200-600 EUR |
 | Finish (Lack, Fueller, Versiegelung) | 50-150 EUR |
 | **Gesamt V3** | **615-1.630 EUR** |
+
+## Montage auf der Ruestung
+
+Das Exoskelett ist kein Selbstzweck — es ist das Tragesystem, an dem die Ruestung haengt und ueber das das gesamte Gewicht in den Koerper eingeleitet wird. Die Anbindung muss daher genauso sorgfaeltig geplant werden wie der Rahmen selbst. Grundprinzip: Der Klettergurt an der Huefte ist die zentrale Lastschnittstelle zwischen Mensch und Maschine. Details zum Unteranzug und zu den Befestigungsarten siehe `Documentation/Guides/Unteranzug-Befestigung.md`.
+
+### Anbindung an Klettergurt/Harness
+
+- **Klettergurt als Basis:** Ein gepolsterter Industrie-Klettergurt (Sitzgurt mit breitem Hueftpolster, kein duenner Sportklettergurt) wird direkt am Koerper getragen. Er nimmt den Wirbelsaeulen-Rahmen des Exos auf.
+- **Anbindungspunkt Wirbelsaeule:** Der vertikale Alu-Rahmen (3030) endet unten in einer 3D-gedruckten oder gefraesten Adapterplatte, die ueber 2-4 verschraubte D-Ringe oder Stahl-Schaekel am Gurt-Rueckenteil sitzt. Keine Klebeverbindung an dieser Stelle — nur Schraub-/Schaekelverbindung.
+- **Hueftring:** Ein umlaufender oder halber Alu-Hueftring (3030) wird mit dem Wirbelsaeulen-Rahmen verschraubt und liegt auf dem Beckenkamm auf. Er traegt die Bein-Exos und gibt die Last in den Klettergurt ab.
+- **Schulter-Stabilisierung:** Schultergurte des Harness nehmen NUR Stabilisierungslast (Kippen verhindern), nicht das Hauptgewicht. So bleibt der Lastpfad ueber Becken/Huefte.
+
+### Lastpfad (von oben nach unten)
+
+```
+Arm-Exo + Schulterruestung
+        |
+   Schulter-Linkage (virtueller Drehpunkt)
+        |
+Wirbelsaeulen-Rahmen (3030) ----> Schultergurte (nur Stabilisierung)
+        |
+   Hueftring / Adapterplatte
+        |
+   Klettergurt (Hueftpolster) ----> Becken/Beckenkamm des Traegers
+        |
+   Bein-Exo (pro Seite)
+        |
+   Stelze / Fussplatte ----> Boden
+```
+
+Merksatz: Jedes Gramm soll moeglichst direkt von seinem Ursprungspunkt in die Huefte und von dort in die Beine/den Boden geleitet werden. Lasten, die ueber die Schultern oder die Wirbelsaeule des Traegers laufen, sind nach 30-60 Minuten schmerzhaft.
+
+### Befestigungspunkte Ruestung am Rahmen
+
+Es gilt dieselbe Logik wie im Abschnitt "Ruestung auf dem Exo montieren" oben, aber priorisiert nach Gewicht:
+
+| Ruestungsteil | Anbindung | Lasttraeger |
+| --- | --- | --- |
+| Brust + Ruecken | M5/M6 verschraubt auf Wirbelsaeulen-Rahmen, Gummi-Unterleger | Wirbelsaeule -> Huefte |
+| Oberschenkel-Platten | Verschraubt auf Bein-Exo Oberschenkelstrebe | Bein-Exo |
+| Codpiece / Huefte | Verschraubt / Snaps am Hueftring | Hueftring |
+| Schulterglocken | Magnete + Snaps auf Schulter-Linkage-Platte | Arm-Exo |
+| Unterarme / Schienbeine | Magnete / Industrial Velcro (kosmetisch) | jeweiliges Glied |
+
+Zwischen benachbarten Segmenten 5-10 mm Spalt fuer Bewegung lassen (siehe Abschnitt "Kosmetische Teile").
+
+### Reihenfolge Anziehen (mit Handler)
+
+Das Anlegen eines V3-Builds ist Zweipersonen-Arbeit. Plane 15-25 Minuten ein.
+
+1. **Unteranzug + Kuehlweste** anziehen (siehe `Documentation/Guides/Unteranzug-Befestigung.md`).
+2. **Klettergurt** anlegen und Hueftpolster mittig auf dem Beckenkamm ausrichten, alle Schnallen schliessen.
+3. **Bein-Exos einsteigen** — Traeger setzt sich, Handler fuehrt Fuss in die Stelze/Fussplatte, Fersen- und Spannriemen schliessen.
+4. **Aufstehen mit Handler-Stuetze** und Stand auf den Stelzen pruefen (kurz, festhalten).
+5. **Wirbelsaeulen-Rahmen** auf den Klettergurt aufschrauben/einschaekeln (Handler von hinten), Schultergurte schliessen.
+6. **Arm-Exos** ankoppeln, Bewegungsfreiheit der Schulter-Linkage pruefen.
+7. **Ruestungsteile** in Reihenfolge schwer -> leicht montieren: Brust/Ruecken, Oberschenkel, Huefte, dann Schultern, Unterarme, Schienbeine.
+8. **Helm zuletzt** (siehe `Documentation/Guides/Sicherheit.md` zu Hitze/Sicht).
+9. **Abschluss-Check durch Handler:** Sitzt der Gurt, sind alle Schnallen zu, ist der Notausstieg frei erreichbar, klemmt nichts.
+
+Ausziehen erfolgt in umgekehrter Reihenfolge. Der Notausstieg (siehe unten) ist eine separate, schnellere Sequenz.
+
+## Gewicht und Balance
+
+Ein V3-Build wiegt mit Ruestung realistisch **17-28 kg** (siehe Tabelle "Gewichtsziele"). Diese Last ist nur tragbar, wenn sie korrekt verteilt ist und der Schwerpunkt stimmt. Falsche Balance macht selbst 18 kg unertraeglich, gute Balance macht 25 kg ueber Stunden machbar.
+
+### Gewichtsbudget realistisch planen
+
+| Komponente | Realistisch | Ambitioniert (optimiert) |
+| --- | --- | --- |
+| Exo-Rahmen gesamt (ohne Ruestung) | 12-18 kg | 9-12 kg |
+| Ruestungsplatten gesamt | 5-10 kg | 4-6 kg (duenne EVA / TPU) |
+| Elektronik, Akku, Luefter | 1-2 kg | < 1 kg |
+| **Gesamt am Koerper** | **18-30 kg** | **14-19 kg** |
+
+Setze fuer jede Baugruppe ein Gewichtslimit BEVOR du baust, und wiege Teile beim Bau gegen das Budget. Ueberschreitungen summieren sich schnell.
+
+### Schwerpunkt (Center of Gravity)
+
+- **Ziel:** Der Gesamtschwerpunkt des angezogenen Builds soll moeglichst tief und nah an der natuerlichen Koerperachse liegen — idealerweise auf Hueft-/Beckenhoehe, mittig ueber den Fuessen.
+- **Arme sind der Feind:** Gewicht an ausgestreckten Arm-Exos wirkt mit langem Hebel und kippt nach vorn/zur Seite. Arm-Exos so leicht wie moeglich, schwere Teile (Akku, Verkabelung) im Torso nahe der Wirbelsaeule platzieren.
+- **Gegengewicht:** Liegt der Schwerpunkt zu weit vorne (grosse Brustplatte, Helm), kann ein kleines Gegengewicht (z.B. Akku) im Ruecken-Rahmen ausgleichen. Lieber Masse umverteilen als hinzufuegen.
+- **Stelzen erhoehen das Risiko:** Je hoeher der Build, desto laenger der Hebel zum Boden. Schwerpunkt umso wichtiger.
+
+### Warum Carbon/Alu statt Stahl
+
+| Material | Dichte ca. | Bewertung fuer Exo |
+| --- | --- | --- |
+| Stahl | 7.85 g/cm3 | Sehr stabil, aber viel zu schwer — verbietet sich fuer tragbare Builds |
+| Aluminium (Profil) | 2.70 g/cm3 | Standard fuer DIY-Exo: gutes Verhaeltnis Steifigkeit/Gewicht, modular, bezahlbar |
+| Carbon (CFK-Rohr/Platte) | 1.55 g/cm3 | Leichteste tragende Option, sehr steif — fuer Arme/Schienbeine, wo jedes Gramm am Hebel zaehlt; teuer und schwerer zu bearbeiten |
+
+Faustregel: Tragstruktur (Wirbelsaeule, Hueftring) aus Alu 3030; bewegte/weit aussen liegende Glieder (Arme) wo moeglich aus Alu 2020 oder Carbon, um Hebellast zu reduzieren. Stahl hoechstens fuer kleine, hochbelastete Achsen/Schaekel, nie fuer Rahmenlaengen.
+
+### Gewichtstest-Vorgehen
+
+1. **Wiegen:** Jede Baugruppe einzeln auf einer Personenwaage wiegen und gegen das Budget protokollieren. Dann den komplett angezogenen Build wiegen (Traeger mit/ohne Build, Differenz = Last).
+2. **Schwerpunkt pruefen:** Statisch im Stand testen — kann der Traeger ohne Festhalten ruhig stehen? Kippt es in eine Richtung? Bei Bedarf Masse umverteilen, nicht zustopfen.
+3. **Gehtest:** Auf ebener Flaeche, dann Bordstein/Schwelle, mit Handler. Achten auf Pendeln der Arme und Vorkippen.
+4. **Sitztest:** Hinsetzen und Aufstehen mit Handler — geht es kontrolliert, oder reisst das Gewicht beim Aufstehen nach hinten/vorn?
+5. **Ausdauertest:** Mindestens 30-60 Minuten am Stueck tragen (gestaffelt aufbauen), Druckstellen und Ermuedung dokumentieren. Vergleiche mit dem Test-Template unter `Tests/TestReports/`.
+6. **Iterieren:** Druckstellen polstern, Schwergewichte naeher an die Huefte, Arm-Exo abspecken. Erst danach Convention.
+
+## Sicherheit & Con-Tauglichkeit
+
+Diese Sektion ergaenzt den Abschnitt "Sicherheit (Convention)" oben und die allgemeinen Regeln in `Documentation/Guides/Sicherheit.md` sowie `Documentation/Guides/Convention-Regeln.md`. Pruefe die Hausordnung jeder Convention VOR der Anmeldung — Exoskelett-Builds koennen zustimmungspflichtig oder eingeschraenkt sein.
+
+### Strikt passiv (keine Motoren auf Cons)
+
+- **Keine angetriebene Bewegung.** Das Exo ist rein mechanisch (Pantograph, Federn, Gasdruckfedern). Motoren oder Aktuatoren zur Gelenkbewegung sind auf Conventions nicht zulaessig und ein Verletzungsrisiko.
+- **Erlaubt sind:** LEDs, Luefter, HUD/Audio — also passive Verbraucher ohne mechanische Kraftwirkung (siehe `Documentation/Guides/Sicherheit.md`, Abschnitt Elektronik).
+- **Federunterstuetzung** (z.B. Gasdruckfedern zur Gewichtsentlastung) ist passiv und erlaubt, muss aber sicher gekapselt sein.
+
+### Keine Quetschstellen
+
+- **Alle bewegten Gelenke** mit kosmetischen Abdeckungen oder Faltenbaelgen verkleiden, sodass keine Finger (auch nicht von Fans/Kindern) in den Mechanismus geraten koennen.
+- **Scherkanten** an Parallelogramm-Linkages entweder mechanisch begrenzen oder vollstaendig abdecken.
+- **Anschlaege gummieren** (Gummi-Puffer), damit Gelenke nicht hart und schnell zuschnappen.
+- **Profil-Enden und Schnittkanten** entgraten, Gummikappen aufsetzen (siehe Abschnitt "Sicherheit (Convention)").
+
+### Notausstieg
+
+- **Ziel: vollstaendige Befreiung in unter 60 Sekunden**, auch wenn der Traeger gestuerzt oder benommen ist.
+- **Handler muss die Sequenz blind koennen** — vorher mehrfach ueben.
+- **Breakaway-Logik:** Aeussere Ruestung loest sich bei Aufprall, statt zu verletzen; tragende Schnallen sind Quick-Release.
+- **Notausstieg-Sequenz (durch Handler):**
+  1. Schultergurte oeffnen (Quick-Release).
+  2. Arm-Exos abkoppeln bzw. Traeger Arme freistellen.
+  3. Wirbelsaeulen-Rahmen vom Klettergurt loesen (Schaekel/Schnellverschluss).
+  4. Bein-Riemen/Stelzen oeffnen, Traeger aus den Fussplatten heben.
+  5. Helm abnehmen, Belueftung/Wasser sicherstellen.
+- **Keine Werkzeuge** fuer den Notausstieg noetig — alles per Hand loesbar. Schrauben, die nur mit Werkzeug aufgehen, duerfen nicht im Notausstieg-Pfad liegen.
+- **Handler Pflicht** bei jedem Exo-Build, unabhaengig von der Hoehe (siehe `Documentation/Guides/Sicherheit.md`, Abschnitt Handler).
