@@ -85,7 +85,10 @@ Die Pipeline ist im Kern simpel, die Tuecke steckt in der Latenz:
 5. zurueck zu 1 (Zielschleife unter 20-30 ms)
 ```
 
-- **OpenCV** fuer Frame-Handling und einfache Bildverarbeitung
+- **OpenCV** fuer Frame-Handling, einfache Bildverarbeitung und fortgeschrittene Filter:
+  - **Freund-Feind-Erkennung (IFF):** Echtzeit-Bildanalyse zur Personenerkennung (z. B. via Haar-Cascades oder YOLO). Personen im Sichtfeld werden mit einem roten Zielrahmen ("TARGET DETECTED") markiert.
+  - **Nachtsicht und Zoom:** Digitale Aufbereitung des Video-Feeds (z. B. grüner Farbkanal-Filter für Nachtsicht und digitaler Zoom), steuerbar über Sprachbefehle oder Taster.
+  - **Munitions-Telemetrie:** Drahtlose (Bluetooth) oder serielle Schnittstelle zur direkten Koppelung mit der Rüstungswaffe (MA40/MA5), um den Echtzeit-Munitionsstand direkt im Helm-HUD einzublenden.
 - **Pygame** oder direkter Framebuffer-/DRM-Zugriff fuer schnelle Ausgabe ohne Desktop-Overhead
 - Kein Desktop, keine WLAN-Last, GPU-Pfad nutzen wo moeglich
 - Jede zusaetzliche "intelligente" Funktion (Objekterkennung, Tracking) kostet Latenz und Strom

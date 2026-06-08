@@ -53,6 +53,13 @@ Beispiel: 175 cm / 183 cm = 0.956 = 95.6%
 - Zeigt sofort wo Teile zu gross/klein sind
 - Exportiert skalierte STLs pro Koerperregion
 
+### Spezifische Skalierungs-Metriken (Spartan Silhouette)
+
+Für den echten Spartan-Look und die Kompatibilität mit Sonderausstattungen gelten folgende Richtwerte:
+- **Schienbeine (Tibia):** Müssen oft um ca. **+15 % verlängert (in Z-Achse gestreckt)** werden. Dies kompensiert den Platzbedarf für mechanische Beinverlängerungen oder Stelzen (Stilts) bei der V3-Profi-Variante.
+- **Bizeps/Oberarme:** Sollten meist mit einem Faktor von **1.1x bis 1.15x** skaliert werden (sowohl Breite als auch Dicke), um Kollisionen beim Beugen der Arme mit der massiven Brustplatte zu verhindern.
+- **Füße/Boots:** Benötigen ca. **+20 % Volumen**, damit sie als kosmetische Hülle über den echten Schuhen oder Stelzen-Fussplatten getragen werden können.
+
 ### Methode C: Testdruck und Anpassen
 
 1. Ein Teil drucken (z.B. Unterarm — schnell, sichtbares Ergebnis)

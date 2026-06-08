@@ -34,7 +34,9 @@ Fuer Spartan-Builds: 1.3-1.5x Verstaerkung an den Armen reicht fuer imposante Wi
 | Teil | Empfehlung | Preis ca. |
 | --- | --- | --- |
 | Kugellager 608ZZ (8x22x7 mm) | Skateboard-Lager, 20-30 Stueck noetig | 0.50-1 EUR/Stueck |
+| M8/M20 Stahlgewindestangen | Als Hauptachsen für hochbelastete Gelenke | 5-15 EUR/Stück |
 | M8 Achsschrauben (Shoulder Bolts) | Drehpunkte, 20 Stueck | 2-4 EUR/Stueck |
+| Zahnräder & Seilrollen (3D-Druck) | Gedruckt aus hochfestem Filament wie **Taulman Alloy 910** | 15-30 EUR |
 | T-Slot Eckverbinder | 40-60 Stueck fuer Rahmenverbindungen | 1-2 EUR/Stueck |
 | 3D-gedruckte Custom-Brackets | Spezialverbinder, 1-2 kg Filament | 25-50 EUR |
 
@@ -74,6 +76,17 @@ Fuer Spartan-Builds: 1.3-1.5x Verstaerkung an den Armen reicht fuer imposante Wi
 - Oft vereinfacht oder weggelassen
 - Spartan-Handschuh kann starr montiert sein, Hand ragt durch die Oeffnung
 - Falls gewuenscht: einfacher Pivot fuer Beugung/Streckung
+
+## Hydraulik-Simulation & Gewichtsentlastung
+
+Um die motorisierte Unterstützung der Mjolnir-Rüstung optisch zu simulieren und gleichzeitig die Gelenke mechanisch zu entlasten, wird ein kombiniertes Kolben-Feder-System empfohlen:
+
+1. **Konstruktion der Kolben (Optik):**
+   - Gehäuse aus PEX-Rohren (1/2" und 3/8" PEX) oder PVC-Rohren bauen.
+   - Um den glänzenden Metall-Look zu erhalten, werden die Rohre mit reflektierendem Aluminium-Klebeband (Alu-Tape) umwickelt. Dies simuliert täuschend echt hydraulische Teleskopzylinder.
+2. **Gewichtsentlastung (Mechanik):**
+   - Im Inneren der PEX/PVC-Kolben oder parallel dazu werden elastische Bungee-Seile oder Gasdruckfedern verbaut.
+   - Dieses passive Federungssystem wirkt als Gegengewicht ("Counterbalance") und nimmt einen Großteil der Rüstungslast von den Knien, Hüften und Schultern auf.
 
 ## Hoehe hinzufuegen (15-30 cm)
 
@@ -194,6 +207,7 @@ Das Exoskelett ist kein Selbstzweck — es ist das Tragesystem, an dem die Ruest
 
 - **Klettergurt als Basis:** Ein gepolsterter Industrie-Klettergurt (Sitzgurt mit breitem Hueftpolster, kein duenner Sportklettergurt) wird direkt am Koerper getragen. Er nimmt den Wirbelsaeulen-Rahmen des Exos auf.
 - **Anbindungspunkt Wirbelsaeule:** Der vertikale Alu-Rahmen (3030) endet unten in einer 3D-gedruckten oder gefraesten Adapterplatte, die ueber 2-4 verschraubte D-Ringe oder Stahl-Schaekel am Gurt-Rueckenteil sitzt. Keine Klebeverbindung an dieser Stelle — nur Schraub-/Schaekelverbindung.
+- **Taktisches Tragesystem (Rigging):** Die Lastübertragung wird durch ein militärisches H-Harness (z.B. BlackHawk H-Harness) und einen robusten Polizei-Koppelgürtel stabilisiert, der die Last von den Schultern auf die Hüften umleitet. Elastische Gurtbänder mit Parachute-Clips (Steckverschlüsse) verbinden die beweglichen Rüstungsteile für maximale Beweglichkeit.
 - **Hueftring:** Ein umlaufender oder halber Alu-Hueftring (3030) wird mit dem Wirbelsaeulen-Rahmen verschraubt und liegt auf dem Beckenkamm auf. Er traegt die Bein-Exos und gibt die Last in den Klettergurt ab.
 - **Schulter-Stabilisierung:** Schultergurte des Harness nehmen NUR Stabilisierungslast (Kippen verhindern), nicht das Hauptgewicht. So bleibt der Lastpfad ueber Becken/Huefte.
 

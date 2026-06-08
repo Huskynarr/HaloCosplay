@@ -9,6 +9,8 @@ Diese Liste ist modular aufgebaut. Waehlte je nach Variante die passenden Abschn
 - EVA-Foam (4-6 mm fuer Details, 8-10 mm fuer Platten)
 - Kontaktkleber (Barge/Pattex), Sekundenkleber, Heisskleber
 - Plasti-Dip oder Mod Podge zum Versiegeln
+- Aqua Resin + Glasfaser (ungiftiges Härtungssystem zur Verstärkung von Foam/Prints)
+- Line-X Schutzbeschichtung (optional für extrem robuste, gusseisenartige Textur)
 - Filler Primer, Acryl-/Autolacke, Klarlack
 - Schleifpapier (120/240/400), Spachtel
 - Klettband, Nylon-Gurt, Schnellverschluesse

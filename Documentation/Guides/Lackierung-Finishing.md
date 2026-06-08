@@ -50,7 +50,10 @@ Dieser Guide beschreibt den vollstaendigen Finishing-Prozess von rohem 3D-Druck 
 
 Master Chief's Farbe ist ein **Oliv-/Salbeigruen**, kein leuchtend helles Gruen.
 
-**Beste Treffer:**
+**Offizielle 343 Industries Farbreferenz:**
+- **Primary Armor (Titanium Sage):** `#798785` / Pantone 5487 C (Hauptfarbe der Panzerung)
+
+**Beste Treffer für Sprühlacke:**
 - **Rust-Oleum "Oregano" (Satin)** — der meistempfohlene Farbton in der 405th Community
 - **Krylon "Olive Drab"** oder **"Italian Olive"** — Alternativen
 - Standard **US Military OD Green** (aktueller Farbton)
@@ -64,7 +67,8 @@ Master Chief's Farbe ist ein **Oliv-/Salbeigruen**, kein leuchtend helles Gruen.
 
 ### Sekundaerfarben
 
-- **Schwarz** fuer Undersuit-Bereiche, Gelenke, vertiefte Panel Lines
+- **Techsuit Mesh (Unteranzug-Struktur):** `#3d3e3e` / Pantone 426 C (Schwarz-Grau für Gelenkbereiche und Texturen)
+- **Warning Accents (Warnmarkierungen):** `#c43f37` / Pantone 7622 C (Dunkles Rot-Orange für Detailmarkierungen)
 - **Dunkelgrau/Gunmetal** fuer mechanische Details, Lueftungsschlitze
 - **Gold/Orange reflektierend** fuer den Visor (siehe Abschnitt Visor)
 

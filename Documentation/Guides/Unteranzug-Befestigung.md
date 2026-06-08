@@ -4,25 +4,24 @@
 
 Wie die Ruestung am Koerper befestigt wird und was man drunter traegt.
 
-## Unteranzug-Optionen
+## Unteranzug-Optionen & Thermomanagement
 
-### Budget / Einfach
+Da eine geschlossene Rüstung (Foam oder 3D-Druck) stark isoliert und Wärme staut, ist ein durchdachter Unteranzug überlebenswichtig.
 
-- **Schwarzer Morphsuit** oder **Kompressions-Suit** (Under Armour Stil)
-- Guenstig, schwarze Basisschicht, Klett-/Magnetpunkte direkt aufnaehen oder kleben
-- Feuchtigkeitsableitender Stoff waehlen (kein Baumwoll-Shirt!)
+### Basis-Layer (Techsuit)
 
-### Mittelklasse
+- **Feuchtigkeitsableitende Funktionskleidung:** Under Armour HeatGear oder Lycra/Spandex-Morphsuits sind Pflicht (niemals Baumwoll-T-Shirts tragen, da sie Schweiß aufsaugen und klamm werden).
+- **Zweck:** Hält die Haut trocken, verhindert Wundreiben an Rüstungskanten und erleichtert das An- und Ausziehen des schweren Anzugs.
 
-- **Schwarzer Dive Skin** (Lycra, 1-2 mm Neopren) — haltbarer als Morphsuit, leichte Polsterung
-- Klettstreifen und Druckknoepfe an Befestigungspunkten aufnaehen
-- Optional: **Hex-Muster** mit Textilfarbe aufbringen fuer Bildschirmtreue
+### Kühlung & Kondensationsschutz (PCM)
 
-### Fortgeschritten / Custom
+- **Phase Change Material (PCM) Kühlwesten:** Für lange Convention-Tage wird eine PCM-Kühlweste (z. B. von ThermApparel) empfohlen.
+- **Vorteil:** PCM-Kühlpacks kristallisieren bei einer konstanten Temperatur von ca. **14 °C (58 °F)**. Im Gegensatz zu Eispacks sind sie kühl genug, erzeugen aber **kein Kondenswasser**. Dies ist extrem wichtig, um die im Suit verbaute Elektronik (Raspberry Pi, Arduino, LiPos) vor Feuchtigkeitsschäden und Kurzschlüssen zu schützen.
 
-- **Massgeschneiderter Suit** aus Spandex/Lycra mit integrierten Befestigungspunkten (Snaps, D-Ringe, Klettfelder)
-- **Zwei-Schicht-System:** innerer Morphsuit + aeussere Harness/Weste mit aller Hardware
-- Harness unter dem Suit verborgen
+### Tragesystem & Rüstungsbefestigung
+
+- **Dive Skin (Lycra, 1-2 mm):** Haltbarer als dünne Morphsuits, bietet leichte Polsterung.
+- **Custom Rigging:** Ein Zwei-Schicht-System aus innerem Funktions-Layer und einer äußeren Tragweste/Harness (z. B. H-Harness) zur verdeckten Montage der Rüstungspunkte.
 
 ## Befestigungssysteme
 
