@@ -101,6 +101,7 @@ Hauptliste aller offenen Aufgaben, gegliedert nach Phasen. Hake ab was erledigt 
 - [ ] Quick-Disconnect am Helm-Nacken
 - [ ] Alle Elektronik ausserhalb der Ruestung testen
 - [ ] Optional: Voice Changer / Lautsprecher
+- [ ] Optional: Schubdüsen-Effekt und Nebler aufbauen (siehe [Elektronik-Schubduesen.md](file:///home/huskynarr/HaloCosplay/Documentation/Guides/Elektronik-Schubduesen.md))
 
 ## Phase 7: Unteranzug und Befestigung
 

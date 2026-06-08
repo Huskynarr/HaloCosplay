@@ -98,6 +98,7 @@ Modulmatrix (was pro Variante sinnvoll ist): `Documentation/Guides/ElectronicsGu
 7. [F] Autostart einrichten (systemd): `Documentation/Guides/Elektronik-Autostart.md`
 8. [F] Audio/Voice-Changer (optional): `Documentation/Guides/Elektronik-Audio.md`
 9. [F] Visor-LED-Diffusion/Foto-Tauglichkeit verstehen: `Documentation/Guides/LED-Visor-Forschung.md`
+10. [F] Schubdüsen-Effekte & Nebler (optional): [Elektronik-Schubduesen.md](file:///home/huskynarr/HaloCosplay/Documentation/Guides/Elektronik-Schubduesen.md)
 
 ## Phase 7 - Unteranzug und Befestigung (alle, [F])
 

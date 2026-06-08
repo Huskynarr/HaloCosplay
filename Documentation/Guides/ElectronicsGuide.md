@@ -101,6 +101,7 @@ wenn du jedes Modul einzeln in Betrieb genommen hast.
 
 - HUD und Systemuebersicht: `Documentation/Guides/Elektronik-HUD.md`
 - LED-Effekte (Muster, Code-Bezug): `Documentation/Guides/LED-Effekte.md`
+- Schubdüsen-Effekte (LED + Nebel): [Elektronik-Schubduesen.md](file:///home/huskynarr/HaloCosplay/Documentation/Guides/Elektronik-Schubduesen.md)
 - Pi-Einrichtung und Autostart: `Documentation/Guides/Elektronik-Autostart.md`
 - Strombudget und Laufzeit: `Documentation/Guides/Elektronik-Strombudget.md`
 - Batterieloesungen (8+ Stunden): `Documentation/Guides/Elektronik-Batterie.md`

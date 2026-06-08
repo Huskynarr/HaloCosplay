@@ -192,5 +192,6 @@ Loesung: Timer-basiertes PWM oder NeoPixel-Library (diese nutzt eigenes Timing u
 ## Weiterfuehrend
 
 - **LED-Visor-Forschung (Diffusion, Foto-Probleme, COB Strips, 9mm-Regel):** `Documentation/Guides/LED-Visor-Forschung.md`
+- **Schubdüsen & Nebel-Effekt (Jetpack):** [Elektronik-Schubduesen.md](file:///home/huskynarr/HaloCosplay/Documentation/Guides/Elektronik-Schubduesen.md)
 - **Helm LED-Controller Code:** `Code/HelmetControl/HelmetMultiEffects.ino`
 - **Ruestung LED-Controller Code:** `Code/ArmorControl/MultiEffects.ino`

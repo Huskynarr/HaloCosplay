@@ -57,10 +57,12 @@ Diese Liste ist nach Kategorien gegliedert. Preise sind Richtwerte (EUR).
 | Komponente | Preis ca. | Hinweis |
 | --- | --- | --- |
 | WS2812B Strip (60 LED/m, 2m) | 15-25 EUR | Helm + Ruestung |
+| WS2812B LED-Ringe (12/16 LEDs, 2er Set) | 8-12 EUR | Schubdüsen-Beleuchtung |
+| IRLZ44N N-Kanal MOSFET | 2-3 EUR | Steuerung Vernebler (Schubdüsen) |
 | 74AHCT125 Level Shifter | 2-3 EUR | 3.3V -> 5V (Pi zu LEDs) |
 | 330-470 Ohm Widerstaende (10x) | 1-2 EUR | Datenleitung |
 | 1000 uF Kondensatoren (5x) | 2-3 EUR | Stromglaettung |
-| **LEDs gesamt** | **~20-35 EUR** | |
+| **LEDs gesamt** | **~30-50 EUR** | |
 
 ## Elektronik — Stromversorgung
 
@@ -75,6 +77,8 @@ Diese Liste ist nach Kategorien gegliedert. Preise sind Richtwerte (EUR).
 | Komponente | Preis ca. | Hinweis |
 | --- | --- | --- |
 | 40mm 5V Luefter (2er-Pack) | 10-15 EUR | Noctua oder GDSTIME |
+| 5V DC Radiallüfter (Blower 4010/5015) | 5-8 EUR | Nebel-Transport für Schubdüsen |
+| 5V USB Ultraschall-Vernebler (Mist Maker) | 5-10 EUR | Nebel-Erzeugung für Schubdüsen |
 | PAM8403 Verstaerker + Lautsprecher | 5-8 EUR | Optional: Voice |
 | MAX4466 Mikrofon | 7-10 EUR | Optional: Voice Changer |
 | USB-Soundkarte (fuer Pi) | 5-8 EUR | Optional: Audio Output |
