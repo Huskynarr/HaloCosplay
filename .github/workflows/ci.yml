@@ -1,0 +1,100 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  docs:
+    name: Doku-Checks (ASCII + Links)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: ASCII-Konvention pruefen
+        run: |
+          if grep -rlP '[^\x00-\x7F]' --include='*.md' --include='*.ino' --include='*.py' .; then
+            echo '::error::Nicht-ASCII-Zeichen gefunden. Konvention: ae/oe/ue statt Umlaute, ss statt sz, - statt Gedankenstrich.'
+            exit 1
+          fi
+          echo "ASCII OK"
+
+      - name: Relative Markdown-Links pruefen
+        run: |
+          status=0
+          while IFS=: read -r file rest; do
+            link=$(printf '%s' "$rest" | sed -E 's/^[0-9]+:\]\((.*)\)$/\1/' | sed 's/#.*//')
+            [ -z "$link" ] && continue
+            dir=$(dirname "$file")
+            if [ ! -e "$dir/$link" ] && [ ! -e "$link" ]; then
+              echo "::error file=$file::Defekter relativer Link: $link"
+              status=1
+            fi
+          done < <(grep -rnoP '\]\((?!https?://|#|mailto:)[^)]+\)' --include='*.md' . || true)
+          [ $status -eq 0 ] && echo "Links OK"
+          exit $status
+
+  python:
+    name: Python Syntax-Check
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Alle Python-Dateien kompilieren
+        run: python -m compileall -q Code/
+
+      - name: Hardwarefreie Selftests (HUD + Sensor-Bridge)
+        run: |
+          python -m pip install --quiet Pillow
+          cd Code/HelmetControl
+          python hud_display.py --selftest /tmp/hud.png
+          python sensor_bridge.py --selftest --state /tmp/s.json --battery /tmp/b.json
+
+  arduino:
+    name: Arduino-Sketches kompilieren
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: arduino/setup-arduino-cli@v2
+
+      - name: Cores und Libraries cachen
+        uses: actions/cache@v4
+        with:
+          path: ~/.arduino15
+          key: arduino15-avr-esp32-v1
+
+      - name: Cores installieren
+        run: |
+          arduino-cli core update-index --additional-urls https://espressif.github.io/arduino-esp32/package_esp32_index.json
+          arduino-cli core install arduino:avr
+          arduino-cli core install esp32:esp32 --additional-urls https://espressif.github.io/arduino-esp32/package_esp32_index.json
+
+      - name: Libraries installieren
+        run: arduino-cli lib install "Adafruit NeoPixel" "Adafruit GFX Library" "Adafruit SSD1306" "JC_Button"
+
+      - name: AVR-Sketches kompilieren (Arduino Nano)
+        run: |
+          fail=0
+          for f in Code/HelmetControl/MainControlCode.ino \
+                   Code/HelmetControl/HelmetMultiEffects.ino \
+                   Code/HelmetControl/LightingEffectsCode.ino \
+                   Code/ArmorControl/MainControlCode.ino \
+                   Code/ArmorControl/MultiEffects.ino \
+                   Code/ArmorControl/LightingEffectsCode.ino \
+                   Code/WeaponControl/ammo_counter.ino; do
+            name=$(basename "$f" .ino)
+            tmp=$(mktemp -d)
+            mkdir "$tmp/$name"
+            cp "$f" "$tmp/$name/"
+            echo "::group::$f"
+            arduino-cli compile --fqbn arduino:avr:nano "$tmp/$name" || { echo "::error file=$f::Kompilierung fehlgeschlagen"; fail=1; }
+            echo "::endgroup::"
+          done
+          exit $fail
+
+      - name: ESP32-Sketch kompilieren (SensorFeeder)
+        run: arduino-cli compile --fqbn esp32:esp32:esp32 Code/HelmetControl/AR/SensorFeeder
