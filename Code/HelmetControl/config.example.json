@@ -8,6 +8,9 @@
   "battery_path": "battery.json",
   "battery_field": "battery_percent",
   "voltage_field": "voltage",
+  "state_path": "hud_state.json",
+  "low_battery_percent": 20,
+  "boot_animation": true,
   "log_path": "hud_log.txt",
   "log_interval_s": 5
 }

@@ -65,8 +65,17 @@ So prueft man Overlay und Lesbarkeit am Schreibtisch, bevor Hardware dranhaengt.
 ueber USB/Serial JSON-Zeilen wie `{"heading":123,"battery":78,"temp":41}`.
 In `ar_config.json` `sensor_serial_port` setzen (z.B. `/dev/ttyUSB0`).
 
+Die Akku-Prozentrechnung geht von einem **2S LiPo** aus (8.4 V voll, 6.4 V leer).
+Fuer 3S oder andere Chemie `BATT_FULL`/`BATT_EMPTY` (und ggf. `DIVIDER`) im
+Sketch anpassen, sonst stimmt die Anzeige nicht.
+
 Bewusst getrennter Controller: Akkuanzeige, Heading und (in deiner Erweiterung)
 Luefter laufen unabhaengig vom Grafik-Rechner weiter, wenn der Pi abstuerzt.
+
+Derselbe SensorFeeder kann auch das **einfache OLED-HUD** (`../hud_display.py`)
+speisen: `../sensor_bridge.py` liest die Serial-Zeilen und schreibt sie nach
+`hud_state.json`/`battery.json`. `ar_passthrough.py` liest den Port dagegen
+direkt - nutze nur EINEN Leser pro Port gleichzeitig.
 
 ## Autostart
 
