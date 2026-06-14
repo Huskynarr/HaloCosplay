@@ -2,6 +2,9 @@
 
 Diese Liste ist nach Kategorien gegliedert. Preise sind Richtwerte (EUR).
 
+**Direkte Kauflinks zu allen Posten:** `Materials/Einkaufsliste-Links.md`
+(Bambu Lab Store, Amazon, Otto, Conrad, Berrybase, supermagnete - Stand Juni 2026).
+
 ## Filament (3D-Druck, H2C)
 
 | Material | Menge | Preis ca. | Hinweis |
@@ -21,6 +24,7 @@ Diese Liste ist nach Kategorien gegliedert. Preise sind Richtwerte (EUR).
 | Bondo Spot Putty | 8-12 EUR | Fuer Naehte und grosse Luecken |
 | CA-Kleber + Aktivator | 8-12 EUR | Schnellfueller, Verklebung |
 | Epoxy (2K) | 10-15 EUR | Strukturelle Verklebung |
+| Kontaktkleber (Pattex/Barge) | 8-15 EUR | Foam-Verklebung (V1/Hybrid-Teile) |
 
 ## Lackierung
 
@@ -41,7 +45,7 @@ Diese Liste ist nach Kategorien gegliedert. Preise sind Richtwerte (EUR).
 | iDye Poly (Gold/Orange) | 5-8 EUR | Faerbung |
 | Krylon Looking Glass | 10-15 EUR | Innenseitige Verspiegelung |
 
-## Elektronik — Kernkomponenten
+## Elektronik - Kernkomponenten
 
 | Komponente | Preis ca. | Hinweis |
 | --- | --- | --- |
@@ -52,19 +56,19 @@ Diese Liste ist nach Kategorien gegliedert. Preise sind Richtwerte (EUR).
 | Arduino Nano (Clone) | 5-8 EUR | LED/Luefter-Steuerung |
 | **Elektronik Kern gesamt** | **~85-115 EUR** | |
 
-## Elektronik — LEDs
+## Elektronik - LEDs
 
 | Komponente | Preis ca. | Hinweis |
 | --- | --- | --- |
 | WS2812B Strip (60 LED/m, 2m) | 15-25 EUR | Helm + Ruestung |
-| WS2812B LED-Ringe (12/16 LEDs, 2er Set) | 8-12 EUR | Schubdüsen-Beleuchtung |
-| IRLZ44N N-Kanal MOSFET | 2-3 EUR | Steuerung Vernebler (Schubdüsen) |
+| WS2812B LED-Ringe (12/16 LEDs, 2er Set) | 8-12 EUR | Schubduesen-Beleuchtung |
+| IRLZ44N N-Kanal MOSFET | 2-3 EUR | Steuerung Vernebler (Schubduesen) |
 | 74AHCT125 Level Shifter | 2-3 EUR | 3.3V -> 5V (Pi zu LEDs) |
 | 330-470 Ohm Widerstaende (10x) | 1-2 EUR | Datenleitung |
 | 1000 uF Kondensatoren (5x) | 2-3 EUR | Stromglaettung |
 | **LEDs gesamt** | **~30-50 EUR** | |
 
-## Elektronik — Stromversorgung
+## Elektronik - Stromversorgung
 
 | Komponente | Preis ca. | Hinweis |
 | --- | --- | --- |
@@ -72,18 +76,18 @@ Diese Liste ist nach Kategorien gegliedert. Preise sind Richtwerte (EUR).
 | Optional: 2. Powerbank | 15-25 EUR | Fuer 8+ Stunden |
 | Sicherungen (2-3A, 5-10A) | 3-5 EUR | Nahe Batterie |
 
-## Elektronik — Luefter und Audio
+## Elektronik - Luefter und Audio
 
 | Komponente | Preis ca. | Hinweis |
 | --- | --- | --- |
 | 40mm 5V Luefter (2er-Pack) | 10-15 EUR | Noctua oder GDSTIME |
-| 5V DC Radiallüfter (Blower 4010/5015) | 5-8 EUR | Nebel-Transport für Schubdüsen |
-| 5V USB Ultraschall-Vernebler (Mist Maker) | 5-10 EUR | Nebel-Erzeugung für Schubdüsen |
+| 5V DC Radialluefter (Blower 4010/5015) | 5-8 EUR | Nebel-Transport fuer Schubduesen |
+| 5V USB Ultraschall-Vernebler (Mist Maker) | 5-10 EUR | Nebel-Erzeugung fuer Schubduesen |
 | PAM8403 Verstaerker + Lautsprecher | 5-8 EUR | Optional: Voice |
 | MAX4466 Mikrofon | 7-10 EUR | Optional: Voice Changer |
 | USB-Soundkarte (fuer Pi) | 5-8 EUR | Optional: Audio Output |
 
-## Elektronik — Kabel und Stecker
+## Elektronik - Kabel und Stecker
 
 | Komponente | Preis ca. | Hinweis |
 | --- | --- | --- |
@@ -109,6 +113,39 @@ Diese Liste ist nach Kategorien gegliedert. Preise sind Richtwerte (EUR).
 | Airsoft Helm-Padding Kit | 10-15 EUR | Memory-Foam Pads |
 | Kinnriemen (Motorrad/Fahrrad) | 5-10 EUR | Helm-Sicherheit |
 | **Befestigung gesamt** | **~110-195 EUR** | |
+
+## Komfort und Con-Tag
+
+| Material | Preis ca. | Hinweis |
+| --- | --- | --- |
+| PCM-Kuehlweste | 100-200 EUR | 14 Grad C konstant, kein Kondenswasser (Elektronik!), siehe `Documentation/Guides/Unteranzug-Befestigung.md` |
+| Alternative: evaporative Kuehlweste | 30-60 EUR | leichter/guenstiger, aber Verdunstungsfeuchte |
+| Taktische Handschuhe (schwarz) | 15-30 EUR | Basis fuer Spartan-Haende |
+| Balaclava/Sturmhaube (duenn, schwarz) | 8-15 EUR | unter dem Helm, Schweiss + Halsabschluss |
+| Gaffer-Tape (schwarz) | 10-15 EUR | Con-Reparaturkit |
+| Kabelbinder-Sortiment (schwarz) | 8-10 EUR | Con-Reparaturkit |
+| **Komfort gesamt** | **~70-130 EUR** (ohne PCM-Weste) | Reparaturkit + Ersatzsicherungen/-magnete einpacken |
+
+## V3-Zusatz-Hardware (AR, POV, Profi)
+
+Nur fuer V3 (Stufe-C-AR nach `Documentation/Guides/Elektronik-AR-Display.md` und
+`Documentation/Guides/V3-Systemarchitektur.md`). Kommt ZUSAETZLICH zur Elektronik oben.
+
+| Komponente | Preis ca. | Hinweis |
+| --- | --- | --- |
+| Raspberry Pi 5 (8 GB) | 180-210 EUR | AR-Rechner (Passthrough); Preisstand 2026 (RAM-Knappheit) |
+| Pi Camera Module 3 (CSI) | 30-40 EUR | Passthrough-Kamera |
+| Aktiver Kuehler fuer Pi 5 | 6-10 EUR | Pflicht im Helm |
+| Helm-Display 5-7" (HDMI/DSI) | 40-80 EUR | je nach Optik-Konzept |
+| ESP32 Dev Board | 8-12 EUR | SensorFeeder (IMU, Akku, Luefter) |
+| MPU6050 IMU-Modul | 5-8 EUR | Heading fuers HUD |
+| 5V/5A Step-Down (Pololu D24V50F5/UBEC) | 15-25 EUR | LiPo -> 5V-Schienen |
+| 3S LiPo 5.000 mAh (XT60) | 35-50 EUR | nur mit BMS/Schutz, siehe Batterie-Guide |
+| LiPo-Balancer-Ladegeraet | 30-50 EUR | NIE im Kostuem laden |
+| 20.000 mAh USB-C PD Powerbank | 30-50 EUR | Alternative zur LiPo-Loesung |
+| Mini-Action-Cam (POV) | 150-400 EUR | autark, Insta360/DJI, optional |
+| Voice-Changer-Modul | 20-40 EUR | falls nicht DIY ueber PAM8403/MAX4466 |
+| **V3-Zusatz gesamt** | **~400-750 EUR** (ohne Action-Cam) | + Exoskelett-Material laut `Documentation/Guides/Exoskelett.md` |
 
 ## Schuhe
 
@@ -153,7 +190,9 @@ Diese Liste ist nach Kategorien gegliedert. Preise sind Richtwerte (EUR).
 | Elektronik komplett | 175-290 EUR |
 | Unteranzug + Befestigung | 110-195 EUR |
 | Schuhe | 60-120 EUR |
+| Komfort und Con-Tag (ohne PCM-Weste) | 70-130 EUR |
 | Prop-Waffe (optional) | 40-75 EUR |
-| **Gesamt (V2)** | **~680-1.140 EUR** |
+| **Gesamt (V2)** | **~750-1.270 EUR** |
+| V3-Zusatz-Hardware (optional, ohne Action-Cam) | +400-750 EUR |
 
-**Hinweis:** Dies sind Materialkosten. Tools (Loetkolben, Dremel, Airbrush etc.) und Fehlversuche kommen dazu. Realistisch: 1.5-2x der Materialkosten.
+**Hinweis:** Dies sind reine Materialkosten einer optimierten Einkaufsliste (H2C vorhanden). Tools (Loetkolben, Dremel, Airbrush etc.), Fehldrucke, Versand und Nachkaeufe kommen dazu - realistisch 2-3x der Materialkosten. Fuer die Gesamtbudget-Planung siehe `Documentation/Guides/Kosten.md` (V2: 2.400-6.600 EUR inkl. allem).

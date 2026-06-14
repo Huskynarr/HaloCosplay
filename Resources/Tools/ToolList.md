@@ -1,5 +1,8 @@
 # Tool List (Hardware)
 
+Direkte Kauflinks zu den wichtigsten Werkzeugen: `Materials/Einkaufsliste-Links.md`
+(Abschnitt "Werkzeuge").
+
 ## Grundwerkzeuge (alle Varianten)
 
 | Tool | Einsatz | Preis ca. |
@@ -47,7 +50,7 @@
 
 | Tool | Einsatz | Preis ca. |
 | --- | --- | --- |
-| Bambu Lab H2C (vorhanden) | 3D-Druck aller Ruestungsteile | — |
+| Bambu Lab H2C (vorhanden) | 3D-Druck aller Ruestungsteile | - |
 | Ersatz-Duesen (0.4, 0.6, 0.8 mm) | Verschiedene Detailgrade/Speed | 10-20 EUR |
 | Schaber / Spachtel (Metall) | Teile vom Druckbett loesen | 5-10 EUR |
 | Seitenschneider (scharf) | Supports entfernen | 8-12 EUR |
