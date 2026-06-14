@@ -44,6 +44,7 @@ Dieses Verzeichnis sammelt alle Kerninhalte fuer das Halo MJOLNIR Cosplay Projek
 - **Helm-Belueftung (Luefter):** `Documentation/Guides/Elektronik-Luefter.md`
 - **Audio und Voice Changer:** `Documentation/Guides/Elektronik-Audio.md`
 - **AR-Display und Kamera-Passthrough (V3, ehrliche Grenzen):** `Documentation/Guides/Elektronik-AR-Display.md`
+- **V3-Systemarchitektur (alle Module, Stromschienen, POV-Kamera):** `Documentation/Guides/V3-Systemarchitektur.md`
 - **Elektronik-Gesamtuebersicht + Modulmatrix V1/V2/V3:** `Documentation/Guides/ElectronicsGuide.md`
 
 ## Unteranzug und Befestigung
@@ -54,6 +55,7 @@ Dieses Verzeichnis sammelt alle Kerninhalte fuer das Halo MJOLNIR Cosplay Projek
 
 - Material- und Toolliste: `Documentation/Guides/Materialien.md`
 - **Einkaufsliste (detailliert):** `Materials/ShoppingList.md`
+- **Einkaufsliste mit Kauflinks (Bambu Lab, Amazon, Conrad ...):** `Materials/Einkaufsliste-Links.md`
 - Kosten: `Documentation/Guides/Kosten.md`
 - Zeitplan: `Documentation/Guides/Zeitplan.md`
 
@@ -86,6 +88,7 @@ Dieses Verzeichnis sammelt alle Kerninhalte fuer das Halo MJOLNIR Cosplay Projek
 - Waffen-Prop: `Documentation/Guides/Waffen-Prop.md`
 - **Pflege und Wartung:** `Documentation/Guides/Pflege-Wartung.md`
 - Exoskelett (Profi): `Documentation/Guides/Exoskelett.md`
+- Begleit-Roboter ins HUD integrieren (Konzept): `Documentation/Guides/Begleitroboter-Integration.md`
 - Best Practices: `Documentation/Guides/Best-Practices.md`
 - Fehlerbehebung: `Documentation/Guides/Fehlerbehebung.md`
 

@@ -1,6 +1,6 @@
 # Elektronik: Strombudget und Laufzeit
 
-> **Level:** [A] Anfaenger | [F] Fortgeschritten | [P] Profi  ·  **Varianten:** alle
+> **Level:** [A] Anfaenger | [F] Fortgeschritten | [P] Profi  |  **Varianten:** alle
 
 Dieser Guide hilft beim realistischen Power-Budget und bei der Laufzeitplanung.
 
@@ -14,7 +14,7 @@ Dieser Guide hilft beim realistischen Power-Budget und bei der Laufzeitplanung.
 | 40 mm Luefter (5V) | 0.05-0.15 A | 0.15 A | Noctua: 0.05A, GDSTIME: 0.15A |
 | Arduino Nano | 0.02-0.04 A | 0.05 A | Ohne angeschlossene Lasten |
 | WS2812B LED (gruen, pro LED) | 0.02 A | 0.06 A (weiss) | Worst case = alle 3 Kanaele voll |
-| WS2812B LED (50% gruen, pro LED) | 0.01 A | — | Realitischer Convention-Wert |
+| WS2812B LED (50% gruen, pro LED) | 0.01 A | - | Realitischer Convention-Wert |
 | PAM8403 Audio (aktiv) | 0.05-0.15 A | 0.30 A | Abhaengig von Lautstaerke |
 | MAX4466 Mikrofon | < 0.01 A | 0.01 A | Vernachlaessigbar |
 
@@ -34,7 +34,7 @@ Laufzeit mit PiSugar 3 Plus (5000 mAh):
 5000 / 440 * 0.85 = ca. 9.7 Stunden
 ```
 
-### Standard V2 Setup
+### Standard V2 Setup (ohne Audio)
 
 | Komponente | Strom |
 | --- | --- |

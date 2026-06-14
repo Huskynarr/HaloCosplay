@@ -1,15 +1,19 @@
-# Master Chief MJOLNIR Build — TODO
+# Master Chief MJOLNIR Build - TODO
 
 Hauptliste aller offenen Aufgaben, gegliedert nach Phasen. Hake ab was erledigt ist.
+
+Diese Liste ist die **Abhakliste** zum `Guides/Komplett-Walkthrough.md` - der Walkthrough
+erklaert jeden Schritt und verlinkt die Detail-Guides, hier wird nur abgehakt.
 
 **Varianten-Hinweis:** Diese Liste ist fuer den **3D-Druck-Pfad (V2)** geschrieben.
 - **V1 (Foam):** Ersetze Phase 2 "3D-Druck" durch den Foam-Bau (`Documentation/Guides/Foam-Bau.md`):
   Templates skalieren, schneiden, Heat-Forming, kleben, **flexibel** versiegeln. Phase 3/4
   (Finishing/Lack) sinngemaess mit flexiblen Produkten, siehe Lackierung-Finishing Abschnitt
   "Foam-Finishing". Elektronik/Befestigung/Convention identisch.
-- **V3 (Exoskelett + AR):** Zusaetzlich zu allem unten: Exoskelett bauen, auf der Ruestung
+- **V3 (Exoskelett + AR):** Zusaetzlich zu allem unten: Gesamtsystem planen
+  (`Documentation/Guides/V3-Systemarchitektur.md`); Exoskelett bauen, auf der Ruestung
   montieren und Geh-/Lasttest bestehen (`Documentation/Guides/Exoskelett.md`); AR-Display
-  planen (`Documentation/Guides/Elektronik-AR-Display.md`). Beides VOR der Integration (Phase 8).
+  planen (`Documentation/Guides/Elektronik-AR-Display.md`). Alles VOR der Integration (Phase 8).
 
 ## Phase 1: Planung und Vorbereitung
 
@@ -29,7 +33,7 @@ Hauptliste aller offenen Aufgaben, gegliedert nach Phasen. Hake ab was erledigt 
 - [ ] Bambu Studio Projekt anlegen mit Multi-Plate Setup
 - [ ] STLs auf Koerper skalieren
 - [ ] Teile die nicht passen im Cut Tool splitten
-- [ ] **Helm** drucken (Prioritaet — laengste Nachbearbeitung)
+- [ ] **Helm** drucken (Prioritaet - laengste Nachbearbeitung)
   - [ ] Helm-Haelften
   - [ ] Visier-Buck fuer Vakuumformen
   - [ ] Interne Halterungen (OLED, Luefter, Pi-Mount)
@@ -101,7 +105,7 @@ Hauptliste aller offenen Aufgaben, gegliedert nach Phasen. Hake ab was erledigt 
 - [ ] Quick-Disconnect am Helm-Nacken
 - [ ] Alle Elektronik ausserhalb der Ruestung testen
 - [ ] Optional: Voice Changer / Lautsprecher
-- [ ] Optional: Schubdüsen-Effekt und Nebler aufbauen (siehe [Elektronik-Schubduesen.md](file:///home/huskynarr/HaloCosplay/Documentation/Guides/Elektronik-Schubduesen.md))
+- [ ] Optional: Schubduesen-Effekt und Nebler aufbauen (siehe [Elektronik-Schubduesen.md](Guides/Elektronik-Schubduesen.md))
 
 ## Phase 7: Unteranzug und Befestigung
 
@@ -142,6 +146,6 @@ Hauptliste aller offenen Aufgaben, gegliedert nach Phasen. Hake ab was erledigt 
 ## Notizen
 
 - Fertigungszeit: Poste-Processing (Schleifen/Lackieren) braucht oft genauso lang wie der Druck selbst
-- Helm zuerst fertigstellen — er ist das Herzstueck und braucht am meisten Iterationen
+- Helm zuerst fertigstellen - er ist das Herzstueck und braucht am meisten Iterationen
 - Immer erst Passform, dann Details
-- Elektronik modular halten — wenn etwas ausfaellt, muss der Rest trotzdem funktionieren
+- Elektronik modular halten - wenn etwas ausfaellt, muss der Rest trotzdem funktionieren

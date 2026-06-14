@@ -8,8 +8,8 @@ Wenn du nur EINE Datei liest, lies diese - und springe von hier aus in die Tiefe
 
 ## Legende
 
-- **Level:** [A] Anfaenger · [F] Fortgeschritten · [P] Profi
-- **Variante:** (V1) Foam/guenstig · (V2) 3D-Druck/H2C + HUD · (V3) Profi/Exoskelett/AR
+- **Level:** [A] Anfaenger | [F] Fortgeschritten | [P] Profi
+- **Variante:** (V1) Foam/guenstig | (V2) 3D-Druck/H2C + HUD | (V3) Profi/Exoskelett/AR
 - (alle) = gilt fuer jede Variante
 
 Variantenvergleich und Auswahl: `Documentation/Guides/Varianten.md`.
@@ -24,6 +24,8 @@ Begriffe unklar? `Documentation/Guides/Glossar.md`.
 4. [A] Die 15 haeufigsten Anfaengerfehler lesen (spart Wochen): `Documentation/Guides/Anfaengerfehler.md`
 5. [A] Authentischen Look festlegen (Halo Infinite): `Documentation/Guides/Authentizitaet-Referenz.md`
 6. [A] Werkzeug- und Materialueberblick: `Documentation/Guides/Materialien.md`
+7. [F]/[P] Optionale Erweiterungsideen sichten (Sensorik, Sound, AR-Features):
+   `Design/Designs/IdeasReferences.md`
 
 ## Phase 1 - Vermessung und Skalierung (alle, [A])
 
@@ -98,7 +100,7 @@ Modulmatrix (was pro Variante sinnvoll ist): `Documentation/Guides/ElectronicsGu
 7. [F] Autostart einrichten (systemd): `Documentation/Guides/Elektronik-Autostart.md`
 8. [F] Audio/Voice-Changer (optional): `Documentation/Guides/Elektronik-Audio.md`
 9. [F] Visor-LED-Diffusion/Foto-Tauglichkeit verstehen: `Documentation/Guides/LED-Visor-Forschung.md`
-10. [F] Schubdüsen-Effekte & Nebler (optional): [Elektronik-Schubduesen.md](file:///home/huskynarr/HaloCosplay/Documentation/Guides/Elektronik-Schubduesen.md)
+10. [F] Schubduesen-Effekte & Nebler (optional): [Elektronik-Schubduesen.md](Elektronik-Schubduesen.md)
 
 ## Phase 7 - Unteranzug und Befestigung (alle, [F])
 
@@ -107,9 +109,13 @@ Modulmatrix (was pro Variante sinnvoll ist): `Documentation/Guides/ElectronicsGu
 
 ## Phase 8 - Profi-Ausbau (nur V3, [P])
 
-1. [P] Exoskelett bauen, auf der Ruestung montieren, Geh-/Lasttest: `Documentation/Guides/Exoskelett.md`
-2. [P] AR-Display planen (Stufen A/B/C, Sicherheit): `Documentation/Guides/Elektronik-AR-Display.md`
-3. [P] AR-Passthrough-Code aufsetzen und testen: `Code/HelmetControl/AR/README.md`
+1. [P] Gesamtsystem planen (Module, Stromschienen, Ausfall-Verhalten):
+   `Documentation/Guides/V3-Systemarchitektur.md`
+2. [P] Exoskelett bauen, auf der Ruestung montieren, Geh-/Lasttest: `Documentation/Guides/Exoskelett.md`
+3. [P] AR-Display planen (Stufen A/B/C, Sicherheit): `Documentation/Guides/Elektronik-AR-Display.md`
+4. [P] AR-Passthrough-Code aufsetzen und testen: `Code/HelmetControl/AR/README.md`
+5. [P] Schubduesen + Nebler, Audio, optionale POV-Kamera Modul fuer Modul in
+   Betrieb nehmen (Reihenfolge im Architektur-Guide, Abschnitt 6)
 
 ## Phase 9 - Integration und Tests (alle, [F])
 

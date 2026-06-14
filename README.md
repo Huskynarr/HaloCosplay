@@ -17,24 +17,24 @@ Die Kosten sind stark abhaengig von Tools, Fehlversuchen, Versand und Premium-Ma
 ## Projektziele
 
 - **Authentische MJOLNIR-Optik:** Mark VII / Mark VI Gen 3 Look mit originalen Farbcodes von 343 Industries.
-- **Tragbare, sichere Bauweise:** Modularer Aufbau für Conventions mit Notausstieg in <60 Sekunden.
-- **Mechanisches Exoskelett (V3):** Passives Traggestell zur Lastableitung (Schultern -> Hüfte) mit Taulman Alloy 910 Gelenken, H-Harness Rigging und bungeegestützten PEX-Hydraulikkolben.
+- **Tragbare, sichere Bauweise:** Modularer Aufbau fuer Conventions mit Notausstieg in <60 Sekunden.
+- **Mechanisches Exoskelett (V3):** Passives Traggestell zur Lastableitung (Schultern -> Huefte) mit Taulman Alloy 910 Gelenken, H-Harness Rigging und bungeegestuetzten PEX-Hydraulikkolben.
 - **AR HUD & OpenCV (V3):** Near-Eye-Display (NED/Vufine) mit Pi 4/5, OpenCV-Bildverarbeitung (Freund-Feind-Erkennung / IFF), Nachtsicht, digitalem Zoom und BT-Waffentelemetrie.
-- **Munitionszähler (MA40/MA5):** Integrierte Zählerelektronik (Arduino/Pico) mit SSD1306-OLED-Anzeige, Schussabnahme am Abzug und Reload-Erkennung.
+- **Munitionszaehler (MA40/MA5):** Integrierte Zaehlerelektronik (Arduino/Pico) mit SSD1306-OLED-Anzeige, Schussabnahme am Abzug und Reload-Erkennung.
 
 ## Quick Start
 
-1. **Roter Faden / Komplett-Walkthrough (Anfänger bis Profi):** `Documentation/Guides/Komplett-Walkthrough.md`
+1. **Roter Faden / Komplett-Walkthrough (Anfaenger bis Profi):** `Documentation/Guides/Komplett-Walkthrough.md`
 2. **Start-Here-Guide lesen:** `Documentation/Guides/Start-Hier.md`
-3. **Projektübersicht lesen:** `Documentation/README.md`
-4. **Variante wählen (V1 Foam, V2 3D-Druck, V3 Exoskelett):** `Documentation/Guides/Varianten.md`
+3. **Projektuebersicht lesen:** `Documentation/README.md`
+4. **Variante waehlen (V1 Foam, V2 3D-Druck, V3 Exoskelett):** `Documentation/Guides/Varianten.md`
 5. **TODO-Liste nutzen:** `Documentation/TODO.md`
 6. **Bau- und Skalierungsplanung (Shin +15%, Biceps 1.1x):** `BuildGuides/Armor/Step1.md`
-7. **Exoskelett & Hydraulik-Baupläne:** `Documentation/Guides/Exoskelett.md`
-8. **Schubdüsen & Nebeleffekte:** [Elektronik-Schubduesen.md](file:///home/huskynarr/HaloCosplay/Documentation/Guides/Elektronik-Schubduesen.md)
+7. **Exoskelett & Hydraulik-Bauplaene:** `Documentation/Guides/Exoskelett.md`
+8. **Schubduesen & Nebeleffekte:** [Elektronik-Schubduesen.md](Documentation/Guides/Elektronik-Schubduesen.md)
 9. **Kosten und Zeitplan:** `Documentation/Guides/Kosten.md` und `Documentation/Guides/Zeitplan.md`
 10. **Elektronik-Systemplanung:** `Documentation/Guides/Elektronik-HUD.md` und `Materials/ShoppingList.md`
-11. **Code-Übersicht (OLED HUD, AR, LED-Effekte, Ammo-Counter):** `Code/README.md`
+11. **Code-Uebersicht (OLED HUD, AR, LED-Effekte, Ammo-Counter):** `Code/README.md`
 
 ## Projektstruktur
 

@@ -1,6 +1,6 @@
 # LED-Effekte und Programmierung
 
-> **Level:** [F] Fortgeschritten | [P] Profi  ·  **Varianten:** V2/V3
+> **Level:** [F] Fortgeschritten | [P] Profi  |  **Varianten:** V2/V3
 > **Voraussetzungen:** Arduino IDE eingerichtet, WS2812B-LEDs verdrahtet (`Documentation/Guides/Elektronik-Verdrahtung.md`), Grundlagen Arduino-Sketch (PWM = Pulsweitenmodulation, regelt Helligkeit ueber schnelles Ein/Aus).
 
 Bewaehrte LED-Muster fuer Cosplay und wie man sie programmiert.
@@ -160,7 +160,7 @@ void loop() {
 | Ruestungs-Akzente | Gruen-Cyan | R:0, G:200, B:60 | MJOLNIR Tech-Glow |
 | Alarm/Damage | Orange-Rot | R:255, G:60, B:0 | Schild-Alarm |
 
-**Hinweis:** Reines Weiss vermeiden — sieht durch goldene Visor-Toenung verwaschen aus. Warme Toene (Amber, Gold) wirken durch den Visor am besten.
+**Hinweis:** Reines Weiss vermeiden - sieht durch goldene Visor-Toenung verwaschen aus. Warme Toene (Amber, Gold) wirken durch den Visor am besten.
 
 ## Praktische Tipps
 
@@ -173,14 +173,14 @@ void loop() {
 
 ### PWM-Frequenz (Foto-kompatibel)
 
-Standard-Arduino `analogWrite` laeuft bei 490 Hz — kann sichtbare Streifen in Fotos erzeugen.
+Standard-Arduino `analogWrite` laeuft bei 490 Hz - kann sichtbare Streifen in Fotos erzeugen.
 
 Loesung: Timer-basiertes PWM oder NeoPixel-Library (diese nutzt eigenes Timing und ist foto-sicher).
 
 ### Stromsparen
 
 - LEDs bei 50% Helligkeit brauchen nur ~25% des Stroms von voller Helligkeit
-- Nicht alle LEDs gleichzeitig auf Maximum — 60 LEDs weiss bei 100% = 3.6 A!
+- Nicht alle LEDs gleichzeitig auf Maximum - 60 LEDs weiss bei 100% = 3.6 A!
 - Gruenes Einzelkanal-Leuchten braucht nur 1/3 des Stroms von Weiss
 
 ### Convention-Realitaet
@@ -192,6 +192,6 @@ Loesung: Timer-basiertes PWM oder NeoPixel-Library (diese nutzt eigenes Timing u
 ## Weiterfuehrend
 
 - **LED-Visor-Forschung (Diffusion, Foto-Probleme, COB Strips, 9mm-Regel):** `Documentation/Guides/LED-Visor-Forschung.md`
-- **Schubdüsen & Nebel-Effekt (Jetpack):** [Elektronik-Schubduesen.md](file:///home/huskynarr/HaloCosplay/Documentation/Guides/Elektronik-Schubduesen.md)
+- **Schubduesen & Nebel-Effekt (Jetpack):** [Elektronik-Schubduesen.md](Elektronik-Schubduesen.md)
 - **Helm LED-Controller Code:** `Code/HelmetControl/HelmetMultiEffects.ino`
 - **Ruestung LED-Controller Code:** `Code/ArmorControl/MultiEffects.ino`

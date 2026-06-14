@@ -1,13 +1,15 @@
 # Elektronik: Batterieloesungen und Laufzeitplanung
 
-> **Level:** [A] Anfaenger | [F] Fortgeschritten | [P] Profi  ·  **Varianten:** alle
+> **Level:** [A] Anfaenger | [F] Fortgeschritten | [P] Profi  |  **Varianten:** alle
 > **Voraussetzungen:** Strombudget gerechnet (`Documentation/Guides/Elektronik-Strombudget.md`); fuer Option C (LiPo) Wissen zu BMS/Schutzschaltung (Batterie-Management-System, schuetzt vor Ueberladung/Tiefentladung).
 
 Wie man genug Strom fuer einen ganzen Convention-Tag mitbringt.
 
 ## Laufzeitberechnung
 
-### Gesamtstromverbrauch (V2 typisch)
+### Gesamtstromverbrauch (V2 Voll-Setup mit Audio)
+
+Entspricht dem "Voll-Setup" in `Elektronik-Strombudget.md` (1.27 A). Ohne Audio rechne mit 1.17 A (ca. 14.5 h bei 20.000 mAh).
 
 | Komponente | Strom (A) |
 | --- | --- |
@@ -85,7 +87,7 @@ sudo systemctl disable triggerhappy
 
 ## Sicherheitsregeln
 
-- **Akkus NIE im Kostuem laden** — immer extern
+- **Akkus NIE im Kostuem laden** - immer extern
 - USB-Powerbanks sind am sichersten (eingebaute Schutzkreise)
 - LiPo nur mit BMS/Schutzschaltung
 - Batterien im Backpack/Torso montieren (Gewichtsverteilung)

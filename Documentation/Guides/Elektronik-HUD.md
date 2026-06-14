@@ -1,6 +1,6 @@
 # Elektronik und HUD
 
-> **Level:** [F] Fortgeschritten | [P] Profi  ·  **Varianten:** V2/V3
+> **Level:** [F] Fortgeschritten | [P] Profi  |  **Varianten:** V2/V3
 > **Voraussetzungen:** Strombudget gerechnet (`Documentation/Guides/Elektronik-Strombudget.md`), Loetkenntnisse, Grundlagen Raspberry Pi/I2C.
 
 Ziel ist ein tragbares, modulares HUD-System mit sicherer Stromversorgung. Die Basis ist ein Raspberry Pi Zero 2 W mit transparentem OLED-Display. Eine guenstige Alternative ist ein einfarbiges, gruener LED-HUD ohne AR-Funktionen.
@@ -70,12 +70,20 @@ Test: `i2cdetect -y 1` (Adresse meist 0x3C/0x3D)
 - Dependencies: `Code/HelmetControl/requirements.txt`
 - Konfig: `Code/HelmetControl/config.example.json` (als `config.json` kopieren)
 - Batterie-Input: `Code/HelmetControl/battery.example.json`
-- Arduino: `Code/HelmetControl/MainControlCode.ino`
+- Live-Werte (Schild/Ammo/Heading): `Code/HelmetControl/hud_state.example.json`
+  (als `hud_state.json` kopieren; andere Module schreiben hier rein)
+- Arduino: `Code/HelmetControl/HelmetMultiEffects.ino` (empfohlen: Effekte, Luefter-PWM, I2C);
+  `MainControlCode.ino` ist die Minimal-Variante (nur Helligkeit)
+- Pi-Steuerung des Arduinos: `Code/HelmetControl/helmet_control.py`
+  (z.B. `python3 helmet_control.py effect heartbeat`, `fan 180`)
+- HUD ohne Hardware testen: `python3 hud_display.py --selftest hud_test.png`
 
 ## Weitere Guides
 
+- Code-Uebersicht und Pin-Belegung: `Code/README.md`
 - Strombudget: `Documentation/Guides/Elektronik-Strombudget.md`
 - Verdrahtung: `Documentation/Guides/Elektronik-Verdrahtung.md`
+- V3-Gesamtsystem (Module, Stromschienen): `Documentation/Guides/V3-Systemarchitektur.md`
 
 ## HUD-Erweiterungen (optional)
 

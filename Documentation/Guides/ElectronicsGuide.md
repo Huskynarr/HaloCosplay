@@ -1,6 +1,6 @@
 # Elektronik-Guide
 
-> **Level:** [A] Anfaenger | [F] Fortgeschritten | [P] Profi  ·  **Varianten:** alle
+> **Level:** [A] Anfaenger | [F] Fortgeschritten | [P] Profi  |  **Varianten:** alle
 
 Diese Seite ist die zentrale Uebersicht ueber die gesamte Elektronik im MJOLNIR-Suit
 (Master Chief, HALO INFINITE, GEN3-Proportionen). Sie ordnet die Einzel-Guides ein,
@@ -101,7 +101,7 @@ wenn du jedes Modul einzeln in Betrieb genommen hast.
 
 - HUD und Systemuebersicht: `Documentation/Guides/Elektronik-HUD.md`
 - LED-Effekte (Muster, Code-Bezug): `Documentation/Guides/LED-Effekte.md`
-- Schubdüsen-Effekte (LED + Nebel): [Elektronik-Schubduesen.md](file:///home/huskynarr/HaloCosplay/Documentation/Guides/Elektronik-Schubduesen.md)
+- Schubduesen-Effekte (LED + Nebel): [Elektronik-Schubduesen.md](Elektronik-Schubduesen.md)
 - Pi-Einrichtung und Autostart: `Documentation/Guides/Elektronik-Autostart.md`
 - Strombudget und Laufzeit: `Documentation/Guides/Elektronik-Strombudget.md`
 - Batterieloesungen (8+ Stunden): `Documentation/Guides/Elektronik-Batterie.md`
@@ -109,6 +109,7 @@ wenn du jedes Modul einzeln in Betrieb genommen hast.
 - Helm-Belueftung (Luefter): `Documentation/Guides/Elektronik-Luefter.md`
 - Audio und Voice Changer: `Documentation/Guides/Elektronik-Audio.md`
 - AR-Display und Kamera-Passthrough (V3): `Documentation/Guides/Elektronik-AR-Display.md`
+- V3-Systemarchitektur (alle Module im Zusammenspiel, POV-Kamera): `Documentation/Guides/V3-Systemarchitektur.md`
 
 ## Code
 
