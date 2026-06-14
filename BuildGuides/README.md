@@ -24,24 +24,24 @@ Alle drei Varianten enden im selben Convention-Abschluss: `Documentation/Guides/
 
 ## Reihenfolge (empfohlen)
 
-1. **Helm** — laengste Nachbearbeitung, Herzstueck des Builds
-2. **Ruestung** — groesstes Volumen, definiert die Silhouette
-3. **Elektronik** — parallel zum Bau auf dem Tisch aufbauen
+1. **Helm** - laengste Nachbearbeitung, Herzstueck des Builds
+2. **Ruestung** - groesstes Volumen, definiert die Silhouette
+3. **Elektronik** - parallel zum Bau auf dem Tisch aufbauen
 
 ## Helm
 
-- `Helmet/Step1.md` — Shell, Visor, Innenraum (Skalierung, Druck, Vakuumformen, Polsterung)
-- `Helmet/Step2.md` — Elektronik, Lackierung, Finish (OLED, Luefter, Lack, Endmontage)
+- `Helmet/Step1.md` - Shell, Visor, Innenraum (Skalierung, Druck, Vakuumformen, Polsterung)
+- `Helmet/Step2.md` - Elektronik, Lackierung, Finish (OLED, Luefter, Lack, Endmontage)
 
 ## Ruestung
 
-- `Armor/Step1.md` — Planung, Skalierung, Unteranzug (Koerpermasse, STL-Skalierung, Befestigung)
-- `Armor/Step2.md` — Druck, Zusammenbau, Finish, Montage (Workflow, Lackierung, An-/Ausziehen)
+- `Armor/Step1.md` - Planung, Skalierung, Unteranzug (Koerpermasse, STL-Skalierung, Befestigung)
+- `Armor/Step2.md` - Druck, Zusammenbau, Finish, Montage (Workflow, Lackierung, An-/Ausziehen)
 
 ## Elektronik
 
-- `Electronics/Step1.md` — Systemplanung und Verkabelung (Komponentenliste, Strombudget, Loeten)
-- `Electronics/Step2.md` — Software, Tests, Integration (Pi Setup, Arduino, LED-Effekte, Dauertest)
+- `Electronics/Step1.md` - Systemplanung und Verkabelung (Komponentenliste, Strombudget, Loeten)
+- `Electronics/Step2.md` - Software, Tests, Integration (Pi Setup, Arduino, LED-Effekte, Dauertest)
 
 ## Weitere Guides
 

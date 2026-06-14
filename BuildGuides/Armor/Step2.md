@@ -1,6 +1,6 @@
 # Armor Step 2: Druck, Zusammenbau, Finish, Montage
 
-> **Level:** [F] Fortgeschritten | [P] Profi  ·  **Varianten:** V2/V3 (3D-Druck)  ·  **Voraussetzungen:** Step 1 abgeschlossen, Slicer, Schleif-/Lackier-Werkzeug; Begriffe siehe `Documentation/Guides/Glossar.md`
+> **Level:** [F] Fortgeschritten | [P] Profi  |  **Varianten:** V2/V3 (3D-Druck)  |  **Voraussetzungen:** Step 1 abgeschlossen, Slicer, Schleif-/Lackier-Werkzeug; Begriffe siehe `Documentation/Guides/Glossar.md`
 
 ## Voraussetzung
 
@@ -42,12 +42,12 @@ Detailliert: `Documentation/Guides/Lackierung-Finishing.md`
 
 ### Kurzversion pro Teil
 
-1. **Grob-Schliff:** 120er Koernung — Layer Lines, Support-Narben, Naehte
+1. **Grob-Schliff:** 120er Koernung - Layer Lines, Support-Narben, Naehte
 2. **Fein-Schliff:** 240er Koernung
-3. **Filler Primer** aufspruehen — trocknen — **320er schleifen**
+3. **Filler Primer** aufspruehen - trocknen - **320er schleifen**
 4. Schritt 3 **wiederholen** (2-3 Zyklen bis Layer Lines weg)
 5. **Spachtel:** Bondo/XTC-3D auf tiefe Stellen und Klebelinien
-6. **Finaler Primer** — gleichmaessige Schicht
+6. **Finaler Primer** - gleichmaessige Schicht
 7. **Grundfarbe:** Oregano Satin (3-4 duenne Schichten)
 8. **Trocknen:** 24-48h vor Weathering
 9. **Weathering:** Wash > Dry Brush > Battle Damage > Schwamm
@@ -71,7 +71,7 @@ Detailliert: `Documentation/Guides/Unteranzug-Befestigung.md`
 
 1. **Polsterung:** 6 mm EVA-Foam auf Innenseiten kleben (Kontaktkleber)
    - Fokus auf Druckstellen: Kanten die auf Haut treffen, Auflagepunkte
-   - NICHT die gesamte Innenseite — Luft muss zirkulieren
+   - NICHT die gesamte Innenseite - Luft muss zirkulieren
 2. **Klett-Felder:** Industrial Velcro (Hook-Seite) auf Innenseite kleben
    - Korrespondierende Loop-Seite auf Morphsuit naehen
 3. **Magnete:** Neodym 10x3 mm in 3D-gedruckten Haltern mit Epoxy einkleben

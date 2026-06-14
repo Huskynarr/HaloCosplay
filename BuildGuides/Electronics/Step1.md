@@ -1,6 +1,6 @@
 # Electronics Step 1: Systemplanung und Verkabelung
 
-> **Level:** [F] Fortgeschritten | [P] Profi  ·  **Varianten:** V2/V3 (HUD/LEDs)  ·  **Voraussetzungen:** Loetkolben und Multimeter, Komponentenliste beschafft; Begriffe siehe `Documentation/Guides/Glossar.md`
+> **Level:** [F] Fortgeschritten | [P] Profi  |  **Varianten:** V2/V3 (HUD/LEDs)  |  **Voraussetzungen:** Loetkolben und Multimeter, Komponentenliste beschafft; Begriffe siehe `Documentation/Guides/Glossar.md`
 
 ## Ziele
 
@@ -74,7 +74,7 @@ Detailliert: `Documentation/Guides/Elektronik-Strombudget.md` und `Documentation
 | Audio (intermittierend) | 0.10 A |
 | **Gesamt** | **~1.27 A** |
 
-**Laufzeit mit 2x 10.000 mAh Powerbank:** ca. 13+ Stunden — mehr als genug fuer eine Convention.
+**Laufzeit mit 2x 10.000 mAh Powerbank:** ca. 13+ Stunden - mehr als genug fuer eine Convention.
 
 ## 3. Verkabelungs-Schema planen
 
@@ -100,8 +100,8 @@ Detailliert: `Documentation/Guides/Elektronik-Verdrahtung.md`
 - **AWG 18-20** fuer Power-Leitungen (LEDs, Hauptversorgung)
 - **AWG 22-24** fuer Luefter, Audio, moderate Lasten
 - **AWG 26** NUR fuer Signalleitungen (I2C, LED-Data)
-- **GND aller Systeme verbinden!** — gemeinsame Masse ist Pflicht
-- **Sicherungen nahe der Batterie** — immer!
+- **GND aller Systeme verbinden!** - gemeinsame Masse ist Pflicht
+- **Sicherungen nahe der Batterie** - immer!
 - **Strain Relief** an jedem Stecker (Schrumpfschlauch + Heisskleber)
 
 ### Stecker-Zuordnung

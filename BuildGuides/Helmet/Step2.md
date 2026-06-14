@@ -1,6 +1,6 @@
 # Helmet Step 2: Elektronik, Lackierung und Finish
 
-> **Level:** [F] Fortgeschritten | [P] Profi  ·  **Varianten:** V2/V3 (HUD)  ·  **Voraussetzungen:** Step 1 abgeschlossen, Loet- und Lackier-Werkzeug, getestete Elektronik-Komponenten; Begriffe siehe `Documentation/Guides/Glossar.md`
+> **Level:** [F] Fortgeschritten | [P] Profi  |  **Varianten:** V2/V3 (HUD)  |  **Voraussetzungen:** Step 1 abgeschlossen, Loet- und Lackier-Werkzeug, getestete Elektronik-Komponenten; Begriffe siehe `Documentation/Guides/Glossar.md`
 
 ## Voraussetzung
 
@@ -32,8 +32,8 @@
 
 ### Luefter einbauen
 
-1. **Intake-Luefter:** unterer Hinterkopf/Kieferbereich — zieht kuehle Luft rein
-2. **Exhaust-Luefter:** oberer Hinterkopf — drueckt heisse Luft raus
+1. **Intake-Luefter:** unterer Hinterkopf/Kieferbereich - zieht kuehle Luft rein
+2. **Exhaust-Luefter:** oberer Hinterkopf - drueckt heisse Luft raus
 3. Mit Klett befestigen (fuer einfaches Entfernen/Reinigen)
 4. Kabel zum Arduino oder direkt an Stromschiene
 5. **Luftstrom testen:** Hand vor die Luefter halten, Richtung pruefen
@@ -61,7 +61,7 @@ Alle Tests ausserhalb des Helms auf dem Tisch, DANN im Helm:
 - [ ] Luefter drehen in richtiger Richtung (Intake rein, Exhaust raus)
 - [ ] LEDs leuchten im gewuenschten Muster
 - [ ] Laufzeittest: mindestens 2 Stunden am Stueck
-- [ ] Temperatur im Helm messen (mit und ohne Luefter — Differenz sollte deutlich sein)
+- [ ] Temperatur im Helm messen (mit und ohne Luefter - Differenz sollte deutlich sein)
 - [ ] Alles funktioniert auch bei Bewegung (Kopf drehen, nicken, buecken)
 
 **WICHTIG:** Elektronik vor dem Lackieren komplett testen! Nach der Lackierung ist Zugang viel schwieriger.
@@ -79,21 +79,21 @@ Visor und Elektronik VOR dem Lackieren entfernen oder sorgfaeltig abkleben!
 
 ### Lackierschritte
 
-1. **Grundfarbe:** Rust-Oleum Oregano Satin — 3-4 duenne Schichten, je 15-20 Min trocknen lassen
+1. **Grundfarbe:** Rust-Oleum Oregano Satin - 3-4 duenne Schichten, je 15-20 Min trocknen lassen
 2. **Sekundaerfarben:** Schwarze Bereiche (Unterkiefer, Nacken-Spalte, Lueftungsschlitze) mit Matt-Schwarz
 3. **Detail:** Gunmetal/Silber fuer technische Details
 4. **Trocknen:** mindestens 24-48 Stunden vor Weathering
 
 ### Weathering
 
-1. **Schwarze Wash:** verduennte schwarze Acrylfarbe (10:1 Wasser) in alle Vertiefungen — abwischen
+1. **Schwarze Wash:** verduennte schwarze Acrylfarbe (10:1 Wasser) in alle Vertiefungen - abwischen
 2. **Dry Brushing:** Schwarz auf Kanten, dann Silber/Gunmetal auf Ecken und Hochpunkte
 3. **Battle Damage:** Metallic Pen oder Rub 'n Buff an logischen Aufprallstellen
 4. **Trocknen:** 24 Stunden
 
 ### Versiegelung
 
-- **Rust-Oleum Matte Clear Coat** — 3-4 duenne Schichten
+- **Rust-Oleum Matte Clear Coat** - 3-4 duenne Schichten
 - Matte Oberflaeche ist entscheidend (Glanz = Spielzeug-Look)
 - 48 Stunden durchtrocknen lassen
 

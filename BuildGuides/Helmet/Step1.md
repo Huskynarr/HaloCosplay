@@ -1,6 +1,6 @@
 # Helmet Step 1: Shell, Visor, Innenraum
 
-> **Level:** [F] Fortgeschritten | [P] Profi  ·  **Varianten:** V2/V3 (3D-Druck mit HUD)  ·  **Voraussetzungen:** Massband, 3D-Drucker und Slicer, Schleif-/Klebewerkzeug; Begriffe siehe `Documentation/Guides/Glossar.md`
+> **Level:** [F] Fortgeschritten | [P] Profi  |  **Varianten:** V2/V3 (3D-Druck mit HUD)  |  **Voraussetzungen:** Massband, 3D-Drucker und Slicer, Schleif-/Klebewerkzeug; Begriffe siehe `Documentation/Guides/Glossar.md`
 
 ## Ziele
 
@@ -9,11 +9,11 @@
 
 ## Skalierung und Vorbereitung
 
-1. **Kopfumfang messen** — Massband um die breiteste Stelle (Stirn ueber Hinterkopf), typisch 56-62 cm
-2. **Kopfhoehe messen** — Kinn bis Scheitel
+1. **Kopfumfang messen** - Massband um die breiteste Stelle (Stirn ueber Hinterkopf), typisch 56-62 cm
+2. **Kopfhoehe messen** - Kinn bis Scheitel
 3. **STL skalieren:**
    - Galactic Armory: Standard-Skalierung ist 183 cm / 91 kg. Anpassen nach eigenen Massen
-   - MakerWorld MJOLNIR GEN3: kommt bei 20% — auf 100% hochskalieren, dann nach Koerpermassen anpassen
+   - MakerWorld MJOLNIR GEN3: kommt bei 20% - auf 100% hochskalieren, dann nach Koerpermassen anpassen
    - **Tipp:** Innenraum des Helms muss mindestens Kopfumfang + 3-4 cm sein (Polsterung + Luefter)
 4. **Testdruck:** Ein kleines Segment drucken und am Kopf pruefen bevor der ganze Helm gedruckt wird
 
@@ -32,7 +32,7 @@
 - **Schichthoehe:** 0.16-0.20 mm (Helm ist das Highlight-Stueck)
 - **Waende:** 4-6 (Stabilitaet!)
 - **Infill:** 10-15% Gyroid
-- **Orientierung:** Visier/Gesichtsseite nach unten auf das Druckbett — Dome druckt aufwaerts
+- **Orientierung:** Visier/Gesichtsseite nach unten auf das Druckbett - Dome druckt aufwaerts
 - **Supports:** Tree Supports, nur auf Druckplatte
 - Geschaetzte Druckzeit: 18-28 Stunden (2-3 Teile)
 
@@ -40,8 +40,8 @@
 
 1. Stuetzstrukturen sauber entfernen (Zange, Cutter)
 2. Klebenaehte anschleifen (120er Koernung)
-3. **CA-Kleber (Sekundenkleber)** fuer initiale Fixierung — haelt sofort
-4. **Epoxy (2K)** entlang der Innennaehte fuer strukturelle Staerke — 24h aushaerten lassen
+3. **CA-Kleber (Sekundenkleber)** fuer initiale Fixierung - haelt sofort
+4. **Epoxy (2K)** entlang der Innennaehte fuer strukturelle Staerke - 24h aushaerten lassen
 5. Passstifte/Schwalbenschwaenze erleichtern die Ausrichtung
 
 ## Oberflaechenbearbeitung
@@ -51,13 +51,13 @@ Detailliert in `Documentation/Guides/Lackierung-Finishing.md`, hier die Helm-Kur
 1. **Schleifen:** 120 > 240 > Filler Primer > 320 > Filler Primer > 400 (2-3 Zyklen)
 2. **Naehte spachteln:** Bondo Spot Putty oder XTC-3D auf die Klebelinien, schleifen bis unsichtbar
 3. **Finale Grundierung:** gleichmaessige Schicht normaler Primer
-4. **Qualitaetscheck:** Helm gegen Licht halten — Unebenheiten werden sichtbar
+4. **Qualitaetscheck:** Helm gegen Licht halten - Unebenheiten werden sichtbar
 
 ## Visor
 
 ### Vakuumformen
 
-1. **Visor-Buck drucken** — Positivform der Visor-Oeffnung, 1-2 mm kleiner als die Oeffnung
+1. **Visor-Buck drucken** - Positivform der Visor-Oeffnung, 1-2 mm kleiner als die Oeffnung
    - Infill: 30-50% (muss Vakuumdruck standhalten)
    - Glaett-Finish (schleifen + Primer)
 2. **PETG-Folie (0.75-1 mm)** in Rahmen einspannen
@@ -67,7 +67,7 @@ Detailliert in `Documentation/Guides/Lackierung-Finishing.md`, hier die Helm-Kur
 
 ### Toenung
 
-1. **iDye Poly (Gold/Orange)** im Heisswasserbad — dauerhafte Faerbung
+1. **iDye Poly (Gold/Orange)** im Heisswasserbad - dauerhafte Faerbung
 2. **Krylon Looking Glass** auf die INNENSEITE spruehen (in die Luft spruehen, Visor durch Nebel fuehren)
 3. Mehrere duenne Durchgaenge fuer gewuenschte Reflexion
 4. Optional: duenner Klarlack ueber Chrome-Schicht innen zum Schutz
@@ -75,7 +75,7 @@ Detailliert in `Documentation/Guides/Lackierung-Finishing.md`, hier die Helm-Kur
 ### Einbau
 
 - Visor von innen mit 3D-gedruckten Clips oder Epoxy-Punkten befestigen
-- **Nicht vollstaendig verkleben** — Visor muss austauschbar sein (geht kaputt, beschlaegt, etc.)
+- **Nicht vollstaendig verkleben** - Visor muss austauschbar sein (geht kaputt, beschlaegt, etc.)
 - 1-2 mm Spalt oben und unten fuer Luftzirkulation
 
 ## Innenraum vorbereiten
@@ -83,7 +83,7 @@ Detailliert in `Documentation/Guides/Lackierung-Finishing.md`, hier die Helm-Kur
 ### Polsterung
 
 - **Airsoft/Taktik-Helm-Padding Kit** (Klett-Rueckseite, Memory Foam)
-- An den Seiten und oben positionieren — NICHT an Visor-Oeffnung oder Luefter-Positionen
+- An den Seiten und oben positionieren - NICHT an Visor-Oeffnung oder Luefter-Positionen
 - Klett-basiert = abnehmbar fuer Reinigung und Repositionierung
 - **Kinnriemen** montieren (Motorrad- oder Fahrrad-Typ)
 

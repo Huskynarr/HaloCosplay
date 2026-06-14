@@ -1,18 +1,18 @@
 # Die 15 haeufigsten Anfaengerfehler
 
-> **Level:** [A] Anfaenger | [F] Fortgeschritten  ·  **Varianten:** alle (V1/V2/V3)
+> **Level:** [A] Anfaenger | [F] Fortgeschritten  |  **Varianten:** alle (V1/V2/V3)
 
-Gesammelt aus der 405th, RPF und Punished Props Community. Jeder dieser Fehler kostet Zeit und Geld — lerne aus den Erfahrungen anderer.
+Gesammelt aus der 405th, RPF und Punished Props Community. Jeder dieser Fehler kostet Zeit und Geld - lerne aus den Erfahrungen anderer.
 
 ## 1. Lackieren vor der Passformkontrolle
 
-**Fehler:** Alle Teile drucken, schleifen, lackieren — und DANN feststellen, dass der Unterarm zu eng ist oder die Schulter blockiert.
+**Fehler:** Alle Teile drucken, schleifen, lackieren - und DANN feststellen, dass der Unterarm zu eng ist oder die Schulter blockiert.
 
 **Loesung:** Immer erst rohe Teile am Koerper testen (Karton-Mockup oder Roh-Druck). Finish kommt zuletzt.
 
 ## 2. Einheitliche Skalierung fuer alle Teile
 
-**Fehler:** Alle STLs mit dem gleichen Prozentsatz skalieren (z.B. 95%). Menschliche Proportionen sind nicht einheitlich — deine Arme passen vielleicht bei 96%, aber die Brust braucht 102%.
+**Fehler:** Alle STLs mit dem gleichen Prozentsatz skalieren (z.B. 95%). Menschliche Proportionen sind nicht einheitlich - deine Arme passen vielleicht bei 96%, aber die Brust braucht 102%.
 
 **Loesung:** Jedes Teil individuell skalieren. Armorsmith Software oder Testdrucke pro Koerperregion.
 
@@ -48,7 +48,7 @@ Gesammelt aus der 405th, RPF und Punished Props Community. Jeder dieser Fehler k
 
 ## 8. Keinen Klarlack auftragen
 
-**Fehler:** Weathering sieht toll aus — aber nach einem Convention-Tag ist die Farbe abgerieben und zerkratzt.
+**Fehler:** Weathering sieht toll aus - aber nach einem Convention-Tag ist die Farbe abgerieben und zerkratzt.
 
 **Loesung:** 3-4 Schichten matte Klarlack-Versiegelung. NACH dem Weathering, NICHT vorher.
 
@@ -62,11 +62,11 @@ Gesammelt aus der 405th, RPF und Punished Props Community. Jeder dieser Fehler k
 
 **Fehler:** Beim ersten Convention-Besuch den Anzug zum ersten Mal laenger als 5 Minuten tragen.
 
-**Loesung:** Mindestens 30-60 Minuten zu Hause im vollen Anzug — gehen, sitzen, Treppen. Jedes Problem das du zu Hause findest, ist loesbar. Auf der Convention ist es zu spaet.
+**Loesung:** Mindestens 30-60 Minuten zu Hause im vollen Anzug - gehen, sitzen, Treppen. Jedes Problem das du zu Hause findest, ist loesbar. Auf der Convention ist es zu spaet.
 
 ## 11. Finishing-Zeit unterschaetzen
 
-**Fehler:** "Drucken dauert 2 Wochen, dann bin ich fertig." Schleifen, Spachteln und Lackieren dauern mindestens genauso lang wie der Druck — oft laenger.
+**Fehler:** "Drucken dauert 2 Wochen, dann bin ich fertig." Schleifen, Spachteln und Lackieren dauern mindestens genauso lang wie der Druck - oft laenger.
 
 **Loesung:** Finishing-Zeit = Druckzeit. Plane entsprechend. Siehe `Zeitplan.md`.
 
@@ -74,7 +74,7 @@ Gesammelt aus der 405th, RPF und Punished Props Community. Jeder dieser Fehler k
 
 **Fehler:** Alleine auf die Convention in voller Ruestung. Eingeschraenkte Sicht, kann nichts tragen, braucht Hilfe beim Anziehen.
 
-**Loesung:** Handler organisieren — hilft beim Anziehen, navigiert, traegt Wasser und Reparatur-Kit, managed Fotoanfragen.
+**Loesung:** Handler organisieren - hilft beim Anziehen, navigiert, traegt Wasser und Reparatur-Kit, managed Fotoanfragen.
 
 ## 13. Elektronik am letzten Tag einbauen
 

@@ -1,6 +1,6 @@
 # Convention-Regeln (Deutschland)
 
-> **Level:** [A] Anfaenger | [F] Fortgeschritten | [P] Profi  ·  **Varianten:** alle
+> **Level:** [A] Anfaenger | [F] Fortgeschritten | [P] Profi  |  **Varianten:** alle
 
 Regeln unterscheiden sich je nach Veranstaltung. Hier die wichtigsten deutschen Conventions mit konkreten Vorschriften.
 
@@ -11,10 +11,10 @@ Regeln unterscheiden sich je nach Veranstaltung. Hier die wichtigsten deutschen 
 - Kostueme selbst sind willkommen
 - Regelung seit 2016 verstaerkt
 
-## DoKomi (Duesseldorf) — Deutschlands groesstes Anime/Japan-Expo
+## DoKomi (Duesseldorf) - Deutschlands groesstes Anime/Japan-Expo
 
 - Max Prop-/Waffenlaenge: **2 Meter**
-- Hieb-/Stichwaffen muessen **stumpf** sein — scharfe/spitze = Verweis + ggf. Polizeimeldung
+- Hieb-/Stichwaffen muessen **stumpf** sein - scharfe/spitze = Verweis + ggf. Polizeimeldung
 - Wurfsterne, Nunchaku, Springmesser, Butterfly-Messer, Schlagringe verboten in jedem Material
 - **Alle Schusswaffenimitationen** (realistisch aussehende nicht-funktionale Pistolen) verboten
 - Paintball/Luftdruck, echte Waffen, Pyrotechnik verboten
@@ -32,14 +32,14 @@ Detaillierteste Regeln aller deutschen Conventions:
   - Schleppen/Schwaenze max 1 m
   - Schilde max 80 cm Durchmesser
   - Kopfbedeckungen max 1 m breit
-- **Erlaubte Prop-Materialien:** Holz, Pappe, Kunststoff, weiche Materialien, Foam, Thermoplast — bis **1,50 m** Gesamtlaenge
+- **Erlaubte Prop-Materialien:** Holz, Pappe, Kunststoff, weiche Materialien, Foam, Thermoplast - bis **1,50 m** Gesamtlaenge
 - Gehstoecke bis 2 m (ohne sperrige Aufsaetze)
 - **Verboten:** Schusswaffen/Imitationen, Hieb-/Stichwaffen, Metallgegenstaende (ueberwiegend Metall), Plexiglas-Props, Holz dicker als 3 cm, Fahnen, Stelzen, Ketten, funktionale Boegen/Armbrueste
 - Gasmasken und Motorradhelme verboten; Vollgesichtsmasken nur mit Vorab-Genehmigung
 - Ruestungsspitzen max 5 cm und muessen stumpf sein
 - 3D-gedruckte Props erlaubt wenn gut geschliffen
 - Keine Zombie-Kostueme, keine Militaer-/Kampfuniformen, kein Kunstblut, keine Verletzungsdarstellungen ueber 10 cm
-- Cosplay-Check in Halle 1 — Pflicht bei Verdacht auf Regelverstoss
+- Cosplay-Check in Halle 1 - Pflicht bei Verdacht auf Regelverstoss
 - **Vorab-Genehmigung:** E-Mail an info@manga-comic-con.de mit Foto und vollem Namen
 
 ## Connichi (Kassel/Wiesbaden)
@@ -63,21 +63,21 @@ Detaillierteste Regeln aller deutschen Conventions:
 - Meiste Cons haben "Cosplay-Check" / "Waffencheck" am Eingang
 - **Entscheidungen des Sicherheitspersonals sind endgueltig**
 
-## Deutsches Waffengesetz — relevante Abschnitte
+## Deutsches Waffengesetz - relevante Abschnitte
 
-### §42a WaffG — Anscheinswaffen
+### Par. 42a WaffG - Anscheinswaffen
 
-- **Verbietet das Fuehren** von Gegenstaenden in der Oeffentlichkeit, die Schusswaffen aehneln — unabhaengig von Funktionsfaehigkeit
+- **Verbietet das Fuehren** von Gegenstaenden in der Oeffentlichkeit, die Schusswaffen aehneln - unabhaengig von Funktionsfaehigkeit
 - Bussgelder bis zu **10.000 EUR**
 - Kein Waffenschein moeglich fuer Imitationen
 
 **Ausnahmen:**
-- Gegenstaende die "offensichtlich als Spielzeug erkennbar" sind — speziell Objekte die 50% groesser/kleiner als echte Waffen sind ODER in Neon-/offensichtlich-Spielzeugfarben
+- Gegenstaende die "offensichtlich als Spielzeug erkennbar" sind - speziell Objekte die 50% groesser/kleiner als echte Waffen sind ODER in Neon-/offensichtlich-Spielzeugfarben
 - Theater, Film/Foto (Conventions zaehlen rechtlich NICHT als Theater)
 
 **Kritisch fuer Cosplayer:** Ein realistisch aussehender Prop-Gun, selbst aus Foam, kann rechtlich problematisch sein wenn er auf den ersten Blick echt aussieht.
 
-### §42 WaffG — Oeffentliche Veranstaltungen
+### Par. 42 WaffG - Oeffentliche Veranstaltungen
 
 - Verbietet das Fuehren von Waffen bei oeffentlichen Versammlungen, Festen, Sportveranstaltungen, Maerkten
 - Conventions fallen unter diese Kategorie
@@ -91,9 +91,9 @@ Detaillierteste Regeln aller deutschen Conventions:
 
 | Teil | Empfehlung |
 | --- | --- |
-| MA5 Assault Rifle | Aus Foam/3D-Druck, kein realistisches Schwarz — Olive/Game-Farben nutzen |
-| M6D Pistol | Klein genug, aber NICHT realistisch gestalten — oranger Tip, uebergroesse oder eindeutig kuenstlich |
-| Energy Sword | Aus transluzent-blauem Foam/Acryl — offensichtlich nicht echt, wenig Probleme |
-| Gravity Hammer | Schaumstoff — bei Uebergroesse offensichtlich Prop |
+| MA5 Assault Rifle | Aus Foam/3D-Druck, kein realistisches Schwarz - Olive/Game-Farben nutzen |
+| M6D Pistol | Klein genug, aber NICHT realistisch gestalten - oranger Tip, uebergroesse oder eindeutig kuenstlich |
+| Energy Sword | Aus transluzent-blauem Foam/Acryl - offensichtlich nicht echt, wenig Probleme |
+| Gravity Hammer | Schaumstoff - bei Uebergroesse offensichtlich Prop |
 
 **Sicherste Variante:** Props so gestalten, dass sie eindeutig als Requisiten erkennbar sind (uebergroesse, Game-Farben, leuchtende Akzente).

@@ -1,6 +1,6 @@
 # Pflege und Wartung
 
-> **Level:** [A] Anfaenger | [F] Fortgeschritten | [P] Profi  ·  **Varianten:** alle  ·  **Voraussetzungen:** fertige Ruestung; Reinigungs-/Reparaturmaterial. Fachbegriffe siehe `Documentation/Guides/Glossar.md`.
+> **Level:** [A] Anfaenger | [F] Fortgeschritten | [P] Profi  |  **Varianten:** alle  |  **Voraussetzungen:** fertige Ruestung; Reinigungs-/Reparaturmaterial. Fachbegriffe siehe `Documentation/Guides/Glossar.md`.
 
 Wie man die Ruestung zwischen Conventions in gutem Zustand haelt.
 
@@ -11,15 +11,15 @@ Wie man die Ruestung zwischen Conventions in gutem Zustand haelt.
 1. **Helm-Polster** herausnehmen und trocknen lassen (Schweiss!)
 2. **Unteranzug** waschen (Sportwaschgang, kalt)
 3. **Elektronik** ausschalten, Batterien auf 50-60% entladen fuer Lagerung
-4. **Visor** mit Mikrofasertuch reinigen (kein Glasreiniger — kann Chrome-Schicht angreifen)
+4. **Visor** mit Mikrofasertuch reinigen (kein Glasreiniger - kann Chrome-Schicht angreifen)
 5. **Schrauben und Schnallen** auf festen Sitz pruefen
-6. **Schaeden dokumentieren** — Fotos von Kratzern, Abplatzern, gebrochenen Teilen
+6. **Schaeden dokumentieren** - Fotos von Kratzern, Abplatzern, gebrochenen Teilen
 
 ### Innerhalb einer Woche
 
 1. **Touch-Up Lackierung** fuer Kratzer und Abplatzer
 2. **Klarlack nachspruehen** an stark beanspruchten Stellen
-3. **Klett-Verbindungen** pruefen (Klett nutzt sich ab — ggf. erneuern)
+3. **Klett-Verbindungen** pruefen (Klett nutzt sich ab - ggf. erneuern)
 4. **Magnete** pruefen (noch fest eingeklebt?)
 5. **Stecker und Kabel** auf Korrosion und Wackelkontakte pruefen
 
@@ -27,7 +27,7 @@ Wie man die Ruestung zwischen Conventions in gutem Zustand haelt.
 
 ### Ruestungsteile
 
-- **Nicht aufeinander stapeln** — Gewicht verformt Foam und kann Lack beschaedigen
+- **Nicht aufeinander stapeln** - Gewicht verformt Foam und kann Lack beschaedigen
 - Am besten: **aufhaengen** an Haken oder auf **Ruestungsstaender** (Schaufensterpuppe / Bueste)
 - Alternativ: in **Stapelboxen mit Schaumstoff-Einlagen** (gleiche wie Transport)
 - **Nicht in direktem Sonnenlicht** lagern (UV verblasst Farben, PLA verformt sich)
@@ -45,7 +45,7 @@ Wie man die Ruestung zwischen Conventions in gutem Zustand haelt.
 - **Batterien** auf 50-60% Ladung lagern (Lagerladung fuer LiPo/Li-Ion)
 - Mindestens alle 3 Monate Batterie checken und nachladen auf 50%
 - **Stecker abziehen** bei laengerer Lagerung (kein Kriechstrom)
-- Pi und OLED sind unempfindlich — trocken lagern reicht
+- Pi und OLED sind unempfindlich - trocken lagern reicht
 
 ## Regelmaessige Wartung
 
@@ -61,7 +61,7 @@ Wie man die Ruestung zwischen Conventions in gutem Zustand haelt.
 
 - [ ] Komplett-Funktionstest (HUD, LEDs, Luefter, Audio)
 - [ ] Batterien voll laden
-- [ ] Passform-Test (Koerper veraendert sich — Gewichtszunahme, Muskelaufbau)
+- [ ] Passform-Test (Koerper veraendert sich - Gewichtszunahme, Muskelaufbau)
 - [ ] Reparatur-Kit aufstocken (Verbrauchsmaterial nachkaufen)
 - [ ] Touch-Up wo noetig
 - [ ] Visor reinigen und Anti-Beschlag auftragen

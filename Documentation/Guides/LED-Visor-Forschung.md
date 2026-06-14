@@ -1,6 +1,6 @@
 # LED-Visor-Forschung: Praxiswissen fuer Cosplay-Helme
 
-> **Level:** [A] Anfaenger | [F] Fortgeschritten | [P] Profi  ·  **Varianten:** alle
+> **Level:** [A] Anfaenger | [F] Fortgeschritten | [P] Profi  |  **Varianten:** alle
 
 Gesammelte Erkenntnisse zu LED-Problemen in Cosplay-Helmen und -Ruestungen, mit konkreten Loesungen, Produktnamen und Techniken aus der Community (405th, RPF, Hackaday, Adafruit, u.a.).
 
@@ -30,7 +30,7 @@ LEDs sind Punktlichtquellen. Kameras lesen sie als ueberbelichtete ("blown out")
 
 **Wichtigste Erkenntnis aus Experimenten (Hackaday "I Love Lamp" Projekt):**
 
-> "Der Luftspalt zwischen LED und Diffusor muss mindestens 9 mm (1/3 Zoll) betragen, um Hotspots zu eliminieren — unabhaengig vom Diffusionsmaterial."
+> "Der Luftspalt zwischen LED und Diffusor muss mindestens 9 mm (1/3 Zoll) betragen, um Hotspots zu eliminieren - unabhaengig vom Diffusionsmaterial."
 
 - **Ziel-Lichttransmission:** 50-60% fuer optimale Diffusion
 - Direkter Kontakt zwischen LED und Diffusor erzeugt IMMER Hotspots
@@ -64,28 +64,28 @@ Gold/Chrome-Visiere funktionieren als Farbfilter: Sie absorbieren bestimmte Well
 
 | LED-Farbe | Sichtbarkeit durch Gold-Visor | Empfehlung |
 | --- | --- | --- |
-| **Amber/Gold (R:255, G:180, B:20)** | Ausgezeichnet — wird verstaerkt | Beste Wahl fuer Master Chief Look |
-| **Warm-Weiss (3000K)** | Gut — Blaualnteil wird gefiltert, bleibt warm | Gute Alternative |
-| **Gruen (R:0, G:200, B:60)** | Gut — Gruen geht durch Gold-Toenung | Cortana/Tech-Akzente |
-| **Rot (R:255, G:0, B:0)** | Gut — Rot wird kaum blockiert | Alarm-Effekte |
-| **Kuehles Weiss (6000K+)** | Maessig — wirkt verwaschen durch Goldfilter | Vermeiden |
-| **Blau (R:0, G:0, B:255)** | Schlecht — wird vom Goldfilter stark absorbiert | Ungeeignet hinter Gold-Visor |
-| **Violett/UV** | Sehr schlecht — fast unsichtbar | Nicht verwenden |
+| **Amber/Gold (R:255, G:180, B:20)** | Ausgezeichnet - wird verstaerkt | Beste Wahl fuer Master Chief Look |
+| **Warm-Weiss (3000K)** | Gut - Blaualnteil wird gefiltert, bleibt warm | Gute Alternative |
+| **Gruen (R:0, G:200, B:60)** | Gut - Gruen geht durch Gold-Toenung | Cortana/Tech-Akzente |
+| **Rot (R:255, G:0, B:0)** | Gut - Rot wird kaum blockiert | Alarm-Effekte |
+| **Kuehles Weiss (6000K+)** | Maessig - wirkt verwaschen durch Goldfilter | Vermeiden |
+| **Blau (R:0, G:0, B:255)** | Schlecht - wird vom Goldfilter stark absorbiert | Ungeeignet hinter Gold-Visor |
+| **Violett/UV** | Sehr schlecht - fast unsichtbar | Nicht verwenden |
 
 ### Praxis-Tipps
 
-- **Reines Weiss vermeiden** — sieht durch goldene Toenung verwaschen und farbstichig aus
+- **Reines Weiss vermeiden** - sieht durch goldene Toenung verwaschen und farbstichig aus
 - **Amber/Gold LEDs** wirken am natuerlichsten hinter einem Gold-Visor, weil sie die Toenung verstaerken statt ihr zu widersprechen
 - **Toenung-Intensitaet:** Je staerker die Gold-Toenung (geringere VLT = Visible Light Transmission), desto heller muessen die LEDs sein
-- **Mirror/Chrome-Visiere** blockieren mehr Licht als getoente Visiere — LEDs brauchen deutlich mehr Helligkeit, um durchzudringen
-- **Dual-Layer-Visor-Technik (405th):** Innen klarer Visor + aussen getoenter Visor mit Aussparungen — LEDs leuchten nur durch die gewollten Bereiche
+- **Mirror/Chrome-Visiere** blockieren mehr Licht als getoente Visiere - LEDs brauchen deutlich mehr Helligkeit, um durchzudringen
+- **Dual-Layer-Visor-Technik (405th):** Innen klarer Visor + aussen getoenter Visor mit Aussparungen - LEDs leuchten nur durch die gewollten Bereiche
 
 ### Dual-Layer-Visor fuer LED-Effekte
 
 Eine bewaehrte 405th-Community-Technik:
 1. Untere Schicht: Klarer oder leicht getoenter Motorrad-Visor (ungealtered)
 2. Obere Schicht: Zweiter getoenter/verspiegelter Visor mit ausgeschnittenen Design-Elementen
-3. LEDs hinter dem klaren Bereich platzieren — Licht strahlt nur durch die offenen Bereiche
+3. LEDs hinter dem klaren Bereich platzieren - Licht strahlt nur durch die offenen Bereiche
 
 ---
 
@@ -95,16 +95,16 @@ Eine bewaehrte 405th-Community-Technik:
 
 | Technologie | Hotspot-frei? | Helligkeit | Steuerbar | Stromverbrauch | Flexibilitaet | Preis |
 | --- | --- | --- | --- | --- | --- | --- |
-| **WS2812B Strip (Standard, 60 LED/m)** | Nein — deutliche Punkte | Hoch | Individuell adressierbar | ~60 mA/LED bei Weiss | Gut | Guenstig (~5 EUR/m) |
-| **WS2812B Strip (144 LED/m)** | Leicht — dichter, aber noch sichtbar | Hoch | Individuell adressierbar | ~60 mA/LED bei Weiss | Gut | Mittel (~10 EUR/m) |
+| **WS2812B Strip (Standard, 60 LED/m)** | Nein - deutliche Punkte | Hoch | Individuell adressierbar | ~60 mA/LED bei Weiss | Gut | Guenstig (~5 EUR/m) |
+| **WS2812B Strip (144 LED/m)** | Leicht - dichter, aber noch sichtbar | Hoch | Individuell adressierbar | ~60 mA/LED bei Weiss | Gut | Mittel (~10 EUR/m) |
 | **WS2812B COB Strip (160 LED/m)** | Weitgehend ja | Mittel (dimmer als Standard) | Individuell adressierbar | ~1.8 A/m bei Einzelfarbe | Sehr gut | ~13 EUR/m |
-| **WS2812B COB Strip (320 LED/m)** | Ja — dot-free | Mittel | Individuell adressierbar | ~8 W/m bei Einzelfarbe | Sehr gut | ~15-20 EUR/m |
-| **SK6812 (RGBW, 320 LED/m COB)** | Ja — dot-free | Mittel-Hoch (weisser Kanal) | Individuell adressierbar | Aehnlich WS2812B | Sehr gut | ~18-25 EUR/m |
+| **WS2812B COB Strip (320 LED/m)** | Ja - dot-free | Mittel | Individuell adressierbar | ~8 W/m bei Einzelfarbe | Sehr gut | ~15-20 EUR/m |
+| **SK6812 (RGBW, 320 LED/m COB)** | Ja - dot-free | Mittel-Hoch (weisser Kanal) | Individuell adressierbar | Aehnlich WS2812B | Sehr gut | ~18-25 EUR/m |
 | **Standard COB Strip (nicht adressierbar)** | Ja | Hoch | Nur gesamt (ein/aus/dimmen) | Variiert | Sehr gut | Guenstig |
-| **EL Wire** | Ja — 360-Grad-Glow | Niedrig | Nur ein/aus | Gering (~100 mA) | Hervorragend | Guenstig |
-| **EL Panel** | Ja — voellig gleichmaessig | Niedrig | Nur ein/aus/dimmen | Gering | Begrenzt (flach) | Mittel |
+| **EL Wire** | Ja - 360-Grad-Glow | Niedrig | Nur ein/aus | Gering (~100 mA) | Hervorragend | Guenstig |
+| **EL Panel** | Ja - voellig gleichmaessig | Niedrig | Nur ein/aus/dimmen | Gering | Begrenzt (flach) | Mittel |
 | **Side-Emitting LED Strip** | Teilweise | Mittel | Je nach Typ | Aehnlich Standard | Gut | Mittel |
-| **Fiber Optic (Side-Glow)** | Ja — gleichmaessige Linie | Niedrig-Mittel | Ueber Quell-LED | Sehr gering (1 LED pro Ende) | Hervorragend | Mittel |
+| **Fiber Optic (Side-Glow)** | Ja - gleichmaessige Linie | Niedrig-Mittel | Ueber Quell-LED | Sehr gering (1 LED pro Ende) | Hervorragend | Mittel |
 | **LED Light Pipes/Light Guides** | Ja | Mittel | Ueber Quell-LED | Gering | Begrenzt | Mittel-Hoch |
 
 ### Empfehlung fuer Halo-Helm-Visor
@@ -123,24 +123,24 @@ Eine bewaehrte 405th-Community-Technik:
 
 - Fuer einfachen Akzent-Glow ohne Programmierung
 - Kein Hotspot-Problem, 360-Grad-Glow
-- Deutlich weniger hell — in hellen Convention-Hallen kaum sichtbar
+- Deutlich weniger hell - in hellen Convention-Hallen kaum sichtbar
 - Braucht separaten Inverter/Driver (HV AC, leises Surren moeglich)
 - Nicht lange haltbar bei Biegung (Phosphor degradiert)
 
-### EL Wire vs LED Strip — Detailvergleich
+### EL Wire vs LED Strip - Detailvergleich
 
 | Eigenschaft | EL Wire | LED Strip (WS2812B) |
 | --- | --- | --- |
-| **Helligkeit** | Gering — in hellen Raeumen kaum sichtbar | Hoch — auch in hellen Hallen sichtbar |
+| **Helligkeit** | Gering - in hellen Raeumen kaum sichtbar | Hoch - auch in hellen Hallen sichtbar |
 | **Stromverbrauch** | Niedrig (~100-200 mA fuer 2m) | Hoch (bis 3.6 A fuer 60 LEDs weiss bei 100%) |
 | **Akku-Laufzeit** | 10-20 Stunden mit 2x AA | 3-8 Stunden mit Powerbank (je nach Helligkeit) |
 | **Flexibilitaet** | Extrem flexibel, biegbar in jede Form | Flexibel, aber nur in einer Ebene |
 | **Gleichmaessigkeit** | Perfekt gleichmaessig | Hotspots bei Standard-Strips, gut bei COB |
 | **Farbwechsel** | Nein (Farbe fest bei Kauf) | Ja, 16 Mio Farben, programmierbar |
-| **Haltbarkeit** | Fragil — Phosphor degradiert bei Biegung | Robust — langlebig |
+| **Haltbarkeit** | Fragil - Phosphor degradiert bei Biegung | Robust - langlebig |
 | **Waerme** | Kuehl | Leicht warm (siehe Abschnitt 5) |
 | **Geraeusch** | Leises Surren vom Inverter moeglich | Lautlos |
-| **Kamera-Verhalten** | Hervorragend — neonartiger, weicher Glow | Problematisch ohne Diffusion |
+| **Kamera-Verhalten** | Hervorragend - neonartiger, weicher Glow | Problematisch ohne Diffusion |
 
 ---
 
@@ -157,7 +157,7 @@ Eine bewaehrte 405th-Community-Technik:
 | **Hinter dem Visor (direkt)** | LEDs direkt auf die Visor-Innenseite geklebt | Einfach | Hotspots, blendet den Traeger, unprofessionell |
 | **Zwischen Dual-Layer** | LEDs im Zwischenraum zweier Visor-Schichten | Geschuetzt, gleichmaessig | Aufwendig, schwer wartbar |
 
-### Edge-Lit Acrylic — Detaillierte Technik
+### Edge-Lit Acrylic - Detaillierte Technik
 
 Edge-Lit ("kantenbeleuchtete") Acrylpanels funktionieren wie Laptop-Display-Hintergrundbeleuchtungen:
 
@@ -197,7 +197,7 @@ Edge-Lit ("kantenbeleuchtete") Acrylpanels funktionieren wie Laptop-Display-Hint
 | 10 WS2812B LEDs bei 50% | ~0.5 W Waerme | Vernachlaessigbar |
 | 30 WS2812B LEDs bei 100% Weiss | ~5 W Waerme | Spuerbar in geschlossenem Helm |
 | 10 COB LEDs bei 50% Einzelfarbe | ~0.3 W Waerme | Vernachlaessigbar |
-| 60 LEDs bei 100% Weiss | ~10 W Waerme | Signifikant — entspricht kleiner Gluehbirne |
+| 60 LEDs bei 100% Weiss | ~10 W Waerme | Signifikant - entspricht kleiner Gluehbirne |
 
 ### COB Strip Temperatur-Messungen (aus Review)
 
@@ -219,7 +219,7 @@ Aus dem Hackaday/Crucible-Review von 240 LED/m COB WS2812B Strips:
 
 ### Fazit Waerme
 
-Fuer einen typischen Halo-Helm mit 10-20 LEDs bei 50% Helligkeit in Einzelfarbe (Amber/Gruen) ist die **Waerme durch LEDs vernachlaessigbar** — sie produzieren weniger als 1 Watt Waerme. Das Hauptproblem ist die Koerperwaerme des Traegers und mangelnde Belueftung, nicht die LEDs selbst. Luefter sind wichtiger fuer den Komfort als fuer LED-Kuehlung.
+Fuer einen typischen Halo-Helm mit 10-20 LEDs bei 50% Helligkeit in Einzelfarbe (Amber/Gruen) ist die **Waerme durch LEDs vernachlaessigbar** - sie produzieren weniger als 1 Watt Waerme. Das Hauptproblem ist die Koerperwaerme des Traegers und mangelnde Belueftung, nicht die LEDs selbst. Luefter sind wichtiger fuer den Komfort als fuer LED-Kuehlung.
 
 ---
 
@@ -239,12 +239,12 @@ Fuer einen typischen Halo-Helm mit 10-20 LEDs bei 50% Helligkeit in Einzelfarbe 
 | 8 | **LED-Strip-Defekt** | Einzelne LEDs sterben, ganze Kette faellt aus | Selten |
 | 9 | **Hitze-Shutdown** | Controller ueberhitzt in geschlossenem Helm | Selten |
 
-### Praevention — Checkliste
+### Praevention - Checkliste
 
 **Vor der Convention:**
 - [ ] Alle Akkus voll laden (am Vorabend)
 - [ ] Ersatzakku/Powerbank einpacken
-- [ ] Jede LED-Verbindung physisch testen — dran ziehen, wackeln
+- [ ] Jede LED-Verbindung physisch testen - dran ziehen, wackeln
 - [ ] Multimeter-Check: Spannung an jedem Steckverbinder messen
 - [ ] 30-Minuten-Tragetest im Kostuem (alle Systeme gleichzeitig an)
 - [ ] SD-Karte als Read-Only mounten (verhindert Korruption)
@@ -279,7 +279,7 @@ Fuer einen typischen Halo-Helm mit 10-20 LEDs bei 50% Helligkeit in Einzelfarbe 
 
 ### Das Problem im Detail
 
-LEDs, die in Person gut aussehen, sehen auf Fotos schlecht aus — und umgekehrt:
+LEDs, die in Person gut aussehen, sehen auf Fotos schlecht aus - und umgekehrt:
 
 | Situation | In Person | Auf Kamera |
 | --- | --- | --- |
@@ -294,8 +294,8 @@ LEDs, die in Person gut aussehen, sehen auf Fotos schlecht aus — und umgekehrt
 **Problem:** PWM-gedimmte LEDs schalten schnell ein und aus. Wenn die Kamera-Verschlusszeit mit dem PWM-Zyklus interferiert, entstehen dunkle Streifen im Bild.
 
 **Technische Details:**
-- Standard-Arduino `analogWrite`: 490 Hz PWM — erzeugt sichtbare Streifen bei den meisten Kameras
-- WS2812B/NeoPixel internes PWM: ~500 Hz (~2 ms pro Zyklus) — Banding moeglich bei 1/500s oder kuerzerer Belichtung
+- Standard-Arduino `analogWrite`: 490 Hz PWM - erzeugt sichtbare Streifen bei den meisten Kameras
+- WS2812B/NeoPixel internes PWM: ~500 Hz (~2 ms pro Zyklus) - Banding moeglich bei 1/500s oder kuerzerer Belichtung
 - **Sichere Frequenz fuer Fotografie:** > 25.000 Hz (25 kHz)
 - NeoPixel-Library nutzt eigenes Timing und ist bei statischen Farben weitgehend foto-sicher
 - **Problem tritt hauptsaechlich auf bei:** sich aendernden Farben/Helligkeiten waehrend der Belichtung
@@ -310,11 +310,11 @@ LEDs, die in Person gut aussehen, sehen auf Fotos schlecht aus — und umgekehrt
 Einen physischen Button am Helm einbauen, der zwischen vordefinierten Modi wechselt:
 
 ```
-Mode 1: Convention  — 50% Helligkeit, statisch oder langsames Breathing
-Mode 2: Foto Hell   — 100% Helligkeit, statisch (fuer helle Umgebung)
-Mode 3: Foto Dunkel  — 25% Helligkeit, statisch (fuer dunkle Fotoshootings)
-Mode 4: Effekte     — Breathing/Boot-Up/Chase bei 70%
-Mode 5: Aus         — Alles aus (Spar-Modus)
+Mode 1: Convention  - 50% Helligkeit, statisch oder langsames Breathing
+Mode 2: Foto Hell   - 100% Helligkeit, statisch (fuer helle Umgebung)
+Mode 3: Foto Dunkel  - 25% Helligkeit, statisch (fuer dunkle Fotoshootings)
+Mode 4: Effekte     - Breathing/Boot-Up/Chase bei 70%
+Mode 5: Aus         - Alles aus (Spar-Modus)
 ```
 
 **Arduino-Implementierung:** Siehe `Code/HelmetControl/MainControlCode.ino` fuer das bestehende Setup. Ein Taster an einem digitalen Pin, der bei jedem Druck den Modus hochzaehlt.

@@ -1,6 +1,6 @@
 # Armor Step 1: Planung, Skalierung, Unteranzug
 
-> **Level:** [A] Anfaenger | [F] Fortgeschritten | [P] Profi  ·  **Varianten:** V2/V3 (3D-Druck)  ·  **Voraussetzungen:** Massband, Zugang zu STL-Set und Slicer; Begriffe siehe `Documentation/Guides/Glossar.md`
+> **Level:** [A] Anfaenger | [F] Fortgeschritten | [P] Profi  |  **Varianten:** V2/V3 (3D-Druck)  |  **Voraussetzungen:** Massband, Zugang zu STL-Set und Slicer; Begriffe siehe `Documentation/Guides/Glossar.md`
 
 ## Ziele
 
@@ -47,7 +47,7 @@ Beispiel: 175 cm / 183 cm = 0.956 = 95.6%
 
 ### Methode B: Armorsmith (Software)
 
-- Armorsmith Designer (Windows, ca. $25) — speziell fuer Ruestungsskalierung
+- Armorsmith Designer (Windows, ca. $25) - speziell fuer Ruestungsskalierung
 - Eigene Masse eingeben, 3D-Modell des Koerpers wird erstellt
 - STLs importieren und am virtuellen Koerper positionieren
 - Zeigt sofort wo Teile zu gross/klein sind
@@ -55,14 +55,14 @@ Beispiel: 175 cm / 183 cm = 0.956 = 95.6%
 
 ### Spezifische Skalierungs-Metriken (Spartan Silhouette)
 
-Für den echten Spartan-Look und die Kompatibilität mit Sonderausstattungen gelten folgende Richtwerte:
-- **Schienbeine (Tibia):** Müssen oft um ca. **+15 % verlängert (in Z-Achse gestreckt)** werden. Dies kompensiert den Platzbedarf für mechanische Beinverlängerungen oder Stelzen (Stilts) bei der V3-Profi-Variante.
+Fuer den echten Spartan-Look und die Kompatibilitaet mit Sonderausstattungen gelten folgende Richtwerte:
+- **Schienbeine (Tibia):** Muessen oft um ca. **+15 % verlaengert (in Z-Achse gestreckt)** werden. Dies kompensiert den Platzbedarf fuer mechanische Beinverlaengerungen oder Stelzen (Stilts) bei der V3-Profi-Variante.
 - **Bizeps/Oberarme:** Sollten meist mit einem Faktor von **1.1x bis 1.15x** skaliert werden (sowohl Breite als auch Dicke), um Kollisionen beim Beugen der Arme mit der massiven Brustplatte zu verhindern.
-- **Füße/Boots:** Benötigen ca. **+20 % Volumen**, damit sie als kosmetische Hülle über den echten Schuhen oder Stelzen-Fussplatten getragen werden können.
+- **Fuesse/Boots:** Benoetigen ca. **+20 % Volumen**, damit sie als kosmetische Huelle ueber den echten Schuhen oder Stelzen-Fussplatten getragen werden koennen.
 
 ### Methode C: Testdruck und Anpassen
 
-1. Ein Teil drucken (z.B. Unterarm — schnell, sichtbares Ergebnis)
+1. Ein Teil drucken (z.B. Unterarm - schnell, sichtbares Ergebnis)
 2. Anhalten, Passform pruefen
 3. Skalierung anpassen (meist 2-5% Schritte)
 4. Wiederholen bis es sitzt
@@ -83,7 +83,7 @@ Der Unteranzug ist die Basis fuer alles. Siehe `Documentation/Guides/Unteranzug-
 
 ### Gewichtsverteilung
 
-- **Huefte traegt die Last** — Klettergurt oder gepolsterter MOLLE-Guertel
+- **Huefte traegt die Last** - Klettergurt oder gepolsterter MOLLE-Guertel
 - Schultergurte nur zur Stabilisierung, nicht als Hauptlast
 - Brustplatte und Rueckenpanzer haengen am Guertel-System, nicht an den Schultern
 
@@ -107,22 +107,22 @@ Bevor du druckst, plane wo jedes Teil befestigt wird:
 
 Nicht alles auf einmal drucken! Reihenfolge nach Prioritaet:
 
-1. **Helm** — laengste Nachbearbeitung, bestes Lern-Stueck
-2. **Unterarme (L+R)** — klein, schnell gedruckt, gut zum Testen der Skalierung
-3. **Schienbeine (L+R)** — einfache Form, fruehe Passformtests
-4. **Brustplatte** — grosses Stueck, definiert den Look
-5. **Rueckenpanzer** — passt zur Brustplatte
-6. **Schultern** — nach Brust, fuer korrekte Ausrichtung
-7. **Oberschenkel** — nach Brust/Guertel, fuer Befestigungstest
-8. **Hueft-/Codpiece** — nach Guertel-System
-9. **Handplatten, Stiefelcover** — zuletzt, kleine Details
+1. **Helm** - laengste Nachbearbeitung, bestes Lern-Stueck
+2. **Unterarme (L+R)** - klein, schnell gedruckt, gut zum Testen der Skalierung
+3. **Schienbeine (L+R)** - einfache Form, fruehe Passformtests
+4. **Brustplatte** - grosses Stueck, definiert den Look
+5. **Rueckenpanzer** - passt zur Brustplatte
+6. **Schultern** - nach Brust, fuer korrekte Ausrichtung
+7. **Oberschenkel** - nach Brust/Guertel, fuer Befestigungstest
+8. **Hueft-/Codpiece** - nach Guertel-System
+9. **Handplatten, Stiefelcover** - zuletzt, kleine Details
 
 ## 6. Erster Passform-Test (Karton/Rohteile)
 
 Bevor du in teurem Filament druckst:
 
 1. **Papier-/Karton-Mockups** der groessten Teile (Brust, Oberschenkel) ausschneiden
-2. Am Koerper halten — stimmen die Proportionen?
+2. Am Koerper halten - stimmen die Proportionen?
 3. Kann man sich bewegen? Sitzen? Arme heben?
 4. **Armloecke testen:** Koennen die Arme durch die Schulter-/Brustplatte hindurch?
 5. Erst wenn Karton-Mockups passen: echte Drucke starten

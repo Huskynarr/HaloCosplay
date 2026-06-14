@@ -1,6 +1,6 @@
 # Varianten: V1 Einsteiger, V2 Fortgeschritten, V3 Profi
 
-> **Level:** [A] Anfaenger | [F] Fortgeschritten | [P] Profi  ·  **Varianten:** alle (V1/V2/V3)
+> **Level:** [A] Anfaenger | [F] Fortgeschritten | [P] Profi  |  **Varianten:** alle (V1/V2/V3)
 
 Diese drei Varianten sind kompatibel und bauen aufeinander auf. Du kannst mit V1 starten und spaeter schrittweise upgraden.
 

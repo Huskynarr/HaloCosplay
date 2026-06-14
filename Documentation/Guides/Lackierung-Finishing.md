@@ -1,6 +1,6 @@
 # Lackierung, Finishing und Weathering
 
-> **Level:** [A] Anfaenger | [F] Fortgeschritten | [P] Profi  ·  **Varianten:** alle (Abschnitt 8 fuer V1-Foam, Rest fuer 3D-Druck V2/V3)  ·  **Voraussetzungen:** fertig gebaute Rohteile (Foam oder 3D-Druck), belueftbarer Arbeitsplatz, Schleif-/Lackmaterial. Fachbegriffe siehe `Documentation/Guides/Glossar.md`.
+> **Level:** [A] Anfaenger | [F] Fortgeschritten | [P] Profi  |  **Varianten:** alle (Abschnitt 8 fuer V1-Foam, Rest fuer 3D-Druck V2/V3)  |  **Voraussetzungen:** fertig gebaute Rohteile (Foam oder 3D-Druck), belueftbarer Arbeitsplatz, Schleif-/Lackmaterial. Fachbegriffe siehe `Documentation/Guides/Glossar.md`.
 
 Dieser Guide beschreibt den vollstaendigen Finishing-Prozess von rohem 3D-Druck bis zum fertigen, convention-ready Armor-Stueck.
 
@@ -8,18 +8,18 @@ Dieser Guide beschreibt den vollstaendigen Finishing-Prozess von rohem 3D-Druck 
 
 ### Schleifprogression
 
-1. **80-120er Koernung** — grobe Layer Lines abschleifen, quer zu den Drucklinien
-2. **200-240er Koernung** — Oberflaeche weiter glaetten
-3. **Filler Primer auftragen** (Rust-Oleum Filler Primer Spray) — trocknen lassen
-4. **320er Koernung** — Primer anschleifen (Primer fuellt Tiefen, Schleifen schneidet Hoehen)
+1. **80-120er Koernung** - grobe Layer Lines abschleifen, quer zu den Drucklinien
+2. **200-240er Koernung** - Oberflaeche weiter glaetten
+3. **Filler Primer auftragen** (Rust-Oleum Filler Primer Spray) - trocknen lassen
+4. **320er Koernung** - Primer anschleifen (Primer fuellt Tiefen, Schleifen schneidet Hoehen)
 5. Schritt 3-4 **2-3x wiederholen** bis Layer Lines unsichtbar sind
 6. **400er Koernung** zum Finish, optional 600-800er nass schleifen fuer Glasoberflaeche
 
 ### Spachtel und Fueller
 
-- **Bondo Spot Putty** oder **3M Acryl-Green Spot Putty** — fuer Naehte zwischen Druckteilen und tiefe Layer Lines
-- **XTC-3D** (Smooth-On Epoxy-Beschichtung) — aufpinseln, selbstnivellierend, 4h Aushaertung, spart viel Schleifarbeit
-- **CA-Kleber (Sekundenkleber)** duenn aufgetragen — schneller Fueller fuer kleine Problemstellen, laesst sich gut schleifen
+- **Bondo Spot Putty** oder **3M Acryl-Green Spot Putty** - fuer Naehte zwischen Druckteilen und tiefe Layer Lines
+- **XTC-3D** (Smooth-On Epoxy-Beschichtung) - aufpinseln, selbstnivellierend, 4h Aushaertung, spart viel Schleifarbeit
+- **CA-Kleber (Sekundenkleber)** duenn aufgetragen - schneller Fueller fuer kleine Problemstellen, laesst sich gut schleifen
 
 ### Letzte Grundierung
 
@@ -29,18 +29,18 @@ Dieser Guide beschreibt den vollstaendigen Finishing-Prozess von rohem 3D-Druck 
 
 ### Spruehlack (Spraydosen)
 
-- **Rust-Oleum 2X** — gute Deckung, viele Farben, guenstig, am weitesten verbreitet
-- **Montana Gold** — sehr feine Zerstaebung, duenner und glatter Auftrag, riesige Farbpalette, Premium-Option
-- **Krylon Fusion** — gute Haftung auf Kunststoff
+- **Rust-Oleum 2X** - gute Deckung, viele Farben, guenstig, am weitesten verbreitet
+- **Montana Gold** - sehr feine Zerstaebung, duenner und glatter Auftrag, riesige Farbpalette, Premium-Option
+- **Krylon Fusion** - gute Haftung auf Kunststoff
 - Vorteil: schnell fuer grosse Flaechen
 - Nachteil: dickerer Auftrag kann feine Details verdecken
 
 ### Airbrush
 
-- **Tamiya Acrylfarben** — feinste Pigmente, sehr duenne glatte Schichten, Gold-Standard
-- **Vallejo** und **Createx** — ebenfalls beliebt
+- **Tamiya Acrylfarben** - feinste Pigmente, sehr duenne glatte Schichten, Gold-Standard
+- **Vallejo** und **Createx** - ebenfalls beliebt
 - Ideal fuer Farbuebergaenge, Tarnung, Weathering-Details
-- Langsamer auf grossen Flaechen — ggf. HVLP-Spritzpistole fuer Automotive-Ansatz
+- Langsamer auf grossen Flaechen - ggf. HVLP-Spritzpistole fuer Automotive-Ansatz
 
 **Praxis-Empfehlung:** Spruehlack fuer Grundfarbe auf grossen Panzerteilen, Airbrush fuer Details, Verlaeufe und Weathering.
 
@@ -53,9 +53,9 @@ Master Chief's Farbe ist ein **Oliv-/Salbeigruen**, kein leuchtend helles Gruen.
 **Offizielle 343 Industries Farbreferenz:**
 - **Primary Armor (Titanium Sage):** `#798785` / Pantone 5487 C (Hauptfarbe der Panzerung)
 
-**Beste Treffer für Sprühlacke:**
-- **Rust-Oleum "Oregano" (Satin)** — der meistempfohlene Farbton in der 405th Community
-- **Krylon "Olive Drab"** oder **"Italian Olive"** — Alternativen
+**Beste Treffer fuer Spruehlacke:**
+- **Rust-Oleum "Oregano" (Satin)** - der meistempfohlene Farbton in der 405th Community
+- **Krylon "Olive Drab"** oder **"Italian Olive"** - Alternativen
 - Standard **US Military OD Green** (aktueller Farbton)
 
 **RGB-Referenz:** R:89, G:120, B:89 (Hex: #597859)
@@ -67,8 +67,8 @@ Master Chief's Farbe ist ein **Oliv-/Salbeigruen**, kein leuchtend helles Gruen.
 
 ### Sekundaerfarben
 
-- **Techsuit Mesh (Unteranzug-Struktur):** `#3d3e3e` / Pantone 426 C (Schwarz-Grau für Gelenkbereiche und Texturen)
-- **Warning Accents (Warnmarkierungen):** `#c43f37` / Pantone 7622 C (Dunkles Rot-Orange für Detailmarkierungen)
+- **Techsuit Mesh (Unteranzug-Struktur):** `#3d3e3e` / Pantone 426 C (Schwarz-Grau fuer Gelenkbereiche und Texturen)
+- **Warning Accents (Warnmarkierungen):** `#c43f37` / Pantone 7622 C (Dunkles Rot-Orange fuer Detailmarkierungen)
 - **Dunkelgrau/Gunmetal** fuer mechanische Details, Lueftungsschlitze
 - **Gold/Orange reflektierend** fuer den Visor (siehe Abschnitt Visor)
 
@@ -76,7 +76,7 @@ Master Chief's Farbe ist ein **Oliv-/Salbeigruen**, kein leuchtend helles Gruen.
 
 ### Schritt-fuer-Schritt
 
-1. **Schwarze Wash** — schwarze Acrylfarbe verduennen (10:1 Wasser zu Farbe), in Vertiefungen und Panel Lines pinseln, Ueberschuss mit feuchtem Tuch abwischen. Gibt Tiefe und Schatten.
+1. **Schwarze Wash** - schwarze Acrylfarbe verduennen (10:1 Wasser zu Farbe), in Vertiefungen und Panel Lines pinseln, Ueberschuss mit feuchtem Tuch abwischen. Gibt Tiefe und Schatten.
 
 2. **Dry Brushing (Kantenwetter):**
    - Flachen Pinsel in **schwarze Farbe** tauchen, fast alle Farbe auf Kuechenpapier abstreifen
@@ -85,7 +85,7 @@ Master Chief's Farbe ist ein **Oliv-/Salbeigruen**, kein leuchtend helles Gruen.
 
 3. **Battle Damage / Abplatzer:**
    - **Metallic Paint Pen** oder **Rub 'n Buff (Silver Leaf)** fuer Kratzer und Schrammen
-   - In unregelmaessigen Punkten, Strichen und Splittern auftragen — nie durchgehende Linien
+   - In unregelmaessigen Punkten, Strichen und Splittern auftragen - nie durchgehende Linien
    - Fokus auf Vorderkanten, Ecken, logische Aufprallstellen
    - Fuer tiefere Schaeden: Dremel-Furchen vor dem Lackieren einarbeiten, dann Silber/Schwarz lackieren
 
@@ -97,9 +97,9 @@ Master Chief's Farbe ist ein **Oliv-/Salbeigruen**, kein leuchtend helles Gruen.
 
 ## 5. Klarlack / Schutzschicht
 
-- **Rust-Oleum Matte Clear Coat** — am weitesten verbreitet, matte Oberflaeche ist kritisch (Glanz wirkt wie Spielzeug)
-- **Testors Dullcote** — exzellenter Matt-Finish, keine Reaktionen mit anderen Farben
-- **Krylon Matte Finish** — guenstige Alternative
+- **Rust-Oleum Matte Clear Coat** - am weitesten verbreitet, matte Oberflaeche ist kritisch (Glanz wirkt wie Spielzeug)
+- **Testors Dullcote** - exzellenter Matt-Finish, keine Reaktionen mit anderen Farben
+- **Krylon Matte Finish** - guenstige Alternative
 
 ### Auftrags-Regeln
 
@@ -111,13 +111,13 @@ Master Chief's Farbe ist ein **Oliv-/Salbeigruen**, kein leuchtend helles Gruen.
 ### Fuer starke Beanspruchung (Convention)
 
 - **Mod Podge (Matt)** auf Hochkontakt-Bereiche (Unterarme, Brust) fuer extra Abriebschutz
-- **2K Automotive Klarlack** (Zweikomponenten) fuer maximale Haltbarkeit — erfordert Atemschutz
+- **2K Automotive Klarlack** (Zweikomponenten) fuer maximale Haltbarkeit - erfordert Atemschutz
 
 ## 6. Visor-Herstellung
 
 ### Material
 
-- **PETG-Folie** (0.75-1.0 mm dick) — Standard, hitzebestaendig, optisch klar, formt gut
+- **PETG-Folie** (0.75-1.0 mm dick) - Standard, hitzebestaendig, optisch klar, formt gut
 
 ### Vakuumformen
 
@@ -141,7 +141,7 @@ Das Post-Processing (Schleifen, Fuellen, Grundieren, Lackieren, Weathering) brau
 
 ## 8. Foam-Finishing (V1)
 
-Foam (EVA-Schaum, Bodenmatten oder Craft Foam) verhaelt sich beim Finishing **grundlegend anders** als ein starrer 3D-Druck. Schaum biegt und staucht sich bei jeder Bewegung — eine harte Lackschicht macht diese Bewegung nicht mit und **reisst, platzt ab oder bekommt Risse**. Die gesamte Finishing-Kette muss daher **flexibel** sein. Details zum Schaumbau selbst in `Documentation/Guides/Foam-Bau.md`.
+Foam (EVA-Schaum, Bodenmatten oder Craft Foam) verhaelt sich beim Finishing **grundlegend anders** als ein starrer 3D-Druck. Schaum biegt und staucht sich bei jeder Bewegung - eine harte Lackschicht macht diese Bewegung nicht mit und **reisst, platzt ab oder bekommt Risse**. Die gesamte Finishing-Kette muss daher **flexibel** sein. Details zum Schaumbau selbst in `Documentation/Guides/Foam-Bau.md`.
 
 ### Was beim Foam anders ist
 
@@ -153,14 +153,14 @@ Foam (EVA-Schaum, Bodenmatten oder Craft Foam) verhaelt sich beim Finishing **gr
 | Klarlack | Matt-Klarlack | Flexibler Matt-Klarlack |
 | Weathering | siehe Abschnitt 4 | identisch zu Abschnitt 4 |
 
-**Wichtig:** Auf rohem Foam **niemals** Rust-Oleum Filler Primer oder andere harte Fueller-Grundierungen direkt auftragen. Sie haerten starr aus und reissen beim ersten Tragen entlang der Bewegungsfalten. Auch hartes Schleifen entfaellt — Foam laesst sich nicht glaetten wie Kunststoff, sondern wird durch Hitze versiegelt.
+**Wichtig:** Auf rohem Foam **niemals** Rust-Oleum Filler Primer oder andere harte Fueller-Grundierungen direkt auftragen. Sie haerten starr aus und reissen beim ersten Tragen entlang der Bewegungsfalten. Auch hartes Schleifen entfaellt - Foam laesst sich nicht glaetten wie Kunststoff, sondern wird durch Hitze versiegelt.
 
 ### Schritt 1: Hitze-Sealing (Schleifen entfaellt)
 
 Foam hat eine offene, poroese Oberflaeche. Statt zu schleifen wird die Oberflaeche durch Hitze geschlossen:
 
 1. **Heissluftpistole** (oder Heissluftfoehn) auf mittlere Stufe, Abstand 5-10 cm halten
-2. Gleichmaessig ueber die Oberflaeche fahren, bis sie leicht glaenzt und sich glaettet — **nicht** zu lange auf einer Stelle (Foam schmilzt/wirft Blasen)
+2. Gleichmaessig ueber die Oberflaeche fahren, bis sie leicht glaenzt und sich glaettet - **nicht** zu lange auf einer Stelle (Foam schmilzt/wirft Blasen)
 3. Die Hitze schliesst die Poren und macht die Oberflaeche fester und glatter
 4. Schnittkanten und Fugen besonders behandeln, damit sie nicht Farbe aufsaugen
 
@@ -170,10 +170,10 @@ Foam hat eine offene, poroese Oberflaeche. Statt zu schleifen wird die Oberflaec
 
 Die Versiegelung verschliesst die Poren und gibt eine lackierbare, dehnbare Basis. Bewaehrte Optionen:
 
-- **Plasti Dip (Spray)** — Gummi-artige Beschichtung, sehr flexibel, exzellente Haftung auf Foam, beliebteste Wahl. 2-3 duenne Schichten. Schwarzes Plasti Dip ergibt zugleich eine dunkle Basis fuer Weathering.
-- **Verduennter PVA (Holzleim, ca. 1:1 mit Wasser)** — guenstig, mehrere Schichten aufpinseln, jede trocknen lassen. Bleibt flexibel, fuellt Poren.
-- **Mod Podge (Matt)** — aufpinseln oder spruehen, bildet flexiblen Film, gut als Poren-Sealer.
-- **Hexflex / Flexbond (Cosplay-Sealer)** — speziell fuer EVA-Foam entwickelt, sehr flexibel, fuellt Poren, ideale Basis fuer Lack.
+- **Plasti Dip (Spray)** - Gummi-artige Beschichtung, sehr flexibel, exzellente Haftung auf Foam, beliebteste Wahl. 2-3 duenne Schichten. Schwarzes Plasti Dip ergibt zugleich eine dunkle Basis fuer Weathering.
+- **Verduennter PVA (Holzleim, ca. 1:1 mit Wasser)** - guenstig, mehrere Schichten aufpinseln, jede trocknen lassen. Bleibt flexibel, fuellt Poren.
+- **Mod Podge (Matt)** - aufpinseln oder spruehen, bildet flexiblen Film, gut als Poren-Sealer.
+- **Hexflex / Flexbond (Cosplay-Sealer)** - speziell fuer EVA-Foam entwickelt, sehr flexibel, fuellt Poren, ideale Basis fuer Lack.
 
 **Empfehlung:** Plasti Dip als Basis-Versiegelung, danach gleichmaessige Deckung. Mehrere duenne Schichten statt einer dicken.
 
@@ -181,8 +181,8 @@ Die Versiegelung verschliesst die Poren und gibt eine lackierbare, dehnbare Basi
 
 - Auf der flexiblen Versiegelung haftet **flexibler Lack** dauerhaft, ohne zu reissen.
 - Fuer das Master-Chief-Olivgruen aus **Halo Infinite** (klassisches Olivgruen, RGB R:89 G:120 B:89, Hex #597859) gilt dieselbe Farbreferenz wie in Abschnitt 3.
-- **Flexible Lacke:** Acryl-Bastelfarben (mit etwas Flexibilisator/Textilmedium) oder spezielle flexible Spruehlacke. Reine harte Auto-Spruehlacke koennen auf grossen Bewegungsflaechen reissen — auf duennen, gebogenen Foam-Teilen testen.
-- **Plasti Dip in Farbe** ist ebenfalls als farbige Variante erhaeltlich und bleibt dehnbar — gute Wahl fuer grosse Flaechen.
+- **Flexible Lacke:** Acryl-Bastelfarben (mit etwas Flexibilisator/Textilmedium) oder spezielle flexible Spruehlacke. Reine harte Auto-Spruehlacke koennen auf grossen Bewegungsflaechen reissen - auf duennen, gebogenen Foam-Teilen testen.
+- **Plasti Dip in Farbe** ist ebenfalls als farbige Variante erhaeltlich und bleibt dehnbar - gute Wahl fuer grosse Flaechen.
 - Mehrere duenne Schichten auftragen, Bewegungsbereiche (Gelenke, Falten) bewusst beruecksichtigen.
 
 ### Schritt 4: Weathering
@@ -206,14 +206,14 @@ Ursache: Atemluft und Koerperwaerme kondensieren auf der kuehlen Visor-Innenseit
 
 - **Anti-Fog-Mittel** auf die Innenseite auftragen (Tauchmasken-/Skibrillen-Anti-Fog, oder ein Tropfen Spuelmittel duenn verrieben).
 - **Belueftung verbessern:** Luftschlitze oder Oeffnungen unterhalb des Visors, damit Atemluft nicht direkt an die Scheibe stroemt.
-- **Aktive Luefter** einbauen (5 V Mini-Luefter), die Frischluft an die Innenseite fuehren — siehe `Documentation/Guides/Elektronik-Luefter.md`.
+- **Aktive Luefter** einbauen (5 V Mini-Luefter), die Frischluft an die Innenseite fuehren - siehe `Documentation/Guides/Elektronik-Luefter.md`.
 - Atemluft per kleinem **Kanal/Maske nach unten ableiten**, weg vom Visor.
 
 ### Kratzer
 
-- **Politur:** feine Kunststoff-Politur (z. B. fuer Acrylglas/Plexiglas) oder Autoscheinwerfer-Politur in kreisenden Bewegungen — entfernt leichte Kratzer.
+- **Politur:** feine Kunststoff-Politur (z. B. fuer Acrylglas/Plexiglas) oder Autoscheinwerfer-Politur in kreisenden Bewegungen - entfernt leichte Kratzer.
 - **Schutzfolie:** transparente Displayschutz- oder Lackschutzfolie auf die Aussenseite, vor Transport und Lagerung. Schuetzt die empfindliche getoente Oberflaeche.
-- Tiefe Kratzer lassen sich kaum entfernen — Visor dann neu vakuumformen.
+- Tiefe Kratzer lassen sich kaum entfernen - Visor dann neu vakuumformen.
 
 ### Folie reisst oder wird zu duenn beim Vakuumformen
 
@@ -221,7 +221,7 @@ Ursache: ungleichmaessige Erwaermung oder falsche Temperatur (siehe Abschnitt 6,
 
 - **Temperatur kontrollieren:** zu heiss = Folie wird zu duenn und reisst, zu kalt = formt nicht sauber.
 - **Gleichmaessig erhitzen:** Folie muss ueber die ganze Flaeche gleichmaessig durchhaengen, bevor das Vakuum kommt. Punktuelle Ueberhitzung fuehrt zu duennen Stellen.
-- **Buck-Form (Positivform) optimieren:** keine scharfen Kanten oder zu tiefen Hinterschnitte — die Folie zieht sich an steilen Stellen am staerksten und wird dort am duennsten. Buck leicht konisch gestalten.
+- **Buck-Form (Positivform) optimieren:** keine scharfen Kanten oder zu tiefen Hinterschnitte - die Folie zieht sich an steilen Stellen am staerksten und wird dort am duennsten. Buck leicht konisch gestalten.
 - Dickere Ausgangsfolie (1.0 mm statt 0.75 mm) verzeiht mehr.
 
 ### Ungleichmaessige Toenung
@@ -236,15 +236,15 @@ Ursache: ungleichmaessiges iDye-Poly-Bad (siehe Abschnitt 6).
 
 Ursache: die Krylon-Looking-Glass-Verspiegelung auf der Innenseite ist empfindlich gegen Feuchtigkeit und Beruehrung (siehe Abschnitt 6).
 
-- **Duennen Klarlack innen** ueber die Chrome-Schicht spruehen — schuetzt vor Abrieb und Feuchtigkeit. An Probestueck testen, da manche Klarlacke den Spiegeleffekt trueben.
+- **Duennen Klarlack innen** ueber die Chrome-Schicht spruehen - schuetzt vor Abrieb und Feuchtigkeit. An Probestueck testen, da manche Klarlacke den Spiegeleffekt trueben.
 - Innenseite nicht mit den Fingern beruehren; nur mit weichem Tuch reinigen.
 - Bei Ablosung: Schicht abwischen und neu auftragen (in den Nebel spruehen, Visor durchfuehren).
 
-### Zu dunkel — schlechte Sicht von innen
+### Zu dunkel - schlechte Sicht von innen
 
 Ursache: zu viele Looking-Glass-Schichten oder zu lange iDye-Toenung. Von aussen sieht der Visor toll aus, von innen sieht man fast nichts.
 
-- **Weniger Looking-Glass-Schichten** auftragen — jede Schicht reduziert die Durchsicht. Lieber zu wenig und nachlegen.
+- **Weniger Looking-Glass-Schichten** auftragen - jede Schicht reduziert die Durchsicht. Lieber zu wenig und nachlegen.
 - Toenung heller halten (kuerzere iDye-Bad-Zeit).
 - Kompromiss finden: genug Reflexion fuer den Look, aber sichere Sicht. Vor der Convention mit aufgesetztem Helm in verschiedenen Lichtverhaeltnissen testen (siehe `Documentation/Guides/Praxis-Tipps-Fortgeschritten.md`).
 - Bei HUD-Helmen (V2/V3) muss die Sicht zusaetzlich fuer das Display ausreichen.

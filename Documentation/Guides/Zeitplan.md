@@ -1,6 +1,6 @@
 # Zeitplan (Richtwerte)
 
-> **Level:** [A] Anfaenger | [F] Fortgeschritten | [P] Profi  ·  **Varianten:** alle (V1/V2/V3)
+> **Level:** [A] Anfaenger | [F] Fortgeschritten | [P] Profi  |  **Varianten:** alle (V1/V2/V3)
 
 ## Gesamtdauer
 
@@ -26,7 +26,7 @@
 
 ## Parallelisierung
 
-Viele Phasen koennen parallel laufen — das spart erheblich Zeit:
+Viele Phasen koennen parallel laufen - das spart erheblich Zeit:
 
 ```
 Woche:  1  2  3  4  5  6  7  8  9  10  11  12  13  14  15  16
@@ -91,7 +91,7 @@ verschieben sich die Zeitfresser:
 ## Puffer
 
 - Plane **20-30% Pufferzeit** fuer Nacharbeit und Anpassungen
-- Fehldrucke passieren — kalkuliere 10-15% Nachdrucke ein
+- Fehldrucke passieren - kalkuliere 10-15% Nachdrucke ein
 - Bestellungen brauchen Vorlauf (Elektronik aus China: 2-4 Wochen!)
 - **Deadline:** Con-Datum minus 2 Wochen = eigene Deadline (letzte 2 Wochen nur Feinschliff)
 

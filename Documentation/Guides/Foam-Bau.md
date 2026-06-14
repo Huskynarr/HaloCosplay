@@ -1,8 +1,8 @@
 # Foam-Bau (V1 Einsteiger, EVA-Foam)
 
-> **Level:** [A] Anfaenger  ·  **Varianten:** V1 (Foam-Korpus auch in V2 nutzbar)  ·  **Voraussetzungen:** Koerpermasse (siehe `Documentation/Guides/Messblatt.md`), Templates, Grundwerkzeug; keine Vorerfahrung noetig. Fachbegriffe siehe `Documentation/Guides/Glossar.md`.
+> **Level:** [A] Anfaenger  |  **Varianten:** V1 (Foam-Korpus auch in V2 nutzbar)  |  **Voraussetzungen:** Koerpermasse (siehe `Documentation/Guides/Messblatt.md`), Templates, Grundwerkzeug; keine Vorerfahrung noetig. Fachbegriffe siehe `Documentation/Guides/Glossar.md`.
 
-Dieser Guide deckt den kompletten preiswerten Weg ueber EVA-Foam ab — die empfohlene
+Dieser Guide deckt den kompletten preiswerten Weg ueber EVA-Foam ab - die empfohlene
 Methode fuer das **erste** Halo-Cosplay (Variante V1, siehe `Documentation/Guides/Varianten.md`).
 Foam ist guenstig, leicht, verzeihend und braucht keinen Drucker. Der 3D-Druck-Weg
 (V2/V3) ist in `Documentation/Guides/3D-Druck.md` beschrieben.
@@ -26,7 +26,7 @@ Foam ist guenstig, leicht, verzeihend und braucht keinen Drucker. Der 3D-Druck-W
 | EVA-Foam High-Density | 5 mm | Teile die Form halten muessen |
 
 **Hinweis:** Bodenmatten aus dem Baumarkt sind am guenstigsten, haben aber oft eine
-genoppte Rueckseite und eine Oberflaechen-Textur — fuer sichtbare Teile besser glatten
+genoppte Rueckseite und eine Oberflaechen-Textur - fuer sichtbare Teile besser glatten
 Craft-/Cosplay-Foam (z.B. 6 mm) nehmen. Bezugsquellen in `Materials/ShoppingList.md`.
 
 ## 3. Werkzeug
@@ -35,7 +35,7 @@ Craft-/Cosplay-Foam (z.B. 6 mm) nehmen. Bezugsquellen in `Materials/ShoppingList
 - **Selbstheilende Schneidematte**
 - **Stahllineal** und **Kurvenlineal**
 - **Heissluftfoehn** (Heat Gun) zum Formen
-- **Kontaktkleber** (Pattex Kraftkleber o.ae.) — siehe `Documentation/Guides/Klebetechniken.md`
+- **Kontaktkleber** (Pattex Kraftkleber o.ae.) - siehe `Documentation/Guides/Klebetechniken.md`
 - **Heissklebepistole** fuer schnelle Fixierung und Fuellungen
 - **Dremel** oder Schleifpapier fuer Kanten
 - **Kugelschreiber/Marker** zum Anzeichnen
@@ -45,13 +45,13 @@ Craft-/Cosplay-Foam (z.B. 6 mm) nehmen. Bezugsquellen in `Materials/ShoppingList
 
 Foam-Bau lebt von Vorlagen. Drei Wege:
 
-1. **Pepakura** (kostenlose Templates aus der Community) — Pepakura Designer entfaltet ein
+1. **Pepakura** (kostenlose Templates aus der Community) - Pepakura Designer entfaltet ein
    3D-Modell in flache Papierteile. Auf Koerpergroesse skalieren (siehe
    `Documentation/Guides/Messblatt.md`), ausdrucken, ausschneiden, auf Foam uebertragen.
    Quellen: 405th Foam-Datenbank (siehe `Resources/STL-Quellen.md`).
-2. **Fertige Foam-Patterns** (z.B. kostenpflichtige PDF-Sets) — bereits foam-optimiert,
+2. **Fertige Foam-Patterns** (z.B. kostenpflichtige PDF-Sets) - bereits foam-optimiert,
    weniger Teile als Pepakura.
-3. **Eigene Muster** — fuer einfache Teile (Schienbein, Unterarm) reicht Klopapier/Frischhaltefolie
+3. **Eigene Muster** - fuer einfache Teile (Schienbein, Unterarm) reicht Klopapier/Frischhaltefolie
    um die Gliedmasse, aufschneiden, flach auf Papier uebertragen.
 
 **Skalierung:** Pepakura-Teile vor dem Druck auf die eigenen Masse anpassen. Bei Umfang
@@ -60,7 +60,7 @@ immer +10-15 mm fuer Unteranzug + Polsterung dazurechnen (siehe Messblatt).
 ## 5. Uebertragen und Schneiden
 
 1. Template mit Marker auf den Foam uebertragen (Teile-Nummern mit anschreiben!)
-2. Mit **scharfer** Klinge in einem Zug schneiden — stumpfe Klingen reissen den Foam
+2. Mit **scharfer** Klinge in einem Zug schneiden - stumpfe Klingen reissen den Foam
 3. **Kantenfasung (Bevel):** Klinge auf ca. 45 Grad halten, wo zwei Teile zusammenstossen.
    Saubere Gehrungen ergeben unsichtbare Naehte und runde 3D-Formen.
 4. Lange gerade Schnitte am Lineal fuehren; Kurven freihand in mehreren kleinen Schnitten
@@ -81,7 +81,7 @@ EVA-Foam wird durch Hitze formbar und "merkt" sich die neue Form.
 ## 7. Kleben und Aufbauen
 
 - **Kontaktkleber** ist Standard: duenn auf **beide** Flaechen auftragen, 3-5 min ablueften
-  lassen (bis fingertrocken), dann zusammenpressen — haelt sofort und dauerhaft.
+  lassen (bis fingertrocken), dann zusammenpressen - haelt sofort und dauerhaft.
 - **Heisskleber** fuer schnelle Eckverbindungen, Fuellungen und Details.
 - Naehte planen: lieber an Kanten/Vertiefungen kleben, wo die Fuge im Design verschwindet.
 - Details (Panel-Aufleger, Schrauben-Imitate, Lueftungsschlitze) aus 2 mm Craft-Foam
@@ -96,21 +96,21 @@ platzt der Lack und die Oberflaeche bleibt rau.
 
 Optionen (von guenstig nach premium):
 
-1. **Hitze-Sealing** — Oberflaeche mit Heissluftfoehn ueberfahren bis sie glaenzt;
+1. **Hitze-Sealing** - Oberflaeche mit Heissluftfoehn ueberfahren bis sie glaenzt;
    schliesst die Poren. Guenstigste Methode, oft mit einem der folgenden kombiniert.
-2. **PVA / Holzleim verduennt** (1:1 mit Wasser) — 2-3 duenne Schichten aufpinseln.
+2. **PVA / Holzleim verduennt** (1:1 mit Wasser) - 2-3 duenne Schichten aufpinseln.
    Sehr guenstig.
-3. **Plasti Dip** (Spruehdose) — flexibel, haftet exzellent, beste Basis fuer Foam.
+3. **Plasti Dip** (Spruehdose) - flexibel, haftet exzellent, beste Basis fuer Foam.
    Mehrere duenne Schichten. **Empfehlung fuer V1.**
-4. **Mod Podge** — Pinselauftrag, ebenfalls bewaehrt, etwas steifer.
-5. **Flexbond / Hexflex** — Cosplay-Spezialprodukte, sehr robust.
+4. **Mod Podge** - Pinselauftrag, ebenfalls bewaehrt, etwas steifer.
+5. **Flexbond / Hexflex** - Cosplay-Spezialprodukte, sehr robust.
 
 **Regel:** Das Versiegelungsmittel muss **flexibel** bleiben, sonst reisst es beim Bewegen.
 Harte Grundierungen (Filler Primer aus dem 3D-Druck-Guide) sind fuer Foam **ungeeignet**.
 
 ## 9. Grundieren und Lackieren
 
-Nach dem Versiegeln gilt fuer Farbe und Weathering derselbe Prozess wie beim 3D-Druck —
+Nach dem Versiegeln gilt fuer Farbe und Weathering derselbe Prozess wie beim 3D-Druck -
 **aber flexible Produkte verwenden**:
 
 - Grundierung/Lack: flexibler Spruehlack (z.B. Plasti Dip als Basis, dann Acryl/Rust-Oleum)
@@ -127,7 +127,7 @@ Gleiches Tragesystem wie bei V2/V3:
 - Last auf die Huefte (Klettergurt), Schultern nur stabilisieren
 - Klett + Elastikband fuer Arm-/Beinteile, Magnete fuer kleine Teile
 - Details und Polsterung: `Documentation/Guides/Unteranzug-Befestigung.md`
-- Foam ist leicht — Befestigung ist unkritischer als bei schwerem Druck
+- Foam ist leicht - Befestigung ist unkritischer als bei schwerem Druck
 
 ## 11. Helm aus Foam
 

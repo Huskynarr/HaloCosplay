@@ -1,6 +1,6 @@
 # Elektronik: AR-Display fuer den Helm
 
-> **Level:** [A] Stufe A (alle) | [F] Stufe B | [P] Stufe C (Profi)  ·  **Varianten:** Stufe A alle, Stufe C nur V3
+> **Level:** [A] Stufe A (alle) | [F] Stufe B | [P] Stufe C (Profi)  |  **Varianten:** Stufe A alle, Stufe C nur V3
 > **Voraussetzungen:** Fuer Stufe C solides Strom-/Hitzebudget (`Documentation/Guides/Elektronik-Strombudget.md`), Linux/OpenCV-Kenntnisse und zwingend ein Sicherheits-Failsafe (Abschnitt 3).
 
 Dieser Guide behandelt das Thema "Augmented Reality" im Master-Chief-Helm (HALO INFINITE, MJOLNIR GEN3) ehrlich und technisch fundiert. Das Wunschziel vieler Builder ist ein Voll-AR-Helm mit Kamera-Passthrough wie im Spiel. Das ist machbar, aber teuer, schwer, stromhungrig und sicherheitskritisch. Dieser Guide erklaert die Stufen, das Endausbau-Konzept (V3) und vor allem die Grenzen und Risiken.
@@ -87,15 +87,15 @@ Die Pipeline ist im Kern simpel, die Tuecke steckt in der Latenz:
 
 - **OpenCV** fuer Frame-Handling, einfache Bildverarbeitung und fortgeschrittene Filter:
   - **Freund-Feind-Erkennung (IFF):** Echtzeit-Bildanalyse zur Personenerkennung (z. B. via Haar-Cascades oder YOLO). Personen im Sichtfeld werden mit einem roten Zielrahmen ("TARGET DETECTED") markiert.
-  - **Nachtsicht und Zoom:** Digitale Aufbereitung des Video-Feeds (z. B. grüner Farbkanal-Filter für Nachtsicht und digitaler Zoom), steuerbar über Sprachbefehle oder Taster.
-  - **Munitions-Telemetrie:** Drahtlose (Bluetooth) oder serielle Schnittstelle zur direkten Koppelung mit der Rüstungswaffe (MA40/MA5), um den Echtzeit-Munitionsstand direkt im Helm-HUD einzublenden.
+  - **Nachtsicht und Zoom:** Digitale Aufbereitung des Video-Feeds (z. B. gruener Farbkanal-Filter fuer Nachtsicht und digitaler Zoom), steuerbar ueber Sprachbefehle oder Taster.
+  - **Munitions-Telemetrie:** Drahtlose (Bluetooth) oder serielle Schnittstelle zur direkten Koppelung mit der Ruestungswaffe (MA40/MA5), um den Echtzeit-Munitionsstand direkt im Helm-HUD einzublenden.
 - **Pygame** oder direkter Framebuffer-/DRM-Zugriff fuer schnelle Ausgabe ohne Desktop-Overhead
 - Kein Desktop, keine WLAN-Last, GPU-Pfad nutzen wo moeglich
 - Jede zusaetzliche "intelligente" Funktion (Objekterkennung, Tracking) kostet Latenz und Strom
 
 Beispielcode im Repo:
 - **Stufe A (statisches OLED-HUD):** `Code/HelmetControl/hud_display.py`
-- **Stufe C (Passthrough-Pipeline):** `Code/HelmetControl/AR/` — lauffaehiges Beispiel mit
+- **Stufe C (Passthrough-Pipeline):** `Code/HelmetControl/AR/` - lauffaehiges Beispiel mit
   Kamera-Anbindung (picamera2/OpenCV), Halo-HUD-Overlay (`hud_overlay.py`), Latenzmessung
   und Sicherheits-Failsafe (`ar_passthrough.py`), dazu ein ESP32-Sensor-Feeder
   (`SensorFeeder/SensorFeeder.ino`). Hardwarefreier Test:

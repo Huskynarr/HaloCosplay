@@ -1,6 +1,6 @@
 # Checklisten
 
-> **Level:** [A] Anfaenger | [F] Fortgeschritten | [P] Profi  ·  **Varianten:** alle
+> **Level:** [A] Anfaenger | [F] Fortgeschritten | [P] Profi  |  **Varianten:** alle
 
 Diese Listen helfen, nichts zu vergessen. Drucke sie aus oder nutze sie als Issue-Vorlage.
 
@@ -137,5 +137,5 @@ Diese Listen helfen, nichts zu vergessen. Drucke sie aus oder nutze sie als Issu
 - [ ] Lackierte Flaechen nie direkt aufeinander (Polsterung dazwischen)
 - [ ] Poolnudeln als Abstandhalter
 - [ ] Faltbarer Transportwagen/Sackkarre
-- [ ] Am Veranstaltungsort umziehen — NICHT zu Hause
+- [ ] Am Veranstaltungsort umziehen - NICHT zu Hause
 - [ ] Oeffentliche Verkehrsmittel: Props in geschlossenen, blickdichten Taschen

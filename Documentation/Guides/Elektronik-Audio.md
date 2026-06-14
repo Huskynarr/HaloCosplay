@@ -1,16 +1,16 @@
 # Elektronik: Audio und Voice Changer
 
-> **Level:** [A] Anfaenger (Option A) | [F] Fortgeschritten (Option B/C)  ·  **Varianten:** alle (optional)
+> **Level:** [A] Anfaenger (Option A) | [F] Fortgeschritten (Option B/C)  |  **Varianten:** alle (optional)
 > **Voraussetzungen:** Fuer Option B/C Loetkenntnisse und 5V-Versorgung; Option A ist Plug-and-Play.
 
-Optionale Audio-Erweiterung fuer den Helm — Stimmverstaerker, Lautsprecher und Voice Changer.
+Optionale Audio-Erweiterung fuer den Helm - Stimmverstaerker, Lautsprecher und Voice Changer.
 
 ## Option A: Einfacher Stimmverstaerker (kein Pitch-Shift)
 
 Plug-and-Play Loesungen ohne Bastelarbeit:
 
-- **COSVOX Cosplay Sound & Voice Amplifier** (~50-60 EUR) — speziell fuer Cosplay-Helme, Guertel-montierbar, hohe Lautstaerke
-- **VoiceBooster MR1506** (~40 EUR) — portabler PA-Verstaerker, beliebt in der Cosplay-Community
+- **COSVOX Cosplay Sound & Voice Amplifier** (~50-60 EUR) - speziell fuer Cosplay-Helme, Guertel-montierbar, hohe Lautstaerke
+- **VoiceBooster MR1506** (~40 EUR) - portabler PA-Verstaerker, beliebt in der Cosplay-Community
 
 ## Option B: Arduino Voice Changer (Pitch Shifting)
 
@@ -26,7 +26,7 @@ Plug-and-Play Loesungen ohne Bastelarbeit:
 
 ### Wichtige Verkabelungshinweise
 
-- **AC-Koppelkondensator** (10-47 uF Elko) zwischen MAX4466 Ausgang und PAM8403 Eingang — PFLICHT! Der MAX4466 hat einen DC-Offset, der den PAM8403 ohne Kopplung beschaedigt
+- **AC-Koppelkondensator** (10-47 uF Elko) zwischen MAX4466 Ausgang und PAM8403 Eingang - PFLICHT! Der MAX4466 hat einen DC-Offset, der den PAM8403 ohne Kopplung beschaedigt
 - PAM8403 Links und Rechts Ausgaenge NIEMALS zusammenschliessen (verbrennt den IC)
 - Lautsprecher VOR dem Einschalten anschliessen
 - Mikrofon mit kleinem Ballon umwickeln gegen Atem-Pops (alter Audio-Trick)

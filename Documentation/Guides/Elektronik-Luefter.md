@@ -1,6 +1,6 @@
 # Elektronik: Helm-Belueftung (Luefter)
 
-> **Level:** [A] Anfaenger | [F] Fortgeschritten | [P] Profi  ·  **Varianten:** alle
+> **Level:** [A] Anfaenger | [F] Fortgeschritten | [P] Profi  |  **Varianten:** alle
 > **Voraussetzungen:** 5V-Stromversorgung im Helm vorhanden; fuer PWM-Regelung Arduino (`Documentation/Guides/Elektronik-Verdrahtung.md`).
 
 Luefter im Helm sind bei Convention-Tragen nahezu Pflicht. Sie verhindern Beschlagen des Visiers und halten die Temperatur ertraeglich.

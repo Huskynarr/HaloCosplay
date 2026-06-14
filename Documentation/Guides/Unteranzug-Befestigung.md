@@ -1,37 +1,37 @@
 # Unteranzug und Befestigungssysteme
 
-> **Level:** [A] Anfaenger | [F] Fortgeschritten | [P] Profi  ·  **Varianten:** alle  ·  **Voraussetzungen:** keine (Referenz/Optionen); fuer Custom-Suit Naehkenntnisse
+> **Level:** [A] Anfaenger | [F] Fortgeschritten | [P] Profi  |  **Varianten:** alle  |  **Voraussetzungen:** keine (Referenz/Optionen); fuer Custom-Suit Naehkenntnisse
 
 Wie die Ruestung am Koerper befestigt wird und was man drunter traegt.
 
 ## Unteranzug-Optionen & Thermomanagement
 
-Da eine geschlossene Rüstung (Foam oder 3D-Druck) stark isoliert und Wärme staut, ist ein durchdachter Unteranzug überlebenswichtig.
+Da eine geschlossene Ruestung (Foam oder 3D-Druck) stark isoliert und Waerme staut, ist ein durchdachter Unteranzug ueberlebenswichtig.
 
 ### Basis-Layer (Techsuit)
 
-- **Feuchtigkeitsableitende Funktionskleidung:** Under Armour HeatGear oder Lycra/Spandex-Morphsuits sind Pflicht (niemals Baumwoll-T-Shirts tragen, da sie Schweiß aufsaugen und klamm werden).
-- **Zweck:** Hält die Haut trocken, verhindert Wundreiben an Rüstungskanten und erleichtert das An- und Ausziehen des schweren Anzugs.
+- **Feuchtigkeitsableitende Funktionskleidung:** Under Armour HeatGear oder Lycra/Spandex-Morphsuits sind Pflicht (niemals Baumwoll-T-Shirts tragen, da sie Schweiss aufsaugen und klamm werden).
+- **Zweck:** Haelt die Haut trocken, verhindert Wundreiben an Ruestungskanten und erleichtert das An- und Ausziehen des schweren Anzugs.
 
-### Kühlung & Kondensationsschutz (PCM)
+### Kuehlung & Kondensationsschutz (PCM)
 
-- **Phase Change Material (PCM) Kühlwesten:** Für lange Convention-Tage wird eine PCM-Kühlweste (z. B. von ThermApparel) empfohlen.
-- **Vorteil:** PCM-Kühlpacks kristallisieren bei einer konstanten Temperatur von ca. **14 °C (58 °F)**. Im Gegensatz zu Eispacks sind sie kühl genug, erzeugen aber **kein Kondenswasser**. Dies ist extrem wichtig, um die im Suit verbaute Elektronik (Raspberry Pi, Arduino, LiPos) vor Feuchtigkeitsschäden und Kurzschlüssen zu schützen.
+- **Phase Change Material (PCM) Kuehlwesten:** Fuer lange Convention-Tage wird eine PCM-Kuehlweste (z. B. von ThermApparel) empfohlen.
+- **Vorteil:** PCM-Kuehlpacks kristallisieren bei einer konstanten Temperatur von ca. **14 Grad C (58 Grad F)**. Im Gegensatz zu Eispacks sind sie kuehl genug, erzeugen aber **kein Kondenswasser**. Dies ist extrem wichtig, um die im Suit verbaute Elektronik (Raspberry Pi, Arduino, LiPos) vor Feuchtigkeitsschaeden und Kurzschluessen zu schuetzen.
 
-### Tragesystem & Rüstungsbefestigung
+### Tragesystem & Ruestungsbefestigung
 
-- **Dive Skin (Lycra, 1-2 mm):** Haltbarer als dünne Morphsuits, bietet leichte Polsterung.
-- **Custom Rigging:** Ein Zwei-Schicht-System aus innerem Funktions-Layer und einer äußeren Tragweste/Harness (z. B. H-Harness) zur verdeckten Montage der Rüstungspunkte.
+- **Dive Skin (Lycra, 1-2 mm):** Haltbarer als duenne Morphsuits, bietet leichte Polsterung.
+- **Custom Rigging:** Ein Zwei-Schicht-System aus innerem Funktions-Layer und einer aeusseren Tragweste/Harness (z. B. H-Harness) zur verdeckten Montage der Ruestungspunkte.
 
 ## Befestigungssysteme
 
 ### Neodym-Magnete
 
-- **10x3 mm** oder **12x3 mm** Scheibenmagnete — gaengigste Groessen
+- **10x3 mm** oder **12x3 mm** Scheibenmagnete - gaengigste Groessen
 - In 3D-gedruckten Haltern einbetten (z.B. "Armor Helpers" auf Thingiverse/Cults3D)
 - Mit CA-Kleber oder Zweikomponenten-Epoxy einkleben
 - Magnete in Ruestung paaren mit Magneten im Unteranzug oder an Harness
-- **WICHTIG: Polaritaet markieren** vor dem Einkleben — falsche Pole = Abstossung statt Halt
+- **WICHTIG: Polaritaet markieren** vor dem Einkleben - falsche Pole = Abstossung statt Halt
 
 ### Klettverschluss (Hook and Loop)
 
@@ -43,7 +43,7 @@ Da eine geschlossene Rüstung (Foam oder 3D-Druck) stark isoliert und Wärme sta
 
 - **Quick-Release Schnallen** (ITW Nexus / Duraflex Stil, 25 mm Gurtband) fuer Brust, Ruecken, Oberschenkel
 - **25 mm Nylon-Gurtband** durch Schlaufen in der Ruestung, verbunden mit **Klettergurt** oder **MOLLE-Guertel** an der Huefte
-- **Huefte traegt die Last** — Schultergurte nur zur Stabilisierung
+- **Huefte traegt die Last** - Schultergurte nur zur Stabilisierung
 
 ### Kombinations-Ansatz (Empfohlen)
 
@@ -57,7 +57,7 @@ Da eine geschlossene Rüstung (Foam oder 3D-Druck) stark isoliert und Wärme sta
 
 ### Helm
 
-- **Taktische/Airsoft-Helm-Padding-Kits** (Amazon, unter 15 EUR) — vorgeschnittene Memory-Foam Pads mit Klett-Rueckseite
+- **Taktische/Airsoft-Helm-Padding-Kits** (Amazon, unter 15 EUR) - vorgeschnittene Memory-Foam Pads mit Klett-Rueckseite
 - Dicke: 6 mm allgemein, bis 10 mm fuer Passform-Anpassung
 - Mit **Klettstreifen** befestigen (abnehmbar fuer Reinigung und Repositionierung)
 - **Kinnriemen** (Motorrad- oder Fahrrad-Stil) fuer Sicherheit

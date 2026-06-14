@@ -1,8 +1,8 @@
 # Convention-Alltag in voller Ruestung
 
-> **Level:** [A] Anfaenger | [F] Fortgeschritten | [P] Profi  ·  **Varianten:** alle  ·  **Voraussetzungen:** tragbare Ruestung, idealerweise mit Quick-Release; Handler eingeplant
+> **Level:** [A] Anfaenger | [F] Fortgeschritten | [P] Profi  |  **Varianten:** alle  |  **Voraussetzungen:** tragbare Ruestung, idealerweise mit Quick-Release; Handler eingeplant
 
-Praktische Tipps fuer Essen, Trinken, Toilette und Pausen — die Themen die niemand gerne bespricht, aber jeder wissen muss.
+Praktische Tipps fuer Essen, Trinken, Toilette und Pausen - die Themen die niemand gerne bespricht, aber jeder wissen muss.
 
 ## Trinken
 
@@ -16,7 +16,7 @@ Praktische Tipps fuer Essen, Trinken, Toilette und Pausen — die Themen die nie
 
 ### Alternative
 
-- Wasserflasche mit Strohhalm — Helm abnehmen, schnell trinken, Helm wieder auf
+- Wasserflasche mit Strohhalm - Helm abnehmen, schnell trinken, Helm wieder auf
 - Braucht Handler der die Flasche haelt
 
 ### Wann trinken?
@@ -37,7 +37,7 @@ Du kannst in voller Ruestung **nicht essen**. Plane feste Essenspausen ein.
 2. **3-4 Stunden Bloecke** in Ruestung, dann Pause
 3. In der Pause mindestens abnehmen: **Helm, Handschuhe, Unterarme**
 4. Idealerweise auch **Brustplatte** ablegen (bequemer essen)
-5. **Liquid Meals** (Proteinshakes) koennen durch CamelBak getrunken werden — Notloesung fuer kurze Pausen
+5. **Liquid Meals** (Proteinshakes) koennen durch CamelBak getrunken werden - Notloesung fuer kurze Pausen
 
 ### Snacks
 
@@ -61,7 +61,7 @@ Plane den Toilettengang **bevor** du die Ruestung designst!
 
 ### Design-Tipps
 
-- **Codpiece auf separater Schnalle** am Guertel — muss in 10 Sekunden ab sein
+- **Codpiece auf separater Schnalle** am Guertel - muss in 10 Sekunden ab sein
 - **Oberschenkel-Panels** sollten unabhaengig von Brust/Guertel befestigt sein (Klett + Magnete)
 - **Unteranzug:** Kompressions-Suit mit Reissverschluss oder zweiteilig (Oberteil + Hose)
 - **NICHT** Codpiece und Brustplatte miteinander verbinden!
@@ -113,7 +113,7 @@ Gib deinem Handler diese Kurzanleitung:
 
 1. **Trage mit:** Wasserflasche, Snacks, Handy, Geldbeutel, Reparatur-Kit
 2. **Navigiere:** Warne vor Stufen, niedrigen Tueren, Engstellen
-3. **Manage Fotos:** "Gerne, kurz hierhin stellen" — halte Dinge waehrend des Foto
+3. **Manage Fotos:** "Gerne, kurz hierhin stellen" - halte Dinge waehrend des Foto
 4. **Pausen erzwingen:** "Du trinkst jetzt" alle 30-45 Minuten
 5. **Toilette:** Warte mit Ruestungsteilen, hilf beim Wieder-Anziehen
 6. **Notfall:** Helm sofort abnehmen, kuehlen Ort suchen, Wasser geben

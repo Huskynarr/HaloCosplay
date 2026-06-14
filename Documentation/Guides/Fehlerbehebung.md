@@ -1,6 +1,6 @@
 # Fehlerbehebung
 
-> **Level:** [A] Anfaenger | [F] Fortgeschritten | [P] Profi  ·  **Varianten:** alle
+> **Level:** [A] Anfaenger | [F] Fortgeschritten | [P] Profi  |  **Varianten:** alle
 
 Haeufige Probleme und Loesungen, geordnet nach Kategorie.
 
@@ -42,7 +42,7 @@ Falls `i2cdetect` keine Adresse zeigt: I2C nicht aktiviert (`raspi-config` pruef
 | --- | --- |
 | Lose Montage | Fester mit Klett fixieren, Gummi-Unterlegscheibe |
 | Unwucht | Anderen Luefter versuchen (Billig-Luefter haben oft Unwucht) |
-| Kabelkontakt | Kabel beruehrt Luefterblatt — umverlegen |
+| Kabelkontakt | Kabel beruehrt Luefterblatt - umverlegen |
 | Resonanz mit Helm | Weichen Schaumstoff zwischen Luefter und Helmwand |
 
 ### Audio brummt/rauscht
@@ -124,7 +124,7 @@ Falls `i2cdetect` keine Adresse zeigt: I2C nicht aktiviert (`raspi-config` pruef
 
 | Problem | Loesung |
 | --- | --- |
-| Zu gleichmaessig | Weathering sollte UNGLEICHMAESSIG sein — fokussiere auf Kanten und logische Abnutzungsstellen |
+| Zu gleichmaessig | Weathering sollte UNGLEICHMAESSIG sein - fokussiere auf Kanten und logische Abnutzungsstellen |
 | Zu viel auf einmal | Langsam aufbauen, Schicht fuer Schicht, zwischendurch zuruecktreten und bewerten |
 | Falsches Silber | Mattes Silber/Gunmetal nutzen, KEIN glaenzendes Chrome |
 | Wash trocknet fleckig | Wash duenner anmischen, schneller abwischen, auf kleinen Bereich konzentrieren |

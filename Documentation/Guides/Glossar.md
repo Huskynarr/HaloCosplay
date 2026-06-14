@@ -27,7 +27,7 @@ Begriffe die in diesem Projekt verwendet werden.
 | **SSD1309** | OLED-Display-Controller fuer transparente 1.51" Displays |
 | **WS2812B** | Adressierbare RGB-LED (auch "NeoPixel"), jede LED einzeln steuerbar |
 | **SK6812** | Wie WS2812B, aber mit zusaetzlichem weissem Kanal (RGBW) |
-| **PWM** | Pulsweitenmodulation — Helligkeits-/Geschwindigkeitsregelung |
+| **PWM** | Pulsweitenmodulation - Helligkeits-/Geschwindigkeitsregelung |
 | **BMS** | Battery Management System, Schutzschaltung fuer LiPo-Akkus |
 | **UBEC** | Universal Battery Eliminator Circuit, Spannungsregler |
 | **JST-XH** | Steckertyp fuer Signalleitungen (bis 3A) |
@@ -54,11 +54,11 @@ Begriffe die in diesem Projekt verwendet werden.
 | --- | --- |
 | **Handler** | Begleitperson die dem Cosplayer bei Navigation und Logistik hilft |
 | **Peace-Binding** | Markierung dass ein Prop geprueft und freigegeben wurde |
-| **Anscheinswaffe** | Gegenstand der einer echten Waffe aehnelt (§42a WaffG) |
+| **Anscheinswaffe** | Gegenstand der einer echten Waffe aehnelt (Par. 42a WaffG) |
 | **Masquerade** | Cosplay-Wettbewerb auf Conventions (oft mit Buehnen-Performance) |
 | **DCM** | Deutsche Cosplay Meisterschaft |
-| **405th** | 405th Infantry Division — die primaere Halo-Cosplay-Community |
-| **RPF** | Replica Prop Forum — grosse allgemeine Prop-Bau Community |
+| **405th** | 405th Infantry Division - die primaere Halo-Cosplay-Community |
+| **RPF** | Replica Prop Forum - grosse allgemeine Prop-Bau Community |
 
 ## Ruestung (Halo-spezifisch)
 

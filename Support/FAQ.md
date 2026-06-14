@@ -11,7 +11,7 @@
 - V3 fuer Showpiece-Exoskelette (Profi-Level)
 
 **Wo finde ich die TODO-Liste fuer das ganze Projekt?**
-- `Documentation/TODO.md` — 9 Phasen mit Checkboxen von Planung bis Convention.
+- `Documentation/TODO.md` - 9 Phasen mit Checkboxen von Planung bis Convention.
 
 ## Kosten und Zeit
 
@@ -25,7 +25,7 @@
 - Details und Parallelisierungstipps: `Documentation/Guides/Zeitplan.md`
 
 **Was brauche ich mindestens fuer eine Convention?**
-- Helm + Brustplatte + Unterarme + Schienbeine — damit sieht man sofort wie Master Chief aus.
+- Helm + Brustplatte + Unterarme + Schienbeine - damit sieht man sofort wie Master Chief aus.
 
 ## 3D-Druck
 
@@ -55,7 +55,7 @@
 
 **Wie lange haelt der Akku?**
 - PiSugar 3 Plus (5000 mAh) allein: ca. 3.3 Stunden
-- Mit 2x 10.000 mAh Powerbank: 13+ Stunden — mehr als genug fuer eine Convention
+- Mit 2x 10.000 mAh Powerbank: 13+ Stunden - mehr als genug fuer eine Convention
 - Details: `Documentation/Guides/Elektronik-Batterie.md`
 
 **Brauche ich Arduino UND Raspberry Pi?**
@@ -78,7 +78,7 @@
 ## Hilfe und Community
 
 **Wo finde ich Hilfe?**
-- **405th Infantry Division** (https://www.405th.com/) — DIE Halo-Cosplay-Community
+- **405th Infantry Division** (https://www.405th.com/) - DIE Halo-Cosplay-Community
 - Weitere Quellen: `Resources/Community.md`
 
 **Gibt es deutsche Cosplay-Communities?**

@@ -1,6 +1,6 @@
 # Elektronik: Verdrahtung und Power-Verteilung
 
-> **Level:** [F] Fortgeschritten | [P] Profi  ·  **Varianten:** V2/V3
+> **Level:** [F] Fortgeschritten | [P] Profi  |  **Varianten:** V2/V3
 > **Voraussetzungen:** Strombudget und Batterie gewaehlt (`Documentation/Guides/Elektronik-Strombudget.md`, `Documentation/Guides/Elektronik-Batterie.md`), Loetkolben und Multimeter, Grundlagen Steckverbinder (XT60/XT30/JST).
 
 Ziel: sichere, modulare Verkabelung mit sauberer Trennung von Logik und Leistung.
@@ -144,10 +144,10 @@ Im Helm:
 
 ## Testreihenfolge
 
-1. **Nur Pi + OLED** — HUD funktioniert?
-2. **Pi + OLED + Luefter** — Luftstrom ok?
-3. **Arduino + LEDs (auf dem Tisch)** — alle Sektionen?
-4. **Audio (falls vorhanden)** — kein Brummen?
-5. **Alles zusammen (Tisch)** — Kurzschluss-Check mit Multimeter
-6. **Alles in der Ruestung** — Kabel lang genug? Stecker erreichbar?
-7. **Bewegungstest** — bleibt alles bei Bewegung verbunden?
+1. **Nur Pi + OLED** - HUD funktioniert?
+2. **Pi + OLED + Luefter** - Luftstrom ok?
+3. **Arduino + LEDs (auf dem Tisch)** - alle Sektionen?
+4. **Audio (falls vorhanden)** - kein Brummen?
+5. **Alles zusammen (Tisch)** - Kurzschluss-Check mit Multimeter
+6. **Alles in der Ruestung** - Kabel lang genug? Stecker erreichbar?
+7. **Bewegungstest** - bleibt alles bei Bewegung verbunden?

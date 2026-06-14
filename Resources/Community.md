@@ -30,7 +30,7 @@ Wo man Hilfe findet, sich austauscht und Inspiration holt.
 | **Galactic Armory** | Halo-STL Assembly, Finishing, Painting, Strapping | Wenn du Galactic Armory STLs nutzt |
 | **Evil Ted Smith** | EVA-Foam Armor (nicht Halo-spezifisch, aber Gold-Standard) | Foam-Techniken |
 | **Punished Props Academy** | Props, Foam, 3D-Druck Finishing, Painting, Weathering | Allround-Techniken |
-| **Kamui Cosplay (Svetlana)** | Foam-Armor, Thermoplast, Finishing — **Deutschland-basiert!** | Foam-Bau, deutschsprachige Inhalte |
+| **Kamui Cosplay (Svetlana)** | Foam-Armor, Thermoplast, Finishing - **Deutschland-basiert!** | Foam-Bau, deutschsprachige Inhalte |
 | **Dirtwave Workshop** | Halo-spezifische 3D-Druck Builds | Halo + 3D-Druck |
 
 ## Deutsche Cosplay-Communities
@@ -67,7 +67,7 @@ Wo man Hilfe findet, sich austauscht und Inspiration holt.
 
 - Meiste verlangen **Voranmeldung** und Nachweis dass Kostuem selbst gemacht ist
 - Kategorien typisch: Solo, Gruppe, manchmal Anfaenger vs. Fortgeschritten
-- Performance/Skit-Runden sind ueblich — 1-2 Minuten Buehnen-Auftritt vorbereiten
+- Performance/Skit-Runden sind ueblich - 1-2 Minuten Buehnen-Auftritt vorbereiten
 - Bewertungskriterien: Handwerkskunst, Genauigkeit, Buehnenpraesenz, Kreativitaet
 - **Deutsche Cosplay Meisterschaft (DCM):** Fuehrt in die Euro Cosplay Endrunde
 
@@ -85,23 +85,23 @@ Wo man Hilfe findet, sich austauscht und Inspiration holt.
 
 ### Foam-Arbeit
 
-- **Evil Ted Smith** (YouTube) — Gold-Standard
-- **Kamui Cosplay** (YouTube + Buecher) — **deutschsprachig**, Buecher auf Deutsch/Englisch
-  - "The Book of Cosplay Armor Making" — sehr empfehlenswert
-- **Punished Props Academy** (YouTube) — Foam Fundamentals Serie
-- **SKS Props** (YouTube) — Detaillierte Foam-Builds
+- **Evil Ted Smith** (YouTube) - Gold-Standard
+- **Kamui Cosplay** (YouTube + Buecher) - **deutschsprachig**, Buecher auf Deutsch/Englisch
+  - "The Book of Cosplay Armor Making" - sehr empfehlenswert
+- **Punished Props Academy** (YouTube) - Foam Fundamentals Serie
+- **SKS Props** (YouTube) - Detaillierte Foam-Builds
 
 ### 3D-Druck Finishing
 
-- **Frankly Built** (YouTube) — Workflow fuer Armor
-- **Galactic Armory** (YouTube) — Spezifisch Halo Armor Finishing
-- **XTC-3D Tutorials** (Smooth-On Website) — Epoxy-Beschichtung
+- **Frankly Built** (YouTube) - Workflow fuer Armor
+- **Galactic Armory** (YouTube) - Spezifisch Halo Armor Finishing
+- **XTC-3D Tutorials** (Smooth-On Website) - Epoxy-Beschichtung
 
 ### Elektronik / Wearables
 
-- **Adafruit Learning System** (learn.adafruit.com) — NeoPixel, Arduino, Batterie-Management
-- **405th Electronics-Subforum** — Halo-spezifische Elektronik-Diskussionen
-- **Print Shift** und **The Smugglers Room** (YouTube) — Cosplay-Elektronik
+- **Adafruit Learning System** (learn.adafruit.com) - NeoPixel, Arduino, Batterie-Management
+- **405th Electronics-Subforum** - Halo-spezifische Elektronik-Diskussionen
+- **Print Shift** und **The Smugglers Room** (YouTube) - Cosplay-Elektronik
 
 ## Custom-Teile bestellen (wenn noetig)
 
@@ -117,9 +117,9 @@ Wo man Hilfe findet, sich austauscht und Inspiration holt.
 
 ## Cosplay-Fotografie (Deutschland)
 
-- **Cosplay Photographers Germany** (Facebook) — Verbindet Cosplayer mit Fotografen
-- **Fotografie & Cosplay Germany** (Facebook) — Deutsche Cosplay-Fotografie
-- **Animexx.de** — Fotografen-Verzeichnis und Shoot-Koordination
+- **Cosplay Photographers Germany** (Facebook) - Verbindet Cosplayer mit Fotografen
+- **Fotografie & Cosplay Germany** (Facebook) - Deutsche Cosplay-Fotografie
+- **Animexx.de** - Fotografen-Verzeichnis und Shoot-Koordination
 - **Instagram:** #cosplayphotography, #cosplayshootgermany
 - Convention-Fotografen-Listen (DoKomi und Gamescom veroeffentlichen akkreditierte Fotografen)
 

@@ -1,6 +1,6 @@
 # 3D-Druck Guide (Bambu Lab H2C)
 
-> **Level:** [F] Fortgeschritten | [P] Profi  ·  **Varianten:** V2/V3  ·  **Voraussetzungen:** FDM-Drucker (Bambu Lab H2C), Slicer (Bambu Studio), STL-Dateien (siehe `Resources/STL-Quellen.md`), Grundkenntnisse 3D-Druck. Fachbegriffe siehe `Documentation/Guides/Glossar.md`.
+> **Level:** [F] Fortgeschritten | [P] Profi  |  **Varianten:** V2/V3  |  **Voraussetzungen:** FDM-Drucker (Bambu Lab H2C), Slicer (Bambu Studio), STL-Dateien (siehe `Resources/STL-Quellen.md`), Grundkenntnisse 3D-Druck. Fachbegriffe siehe `Documentation/Guides/Glossar.md`.
 
 Dieser Guide beschreibt den 3D-Druck-Workflow fuer ein vollstaendiges Master Chief MJOLNIR Armor Set mit dem Bambu Lab H2C.
 
@@ -33,9 +33,9 @@ Dieser Guide beschreibt den 3D-Druck-Workflow fuer ein vollstaendiges Master Chi
 
 ### Schichthoehe
 
-- **0.20 mm** — Standard fuer Balance aus Speed und Qualitaet
-- **0.28-0.32 mm** — mit 0.6 mm Duese fuer Koerperpanzer (spart ~40% Zeit)
-- **0.12-0.16 mm** — nur fuer Visor/Detailteile
+- **0.20 mm** - Standard fuer Balance aus Speed und Qualitaet
+- **0.28-0.32 mm** - mit 0.6 mm Duese fuer Koerperpanzer (spart ~40% Zeit)
+- **0.12-0.16 mm** - nur fuer Visor/Detailteile
 
 ### Supports
 
@@ -54,13 +54,13 @@ Dieser Guide beschreibt den 3D-Druck-Workflow fuer ein vollstaendiges Master Chi
 
 ## Grosse Teile splitten
 
-Ein Master Chief Helm ist ca. 280-320 mm hoch und 250-280 mm breit — passt oft nicht in einem Stueck.
+Ein Master Chief Helm ist ca. 280-320 mm hoch und 250-280 mm breit - passt oft nicht in einem Stueck.
 
 ### Bambu Studio Cut Tool (Taste C)
 
 - Modell auswaehlen, C druecken, Schnittebene positionieren
 - Automatische Schwalbenschwanz-/Pin-Verbinder moeglich
-- Schnell und bequem — Schneiden und Slicen in einem Workflow
+- Schnell und bequem - Schneiden und Slicen in einem Workflow
 - Limitierung: nur ebene Schnitte (keine gekruemmten)
 
 ### Meshmixer (kostenlos, Autodesk)

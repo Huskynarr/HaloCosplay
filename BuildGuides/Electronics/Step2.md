@@ -1,6 +1,6 @@
 # Electronics Step 2: Software, Tests, Integration
 
-> **Level:** [F] Fortgeschritten | [P] Profi  ·  **Varianten:** V2/V3 (HUD/LEDs)  ·  **Voraussetzungen:** Step 1 bestanden, Raspberry Pi und Arduino mit PC verbindbar, Grundkenntnisse Linux/SSH; Begriffe siehe `Documentation/Guides/Glossar.md`
+> **Level:** [F] Fortgeschritten | [P] Profi  |  **Varianten:** V2/V3 (HUD/LEDs)  |  **Voraussetzungen:** Step 1 bestanden, Raspberry Pi und Arduino mit PC verbindbar, Grundkenntnisse Linux/SSH; Begriffe siehe `Documentation/Guides/Glossar.md`
 
 ## Voraussetzung
 
@@ -110,8 +110,8 @@ Der vorhandene Code (`Code/HelmetControl/MainControlCode.ino`) empfaengt Helligk
 
 ### LED-Effekte
 
-`Code/HelmetControl/LightingEffectsCode.ino` — einfacher LED-Lauf
-`Code/ArmorControl/LightingEffectsCode.ino` — LED-Chase-Effekt
+`Code/HelmetControl/LightingEffectsCode.ino` - einfacher LED-Lauf
+`Code/ArmorControl/LightingEffectsCode.ino` - LED-Chase-Effekt
 
 ### Flashen
 
@@ -143,7 +143,7 @@ Der vorhandene Code (`Code/HelmetControl/MainControlCode.ino`) empfaengt Helligk
 
 ## 4. Konfiguration anpassen
 
-`config.json` — die wichtigsten Einstellungen:
+`config.json` - die wichtigsten Einstellungen:
 
 ```json
 {
@@ -195,17 +195,17 @@ Der vorhandene Code (`Code/HelmetControl/MainControlCode.ino`) empfaengt Helligk
 
 ### Test-Reihenfolge (wie bei echtem Space-Suit!)
 
-1. **Nur Pi + OLED** — HUD funktioniert im Helm?
-2. **Pi + OLED + Luefter** — Luftstrom ok, kein Vibrieren?
-3. **Arduino + LEDs (auf dem Tisch)** — alle Sektionen korrekt?
-4. **Alles zusammen (auf dem Tisch)** — Kurzschluss-Check mit Multimeter
-5. **Alles in der Ruestung (stehend)** — Funktion bei realer Position?
-6. **Bewegungstest** — Gehen, Setzen, Drehen — bleibt alles verbunden?
+1. **Nur Pi + OLED** - HUD funktioniert im Helm?
+2. **Pi + OLED + Luefter** - Luftstrom ok, kein Vibrieren?
+3. **Arduino + LEDs (auf dem Tisch)** - alle Sektionen korrekt?
+4. **Alles zusammen (auf dem Tisch)** - Kurzschluss-Check mit Multimeter
+5. **Alles in der Ruestung (stehend)** - Funktion bei realer Position?
+6. **Bewegungstest** - Gehen, Setzen, Drehen - bleibt alles verbunden?
 
 ### Dauertest
 
 - [ ] System mindestens **4 Stunden** durchgehend laufen lassen
-- [ ] Temperatur pruefen (Helm-Innen, Pi, Powerbank — nichts heiss?)
+- [ ] Temperatur pruefen (Helm-Innen, Pi, Powerbank - nichts heiss?)
 - [ ] Batterie-Rest ablesen (wie viel Kapazitaet noch uebrig?)
 - [ ] Alle LEDs noch an? Kein Flackern?
 - [ ] HUD stabil? Kein Einfrieren?
@@ -214,7 +214,7 @@ Der vorhandene Code (`Code/HelmetControl/MainControlCode.ino`) empfaengt Helligk
 
 | Problem | Diagnose | Loesung |
 | --- | --- | --- |
-| Display bleibt schwarz | `i2cdetect -y 1` — Adresse sichtbar? | Kabel pruefen, SDA/SCL tauschen, 3.3V statt 5V |
+| Display bleibt schwarz | `i2cdetect -y 1` - Adresse sichtbar? | Kabel pruefen, SDA/SCL tauschen, 3.3V statt 5V |
 | Pi startet neu / friert ein | Unterspannung: `vcgencmd get_throttled` | Besseres USB-Kabel, staerkere Powerbank |
 | LEDs flackern | GND verbunden? Datenleitung zu lang? | Gemeinsame Masse sicherstellen, Data-Kabel kuerzen |
 | LEDs zeigen falsche Farbe | Falsche LED-Reihenfolge im Code | LED-Typ pruefen (WS2812B vs SK6812), Code anpassen |

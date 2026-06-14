@@ -83,7 +83,7 @@ Fuer Bambu Lab Drucker (H2C) der primaere Slicer.
 
 - **Zweck:** FDM/Resin-Slicer mit fortgeschrittenen Auto-Supports und Hollowing
 - **Preis:** Kostenlos (Lite), Bezahlt fuer erweiterte Features
-- **Neu (2025/2026):** "Lychee Gen" — KI-generierte 3D-Modelle aus Textbeschreibung
+- **Neu (2025/2026):** "Lychee Gen" - KI-generierte 3D-Modelle aus Textbeschreibung
 - **Download:** https://mango3d.io/
 
 ## Elektronik-Design
@@ -139,12 +139,12 @@ Fuer Bambu Lab Drucker (H2C) der primaere Slicer.
 
 ## Grafik und Referenzen
 
-- **Inkscape** (kostenlos) — Vektor-Grafik, Schnittmuster
-- **GIMP** (kostenlos) — Bild-Bearbeitung, Ruestung auf Koerperfotos ueberlegen
-- **Blender** — 3D-Visualisierung, Farbschema-Planung
+- **Inkscape** (kostenlos) - Vektor-Grafik, Schnittmuster
+- **GIMP** (kostenlos) - Bild-Bearbeitung, Ruestung auf Koerperfotos ueberlegen
+- **Blender** - 3D-Visualisierung, Farbschema-Planung
 
 ## Code und Entwicklung
 
-- **Arduino IDE** — Arduino-Sketches fuer LEDs, Luefter, Sensoren
-- **Thonny** oder **VS Code** — Python fuer Pi Zero 2 W HUD-Software
-- **Raspberry Pi Imager** — OS auf SD-Karte flashen
+- **Arduino IDE** - Arduino-Sketches fuer LEDs, Luefter, Sensoren
+- **Thonny** oder **VS Code** - Python fuer Pi Zero 2 W HUD-Software
+- **Raspberry Pi Imager** - OS auf SD-Karte flashen

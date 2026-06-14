@@ -1,6 +1,6 @@
 # Fortgeschrittene Praxis-Tipps: Erfahrungswissen fuer Armor Builder
 
-> **Level:** [F] Fortgeschritten | [P] Profi  ·  **Varianten:** alle (Erfahrungs-/Referenzsammlung, vertieft die Bau- und Finishing-Guides)
+> **Level:** [F] Fortgeschritten | [P] Profi  |  **Varianten:** alle (Erfahrungs-/Referenzsammlung, vertieft die Bau- und Finishing-Guides)
 
 Gesammelt aus der 405th, RPF, Punished Props, Kamui Cosplay, und Maker-Communities. Das Wissen, das nur aus Erfahrung kommt.
 
@@ -10,7 +10,7 @@ Gesammelt aus der 405th, RPF, Punished Props, Kamui Cosplay, und Maker-Communiti
 
 ### Das Problem
 
-Starre Farbe auf flexiblem oder beweglichem Untergrund bricht und platzt ab — besonders an Stellen, wo sich Ruestungsteile biegen, aneinander reiben, oder staendig bewegt werden. Das betrifft sowohl EVA-Foam als auch 3D-Druck-Teile an Uebergangs-/Gelenkkonstruktionen.
+Starre Farbe auf flexiblem oder beweglichem Untergrund bricht und platzt ab - besonders an Stellen, wo sich Ruestungsteile biegen, aneinander reiben, oder staendig bewegt werden. Das betrifft sowohl EVA-Foam als auch 3D-Druck-Teile an Uebergangs-/Gelenkkonstruktionen.
 
 ### Flexible Versiegelungen (Sealer)
 
@@ -18,7 +18,7 @@ Starre Farbe auf flexiblem oder beweglichem Untergrund bricht und platzt ab — 
 | --- | --- | --- | --- |
 | **Flexbond** (Rosco) | Wasserbasiert, flexibel | 2-3 Schichten mit Pinsel/Schwamm auf Foam, 30 Min trocknen pro Schicht | Gold-Standard fuer Foam-Cosplay. Bleibt dauerhaft flexibel, gleiche Textur auf Foam und Thermoplast |
 | **Plasti-Dip** (Spray/Dip) | Synthetischer Gummi | 2-3 duenne Spruehschichten, 30 cm Abstand, je 20 Min trocknen | Bleibt flexibel von -34 bis +93 Grad C. Gute Haftung auf Foam, Plastik, Metall, Stoff |
-| **Plasti-Dip Clear** | Klarer Gummi-Ueberzug | Als Schutzschicht ueber fertiger Lackierung | Schuetzt Lack an Biegestellen. Vorher an Probestueck testen — kann bei manchen Lacken abperlen |
+| **Plasti-Dip Clear** | Klarer Gummi-Ueberzug | Als Schutzschicht ueber fertiger Lackierung | Schuetzt Lack an Biegestellen. Vorher an Probestueck testen - kann bei manchen Lacken abperlen |
 | **Mod Podge (Flexible)** | Acryl-Versiegelung | Pinselauftrag | Guenstiger als Flexbond, aber weniger flexibel. Gute Budget-Option |
 
 ### Flexible Farben
@@ -28,7 +28,7 @@ Starre Farbe auf flexiblem oder beweglichem Untergrund bricht und platzt ab — 
 | **Flexi Paint** (Sculpture Supply) | Wasserbasiert, ungiftig, latexfrei | Speziell fuer Cosplay/LARP entwickelt, dehnt sich mit Foam mit |
 | **Poly-Props Flexible Aerosol** | Spruehfarbe | Von Cosplay-Zulieferer, flexibel formuliert |
 | **Liquitex Professional Spray** | Acryl-Spruehfarbe | Vergleichsweise flexibel, Kuenstler-Qualitaet |
-| **Leder-/Stofffarbe** (z.B. Angelus, Jacquard) | Fuer dehnbare Materialien | Guenstige Alternative — entwickelt fuer Bewegung auf Leder/Stoff, funktioniert auf Foam |
+| **Leder-/Stofffarbe** (z.B. Angelus, Jacquard) | Fuer dehnbare Materialien | Guenstige Alternative - entwickelt fuer Bewegung auf Leder/Stoff, funktioniert auf Foam |
 | **Createx Wicked** (Airbrush) | Flexible Acrylfarbe | Haftet gut auf flexiblen Untergruenden, ideal fuer Airbrush auf Gelenkbereiche |
 
 ### Flexible Klarlacke
@@ -42,21 +42,21 @@ Starre Farbe auf flexiblem oder beweglichem Untergrund bricht und platzt ab — 
 ### Praxis-Strategie fuer Biegestellen
 
 1. **Schicht-Aufbau:** Flexibler Sealer (Flexbond/Plasti-Dip) > Flexible Grundierung > Flexible Farbe > Flexibler Klarlack
-2. **Regel:** Die gesamte Kette muss flexibel sein — ein steifes Glied bricht alles
+2. **Regel:** Die gesamte Kette muss flexibel sein - ein steifes Glied bricht alles
 3. **Duenne Schichten:** Je duenner die Gesamtschicht, desto flexibler. An Gelenken nie dick auftragen
 4. **Foam-Gelenke:** V-Schnitt an Biegepunkten, mit Stoff hinterlegen, dann flexibel versiegeln und lackieren
 5. **3D-Druck-Gelenke:** Wenn moeglich, Gelenkbereiche aus TPU drucken und mit starren Teilen verbinden
 
 ---
 
-## 2. Visor-Beschlagen — Loesungen jenseits von Lueftern
+## 2. Visor-Beschlagen - Loesungen jenseits von Lueftern
 
 ### Anti-Beschlag-Beschichtungen
 
 | Produkt | Typ | Wirkdauer | Hinweise |
 | --- | --- | --- | --- |
-| **Cat Crap** (EK Ekcessories) | Paste, aufwischen und polieren | 4-8 Stunden | Erfunden von einem Caterpillar-Mechaniker. Erhaeltlich bei REI und Outdoor-Shops. Ergebnisse gemischt — funktioniert am besten auf Glas, weniger zuverlaessig auf Kunststoff-Visieren |
-| **Rain-X Anti-Fog** | Wischtuech/Spray | 4-6 Stunden | WARNUNG: Nicht fuer Acryl, Plastik oder Motorradhelm-Visiere empfohlen — kann Material angreifen. Nur auf PETG/Polycarbonat vorher testen! |
+| **Cat Crap** (EK Ekcessories) | Paste, aufwischen und polieren | 4-8 Stunden | Erfunden von einem Caterpillar-Mechaniker. Erhaeltlich bei REI und Outdoor-Shops. Ergebnisse gemischt - funktioniert am besten auf Glas, weniger zuverlaessig auf Kunststoff-Visieren |
+| **Rain-X Anti-Fog** | Wischtuech/Spray | 4-6 Stunden | WARNUNG: Nicht fuer Acryl, Plastik oder Motorradhelm-Visiere empfohlen - kann Material angreifen. Nur auf PETG/Polycarbonat vorher testen! |
 | **Spuelmittel-Trick** | Duenner Film Dawn/Pril auf Innenseite | 1-3 Stunden | Budget-Loesung: winziger Tropfen Spuelmittel mit weichem Tuch duenn auf Visor-Innenseite verreiben. Surfactant verhindert Tropfenbildung. Muss regelmaessig erneuert werden |
 | **Schwimmbrille Anti-Fog** (z.B. Speedo, Arena) | Spray/Tuch | 2-4 Stunden | Speziell fuer eng anliegende Kunststoff-Linsen. Funktioniert gut auf PETG-Visieren |
 | **Nanolex Anti-Fog** | Professionelle Beschichtung | 6-12 Stunden | Hochwertigere Option, laengere Wirkung |
@@ -65,7 +65,7 @@ Starre Farbe auf flexiblem oder beweglichem Untergrund bricht und platzt ab — 
 
 Das effektivste System aus der Motorrad-Welt:
 
-- **Prinzip:** Zweite duenne Scheibe innen mit Luftspalt zur aeusseren Scheibe. Der eingeschlossene Luftraum isoliert thermisch — die Innenscheibe bleibt warm, Feuchtigkeit kondensiert nicht
+- **Prinzip:** Zweite duenne Scheibe innen mit Luftspalt zur aeusseren Scheibe. Der eingeschlossene Luftraum isoliert thermisch - die Innenscheibe bleibt warm, Feuchtigkeit kondensiert nicht
 - **DIY-Umsetzung:** Duenne PETG-Folie (0.5 mm) mit kleinen Schaumstoff-Abstandshaltern (2-3 mm) innen auf den Visor kleben. Dichtung ringsherum mit Silikon oder Schaumstoff-Dichtungsband
 - **WeePro Anti-Fog Insert:** Universeller Einsatz, braucht keine Pinlock-Pins, funktioniert nach gleichem Prinzip
 - **Vorteil:** Passives System, braucht keinen Strom, funktioniert stundenlang
@@ -97,7 +97,7 @@ Das effektivste System aus der Motorrad-Welt:
 | **Nylon-Spandex** | Kompressions-Suits, Morphsuits | Eng anliegend (kein Knittern unter Ruestung), guenstig | Weniger atmungsaktiv als Mesh |
 | **Bamboo-Viskose** | Verschiedene Hersteller | Antibakteriell, weich, feuchtigkeitsableitend | Weniger haltbar als Polyester |
 
-**WICHTIG:** Niemals Baumwolle! Baumwolle saugt Schweiss auf und haelt ihn fest — keine Verdunstung, kein Kuehleffekt.
+**WICHTIG:** Niemals Baumwolle! Baumwolle saugt Schweiss auf und haelt ihn fest - keine Verdunstung, kein Kuehleffekt.
 
 ### Kuehlsysteme
 
@@ -107,13 +107,13 @@ Das effektivste System aus der Motorrad-Welt:
 | **Evaporative Kuehlweste** | HyperKewl, TechNiche | 5-10 Stunden (bei Luftstrom) | 0.5-1 kg (nass) |
 | **Eis-Weste** | Polar Products | 1-2 Stunden | 2-3 kg (schwer!) |
 
-**Empfehlung:** Phase-Change-Weste (ThermApparel) — duenn genug fuer unter Ruestung, keine Naesse, kuehl-aber-nicht-kalt (14-18 Grad C), aufladbar in der Con-Pause im Hotelfridge.
+**Empfehlung:** Phase-Change-Weste (ThermApparel) - duenn genug fuer unter Ruestung, keine Naesse, kuehl-aber-nicht-kalt (14-18 Grad C), aufladbar in der Con-Pause im Hotelfridge.
 
 ### Schweissrinnen in der Polsterung
 
 - **Channeled Padding:** Anstatt flache Schaumstoff-Pads innen zu kleben, Pads mit 3-5 mm tiefen Rillen/Kanaelen einschneiden (V-Schnitte mit Cutter). Schweiss fliesst in die Kanaele statt sich unter dem Pad zu stauen
 - **Mesh-Abstandshalter:** 3D-Spacer-Mesh (wie in Motorrad-Rueckenprotektoren) als Zwischenschicht zwischen Haut/Unteranzug und Ruestungs-Polsterung. Erlaubt Luft unter den Pads zu zirkulieren
-- **Wabenfoermige Pads:** Hexagonale EVA-Pads (wie Sport-Schienbeinschuetzer-Einsaetze) statt geschlossener Platten — offene Zellen fuer Luft
+- **Wabenfoermige Pads:** Hexagonale EVA-Pads (wie Sport-Schienbeinschuetzer-Einsaetze) statt geschlossener Platten - offene Zellen fuer Luft
 
 ### Antimikrobielle Behandlung
 
@@ -133,7 +133,7 @@ Das effektivste System aus der Motorrad-Welt:
 
 ### Warum es klackert
 
-3D-gedruckte oder hartschalige Ruestungsteile schlagen beim Gehen aneinander — besonders Oberschenkel gegen Hueftteile, Schultern gegen Brust, Unterarmteile bei Armbewegung. Je groesser und schwerer die Teile, desto lauter.
+3D-gedruckte oder hartschalige Ruestungsteile schlagen beim Gehen aneinander - besonders Oberschenkel gegen Hueftteile, Schultern gegen Brust, Unterarmteile bei Armbewegung. Je groesser und schwerer die Teile, desto lauter.
 
 ### Loesungen
 
@@ -142,7 +142,7 @@ Das effektivste System aus der Motorrad-Welt:
 | **Filz-Pads (selbstklebend)** | Moebel-Filzgleiter (3M, tesa) | Auf Kontaktflaechen wo Teile aneinander schlagen | Sehr gut, guenstig, unsichtbar an Innenseiten |
 | **Schaumstoff-Bumper** | Selbstklebende Moebel-Bumper (Silikonpuffer, Gummipuffer) | An Kanten, die aufeinander treffen | Sehr gut, transparent erhaeltlich |
 | **EVA-Foam-Streifen** | 2-3 mm EVA Moosgummi, selbstklebend | Innenkanten der Ruestungsteile entlang | Gut, flexibel, zuschneidbar |
-| **Neopren-Streifen** | Selbstklebender Neopren (2 mm) | Zwischen ueberlappenden Panzerteilen | Sehr gut — daempft und gleitet leise |
+| **Neopren-Streifen** | Selbstklebender Neopren (2 mm) | Zwischen ueberlappenden Panzerteilen | Sehr gut - daempft und gleitet leise |
 | **Lederstreifen** | Duenner Craft-Leder-Streifen (1-2 mm) | An Kanten, die aneinander gleiten | Historisch korrekt (echte Ruestung hatte Leder-Einlagen), leises Gleiten |
 | **Textilband/Filz-Leisten** | Aufklebbarer Filzstreifen | Zwischen Schulter und Brust, Huefte und Oberschenkel | Gut, einfach austauschbar |
 
@@ -170,22 +170,22 @@ Gut sitzende Ruestung klackert weniger als schlecht sitzende. Wenn Teile wackeln
 | --- | --- | --- | --- | --- |
 | **Fidlock SNAP** (25 mm) | Magnetisch einrasten, seitlich schieben zum Oeffnen | 40 kg statisch | 8-12 EUR/Stueck | Oberschenkel-Gurte, Schulter-Befestigung |
 | **Fidlock SLIDER** (25 mm) | Magnet + Snap kombiniert | 55 kg statisch | 10-15 EUR/Stueck | Schwere Teile (Brust, Ruecken) |
-| **Fidlock V-BUCKLE** | Selbstsichernd — wird staerker unter Last | Hoch | 12-18 EUR/Stueck | Hauptlastpunkte am Harness |
+| **Fidlock V-BUCKLE** | Selbstsichernd - wird staerker unter Last | Hoch | 12-18 EUR/Stueck | Hauptlastpunkte am Harness |
 | **Fidlock HOOK** | Einhaken + Magnet | Mittel | 8-12 EUR/Stueck | Leichtere Module |
 
 **Vorteile:** Einhaendige Bedienung, Schliessung per Annaeherung (Magnete fuehren zusammen), sichere mechanische Verriegelung, kein versehentliches Oeffnen.
 
 **Nachteil:** Preis (8-18 EUR pro Verschluss). Quelle: Ripstop by the Roll, Amazon, extremtextil.de
 
-### Vergleich: Snaps vs. Magnete vs. Klett — Haltbarkeit auf einem vollen Convention-Tag
+### Vergleich: Snaps vs. Magnete vs. Klett - Haltbarkeit auf einem vollen Convention-Tag
 
 | Kriterium | **Druckknoepfe (Snaps)** | **Neodym-Magnete** | **Klettverschluss (Velcro)** | **Fidlock** |
 | --- | --- | --- | --- | --- |
-| **Halt ueber 8h** | Sehr gut — mechanisch verriegelt, loest sich nicht von selbst | Mittel — kann durch Bewegung/Schlag abrutschen | Gut anfangs, Nachmittags oft lockerer (Fussel, Abnutzung) | Sehr gut — mechanisch verriegelt |
-| **Schnelles An/Ablegen** | Langsam — beide Haende, Fingerfertigkeit noetig | Sehr schnell — Annaeherung reicht | Schnell — Zusammendruecken/Abreissen | Sehr schnell — einhaendig, Annaeherung |
-| **Haltbarkeit (Monate)** | Sehr hoch (Metall) | Sehr hoch (brechen nie, Kleber kann versagen) | Mittel — Hook-Seite sammelt Fussel, Loop-Seite verschleisst | Sehr hoch |
+| **Halt ueber 8h** | Sehr gut - mechanisch verriegelt, loest sich nicht von selbst | Mittel - kann durch Bewegung/Schlag abrutschen | Gut anfangs, Nachmittags oft lockerer (Fussel, Abnutzung) | Sehr gut - mechanisch verriegelt |
+| **Schnelles An/Ablegen** | Langsam - beide Haende, Fingerfertigkeit noetig | Sehr schnell - Annaeherung reicht | Schnell - Zusammendruecken/Abreissen | Sehr schnell - einhaendig, Annaeherung |
+| **Haltbarkeit (Monate)** | Sehr hoch (Metall) | Sehr hoch (brechen nie, Kleber kann versagen) | Mittel - Hook-Seite sammelt Fussel, Loop-Seite verschleisst | Sehr hoch |
 | **Gewicht** | Leicht | Mittel (Neodym ist dicht) | Sehr leicht | Leicht-Mittel |
-| **Schweiss-Resistenz** | Gut (rostfrei waehlen!) | Gut (beschichtete Magnete nehmen) | Schlecht — Feuchtigkeit loest Klebstoff, Fussel kleben | Gut |
+| **Schweiss-Resistenz** | Gut (rostfrei waehlen!) | Gut (beschichtete Magnete nehmen) | Schlecht - Feuchtigkeit loest Klebstoff, Fussel kleben | Gut |
 | **Vibrations-/Bewegungs-Resistenz** | Sehr gut | Schlecht bei lateraler Kraft | Mittel | Sehr gut |
 | **Empfehlung** | Schwere Teile, Ganztages-Halt | Leichte Teile, schnelles Wechseln | Grossflaechige Verbindungen, Polsterung | Premium fuer Hauptverbindungen |
 
@@ -202,11 +202,11 @@ Gut sitzende Ruestung klackert weniger als schlecht sitzende. Wenn Teile wackeln
 
 ---
 
-## 6. 3D-Druck Layer Lines durch die Lackierung — die ECHTE Loesung
+## 6. 3D-Druck Layer Lines durch die Lackierung - die ECHTE Loesung
 
 ### Warum "mehr schleifen" allein nicht reicht
 
-Layer Lines bei 0.20 mm Schichthoehe sind 0.05-0.10 mm tief. Normaler Primer fuellt maximal 0.02-0.03 mm pro Schicht. Du brauchst also 3-5 Primer-Schichten mit Zwischenschliff, um Layer Lines unsichtbar zu machen — das dauert Tage fuer ein ganzes Ruestungsset.
+Layer Lines bei 0.20 mm Schichthoehe sind 0.05-0.10 mm tief. Normaler Primer fuellt maximal 0.02-0.03 mm pro Schicht. Du brauchst also 3-5 Primer-Schichten mit Zwischenschliff, um Layer Lines unsichtbar zu machen - das dauert Tage fuer ein ganzes Ruestungsset.
 
 ### Die tatsaechlich funktionierenden Methoden (im Vergleich)
 
@@ -216,15 +216,15 @@ Layer Lines bei 0.20 mm Schichthoehe sind 0.05-0.10 mm tief. Normaler Primer fue
 | **XTC-3D** (Smooth-On) | 1 Schicht aufpinseln + 24h Haertung + 1x Schleifen = ~25h (Wartezeit) | Sehr gut, selbstnivellierend | Grosse glatte Flaechen (Helm-Dome, Brust) |
 | **Bondo Spot Putty** | Pro Problemstelle 5-10 Min | Gut fuer tiefe Stellen | Naehte, tiefe Furchen, lokale Reparaturen |
 | **CA-Kleber duenn** | 2-3 Min pro Stelle + 5 Min Haertung | Gut, schleifbar | Kleine Fehlstellen, schnelle Spot-Fixes |
-| **Acetone Vapor Smoothing** (nur ABS/ASA) | 10-30 Min im Dampfbad | Exzellent — 72-81% Rauheits-Reduktion, spritzguss-artig | ABS/ASA-Drucke, grosse Teile, Helme |
+| **Acetone Vapor Smoothing** (nur ABS/ASA) | 10-30 Min im Dampfbad | Exzellent - 72-81% Rauheits-Reduktion, spritzguss-artig | ABS/ASA-Drucke, grosse Teile, Helme |
 
 ### Detaillierte Methoden-Beschreibungen
 
 #### Methode A: Filler Primer (Standard, zuverlaessig)
 
 1. **Grob schleifen** mit 120-180er (quer zu den Layer Lines)
-2. **Rust-Oleum Filler Primer** spruehen — 2-3 duenne Schichten, je 15 Min trocknen
-3. **Zwischenschliff** mit 320er — Primer auf den Hoehen abschleifen, in den Tiefen bleibt er
+2. **Rust-Oleum Filler Primer** spruehen - 2-3 duenne Schichten, je 15 Min trocknen
+3. **Zwischenschliff** mit 320er - Primer auf den Hoehen abschleifen, in den Tiefen bleibt er
 4. Schritte 2-3 **2-3x wiederholen** bis Lines verschwunden
 5. **Finaler Primer** (normal, nicht Filler) fuer gleichmaessige Basis
 6. **Realistisch:** 3 Zyklen fuer 0.20 mm Lines, 4-5 Zyklen fuer 0.28 mm Lines
@@ -232,17 +232,17 @@ Layer Lines bei 0.20 mm Schichthoehe sind 0.05-0.10 mm tief. Normaler Primer fue
 #### Methode B: XTC-3D (zeitsparend fuer grosse Flaechen)
 
 1. **Teil A und B mischen** (Verhaeltnis 2:1 nach Gewicht)
-2. **Duenn aufpinseln** — WENIGER ist MEHR. Zu viel = Details verloren, zu wenig = kein Effekt. Es gibt eine Lernkurve
+2. **Duenn aufpinseln** - WENIGER ist MEHR. Zu viel = Details verloren, zu wenig = kein Effekt. Es gibt eine Lernkurve
 3. **24 Stunden aushaerten** lassen (vollstaendig)
 4. **Mit 220er nass schleifen** bis die gesamte Oberflaeche matt/stumpf ist
 5. **Filler Primer** falls noetig (normalerweise 1 Schicht reicht nach XTC-3D)
 6. **Spot Putty** (3M Bondo) fuer verbliebene Problemstellen
 
-**Praxis-Erfahrung:** XTC-3D ist exzellent fuer grosse, glatte Flaechen (Helm-Dome), aber problematisch bei feindetaillierten Teilen — die Beschichtung kann Details verschlucken. Selbstnivellierend heisst: duenn auftragen, es fuellt die Lines von selbst.
+**Praxis-Erfahrung:** XTC-3D ist exzellent fuer grosse, glatte Flaechen (Helm-Dome), aber problematisch bei feindetaillierten Teilen - die Beschichtung kann Details verschlucken. Selbstnivellierend heisst: duenn auftragen, es fuellt die Lines von selbst.
 
 #### Methode C: Acetone Vapor Smoothing (nur ABS/ASA)
 
-1. **Nur fuer ABS oder ASA** — PLA und PETG reagieren NICHT auf Aceton
+1. **Nur fuer ABS oder ASA** - PLA und PETG reagieren NICHT auf Aceton
 2. **Container-Methode:** Acetongetaenkte Papiertuecher an die Innenwand eines luftdichten Behaelters kleben, Teil auf Drahtgitter in die Mitte, Deckel zu
 3. **Zeitsteuerung:**
    - Kleine Detailteile: 5-10 Min
@@ -251,7 +251,7 @@ Layer Lines bei 0.20 mm Schichthoehe sind 0.05-0.10 mm tief. Normaler Primer fue
 4. **Ergebnis:** 72-81% Rauheitsreduktion, spritzgussartige Oberflaeche
 5. **Nachbehandlung:** Optional leicht mit 400er anschleifen fuer Lackhaftung
 
-**SICHERHEIT:** Nur in gut belueftetem Bereich oder draussen. Aceton ist hochentzuendlich — KEINE offene Flamme, kein Heizgeraet in der Naehe. Nitril-Handschuhe, Atemschutz mit Organik-Filter.
+**SICHERHEIT:** Nur in gut belueftetem Bereich oder draussen. Aceton ist hochentzuendlich - KEINE offene Flamme, kein Heizgeraet in der Naehe. Nitril-Handschuhe, Atemschutz mit Organik-Filter.
 
 ### Zeitsparende Alternativen (weniger Schleifarbeit)
 
@@ -282,16 +282,16 @@ Layer Lines bei 0.20 mm Schichthoehe sind 0.05-0.10 mm tief. Normaler Primer fue
 
 | Methode | Material | Effekt | Aufwand |
 | --- | --- | --- | --- |
-| **Muscle Suit** | 2-5 cm Polster-Schaumstoff unter Spandex | Simuliert muskuloese Silhouette unter der Ruestung | Mittel-Hoch — jeder "Muskel" einzeln formen |
+| **Muscle Suit** | 2-5 cm Polster-Schaumstoff unter Spandex | Simuliert muskuloese Silhouette unter der Ruestung | Mittel-Hoch - jeder "Muskel" einzeln formen |
 | **Polster-Einlagen** | Polsterschaum/Upholstery-Foam (5 cm dick), Ueberzug mit Spandex | Fuellt Hohlraum zwischen Koerper und Ruestung, stabilisiert gleichzeitig | Mittel |
-| **Isolierschaum-Bloecke** | AC-Isolierung aus dem Baumarkt (haltbar, atmungsaktiv, schweissresistent) | Strategisch unter Ruestung platziert — besser als duenner Schaumstoff, haelt Form | Niedrig |
+| **Isolierschaum-Bloecke** | AC-Isolierung aus dem Baumarkt (haltbar, atmungsaktiv, schweissresistent) | Strategisch unter Ruestung platziert - besser als duenner Schaumstoff, haelt Form | Niedrig |
 | **Groessere Skalierung** | STLs 5-10% groesser drucken als Koerper, Innenraum polstern | Ruestung wirkt proportional groesser/massiver zum Charakter passend | Niedrig (nur Skalierung) |
 
 **Praxis-Tipps fuer Muscle Suits:**
 - Jeden Muskel einzeln aus Polsterschaum schnitzen (2-5 cm Upholstery Foam)
 - Bodenmatten-Schaumstoff (EVA) fuer harte Stellen (Schluesselbein, Rippen)
-- Mit Spandex/Lycra ueberziehen — aeussere Kleidung gleitet darueber
-- An den Oberkoerper konzentrieren — Halo-Ruestung verdeckt Arme und Beine sowieso
+- Mit Spandex/Lycra ueberziehen - aeussere Kleidung gleitet darueber
+- An den Oberkoerper konzentrieren - Halo-Ruestung verdeckt Arme und Beine sowieso
 
 ### Fuer groessere/breitere Traeger: Optische Tricks
 
@@ -302,15 +302,15 @@ Layer Lines bei 0.20 mm Schichthoehe sind 0.05-0.10 mm tief. Normaler Primer fue
 | **Brustplatte vergroessern** | Brustplatte proportional breiter machen (nicht einschraenken versuchen) | Nimmt Breite auf, wirkt wie Teil des Charakters statt "zu kleine Ruestung" |
 | **Schultern breit** | Schulterstuecke etwas ueberproportional gross | Verschiebt Aufmerksamkeit nach oben, Taillenbereich tritt zurueck |
 | **Shapewear unter Unteranzug** | Hochsitzende Kompressionsshorts/-shirts | Glaettet Silhouette unter dem Unteranzug |
-| **Panels statt Vollschale** | Ruestung aus einzelnen Paneelen statt durchgehender Schale — erlaubt natuerlichere Passform | Passt sich dem Koerper an statt dagegen zu arbeiten |
+| **Panels statt Vollschale** | Ruestung aus einzelnen Paneelen statt durchgehender Schale - erlaubt natuerlichere Passform | Passt sich dem Koerper an statt dagegen zu arbeiten |
 
 ### Weiblicher Koerper in maennlicher Charakter-Ruestung
 
 | Anpassung | Methode |
 | --- | --- |
-| **Brustplatte** | Sanft gewoelbt formen (keine "Boob Armor" mit getrennten Kugeln — unrealistisch und gefaehrlich). Leichte Woelbung reicht, um Raum zu schaffen. Duct-Tape-Dummy am eigenen Koerper machen (ueber Sport-BH), daraus Schnittmuster ableiten |
+| **Brustplatte** | Sanft gewoelbt formen (keine "Boob Armor" mit getrennten Kugeln - unrealistisch und gefaehrlich). Leichte Woelbung reicht, um Raum zu schaffen. Duct-Tape-Dummy am eigenen Koerper machen (ueber Sport-BH), daraus Schnittmuster ableiten |
 | **Hueftbreite** | Hueft- und Oberschenkelteile breiter skalieren als beim maennlichen Referenz-Charakter. Die unterschiedliche Hueft-Schulter-Proportion ausgleichen |
-| **Taillenlaenge** | Frauen haben oft kuerzeren Torso relativ zu den Beinen — Bauch/Taillen-Segmente kuerzer machen |
+| **Taillenlaenge** | Frauen haben oft kuerzeren Torso relativ zu den Beinen - Bauch/Taillen-Segmente kuerzer machen |
 | **Schulterbreite** | Schulterstuecke proportional breiter machen um breitere Silhouette zu erzeugen (Spartan-Look) |
 | **Unteranzug** | Sport-BH fuer Komfort, dann Unteranzug darueber. Bei der Skalierung BH-Volumen einrechnen |
 
@@ -318,17 +318,17 @@ Layer Lines bei 0.20 mm Schichthoehe sind 0.05-0.10 mm tief. Normaler Primer fue
 
 ---
 
-## 8. Das "Sitzproblem" — Oberschenkelruestung und Codpiece
+## 8. Das "Sitzproblem" - Oberschenkelruestung und Codpiece
 
 ### Warum es so schwierig ist
 
-Beim Sitzen bewegt sich der Oberschenkel um ca. 90 Grad relativ zum Torso. Gleichzeitig verkuerzt sich die Vorderseite des Oberschenkels und die Rueckseite dehnt sich. Starrer Oberschenkelpanzer kann nicht beides — er blockiert entweder das Sitzen oder faellt beim Stehen runter.
+Beim Sitzen bewegt sich der Oberschenkel um ca. 90 Grad relativ zum Torso. Gleichzeitig verkuerzt sich die Vorderseite des Oberschenkels und die Rueckseite dehnt sich. Starrer Oberschenkelpanzer kann nicht beides - er blockiert entweder das Sitzen oder faellt beim Stehen runter.
 
 ### Loesung 1: Geteiltes Oberschenkel-Design (Split Thigh)
 
 - **Oberschenkel in 2-3 Segmente teilen:** oberes Segment (Hueft-nah), mittleres Segment, unteres Segment (Knie-nah)
-- **Segmente durch Gurtband oder Elastikband verbunden** — beim Sitzen schieben sich die Segmente auseinander, beim Stehen ziehen sie sich zusammen
-- **Schnitte entlang existierender Panel-Lines** machen — unsichtbar im Charakter-Design
+- **Segmente durch Gurtband oder Elastikband verbunden** - beim Sitzen schieben sich die Segmente auseinander, beim Stehen ziehen sie sich zusammen
+- **Schnitte entlang existierender Panel-Lines** machen - unsichtbar im Charakter-Design
 - **3D-Druck:** Beim Splitten des Modells: Verbindungspunkte fuer Gurtband-Schlaufen vorsehen (Loecher oder D-Ringe)
 
 ### Loesung 2: Schwebendes Codpiece (Floating Cod)
@@ -343,8 +343,8 @@ Beim Sitzen bewegt sich der Oberschenkel um ca. 90 Grad relativ zum Torso. Gleic
 
 - **Problem:** Durchgehende Kniekappe blockiert Beugung ab ca. 30 Grad
 - **Loesung A:** Kniestueck in obere und untere Haelfte teilen, durch verdecktes Scharnier (Piano-Hinge oder 3D-gedrucktes Gelenk) an der Rueckseite verbunden
-- **Loesung B:** Kniestueck auf taktischem Kniepad befestigen (Klett). Kniepad ist flexibel und biegt sich mit dem Knie — Kniestueck folgt
-- **Loesung C:** Kniestuck tieferziehen — nur den vorderen Bereich abdecken, Kniekehle komplett freilassen. Die meisten Halo-Designs haben die Kniekehle sowieso unbedeckt (schwarzer Undersuit sichtbar)
+- **Loesung B:** Kniestueck auf taktischem Kniepad befestigen (Klett). Kniepad ist flexibel und biegt sich mit dem Knie - Kniestueck folgt
+- **Loesung C:** Kniestuck tieferziehen - nur den vorderen Bereich abdecken, Kniekehle komplett freilassen. Die meisten Halo-Designs haben die Kniekehle sowieso unbedeckt (schwarzer Undersuit sichtbar)
 
 ### Loesung 4: Abnehmbarer Rueckenbereich (Removable Butt Plate)
 
@@ -356,14 +356,14 @@ Beim Sitzen bewegt sich der Oberschenkel um ca. 90 Grad relativ zum Torso. Gleic
 
 - **Thigh Drop-Straps:** Gurtband vom Guertel/Klettergurt nach unten zu den Oberschenkelteilen. Laenge so einstellen, dass beim Stehen alles sitzt, beim Sitzen die Gurte genug Spiel haben
 - **Oberschenkel trimmen:** Unterkante des Oberschenkelpanzers hoch genug schneiden, dass er nicht in die Kniekappe stoesst. 3-5 cm Spalt zwischen Oberschenkel und Knie ist normal
-- **Befestigungspunkt:** Oberschenkelpanzer befestigen am Oberschenkel selbst (Gummiband + Klett ums Bein), NICHT starr am Guertel. Das Bein bewegt sich — der Panzer muss mitgehen
+- **Befestigungspunkt:** Oberschenkelpanzer befestigen am Oberschenkel selbst (Gummiband + Klett ums Bein), NICHT starr am Guertel. Das Bein bewegt sich - der Panzer muss mitgehen
 
 ### Sitz-Test Protokoll
 
 1. **Rohe/unlackierte Teile** anziehen und auf einen Stuhl setzen
 2. Wo klemmt es? Wo drueckt etwas? Wo schlaegt etwas an?
-3. **Dreimal aufstehen und hinsetzen** — fallen Teile ab? Verschieben sich Magnete?
-4. **Treppen steigen** (3-5 Stufen) — blockiert etwas?
+3. **Dreimal aufstehen und hinsetzen** - fallen Teile ab? Verschieben sich Magnete?
+4. **Treppen steigen** (3-5 Stufen) - blockiert etwas?
 5. **Erst wenn der Sitztest bestanden ist:** Schleifen, Lackieren, Fertigstellen
 
 ---

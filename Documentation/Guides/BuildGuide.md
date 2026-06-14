@@ -1,6 +1,6 @@
 # Build Guide (Uebersicht)
 
-> **Level:** [A][F][P]  ·  **Varianten:** alle (Kurzuebersicht der Bauphasen)
+> **Level:** [A][F][P]  |  **Varianten:** alle (Kurzuebersicht der Bauphasen)
 
 **Der vollstaendige, durchnummerierte rote Faden** (Phase 0-10, mit Skill-Level und
 Variante pro Schritt) steht in `Documentation/Guides/Komplett-Walkthrough.md`. Diese

@@ -1,6 +1,6 @@
 # Exoskelett (Profi-Variante V3)
 
-> **Level:** [P] Profi  ·  **Varianten:** V3  ·  **Voraussetzungen:** Erfahrung mit Alu-Profil-Bau, Werkzeug (Saege, Bohrer, Gewindeschneider), Verstaendnis von Lastpfaden; Handler beim Tragen Pflicht
+> **Level:** [P] Profi  |  **Varianten:** V3  |  **Voraussetzungen:** Erfahrung mit Alu-Profil-Bau, Werkzeug (Saege, Bohrer, Gewindeschneider), Verstaendnis von Lastpfaden; Handler beim Tragen Pflicht
 
 Das Exoskelett dient der optischen Verstaerkung der Spartan-Aesthetik. Es macht den Traeger groesser und massiver. Empfohlen wird ein passives System (Skeletonics-Stil), das die Bewegung des Traegers rein mechanisch uebertraegt.
 
@@ -17,7 +17,7 @@ Beispiel: Anker an Schulter, Input am Ellbogen (30 cm),
 
 Fuer Spartan-Builds: 1.3-1.5x Verstaerkung an den Armen reicht fuer imposante Wirkung.
 
-**Referenz:** Skeletonics ARRIVE — 279 cm gross, 40 kg, rein mechanisch (keine Motoren fuer Bewegung).
+**Referenz:** Skeletonics ARRIVE - 279 cm gross, 40 kg, rein mechanisch (keine Motoren fuer Bewegung).
 
 ## Materialien
 
@@ -34,18 +34,18 @@ Fuer Spartan-Builds: 1.3-1.5x Verstaerkung an den Armen reicht fuer imposante Wi
 | Teil | Empfehlung | Preis ca. |
 | --- | --- | --- |
 | Kugellager 608ZZ (8x22x7 mm) | Skateboard-Lager, 20-30 Stueck noetig | 0.50-1 EUR/Stueck |
-| M8/M20 Stahlgewindestangen | Als Hauptachsen für hochbelastete Gelenke | 5-15 EUR/Stück |
+| M8/M20 Stahlgewindestangen | Als Hauptachsen fuer hochbelastete Gelenke | 5-15 EUR/Stueck |
 | M8 Achsschrauben (Shoulder Bolts) | Drehpunkte, 20 Stueck | 2-4 EUR/Stueck |
-| Zahnräder & Seilrollen (3D-Druck) | Gedruckt aus hochfestem Filament wie **Taulman Alloy 910** | 15-30 EUR |
+| Zahnraeder & Seilrollen (3D-Druck) | Gedruckt aus hochfestem Filament wie **Taulman Alloy 910** | 15-30 EUR |
 | T-Slot Eckverbinder | 40-60 Stueck fuer Rahmenverbindungen | 1-2 EUR/Stueck |
 | 3D-gedruckte Custom-Brackets | Spezialverbinder, 1-2 kg Filament | 25-50 EUR |
 
 ### Bezugsquellen (DE/EU)
 
-- **Motedis.com** — Alu-Profile auf Mass geschnitten, Verbinder, Zubehoer (Deutschland)
-- **Dold Mechatronik** — Profile und Zubehoer
-- **Amazon.de** — 608ZZ Lager, Schrauben, Hardware
-- **VEVOR** — Trockenbau-Stelzen als Basis fuer Bein-Verlaengerung
+- **Motedis.com** - Alu-Profile auf Mass geschnitten, Verbinder, Zubehoer (Deutschland)
+- **Dold Mechatronik** - Profile und Zubehoer
+- **Amazon.de** - 608ZZ Lager, Schrauben, Hardware
+- **VEVOR** - Trockenbau-Stelzen als Basis fuer Bein-Verlaengerung
 
 ## Gelenk-Mechanismen im Detail
 
@@ -68,7 +68,7 @@ Fuer Spartan-Builds: 1.3-1.5x Verstaerkung an den Armen reicht fuer imposante Wi
 ### Knie (Kreuz-Viergelenkgetriebe)
 
 - **Einfach:** Einzelachsen-Scharnier wie Ellbogen, Anschlaege bei 0 Grad (Streckung) und ~120 Grad (Beugung)
-- **Besser:** Kreuz-Viergelenkgetriebe fuer polyzentrische Bewegung — ahmt das natuerliche Rollen/Gleiten des Knies nach
+- **Besser:** Kreuz-Viergelenkgetriebe fuer polyzentrische Bewegung - ahmt das natuerliche Rollen/Gleiten des Knies nach
 - **Pflicht:** Starker Anschlag bei voller Streckung (traegt das Gewicht beim Stehen, besonders mit Stelzen)
 
 ### Handgelenk
@@ -79,14 +79,14 @@ Fuer Spartan-Builds: 1.3-1.5x Verstaerkung an den Armen reicht fuer imposante Wi
 
 ## Hydraulik-Simulation & Gewichtsentlastung
 
-Um die motorisierte Unterstützung der Mjolnir-Rüstung optisch zu simulieren und gleichzeitig die Gelenke mechanisch zu entlasten, wird ein kombiniertes Kolben-Feder-System empfohlen:
+Um die motorisierte Unterstuetzung der Mjolnir-Ruestung optisch zu simulieren und gleichzeitig die Gelenke mechanisch zu entlasten, wird ein kombiniertes Kolben-Feder-System empfohlen:
 
 1. **Konstruktion der Kolben (Optik):**
-   - Gehäuse aus PEX-Rohren (1/2" und 3/8" PEX) oder PVC-Rohren bauen.
-   - Um den glänzenden Metall-Look zu erhalten, werden die Rohre mit reflektierendem Aluminium-Klebeband (Alu-Tape) umwickelt. Dies simuliert täuschend echt hydraulische Teleskopzylinder.
+   - Gehaeuse aus PEX-Rohren (1/2" und 3/8" PEX) oder PVC-Rohren bauen.
+   - Um den glaenzenden Metall-Look zu erhalten, werden die Rohre mit reflektierendem Aluminium-Klebeband (Alu-Tape) umwickelt. Dies simuliert taeuschend echt hydraulische Teleskopzylinder.
 2. **Gewichtsentlastung (Mechanik):**
    - Im Inneren der PEX/PVC-Kolben oder parallel dazu werden elastische Bungee-Seile oder Gasdruckfedern verbaut.
-   - Dieses passive Federungssystem wirkt als Gegengewicht ("Counterbalance") und nimmt einen Großteil der Rüstungslast von den Knien, Hüften und Schultern auf.
+   - Dieses passive Federungssystem wirkt als Gegengewicht ("Counterbalance") und nimmt einen Grossteil der Ruestungslast von den Knien, Hueften und Schultern auf.
 
 ## Hoehe hinzufuegen (15-30 cm)
 
@@ -109,7 +109,7 @@ Um die motorisierte Unterstützung der Mjolnir-Rüstung optisch zu simulieren un
 - Exoskelett-Unterschenkel 15-25 cm laenger als das echte Bein
 - Fuss ruht auf einer internen Plattform innerhalb des "Schienbeins"
 - Aeusserer "Stiefel" ist kosmetisch
-- Gang aendert sich — ausfuehrlich ueben!
+- Gang aendert sich - ausfuehrlich ueben!
 
 ### Sicherheit bei Stelzen
 
@@ -135,7 +135,7 @@ Um die motorisierte Unterstützung der Mjolnir-Rüstung optisch zu simulieren un
 
 ## Bau-Phasen
 
-1. **PVC-Prototyp** — Gesamten Rahmen aus PVC-Rohr bauen (billig, schnell iterierbar)
+1. **PVC-Prototyp** - Gesamten Rahmen aus PVC-Rohr bauen (billig, schnell iterierbar)
 2. **Koerpermessungen** und Bewegungsradien pruefen am PVC-Modell
 3. **Aluminium-Rahmen** schneiden und zusammenbauen
 4. **Gelenke** mit Kugellagern setzen, Bewegungsfreiheit testen
@@ -143,9 +143,9 @@ Um die motorisierte Unterstützung der Mjolnir-Rüstung optisch zu simulieren un
 6. **Linkages** zur Innenstruktur (Klettergurt) verbinden
 7. **Ruestung** segmentieren und auf Rahmen montieren
 8. **Lack und Finish** der Ruestungsteile
-9. **Ausfuehrlicher Test** — Stunden tragen, alle Bewegungen, Handler dabei
+9. **Ausfuehrlicher Test** - Stunden tragen, alle Bewegungen, Handler dabei
 
-**WICHTIG:** Exo-Rahmen ZUERST bauen, dann Ruestung anpassen — nie umgekehrt!
+**WICHTIG:** Exo-Rahmen ZUERST bauen, dann Ruestung anpassen - nie umgekehrt!
 
 ## Ruestung auf dem Exo montieren
 
@@ -176,7 +176,7 @@ Um die motorisierte Unterstützung der Mjolnir-Rüstung optisch zu simulieren un
 ## Sicherheit (Convention)
 
 - **Keine Motoren** fuer Bewegung (LEDs und Luefter sind OK)
-- **Keine scharfen Kanten** — alle Alu-Schnitte entgraten und mit Kantenschutz versehen
+- **Keine scharfen Kanten** - alle Alu-Schnitte entgraten und mit Kantenschutz versehen
 - **Gummikappen** auf alle freiliegenden Profil-Enden
 - Gelenk-Quetschpunkte mit kosmetischen Abdeckungen verhuellen
 - **Breakaway-Montage** fuer aeussere Ruestung (loest sich bei Aufprall statt zu verletzen)
@@ -201,13 +201,13 @@ Um die motorisierte Unterstützung der Mjolnir-Rüstung optisch zu simulieren un
 
 ## Montage auf der Ruestung
 
-Das Exoskelett ist kein Selbstzweck — es ist das Tragesystem, an dem die Ruestung haengt und ueber das das gesamte Gewicht in den Koerper eingeleitet wird. Die Anbindung muss daher genauso sorgfaeltig geplant werden wie der Rahmen selbst. Grundprinzip: Der Klettergurt an der Huefte ist die zentrale Lastschnittstelle zwischen Mensch und Maschine. Details zum Unteranzug und zu den Befestigungsarten siehe `Documentation/Guides/Unteranzug-Befestigung.md`.
+Das Exoskelett ist kein Selbstzweck - es ist das Tragesystem, an dem die Ruestung haengt und ueber das das gesamte Gewicht in den Koerper eingeleitet wird. Die Anbindung muss daher genauso sorgfaeltig geplant werden wie der Rahmen selbst. Grundprinzip: Der Klettergurt an der Huefte ist die zentrale Lastschnittstelle zwischen Mensch und Maschine. Details zum Unteranzug und zu den Befestigungsarten siehe `Documentation/Guides/Unteranzug-Befestigung.md`.
 
 ### Anbindung an Klettergurt/Harness
 
 - **Klettergurt als Basis:** Ein gepolsterter Industrie-Klettergurt (Sitzgurt mit breitem Hueftpolster, kein duenner Sportklettergurt) wird direkt am Koerper getragen. Er nimmt den Wirbelsaeulen-Rahmen des Exos auf.
-- **Anbindungspunkt Wirbelsaeule:** Der vertikale Alu-Rahmen (3030) endet unten in einer 3D-gedruckten oder gefraesten Adapterplatte, die ueber 2-4 verschraubte D-Ringe oder Stahl-Schaekel am Gurt-Rueckenteil sitzt. Keine Klebeverbindung an dieser Stelle — nur Schraub-/Schaekelverbindung.
-- **Taktisches Tragesystem (Rigging):** Die Lastübertragung wird durch ein militärisches H-Harness (z.B. BlackHawk H-Harness) und einen robusten Polizei-Koppelgürtel stabilisiert, der die Last von den Schultern auf die Hüften umleitet. Elastische Gurtbänder mit Parachute-Clips (Steckverschlüsse) verbinden die beweglichen Rüstungsteile für maximale Beweglichkeit.
+- **Anbindungspunkt Wirbelsaeule:** Der vertikale Alu-Rahmen (3030) endet unten in einer 3D-gedruckten oder gefraesten Adapterplatte, die ueber 2-4 verschraubte D-Ringe oder Stahl-Schaekel am Gurt-Rueckenteil sitzt. Keine Klebeverbindung an dieser Stelle - nur Schraub-/Schaekelverbindung.
+- **Taktisches Tragesystem (Rigging):** Die Lastuebertragung wird durch ein militaerisches H-Harness (z.B. BlackHawk H-Harness) und einen robusten Polizei-Koppelguertel stabilisiert, der die Last von den Schultern auf die Hueften umleitet. Elastische Gurtbaender mit Parachute-Clips (Steckverschluesse) verbinden die beweglichen Ruestungsteile fuer maximale Beweglichkeit.
 - **Hueftring:** Ein umlaufender oder halber Alu-Hueftring (3030) wird mit dem Wirbelsaeulen-Rahmen verschraubt und liegt auf dem Beckenkamm auf. Er traegt die Bein-Exos und gibt die Last in den Klettergurt ab.
 - **Schulter-Stabilisierung:** Schultergurte des Harness nehmen NUR Stabilisierungslast (Kippen verhindern), nicht das Hauptgewicht. So bleibt der Lastpfad ueber Becken/Huefte.
 
@@ -251,7 +251,7 @@ Das Anlegen eines V3-Builds ist Zweipersonen-Arbeit. Plane 15-25 Minuten ein.
 
 1. **Unteranzug + Kuehlweste** anziehen (siehe `Documentation/Guides/Unteranzug-Befestigung.md`).
 2. **Klettergurt** anlegen und Hueftpolster mittig auf dem Beckenkamm ausrichten, alle Schnallen schliessen.
-3. **Bein-Exos einsteigen** — Traeger setzt sich, Handler fuehrt Fuss in die Stelze/Fussplatte, Fersen- und Spannriemen schliessen.
+3. **Bein-Exos einsteigen** - Traeger setzt sich, Handler fuehrt Fuss in die Stelze/Fussplatte, Fersen- und Spannriemen schliessen.
 4. **Aufstehen mit Handler-Stuetze** und Stand auf den Stelzen pruefen (kurz, festhalten).
 5. **Wirbelsaeulen-Rahmen** auf den Klettergurt aufschrauben/einschaekeln (Handler von hinten), Schultergurte schliessen.
 6. **Arm-Exos** ankoppeln, Bewegungsfreiheit der Schulter-Linkage pruefen.
@@ -278,7 +278,7 @@ Setze fuer jede Baugruppe ein Gewichtslimit BEVOR du baust, und wiege Teile beim
 
 ### Schwerpunkt (Center of Gravity)
 
-- **Ziel:** Der Gesamtschwerpunkt des angezogenen Builds soll moeglichst tief und nah an der natuerlichen Koerperachse liegen — idealerweise auf Hueft-/Beckenhoehe, mittig ueber den Fuessen.
+- **Ziel:** Der Gesamtschwerpunkt des angezogenen Builds soll moeglichst tief und nah an der natuerlichen Koerperachse liegen - idealerweise auf Hueft-/Beckenhoehe, mittig ueber den Fuessen.
 - **Arme sind der Feind:** Gewicht an ausgestreckten Arm-Exos wirkt mit langem Hebel und kippt nach vorn/zur Seite. Arm-Exos so leicht wie moeglich, schwere Teile (Akku, Verkabelung) im Torso nahe der Wirbelsaeule platzieren.
 - **Gegengewicht:** Liegt der Schwerpunkt zu weit vorne (grosse Brustplatte, Helm), kann ein kleines Gegengewicht (z.B. Akku) im Ruecken-Rahmen ausgleichen. Lieber Masse umverteilen als hinzufuegen.
 - **Stelzen erhoehen das Risiko:** Je hoeher der Build, desto laenger der Hebel zum Boden. Schwerpunkt umso wichtiger.
@@ -287,29 +287,29 @@ Setze fuer jede Baugruppe ein Gewichtslimit BEVOR du baust, und wiege Teile beim
 
 | Material | Dichte ca. | Bewertung fuer Exo |
 | --- | --- | --- |
-| Stahl | 7.85 g/cm3 | Sehr stabil, aber viel zu schwer — verbietet sich fuer tragbare Builds |
+| Stahl | 7.85 g/cm3 | Sehr stabil, aber viel zu schwer - verbietet sich fuer tragbare Builds |
 | Aluminium (Profil) | 2.70 g/cm3 | Standard fuer DIY-Exo: gutes Verhaeltnis Steifigkeit/Gewicht, modular, bezahlbar |
-| Carbon (CFK-Rohr/Platte) | 1.55 g/cm3 | Leichteste tragende Option, sehr steif — fuer Arme/Schienbeine, wo jedes Gramm am Hebel zaehlt; teuer und schwerer zu bearbeiten |
+| Carbon (CFK-Rohr/Platte) | 1.55 g/cm3 | Leichteste tragende Option, sehr steif - fuer Arme/Schienbeine, wo jedes Gramm am Hebel zaehlt; teuer und schwerer zu bearbeiten |
 
 Faustregel: Tragstruktur (Wirbelsaeule, Hueftring) aus Alu 3030; bewegte/weit aussen liegende Glieder (Arme) wo moeglich aus Alu 2020 oder Carbon, um Hebellast zu reduzieren. Stahl hoechstens fuer kleine, hochbelastete Achsen/Schaekel, nie fuer Rahmenlaengen.
 
 ### Gewichtstest-Vorgehen
 
 1. **Wiegen:** Jede Baugruppe einzeln auf einer Personenwaage wiegen und gegen das Budget protokollieren. Dann den komplett angezogenen Build wiegen (Traeger mit/ohne Build, Differenz = Last).
-2. **Schwerpunkt pruefen:** Statisch im Stand testen — kann der Traeger ohne Festhalten ruhig stehen? Kippt es in eine Richtung? Bei Bedarf Masse umverteilen, nicht zustopfen.
+2. **Schwerpunkt pruefen:** Statisch im Stand testen - kann der Traeger ohne Festhalten ruhig stehen? Kippt es in eine Richtung? Bei Bedarf Masse umverteilen, nicht zustopfen.
 3. **Gehtest:** Auf ebener Flaeche, dann Bordstein/Schwelle, mit Handler. Achten auf Pendeln der Arme und Vorkippen.
-4. **Sitztest:** Hinsetzen und Aufstehen mit Handler — geht es kontrolliert, oder reisst das Gewicht beim Aufstehen nach hinten/vorn?
+4. **Sitztest:** Hinsetzen und Aufstehen mit Handler - geht es kontrolliert, oder reisst das Gewicht beim Aufstehen nach hinten/vorn?
 5. **Ausdauertest:** Mindestens 30-60 Minuten am Stueck tragen (gestaffelt aufbauen), Druckstellen und Ermuedung dokumentieren. Vergleiche mit dem Test-Template unter `Tests/TestReports/`.
 6. **Iterieren:** Druckstellen polstern, Schwergewichte naeher an die Huefte, Arm-Exo abspecken. Erst danach Convention.
 
 ## Sicherheit & Con-Tauglichkeit
 
-Diese Sektion ergaenzt den Abschnitt "Sicherheit (Convention)" oben und die allgemeinen Regeln in `Documentation/Guides/Sicherheit.md` sowie `Documentation/Guides/Convention-Regeln.md`. Pruefe die Hausordnung jeder Convention VOR der Anmeldung — Exoskelett-Builds koennen zustimmungspflichtig oder eingeschraenkt sein.
+Diese Sektion ergaenzt den Abschnitt "Sicherheit (Convention)" oben und die allgemeinen Regeln in `Documentation/Guides/Sicherheit.md` sowie `Documentation/Guides/Convention-Regeln.md`. Pruefe die Hausordnung jeder Convention VOR der Anmeldung - Exoskelett-Builds koennen zustimmungspflichtig oder eingeschraenkt sein.
 
 ### Strikt passiv (keine Motoren auf Cons)
 
 - **Keine angetriebene Bewegung.** Das Exo ist rein mechanisch (Pantograph, Federn, Gasdruckfedern). Motoren oder Aktuatoren zur Gelenkbewegung sind auf Conventions nicht zulaessig und ein Verletzungsrisiko.
-- **Erlaubt sind:** LEDs, Luefter, HUD/Audio — also passive Verbraucher ohne mechanische Kraftwirkung (siehe `Documentation/Guides/Sicherheit.md`, Abschnitt Elektronik).
+- **Erlaubt sind:** LEDs, Luefter, HUD/Audio - also passive Verbraucher ohne mechanische Kraftwirkung (siehe `Documentation/Guides/Sicherheit.md`, Abschnitt Elektronik).
 - **Federunterstuetzung** (z.B. Gasdruckfedern zur Gewichtsentlastung) ist passiv und erlaubt, muss aber sicher gekapselt sein.
 
 ### Keine Quetschstellen
@@ -322,7 +322,7 @@ Diese Sektion ergaenzt den Abschnitt "Sicherheit (Convention)" oben und die allg
 ### Notausstieg
 
 - **Ziel: vollstaendige Befreiung in unter 60 Sekunden**, auch wenn der Traeger gestuerzt oder benommen ist.
-- **Handler muss die Sequenz blind koennen** — vorher mehrfach ueben.
+- **Handler muss die Sequenz blind koennen** - vorher mehrfach ueben.
 - **Breakaway-Logik:** Aeussere Ruestung loest sich bei Aufprall, statt zu verletzen; tragende Schnallen sind Quick-Release.
 - **Notausstieg-Sequenz (durch Handler):**
   1. Schultergurte oeffnen (Quick-Release).
@@ -330,5 +330,5 @@ Diese Sektion ergaenzt den Abschnitt "Sicherheit (Convention)" oben und die allg
   3. Wirbelsaeulen-Rahmen vom Klettergurt loesen (Schaekel/Schnellverschluss).
   4. Bein-Riemen/Stelzen oeffnen, Traeger aus den Fussplatten heben.
   5. Helm abnehmen, Belueftung/Wasser sicherstellen.
-- **Keine Werkzeuge** fuer den Notausstieg noetig — alles per Hand loesbar. Schrauben, die nur mit Werkzeug aufgehen, duerfen nicht im Notausstieg-Pfad liegen.
+- **Keine Werkzeuge** fuer den Notausstieg noetig - alles per Hand loesbar. Schrauben, die nur mit Werkzeug aufgehen, duerfen nicht im Notausstieg-Pfad liegen.
 - **Handler Pflicht** bei jedem Exo-Build, unabhaengig von der Hoehe (siehe `Documentation/Guides/Sicherheit.md`, Abschnitt Handler).

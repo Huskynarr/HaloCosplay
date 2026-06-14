@@ -4,9 +4,9 @@ Dieses Verzeichnis enthaelt Schaltplaene, Referenzbilder und LED-Beispiele.
 
 ## Inhalt
 
-- `CircuitDiagram.png` — Platzhalter fuer eigenen Schaltplan (ersetzen mit Fritzing-Export oder Foto)
-- `Arduino-Code.ino` — Verweis auf den eigentlichen Code in `Code/HelmetControl/`
-- `LED-Strips/` — Referenzbilder fuer LED-Strip-Typen (Platzhalter)
+- `CircuitDiagram.png` - Platzhalter fuer eigenen Schaltplan (ersetzen mit Fritzing-Export oder Foto)
+- `Arduino-Code.ino` - Verweis auf den eigentlichen Code in `Code/HelmetControl/`
+- `LED-Strips/` - Referenzbilder fuer LED-Strip-Typen (Platzhalter)
 
 ## Hinweis
 

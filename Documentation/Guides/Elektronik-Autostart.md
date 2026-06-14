@@ -1,6 +1,6 @@
 # Elektronik: Pi Zero 2 W Einrichtung und Autostart
 
-> **Level:** [F] Fortgeschritten | [P] Profi  ·  **Varianten:** V2/V3
+> **Level:** [F] Fortgeschritten | [P] Profi  |  **Varianten:** V2/V3
 > **Voraussetzungen:** Raspberry Pi Zero 2 W mit microSD, OLED verkabelt (`Documentation/Guides/Elektronik-HUD.md`), Grundlagen Linux-Kommandozeile (SSH, systemd = Linux-Dienstverwaltung fuer Autostart).
 
 Schritt-fuer-Schritt Anleitung zur Einrichtung des Raspberry Pi Zero 2 W fuer das Helm-HUD.

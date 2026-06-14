@@ -1,6 +1,6 @@
 # Sicherheit
 
-> **Level:** [A] Anfaenger | [F] Fortgeschritten | [P] Profi  ·  **Varianten:** alle  ·  **Voraussetzungen:** keine, vor dem ersten Tragen lesen
+> **Level:** [A] Anfaenger | [F] Fortgeschritten | [P] Profi  |  **Varianten:** alle  |  **Voraussetzungen:** keine, vor dem ersten Tragen lesen
 
 Sicherheit hat Prioritaet. Teste jede Baugruppe einzeln und plane immer einen schnellen Ausstieg.
 
@@ -22,8 +22,8 @@ Sicherheit hat Prioritaet. Teste jede Baugruppe einzeln und plane immer einen sc
 
 ## Hitze-Management (Convention)
 
-- Volle Ruestung staut Waerme — Koerpertemperatur kann gefaehrlich steigen
-- **Helm-Luefter:** 2x 40 mm Luefter (Intake unten, Exhaust oben) — fast Pflicht
+- Volle Ruestung staut Waerme - Koerpertemperatur kann gefaehrlich steigen
+- **Helm-Luefter:** 2x 40 mm Luefter (Intake unten, Exhaust oben) - fast Pflicht
 - **Kuehlweste:** unter der Ruestung mit Kuehlakku-Taschen tragen, mehrere Kuehlakkus zum Wechseln mitbringen
 - **Material:** leichte EVA-Foam/3D-Druck mit Belueftungsspalten zwischen Ruestungsteilen
 - **Unteranzug:** feuchtigkeitsableitendes Sportmaterial, KEIN Baumwoll-T-Shirt
@@ -31,7 +31,7 @@ Sicherheit hat Prioritaet. Teste jede Baugruppe einzeln und plane immer einen sc
 
 ## Hydrierung
 
-- **CamelBak/Trinkblase:** Schlauch innen in der Ruestung zum Helm fuer freies Trinken — essentiell bei Voll-Ruestung
+- **CamelBak/Trinkblase:** Schlauch innen in der Ruestung zum Helm fuer freies Trinken - essentiell bei Voll-Ruestung
 - Bei jeder Gelegenheit trinken, nicht auf Durst warten
 - Elektrolyt-Ergaenzung, nicht nur Wasser
 - Pausen alle 30-45 Minuten einplanen
@@ -39,7 +39,7 @@ Sicherheit hat Prioritaet. Teste jede Baugruppe einzeln und plane immer einen sc
 ## Sichtfeld und Mobilitaet
 
 - Helm-Sichtfeld testen fuer Treppen, Bordsteine, Tuerrahmen, niedrige Decken
-- Peripheres Sehen pruefen — Convention-Boeden sind voll
+- Peripheres Sehen pruefen - Convention-Boeden sind voll
 - Sitzen, Hocken, Treppen, Tueren vorher testen
 - Ruestung sollte Toilettengang ohne Komplett-Demontage ermoeglichen
 - Gewicht auf die Huefte, nicht auf die Schultern
@@ -47,11 +47,11 @@ Sicherheit hat Prioritaet. Teste jede Baugruppe einzeln und plane immer einen sc
 
 ## Handler (Buddy-System)
 
-- **Essentiell bei voller Halo-Ruestung** — Handler hilft navigieren, haelt Sachen bei Fotos, warnt vor Hindernissen
+- **Essentiell bei voller Halo-Ruestung** - Handler hilft navigieren, haelt Sachen bei Fotos, warnt vor Hindernissen
 - Handler traegt Wasser, Handy, Geldboerse, Reparatur-Kit
 - Handler managed Fotoanfragen und Crowd-Kontrolle
 - Handler hilft bei Notfall-Entfernung der Ruestung
-- Handler angemessen danken — Ticket, Essen, etc.
+- Handler angemessen danken - Ticket, Essen, etc.
 
 ## Tragen
 
@@ -74,17 +74,17 @@ warme Luft, der Koerper kann Schweiss kaum verdunsten und die Hitze staut sich.
 Kombiniert man das mit einer Sommer-Con (Halle mit 28-32 Grad, kaum Luftzug) und
 koerperlicher Anstrengung (Posen, Laufen, Treppen, Foto-Sessions), entsteht
 schnell ein gefaehrlicher Hitzestau. Die Folge sind Dehydrierung, Kreislauf-
-Kollaps und im schlimmsten Fall ein Hitzschlag mit Ohnmacht — und in einem Helm
+Kollaps und im schlimmsten Fall ein Hitzschlag mit Ohnmacht - und in einem Helm
 mit Quick-Release, das nur jemand von aussen kennt, ist eine bewusstlose Person
 ein echter Notfall. Das gilt fuer alle drei Varianten: V1 (Foam) heizt langsamer
 auf als V2/V3, aber kein Material schuetzt vor Hitzestau, wenn keine Luft zirkuliert.
 
 ### Warum es kritisch ist
 
-- Der Helm faengt Atemluft und Koerperwaerme ein — die Innentemperatur liegt oft
+- Der Helm faengt Atemluft und Koerperwaerme ein - die Innentemperatur liegt oft
   5-10 Grad ueber der Hallentemperatur.
 - Schweiss kann unter der Ruestung nicht verdunsten, die natuerliche Kuehlung faellt aus.
-- Adrenalin und Konzentration auf die Performance maskieren Warnsignale — viele
+- Adrenalin und Konzentration auf die Performance maskieren Warnsignale - viele
   merken die Ueberhitzung erst, wenn es schon spaet ist.
 - V3 mit Exoskelett und voller AR-Elektronik fuegt zusaetzliche Waermequellen
   (Motoren, Akkus, Rechner) direkt am Koerper hinzu.
@@ -117,11 +117,11 @@ hat schon zu lange gewartet.
 3. **Pausenzyklen.** Plane feste Helm-ab-Pausen: alle 60-90 Minuten raus aus der
    Crowd, in den Schatten oder einen kuehlen Raum, Helm ab, 5-10 Minuten
    abkuehlen und trinken. Bei grosser Hitze die Intervalle verkuerzen. Setze dir
-   einen Timer (Handy beim Handler) — Adrenalin laesst die Zeit verschwimmen.
+   einen Timer (Handy beim Handler) - Adrenalin laesst die Zeit verschwimmen.
 4. **Kuehlweste/Eispacks.** Eine Kuehlweste mit Kuehlakku-Taschen unter der
    Ruestung tragen, mehrere Kuehlakkus zum Wechseln im Cooler deponieren. Eispacks
    an Nacken, Handgelenken und Leiste kuehlen das Blut effektiv. Eispacks nie
-   direkt auf die Haut (Erfrierungsgefahr) — immer mit duennem Stoff dazwischen.
+   direkt auf die Haut (Erfrierungsgefahr) - immer mit duennem Stoff dazwischen.
 5. **Atemwege frei halten.** Nichts darf die Atmung oder den Luftstrom zum Mund
    blockieren. Halsmanschette, Unteranzug-Kragen und Polster so anpassen, dass du
    tief durchatmen kannst. Bei Bartmasken/Polstern darauf achten, dass sie nicht
@@ -132,7 +132,7 @@ hat schon zu lange gewartet.
 
 ### Sichtfeld-Sicherheit
 
-Eingeschraenktes Sehen ist neben der Hitze die zweite grosse Gefahr — besonders
+Eingeschraenktes Sehen ist neben der Hitze die zweite grosse Gefahr - besonders
 bei V3 mit AR/Passthrough-Display, wo du die Umgebung nur ueber Kamera und Bild
 siehst.
 
@@ -158,7 +158,7 @@ siehst.
   oder beschaedigte Zellen einsetzen. Akkus extern laden, nie im Kostuem (siehe
   Abschnitt Elektronik oben).
 - **Keine ueberhitzenden Akkus am Koerper:** Akkupacks gut belueftet und vom
-  Koerper entkoppelt montieren. Im Betrieb regelmaessig die Temperatur pruefen —
+  Koerper entkoppelt montieren. Im Betrieb regelmaessig die Temperatur pruefen -
   wird ein Pack heiss, sofort trennen und abkuehlen lassen.
 - **Quick-Disconnect:** Eine zentrale Schnelltrennung/Not-Aus vorsehen, die du und
   dein Handler im Notfall blind finden und in Sekunden loesen koennt. Bei Hitze-

@@ -1,6 +1,6 @@
 # Waffen-Prop (Master Chief)
 
-> **Level:** [A] Anfaenger | [F] Fortgeschritten | [P] Profi  ·  **Varianten:** alle  ·  **Voraussetzungen:** Foam- oder 3D-Druck-Grundkenntnisse; Waffengesetz und Con-Regeln vorab pruefen
+> **Level:** [A] Anfaenger | [F] Fortgeschritten | [P] Profi  |  **Varianten:** alle  |  **Voraussetzungen:** Foam- oder 3D-Druck-Grundkenntnisse; Waffengesetz und Con-Regeln vorab pruefen
 
 Ziel ist eine sichere, konforme Prop-Waffe mit authentischer Silhouette.
 
@@ -8,7 +8,7 @@ Ziel ist eine sichere, konforme Prop-Waffe mit authentischer Silhouette.
 
 | Waffe | Groesse ca. | Schwierigkeit | Con-Kompatibilitaet |
 | --- | --- | --- | --- |
-| MA5 Assault Rifle | 80-90 cm | Mittel | Problematisch (realistisch) — siehe unten |
+| MA5 Assault Rifle | 80-90 cm | Mittel | Problematisch (realistisch) - siehe unten |
 | M6D Magnum | 25-30 cm | Einfach | Problematisch (Pistolenform) |
 | Energy Sword | 90-100 cm Klinge | Mittel | Gut (offensichtlich Sci-Fi) |
 | Gravity Hammer | 130-150 cm | Schwer | Gut (uebergroess, offensichtlich Prop) |
@@ -16,7 +16,7 @@ Ziel ist eine sichere, konforme Prop-Waffe mit authentischer Silhouette.
 
 ## Waffengesetz-Warnung
 
-**§42a WaffG:** Anscheinswaffen (Gegenstaende die Schusswaffen aehneln) duerfen NICHT offen in der Oeffentlichkeit getragen werden. Bussgelder bis 10.000 EUR.
+**Par. 42a WaffG:** Anscheinswaffen (Gegenstaende die Schusswaffen aehneln) duerfen NICHT offen in der Oeffentlichkeit getragen werden. Bussgelder bis 10.000 EUR.
 
 **Fuer Convention-Props:**
 - IMMER in geschlossener, blickdichter Tasche transportieren
@@ -24,7 +24,7 @@ Ziel ist eine sichere, konforme Prop-Waffe mit authentischer Silhouette.
 - Con-Regeln vorab pruefen (Gamescom verbietet ALLE Waffen-Props!)
 - Fotos vorab an Con senden fuer Freigabe
 
-**Sicherste Waffen:** Energy Sword und Gravity Hammer — offensichtlich nicht-realistisch.
+**Sicherste Waffen:** Energy Sword und Gravity Hammer - offensichtlich nicht-realistisch.
 
 ## Bauoptionen
 
@@ -39,7 +39,7 @@ Ziel ist eine sichere, konforme Prop-Waffe mit authentischer Silhouette.
    - Seitenprofile nach Referenzbild ausschneiden
    - Oberseite und Unterseite aufbauen
 3. **Details:** 4-6 mm Foam fuer Magazin, Handgriff, Rails, Visieraufnahme
-4. **Kanten:** Mit Heissluftpistole (heat-seal) glaetten — verschliesst die Foam-Poren
+4. **Kanten:** Mit Heissluftpistole (heat-seal) glaetten - verschliesst die Foam-Poren
 5. **Versiegelung:** 2-3 Schichten Plasti-Dip oder Mod Podge (Foam muss versiegelt sein vor Lackierung!)
 6. **Lackierung:** Grundierung > Dunkelgrau/Schwarz > Gunmetal Akzente > Weathering
 
@@ -52,7 +52,7 @@ Ziel ist eine sichere, konforme Prop-Waffe mit authentischer Silhouette.
 3. Zusammenkleben (CA + Epoxy)
 4. Schleifen > Filler > Grundierung > Lackierung
 5. PVC-Rohr innen als Verstaerkung (hohle Drucke sind zerbrechlich!)
-6. **ACHTUNG:** 3D-gedruckte Props sehen realistischer aus als Foam — erhoehtes Risiko bei Waffenkontrollen
+6. **ACHTUNG:** 3D-gedruckte Props sehen realistischer aus als Foam - erhoehtes Risiko bei Waffenkontrollen
 
 ### Option 3: Hybrid (Foam + 3D-Druck-Details)
 
@@ -65,11 +65,11 @@ Bester Kompromiss:
 
 Damit Props auf Conventions nicht eingezogen werden:
 
-- **Farbe:** NICHT komplett schwarz/grau realistisch — deutliche Cosplay-Farben nutzen (Game-Gruen, Akzente)
+- **Farbe:** NICHT komplett schwarz/grau realistisch - deutliche Cosplay-Farben nutzen (Game-Gruen, Akzente)
 - **Oranger Tip:** Am "Lauf"-Ende ein oranges Element (nicht Pflicht in DE, aber hilfreich)
 - **Uebergroesse oder Untermass:** Props die 50% groesser oder kleiner sind als echte Waffen gelten eher als "offensichtlich Spielzeug"
-- **Leuchtende Elemente:** LEDs einbauen — macht den Prop-Charakter sofort klar
-- **Material sichtbar:** Foam-Textur oder 3D-Druck-Linien nicht komplett wegschleifen — zeigt dass es kein echtes Material ist
+- **Leuchtende Elemente:** LEDs einbauen - macht den Prop-Charakter sofort klar
+- **Material sichtbar:** Foam-Textur oder 3D-Druck-Linien nicht komplett wegschleifen - zeigt dass es kein echtes Material ist
 
 ## Elektronik (optional)
 

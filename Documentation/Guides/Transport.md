@@ -1,6 +1,6 @@
 # Transport von Ruestung zur Convention
 
-> **Level:** [A] Anfaenger | [F] Fortgeschritten | [P] Profi  ·  **Varianten:** alle  ·  **Voraussetzungen:** fertige, modular zerlegbare Ruestungsteile
+> **Level:** [A] Anfaenger | [F] Fortgeschritten | [P] Profi  |  **Varianten:** alle  |  **Voraussetzungen:** fertige, modular zerlegbare Ruestungsteile
 
 Wie man eine volle Master Chief Ruestung sicher zur Convention transportiert.
 
@@ -9,7 +9,7 @@ Wie man eine volle Master Chief Ruestung sicher zur Convention transportiert.
 - **Grosse Stapelboxen (Euroboxen/Stapelboxen)** von Bauhaus oder OBI nutzen
 - Boxen mit Schaumstoff-Einlagen auskleiden, zugeschnitten auf jedes Ruestungsteil
 - Schwere Teile unten, flexible/Foam-Teile oben
-- **Ratschengurte mit weicher Polsterung** zum Fixieren verwenden — nichts darf rutschen
+- **Ratschengurte mit weicher Polsterung** zum Fixieren verwenden - nichts darf rutschen
 - Luecken zwischen Teilen lassen (kein Druck auf Naehte und Lack bei Erschuetterungen)
 - Lackierte Flaechen NIE direkt aufeinander legen ohne Polsterung
 
@@ -32,7 +32,7 @@ Wie man eine volle Master Chief Ruestung sicher zur Convention transportiert.
 
 - **Frueh ankommen** fuer Parkplatz nah am Eingang
 - **Faltbaren Transportwagen/Sackkarre** mitbringen fuer die Boxen
-- **Am Veranstaltungsort umziehen, NICHT zu Hause** — reduziert Transportschaeden und vermeidet rechtliche Probleme mit Props in der Oeffentlichkeit
+- **Am Veranstaltungsort umziehen, NICHT zu Hause** - reduziert Transportschaeden und vermeidet rechtliche Probleme mit Props in der Oeffentlichkeit
 - Platz in der Naehe der Umkleide sichern fuer Ausruestung
 - Boxen im Auto oder an der Garderobe lassen fuer Reparaturen waehrend des Tages
 
