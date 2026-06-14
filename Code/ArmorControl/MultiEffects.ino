@@ -77,31 +77,18 @@ void breathing() {
   delay(10);
 }
 
+// Doppelpuls als millis()-Envelope: blockiert nicht, Taster bleibt reaktiv
 void heartbeat() {
-  pulseUp(200, 80);
-  pulseDown(120);
-  delay(100);
-  pulseUp(255, 80);
-  pulseDown(150);
-  delay(600);
-}
-
-void pulseUp(uint8_t target, uint16_t duration) {
-  for (uint16_t t = 0; t < duration; t += 10) {
-    uint8_t br = (uint8_t)((uint32_t)target * t / duration);
-    setAll(br);
-    delay(10);
-  }
-}
-
-void pulseDown(uint16_t duration) {
-  uint8_t start = strip.getPixelColor(0) >> 8;
-  for (uint16_t t = 0; t < duration; t += 10) {
-    uint8_t br = start - (uint8_t)((uint32_t)start * t / duration);
-    setAll(br);
-    delay(10);
-  }
-  setAll(0);
+  uint16_t t = millis() % 1130;
+  uint8_t br;
+  if      (t <  80) br = map(t,   0,  80,   0, 200);
+  else if (t < 200) br = map(t,  80, 200, 200,   0);
+  else if (t < 300) br = 0;
+  else if (t < 380) br = map(t, 300, 380,   0, 255);
+  else if (t < 530) br = map(t, 380, 530, 255,   0);
+  else              br = 0;
+  setAll(br);
+  delay(10);
 }
 
 void chase() {

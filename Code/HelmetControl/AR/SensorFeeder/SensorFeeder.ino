@@ -123,7 +123,7 @@ void loop() {
     lastSend = now;
     int batt = batteryPercent();
     int temp = (int)(readTempC() + 0.5);
-    int head = (int)(headingDeg + 0.5);
+    int head = ((int)(headingDeg + 0.5)) % 360;  // Rundung kann sonst 360 liefern
     // JSON-Zeile fuer ar_passthrough.py
     Serial.print("{\"heading\":");
     Serial.print(head);
