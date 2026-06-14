@@ -1,0 +1,14 @@
+# Python
+__pycache__/
+*.pyc
+
+# HUD runtime/config (Beispiele sind versioniert, echte Configs nicht)
+Code/HelmetControl/config.json
+Code/HelmetControl/battery.json
+Code/HelmetControl/hud_state.json
+Code/HelmetControl/hud_log.txt
+Code/HelmetControl/AR/ar_config.json
+
+# Build/Test-Artefakte
+*.tmp
+hud_test*.png
