@@ -245,8 +245,46 @@ Radialluefter + Schlauch zu den Duesen gefuehrt.
   Hallen / auf der Con-Flaeche. Nur Outdoor oder mit Erlaubnis des Veranstalters.
 - **Rueckstand:** Glycerin hinterlaesst mit der Zeit einen feinen Film - Duesen
   und Umgebung gelegentlich reinigen.
-- **Strombudget:** ein 40-W-Fogger zieht deutlich mehr als die Ultraschall-Loesung
-  (~0.6 A). Auf eigener Schiene fuehren, siehe `V3-Systemarchitektur.md`.
+- **Strombudget:** ein 40-W-Fogger zieht viel mehr als die Ultraschall-Loesung.
+  Bester Trick: den MicroFogger auf seinem **eigenen wechselbaren Akku** laufen
+  lassen und vom Suit nur das Trigger-Signal geben - so bleibt die Heizlast
+  komplett aus deinem Strombudget (Entkopplung wie in `V3-Systemarchitektur.md`).
+  Eigener Akku haelt ca. 14 min (voll) / 30 min (mittel) - Ersatzakku einpacken.
+
+### MicroFogger 5 Pro: Steuerung per Arduino
+
+Der MicroFogger laesst sich neben dem Knopf ueber die **mitgelieferte Funk-
+Fernbedienung (4 Kanaele)** ODER ueber den **USB-C-Port als Steuer-/Trigger-
+Schnittstelle** ansteuern. Drei Wege, von elegant zu pragmatisch:
+
+1. **USB-C-Steuerport (sauberste Loesung):** Vosentech bewirbt den Port explizit
+   zum Anbinden an ein eigenes Trigger-System. Wenn Pinout/Protokoll dokumentiert
+   sind, haengt der Arduino direkt dran - kein Funk noetig. **Zuerst bei Vosentech
+   / im Manual abklaeren** (exaktes Pinout war oeffentlich nicht auffindbar).
+2. **Vorhandene Fernbedienung "druecken" lassen:** Statt einen neuen RF-Sender zu
+   bauen (Frequenz + Codierung des Fobs treffen = fummelig), einen **Optokoppler
+   oder Transistor ueber die Tasten-Pads der Original-Fernbedienung** loeten. Der
+   Arduino schaltet den Optokoppler, die echte Fernbedienung sendet - originale
+   Funkpaarung bleibt erhalten, ~2 Bauteile pro Taste. Robust und simpel.
+3. **Servo/Solenoid auf den Geraeteknopf:** Mikro-Servo drueckt physisch den
+   Hauptknopf. Protokoll-unabhaengig, aber klobig - nur als Fallback.
+
+So oder so triggert am Ende ein **GPIO-Pin** des Schubduesen-Arduino den Fogger -
+gekoppelt an denselben Boost-Taster, der auch die LEDs auf volle Helligkeit setzt
+(Abschnitt 5). Ein Boost = Licht + Rauch gleichzeitig.
+
+### Sauberer Einbau ins Jetpack
+
+- **Eigener Akku, nur Trigger vom Suit** (siehe Strombudget oben) - das ist der
+  sauberste Schnitt: ein einziges Signalkabel statt Heizstrom durch den Suit.
+- **Hitze isolieren:** Heizteil/Auslass werden heiss. In eine belueftete Kammer
+  mit Abstand zu Foam, Kleber und LiPo setzen; Halterung aus Metall/Hochtemp-Kunststoff.
+- **Lage:** Fogger halbwegs aufrecht/eben halten (Fluid-Zufuhr) - nicht kippen.
+- **Refill-/Akku-Klappe:** Tank reicht nur ~7-15 min. Eine **gut erreichbare
+  Klappe** am Rucksack einplanen (Fluid nachfuellen UND Akku wechseln), nicht
+  hinter verklebten Platten vergraben.
+- **Nebelfuehrung:** Auslass per Silikonschlauch + Radialluefter und Y-Verteiler
+  zu den zwei Duesen - identisch zur Ultraschall-Variante (Abschnitt 3).
 
 ### Empfehlung: zwei Stufen
 
