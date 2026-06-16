@@ -208,6 +208,51 @@ void renderBoostEffect() {
 
 * **Destilliertes Wasser nutzen:** Verwende im Wassertank ausschliesslich destilliertes Wasser. Normales Leitungswasser hinterlaesst beim Verdunsten haessliche Kalkflecken auf der mattierten Ruestung und setzt die feinen Poren der Piezo-Scheibe extrem schnell zu.
 * **Dichtigkeit & Transport:** Leere den Wassertank vor jedem Transport und drehe den Deckel fest zu. Baue am besten ein kleines Ventil oder einen Absperrhahn in den Schlauch ein, falls der Rucksack hingelegt wird.
-* **Convention-Regeln beachten:** Kalter Wasserdampf (Ultraschall) ist auf 99 % der Conventions erlaubt, da er keine Hitze erzeugt und rueckstandsfrei verfliegt. Verwende **keine** Nebelmaschinen mit Fluiden (Glycerin/Glykol) - diese erzeugen Hitze, riechen unangenehm, verkleben die Duesen und loesen Feuermelder aus.
+* **Convention-Regeln beachten:** Kalter Wasserdampf (Ultraschall) ist auf 99 % der Conventions erlaubt, da er keine Hitze erzeugt und rueckstandsfrei verfliegt. Verwende **keine** Nebelmaschinen mit Fluiden (Glycerin/Glykol) im Con-Alltag - diese erzeugen Hitze, riechen, verkleben die Duesen und loesen Feuermelder aus. Fuer Photoshoots/Outdoor gibt es trotzdem einen dichteren Effekt - siehe Abschnitt 7.
 * **Batterielaufzeit:** Die Ultraschall-Platine zieht ca. 300-400 mA, der Radialluefter ca. 150 mA. Zusammen mit den LEDs erhoeht das den Stromverbrauch um ca. 0.6 A im Boost-Modus. Kalkuliere dies in deinem Strombudget ein (`Documentation/Guides/Elektronik-Strombudget.md`).
 * **Wasserstand-Sensor:** Wenn du den Nebler trocken laufen laesst, verbrennt der Baumwoll-Docht. Nutze entweder einen durchsichtigen Sichtschlitz im Rucksack oder rueste einen einfachen digitalen Wasserstandssensor (Liquid Level Sensor) am Wassertank nach, der den MOSFET deaktiviert, wenn das Wasser leer ist.
+
+---
+
+## 7. Alternative: Beheizter Micro-Fogger (dichter Rauch, nur kontrolliert)
+
+Der Ultraschall-Kaltnebel aus Abschnitt 1-6 ist con-tauglich, aber duenn und
+"wabernd". Wer fuer **Photoshoots, Outdoor oder Buehne** dichten, dramatischen
+Rauch will (wie ein echter Triebwerksausstoss), nutzt einen **beheizten
+Glycerin-Fogger**. Genau das sind die kompakten Foto-Geraete:
+
+| Geraet | Typ | Laufzeit (Dauerbetrieb) | Hinweis |
+| --- | --- | --- | --- |
+| Vosentech MicroFogger 5 Pro | **zum Einbauen** | ca. 30 min (mittel) | Fernsteuerung 30 m, wechselbarer Akku - **die Maker-Wahl** |
+| PMI Smoke Ninja / Pro | Handgeraet | ~15 min (Pro: kurze Stoesse) | sehr effizientes "Clean Fog"-Fluid, aber versiegelt |
+| Ulanzi FM01 Filmog Ace | Handgeraet | ~15-20 min | 40 W, ~366 g, Veggie-Glycerin |
+| LensGo Smoke B | Handgeraet | ~18 min | 40 W |
+
+### Warum der MicroFogger fuer den Suit
+
+Smoke Ninja, Ulanzi und LensGo sind **versiegelte Foto-Handgeraete** - schlecht
+ins Jetpack zu integrieren. Der **Vosentech MicroFogger 5 Pro** ist explizit zum
+**Einbau in Props** gebaut (Fernsteuerung, wechselbarer Akku, food-grade
+Glycerin/PG). Das ist die sinnvolle Basis fuer eine "eigene Version", statt ein
+Foto-Geraet auszuschlachten. Der Nebel wird wie in Abschnitt 3 ueber einen
+Radialluefter + Schlauch zu den Duesen gefuehrt.
+
+### Ehrliche Grenzen (vor dem Kauf lesen)
+
+- **Hitze:** Heizelement (~40 W). Nicht direkt an Foam/Kleber/Akku fuehren,
+  Schlauch und Auslass werden warm.
+- **Feuermelder:** echter Rauch kann Melder ausloesen. **Nicht** in geschlossenen
+  Hallen / auf der Con-Flaeche. Nur Outdoor oder mit Erlaubnis des Veranstalters.
+- **Rueckstand:** Glycerin hinterlaesst mit der Zeit einen feinen Film - Duesen
+  und Umgebung gelegentlich reinigen.
+- **Strombudget:** ein 40-W-Fogger zieht deutlich mehr als die Ultraschall-Loesung
+  (~0.6 A). Auf eigener Schiene fuehren, siehe `V3-Systemarchitektur.md`.
+
+### Empfehlung: zwei Stufen
+
+1. **Con-Alltag:** Ultraschall-Kaltnebel (Abschnitt 1-6) - sicher, erlaubt.
+2. **Beast Mode (Photoshoot/Outdoor):** MicroFogger - dichter Rauch, kontrollierte
+   Umgebung, mit Handler.
+
+Kauflinks und Bezugsquellen gehoeren in `Materials/Einkaufsliste-Links.md`,
+falls du dich fuer ein Geraet entscheidest.
