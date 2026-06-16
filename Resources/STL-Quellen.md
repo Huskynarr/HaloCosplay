@@ -78,6 +78,11 @@ Dieses Projekt verlinkt nur auf externe STL-Quellen. Bitte pruefe die jeweilige 
 - https://www.405th.com/forums/threads/halo-4-5-master-chief-armor-high-poly-3d-printeble-for-you.41774/
 - Hochdetailliert, einzelne Komponenten (Helm, Torso, Schien, Unterarm, Brust, Ruecken)
 
+**MakerWorld - Halo MA40 Ammo Counter (Core Matrix / Galactic Armory)**
+- https://makerworld.com/en/models/2024592-halo-ma40-ammo-counter-galactic-armory
+- Kostenloses druckbares Gehaeuse fuer einen MA40-Munitionszaehler
+- Passt zur eigenen Elektronik (`Code/WeaponControl/ammo_counter.ino`)
+
 ### Tier 3: Weitere Optionen (Qualitaet pruefen)
 
 **Printables - Helm-Kandidaten:**
@@ -105,6 +110,14 @@ Dieses Projekt verlinkt nur auf externe STL-Quellen. Bitte pruefe die jeweilige 
 ## 4. Kommerzielle Quellen (bezahlt)
 
 - **Galactic Armory** (hochwertige STLs): https://galacticarmory.net/
+- **3D Something Australia** (Halo-Waffen-STLs MIT Firmware, optional Elektronik-Kits):
+  https://3dsomethingaustralia.com/collections/3d-print-stls
+  - Sturmgewehre MA5B / MA5C / MA5D / MA40 als STL inkl. Firmware, je ca. 35-40 AUD
+  - Optionale "Electronic Control Kits" (Sound + Ammo-Anzeige, vorverdrahtet, Firmware
+    vorinstalliert, getestet), ca. 180-250 AUD:
+    https://3dsomethingaustralia.com/collections/eletronic-control-unit
+  - Fertige funktionierende Waffe ohne Loeten; offene DIY-Alternative siehe
+    `Documentation/Guides/Waffen-Prop.md` und `Code/WeaponControl/ammo_counter.ino`
 - **Etsy** (variiert stark, Lizenz/Qualitaet pruefen): Suche "Halo Master Chief STL"
 - **CGTrader** (professionelle Modelle): https://www.cgtrader.com/
 - **Thangs / Galactic Armory Membership**: https://thangs.com/designer/Galactic%20Armory

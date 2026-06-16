@@ -87,6 +87,25 @@ Damit Props auf Conventions nicht eingezogen werden:
 - Taster am Griff als Trigger
 - Lautstaerke niedrig halten (Convention-Hoeflichkeit!)
 
+### Ammo-Counter: selbst bauen oder fertig kaufen
+
+Der OLED-Munitionszaehler (Schuss zaehlen, Nachladen, Magazingroesse) ist das
+ikonischste Waffen-Gimmick. Drei Wege:
+
+1. **Selbst bauen (DIY):** Unser Code laeuft fertig - `Code/WeaponControl/ammo_counter.ino`
+   (Arduino + SSD1306-OLED + Taster/Hall-Sensor, MA40/MA5-Magazingroessen). Guenstig,
+   voll anpassbar, du verstehst jedes Bauteil. Aufwand: Loeten + Flashen.
+2. **Fertiges Elektronik-Kit:** `3D Something Australia` verkauft vorgefertigte
+   "Electronic Control Kits" passend zu ihren Rifle-STLs (MA5B/MA5C/MA40/MA5D) -
+   vorverdrahtet, Firmware vorinstalliert, einzeln getestet. Sound + Anzeige,
+   ca. 180-250 AUD (MA40 ~110 USD). Plug-and-play, aber teurer und nicht offen.
+   https://3dsomethingaustralia.com/collections/eletronic-control-unit
+3. **Kostenlose STL-Vorlage:** MakerWorld "Halo MA40 Ammo Counter" (Core Matrix /
+   Galactic Armory) als druckbares Gehaeuse fuer die eigene Elektronik:
+   https://makerworld.com/en/models/2024592-halo-ma40-ammo-counter-galactic-armory
+
+STL-Quellen fuer die Waffe selbst (mit/ohne Firmware): `Resources/STL-Quellen.md`.
+
 ## Sicherheits-Checkliste
 
 - [ ] Keine scharfen Kanten oder Spitzen
