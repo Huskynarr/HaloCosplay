@@ -33,8 +33,9 @@ Die Kosten sind stark abhaengig von Tools, Fehlversuchen, Versand und Premium-Ma
 7. **Exoskelett & Hydraulik-Bauplaene:** `Documentation/Guides/Exoskelett.md`
 8. **Schubduesen & Nebeleffekte:** [Elektronik-Schubduesen.md](Documentation/Guides/Elektronik-Schubduesen.md)
 9. **Kosten und Zeitplan:** `Documentation/Guides/Kosten.md` und `Documentation/Guides/Zeitplan.md`
-10. **Elektronik-Systemplanung:** `Documentation/Guides/Elektronik-HUD.md` und `Materials/ShoppingList.md`
-11. **Code-Uebersicht (OLED HUD, AR, LED-Effekte, Ammo-Counter):** `Code/README.md`
+10. **Elektronik-Systemplanung:** `Documentation/Guides/Elektronik-HUD.md`, fuer V3 das Gesamtsystem `Documentation/Guides/V3-Systemarchitektur.md`
+11. **Einkaufen:** Komponenten `Materials/ShoppingList.md`, direkte Kauflinks `Materials/Einkaufsliste-Links.md`
+12. **Code-Uebersicht (OLED HUD, AR, LED-Effekte, Ammo-Counter):** `Code/README.md`
 
 ## Projektstruktur
 
@@ -51,6 +52,11 @@ Die Kosten sind stark abhaengig von Tools, Fehlversuchen, Versand und Premium-Ma
 
 - Siehe `Documentation/Guides/Sicherheit.md`
 - Siehe `Documentation/Guides/Convention-Regeln.md`
+
+## Support
+
+- FAQ: `Support/FAQ.md`
+- Kontakt: `Support/Contact.md`
 
 ## Community
 

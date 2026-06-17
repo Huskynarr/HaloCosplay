@@ -5,6 +5,7 @@ Dieses Verzeichnis sammelt alle Kerninhalte fuer das Halo MJOLNIR Cosplay Projek
 ## Einstieg
 
 - **Komplett-Walkthrough (roter Faden, Anfaenger bis Profi):** `Documentation/Guides/Komplett-Walkthrough.md`
+- Phasen-Kurzuebersicht (verweist auf den Walkthrough): `Documentation/Guides/BuildGuide.md`
 - Start hier: `Documentation/Guides/Start-Hier.md`
 - Variantenvergleich und Auswahl: `Documentation/Guides/Varianten.md`
 - **Authentischer Halo-Infinite-Look (Referenz):** `Documentation/Guides/Authentizitaet-Referenz.md`
