@@ -15,12 +15,20 @@ We encourage submissions of photos, detailed build instructions, material lists,
 ## Contribution Standards
 - Photos should be of high quality and clearly showcase the cosplay.
 - Build instructions should be detailed and easy to understand.
+- Documentation in `Documentation/` is written in German and ASCII-safe
+  (ae/oe/ue instead of umlauts, ss instead of sz). Meta files (this one,
+  issue/PR templates) are in English.
+- The CI checks ASCII safety, relative links, and that example code compiles
+  (see `.github/workflows/ci.yml`) - please keep these green.
 
 ## Code of Conduct
 We expect all participants to be respectful and courteous. Discrimination and offensive comments will not be tolerated.
 
 ## Contact
-For any questions or issues, please contact [Your Email Address].
+For questions, suggestions, or bug reports, please open an issue on GitHub:
+https://github.com/Huskynarr/HaloCosplay/issues
+For anything that does not fit a public issue, reach the maintainer at
+admin@huskynarr.de.
 
 ## Acknowledgements
 We thank everyone who contributes to this project, sharing their passion and talent.

@@ -34,6 +34,15 @@ Begriffe die in diesem Projekt verwendet werden.
 | **XT30/XT60** | Steckertyp fuer Stromleitungen (30A/60A Belastbarkeit) |
 | **Level Shifter** | Wandelt Signalpegel um (z.B. 3.3V Pi -> 5V LEDs) |
 | **Strain Relief** | Zugentlastung an Kabeln/Steckern |
+| **MOSFET** | Schalt-Transistor, schaltet hohe Stroeme (LEDs/Nebler) per Logiksignal |
+| **Optokoppler** | Bauteil das ein Signal per Licht galvanisch getrennt weitergibt; hier um eine Fernbedienungs-Taste per Arduino zu "druecken" |
+| **IMU** | Inertial Measurement Unit (z.B. MPU6050), misst Lage/Drehung fuer das HUD-Heading |
+| **UWB** | Ultra-Wideband, praezise Funkortung; Basis fuer das Personen-Folgen eines Begleit-Roboters |
+| **Heading** | Blickrichtung in Grad (0-360), aus der IMU integriert, treibt den HUD-Kompass |
+| **Passthrough** | AR-Verfahren: Kamerabild + HUD-Overlay auf ein Display statt direkter Sicht |
+| **Mist Maker** | Ultraschall-Vernebler, erzeugt kalten Wasserdampf (con-tauglich) |
+| **Fogger** | Beheizter Nebelerzeuger mit Glycerin-Fluid, dichter Rauch (nur kontrolliert) |
+| **CFM** | Cubic Feet per Minute, Mass fuer den Luft-/Nebel-Ausstoss eines Foggers |
 
 ## 3D-Druck
 
