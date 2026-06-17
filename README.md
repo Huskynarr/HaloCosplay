@@ -2,6 +2,16 @@
 
 Dieses Repository ist eine vollstaendige DIY-Projektmappe fuer ein moeglichst authentisches Halo Master Chief Cosplay mit Ruestung, Helm, Prop-Waffe und optionaler Elektronik (HUD, Akku-Backpack, AR/Display). Das Projekt ist in drei Varianten strukturiert: Einsteiger (Foam), Fortgeschritten (3D-Druck/Hybrid) und Profi (Exoskelett + Premium-Materialien).
 
+## Web-Version (durchklickbar)
+
+Es gibt eine durchklickbare Web-Version aller Guides im Halo/HUD-Design, die die
+Markdown-Dateien live rendert und Fortschritt + Einkaufs-Haken lokal im Browser
+speichert (LocalStorage): **https://huskynarr.github.io/HaloCosplay/**
+
+- Quellcode und lokale Nutzung: `web/README.md`
+- Deploy laeuft automatisch (`.github/workflows/pages.yml`); in den Repo-Settings
+  unter Pages als Source "GitHub Actions" waehlen.
+
 ## Varianten im Ueberblick
 
 | Variante | Ziel | Materialien | Technik | Budget (Richtwert) | Dauer (Richtwert) |
