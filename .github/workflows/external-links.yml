@@ -1,0 +1,70 @@
+name: External Link Check
+
+# Weekly health check of external (http/https) links in the docs.
+# Non-blocking by design: runs on a schedule and manual dispatch only, never on
+# push/PR, so it cannot block normal development. It fails (red X) ONLY on
+# definitive dead links (404/410); bot-blocked shops (403/429) and timeouts are
+# tolerated and just listed, because many retailers reject automated requests.
+
+on:
+  schedule:
+    - cron: '0 6 * * 1'   # Mondays 06:00 UTC
+  workflow_dispatch:
+
+jobs:
+  links:
+    name: Check external links
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Check links
+        run: |
+          UA="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 Chrome/124 Safari/537.36"
+          urls=$(grep -rhoE 'https?://[^ )<>"]+' --include='*.md' . \
+            | grep -v '/\.git/' | sed -E 's/[).,;]+$//' | sort -u)
+          total=$(printf '%s\n' "$urls" | grep -c . || true)
+          echo "Checking $total unique external URLs"
+
+          dead=""; warn=""; skip=0; ok=0
+          while IFS= read -r u; do
+            [ -z "$u" ] && continue
+            code=$(curl -s -o /dev/null -w "%{http_code}" -A "$UA" -L --max-time 25 "$u" 2>/dev/null || echo "000")
+            case "$code" in
+              2*|3*)      ok=$((ok+1)) ;;
+              404|410)    dead="$dead| $code | $u |"$'\n' ;;
+              403|429|000) skip=$((skip+1)) ;;
+              *)          warn="$warn| $code | $u |"$'\n' ;;
+            esac
+          done <<< "$urls"
+
+          {
+            echo "# External Link Check"
+            echo ""
+            echo "- Checked: **$total** unique URLs"
+            echo "- OK: **$ok**  |  Tolerated (bot-block/timeout): **$skip**"
+            echo ""
+            if [ -n "$dead" ]; then
+              echo "## Dead links (404/410) - fix these"
+              echo ""
+              echo "| Code | URL |"
+              echo "| --- | --- |"
+              printf '%s' "$dead"
+              echo ""
+            else
+              echo "No dead links found."
+              echo ""
+            fi
+            if [ -n "$warn" ]; then
+              echo "## Other non-OK responses (check manually)"
+              echo ""
+              echo "| Code | URL |"
+              echo "| --- | --- |"
+              printf '%s' "$warn"
+            fi
+          } >> "$GITHUB_STEP_SUMMARY"
+
+          if [ -n "$dead" ]; then
+            echo "::error::Dead links found - see job summary"
+            exit 1
+          fi
