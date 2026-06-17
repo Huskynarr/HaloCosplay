@@ -112,7 +112,9 @@ Das Nebel-Modul benoetigt deutlich mehr Strom als die Steuersignale des Arduino 
 
 ## 5. Software (Arduino Code)
 
-Dieser Sketch steuert das Verhalten: Im Normalzustand (Idle) flackern die Duesen leicht blaeulich-orange (Plasma-Bereitschaft). Wird ein Taster gedrueckt (oder ein Signal vom I2C-Bus empfangen), zuendet der Nachbrenner: Die LEDs wechseln auf helles Orange/Gelb/Weiss-Flackern und der Nebler sowie der Radialluefter werden aktiviert.
+Dieser Sketch steuert das Verhalten: Im Normalzustand (Idle) flackern die Duesen leicht blaeulich-orange (Plasma-Bereitschaft). Wird ein Taster gedrueckt (oder ein Signal vom I2C-Bus empfangen), zuendet der Nachbrenner: Die LEDs wechseln auf helles Orange/Gelb/Weiss-Flackern und der Nebel wird aktiviert.
+
+Der Code spricht **beide Nebel-Stufen** an: `MIST_PIN` schaltet den Ultraschall-Vernebler + Radialluefter (Stufe 1), `FOGGER_PIN` triggert einen beheizten Micro-Fogger (Stufe 2, siehe Abschnitt 7). Du verkabelst nur den Pin der Stufe, die du nutzt - der jeweils andere bleibt einfach frei. Ueber `FOGGER_MOMENTARY` waehlst du, ob der Fogger per Dauerpegel (USB-C-Trigger) oder per kurzem Impuls (Optokoppler ueber die Fernbedienung) angesteuert wird.
 
 ```cpp
 #include <Adafruit_NeoPixel.h>
@@ -120,7 +122,16 @@ Dieser Sketch steuert das Verhalten: Im Normalzustand (Idle) flackern die Duesen
 #define LED_PIN       5    // Datenleitung LED-Ringe
 #define NUM_LEDS     24    // Gesamtzahl der LEDs (z.B. 2x 12 Ringe in Reihe)
 #define TRIGGER_PIN   2    // Taster fuer Boost-Modus (Gegen GND geschaltet)
-#define MIST_PIN      9    // Gate-Steuerung des MOSFETs (Nebler + Luefter)
+#define MIST_PIN      9    // MOSFET-Gate: Ultraschall-Vernebler + Luefter (Stufe 1)
+#define FOGGER_PIN    8    // Trigger fuer beheizten Micro-Fogger (Stufe 2)
+
+// Trigger-Art des Foggers (siehe Abschnitt 7):
+//   false = Pegel/Hold: Pin bleibt HIGH waehrend des Boosts
+//           (z.B. USB-C-Trigger oder Relais auf eine Trigger-Leitung)
+//   true  = Momentan: kurzer Impuls zum Starten UND Stoppen
+//           (z.B. Optokoppler ueber die Tasten-Pads der Fernbedienung)
+#define FOGGER_MOMENTARY false
+#define FOGGER_PULSE_MS  120   // Impulslaenge bei FOGGER_MOMENTARY
 
 #define BRIGHTNESS_IDLE 80  // Moderate Helligkeit fuer Idle
 #define BRIGHTNESS_BOOST 255 // Volle Leistung beim Zuenden
@@ -131,11 +142,25 @@ bool isBoosting = false;
 unsigned long boostStartTime = 0;
 const unsigned long BOOST_DURATION = 5000; // Boost laeuft 5 Sekunden
 
+// Beheizten Fogger triggern (Stufe 2). on=true startet, on=false stoppt.
+void setFogger(bool on) {
+  if (FOGGER_MOMENTARY) {
+    // kurzer "Tastendruck" - sowohl zum Starten als auch zum Stoppen (Toggle)
+    digitalWrite(FOGGER_PIN, HIGH);
+    delay(FOGGER_PULSE_MS);
+    digitalWrite(FOGGER_PIN, LOW);
+  } else {
+    digitalWrite(FOGGER_PIN, on ? HIGH : LOW); // Pegel halten
+  }
+}
+
 void setup() {
   pinMode(TRIGGER_PIN, INPUT_PULLUP);
   pinMode(MIST_PIN, OUTPUT);
-  digitalWrite(MIST_PIN, LOW); // Nebler aus
-  
+  pinMode(FOGGER_PIN, OUTPUT);
+  digitalWrite(MIST_PIN, LOW);   // Vernebler aus
+  digitalWrite(FOGGER_PIN, LOW); // Fogger-Trigger inaktiv
+
   strip.begin();
   strip.setBrightness(BRIGHTNESS_IDLE);
   strip.show();
@@ -146,14 +171,16 @@ void loop() {
   if (digitalRead(TRIGGER_PIN) == LOW && !isBoosting) {
     isBoosting = true;
     boostStartTime = millis();
-    digitalWrite(MIST_PIN, HIGH); // Nebler und Luefter an!
+    digitalWrite(MIST_PIN, HIGH); // Stufe 1: Vernebler + Luefter an
+    setFogger(true);              // Stufe 2: beheizten Fogger zuenden
     strip.setBrightness(BRIGHTNESS_BOOST);
   }
 
   // Boost-Zeit abgelaufen?
   if (isBoosting && (millis() - boostStartTime > BOOST_DURATION)) {
     isBoosting = false;
-    digitalWrite(MIST_PIN, LOW); // Nebler und Luefter aus
+    digitalWrite(MIST_PIN, LOW); // Stufe 1 aus
+    setFogger(false);            // Stufe 2 aus
     strip.setBrightness(BRIGHTNESS_IDLE);
   }
 
