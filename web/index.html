@@ -18,8 +18,8 @@
     --bg2:     #0a1116;
     --panel:   rgba(16, 26, 31, 0.78);
     --line:    #1d2c33;
-    --amber:   #ffb53d;   /* visor gold */
-    --amber-d: #c8861f;
+    --accent:   #5ec23f;   /* halo/xbox green */
+    --accent-d: #3a7d24;
     --cyan:    #46c8ff;   /* shield blue */
     --green:   #7be0a4;
     --text:    #cdd9dc;
@@ -61,7 +61,7 @@
 
   /* corner ticks */
   .ticks::before, .ticks::after {
-    content: ""; position: absolute; width: 10px; height: 10px; border: 2px solid var(--amber); opacity: .7;
+    content: ""; position: absolute; width: 10px; height: 10px; border: 2px solid var(--accent); opacity: .7;
   }
   .ticks::before { left: 6px; top: 6px; border-right: 0; border-bottom: 0; }
   .ticks::after { right: 6px; bottom: 6px; border-left: 0; border-top: 0; }
@@ -72,7 +72,7 @@
     font-size: 14.5px; transition: all .15s ease;
   }
   a.navlink:hover { color: var(--text); background: rgba(70,200,255,.05); border-left-color: var(--cyan); }
-  a.navlink.active { color: var(--amber); border-left-color: var(--amber); background: rgba(255,181,61,.07); }
+  a.navlink.active { color: var(--accent); border-left-color: var(--accent); background: rgba(94,194,63,.07); }
   a.navlink.done::after { content: " OK"; color: var(--green); font-size: 11px; font-family: "JetBrains Mono", monospace; }
 
   .cat-head {
@@ -86,7 +86,7 @@
   .doc h1 { font-family: "Chakra Petch", sans-serif; font-weight: 700; font-size: 1.9rem;
             color: #fff; letter-spacing: .01em; margin: .2em 0 .5em; line-height: 1.15; }
   .doc h2 { font-family: "Chakra Petch", sans-serif; font-weight: 600; font-size: 1.32rem;
-            color: var(--amber); margin: 1.9em 0 .5em; padding-bottom: .25em;
+            color: var(--accent); margin: 1.9em 0 .5em; padding-bottom: .25em;
             border-bottom: 1px solid var(--line); letter-spacing: .01em; }
   .doc h3 { font-family: "Chakra Petch", sans-serif; font-weight: 600; font-size: 1.08rem;
             color: var(--cyan); margin: 1.5em 0 .4em; }
@@ -106,34 +106,34 @@
     background: #0c1419; border: 1px solid var(--line); padding: .1em .4em; border-radius: 3px; color: var(--green);
   }
   .doc pre {
-    background: #0a1015; border: 1px solid var(--line); border-left: 3px solid var(--amber);
+    background: #0a1015; border: 1px solid var(--line); border-left: 3px solid var(--accent);
     padding: 1em 1.1em; overflow-x: auto; margin: 1.2em 0;
   }
   .doc pre code { background: none; border: 0; padding: 0; color: #cdd9dc; }
   .doc img { max-width: 100%; height: auto; border: 1px solid var(--line); background: #0b1216; margin: 1em 0; }
   .doc table { border-collapse: collapse; width: 100%; margin: 1.2em 0; font-size: 14.5px; display: block; overflow-x: auto; }
   .doc th, .doc td { border: 1px solid var(--line); padding: .5em .7em; text-align: left; vertical-align: top; }
-  .doc th { background: rgba(255,181,61,.08); color: var(--amber); font-family: "Chakra Petch", sans-serif;
+  .doc th { background: rgba(94,194,63,.08); color: var(--accent); font-family: "Chakra Petch", sans-serif;
             text-transform: uppercase; font-size: 12px; letter-spacing: .05em; }
   .doc tr.bought td { opacity: .45; text-decoration: line-through; }
   .doc hr { border: 0; border-top: 1px solid var(--line); margin: 2em 0; }
 
   /* task + buy checkboxes */
-  .doc input[type="checkbox"] { width: 17px; height: 17px; accent-color: var(--amber); cursor: pointer; vertical-align: -2px; margin-right: .4em; }
+  .doc input[type="checkbox"] { width: 17px; height: 17px; accent-color: var(--accent); cursor: pointer; vertical-align: -2px; margin-right: .4em; }
   .doc li:has(> input[type="checkbox"]) { list-style: none; margin-left: -1.1em; }
 
   /* progress / shield bar */
   .bar { height: 8px; background: #0c1a1f; border: 1px solid var(--line); position: relative; overflow: hidden; }
   .bar > i { display: block; height: 100%; width: 0;
-    background: linear-gradient(90deg, var(--amber-d), var(--amber)); box-shadow: 0 0 12px rgba(255,181,61,.6);
+    background: linear-gradient(90deg, var(--accent-d), var(--accent)); box-shadow: 0 0 12px rgba(94,194,63,.6);
     transition: width .5s cubic-bezier(.2,.8,.2,1); }
 
   .btn { font-family: "Chakra Petch", sans-serif; font-size: 12.5px; letter-spacing: .08em; text-transform: uppercase;
     padding: 8px 16px; border: 1px solid var(--line); color: var(--text); background: rgba(70,200,255,.04);
     cursor: pointer; transition: all .15s; clip-path: polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 8px 100%, 0 calc(100% - 8px)); }
   .btn:hover { border-color: var(--cyan); color: #fff; background: rgba(70,200,255,.12); }
-  .btn-amber { border-color: var(--amber); color: var(--amber); }
-  .btn-amber:hover { background: rgba(255,181,61,.15); color: #fff; }
+  .btn-accent { border-color: var(--accent); color: var(--accent); }
+  .btn-accent:hover { background: rgba(94,194,63,.15); color: #fff; }
   .btn[disabled] { opacity: .3; cursor: not-allowed; }
 
   .glitch-in { animation: gin .35s ease both; }
@@ -143,7 +143,7 @@
   ::-webkit-scrollbar { width: 10px; height: 10px; }
   ::-webkit-scrollbar-track { background: #070d10; }
   ::-webkit-scrollbar-thumb { background: #1d2c33; border: 2px solid #070d10; }
-  ::-webkit-scrollbar-thumb:hover { background: var(--amber-d); }
+  ::-webkit-scrollbar-thumb:hover { background: var(--accent-d); }
 
   @media (max-width: 1024px) {
     #sidebar { position: fixed; inset: 0 auto 0 0; z-index: 50; width: 290px; transform: translateX(-100%);
@@ -159,13 +159,13 @@
 <header class="hud hud-glow ticks sticky top-0 z-40 mx-2 mt-2 px-4 py-2.5 flex items-center gap-4" style="background:#070f13;">
   <button id="menu-toggle" class="btn lg:hidden" aria-label="Menue">=</button>
   <div class="flex items-center gap-3 min-w-0">
-    <div class="font-disp font-bold text-white text-lg leading-none tracking-wider" style="text-shadow:0 0 14px rgba(255,181,61,.4);">
-      MJOLNIR<span style="color:var(--amber)">//</span>FIELD MANUAL
+    <div class="font-disp font-bold text-white text-lg leading-none tracking-wider" style="text-shadow:0 0 14px rgba(94,194,63,.4);">
+      MJOLNIR<span style="color:var(--accent)">//</span>FIELD MANUAL
     </div>
   </div>
   <div class="ml-auto flex items-center gap-3 min-w-0">
     <div class="hidden sm:flex flex-col items-end" style="min-width:160px;">
-      <div class="font-mono text-[10px] tracking-widest" style="color:var(--dim)">MISSION PROGRESS <span id="progress-pct" style="color:var(--amber)">0%</span></div>
+      <div class="font-mono text-[10px] tracking-widest" style="color:var(--dim)">MISSION PROGRESS <span id="progress-pct" style="color:var(--accent)">0%</span></div>
       <div class="bar w-full mt-1"><i id="progress-bar"></i></div>
     </div>
     <button id="reset-btn" class="btn" title="Fortschritt loeschen">RESET</button>
@@ -191,7 +191,7 @@
     <!-- journey footer -->
     <div id="journey-foot" class="doc mx-auto mt-10 pt-5" style="border-top:1px solid var(--line); display:none;">
       <div class="flex items-center justify-between gap-3 flex-wrap">
-        <button id="done-toggle" class="btn btn-amber">Schritt erledigt</button>
+        <button id="done-toggle" class="btn btn-accent">Schritt erledigt</button>
         <div class="flex gap-2">
           <button id="prev-btn" class="btn">&lt; Zurueck</button>
           <button id="next-btn" class="btn">Weiter &gt;</button>

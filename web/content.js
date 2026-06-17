@@ -4,22 +4,64 @@
  * curates order and friendly titles. */
 
 const CONTENT = {
-  // Curated, ordered V3 path for a layperson who wants to move fast.
-  journey: [
-    { title: "Orientierung", sub: "Wo anfangen", file: "Documentation/Guides/Start-Hier.md" },
-    { title: "Variante V3 verstehen", sub: "Was dich erwartet", file: "Documentation/Guides/Varianten.md" },
-    { title: "Gesamtsystem", sub: "Module + Stromschienen (mit Diagramm)", file: "Documentation/Guides/V3-Systemarchitektur.md" },
-    { title: "Masse nehmen", sub: "Messblatt", file: "Documentation/Guides/Messblatt.md" },
-    { title: "Einkaufen", sub: "Direkte Kauflinks", file: "Materials/Einkaufsliste-Links.md" },
-    { title: "Exoskelett", sub: "Traggestell V3", file: "Documentation/Guides/Exoskelett.md" },
-    { title: "AR-Display / HUD", sub: "Stufen A/B/C", file: "Documentation/Guides/Elektronik-AR-Display.md" },
-    { title: "Schubduesen + Nebel", sub: "LEDs, Fogger", file: "Documentation/Guides/Elektronik-Schubduesen.md" },
-    { title: "Begleit-Roboter", sub: "Optional, Zukunft", file: "Documentation/Guides/Begleitroboter-Integration.md" },
-    { title: "Sicherheit", sub: "Vor dem Tragen lesen", file: "Documentation/Guides/Sicherheit.md" },
-    { title: "Con-Checkliste", sub: "Vor dem Auftritt", file: "Documentation/Guides/Checklisten.md" },
-  ],
+  // Curated, ordered quick-start paths per variant. Switchable in the app.
+  journeys: {
+    V1: {
+      label: "V1 Einsteiger",
+      tag: "Foam, guenstig",
+      steps: [
+        { title: "Orientierung", sub: "Wo anfangen", file: "Documentation/Guides/Start-Hier.md" },
+        { title: "Variante verstehen", sub: "V1 Foam", file: "Documentation/Guides/Varianten.md" },
+        { title: "Anfaengerfehler", sub: "Spart Wochen", file: "Documentation/Guides/Anfaengerfehler.md" },
+        { title: "Masse nehmen", sub: "Messblatt", file: "Documentation/Guides/Messblatt.md" },
+        { title: "Foam-Bau", sub: "Templates, schneiden, formen", file: "Documentation/Guides/Foam-Bau.md" },
+        { title: "Kleben", sub: "Kontaktkleber + Co.", file: "Documentation/Guides/Klebetechniken.md" },
+        { title: "Lackieren + Finish", sub: "Flexibel versiegeln", file: "Documentation/Guides/Lackierung-Finishing.md" },
+        { title: "Befestigung", sub: "Unteranzug + Gurte", file: "Documentation/Guides/Unteranzug-Befestigung.md" },
+        { title: "Einfache LEDs", sub: "Optional", file: "Documentation/Guides/LED-Effekte.md" },
+        { title: "Einkaufen", sub: "Direkte Kauflinks", file: "Materials/Einkaufsliste-Links.md" },
+        { title: "Sicherheit", sub: "Vor dem Tragen lesen", file: "Documentation/Guides/Sicherheit.md" },
+        { title: "Con-Checkliste", sub: "Vor dem Auftritt", file: "Documentation/Guides/Checklisten.md" },
+      ],
+    },
+    V2: {
+      label: "V2 Fortgeschritten",
+      tag: "3D-Druck + HUD",
+      steps: [
+        { title: "Orientierung", sub: "Wo anfangen", file: "Documentation/Guides/Start-Hier.md" },
+        { title: "Variante verstehen", sub: "V2 Druck/HUD", file: "Documentation/Guides/Varianten.md" },
+        { title: "Masse nehmen", sub: "Messblatt", file: "Documentation/Guides/Messblatt.md" },
+        { title: "3D-Druck (H2C)", sub: "STL skalieren + drucken", file: "Documentation/Guides/3D-Druck.md" },
+        { title: "Lackieren + Finish", sub: "Filler, Lack, Weathering", file: "Documentation/Guides/Lackierung-Finishing.md" },
+        { title: "Befestigung", sub: "Unteranzug + Harness", file: "Documentation/Guides/Unteranzug-Befestigung.md" },
+        { title: "HUD planen", sub: "Pi + OLED", file: "Documentation/Guides/Elektronik-HUD.md" },
+        { title: "Strombudget", sub: "Laufzeit rechnen", file: "Documentation/Guides/Elektronik-Strombudget.md" },
+        { title: "Verdrahtung", sub: "Sauber + sicher", file: "Documentation/Guides/Elektronik-Verdrahtung.md" },
+        { title: "Einkaufen", sub: "Direkte Kauflinks", file: "Materials/Einkaufsliste-Links.md" },
+        { title: "Sicherheit", sub: "Vor dem Tragen lesen", file: "Documentation/Guides/Sicherheit.md" },
+        { title: "Con-Checkliste", sub: "Vor dem Auftritt", file: "Documentation/Guides/Checklisten.md" },
+      ],
+    },
+    V3: {
+      label: "V3 Profi",
+      tag: "Exoskelett + AR",
+      steps: [
+        { title: "Orientierung", sub: "Wo anfangen", file: "Documentation/Guides/Start-Hier.md" },
+        { title: "Variante verstehen", sub: "V3 Profi", file: "Documentation/Guides/Varianten.md" },
+        { title: "Gesamtsystem", sub: "Module + Stromschienen", file: "Documentation/Guides/V3-Systemarchitektur.md" },
+        { title: "Masse nehmen", sub: "Messblatt", file: "Documentation/Guides/Messblatt.md" },
+        { title: "Einkaufen", sub: "Direkte Kauflinks", file: "Materials/Einkaufsliste-Links.md" },
+        { title: "Exoskelett", sub: "Traggestell V3", file: "Documentation/Guides/Exoskelett.md" },
+        { title: "AR-Display / HUD", sub: "Stufen A/B/C", file: "Documentation/Guides/Elektronik-AR-Display.md" },
+        { title: "Schubduesen + Nebel", sub: "LEDs, Fogger", file: "Documentation/Guides/Elektronik-Schubduesen.md" },
+        { title: "Begleit-Roboter", sub: "Optional, Zukunft", file: "Documentation/Guides/Begleitroboter-Integration.md" },
+        { title: "Sicherheit", sub: "Vor dem Tragen lesen", file: "Documentation/Guides/Sicherheit.md" },
+        { title: "Con-Checkliste", sub: "Vor dem Auftritt", file: "Documentation/Guides/Checklisten.md" },
+      ],
+    },
+  },
 
-  // Full library, grouped. Every entry points at a real markdown file.
+  // Full library, grouped (variant-agnostic). Every entry points at a real file.
   categories: [
     {
       name: "Planung",
