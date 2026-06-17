@@ -10,6 +10,8 @@ mit Helm-Lueftung, Sensorik, Schubduesen mit Nebler, Voice Changer mit Lautsprec
 und (optional) einer POV-Kamera. Dieser Guide beschreibt, wie sie zusammenspielen,
 ohne sich gegenseitig zu gefaehrden.
 
+![V3-Systemarchitektur: Datenfluss und Stromschienen](V3-Systemarchitektur.svg)
+
 ## 1. Grundprinzip: Entkoppeln statt zentralisieren
 
 **Kein zentrales Hirn.** Jedes Subsystem laeuft autark mit eigenem Controller und
