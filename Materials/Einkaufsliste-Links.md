@@ -89,7 +89,9 @@ Filament und Drucker primaer aus dem offiziellen Bambu Lab Store.
 | 40mm Luefter (Premium) | Noctua NF-A4x10 5V, 40x10 mm, 3-Pin | Amazon | ~15 EUR/Stk. | https://www.amazon.de/Noctua-NF-A4x10-5V-schmaler-Premium/dp/B00NEMGCIA |
 | 40mm Luefter (guenstig) | GDSTIME 40 mm USB 5V, 2er-Pack | Amazon | ~11 EUR | https://www.amazon.de/-/en/Brushless-Aquarium-Playstation-Raspberry-Ventilation/dp/B08SK3CG4W |
 | Radialluefter (Nebel-Transport) | WINSINN 5015 Blower 5V, 4er-Pack | Amazon | ~13 EUR | https://www.amazon.de/WINSINN-Gebl%C3%A4seventilator-Hydrauliklager-Turbine-Turbo/dp/B096BSWDHN |
-| Ultraschall-Vernebler | Honseadek 5V Mist-Maker Modul-Set (108 kHz, inkl. Controller) | Amazon | ~12 EUR | https://www.amazon.de/Honseadek-Modul-Vernebler-Set-Leiterplatte-Luftbefeuchter-DIY-Controllern/dp/B0FPXFV8KM |
+| Ultraschall-Vernebler (Stufe 1, con-tauglich) | Honseadek 5V Mist-Maker Modul-Set (108 kHz, inkl. Controller) | Amazon | ~12 EUR | https://www.amazon.de/Honseadek-Modul-Vernebler-Set-Leiterplatte-Luftbefeuchter-DIY-Controllern/dp/B0FPXFV8KM |
+| Heiz-Fogger (Stufe 2, Photoshoot/Outdoor) | Vosentech MicroFogger 5 Pro (zum Einbau, Fernsteuerung, USB-C-Trigger) | photorig.eu (EU) | ~140-170 EUR | https://www.photorig.eu/index.php?route=product/product&product_id=4303 |
+| Heiz-Fogger (Hersteller) | Vosentech MicroFogger 5 Pro - Produktseite/Doku | Vosentech | - | https://vosentech.com/index.php/product/microfogger-5-pro/ |
 | Verstaerker | AZDelivery PAM8403 2x3W mit Poti, 5er-Pack | Amazon | ~9 EUR | https://www.amazon.de/AZDelivery-Verst%C3%A4rker-Leistungsverst%C3%A4rkerplatine-Potentiometer-Lautsprecher/dp/B09PL77NCY |
 | Lautsprecher | Mini-Lautsprecher 40 mm 4 Ohm 3W, 2er-Set | Amazon | ~9 EUR | https://www.amazon.de/2er-Set-Mini-Lautsprecher-40mm/dp/B0DW5CZZM8 |
 | Mikrofon | Adafruit MAX4466 Electret-Verstaerker (einstellbarer Gain) | Berrybase | ~8 EUR | https://www.berrybase.de/en/adafruit-electret-microphone-amplifier-max4466 |
