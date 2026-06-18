@@ -174,21 +174,21 @@
         '<div style="color:var(--dim);font-size:12px;margin-top:2px">' + esc(jj.tag) + '</div></button>';
     }).join("");
     docEl.innerHTML =
-      '<h1>Master Chief Feldhandbuch</h1>' +
-      '<p style="font-size:1.08rem;color:var(--dim)">Durchklickbare Version aller Guides. Inhalte kommen live aus den Markdown-Dateien des Repos - dein Fortschritt, erledigte Schritte und Einkaufs-Haken bleiben lokal in diesem Browser gespeichert.</p>' +
-      '<h2>Waehle deinen Pfad</h2>' +
+      '<h1>Halo Master Chief Cosplay Guide (Vollständige Anleitung)</h1>' +
+      '<p style="font-size:1.08rem;color:var(--dim)">Dies ist eine durchklickbare Schritt-für-Schritt-Anleitung für den Bau deiner eigenen Master Chief Cosplay-Rüstung (MJOLNIR). Die Inhalte basieren direkt auf den Dokumentationen im Repository. Dein Fortschritt, abgehakte Aufgaben und Haken auf Einkaufslisten werden lokal in deinem Browser gespeichert.</p>' +
+      '<h2>Wähl deinen Pfad</h2>' +
       '<div style="display:flex;gap:10px;flex-wrap:wrap;margin:.6em 0 1.4em">' + cards + '</div>' +
       '<div class="hud ticks" style="padding:18px 20px;margin:8px 0 22px;background:rgba(94,194,63,.05);">' +
       '<div class="font-disp" style="color:var(--accent);font-weight:700;letter-spacing:.06em;">' + esc(j.label) + ' - SCHNELLSTART</div>' +
-      '<p style="margin:.4em 0 1em;color:var(--text)">' + esc(j.tag) + '. Schritt fuer Schritt durch den Build. ' + p.d + ' von ' + p.total + ' Schritten erledigt.</p>' +
-      '<button class="btn btn-accent" id="start-journey">Schnellstart oeffnen &gt;</button>' +
+      '<p style="margin:.4em 0 1em;color:var(--text)">' + esc(j.tag) + '. Schritt für Schritt durch den Build. ' + p.d + ' von ' + p.total + ' Schritten erledigt.</p>' +
+      '<button class="btn btn-accent" id="start-journey">Schnellstart öffnen &gt;</button>' +
       '</div>' +
       '<h2>So funktioniert es</h2>' +
       '<ul>' +
-      '<li>Oben links <strong>V1 / V2 / V3</strong> waehlen - jede Variante hat ihren eigenen, geordneten Schnellstart.</li>' +
-      '<li>Hake <strong>Schritte</strong> in Checklisten direkt ab - sie bleiben gespeichert.</li>' +
-      '<li>In den Einkaufslisten hakst du ab, was du <strong>schon hast</strong>.</li>' +
-      '<li>Der Balken oben zeigt den <strong>Fortschritt der gewaehlten Variante</strong>.</li>' +
+      '<li>Wähle oben links deinen Schwierigkeitsgrad/Pfad (<strong>V1 Foam</strong> / <strong>V2 3D-Druck</strong> / <strong>V3 Profi-Exoskelett</strong>) – jede Variante führt dich strukturiert durch das Projekt.</li>' +
+      '<li>Hake <strong>Schritte</strong> in den Checklisten direkt ab – dein Fortschritt wird automatisch gesichert.</li>' +
+      '<li>Markiere auf den Einkaufslisten die Materialien und Komponenten, die du <strong>bereits besitzt</strong>.</li>' +
+      '<li>Der Statusbalken im Header visualisiert deinen <strong>Gesamtfortschritt der ausgewählten Variante</strong>.</li>' +
       '</ul>';
     docEl.querySelectorAll(".variant-pick").forEach(function (b) {
       b.addEventListener("click", function () {

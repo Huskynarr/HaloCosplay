@@ -1,4 +1,4 @@
-# MJOLNIR Field Manual - Web-App
+# Halo Master Chief Cosplay Guide - Web-App
 
 Durchklickbare Web-Version der Guides. Die App liest die Markdown-Dateien des
 Repos live ein (per fetch zur Laufzeit) und rendert sie in einer Halo/HUD-Optik.
