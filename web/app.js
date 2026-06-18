@@ -176,6 +176,12 @@
     docEl.innerHTML =
       '<h1>Halo Master Chief Cosplay Guide (Vollständige Anleitung)</h1>' +
       '<p style="font-size:1.08rem;color:var(--dim)">Dies ist eine durchklickbare Schritt-für-Schritt-Anleitung für den Bau deiner eigenen Master Chief Cosplay-Rüstung (MJOLNIR). Die Inhalte basieren direkt auf den Dokumentationen im Repository. Dein Fortschritt, abgehakte Aufgaben und Haken auf Einkaufslisten werden lokal in deinem Browser gespeichert.</p>' +
+      '<div class="hud" style="padding:15px 18px;margin:1.5em 0;border-left:3px solid var(--cyan);background:rgba(70,200,255,0.03);">' +
+      '<div class="font-disp" style="color:var(--cyan);font-weight:600;font-size:0.95rem;letter-spacing:.05em;">HINTERGRUND: WAS BEDEUTET „MJOLNIR“?</div>' +
+      '<p style="font-size:0.9rem;color:var(--text);margin:.4em 0 0;line-height:1.5;">' +
+      'Die Rüstung des Master Chiefs trägt die offizielle Bezeichnung <strong>MJOLNIR Powered Assault Armor</strong>. Benannt nach dem legendären Hammer des nordischen Donnergottes Thor, symbolisiert dieser Name die extreme Stärke und Widerstandskraft der Rüstung. Dieser Guide liefert dir die vollständige Bauanleitung für dein eigenes tragbares Replika.' +
+      '</p>' +
+      '</div>' +
       '<h2>Wähl deinen Pfad</h2>' +
       '<div style="display:flex;gap:10px;flex-wrap:wrap;margin:.6em 0 1.4em">' + cards + '</div>' +
       '<div class="hud ticks" style="padding:18px 20px;margin:8px 0 22px;background:rgba(94,194,63,.05);">' +
