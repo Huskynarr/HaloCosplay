@@ -12,3 +12,9 @@ Code/HelmetControl/AR/ar_config.json
 # Build/Test-Artefakte
 *.tmp
 hud_test*.png
+
+# Secrets - NIE committen (Amazon Creators API Credentials)
+.env
+*.env
+tools/amazon-creators/.env
+!*.env.example
