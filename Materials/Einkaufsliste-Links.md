@@ -39,7 +39,7 @@ Eine der folgenden Methoden waehlen (Details: `Foam-Bau.md` Abschnitt 8).
 | Posten | Produkt | Shop | Preis ca. | Link |
 | --- | --- | --- | --- | --- |
 | Schleifpapier-Set | Navaris 84x Schleifpapier nass/trocken, ab Koernung 120 | Amazon | ~13 EUR | https://www.amazon.de/dp/B07QK8GFYJ?tag=huskynarr-21 |
-| Filler Primer | Rust-Oleum 260510 2-in-1 Filler + Sandable Primer, 340 g | Amazon | ~25 EUR (Import) | https://www.amazon.de/dp/B006ZLQ4HQ?tag=huskynarr-21 |
+| Filler Primer | Fueller-Grundierung grau, schleifbar (Haftgrund + Filler), 400 ml | Amazon | ~9 EUR | https://www.amazon.de/dp/B0FRNC8238?tag=huskynarr-21 |
 | XTC-3D Epoxy | Smooth-On XTC-3D Beschichtung, 181 g | Amazon | ~30 EUR | https://www.amazon.de/dp/B00T3FXO0G?tag=huskynarr-21 |
 | Feinspachtel | Presto Polyester-Feinspachtel 250 g (Bondo-Aequivalent) | Amazon | ~10 EUR | https://www.amazon.de/dp/B07NFXG92J?tag=huskynarr-21 |
 | CA-Kleber + Aktivator | Proloc Sekundenkleber 50 g + Aktivator-Spray 200 ml | Amazon | 14-20 EUR | https://www.amazon.de/dp/B08NZT4KXB?tag=huskynarr-21 |
@@ -100,7 +100,7 @@ Eine der folgenden Methoden waehlen (Details: `Foam-Bau.md` Abschnitt 8).
 | Posten | Produkt | Shop | Preis ca. | Link |
 | --- | --- | --- | --- | --- |
 | 40mm Luefter (Premium) | Noctua NF-A4x10 5V, 40x10 mm, 3-Pin | Amazon | ~15 EUR/Stk. | https://www.amazon.de/dp/B00NEMGCIA?tag=huskynarr-21 |
-| 40mm Luefter (guenstig) | GDSTIME 40 mm USB 5V, 2er-Pack | Amazon | ~11 EUR | https://www.amazon.de/dp/B08SK3CG4W?tag=huskynarr-21 |
+| 40mm Luefter (guenstig) | GDSTIME 40 mm USB 5V (40x40x10 mm) | Amazon | ~15 EUR | https://www.amazon.de/dp/B08Z3H86X5?tag=huskynarr-21 |
 | Radialluefter (Nebel-Transport) | WINSINN 5015 Blower 5V, 4er-Pack | Amazon | ~13 EUR | https://www.amazon.de/dp/B096BSWDHN?tag=huskynarr-21 |
 | Ultraschall-Vernebler (Stufe 1, con-tauglich) | Honseadek 5V Mist-Maker Modul-Set (108 kHz, inkl. Controller) | Amazon | ~12 EUR | https://www.amazon.de/dp/B0FPXFV8KM?tag=huskynarr-21 |
 | Heiz-Fogger (Stufe 2, Photoshoot/Outdoor) | Vosentech MicroFogger 5 Pro (zum Einbau, Fernsteuerung, USB-C-Trigger) | Amazon (Alternative) | ~140-170 EUR | https://www.amazon.de/s?k=Mini+Smoke+Machine+Cosplay&tag=huskynarr-21 |
