@@ -15,6 +15,6 @@
   <!-- text -->
   <text x="470" y="250" font-family="'Segoe UI',sans-serif" font-size="62" font-weight="800" fill="#ffffff">MASTER CHIEF</text>
   <text x="470" y="320" font-family="'Segoe UI',sans-serif" font-size="62" font-weight="800" fill="#5ec23f">COSPLAY GUIDE</text>
-  <text x="472" y="380" font-family="'Segoe UI',sans-serif" font-size="30" fill="#71858c">MJOLNIR-Rüstung bauen . V1 Foam . V2 3D-Druck . V3 Exoskelett</text>
+  <text x="472" y="380" font-family="'Segoe UI',Arial,sans-serif" font-size="30" fill="#71858c">Foam . 3D-Druck . Exoskelett . V1-V3</text>
   <rect x="472" y="410" width="300" height="6" fill="#5ec23f"/>
 </svg>
