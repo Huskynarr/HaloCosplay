@@ -3,11 +3,32 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Halo Master Chief Cosplay Guide | Vollständige Anleitung</title>
-<meta name="description" content="Vollständige Schritt-für-Schritt Anleitung für den Bau eines Halo Master Chief Cosplays (MJOLNIR Rüstung V1-V3) – von EVA-Foam bis Exoskelett & Elektronik." />
+<title>Halo Master Chief Cosplay bauen: MJOLNIR Anleitung V1-V3 (Foam, 3D-Druck, Elektronik)</title>
+<meta name="description" content="Kostenlose Schritt-für-Schritt-Anleitung für ein Halo Master Chief Cosplay (MJOLNIR-Rüstung). Drei Bauwege: V1 EVA-Foam, V2 3D-Druck mit HUD, V3 Profi-Exoskelett. Mit Materiallisten, Kauflinks, Elektronik (Pi/Arduino), AR-HUD und Sicherheits-Guides." />
+<meta name="keywords" content="Halo Cosplay, Master Chief Cosplay, MJOLNIR Rüstung, Halo Armor bauen, Spartan Cosplay, EVA Foam Rüstung, 3D-Druck Cosplay, Master Chief Helm, Halo HUD, Cosplay Anleitung deutsch, 405th" />
+<meta name="author" content="Huskynarr" />
+<meta name="robots" content="index, follow, max-image-preview:large" />
+<meta name="theme-color" content="#5ec23f" />
+<link rel="canonical" href="https://huskynarr.github.io/HaloCosplay/web/" />
+<link rel="icon" type="image/svg+xml" href="favicon.svg" />
+
+<!-- Open Graph -->
+<meta property="og:type" content="website" />
+<meta property="og:locale" content="de_DE" />
+<meta property="og:site_name" content="Master Chief Cosplay Guide" />
+<meta property="og:title" content="Halo Master Chief Cosplay bauen: MJOLNIR Anleitung V1-V3" />
+<meta property="og:description" content="Kostenlose Schritt-für-Schritt-Anleitung für ein Master Chief Cosplay: EVA-Foam, 3D-Druck, Elektronik & Exoskelett. Mit Materiallisten und Kauflinks." />
+<meta property="og:url" content="https://huskynarr.github.io/HaloCosplay/web/" />
+<meta property="og:image" content="https://huskynarr.github.io/HaloCosplay/web/og-image.svg" />
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Halo Master Chief Cosplay bauen: MJOLNIR Anleitung V1-V3" />
+<meta name="twitter:description" content="Kostenlose Schritt-für-Schritt-Anleitung: EVA-Foam, 3D-Druck, Elektronik & Exoskelett. Mit Materiallisten und Kauflinks." />
+<meta name="twitter:image" content="https://huskynarr.github.io/HaloCosplay/web/og-image.svg" />
 
 <script src="https://cdn.tailwindcss.com"></script>
-<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/marked@12/marked.min.js"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=Barlow:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
@@ -151,9 +172,111 @@
     #sidebar.open { transform: none; }
     #backdrop.open { display: block; }
   }
+
+  /* respect reduced-motion: drop scanlines + animations for sensitive users */
+  @media (prefers-reduced-motion: reduce) {
+    * { animation-duration: .001ms !important; transition-duration: .001ms !important; scroll-behavior: auto !important; }
+    body::after { display: none; }
+  }
 </style>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://huskynarr.github.io/HaloCosplay/#website",
+      "url": "https://huskynarr.github.io/HaloCosplay/",
+      "name": "Master Chief Cosplay Guide",
+      "description": "Kostenlose deutsche Schritt-für-Schritt-Anleitung zum Bau eines Halo Master Chief MJOLNIR Cosplays in drei Varianten.",
+      "inLanguage": "de-DE"
+    },
+    {
+      "@type": "HowTo",
+      "name": "Halo Master Chief Cosplay (MJOLNIR-Rüstung) bauen",
+      "description": "Vollständige Anleitung zum Bau einer Master-Chief-Rüstung aus EVA-Foam oder per 3D-Druck inklusive Helm, Lackierung, Befestigung und optionaler Elektronik (HUD, LEDs, AR).",
+      "inLanguage": "de-DE",
+      "totalTime": "P4M",
+      "estimatedCost": { "@type": "MonetaryAmount", "currency": "EUR", "value": "800" },
+      "tool": [
+        { "@type": "HowToTool", "name": "Cuttermesser" },
+        { "@type": "HowToTool", "name": "Heissluftpistole" },
+        { "@type": "HowToTool", "name": "3D-Drucker (Bambu Lab H2C, optional)" },
+        { "@type": "HowToTool", "name": "Lötstation (für Elektronik)" }
+      ],
+      "supply": [
+        { "@type": "HowToSupply", "name": "EVA-Foam oder PETG-Filament" },
+        { "@type": "HowToSupply", "name": "Kontaktkleber" },
+        { "@type": "HowToSupply", "name": "Grundierung und Sprühlack (RAL 6003 Olivgrün)" },
+        { "@type": "HowToSupply", "name": "PETG-Visor und Verspiegelung" }
+      ],
+      "step": [
+        { "@type": "HowToStep", "name": "Variante wählen", "text": "Entscheide zwischen V1 (EVA-Foam, günstig), V2 (3D-Druck mit HUD) oder V3 (Profi-Exoskelett)." },
+        { "@type": "HowToStep", "name": "Maße nehmen und skalieren", "text": "Körpermaße erfassen und die Templates bzw. STL-Dateien passend skalieren." },
+        { "@type": "HowToStep", "name": "Rüstung und Helm bauen", "text": "Foam schneiden und formen oder Teile drucken, verkleben und zusammensetzen." },
+        { "@type": "HowToStep", "name": "Lackieren und Finish", "text": "Versiegeln, grundieren, in Master-Chief-Grün lackieren und Weathering auftragen." },
+        { "@type": "HowToStep", "name": "Befestigung und Unteranzug", "text": "Unteranzug, Gurte und Magnete für sicheren, tragbaren Sitz montieren." },
+        { "@type": "HowToStep", "name": "Elektronik (optional)", "text": "LEDs, HUD, Audio/Voice-Changer und für V3 AR-Display und Sensorik integrieren." },
+        { "@type": "HowToStep", "name": "Sicherheit und Convention", "text": "Tragetest, Notausstieg, Convention-Regeln und Waffengesetz prüfen." }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Was kostet ein Master Chief Cosplay?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Je nach Variante: V1 aus EVA-Foam ab etwa 800-2.700 EUR, V2 mit 3D-Druck und HUD rund 2.400-6.600 EUR, V3 mit Exoskelett und Premium-Materialien ab etwa 6.000 EUR. Realistisch ist oft das 2-3x der Minimalannahme durch Werkzeuge, Versand und Fehlversuche." }
+        },
+        {
+          "@type": "Question",
+          "name": "Foam oder 3D-Druck für die Master-Chief-Rüstung?",
+          "acceptedAnswer": { "@type": "Answer", "text": "EVA-Foam (V1) ist günstig, leicht und einsteigerfreundlich. 3D-Druck (V2) liefert mehr Detail und Stabilität, erfordert aber Drucker, Nachbearbeitung und mehr Zeit. Viele kombinieren beides (Hybrid)." }
+        },
+        {
+          "@type": "Question",
+          "name": "Wie lange dauert der Bau?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Richtwerte: V1 etwa 2-5 Monate, V2 etwa 4-8 Monate, V3 etwa 8-14 Monate - abhängig von Erfahrung und verfügbarer Zeit." }
+        },
+        {
+          "@type": "Question",
+          "name": "Wofür steht MJOLNIR bei Master Chief?",
+          "acceptedAnswer": { "@type": "Answer", "text": "MJOLNIR ist die offizielle Bezeichnung der Powered Assault Armor des Master Chief, benannt nach dem Hammer des nordischen Gottes Thor - Sinnbild für Stärke und Widerstandskraft." }
+        }
+      ]
+    }
+  ]
+}
+</script>
 </head>
 <body class="min-h-screen">
+
+<noscript>
+  <div style="max-width:820px;margin:0 auto;padding:24px;color:#cdd9dc;font-family:system-ui,sans-serif;">
+    <h1>Halo Master Chief Cosplay Guide: MJOLNIR-Rüstung bauen (V1-V3)</h1>
+    <p>Diese durchklickbare Web-App benötigt JavaScript. Du kannst alle Inhalte aber
+       auch direkt als Markdown-Dokumentation lesen. Es gibt drei Bauwege:</p>
+    <ul>
+      <li><strong>V1 Einsteiger</strong> - EVA-Foam, günstig (ca. 800-2.700 EUR, 2-5 Monate)</li>
+      <li><strong>V2 Fortgeschritten</strong> - 3D-Druck mit HUD (ca. 2.400-6.600 EUR, 4-8 Monate)</li>
+      <li><strong>V3 Profi</strong> - Exoskelett und AR-HUD (ab ca. 6.000 EUR, 8-14 Monate)</li>
+    </ul>
+    <h2>Wichtige Anleitungen</h2>
+    <ul>
+      <li><a href="../Documentation/Guides/Start-Hier.md">Start: Wo anfangen</a></li>
+      <li><a href="../Documentation/Guides/Varianten.md">Varianten V1/V2/V3 im Vergleich</a></li>
+      <li><a href="../Documentation/Guides/Komplett-Walkthrough.md">Kompletter Walkthrough</a></li>
+      <li><a href="../Documentation/Guides/Foam-Bau.md">Foam-Bau (V1)</a></li>
+      <li><a href="../Documentation/Guides/3D-Druck.md">3D-Druck (V2)</a></li>
+      <li><a href="../Documentation/Guides/Lackierung-Finishing.md">Lackierung und Finishing</a></li>
+      <li><a href="../Documentation/Guides/Elektronik-HUD.md">Elektronik und HUD</a></li>
+      <li><a href="../Materials/Einkaufsliste-Links.md">Einkaufsliste mit Kauflinks</a></li>
+      <li><a href="../Documentation/Guides/Sicherheit.md">Sicherheit</a></li>
+    </ul>
+    <p>Vollständige Quelle: <a href="https://github.com/Huskynarr/HaloCosplay">github.com/Huskynarr/HaloCosplay</a></p>
+  </div>
+</noscript>
 
 <!-- top HUD bar -->
 <header class="hud hud-glow ticks sticky top-0 z-40 mx-2 mt-2 px-4 py-2.5 flex items-center gap-4" style="background:#070f13;">
@@ -177,6 +300,7 @@
   <aside id="sidebar" class="hud shrink-0 w-[290px] self-start lg:sticky" style="top:70px; max-height:calc(100vh - 80px); overflow-y:auto;">
     <div class="p-2">
       <input id="search" type="search" placeholder="Guides durchsuchen..."
+        aria-label="Guides durchsuchen"
         class="font-mono w-full bg-[#0a1318] border text-sm px-3 py-2 outline-none"
         style="border-color:var(--line); color:var(--text);" />
     </div>

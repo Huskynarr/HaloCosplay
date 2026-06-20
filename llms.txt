@@ -1,0 +1,37 @@
+# Halo Master Chief Cosplay Guide (MJOLNIR)
+
+> Kostenlose, deutschsprachige Schritt-für-Schritt-Anleitung zum Bau eines tragbaren Halo Master Chief MJOLNIR Cosplays. Drei Bauwege: V1 (EVA-Foam, Einsteiger), V2 (3D-Druck mit HUD, Fortgeschritten), V3 (Exoskelett + AR-HUD, Profi). Umfasst Rüstung, Helm, Lackierung, Befestigung, Elektronik (Raspberry Pi/Arduino), Materiallisten mit Kauflinks und Sicherheits-/Convention-Hinweise.
+
+Web-App (durchklickbar, Fortschritt im Browser): https://huskynarr.github.io/HaloCosplay/web/
+Quellcode/Repository: https://github.com/Huskynarr/HaloCosplay
+
+## Einstieg
+- [Start: Wo anfangen](https://huskynarr.github.io/HaloCosplay/Documentation/Guides/Start-Hier.md)
+- [Varianten V1/V2/V3 im Vergleich](https://huskynarr.github.io/HaloCosplay/Documentation/Guides/Varianten.md)
+- [Kompletter Walkthrough (Anfänger bis Profi)](https://huskynarr.github.io/HaloCosplay/Documentation/Guides/Komplett-Walkthrough.md)
+- [Kosten](https://huskynarr.github.io/HaloCosplay/Documentation/Guides/Kosten.md)
+- [Zeitplan](https://huskynarr.github.io/HaloCosplay/Documentation/Guides/Zeitplan.md)
+
+## Bau
+- [Foam-Bau (V1)](https://huskynarr.github.io/HaloCosplay/Documentation/Guides/Foam-Bau.md)
+- [3D-Druck (V2, Bambu Lab H2C)](https://huskynarr.github.io/HaloCosplay/Documentation/Guides/3D-Druck.md)
+- [Lackierung und Finishing](https://huskynarr.github.io/HaloCosplay/Documentation/Guides/Lackierung-Finishing.md)
+- [Unteranzug und Befestigung](https://huskynarr.github.io/HaloCosplay/Documentation/Guides/Unteranzug-Befestigung.md)
+- [Exoskelett (V3)](https://huskynarr.github.io/HaloCosplay/Documentation/Guides/Exoskelett.md)
+
+## Elektronik
+- [HUD](https://huskynarr.github.io/HaloCosplay/Documentation/Guides/Elektronik-HUD.md)
+- [AR-Display (V3)](https://huskynarr.github.io/HaloCosplay/Documentation/Guides/Elektronik-AR-Display.md)
+- [V3-Systemarchitektur](https://huskynarr.github.io/HaloCosplay/Documentation/Guides/V3-Systemarchitektur.md)
+- [Schubdüsen und Nebel](https://huskynarr.github.io/HaloCosplay/Documentation/Guides/Elektronik-Schubduesen.md)
+- [Strombudget](https://huskynarr.github.io/HaloCosplay/Documentation/Guides/Elektronik-Strombudget.md)
+
+## Material und Einkauf
+- [Einkaufsliste mit Kauflinks](https://huskynarr.github.io/HaloCosplay/Materials/Einkaufsliste-Links.md)
+- [Komponentenliste (BOM)](https://huskynarr.github.io/HaloCosplay/Materials/ShoppingList.md)
+- [STL-Quellen](https://huskynarr.github.io/HaloCosplay/Resources/STL-Quellen.md)
+
+## Sicherheit und Convention
+- [Sicherheit](https://huskynarr.github.io/HaloCosplay/Documentation/Guides/Sicherheit.md)
+- [Convention-Regeln (DE, inkl. Waffengesetz)](https://huskynarr.github.io/HaloCosplay/Documentation/Guides/Convention-Regeln.md)
+- [Checklisten](https://huskynarr.github.io/HaloCosplay/Documentation/Guides/Checklisten.md)
