@@ -357,7 +357,7 @@ In der Nachbearbeitung zusammenfuehren fuer "brillante LEDs mit sichtbaren Detai
 - [Adafruit Forums - Cosplay](https://forums.adafruit.com/)
 
 ### Produkte und Haendler
-- [BTF-LIGHTING FCOB WS2812B COB Strip (Amazon)](https://www.amazon.com/BTF-LIGHTING-Individual-Addressable-Flexible-Controller/dp/B0CNXKSWD7)
+- [BTF-LIGHTING FCOB WS2812B COB Strip (Amazon)](https://www.amazon.de/dp/B0CNXKSWD7?tag=huskynarr-21)
 - [SuperLightingLED WS2812B COB 320 chips/m](https://www.superlightingled.com/newest-ws2812b-320-chipsm-addressable-rgb-cob-led-light-dc5v-dream-color-flexible-cob-led-strips-1m328ft-per-roll-p-3723.html)
 - [Henry's Helmet Fans](https://henryshelmetfans.com/)
 - [Green Stuff World LED Foam](https://www.greenstuffworld.com/en/570-led-foam)

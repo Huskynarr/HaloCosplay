@@ -164,7 +164,7 @@ Nur fuer V3 (Stufe-C-AR nach `Documentation/Guides/Elektronik-AR-Display.md` und
 
 ## Beispiel-Links (LEDs)
 
-- https://www.amazon.de/Evemodel-T0603WM-warmweiss-Bauform-Microlitze/dp/B07LCKMLN5/
+- https://www.amazon.de/dp/B07LCKMLN5?tag=huskynarr-21
 - https://leds-and-more.de/Highpower-LED-3-Watt-Ultra-Kalt-Weiss-20000K-200-Lumen-140
 - https://leds-and-more.de/SMD-RGB-LED-SK6812-5050-steuerbar-mit-integr-Controller-auf-Platine-rund
 
