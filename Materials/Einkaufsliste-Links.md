@@ -30,9 +30,9 @@ Eine der folgenden Methoden waehlen (Details: `Foam-Bau.md` Abschnitt 8).
 | Posten | Produkt | Shop | Preis ca. | Link |
 | --- | --- | --- | --- | --- |
 | Plasti Dip (Empfehlung V1) | Plasti Dip Spruehdose schwarz (flexible Gummi-Versiegelung) | Amazon (Suche) | ~13-18 EUR | https://www.amazon.de/s?k=Plasti+Dip+Spray+schwarz&tag=huskynarr-21 |
-| Mod Podge Matt | Mod Podge Matt Versiegelung/Kleber, 236 ml | Amazon (Suche) | ~12-16 EUR | https://www.amazon.de/s?k=Mod+Podge+Matt&tag=huskynarr-21 |
-| PVA / Holzleim (guenstig) | Ponal/Holzleim wasserfest D3 (1:1 mit Wasser verduennt) | Amazon (Suche) | ~8-12 EUR | https://www.amazon.de/s?k=Holzleim+wasserfest+D3&tag=huskynarr-21 |
-| Anti-Fog (Visor-Innenseite) | Anti-Beschlag-Spray fuer Brillen/Visiere | Amazon (Suche) | ~8-12 EUR | https://www.amazon.de/s?k=Anti+Fog+Spray+Brille&tag=huskynarr-21 |
+| Mod Podge Matt | Mod Podge Matt Versiegelung/Kleber, 236 ml | Amazon | ~12-16 EUR | https://www.amazon.de/dp/B001IKES5O?tag=huskynarr-21 |
+| PVA / Holzleim (guenstig) | Ponal/Holzleim wasserfest D3 (1:1 mit Wasser verduennt) | Amazon | ~8-12 EUR | https://www.amazon.de/dp/B006JZ628E?tag=huskynarr-21 |
+| Anti-Fog (Visor-Innenseite) | Anti-Beschlag-Spray fuer Brillen/Visiere | Amazon | ~8-12 EUR | https://www.amazon.de/dp/B088HGLNQV?tag=huskynarr-21 |
 
 ## Oberflaechenbearbeitung
 
@@ -73,7 +73,7 @@ Eine der folgenden Methoden waehlen (Details: `Foam-Bau.md` Abschnitt 8).
 | Raspberry Pi Zero 2 W | Raspberry Pi Zero 2 W (Board) | Amazon | 20-23 EUR | https://www.amazon.de/s?k=Raspberry+Pi+Zero+2+W&tag=huskynarr-21 |
 | microSD 64 GB | SanDisk Ultra microSDXC 64 GB A1 inkl. Adapter | Amazon | 8-10 EUR | https://www.amazon.de/dp/B073JYVKNX?tag=huskynarr-21 |
 | Transparentes OLED 1.51" | Waveshare 1.51" Transparent OLED 128x64 SSD1309 (SPI/I2C) | Amazon | 25-30 EUR | https://www.amazon.de/dp/B0B8N46G24?tag=huskynarr-21 |
-| PiSugar (Pi Zero) | PiSugar 2/3 UPS in Pi-Zero-Formfaktor - **Achtung:** Modell passend zum Pi Zero 2 W waehlen, NICHT die Plus-Variante (Pi 3B/4B) | Amazon (Suche) | 35-55 EUR | https://www.amazon.de/s?k=PiSugar+Pi+Zero&tag=huskynarr-21 |
+| PiSugar (Pi Zero) | PiSugar 2/3 UPS in Pi-Zero-Formfaktor - **Achtung:** Modell passend zum Pi Zero 2 W waehlen, NICHT die Plus-Variante (Pi 3B/4B) | Amazon | 35-55 EUR | https://www.amazon.de/dp/B09QS12N1W?tag=huskynarr-21 |
 | Arduino Nano (kompatibel) | AZDelivery Nano V3.0 ATmega328 + CH340 | Amazon | 9-12 EUR | https://www.amazon.de/dp/B07ZP9RH6Q?tag=huskynarr-21 |
 
 ## Elektronik - LEDs
@@ -82,9 +82,9 @@ Eine der folgenden Methoden waehlen (Details: `Foam-Bau.md` Abschnitt 8).
 | --- | --- | --- | --- | --- |
 | WS2812B Strip 60 LED/m | BTF-LIGHTING WS2812B IP30, schwarzes PCB (Laenge im Listing waehlen, 2x 1m oder 1x 2m) | Amazon | ~13 EUR/m | https://www.amazon.de/dp/B01CDTED80?tag=huskynarr-21 |
 | WS2812B LED-Ringe | AZDelivery 3x RGB LED-Ring 12-Bit 50 mm | Amazon | 15-18 EUR | https://www.amazon.de/dp/B07V1VZPX6?tag=huskynarr-21 |
-| IRLZ44N MOSFET | Infineon IRLZ44N N-Kanal Logic-Level TO-220 | Amazon | ~0.70 EUR/Stk. | https://www.amazon.de/s?k=IRLZ44N+MOSFET&tag=huskynarr-21 |
-| 1N4007 Freilaufdioden | 1N4007 Gleichrichterdioden 1A (fuer Fogger-/Motor-MOSFET) | Amazon (Suche) | ~6 EUR/100 Stk. | https://www.amazon.de/s?k=1N4007+Diode&tag=huskynarr-21 |
-| 74AHCT125 Level Shifter | TI SN74AHCT125N Quad Level-Shifter DIL-14 | Amazon | ~0.50 EUR/Stk. | https://www.amazon.de/s?k=74AHCT125+Level+Shifter&tag=huskynarr-21 |
+| IRLZ44N MOSFET | Infineon IRLZ44N N-Kanal Logic-Level TO-220 | Amazon | ~0.70 EUR/Stk. | https://www.amazon.de/dp/B0FSRYCRGM?tag=huskynarr-21 |
+| 1N4007 Freilaufdioden | 1N4007 Gleichrichterdioden 1A (fuer Fogger-/Motor-MOSFET) | Amazon | ~6 EUR/100 Stk. | https://www.amazon.de/dp/B0CKSDPG1V?tag=huskynarr-21 |
+| 74AHCT125 Level Shifter | TI SN74AHCT125N Quad Level-Shifter DIL-14 | Amazon | ~0.50 EUR/Stk. | https://www.amazon.de/dp/B0GK731LKJ?tag=huskynarr-21 |
 | Widerstaende 330-470 Ohm | ELEGOO 1/4W Metallschicht-Sortiment, 525 Stk. | Amazon | 10-13 EUR | https://www.amazon.de/dp/B072BHDBDG?tag=huskynarr-21 |
 | Elkos 1000 uF | ALLECIN Elko-Sortiment 24 Werte (0.1-1000 uF, 10-50V) | Amazon | 10-14 EUR | https://www.amazon.de/dp/B0C1VBXCQM?tag=huskynarr-21 |
 
@@ -107,7 +107,7 @@ Eine der folgenden Methoden waehlen (Details: `Foam-Bau.md` Abschnitt 8).
 | Heiz-Fogger (Hersteller) | Vosentech MicroFogger 5 Pro - Produktseite/Doku | Vosentech | - | https://vosentech.com/index.php/product/microfogger-5-pro/ |
 | Verstaerker | AZDelivery PAM8403 2x3W mit Poti, 5er-Pack | Amazon | ~9 EUR | https://www.amazon.de/dp/B09PL77NCY?tag=huskynarr-21 |
 | Lautsprecher | Mini-Lautsprecher 40 mm 4 Ohm 3W, 2er-Set | Amazon | ~9 EUR | https://www.amazon.de/dp/B0DW5CZZM8?tag=huskynarr-21 |
-| Mikrofon | Adafruit MAX4466 Electret-Verstaerker (einstellbarer Gain) | Amazon | ~8 EUR | https://www.amazon.de/s?k=MAX4466&tag=huskynarr-21 |
+| Mikrofon | Adafruit MAX4466 Electret-Verstaerker (einstellbarer Gain) | Amazon | ~8 EUR | https://www.amazon.de/dp/B0F4ML4JHH?tag=huskynarr-21 |
 | USB-Soundkarte | UGREEN USB extern, 3.5 mm Kopfhoerer + Mikro | Amazon | ~13 EUR | https://www.amazon.de/dp/B016CU2PEU?tag=huskynarr-21 |
 
 ## Elektronik - Kabel und Stecker
@@ -126,13 +126,13 @@ Eine der folgenden Methoden waehlen (Details: `Foam-Bau.md` Abschnitt 8).
 
 | Posten | Produkt | Shop | Preis ca. | Link |
 | --- | --- | --- | --- | --- |
-| Unteranzug (Morphsuit) | Morphsuit schwarz, Ganzkoerperanzug (Suche) | Amazon | 30-40 EUR | https://www.amazon.de/Morphsuit-schwarz/s?k=Morphsuit,+schwarz&tag=huskynarr-21 |
+| Unteranzug (Morphsuit) | Morphsuit schwarz, Ganzkoerperanzug (Suche) | Amazon | 30-40 EUR | https://www.amazon.de/dp/B00LEG800Q?tag=huskynarr-21 |
 | Unteranzug (Alternative) | Kompressionsshirt langarm schwarz (Suche) | Amazon | ~15-25 EUR | https://www.amazon.de/s?k=kompressionsshirt+langarm+schwarz+herren&tag=huskynarr-21 |
 | Lastverteilungs-Guertel | OneTigris MOLLE Battle Belt, gepolstert, Schnellverschluss | Amazon | 35-40 EUR | https://www.amazon.de/dp/B09QCVQ9Z7?tag=huskynarr-21 |
 | Nylon-Gurtband 25 mm | GOLRISEN 10 m inkl. Steckschnallen, schwarz | Amazon | 12-15 EUR | https://www.amazon.de/dp/B07DPJQ2WN?tag=huskynarr-21 |
 | Steckschnallen 25 mm | Klickverschluss-Schnallen 10 Stk., schwarz | Amazon | 8-10 EUR | https://www.amazon.de/dp/B0BBW2VVKL?tag=huskynarr-21 |
 | Dual Lock | 3M Dual Lock SJ3550, schwarz | Amazon | 15-25 EUR | https://www.amazon.de/dp/B07STXS463?tag=huskynarr-21 |
-| Neodym-Magnete 10x3 mm | supermagnete S-10-03-N, N42 vernickelt (ab 40 Stk. guenstiger) | Amazon | ~17 EUR/40 Stk. | https://www.amazon.de/s?k=Neodym-Magnete+10x3+mm&tag=huskynarr-21 |
+| Neodym-Magnete 10x3 mm | supermagnete S-10-03-N, N42 vernickelt (ab 40 Stk. guenstiger) | Amazon | ~17 EUR/40 Stk. | https://www.amazon.de/dp/B0DLFZPTHT?tag=huskynarr-21 |
 | EVA-Foam 6 mm (Polster) | The Foamory EVA 6 mm, 90x150 cm, schwarz | Amazon | 20-25 EUR | https://www.amazon.de/dp/B07DCGMXQZ?tag=huskynarr-21 |
 | Helm-Padding | Taktisches Helm-Pad-Kit, Memory-Foam (universal) | Amazon | 12-15 EUR | https://www.amazon.de/dp/B08Z1S6SZB?tag=huskynarr-21 |
 | Kinnriemen | Bauer Helm-Kinnriemen zweiteilig, Schnellverschluss | Amazon | 10-15 EUR | https://www.amazon.de/dp/B07DPQ9QJD?tag=huskynarr-21 |
@@ -144,23 +144,23 @@ Eine der folgenden Methoden waehlen (Details: `Foam-Bau.md` Abschnitt 8).
 | EVA-Foam diverse Staerken | The Foamory EVA 2-10 mm waehlbar, 90x150 cm | Amazon | 20-30 EUR/Platte | https://www.amazon.de/dp/B085WBSS5B?tag=huskynarr-21 |
 | PVC-Rohr (Kern) | ARLI Elektrorohr M25 PVC, 12x 1 m Set | Amazon | 18-22 EUR | https://www.amazon.de/s?k=PVC-Rohr+installationsrohr+M25&tag=huskynarr-21 |
 | Grundierung + Farbe | siehe Abschnitt "Lackierung" oben | - | - | - |
-| Ammo-Counter OLED 0.96" | OLED-Display 0.96" SSD1306 I2C (Munitionszaehler MA40/MA5) | Amazon (Suche) | ~7-10 EUR | https://www.amazon.de/s?k=OLED+0.96+SSD1306+I2C&tag=huskynarr-21 |
-| MP3-Soundmodul | DFPlayer Mini MP3-Modul + microSD (Schuss-/Reload-Sound) | Amazon (Suche) | ~8-12 EUR | https://www.amazon.de/s?k=DFPlayer+Mini+MP3&tag=huskynarr-21 |
-| Reload-Sensor | Hall-Sensor A3144 Modul (Magazin-Erkennung) | Amazon (Suche) | ~7 EUR/5 Stk. | https://www.amazon.de/s?k=Hall+Sensor+A3144+Modul&tag=huskynarr-21 |
-| Klingen-Diffusor (Energy Sword) | Acrylglas/PMMA Platte klar 3-5 mm (auch Visor-Edge-Lit) | Amazon (Suche) | ~12-20 EUR | https://www.amazon.de/s?k=Acrylglas+Platte+klar+3mm&tag=huskynarr-21 |
-| EL-Wire (Budget-Glow) | EL-Wire Set 5 m inkl. Inverter (Visor-/Waffen-Alternative) | Amazon (Suche) | ~12-18 EUR | https://www.amazon.de/s?k=EL+Wire+Set+Inverter&tag=huskynarr-21 |
+| Ammo-Counter OLED 0.96" | OLED-Display 0.96" SSD1306 I2C (Munitionszaehler MA40/MA5) | Amazon | ~7-10 EUR | https://www.amazon.de/dp/B0CFFB62F4?tag=huskynarr-21 |
+| MP3-Soundmodul | DFPlayer Mini MP3-Modul + microSD (Schuss-/Reload-Sound) | Amazon | ~8-12 EUR | https://www.amazon.de/dp/B0DH2GJXMT?tag=huskynarr-21 |
+| Reload-Sensor | Hall-Sensor A3144 Modul (Magazin-Erkennung) | Amazon | ~7 EUR/5 Stk. | https://www.amazon.de/dp/B0CZ6QXMZ2?tag=huskynarr-21 |
+| Klingen-Diffusor (Energy Sword) | Acrylglas/PMMA Platte klar 3-5 mm (auch Visor-Edge-Lit) | Amazon | ~12-20 EUR | https://www.amazon.de/dp/B0CWVBSRNQ?tag=huskynarr-21 |
+| EL-Wire (Budget-Glow) | EL-Wire Set 5 m inkl. Inverter (Visor-/Waffen-Alternative) | Amazon | ~12-18 EUR | https://www.amazon.de/dp/B097XPJRDZ?tag=huskynarr-21 |
 
 ## V3-Zusatz-Hardware (AR, POV, Profi)
 
 | Posten | Produkt | Shop | Preis ca. | Link |
 | --- | --- | --- | --- | --- |
-| AR-Rechner | Raspberry Pi 5, 8 GB | Amazon | 185-205 EUR | https://www.amazon.de/s?k=Raspberry+Pi+5+8GB&tag=huskynarr-21 |
-| CSI-Kamera | Raspberry Pi Camera Module 3, 12 MP Autofokus | Amazon | 29-36 EUR | https://www.amazon.de/s?k=Raspberry+Pi+Camera+Module+3&tag=huskynarr-21 |
-| Pi-5-Kuehler | Raspberry Pi Active Cooler (offiziell) | Amazon | 5-7 EUR | https://www.amazon.de/s?k=Raspberry+Pi+5+Active+Cooler&tag=huskynarr-21 |
+| AR-Rechner | Raspberry Pi 5, 8 GB | Amazon | 185-205 EUR | https://www.amazon.de/dp/B0CK2FCG1K?tag=huskynarr-21 |
+| CSI-Kamera | Raspberry Pi Camera Module 3, 12 MP Autofokus | Amazon | 29-36 EUR | https://www.amazon.de/dp/B0BRY6MVXL?tag=huskynarr-21 |
+| Pi-5-Kuehler | Raspberry Pi Active Cooler (offiziell) | Amazon | 5-7 EUR | https://www.amazon.de/dp/B0CLXZBR5P?tag=huskynarr-21 |
 | Helm-Display | Waveshare 5" HDMI LCD 800x480, kapazitiv | Amazon | 40-50 EUR | https://www.amazon.de/dp/B07BDK9CWP?tag=huskynarr-21 |
 | ESP32 (SensorFeeder) | AZDelivery ESP32 Dev Kit C V4, USB-C | Amazon | 10-13 EUR | https://www.amazon.de/dp/B0DHY22H5B?tag=huskynarr-21 |
 | IMU | AZDelivery GY-521 MPU-6050 Gyro/Beschleunigung | Amazon | 6-8 EUR | https://www.amazon.de/dp/B07TKLYBD6?tag=huskynarr-21 |
-| 5V/5A Step-Down | Pololu D24V50F5 | Amazon | ~25 EUR | https://www.amazon.de/s?k=Pololu+D24V50F5&tag=huskynarr-21 |
+| 5V/5A Step-Down | Pololu D24V50F5 | Amazon | ~25 EUR | https://www.amazon.de/dp/B07FK5YQH8?tag=huskynarr-21 |
 | 3S LiPo | OVONIC 3S 11.1V 5000 mAh 50C, XT60 | Amazon | 35-40 EUR | https://www.amazon.de/dp/B07MKQ4BN9?tag=huskynarr-21 |
 | LiPo-Ladegeraet | SkyRC B6AC Neo Balancer (1-6S) | Amazon | 40-60 EUR | https://www.amazon.de/dp/B0CV64ZB2L?tag=huskynarr-21 |
 | Powerbank 20.000 mAh | Anker Zolo 30W USB-C PD, integriertes Kabel | Amazon | 30-40 EUR | https://www.amazon.de/dp/B0CZ9LH53B?tag=huskynarr-21 |
@@ -175,13 +175,13 @@ Motedis.com bezogen; die Amazon-Suchen sind die schnelle Alternative.
 
 | Posten | Produkt | Shop | Preis ca. | Link |
 | --- | --- | --- | --- | --- |
-| Alu-Profil 30x30 (Rahmen) | Aluprofil 3030 Nut 8, I-Typ (Hauptstreben) | Amazon (Suche) | ~8-12 EUR/m | https://www.amazon.de/s?k=Aluprofil+3030+Nut+8&tag=huskynarr-21 |
+| Alu-Profil 30x30 (Rahmen) | Aluprofil 3030 Nut 8, I-Typ (Hauptstreben) | Amazon | ~8-12 EUR/m | https://www.amazon.de/dp/B097414JW7?tag=huskynarr-21 |
 | Alu-Profil 20x20 (leicht) | Aluprofil 2020 Nut 6 (Anbauteile) | Amazon (Suche) | ~5-8 EUR/m | https://www.amazon.de/s?k=Aluprofil+2020+Nut+6&tag=huskynarr-21 |
-| Nutensteine + Eckverbinder | Nutensteine M5/M6 + Winkelverbinder Nut 8 Sortiment | Amazon (Suche) | ~15-25 EUR | https://www.amazon.de/s?k=Aluprofil+Nutenstein+Eckverbinder+Nut+8&tag=huskynarr-21 |
-| Kugellager 608ZZ | 608ZZ Rillenkugellager (Gelenke), 10-20 Stk. | Amazon (Suche) | ~10-15 EUR | https://www.amazon.de/s?k=608ZZ+Kugellager&tag=huskynarr-21 |
-| Schulterbolzen / Gewinde | M8 Passschrauben + Gewindestangen + Stoppmuttern | Amazon (Suche) | ~12-18 EUR | https://www.amazon.de/s?k=M8+Passschraube+Gewindestange&tag=huskynarr-21 |
-| Trockenbau-Stelzen (Hoehe) | Trockenbau-Stelzen verstellbar (Option Koerpergroesse) | Amazon (Suche) | 60-90 EUR | https://www.amazon.de/s?k=Trockenbau+Stelzen+verstellbar&tag=huskynarr-21 |
-| Industriekleber | E6000 Industriekleber (Snaps/Kosmetik am Exo) | Amazon (Suche) | ~10-14 EUR | https://www.amazon.de/s?k=E6000+Kleber&tag=huskynarr-21 |
+| Nutensteine + Eckverbinder | Nutensteine M5/M6 + Winkelverbinder Nut 8 Sortiment | Amazon | ~15-25 EUR | https://www.amazon.de/dp/B0C3B33F3Y?tag=huskynarr-21 |
+| Kugellager 608ZZ | 608ZZ Rillenkugellager (Gelenke), 10-20 Stk. | Amazon | ~10-15 EUR | https://www.amazon.de/dp/B0F28Q2LCV?tag=huskynarr-21 |
+| Schulterbolzen / Gewinde | M8 Passschrauben + Gewindestangen + Stoppmuttern | Amazon | ~12-18 EUR | https://www.amazon.de/dp/B0FKBGFYXP?tag=huskynarr-21 |
+| Trockenbau-Stelzen (Hoehe) | Trockenbau-Stelzen verstellbar (Option Koerpergroesse) | Amazon | 60-90 EUR | https://www.amazon.de/dp/B0BTHDQMWQ?tag=huskynarr-21 |
+| Industriekleber | E6000 Industriekleber (Snaps/Kosmetik am Exo) | Amazon | ~10-14 EUR | https://www.amazon.de/dp/B07QPPYCX4?tag=huskynarr-21 |
 
 ## Komfort und Con-Tag
 
