@@ -10,17 +10,17 @@ Filament und Drucker primaer aus dem offiziellen Bambu Lab Store.
 
 | Posten | Produkt | Shop | Preis ca. | Link |
 | --- | --- | --- | --- | --- |
-| 3D-Drucker (vorhanden) | Bambu Lab H2C | Bambu Lab EU Store | ab 2.249 EUR | https://eu.store.bambulab.com/de/products/h2c |
+| 3D-Drucker (vorhanden) | Bambu Lab H2C | Amazon (Alternative) | ab 2.249 EUR | https://www.amazon.de/s?k=Bambu+Lab+3D-Drucker&tag=huskynarr-21 |
 
 ## Filament (Bambu Lab Store, EU)
 
 | Posten | Produkt | Shop | Preis ca. | Link |
 | --- | --- | --- | --- | --- |
-| PETG Hauptmaterial (4-5 kg) | Bambu Lab PETG Basic 1 kg (Nachfolger des PETG HF) | Bambu Lab EU Store | ~23 EUR/Spule | https://eu.store.bambulab.com/de/products/petg-basic |
-| PETG (Alternative, solange verfuegbar) | Bambu Lab PETG HF 1 kg | Bambu Lab EU Store | ~23 EUR | https://eu.store.bambulab.com/de/products/petg-hf |
-| PLA (Details/Prototypen) | Bambu Lab PLA Basic 1 kg | Bambu Lab EU Store | 20-23 EUR | https://eu.store.bambulab.com/de/products/pla-basic-filament |
-| TPU (Gelenke/Flexteile) | Bambu Lab TPU 95A HF 1 kg | Bambu Lab EU Store | ~35 EUR | https://eu.store.bambulab.com/de/products/tpu-95a-hf |
-| TPU (AMS-tauglich) | Bambu Lab TPU for AMS 1 kg | Bambu Lab EU Store | ~40 EUR | https://eu.store.bambulab.com/de/products/tpu-for-ams |
+| PETG Hauptmaterial (4-5 kg) | Bambu Lab PETG Basic 1 kg (Nachfolger des PETG HF) | Amazon (Alternative) | ~23 EUR/Spule | https://www.amazon.de/s?k=PETG+Filament+1.75mm&tag=huskynarr-21 |
+| PETG (Alternative, solange verfuegbar) | Bambu Lab PETG HF 1 kg | Amazon (Alternative) | ~23 EUR | https://www.amazon.de/s?k=PETG+Filament+1.75mm&tag=huskynarr-21 |
+| PLA (Details/Prototypen) | Bambu Lab PLA Basic 1 kg | Amazon (Alternative) | 20-23 EUR | https://www.amazon.de/s?k=PLA+Filament+1.75mm&tag=huskynarr-21 |
+| TPU (Gelenke/Flexteile) | Bambu Lab TPU 95A HF 1 kg | Amazon (Alternative) | ~35 EUR | https://www.amazon.de/s?k=TPU+Filament+1.75mm&tag=huskynarr-21 |
+| TPU (AMS-tauglich) | Bambu Lab TPU for AMS 1 kg | Amazon (Alternative) | ~40 EUR | https://www.amazon.de/s?k=TPU+Filament+1.75mm&tag=huskynarr-21 |
 
 ## Oberflaechenbearbeitung
 
@@ -38,7 +38,7 @@ Filament und Drucker primaer aus dem offiziellen Bambu Lab Store.
 | Posten | Produkt | Shop | Preis ca. | Link |
 | --- | --- | --- | --- | --- |
 | Hauptfarbe (Master-Chief-Gruen) | Spruehlack RAL 6003 Olivgruen matt, 400 ml | Amazon | ~10 EUR | https://www.amazon.de/dp/B00A1891HY?tag=huskynarr-21 |
-| Hauptfarbe (Original, nur US-Import) | Rust-Oleum Painter's Touch 2X Satin Oregano | Rust-Oleum (US) | - | https://www.rustoleum.com/product-catalog/consumer-brands/painters-touch-2x-ultra-cover/satin?ls=249069 |
+| Hauptfarbe (Original, nur US-Import) | Rust-Oleum Painter's Touch 2X Satin Oregano | Amazon (Alternative) | - | https://www.amazon.de/s?k=Rust-Oleum+Satin+Oregano&tag=huskynarr-21 |
 | Schwarz matt | Dupli-Color 467592 ALL SEASON RAL 9005 tiefschwarz matt, 400 ml | Amazon | ~9-10 EUR | https://www.amazon.de/dp/B007TWNON2?tag=huskynarr-21 |
 | Gunmetal/Anthrazit metallic | SparVar Lackspray Anthrazit Metallic, 400 ml | Amazon | ~10-14 EUR | https://www.amazon.de/dp/B00TJ3GAXK?tag=huskynarr-21 |
 | Matter Klarlack (3x) | Dupli-Color 585050 Color-Spray Klarlack matt, 400 ml | Amazon | ~8-10 EUR/Dose | https://www.amazon.de/dp/B00BW73PAW?tag=huskynarr-21 |
@@ -52,13 +52,13 @@ Filament und Drucker primaer aus dem offiziellen Bambu Lab Store.
 | PETG-Folie (Vakuumformen) | alt-intech PETG-Platte transparent, 1000x600x1 mm | Amazon | ~20-25 EUR | https://www.amazon.de/dp/B01AC7WHOM?tag=huskynarr-21 |
 | Visor-Faerbung | Jacquard iDye Poly 14 g, Golden Yellow 455 | Amazon | ~8-12 EUR | https://www.amazon.de/dp/B00C1JVY1C?tag=huskynarr-21 |
 | Verspiegelung (Original, Import) | Krylon Looking Glass | Amazon | ~25-30 EUR | https://www.amazon.de/dp/B003971BAY?tag=huskynarr-21 |
-| Verspiegelung (Alternative) | Rust-Oleum Spiegeleffekt-Spray Silber, 150 ml | OBI | ~10-13 EUR | https://www.obi.de/p/8786832/rust-oleum-spiegeleffekt-spray-silber-150-ml |
+| Verspiegelung (Alternative) | Rust-Oleum Spiegeleffekt-Spray Silber, 150 ml | Amazon | ~10-13 EUR | https://www.amazon.de/s?k=Rust-Oleum+Spiegeleffekt-Spray+Silber&tag=huskynarr-21 |
 
 ## Elektronik - Kernkomponenten
 
 | Posten | Produkt | Shop | Preis ca. | Link |
 | --- | --- | --- | --- | --- |
-| Raspberry Pi Zero 2 W | Raspberry Pi Zero 2 W (Board) | Berrybase | 20-23 EUR | https://www.berrybase.de/raspberry-pi-zero-2-w |
+| Raspberry Pi Zero 2 W | Raspberry Pi Zero 2 W (Board) | Amazon | 20-23 EUR | https://www.amazon.de/s?k=Raspberry+Pi+Zero+2+W&tag=huskynarr-21 |
 | microSD 64 GB | SanDisk Ultra microSDXC 64 GB A1 inkl. Adapter | Amazon | 8-10 EUR | https://www.amazon.de/dp/B073JYVKNX?tag=huskynarr-21 |
 | Transparentes OLED 1.51" | Waveshare 1.51" Transparent OLED 128x64 SSD1309 (SPI/I2C) | Amazon | 25-30 EUR | https://www.amazon.de/dp/B0B8N46G24?tag=huskynarr-21 |
 | PiSugar 3 Plus | PiSugar 3 Plus 5000 mAh UPS - **Achtung:** Formfaktor Pi 3B/4B; fuer den Pi Zero stattdessen PiSugar 2 / kleinere Variante waehlen | Amazon | 60-70 EUR | https://www.amazon.de/dp/B09QRS666Y?tag=huskynarr-21 |
@@ -70,8 +70,8 @@ Filament und Drucker primaer aus dem offiziellen Bambu Lab Store.
 | --- | --- | --- | --- | --- |
 | WS2812B Strip 60 LED/m | BTF-LIGHTING WS2812B IP30, schwarzes PCB (Laenge im Listing waehlen, 2x 1m oder 1x 2m) | Amazon | ~13 EUR/m | https://www.amazon.de/dp/B01CDTED80?tag=huskynarr-21 |
 | WS2812B LED-Ringe | AZDelivery 3x RGB LED-Ring 12-Bit 50 mm | Amazon | 15-18 EUR | https://www.amazon.de/dp/B07V1VZPX6?tag=huskynarr-21 |
-| IRLZ44N MOSFET | Infineon IRLZ44N N-Kanal Logic-Level TO-220 | Reichelt | ~0.70 EUR/Stk. | https://www.reichelt.com/de/en/mosfet-n-channel-55-v-47-a-3-pin-3-tab-to-220ab-irlz-44n-p129819.html |
-| 74AHCT125 Level Shifter | TI SN74AHCT125N Quad Level-Shifter DIL-14 | Berrybase | ~0.50 EUR/Stk. | https://www.berrybase.de/en/sn74ahct125n-quad-level-shifter-dil-14 |
+| IRLZ44N MOSFET | Infineon IRLZ44N N-Kanal Logic-Level TO-220 | Amazon | ~0.70 EUR/Stk. | https://www.amazon.de/s?k=IRLZ44N+MOSFET&tag=huskynarr-21 |
+| 74AHCT125 Level Shifter | TI SN74AHCT125N Quad Level-Shifter DIL-14 | Amazon | ~0.50 EUR/Stk. | https://www.amazon.de/s?k=74AHCT125+Level+Shifter&tag=huskynarr-21 |
 | Widerstaende 330-470 Ohm | ELEGOO 1/4W Metallschicht-Sortiment, 525 Stk. | Amazon | 10-13 EUR | https://www.amazon.de/dp/B072BHDBDG?tag=huskynarr-21 |
 | Elkos 1000 uF | ALLECIN Elko-Sortiment 24 Werte (0.1-1000 uF, 10-50V) | Amazon | 10-14 EUR | https://www.amazon.de/dp/B0C1VBXCQM?tag=huskynarr-21 |
 
@@ -90,11 +90,11 @@ Filament und Drucker primaer aus dem offiziellen Bambu Lab Store.
 | 40mm Luefter (guenstig) | GDSTIME 40 mm USB 5V, 2er-Pack | Amazon | ~11 EUR | https://www.amazon.de/dp/B08SK3CG4W?tag=huskynarr-21 |
 | Radialluefter (Nebel-Transport) | WINSINN 5015 Blower 5V, 4er-Pack | Amazon | ~13 EUR | https://www.amazon.de/dp/B096BSWDHN?tag=huskynarr-21 |
 | Ultraschall-Vernebler (Stufe 1, con-tauglich) | Honseadek 5V Mist-Maker Modul-Set (108 kHz, inkl. Controller) | Amazon | ~12 EUR | https://www.amazon.de/dp/B0FPXFV8KM?tag=huskynarr-21 |
-| Heiz-Fogger (Stufe 2, Photoshoot/Outdoor) | Vosentech MicroFogger 5 Pro (zum Einbau, Fernsteuerung, USB-C-Trigger) | photorig.eu (EU) | ~140-170 EUR | https://www.photorig.eu/index.php?route=product/product&product_id=4303 |
+| Heiz-Fogger (Stufe 2, Photoshoot/Outdoor) | Vosentech MicroFogger 5 Pro (zum Einbau, Fernsteuerung, USB-C-Trigger) | Amazon (Alternative) | ~140-170 EUR | https://www.amazon.de/s?k=Mini+Smoke+Machine+Cosplay&tag=huskynarr-21 |
 | Heiz-Fogger (Hersteller) | Vosentech MicroFogger 5 Pro - Produktseite/Doku | Vosentech | - | https://vosentech.com/index.php/product/microfogger-5-pro/ |
 | Verstaerker | AZDelivery PAM8403 2x3W mit Poti, 5er-Pack | Amazon | ~9 EUR | https://www.amazon.de/dp/B09PL77NCY?tag=huskynarr-21 |
 | Lautsprecher | Mini-Lautsprecher 40 mm 4 Ohm 3W, 2er-Set | Amazon | ~9 EUR | https://www.amazon.de/dp/B0DW5CZZM8?tag=huskynarr-21 |
-| Mikrofon | Adafruit MAX4466 Electret-Verstaerker (einstellbarer Gain) | Berrybase | ~8 EUR | https://www.berrybase.de/en/adafruit-electret-microphone-amplifier-max4466 |
+| Mikrofon | Adafruit MAX4466 Electret-Verstaerker (einstellbarer Gain) | Amazon | ~8 EUR | https://www.amazon.de/s?k=MAX4466&tag=huskynarr-21 |
 | USB-Soundkarte | UGREEN USB extern, 3.5 mm Kopfhoerer + Mikro | Amazon | ~13 EUR | https://www.amazon.de/dp/B016CU2PEU?tag=huskynarr-21 |
 
 ## Elektronik - Kabel und Stecker
@@ -119,7 +119,7 @@ Filament und Drucker primaer aus dem offiziellen Bambu Lab Store.
 | Nylon-Gurtband 25 mm | GOLRISEN 10 m inkl. Steckschnallen, schwarz | Amazon | 12-15 EUR | https://www.amazon.de/dp/B07DPJQ2WN?tag=huskynarr-21 |
 | Steckschnallen 25 mm | Klickverschluss-Schnallen 10 Stk., schwarz | Amazon | 8-10 EUR | https://www.amazon.de/dp/B0BBW2VVKL?tag=huskynarr-21 |
 | Dual Lock | 3M Dual Lock SJ3550, schwarz | Amazon | 15-25 EUR | https://www.amazon.de/dp/B07STXS463?tag=huskynarr-21 |
-| Neodym-Magnete 10x3 mm | supermagnete S-10-03-N, N42 vernickelt (ab 40 Stk. guenstiger) | supermagnete.de | ~17 EUR/40 Stk. | https://www.supermagnete.de/scheibenmagnete-neodym/scheibenmagnet-10mm-3mm_S-10-03-N |
+| Neodym-Magnete 10x3 mm | supermagnete S-10-03-N, N42 vernickelt (ab 40 Stk. guenstiger) | Amazon | ~17 EUR/40 Stk. | https://www.amazon.de/s?k=Neodym-Magnete+10x3+mm&tag=huskynarr-21 |
 | EVA-Foam 6 mm (Polster) | The Foamory EVA 6 mm, 90x150 cm, schwarz | Amazon | 20-25 EUR | https://www.amazon.de/dp/B07DCGMXQZ?tag=huskynarr-21 |
 | Helm-Padding | Taktisches Helm-Pad-Kit, Memory-Foam (universal) | Amazon | 12-15 EUR | https://www.amazon.de/dp/B08Z1S6SZB?tag=huskynarr-21 |
 | Kinnriemen | Bauer Helm-Kinnriemen zweiteilig, Schnellverschluss | Amazon | 10-15 EUR | https://www.amazon.de/dp/B07DPQ9QJD?tag=huskynarr-21 |
@@ -129,20 +129,20 @@ Filament und Drucker primaer aus dem offiziellen Bambu Lab Store.
 | Posten | Produkt | Shop | Preis ca. | Link |
 | --- | --- | --- | --- | --- |
 | EVA-Foam diverse Staerken | The Foamory EVA 2-10 mm waehlbar, 90x150 cm | Amazon | 20-30 EUR/Platte | https://www.amazon.de/dp/B085WBSS5B?tag=huskynarr-21 |
-| PVC-Rohr (Kern) | ARLI Elektrorohr M25 PVC, 12x 1 m Set | Otto | 18-22 EUR | https://www.otto.de/p/arli-kabelkanal-elektrorohr-kabelrohr-m25-stangenrohr-leerrohr-pvc-gemufft-installationsrohr-25-mm-rohr-1m-kanal-set-1253-12-meter-12-kabelrohre-12-st-einseitig-gemufft-S0C0805V/ |
+| PVC-Rohr (Kern) | ARLI Elektrorohr M25 PVC, 12x 1 m Set | Amazon | 18-22 EUR | https://www.amazon.de/s?k=PVC-Rohr+installationsrohr+M25&tag=huskynarr-21 |
 | Grundierung + Farbe | siehe Abschnitt "Lackierung" oben | - | - | - |
 
 ## V3-Zusatz-Hardware (AR, POV, Profi)
 
 | Posten | Produkt | Shop | Preis ca. | Link |
 | --- | --- | --- | --- | --- |
-| AR-Rechner | Raspberry Pi 5, 8 GB | Berrybase | 185-205 EUR | https://www.berrybase.de/raspberry-pi-5-8gb-ram |
-| CSI-Kamera | Raspberry Pi Camera Module 3, 12 MP Autofokus | Berrybase | 29-36 EUR | https://www.berrybase.de/raspberry-pi-camera-module-3-12mp |
-| Pi-5-Kuehler | Raspberry Pi Active Cooler (offiziell) | Berrybase | 5-7 EUR | https://www.berrybase.de/en/raspberry-pi-active-cooler-fan-for-raspberry-pi-5 |
+| AR-Rechner | Raspberry Pi 5, 8 GB | Amazon | 185-205 EUR | https://www.amazon.de/s?k=Raspberry+Pi+5+8GB&tag=huskynarr-21 |
+| CSI-Kamera | Raspberry Pi Camera Module 3, 12 MP Autofokus | Amazon | 29-36 EUR | https://www.amazon.de/s?k=Raspberry+Pi+Camera+Module+3&tag=huskynarr-21 |
+| Pi-5-Kuehler | Raspberry Pi Active Cooler (offiziell) | Amazon | 5-7 EUR | https://www.amazon.de/s?k=Raspberry+Pi+5+Active+Cooler&tag=huskynarr-21 |
 | Helm-Display | Waveshare 5" HDMI LCD 800x480, kapazitiv | Amazon | 40-50 EUR | https://www.amazon.de/dp/B07BDK9CWP?tag=huskynarr-21 |
 | ESP32 (SensorFeeder) | AZDelivery ESP32 Dev Kit C V4, USB-C | Amazon | 10-13 EUR | https://www.amazon.de/dp/B0DHY22H5B?tag=huskynarr-21 |
 | IMU | AZDelivery GY-521 MPU-6050 Gyro/Beschleunigung | Amazon | 6-8 EUR | https://www.amazon.de/dp/B07TKLYBD6?tag=huskynarr-21 |
-| 5V/5A Step-Down | Pololu D24V50F5 | EXP-Tech | ~25 EUR | https://exp-tech.de/en/products/pololu-5v-5a-step-down-voltage-regulator-d24v50f5 |
+| 5V/5A Step-Down | Pololu D24V50F5 | Amazon | ~25 EUR | https://www.amazon.de/s?k=Pololu+D24V50F5&tag=huskynarr-21 |
 | 3S LiPo | OVONIC 3S 11.1V 5000 mAh 50C, XT60 | Amazon | 35-40 EUR | https://www.amazon.de/dp/B07MKQ4BN9?tag=huskynarr-21 |
 | LiPo-Ladegeraet | SkyRC B6AC Neo Balancer (1-6S) | Amazon | 40-60 EUR | https://www.amazon.de/dp/B0CV64ZB2L?tag=huskynarr-21 |
 | Powerbank 20.000 mAh | Anker Zolo 30W USB-C PD, integriertes Kabel | Amazon | 30-40 EUR | https://www.amazon.de/dp/B0CZ9LH53B?tag=huskynarr-21 |
@@ -154,7 +154,7 @@ Filament und Drucker primaer aus dem offiziellen Bambu Lab Store.
 | Posten | Produkt | Shop | Preis ca. | Link |
 | --- | --- | --- | --- | --- |
 | PCM-Kuehlweste | TechKewl Phase-Change-Weste (14 Grad C PCM, 4 CoolPax) | Amazon | 140-170 EUR | https://www.amazon.de/dp/B003MADIMW?tag=huskynarr-21 |
-| PCM-Weste (Alternative) | EZCooldown Complete Performers Vest (z.Zt. ausverkauft) | EZCooldown | ~201 EUR | https://www.ezcooldown.com/products/complete-performers-vest |
+| PCM-Weste (Alternative) | EZCooldown Complete Performers Vest (z.Zt. ausverkauft) | Amazon (Alternative) | ~201 EUR | https://www.amazon.de/s?k=Kuehlweste+Cosplay&tag=huskynarr-21 |
 | Evaporative Kuehlweste | Techniche HyperKewl Ultra Sport (5-10 h Verdunstung) | Amazon | 60-80 EUR | https://www.amazon.de/dp/B004VMF5XU?tag=huskynarr-21 |
 | Taktische Handschuhe | Mechanix The Original Covert, komplett schwarz | Amazon | 25-31 EUR | https://www.amazon.de/dp/B0001VNZZU?tag=huskynarr-21 |
 | Balaclava | VIAUMBR Sturmhaube duenn, atmungsaktiv, helmtauglich | Amazon | 8-12 EUR | https://www.amazon.de/dp/B0BZPD2JCH?tag=huskynarr-21 |
@@ -177,7 +177,7 @@ Einsatzbeschreibung und vollstaendige Liste: `Resources/Tools/ToolList.md`.
 | Multimeter | AstroAI TRMS 4000 Counts, Auto-Range | Amazon | 25-35 EUR | https://www.amazon.de/dp/B07FDBW1PT?tag=huskynarr-21 |
 | Crimpzange | iCrimp/IWISS SN-28B (Dupont/JST-XH, AWG 28-18) | Amazon | 20-30 EUR | https://www.amazon.de/dp/B01A0SAQ3W?tag=huskynarr-21 |
 | Abisolierzange | KNIPEX 12 62 180 automatisch, 0.2-6 mm2 | Amazon | 40-50 EUR | https://www.amazon.de/dp/B000PAR60C?tag=huskynarr-21 |
-| Atemschutz | 3M Maske 6200 PRO A2P3 (wiederverwendbar) | OBI | 35-50 EUR | https://www.obi.de/p/2287860/3m-maske-6200-pro-a2p3-grau-1-stueck |
+| Atemschutz | 3M Maske 6200 PRO A2P3 (wiederverwendbar) | Amazon | 35-50 EUR | https://www.amazon.de/s?k=3M+Maske+6200+PRO+A2P3&tag=huskynarr-21 |
 | Airbrush + Kompressor | Timbertech ABPST06 Double-Action-Set | Amazon | 85-110 EUR | https://www.amazon.de/dp/B00LM9ROGG?tag=huskynarr-21 |
 | Labornetzteil (optional) | Eventek 0-30 V / 0-5 A, Digitalanzeige | Amazon | 50-70 EUR | https://www.amazon.de/dp/B06Y5JLJ6Z?tag=huskynarr-21 |
 
@@ -185,8 +185,8 @@ Einsatzbeschreibung und vollstaendige Liste: `Resources/Tools/ToolList.md`.
 
 | Posten | Produkt | Shop | Preis ca. | Link |
 | --- | --- | --- | --- | --- |
-| Platform Sneaker | Buffalo London Sneaker High (schwarz) | Zalando | 60-120 EUR | https://www.zalando.de/buffalo-london-sneaker-high-black-bub12n001-q11.html |
-| Platform Sneaker (Alternative) | Buffalo London Sneaker Low (schwarz) | Zalando | 60-120 EUR | https://www.zalando.de/buffalo-london-sneaker-low-black-bub12o001-q11.html |
+| Platform Sneaker | Buffalo London Sneaker High (schwarz) | Amazon | 60-120 EUR | https://www.amazon.de/s?k=Buffalo+London+Sneaker+High+schwarz&tag=huskynarr-21 |
+| Platform Sneaker (Alternative) | Buffalo London Sneaker Low (schwarz) | Amazon | 60-120 EUR | https://www.amazon.de/s?k=Buffalo+London+Sneaker+Low+schwarz&tag=huskynarr-21 |
 
 Details zur Schuh-Modifikation: `Shoes.md`.
 
