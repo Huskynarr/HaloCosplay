@@ -22,6 +22,18 @@ Filament und Drucker primaer aus dem offiziellen Bambu Lab Store.
 | TPU (Gelenke/Flexteile) | Bambu Lab TPU 95A HF 1 kg | Amazon (Alternative) | ~35 EUR | https://www.amazon.de/s?k=TPU+Filament+1.75mm&tag=huskynarr-21 |
 | TPU (AMS-tauglich) | Bambu Lab TPU for AMS 1 kg | Amazon (Alternative) | ~40 EUR | https://www.amazon.de/s?k=TPU+Filament+1.75mm&tag=huskynarr-21 |
 
+## Foam-Versiegelung (V1, vor dem Lackieren)
+
+EVA-Foam muss vor dem Lackieren versiegelt werden, sonst reisst der Lack.
+Eine der folgenden Methoden waehlen (Details: `Foam-Bau.md` Abschnitt 8).
+
+| Posten | Produkt | Shop | Preis ca. | Link |
+| --- | --- | --- | --- | --- |
+| Plasti Dip (Empfehlung V1) | Plasti Dip Spruehdose schwarz (flexible Gummi-Versiegelung) | Amazon (Suche) | ~13-18 EUR | https://www.amazon.de/s?k=Plasti+Dip+Spray+schwarz&tag=huskynarr-21 |
+| Mod Podge Matt | Mod Podge Matt Versiegelung/Kleber, 236 ml | Amazon (Suche) | ~12-16 EUR | https://www.amazon.de/s?k=Mod+Podge+Matt&tag=huskynarr-21 |
+| PVA / Holzleim (guenstig) | Ponal/Holzleim wasserfest D3 (1:1 mit Wasser verduennt) | Amazon (Suche) | ~8-12 EUR | https://www.amazon.de/s?k=Holzleim+wasserfest+D3&tag=huskynarr-21 |
+| Anti-Fog (Visor-Innenseite) | Anti-Beschlag-Spray fuer Brillen/Visiere | Amazon (Suche) | ~8-12 EUR | https://www.amazon.de/s?k=Anti+Fog+Spray+Brille&tag=huskynarr-21 |
+
 ## Oberflaechenbearbeitung
 
 | Posten | Produkt | Shop | Preis ca. | Link |
@@ -61,7 +73,7 @@ Filament und Drucker primaer aus dem offiziellen Bambu Lab Store.
 | Raspberry Pi Zero 2 W | Raspberry Pi Zero 2 W (Board) | Amazon | 20-23 EUR | https://www.amazon.de/s?k=Raspberry+Pi+Zero+2+W&tag=huskynarr-21 |
 | microSD 64 GB | SanDisk Ultra microSDXC 64 GB A1 inkl. Adapter | Amazon | 8-10 EUR | https://www.amazon.de/dp/B073JYVKNX?tag=huskynarr-21 |
 | Transparentes OLED 1.51" | Waveshare 1.51" Transparent OLED 128x64 SSD1309 (SPI/I2C) | Amazon | 25-30 EUR | https://www.amazon.de/dp/B0B8N46G24?tag=huskynarr-21 |
-| PiSugar 3 Plus | PiSugar 3 Plus 5000 mAh UPS - **Achtung:** Formfaktor Pi 3B/4B; fuer den Pi Zero stattdessen PiSugar 2 / kleinere Variante waehlen | Amazon | 60-70 EUR | https://www.amazon.de/dp/B09QRS666Y?tag=huskynarr-21 |
+| PiSugar (Pi Zero) | PiSugar 2/3 UPS in Pi-Zero-Formfaktor - **Achtung:** Modell passend zum Pi Zero 2 W waehlen, NICHT die Plus-Variante (Pi 3B/4B) | Amazon (Suche) | 35-55 EUR | https://www.amazon.de/s?k=PiSugar+Pi+Zero&tag=huskynarr-21 |
 | Arduino Nano (kompatibel) | AZDelivery Nano V3.0 ATmega328 + CH340 | Amazon | 9-12 EUR | https://www.amazon.de/dp/B07ZP9RH6Q?tag=huskynarr-21 |
 
 ## Elektronik - LEDs
@@ -71,6 +83,7 @@ Filament und Drucker primaer aus dem offiziellen Bambu Lab Store.
 | WS2812B Strip 60 LED/m | BTF-LIGHTING WS2812B IP30, schwarzes PCB (Laenge im Listing waehlen, 2x 1m oder 1x 2m) | Amazon | ~13 EUR/m | https://www.amazon.de/dp/B01CDTED80?tag=huskynarr-21 |
 | WS2812B LED-Ringe | AZDelivery 3x RGB LED-Ring 12-Bit 50 mm | Amazon | 15-18 EUR | https://www.amazon.de/dp/B07V1VZPX6?tag=huskynarr-21 |
 | IRLZ44N MOSFET | Infineon IRLZ44N N-Kanal Logic-Level TO-220 | Amazon | ~0.70 EUR/Stk. | https://www.amazon.de/s?k=IRLZ44N+MOSFET&tag=huskynarr-21 |
+| 1N4007 Freilaufdioden | 1N4007 Gleichrichterdioden 1A (fuer Fogger-/Motor-MOSFET) | Amazon (Suche) | ~6 EUR/100 Stk. | https://www.amazon.de/s?k=1N4007+Diode&tag=huskynarr-21 |
 | 74AHCT125 Level Shifter | TI SN74AHCT125N Quad Level-Shifter DIL-14 | Amazon | ~0.50 EUR/Stk. | https://www.amazon.de/s?k=74AHCT125+Level+Shifter&tag=huskynarr-21 |
 | Widerstaende 330-470 Ohm | ELEGOO 1/4W Metallschicht-Sortiment, 525 Stk. | Amazon | 10-13 EUR | https://www.amazon.de/dp/B072BHDBDG?tag=huskynarr-21 |
 | Elkos 1000 uF | ALLECIN Elko-Sortiment 24 Werte (0.1-1000 uF, 10-50V) | Amazon | 10-14 EUR | https://www.amazon.de/dp/B0C1VBXCQM?tag=huskynarr-21 |
@@ -131,6 +144,11 @@ Filament und Drucker primaer aus dem offiziellen Bambu Lab Store.
 | EVA-Foam diverse Staerken | The Foamory EVA 2-10 mm waehlbar, 90x150 cm | Amazon | 20-30 EUR/Platte | https://www.amazon.de/dp/B085WBSS5B?tag=huskynarr-21 |
 | PVC-Rohr (Kern) | ARLI Elektrorohr M25 PVC, 12x 1 m Set | Amazon | 18-22 EUR | https://www.amazon.de/s?k=PVC-Rohr+installationsrohr+M25&tag=huskynarr-21 |
 | Grundierung + Farbe | siehe Abschnitt "Lackierung" oben | - | - | - |
+| Ammo-Counter OLED 0.96" | OLED-Display 0.96" SSD1306 I2C (Munitionszaehler MA40/MA5) | Amazon (Suche) | ~7-10 EUR | https://www.amazon.de/s?k=OLED+0.96+SSD1306+I2C&tag=huskynarr-21 |
+| MP3-Soundmodul | DFPlayer Mini MP3-Modul + microSD (Schuss-/Reload-Sound) | Amazon (Suche) | ~8-12 EUR | https://www.amazon.de/s?k=DFPlayer+Mini+MP3&tag=huskynarr-21 |
+| Reload-Sensor | Hall-Sensor A3144 Modul (Magazin-Erkennung) | Amazon (Suche) | ~7 EUR/5 Stk. | https://www.amazon.de/s?k=Hall+Sensor+A3144+Modul&tag=huskynarr-21 |
+| Klingen-Diffusor (Energy Sword) | Acrylglas/PMMA Platte klar 3-5 mm (auch Visor-Edge-Lit) | Amazon (Suche) | ~12-20 EUR | https://www.amazon.de/s?k=Acrylglas+Platte+klar+3mm&tag=huskynarr-21 |
+| EL-Wire (Budget-Glow) | EL-Wire Set 5 m inkl. Inverter (Visor-/Waffen-Alternative) | Amazon (Suche) | ~12-18 EUR | https://www.amazon.de/s?k=EL+Wire+Set+Inverter&tag=huskynarr-21 |
 
 ## V3-Zusatz-Hardware (AR, POV, Profi)
 
@@ -148,6 +166,22 @@ Filament und Drucker primaer aus dem offiziellen Bambu Lab Store.
 | Powerbank 20.000 mAh | Anker Zolo 30W USB-C PD, integriertes Kabel | Amazon | 30-40 EUR | https://www.amazon.de/dp/B0CZ9LH53B?tag=huskynarr-21 |
 | POV-Action-Cam | Insta360 GO 3S 128 GB (4K, magnetisch) | Amazon | 260-430 EUR | https://www.amazon.de/dp/B0D3X3WS5C?tag=huskynarr-21 |
 | Voice-Changer (fertig) | Multi Voice Changer Stimmenverzerrer (Helm-Umbau verbreitet) | Amazon | 15-25 EUR | https://www.amazon.de/dp/B00330QQ9I?tag=huskynarr-21 |
+
+## V3-Exoskelett-Hardware (Profi)
+
+Passives Traggestell zur Lastableitung (Details: `Exoskelett.md`). Alu-Profile
+werden guenstiger und auf Mass zugeschnitten ueber Spezialhaendler wie
+Motedis.com bezogen; die Amazon-Suchen sind die schnelle Alternative.
+
+| Posten | Produkt | Shop | Preis ca. | Link |
+| --- | --- | --- | --- | --- |
+| Alu-Profil 30x30 (Rahmen) | Aluprofil 3030 Nut 8, I-Typ (Hauptstreben) | Amazon (Suche) | ~8-12 EUR/m | https://www.amazon.de/s?k=Aluprofil+3030+Nut+8&tag=huskynarr-21 |
+| Alu-Profil 20x20 (leicht) | Aluprofil 2020 Nut 6 (Anbauteile) | Amazon (Suche) | ~5-8 EUR/m | https://www.amazon.de/s?k=Aluprofil+2020+Nut+6&tag=huskynarr-21 |
+| Nutensteine + Eckverbinder | Nutensteine M5/M6 + Winkelverbinder Nut 8 Sortiment | Amazon (Suche) | ~15-25 EUR | https://www.amazon.de/s?k=Aluprofil+Nutenstein+Eckverbinder+Nut+8&tag=huskynarr-21 |
+| Kugellager 608ZZ | 608ZZ Rillenkugellager (Gelenke), 10-20 Stk. | Amazon (Suche) | ~10-15 EUR | https://www.amazon.de/s?k=608ZZ+Kugellager&tag=huskynarr-21 |
+| Schulterbolzen / Gewinde | M8 Passschrauben + Gewindestangen + Stoppmuttern | Amazon (Suche) | ~12-18 EUR | https://www.amazon.de/s?k=M8+Passschraube+Gewindestange&tag=huskynarr-21 |
+| Trockenbau-Stelzen (Hoehe) | Trockenbau-Stelzen verstellbar (Option Koerpergroesse) | Amazon (Suche) | 60-90 EUR | https://www.amazon.de/s?k=Trockenbau+Stelzen+verstellbar&tag=huskynarr-21 |
+| Industriekleber | E6000 Industriekleber (Snaps/Kosmetik am Exo) | Amazon (Suche) | ~10-14 EUR | https://www.amazon.de/s?k=E6000+Kleber&tag=huskynarr-21 |
 
 ## Komfort und Con-Tag
 
