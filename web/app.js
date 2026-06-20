@@ -140,6 +140,9 @@
     root.querySelectorAll("img[src]").forEach(function (img) {
       var src = img.getAttribute("src");
       if (!/^(https?:|data:)/.test(src)) img.setAttribute("src", ROOT + resolveHref(src, file));
+      img.setAttribute("loading", "lazy");
+      img.setAttribute("decoding", "async");
+      if (!img.getAttribute("alt")) img.setAttribute("alt", "");
     });
     root.querySelectorAll('input[type="checkbox"]').forEach(function (cb, i) {
       cb.disabled = false;
