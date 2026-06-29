@@ -31,6 +31,7 @@
 <script src="https://cdn.jsdelivr.net/npm/marked@12/marked.min.js"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="preconnect" href="https://unpkg.com" />
 <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=Barlow:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
 
 <style>
@@ -172,6 +173,40 @@
     #sidebar.open { transform: none; }
     #backdrop.open { display: block; }
   }
+
+  /* 3D armor viewer */
+  .mv-wrap { display: grid; grid-template-columns: 1fr 300px; gap: 14px; margin: 1.2em 0; align-items: stretch; }
+  @media (max-width: 860px) { .mv-wrap { grid-template-columns: 1fr; } }
+  model-viewer#armor-mv {
+    width: 100%; height: 540px; border: 1px solid var(--line);
+    background: radial-gradient(ellipse 70% 60% at 50% 32%, #0e1a22 0%, #05080a 78%);
+    --poster-color: transparent; --progress-bar-color: var(--accent); --progress-mask: transparent;
+  }
+  @media (max-width: 860px) { model-viewer#armor-mv { height: 440px; } }
+  .mv-hotspot { width: 16px; height: 16px; border: 0; background: none; padding: 0; cursor: pointer; position: relative; }
+  .mv-hotspot .mv-dot { display: block; width: 14px; height: 14px; border-radius: 50%;
+    background: var(--accent); box-shadow: 0 0 0 4px rgba(94,194,63,.22), 0 0 10px rgba(94,194,63,.7); transition: transform .15s, background .15s; }
+  .mv-hotspot:hover .mv-dot, .mv-hotspot.active .mv-dot { transform: scale(1.35); background: #fff; }
+  .mv-hotspot .mv-tip { position: absolute; left: 50%; bottom: 150%; transform: translateX(-50%); white-space: nowrap;
+    font-family: "Chakra Petch", sans-serif; font-size: 11px; letter-spacing: .05em; text-transform: uppercase;
+    color: var(--accent); background: rgba(5,8,10,.92); border: 1px solid var(--line); padding: 2px 7px;
+    opacity: 0; pointer-events: none; transition: opacity .15s; }
+  .mv-hotspot:hover .mv-tip, .mv-hotspot.active .mv-tip { opacity: 1; }
+  .mv-ar { margin: 12px; }
+  .part-panel { padding: 15px 17px; min-height: 170px; }
+  .part-panel .pp-head { font-size: 1.12rem; color: #fff; display: flex; justify-content: space-between; align-items: baseline; gap: 8px; }
+  .part-panel .pp-var { font-family: "JetBrains Mono", monospace; font-size: 11px; color: var(--accent); border: 1px solid var(--accent-d); padding: 1px 6px; white-space: nowrap; }
+  .part-panel .pp-mat { color: var(--cyan); font-size: 12px; margin: .5em 0; }
+  .part-panel .pp-desc { color: var(--text); font-size: .92rem; margin: .3em 0; }
+  .part-panel .pp-link { display: inline-block; margin-top: .6em; }
+  .part-panel .calib-out { width: 100%; background: #0a1015; border: 1px solid var(--line); color: var(--green); padding: 6px; margin-top: .4em; resize: vertical; }
+  .mv-toolbar { display: flex; gap: 8px; flex-wrap: wrap; margin: .2em 0 1.4em; }
+  .part-legend { display: grid; grid-template-columns: repeat(auto-fill, minmax(195px, 1fr)); gap: 8px; margin: .6em 0; }
+  .part-row { display: flex; justify-content: space-between; align-items: center; gap: 8px; padding: 9px 12px;
+    background: rgba(70,200,255,.04); border: 1px solid var(--line); color: var(--text); cursor: pointer;
+    text-align: left; font-size: 14px; transition: all .15s; }
+  .part-row:hover, .part-row.active { border-color: var(--accent); color: #fff; background: rgba(94,194,63,.08); }
+  .part-row .part-var { font-size: 10px; color: var(--dim); }
 
   /* respect reduced-motion: drop scanlines + animations for sensitive users */
   @media (prefers-reduced-motion: reduce) {

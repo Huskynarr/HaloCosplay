@@ -64,6 +64,12 @@ const CONTENT = {
   // Full library, grouped (variant-agnostic). Every entry points at a real file.
   categories: [
     {
+      name: "Visualisierung",
+      items: [
+        { title: "3D-Ruestungsmodell", file: "3d-viewer", sub: "Interaktiv drehen, Bauteile erkunden, AR" },
+      ],
+    },
+    {
       name: "Planung",
       items: [
         { title: "Komplett-Walkthrough", file: "Documentation/Guides/Komplett-Walkthrough.md" },
