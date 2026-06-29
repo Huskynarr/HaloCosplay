@@ -257,51 +257,70 @@
   // Each part maps a clickable marker on the model to a real build guide.
   // Positions are tuned for the humanoid placeholder; recalibrate (button
   // below) after dropping in a different model.
+  // Amazon links are concrete /dp links lifted from Materials/Einkaufsliste-Links.md
+  // (affiliate tag huskynarr-21). Search links are used only where the list itself
+  // intentionally keeps a search (e.g. the Pi Zero board).
   var ARMOR_PARTS = [
     { id: "helm", label: "Helm", pos: "0 1.69 0.07", normal: "0 0.15 1", variant: "V1-V3",
       material: "EVA-Foam 6-10 mm (V1) oder PETG-Druck (V2/V3)",
       desc: "Die ikonische MJOLNIR-Helmschale. In V1 aus mehreren Foam-Schalen geformt, in V2/V3 mehrteilig gedruckt, gespachtelt und verschliffen.",
-      guide: "Documentation/Guides/3D-Druck.md" },
+      guide: "Documentation/Guides/3D-Druck.md",
+      buy: [{ t: "EVA-Foam (Staerken waehlbar)", u: "https://www.amazon.de/dp/B085WBSS5B?tag=huskynarr-21" }] },
     { id: "visier", label: "Visier", pos: "0 1.62 0.13", normal: "0 0 1", variant: "V1-V3",
       material: "Getoentes/verspiegeltes PETG oder Polycarbonat",
       desc: "Das goldene Visier. Thermogeformtes PETG, getoent und innen verspiegelt - Anti-Fog-Beschichtung nicht vergessen.",
-      guide: "Documentation/Guides/Lackierung-Finishing.md" },
+      guide: "Documentation/Guides/Lackierung-Finishing.md",
+      buy: [{ t: "PETG-Platte transparent", u: "https://www.amazon.de/dp/B01AC7WHOM?tag=huskynarr-21" },
+            { t: "Anti-Fog-Spray", u: "https://www.amazon.de/dp/B088HGLNQV?tag=huskynarr-21" }] },
     { id: "hud", label: "HUD (im Helm)", pos: "0.07 1.66 0.10", normal: "0.3 0 1", variant: "V2-V3",
       material: "Raspberry Pi Zero 2 W + transparentes OLED (SSD1309)",
       desc: "Optionales Head-up-Display hinter dem Visier: Schild- und Akkustand auf transparentem OLED. Details im HUD-Guide.",
-      guide: "Documentation/Guides/Elektronik-HUD.md" },
+      guide: "Documentation/Guides/Elektronik-HUD.md",
+      buy: [{ t: "Transparentes OLED 1.51\"", u: "https://www.amazon.de/dp/B0B8N46G24?tag=huskynarr-21" },
+            { t: "Raspberry Pi Zero 2 W", u: "https://www.amazon.de/s?k=Raspberry+Pi+Zero+2+W&tag=huskynarr-21" },
+            { t: "PiSugar (Pi-Zero-UPS)", u: "https://www.amazon.de/dp/B09QS12N1W?tag=huskynarr-21" }] },
     { id: "brust", label: "Brustpanzer", pos: "0 1.27 0.17", normal: "0 0 1", variant: "V1-V3",
       material: "EVA-Foam 6 mm + 2 mm Detaillagen / PETG",
       desc: "Brust- und Rueckenplatte. Traegt einen Grossteil der Optik und dient als Montagepunkt fuer Gurte und Elektronik.",
-      guide: "Documentation/Guides/Foam-Bau.md" },
+      guide: "Documentation/Guides/Foam-Bau.md",
+      buy: [{ t: "EVA-Foam 6 mm", u: "https://www.amazon.de/dp/B07DCGMXQZ?tag=huskynarr-21" }] },
     { id: "schulter", label: "Schulterpanzer", pos: "0.27 1.42 0.04", normal: "0.8 0.2 0.6", variant: "V1-V3",
       material: "EVA-Foam 6 mm, warm gebogen",
       desc: "Die markanten Schulter-Pauldrons (UNSC-Logo links). Per Klett oder Magnet an der Brustplatte gehalten.",
-      guide: "Documentation/Guides/Foam-Bau.md" },
+      guide: "Documentation/Guides/Foam-Bau.md",
+      buy: [{ t: "EVA-Foam 6 mm", u: "https://www.amazon.de/dp/B07DCGMXQZ?tag=huskynarr-21" }] },
     { id: "arm", label: "Unterarm / Gauntlet", pos: "0.34 1.05 0.10", normal: "0.8 0 0.6", variant: "V1-V3",
       material: "EVA-Foam 6 mm, als Roehre verklebt",
       desc: "Unterarmschienen mit Bedienfeld-Detail. Muessen ueber die Hand passen - innen offen oder mit Klettverschluss.",
-      guide: "Documentation/Guides/Foam-Bau.md" },
+      guide: "Documentation/Guides/Foam-Bau.md",
+      buy: [{ t: "EVA-Foam 6 mm", u: "https://www.amazon.de/dp/B07DCGMXQZ?tag=huskynarr-21" }] },
     { id: "hand", label: "Handschuhe + Unteranzug", pos: "0 1.02 0.17", normal: "0 0 1", variant: "V1-V3",
       material: "Schwarzer Unteranzug + taktische Handschuhe",
       desc: "Die schwarze Basisschicht. Traegt Magnete/Klett fuer die Panzerteile und bestimmt den sicheren, beweglichen Sitz.",
-      guide: "Documentation/Guides/Unteranzug-Befestigung.md" },
+      guide: "Documentation/Guides/Unteranzug-Befestigung.md",
+      buy: [{ t: "Morphsuit (Unteranzug)", u: "https://www.amazon.de/dp/B00LEG800Q?tag=huskynarr-21" },
+            { t: "Mechanix Handschuhe", u: "https://www.amazon.de/dp/B0001VNZZU?tag=huskynarr-21" }] },
     { id: "bein", label: "Oberschenkel + Beinpanzer", pos: "0.13 0.80 0.13", normal: "0.4 0 1", variant: "V1-V3",
       material: "EVA-Foam 6 mm + Schaumfutter",
       desc: "Oberschenkel- und Knieplatten. An einem Beingurt oder Strumpf fixiert, damit nichts rutscht.",
-      guide: "Documentation/Guides/Foam-Bau.md" },
+      guide: "Documentation/Guides/Foam-Bau.md",
+      buy: [{ t: "EVA-Foam (Staerken waehlbar)", u: "https://www.amazon.de/dp/B085WBSS5B?tag=huskynarr-21" }] },
     { id: "stiefel", label: "Stiefel / Schienbein", pos: "0.13 0.20 0.13", normal: "0.3 0.3 1", variant: "V1-V3",
       material: "Stabile Stiefel + Foam-Schienbein-Cover",
       desc: "Schienbein-Panzer ueber festen Stiefeln. Auf sicheren Stand und Treppentauglichkeit achten.",
-      guide: "Materials/Shoes.md" },
+      guide: "Materials/Shoes.md",
+      buy: [{ t: "EVA-Foam 6 mm (Cover)", u: "https://www.amazon.de/dp/B07DCGMXQZ?tag=huskynarr-21" }] },
     { id: "akku", label: "Akku + Elektronik", pos: "0 1.25 -0.20", normal: "0 0 -1", variant: "V2-V3",
       material: "LiFePO4-Akku / USB-Powerbank + Verteilung",
       desc: "Stromversorgung fuer HUD, Luefter, LEDs und Audio - meist im Rueckenteil verbaut. Strombudget vorher rechnen.",
-      guide: "Documentation/Guides/Elektronik-Batterie.md" },
+      guide: "Documentation/Guides/Elektronik-Batterie.md",
+      buy: [{ t: "Powerbank 10.000 mAh (schlank)", u: "https://www.amazon.de/dp/B0D4MDHB21?tag=huskynarr-21" },
+            { t: "Powerbank 20.000 mAh (V3)", u: "https://www.amazon.de/dp/B0CZ9LH53B?tag=huskynarr-21" }] },
     { id: "exo", label: "Exoskelett", pos: "0.16 0.95 -0.10", normal: "0.6 0 -0.6", variant: "V3",
       material: "Alu-Profil 3030/2020 + Gelenke",
       desc: "Optionales Traggestell, das Gewicht auf die Huefte verlagert und Servo-/Aktuatorbewegung erlaubt. Nur V3.",
-      guide: "Documentation/Guides/Exoskelett.md" },
+      guide: "Documentation/Guides/Exoskelett.md",
+      buy: [{ t: "Aluprofil 3030 Nut 8", u: "https://www.amazon.de/dp/B097414JW7?tag=huskynarr-21" }] },
   ];
   var PLACEHOLDER_MODEL = "https://modelviewer.dev/shared-assets/models/Astronaut.glb";
   var LOCAL_MODEL = "models/spartan.glb"; // relative to /web/index.html
@@ -324,11 +343,25 @@
   function showPart(p) {
     var panel = $("#part-panel");
     if (!panel || !p) return;
+    // Optional reference photo: shows only if web/img/parts/<id>.jpg exists,
+    // otherwise the <img> removes itself on error (no broken-image icon).
+    var img = '<img class="pp-img" src="' + ROOT + 'web/img/parts/' + p.id + '.jpg" alt="' + esc(p.label) +
+      '" loading="lazy" decoding="async" onerror="this.remove()">';
+    var buy = "";
+    if (p.buy && p.buy.length) {
+      buy = '<div class="pp-buy"><div class="pp-buy-head font-mono">Material kaufen</div>' +
+        p.buy.map(function (b) {
+          return '<a class="pp-buy-link" href="' + b.u + '" target="_blank" rel="noopener nofollow sponsored">' + esc(b.t) + ' &#8599;</a>';
+        }).join("") +
+        '<div class="pp-buy-note font-mono">Amazon-Partnerlinks (Tag huskynarr-21)</div></div>';
+    }
     panel.innerHTML =
       '<div class="pp-head font-disp">' + esc(p.label) + '<span class="pp-var">' + esc(p.variant) + '</span></div>' +
+      img +
       '<div class="pp-mat font-mono">' + esc(p.material) + '</div>' +
       '<p class="pp-desc">' + esc(p.desc) + '</p>' +
-      '<a class="btn btn-accent pp-link" href="#' + esc(p.guide) + '">Zum Guide &gt;</a>';
+      '<a class="btn btn-accent pp-link" href="#' + esc(p.guide) + '">Zum Guide &gt;</a>' +
+      buy;
     document.querySelectorAll(".mv-hotspot, .part-row").forEach(function (el) {
       el.classList.toggle("active", el.getAttribute("data-id") === p.id);
     });
