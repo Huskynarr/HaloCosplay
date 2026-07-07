@@ -103,9 +103,14 @@ Dieses Projekt verlinkt nur auf externe STL-Quellen. Bitte pruefe die jeweilige 
 
 ### Offizielle Referenz
 
-**343 Industries / Halo Cosplay Guides (PDF)**
-- Mark VII GEN3: https://content.halocdn.com/media/Default/community/CosplayGuides/mk7_cosplayguide_fullsize-a95f71a129ae4094aef3ea0b6121fca4.pdf
-- Offizielle Masszeichnungen und Referenzen
+**343 Industries / Halo Official Cosplay Guides (PDF)**
+- Quelle: Halo Waypoint Blog "Official Cosplay Guide: MARK VII" von Andy Salisbury (Community Communications Manager, 343 Industries), veroeffentlicht im Juni 2021 anlaesslich der Halo-Infinite-Multiplayer-Reveal.
+- Original-Artikel: https://www.halowaypoint.com/en-us/news/official-cosplay-guide-mark-vii
+- Mark VII GEN3 (Full): https://content.halocdn.com/media/Default/community/CosplayGuides/mk7_cosplayguide_fullsize-a95f71a129ae4094aef3ea0b6121fca4.pdf
+- Mark VII GEN3 (Mobile, kleiner fuer Smartphones): https://content.halocdn.com/media/Default/community/CosplayGuides/mk7_cosplayguide_mobile-c9b71de988af42f9b6f6010ef44a2417.pdf
+- ODST Rookie (Halo 3: ODST, ergaenzender Guide von 343): siehe verlinkten Artikel bzw. die Cosplay-Guide-Serie auf Halo Waypoint
+- Offizielle Masszeichnungen, Turnaround-Referenzen und Detail-Views
+- Hinweis: "Full"-Datei kann auf Mobilgeraeten gross sein - ggf. die Mobile-Version nutzen oder am PC herunterladen.
 
 ## 4. Kommerzielle Quellen (bezahlt)
 

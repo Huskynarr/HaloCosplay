@@ -126,3 +126,7 @@ Wo man Hilfe findet, sich austauscht und Inspiration holt.
 ## Wichtigste Einzelressource
 
 **Wenn du nur EINE Quelle nutzt, dann die 405th (https://www.405th.com/).** Dort findest du STLs, Build-Threads, Tutorials, Elektronik-Hilfe, und eine aktive Community die auf Fragen antwortet. Registriere dich und starte einen Build-Thread fuer dein Projekt.
+
+## Offizielle Halo-Community-Hashtags
+
+- **#HaloSpotlight** (X/Twitter, Instagram) - offizieller Hashtag von 343 Industries, mit dem die Community-Manager Build-Fotos und Kunstwerke finden und auf Halo Waypoint/social teilen. Bei fertigen Builds verwenden, um von 343 entdeckt zu werden (Quelle: offizieller Mark VII Cosplay Guide, 2021).

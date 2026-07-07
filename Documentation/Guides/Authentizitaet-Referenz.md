@@ -135,6 +135,15 @@ Gute Referenzen sind die beste Versicherung gegen einen "fast richtigen" Build. 
 - **343 Industries Cosplay Guides (PDF):** offizielle Masszeichnungen und Referenzen. Der Mark-VII-GEN3-Guide ist in `Resources/STL-Quellen.md` (Abschnitt "Offizielle Referenz") verlinkt.
 - **Offizielle Halo-Infinite-Renders und Key-Art:** zeigen die saubere Soll-Silhouette und den korrekten Farbton/Visor.
 
+#### Offizielle Lore zum Mark VII (GEN3) laut 343 Industries
+
+Quelle: Halo Waypoint Blog "Official Cosplay Guide: MARK VII" (Andy Salisbury, 343 Industries, Juni 2021). Die Lorenzbeschreibung hilft, das Designziel der GEN3-Ruestung zu verstehen:
+
+- "Created with input from Dr. Halsey herself, the latest Mark VII iteration refreshes the Mjolnir technical architecture with breakthroughs in neural interfaces, shield emitters, fusion power, and armor formulation."
+- "The Mark VII designation refers to a number of prototype platforms that test the ever-evolving Mjolnir Generation 3 standard. The most recent design to bear the name was selected by Dr. Halsey from Materials Group's KEYSTONE development program."
+
+Uebersetzung/Kurzfassung: Der Mark VII aktualisiert die MJOLNIR-Architektur in Neural-Interface, Schildemitter, Fusionsenergie und Ruestungsformulierung. "Mark VII" ist eine Serie von Prototyp-Plattformen zur Erprobung des GEN3-Standards; die aktuelle Variante wurde von Dr. Halsey aus dem KEYSTONE-Programm der Materials Group ausgewaehlt.
+
 ### In-Game-Referenz
 
 - **In-Game-Screenshots** aus Halo Infinite (Kampagne, Multiplayer-Customization, Theater-Modus) - beste Quelle fuer Farbe unter verschiedenem Licht und fuer Detail-Platzierung.
