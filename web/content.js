@@ -67,6 +67,7 @@ const CONTENT = {
       name: "Visualisierung",
       items: [
         { title: "3D-Ruestungsmodell", file: "3d-viewer", sub: "Interaktiv drehen, Bauteile erkunden, AR" },
+        { title: "Offizielle Cosplay-Guides", file: "cosplay-guides", sub: "343-PDFs mit Masszeichnungen, Vorschau" },
       ],
     },
     {

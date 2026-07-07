@@ -9,6 +9,7 @@
   var NS = "mfm:";
   var VARIANTS = ["V1", "V2", "V3"];
   var VIEWER = "3d-viewer"; // sentinel hash for the interactive 3D armor model
+  var COSPLAY = "cosplay-guides"; // sentinel hash for the official 343 cosplay guide PDFs
 
   // ---- LocalStorage (namespaced) ----
   var store = {
@@ -116,15 +117,128 @@
       a.classList.toggle("active", a.getAttribute("data-file") === file);
     });
   }
+  // ---- full-text search (lazy index over all CONTENT .md files) ----
+  var searchIndex = null;          // [{file,title,sub,text}]
+  var searchIdxState = "idle";     // idle|building|ready|error
+  var searchIdxCbs = null;
+
+  function collectSearchFiles() {
+    var seen = {}, list = [];
+    function add(file, title, sub) {
+      if (!file || seen[file] || !/\.md$/i.test(file)) return;
+      seen[file] = 1; list.push({ file: file, title: title || "", sub: sub || "", text: "" });
+    }
+    VARIANTS.forEach(function (v) {
+      CONTENT.journeys[v].steps.forEach(function (s) { add(s.file, s.title, s.sub); });
+    });
+    CONTENT.categories.forEach(function (cat) {
+      cat.items.forEach(function (it) {
+        if (it.file === VIEWER || it.file === COSPLAY) return; // sentinels, no .md
+        add(it.file, it.title, it.sub);
+      });
+    });
+    return list;
+  }
+
+  function buildSearchIndex(cb) {
+    if (searchIdxState === "ready") { cb(); return; }
+    if (searchIdxState === "building") { (searchIdxCbs = searchIdxCbs || []).push(cb); return; }
+    searchIdxState = "building"; searchIdxCbs = [cb];
+    var files = collectSearchFiles();
+    if (!files.length) { searchIndex = []; searchIdxState = "ready"; fireCbs(); return; }
+    searchIndex = files;
+    var pending = files.length;
+    files.forEach(function (entry) {
+      fetch(ROOT + entry.file, { cache: "force-cache" })
+        .then(function (r) { if (!r.ok) throw 0; return r.text(); })
+        .then(function (md) {
+          var tmp = document.createElement("div");
+          try { tmp.innerHTML = marked.parse(md); } catch (e) { tmp.textContent = md; }
+          entry.text = (tmp.textContent || "").toLowerCase().replace(/\s+/g, " ").trim();
+        })
+        .catch(function () { entry.text = ""; })
+        .then(function () {
+          pending--;
+          if (pending === 0) { searchIdxState = "ready"; fireCbs(); }
+        });
+    });
+    function fireCbs() { var cbs = searchIdxCbs; searchIdxCbs = null; cbs.forEach(function (f) { try { f(); } catch (e) {} }); }
+  }
+
+  function escRe(s) { return s.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"); }
+
   function applySearch() {
-    var q = ($("#search").value || "").trim().toLowerCase();
+    var q = ($("#search").value || "").trim();
+    var ql = q.toLowerCase();
+    // sidebar filter (kept as quick filter)
     document.querySelectorAll("#nav .navlink").forEach(function (a) {
-      a.style.display = (!q || a.textContent.toLowerCase().indexOf(q) !== -1) ? "" : "none";
+      a.style.display = (!ql || a.textContent.toLowerCase().indexOf(ql) !== -1) ? "" : "none";
     });
     document.querySelectorAll("#nav .cat-head").forEach(function (h) {
       var n = h.nextElementSibling, any = false;
       while (n && !n.classList.contains("cat-head")) { if (n.tagName === "A" && n.style.display !== "none") any = true; n = n.nextElementSibling; }
-      h.style.display = (!q || any) ? "" : "none";
+      h.style.display = (!ql || any) ? "" : "none";
+    });
+
+    var ov = $("#search-ov");
+    if (!ov) return;
+    if (ql.length < 2) { ov.style.display = "none"; ov.innerHTML = ""; return; }
+
+    if (searchIdxState !== "ready") {
+      ov.style.display = "block";
+      ov.innerHTML = '<div class="sov-hint font-mono">// indiziere Guides' +
+        (searchIdxState === "building" ? " ..." : " ...") + '</div>';
+      buildSearchIndex(function () {
+        // re-run once index is ready (only if user still has a query)
+        if (($("#search").value || "").trim().length >= 2) applySearch();
+      });
+      return;
+    }
+
+    var hits = [];
+    for (var i = 0; i < searchIndex.length; i++) {
+      var e = searchIndex[i];
+      var tl = e.title.toLowerCase(), sl = e.sub.toLowerCase(), ti = e.text.indexOf(ql);
+      var score = 0;
+      if (tl.indexOf(ql) !== -1) score += 30;
+      if (sl.indexOf(ql) !== -1) score += 15;
+      if (ti !== -1) {
+        var occ = 0, p = 0;
+        while ((p = e.text.indexOf(ql, p)) !== -1) { occ++; p += ql.length; if (occ > 40) break; }
+        score += 5 + Math.min(25, occ);
+      }
+      if (score > 0) hits.push({ e: e, score: score, idx: ti });
+    }
+    hits.sort(function (a, b) { return b.score - a.score; });
+
+    if (!hits.length) {
+      ov.style.display = "block";
+      ov.innerHTML = '<div class="sov-hint font-mono">// kein Treffer fuer "' + esc(q) + '"</div>';
+      return;
+    }
+    var max = Math.min(24, hits.length), html = "";
+    for (var k = 0; k < max; k++) {
+      var h = hits[k], snip = "";
+      if (h.idx >= 0) {
+        var start = Math.max(0, h.idx - 45);
+        var end = Math.min(h.e.text.length, h.idx + ql.length + 65);
+        snip = (start > 0 ? "\u2026 " : "") + h.e.text.slice(start, end) + (end < h.e.text.length ? " \u2026" : "");
+        snip = esc(snip).replace(new RegExp(escRe(ql), "gi"), function (m) { return '<mark>' + m + '</mark>'; });
+      }
+      html += '<a class="sov-row" href="#' + esc(h.e.file) + '" data-file="' + esc(h.e.file) + '" role="option">' +
+        '<span class="sov-title">' + esc(h.e.title || h.e.file) + '</span>' +
+        (h.e.sub ? '<span class="sov-sub">' + esc(h.e.sub) + '</span>' : '') +
+        (snip ? '<span class="sov-snip">' + snip + '</span>' : '') +
+        '</a>';
+    }
+    ov.style.display = "block";
+    ov.innerHTML = html;
+    ov.querySelectorAll(".sov-row").forEach(function (a) {
+      a.addEventListener("click", function () {
+        ov.style.display = "none";
+        var s = $("#search"); if (s) s.value = "";
+        applySearch();
+      });
     });
   }
 
@@ -251,6 +365,87 @@
         docEl.innerHTML = '<h1>Nicht gefunden</h1><p>Die Datei <code>' + esc(file) +
           '</code> konnte nicht geladen werden. Laeuft die Seite ueber einen Webserver (nicht per file://)?</p>';
       });
+  }
+
+  // ---- official 343 cosplay guides (PDF preview + source attribution) ----
+  // PDFs live at Resources/CosplayGuides/ and are served alongside the repo.
+  // <iframe> embed gives a free online preview (browser-native PDF viewer).
+  var COSPLAY_PDFS = [
+    {
+      id: "full",
+      label: "Mark VII GEN3 - Full",
+      file: "Resources/CosplayGuides/MK7_CosplayGuide_Full.pdf",
+      size: "ca. 40 MB",
+      note: "Vollaufloesung - Masszeichnungen, Turnaround, Detail-Views. Am PC/Tablet nutzen."
+    },
+    {
+      id: "mobile",
+      label: "Mark VII GEN3 - Mobile",
+      file: "Resources/CosplayGuides/MK7_CosplayGuide_Mobile.pdf",
+      size: "ca. 25 MB",
+      note: "Komprimierte Version fuer Smartphones (gleicher Inhalt)."
+    }
+  ];
+
+  function renderCosplayGuides() {
+    currentFile = COSPLAY; setActive(COSPLAY); closeNav();
+    $("#journey-foot").style.display = "none";
+
+    var tabs = COSPLAY_PDFS.map(function (p, i) {
+      return '<button class="btn ' + (i === 0 ? "btn-accent" : "") +
+        '" data-cg="' + p.id + '">' + esc(p.label) + '</button>';
+    }).join(" ");
+
+    var first = COSPLAY_PDFS[0];
+    docEl.innerHTML =
+      '<h1>Offizielle Cosplay-Guides (343 Industries)</h1>' +
+      '<p style="color:var(--dim)">Die offiziellen Referenz-PDFs von 343 Industries zum Mark VII (MJOLNIR GEN3) - ' +
+      'mit Masszeichnungen, Turnaround-Ansichten und Detail-Views. Direkt aus dem Repo, ' +
+      'funktioniert auch offline (z.B. auf der Convention ohne Wlan).</p>' +
+      '<div class="mv-toolbar" style="margin-bottom:10px">' + tabs + '</div>' +
+      '<div id="cg-frame-wrap" class="cg-wrap">' +
+        '<iframe id="cg-frame" src="' + ROOT + first.file + '#view=FitH" title="' + esc(first.label) + '" ' +
+        'loading="lazy" allow="fullscreen" class="cg-frame"></iframe>' +
+      '</div>' +
+      '<p id="cg-note" class="font-mono" style="color:var(--dim);font-size:13px;margin-top:.6em">' + esc(first.note) + '</p>' +
+      '<div class="cg-credit hud ticks">' +
+        '<div class="cg-credit-head font-disp">Quelle &amp; Lizenz</div>' +
+        '<p><strong>Autor:</strong> Andy Salisbury (Community Communications Manager, 343 Industries)</p>' +
+        '<p><strong>Titel:</strong> Official Cosplay Guide: MARK VII</p>' +
+        '<p><strong>Veroeffentlicht:</strong> Juni 2021, anlaesslich der Halo-Infinite-Multiplayer-Reveal</p>' +
+        '<p><strong>Original-Artikel:</strong> ' +
+        '<a href="https://www.halowaypoint.com/en-us/news/official-cosplay-guide-mark-vii" target="_blank" rel="noopener">' +
+        'Halo Waypoint Blog &#8599;</a></p>' +
+        '<p><strong>Lokale Kopie:</strong> <code>Resources/CosplayGuides/</code> - ' +
+        'Details siehe <a href="#Resources/CosplayGuides/README.md">README</a></p>' +
+        '<p class="cg-lic" style="color:var(--dim);font-size:12px;margin-top:.5em">' +
+        '"Halo", "Master Chief" und "MJOLNIR" sind Marken von Microsoft/343 Industries. ' +
+        'Nutzung als nicht-kommerzielles Fan-Projekt. Kein kommerzieller Vertrieb.</p>' +
+      '</div>' +
+      '<h2>Download</h2>' +
+      '<p style="color:var(--dim);margin-top:-.3em">Falls der Browser-PDF-Viewer nicht klappen will, direkt herunterladen:</p>' +
+      '<div class="part-legend">' + COSPLAY_PDFS.map(function (p) {
+        return '<a class="part-row" href="' + ROOT + p.file + '" target="_blank" rel="noopener" download>' +
+          '<span class="part-name">' + esc(p.label) + ' &#8599;</span>' +
+          '<span class="part-var font-mono">' + esc(p.size) + '</span></a>';
+      }).join("") + '</div>';
+
+    docEl.classList.remove("glitch-in"); void docEl.offsetWidth; docEl.classList.add("glitch-in");
+    window.scrollTo(0, 0);
+
+    document.querySelectorAll("[data-cg]").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        var id = btn.getAttribute("data-cg");
+        var p = null;
+        for (var i = 0; i < COSPLAY_PDFS.length; i++) { if (COSPLAY_PDFS[i].id === id) p = COSPLAY_PDFS[i]; }
+        if (!p) return;
+        var frame = $("#cg-frame");
+        if (frame) { frame.src = ROOT + p.file + "#view=FitH"; frame.title = p.label; }
+        var note = $("#cg-note");
+        if (note) note.textContent = p.note;
+        document.querySelectorAll("[data-cg]").forEach(function (b) { b.classList.toggle("btn-accent", b === btn); });
+      });
+    });
   }
 
   // ---- 3D armor viewer (model-viewer + clickable component hotspots) ----
@@ -498,6 +693,7 @@
     var file = decodeURIComponent(location.hash.replace(/^#/, ""));
     if (!file) { welcome(); return; }
     if (file === VIEWER) { render3DViewer(); return; }
+    if (file === COSPLAY) { renderCosplayGuides(); return; }
     loadDoc(file);
   }
 
@@ -511,7 +707,17 @@
     docEl = $("#doc");
     if (typeof marked !== "undefined" && marked.setOptions) marked.setOptions({ gfm: true, breaks: false });
     buildNav();
-    $("#search").addEventListener("input", applySearch);
+    var searchEl = $("#search");
+    searchEl.addEventListener("input", applySearch);
+    searchEl.addEventListener("keydown", function (ev) {
+      if (ev.key === "Escape") { searchEl.value = ""; applySearch(); searchEl.blur(); }
+    });
+    document.addEventListener("click", function (ev) {
+      var ov = $("#search-ov");
+      if (!ov || ov.style.display === "none") return;
+      if (ov.contains(ev.target) || ev.target === searchEl) return;
+      ov.style.display = "none";
+    });
     renderProgress();
     $("#menu-toggle").addEventListener("click", openNav);
     $("#reset-btn").addEventListener("click", function () {
