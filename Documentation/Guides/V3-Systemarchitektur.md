@@ -1,5 +1,9 @@
 # V3-Systemarchitektur: Alle Module im Zusammenspiel
 
+## Ergaenzung fuer MJOLNIR V4
+
+Der [V4-Systementwurf](Mjolnir-Systementwurf.md) ergaenzt einen eigenen Traeger und mechanischen Einstieg. [V4-Elektronik](Mjolnir-Elektronik.md) trennt Komfort und Effekte; das Serien-Exoskelett bleibt elektrisch und mechanisch eigenstaendig. Die untenstehenden V3-Schienenwerte sind Beispielwerte, keine Bemessung der neuen Hardware.
+
 > **Level:** [P] Profi  |  **Varianten:** V3 (einzelne Module auch fuer V2 nutzbar)
 > **Voraussetzungen:** Strombudget verstanden (`Elektronik-Strombudget.md`), Einzelmodule
 > bekannt (HUD, LEDs, Schubduesen, Audio, AR). Dieser Guide verdrahtet nichts neu -

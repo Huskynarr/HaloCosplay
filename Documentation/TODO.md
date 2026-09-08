@@ -1,5 +1,23 @@
 # Master Chief MJOLNIR Build - TODO
 
+## Huskynarr V4: aktueller persoenlicher Pfad
+
+- [x] Systementwurf, Messdefinitionen und mechanischen Einstieg ausarbeiten
+- [x] Parametrisches Konzeptmodell und Herkunft der Beispielmasse dokumentieren
+- [x] Hypershell/DNSYS als reale Integrationskandidaten mit Grenzen recherchieren
+- [x] Baugruppenbudget und Prototypenfolge anlegen
+- [ ] 31 offene lineare Masse sowie zusaetzliche Fertigungs-/Hersteller-Passmasse aufnehmen
+- [ ] 1:1-Torso-Mockup fuer Eintritt, Sitzen und Schulterfreiheit bauen
+- [ ] Tuerlagerung, Seitenfuehrung, Verschluesse und eigenen Traeger bemessen/pruefen
+- [ ] Individuelle Endkonturen und druckfertige Schalen ableiten
+- [ ] Serien-Exoskelett anprobieren und Integration nachweisen
+- [ ] Drei Anzieh- und stromlose Notausstiegsproben dokumentieren
+- [ ] Vollstaendigen Rohbau und reale Massen abnehmen
+- [ ] Optional: motorische Dekorpanels separat entwickeln
+
+Details und unveraenderte offene Hardware-Gates: [Prototypenplan](../BuildGuides/Armor/Mjolnir-Prototypen.md).
+Die folgende allgemeine V2-Liste bleibt Referenz, nicht der aktuelle persoenliche Bauablauf.
+
 Hauptliste aller offenen Aufgaben, gegliedert nach Phasen. Hake ab was erledigt ist.
 
 Diese Liste ist die **Abhakliste** zum `Guides/Komplett-Walkthrough.md` - der Walkthrough

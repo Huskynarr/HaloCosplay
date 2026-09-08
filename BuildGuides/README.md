@@ -1,5 +1,9 @@
 # Build Guides
 
+## Persoenlicher Einstiegspfad
+
+[MJOLNIR-Prototypenfolge](Armor/Mjolnir-Prototypen.md) fuehrt vom Massblatt ueber den Torso-Mockup zu den vormontierten Baugruppen.
+
 Schritt-fuer-Schritt Anleitungen fuer den Bau der MJOLNIR-Ruestung. Jeder Bereich hat 2 Schritte.
 
 ## Welcher Pfad gilt fuer mich? (Varianten)

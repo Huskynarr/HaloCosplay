@@ -1,5 +1,9 @@
 # Dokumentationshub
 
+## Aktueller persoenlicher Build
+
+[MJOLNIR-Systementwurf fuer Huskynarr](Guides/Mjolnir-Systementwurf.md): 1660 mm, breite Schultern, mechanischer Einstieg, Exoskelett-Integration und parametrisches CAD.
+
 Dieses Verzeichnis sammelt alle Kerninhalte fuer das Halo MJOLNIR Cosplay Projekt. Fokus: tragbares, sicheres, moeglichst authentisches Ergebnis mit klaren Ausbaustufen.
 
 ## Einstieg

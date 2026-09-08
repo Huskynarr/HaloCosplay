@@ -53,12 +53,12 @@ Beispiel: 175 cm / 183 cm = 0.956 = 95.6%
 - Zeigt sofort wo Teile zu gross/klein sind
 - Exportiert skalierte STLs pro Koerperregion
 
-### Spezifische Skalierungs-Metriken (Spartan Silhouette)
+### Persoenlicher Huskynarr-Build
 
-Fuer den echten Spartan-Look und die Kompatibilitaet mit Sonderausstattungen gelten folgende Richtwerte:
-- **Schienbeine (Tibia):** Muessen oft um ca. **+15 % verlaengert (in Z-Achse gestreckt)** werden. Dies kompensiert den Platzbedarf fuer mechanische Beinverlaengerungen oder Stelzen (Stilts) bei der V3-Profi-Variante.
-- **Bizeps/Oberarme:** Sollten meist mit einem Faktor von **1.1x bis 1.15x** skaliert werden (sowohl Breite als auch Dicke), um Kollisionen beim Beugen der Arme mit der massiven Brustplatte zu verhindern.
-- **Fuesse/Boots:** Benoetigen ca. **+20 % Volumen**, damit sie als kosmetische Huelle ueber den echten Schuhen oder Stelzen-Fussplatten getragen werden koennen.
+Fuer 1660 mm und breite Schultern gilt der [V4-Messpfad](../../Documentation/Guides/Mjolnir-Massanpassung.md).
+Keine pauschalen Schienbein-Verlaengerungen, Bizepsfaktoren oder Schuh-Volumenzuschlaege.
+Laenge, Breite und Tiefe werden regional gemessen; Schalenfugen und Einstieg
+werden vor dem Enddruck am 1:1-Mockup geprueft.
 
 ### Methode C: Testdruck und Anpassen
 

@@ -1,6 +1,39 @@
 # HaloCosplay: Master Chief MJOLNIR Projekt
 
-Dieses Repository ist eine vollstaendige DIY-Projektmappe fuer ein moeglichst authentisches Halo Master Chief Cosplay mit Ruestung, Helm, Prop-Waffe und optionaler Elektronik (HUD, Akku-Backpack, AR/Display). Das Projekt ist in drei Varianten strukturiert: Einsteiger (Foam), Fortgeschritten (3D-Druck/Hybrid) und Profi (Exoskelett + Premium-Materialien).
+Dieses Repository ist eine DIY-Projektmappe fuer ein moeglichst authentisches Halo Master Chief Cosplay mit Ruestung, Helm, Prop-Waffe und optionaler Elektronik (HUD, Akku-Backpack, AR/Display). Das Projekt ist in drei Varianten strukturiert: Einsteiger (Foam), Fortgeschritten (3D-Druck/Hybrid) und Profi (Exoskelett + Premium-Materialien).
+
+## Aktueller persoenlicher Entwurf: MJOLNIR V4 fuer Huskynarr
+
+**1660 mm Koerpergroesse, breite Schultern, mechanischer Einstieg und optionales
+Serien-Exoskelett.** Der neue Pfad fuehrt von vermessbaren Baugruppen zum Prototyp.
+Er ersetzt die bisherigen pauschalen Stelzen-/Pantograph- und Skalierungsvorgaben
+fuer diesen persoenlichen Build. Grundfunktion: Seitenfluegel ausfahren,
+Frontschalen aufklappen, in vormontierte Kassetten einsteigen und Handverschluesse
+schliessen. Eine Anziehstation haelt die ungetragene Ruestung bereit.
+
+- [Systementwurf und Baugruppen](Documentation/Guides/Mjolnir-Systementwurf.md)
+- [Einstieg, Verriegelung und Anziehstation](Documentation/Guides/Mjolnir-Einstieg.md)
+- [Massanpassung fuer 166 cm und breite Schultern](Documentation/Guides/Mjolnir-Massanpassung.md)
+- [Exoskelett: Hypershell / DNSYS und eigener Traeger](Documentation/Guides/Exoskelett.md)
+- [Parametrisches 3D-Modell mit Oeffnungsanimation](Design/Parametric/README.md)
+- [Stueckliste, Kosten- und Gewichtsbudget](Materials/Mjolnir-BOM.md)
+- [Prototypenfolge und Abnahmekriterien](BuildGuides/Armor/Mjolnir-Prototypen.md)
+
+**Stand:** Konzept-CAD und Berechnungswerkzeuge, keine fertige Druckruestung.
+31 erforderliche lineare Masse sind noch offen. Das echte Profil enthaelt dafuer
+Nullwerte; die gesonderte Konzeptansicht verwendet klar markierte Beispielmasse.
+Es wurden keine Koerpermasse oder Gewichte aus Instagram erfunden.
+Die leeren alten STL-Dateien sind weiterhin Platzhalter.
+
+![Technisches Baugruppenmodell: geschlossen und geoeffnet](Design/Parametric/Preview.png)
+
+```bash
+python3 tools/suit_fit.py --concept --out Design/Parametric/Generated
+python3 tools/suit_budget.py --check
+python3 -m unittest discover -s Tests/Automation -v
+```
+
+Die allgemeine Web-/Guide-Sammlung bleibt darunter als Materialreferenz erhalten.
 
 ## Web-Version (durchklickbar)
 
@@ -27,8 +60,8 @@ Die Kosten sind stark abhaengig von Tools, Fehlversuchen, Versand und Premium-Ma
 ## Projektziele
 
 - **Authentische MJOLNIR-Optik:** Mark VII / Mark VI Gen 3 Look mit originalen Farbcodes von 343 Industries.
-- **Tragbare, sichere Bauweise:** Modularer Aufbau fuer Conventions mit Notausstieg in <60 Sekunden.
-- **Mechanisches Exoskelett (V3):** Passives Traggestell zur Lastableitung (Schultern -> Huefte) mit Taulman Alloy 910 Gelenken, H-Harness Rigging und bungeegestuetzten PEX-Hydraulikkolben.
+- **Tragbarkeit als Entwicklungsziel:** Modularer Aufbau; Notausstieg <60 Sekunden als noch zu pruefendes Ziel.
+- **Ruestungstraeger und Exoskelett (V4):** Eigener leichter Traeger, mechanisch oeffnende Kassetten und separat passend ausgewaehltes Serien-Exoskelett. Kein ungepruefter Lastpfad zum Boden.
 - **AR HUD & OpenCV (V3):** Near-Eye-Display (NED/Vufine) mit Pi 4/5, OpenCV-Bildverarbeitung (Freund-Feind-Erkennung / IFF), Nachtsicht, digitalem Zoom und BT-Waffentelemetrie.
 - **Munitionszaehler (MA40/MA5):** Integrierte Zaehlerelektronik (Arduino/Pico) mit SSD1306-OLED-Anzeige, Schussabnahme am Abzug und Reload-Erkennung.
 
@@ -39,8 +72,8 @@ Die Kosten sind stark abhaengig von Tools, Fehlversuchen, Versand und Premium-Ma
 3. **Projektuebersicht lesen:** `Documentation/README.md`
 4. **Variante waehlen (V1 Foam, V2 3D-Druck, V3 Exoskelett):** `Documentation/Guides/Varianten.md`
 5. **TODO-Liste nutzen:** `Documentation/TODO.md`
-6. **Bau- und Skalierungsplanung (Shin +15%, Biceps 1.1x):** `BuildGuides/Armor/Step1.md`
-7. **Exoskelett & Hydraulik-Bauplaene:** `Documentation/Guides/Exoskelett.md`
+6. **Allgemeine Bauplanung (persoenliche Masse nach V4):** `BuildGuides/Armor/Step1.md`
+7. **Exoskelett-Integration und eigener Traeger:** `Documentation/Guides/Exoskelett.md`
 8. **Schubduesen & Nebeleffekte:** [Elektronik-Schubduesen.md](Documentation/Guides/Elektronik-Schubduesen.md)
 9. **Kosten und Zeitplan:** `Documentation/Guides/Kosten.md` und `Documentation/Guides/Zeitplan.md`
 10. **Elektronik-Systemplanung:** `Documentation/Guides/Elektronik-HUD.md`, fuer V3 das Gesamtsystem `Documentation/Guides/V3-Systemarchitektur.md`

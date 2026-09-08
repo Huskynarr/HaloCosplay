@@ -1,5 +1,9 @@
 # 3D-Modelle (STL)
 
+## Neues parametrisches Konzept
+
+Das [MJOLNIR-Einstiegsmodell](../../Parametric/README.md) zeigt Oeffnung und Bauraum. Die hier liegenden leeren STL-Platzhalter sind keine fertigen Ruestungsmodelle.
+
 Dieses Verzeichnis enthaelt STL-Dateien fuer Helm, Ruestung und Props.
 
 ## Hinweise
