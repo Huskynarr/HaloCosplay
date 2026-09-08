@@ -7,7 +7,7 @@
   var ROOT = "../"; // app in /web/, markdown at repo root
   var TOP_DIRS = ["Documentation/", "Code/", "Materials/", "Resources/", "Design/", "BuildGuides/", "Tests/", "Progress/"];
   var NS = "mfm:";
-  var VARIANTS = ["V1", "V2", "V3"];
+  var VARIANTS = ["V4", "V1", "V2", "V3"];
   var VIEWER = "3d-viewer"; // sentinel hash for the interactive 3D armor model
   var COSPLAY = "cosplay-guides"; // sentinel hash for the official 343 cosplay guide PDFs
 
@@ -26,7 +26,7 @@
 
   // ---- state ----
   var variant = store.get("variant");
-  if (VARIANTS.indexOf(variant) < 0) variant = "V3";
+  if (VARIANTS.indexOf(variant) < 0) variant = "V4";
   var currentFile = "", docEl;
 
   function jr() { return CONTENT.journeys[variant]; }
@@ -292,12 +292,12 @@
         '<div style="color:var(--dim);font-size:12px;margin-top:2px">' + esc(jj.tag) + '</div></button>';
     }).join("");
     docEl.innerHTML =
-      '<h1>Halo Master Chief Cosplay Guide (Vollständige Anleitung)</h1>' +
+      '<h1>Halo Master Chief: Entwicklungs- und Bauhandbuch</h1>' +
       '<p style="font-size:1.08rem;color:var(--dim)">Dies ist eine durchklickbare Schritt-für-Schritt-Anleitung für den Bau deiner eigenen Master Chief Cosplay-Rüstung (MJOLNIR). Die Inhalte basieren direkt auf den Dokumentationen im Repository. Dein Fortschritt, abgehakte Aufgaben und Haken auf Einkaufslisten werden lokal in deinem Browser gespeichert.</p>' +
       '<div class="hud" style="padding:15px 18px;margin:1.5em 0;border-left:3px solid var(--cyan);background:rgba(70,200,255,0.03);">' +
       '<div class="font-disp" style="color:var(--cyan);font-weight:600;font-size:0.95rem;letter-spacing:.05em;">HINTERGRUND: WAS BEDEUTET „MJOLNIR“?</div>' +
       '<p style="font-size:0.9rem;color:var(--text);margin:.4em 0 0;line-height:1.5;">' +
-      'Die Rüstung des Master Chiefs trägt die offizielle Bezeichnung <strong>MJOLNIR Powered Assault Armor</strong>. Benannt nach dem legendären Hammer des nordischen Donnergottes Thor, symbolisiert dieser Name die extreme Stärke und Widerstandskraft der Rüstung. Dieser Guide liefert dir die vollständige Bauanleitung für dein eigenes tragbares Replika.' +
+      'Die Rüstung des Master Chiefs trägt die offizielle Bezeichnung <strong>MJOLNIR Powered Assault Armor</strong>. Benannt nach dem legendären Hammer des nordischen Donnergottes Thor, symbolisiert dieser Name die extreme Stärke und Widerstandskraft der Rüstung. Der V4-Pfad dokumentiert den Entwicklungsstand; Fertigungsmodelle und reale Abnahmen sind noch offen.' +
       '</p>' +
       '</div>' +
       '<h2>Wähl deinen Pfad</h2>' +
@@ -309,7 +309,7 @@
       '</div>' +
       '<h2>So funktioniert es</h2>' +
       '<ul>' +
-      '<li>Wähle oben links deinen Schwierigkeitsgrad/Pfad (<strong>V1 Foam</strong> / <strong>V2 3D-Druck</strong> / <strong>V3 Profi-Exoskelett</strong>) – jede Variante führt dich strukturiert durch das Projekt.</li>' +
+      '<li>Wähle oben links deinen Schwierigkeitsgrad/Pfad (<strong>V4 Huskynarr</strong> / <strong>V1 Foam</strong> / <strong>V2 3D-Druck</strong> / <strong>V3 Profi-Exoskelett</strong>) – jede Variante führt dich strukturiert durch das Projekt.</li>' +
       '<li>Hake <strong>Schritte</strong> in den Checklisten direkt ab – dein Fortschritt wird automatisch gesichert.</li>' +
       '<li>Markiere auf den Einkaufslisten die Materialien und Komponenten, die du <strong>bereits besitzt</strong>.</li>' +
       '<li>Der Statusbalken im Header visualisiert deinen <strong>Gesamtfortschritt der ausgewählten Variante</strong>.</li>' +
@@ -400,7 +400,7 @@
     docEl.innerHTML =
       '<h1>Offizielle Cosplay-Guides (343 Industries)</h1>' +
       '<p style="color:var(--dim)">Die offiziellen Referenz-PDFs von 343 Industries zum Mark VII (MJOLNIR GEN3) - ' +
-      'mit Masszeichnungen, Turnaround-Ansichten und Detail-Views. Direkt aus dem Repo, ' +
+      'mit Turnaround-Ansichten und Detail-Views. Mark VII ist keine exakte Vorlage fuer Chiefs Mark VI GEN3. Direkt aus dem Repo, ' +
       'funktioniert auch offline (z.B. auf der Convention ohne Wlan).</p>' +
       '<div class="mv-toolbar" style="margin-bottom:10px">' + tabs + '</div>' +
       '<div id="cg-frame-wrap" class="cg-wrap">' +
@@ -512,10 +512,10 @@
       buy: [{ t: "Powerbank 10.000 mAh (schlank)", u: "https://www.amazon.de/dp/B0D4MDHB21?tag=huskynarr-21" },
             { t: "Powerbank 20.000 mAh (V3)", u: "https://www.amazon.de/dp/B0CZ9LH53B?tag=huskynarr-21" }] },
     { id: "exo", label: "Exoskelett", pos: "0.16 0.95 -0.10", normal: "0.6 0 -0.6", variant: "V3",
-      material: "Alu-Profil 3030/2020 + Gelenke",
-      desc: "Optionales Traggestell, das Gewicht auf die Huefte verlagert und Servo-/Aktuatorbewegung erlaubt. Nur V3.",
+      material: "Nach realem Lastpfad auszulegender Traeger; Serien-Exo separat",
+      desc: "Eigener Ruestungstraeger und optionales separat angepasstes Serien-Exoskelett. Keine nachgewiesene Lastableitung zum Boden.",
       guide: "Documentation/Guides/Exoskelett.md",
-      buy: [{ t: "Aluprofil 3030 Nut 8", u: "https://www.amazon.de/dp/B097414JW7?tag=huskynarr-21" }] },
+      buy: [] },
   ];
   var PLACEHOLDER_MODEL = "https://modelviewer.dev/shared-assets/models/Astronaut.glb";
   var LOCAL_MODEL = "models/spartan.glb"; // relative to /web/index.html
@@ -723,7 +723,7 @@
     $("#reset-btn").addEventListener("click", function () {
       if (confirm("Gespeicherten Fortschritt (Schritte, Einkaufs-Haken) in diesem Browser loeschen?")) {
         store.reset();
-        variant = "V3"; // keys gone; keep a sane default
+        variant = "V4"; // keys gone; keep a sane default
         buildNav(); renderProgress(); markDone();
         if (currentFile) loadDoc(currentFile); else welcome();
         toast("Fortschritt zurueckgesetzt");
