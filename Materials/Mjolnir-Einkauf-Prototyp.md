@@ -1,4 +1,4 @@
-# V4: Bezahlbare Einkaufsliste fuer den ersten Prototyp
+# Bezahlbare Einkaufsliste fuer den ersten Prototyp
 
 Stand: 2026-09-08. Umfang: Helm-Belueftung, Elektronikpruefstand und manuell
 aufklappbarer Torso als Muster. Noch keine komplette Ruestung und kein fertiges
@@ -17,7 +17,13 @@ verifizierten Angebote. Verfuegbarkeit und konkretes Modell vor Bestellung pruef
 - Die andere, bereits bestueckte BerryBase-Ausfuehrung NMCU-ESP32 war beim
   Abruf als nicht lieferbar gelistet; nicht mit NMCU-ESP32-U verwechseln.
 
-## Erste Bestellung
+## Auswahl fuer die erste Bestellung
+
+Die Liste beschreibt einen Helm-/Torso-Pruefstand. Mengen sind Ausgangswerte,
+keine Vorgabe fuer alle Koerperprofile oder Materialwege. Fuer einen rein
+mechanischen Versuch entfallen Controller und Effektelektronik; bei vorhandener
+Ausstattung nur Fehlmengen aufnehmen. Eine eigene BOM laesst sich im
+[Budget-Editor](../web/budget/) anpassen und als JSON exportieren.
 
 M-Positionen sind herstellerneutrale Einkaufsspezifikationen fuer Muster.
 Baumarkt, Naeh-/Outdoor-Zubehoerhandel und Elektronikfachhandel eignen sich
@@ -78,8 +84,9 @@ werden. Die Messeanzeige importiert bislang Dateien und steuert keine Hardware.
   bereits den gewuenschten zusammenhaengenden Einstieg ohne Servokauf.
 - **Visier:** erst Schablone und Durchsichtsmuster, dann passender Rohling/Form.
   Keine zufaellige Motorradvisierform fuer einen noch nicht modellierten Helm.
-- **Anzug-STL-Set:** nur explizites Infinite-Kampagnen-Mark-VI-GEN3-Set mit
-  nachweisbarer Nutzungserlaubnis. Vor Vollkauf Helm/Torso und Teilbarkeit pruefen.
+- **Anzug-STL-Set:** exakt zur gewaehlten Ruestungsreferenz passendes Set mit
+  nachweisbarer Nutzungserlaubnis. Vor Vollkauf Helm/Torso und Teilbarkeit pruefen;
+  Chief / Mark VI GEN3 und Mark VII nicht mischen.
 
 ## Elektrische Grundentscheidung
 

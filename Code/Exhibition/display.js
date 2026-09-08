@@ -10,7 +10,10 @@ function paint() {
     el(id).textContent = view.values && view.values[key] !== null ? view.values[key] + unit : '--';
   }
 }
-el('clear').onclick = () => { generation++; sample = null; el('error').textContent = ''; el('file').value = ''; paint(); };
+function clearTelemetry() {
+  generation++; sample = null; el('error').textContent = ''; el('file').value = ''; paint();
+}
+el('clear').onclick = clearTelemetry;
 el('demo').onclick = () => {
   generation++;
   sample = HaloTelemetry.validate({schema_version:1,source:'demo',device:'Synthetischer Beispieldatensatz',timestamp:new Date().toISOString(),battery_pct:72,temperature_c:28,fan_rpm:1800}, Date.now());
@@ -34,3 +37,35 @@ el('file').onchange = async event => {
 };
 setInterval(paint, 1000);
 paint();
+
+let projectGeneration = 0;
+function clearProject() {
+  el('project-title').textContent = 'MJOLNIR - Mechanik zum Anziehen.';
+  el('project-summary').textContent = 'Konfigurierbare Ruestungsreferenz und Module. Ein Projektprofil kann fuer die Beschriftung geladen werden.';
+}
+el('project-clear').onclick = () => {
+  projectGeneration++; clearProject(); el('project-file').value = ''; el('project-error').textContent = '';
+  clearTelemetry();
+};
+el('project-file').onchange = async event => {
+  const token = ++projectGeneration;
+  clearProject(); el('project-error').textContent = '';
+  clearTelemetry();
+  try {
+    const file = event.target.files[0];
+    if (!file) return;
+    if (file.size > 65536) throw Error('Projektprofil groesser als 64 KiB');
+    const text = await file.text();
+    if (token !== projectGeneration) return;
+    const project = HaloProject.metadata(JSON.parse(text));
+    el('project-title').textContent = project.title;
+    el('project-summary').textContent = project.summary;
+  } catch (error) {
+    if (token !== projectGeneration) return;
+    clearProject(); el('project-error').textContent = error.message;
+  } finally {
+    // Snapshots started during this import cannot be assigned to the new title.
+    // An obsolete import must not clear data belonging to a later project.
+    if (token === projectGeneration) clearTelemetry();
+  }
+};

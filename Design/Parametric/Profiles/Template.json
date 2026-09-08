@@ -1,12 +1,9 @@
 {
   "schema_version": 1,
-  "profile": "Huskynarr",
+  "profile": "New-profile",
   "status": "measurements_pending",
-  "brief": "1660 mm Koerpergroesse, breite Schultern; alle weiteren Masse offen.",
-  "reference": "https://www.instagram.com/huskynarr/",
-  "reference_status": "Profil auffindbar; keine kalibrierten Koerperansichten auswertbar. Keine Bildmasse abgeleitet.",
   "measurements_mm": {
-    "height": 1660,
+    "height": null,
     "shoulder_width": null,
     "chest_width": null,
     "chest_depth": null,
@@ -46,5 +43,16 @@
     "edge_clearance": 20,
     "entry_clearance_each_side": 30,
     "shoulder_visual_extension_each_side": 25
+  },
+  "build": {
+    "armor_reference": "chief-infinite",
+    "material": "hybrid",
+    "operating_mode": "wearable",
+    "features": {
+      "exoskeleton": false,
+      "hud": false,
+      "lighting": true,
+      "audio": false
+    }
   }
 }

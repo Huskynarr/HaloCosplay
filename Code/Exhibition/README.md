@@ -57,3 +57,16 @@ node --test Tests/Automation/exhibition.test.cjs
 
 [Messebetrieb](../../Documentation/Guides/Mjolnir-Messebetrieb.md) und
 [Nachweisbericht](../../Progress/Mjolnir-Readiness.md).
+
+## Beliebige Projekte praesentieren
+
+Die Anzeige enthaelt keine feste Person mehr. "Projektprofil laden" liest den
+JSON-Export aus dem [Konfigurator](../../web/configurator/index.html). Projektname,
+Ruestungsreferenz, Material und Betriebsart werden als reine Planangaben angezeigt.
+Koerpermasse werden nicht ausgegeben. Die Anzeige prueft diese drei Angaben nur
+als begrenzte Textfelder; die vollstaendige Profilpruefung erfolgt im Konfigurator
+und in `tools/suit_fit.py`. Ein Import aendert keine Aktorik oder Sensorhardware.
+
+Projektwechsel und "Projekt entfernen" leeren vorhandene Telemetrie, damit Werte
+nicht versehentlich dem naechsten Anzug zugeordnet werden. Alle Daten bleiben
+fluechtig im aktuellen Browserfenster; keine Speicherung oder Uebertragung.

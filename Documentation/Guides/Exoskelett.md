@@ -1,9 +1,9 @@
 # Exoskelett und eigener Ruestungstraeger
 
-Dieser Entwurf ersetzt den frueheren Skeletonics-/Stelzen-Aufbau als Standard
-fuer das Huskynarr-Projekt. Ziel ist eine tragbare Ruestung fuer 1660 mm
-Koerpergroesse mit breiten Schultern und einem mechanischen Einstieg.
-Ein Serien-Exoskelett zur Gehunterstuetzung ist als **reale Ausbaustufe** geplant.
+Das [Projektprofil](Mjolnir-Konfiguration.md) legt fest, ob ein Exoskelett
+ueberhaupt zum Aufbau gehoert. Der manuelle Einstieg und der eigene
+Ruestungstraeger funktionieren konzeptionell auch ohne aktives Geraet.
+Ein Serien-Exoskelett zur Gehunterstuetzung bleibt ein separat auszulegender Ausbau.
 
 ## 1. Welche Funktion gebraucht wird
 
@@ -12,7 +12,7 @@ Ein Serien-Exoskelett zur Gehunterstuetzung ist als **reale Ausbaustufe** geplan
 | Gepolsterter Ruestungstraeger | Verteilt Ruestungsgewicht zwischen Huefte und Oberkoerper | Grundaufbau, individuell angepasst |
 | Aktives Hueft-Exoskelett | Unterstuetzt die Beinbewegung mit eigenen Motoren | Separates Seriengeraet nach Pass- und Integrationsprobe |
 | Lasttragendes Ganzkoerper-Exoskelett | Koennte bei entsprechender Konstruktion Last zum Boden fuehren | Nicht Bestandteil des vorliegenden Entwurfs |
-| Skeletonics/Pantograph/Stelzen | Vergroessert Reichweite und Silhouette | Fuer dieses kompakte Cosplay verworfen |
+| Skeletonics/Pantograph/Stelzen | Vergroessert Reichweite und Silhouette | Keine Basisfunktion; eigener Entwicklungsaufwand und eigener Nachweis |
 
 Ein Wander-Exoskelett traegt nicht automatisch eine schwere Ruestung.
 Hypershell schliesst in seinen Safety Guidelines v2.0 Gewichtsabstuetzung,
@@ -35,9 +35,10 @@ Kauf- oder Passformzusage. Aktuelle Originalanleitung beim konkreten Geraet prue
 Quellen: [Hypershell Handbuch v1.3, Anhang S.46-47](https://cdn.shopify.com/s/files/1/0746/6326/4492/files/EN_Hypershell_XS_Series_UserManual_v1.3_Media.pdf?v=1788775823),
 [DNSYS X1 Produkt und Groessenauswahl](https://dnsys.ai/products/dnsys-x1-exoskeleton-every-step-is-a-leap-forward-carbon-carbon-pro).
 
-166 cm allein entscheidet keine dieser Passfragen. Fuer Huskynarr ist derzeit
-**kein Geraet ausgewaehlt**. Das Koerpergewicht ist nicht bekannt; aus breiten
-Schultern oder Instagram werden weder Gewicht noch Eignung abgeleitet.
+Koerpergroesse allein entscheidet keine dieser Passfragen. Das Repository
+legt **kein Geraet fuer alle Profile** fest. Passmasse und Koerpergewicht
+werden direkt nach Herstellerdefinition erhoben, nicht aus Fotos oder anderen
+Massen abgeleitet. Jedes Projekt dokumentiert seine eigene Geraeteauswahl.
 Die im CAD optional eingeblendeten roten Volumina sind generische Reserven,
 keine vermessenen Hypershell-/DNSYS-Komponenten.
 
@@ -112,11 +113,11 @@ und Passphase ist keine Veranstaltungserlaubnis erforderlich.
 
 ## 6. Entscheidungsfolge
 
-Zuerst persoenliche Masse und Torso-Mockup, dann eigener leichter Traeger.
+Zuerst Masse des ausgewaehlten Profils und Torso-Mockup, dann eigener leichter Traeger.
 Parallel kann eine Anprobe der beiden Seriengeraete erfolgen. Ergibt die Probe
 eine eindeutige Kompatibilitaet, werden die realen Geraetevolumina aufgenommen
 und die Schalen angepasst. Ein Geraet passt erst dann zum Projekt, wenn sowohl
 sein Originalbetrieb als auch der getrennte Ruestungseinstieg funktionieren.
-Das ist ein geplanter aktiver Ausbau, kein als fertig ausgegebenes DIY-Power-Exo.
+Das ist ein optionaler aktiver Ausbau, kein als fertig ausgegebenes DIY-Power-Exo.
 
 Systemzusammenhang: [MJOLNIR-Systementwurf](Mjolnir-Systementwurf.md).

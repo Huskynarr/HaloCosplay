@@ -1,49 +1,49 @@
-# MJOLNIR fuer Huskynarr: Systementwurf V4
+# MJOLNIR: konfigurierbarer Systementwurf
 
-**Arbeitsstand: ausformulierter Entwicklungsentwurf mit parametrischem
-Bauraummodell. Physischer Prototyp und persoenliche Passform noch nicht geprueft.**
+**Arbeitsstand: Entwicklungsentwurf mit parametrischem Bauraummodell.
+Physischer Prototyp und Passform sind fuer jedes Projekt separat nachzuweisen.**
 
-Die Zielrichtung ist ein Master-Chief-inspiriertes Halo-Infinite-Cosplay mit
-mechanisch oeffnenden, vormontierten Baugruppen und einem separat passenden
-Exoskelett. Das bisherige Projektziel Mark VI GEN3 / Mark VII bleibt die
-gestalterische Referenz; als Ausgangspunkt wird **Mark VI GEN3** verwendet.
-Die beiliegenden Mark-VII-PDFs sind Vergleichsmaterial, keine Mark-VI-Massvorlage.
+Das [Projektprofil](Mjolnir-Konfiguration.md) beschreibt die Person und den
+geplanten Aufbau. Der Entwurf ist fuer mechanisch oeffnende, vormontierte
+Baugruppen gedacht; Materialweg, Halo-Referenz und Elektronik sind getrennte
+Entscheidungen. Kein Profil erbt feste Koerpermasse oder bestandene Tests.
 
-## 1. Was jetzt feststeht
+## 1. Welche Angaben den Entwurf bestimmen
 
-| Vorgabe | Umsetzung | Nachweisstand |
+| Eingabe | Umsetzung | Grenze |
 | --- | --- | --- |
-| 1,66 m Koerpergroesse | 1660 mm im versionierten Profil | Aus aktueller Angabe |
-| Breite Schultern | Schulterbreite unabhaengig von Torsohoehe; ausfahrbare Seitenfluegel | Qualitative Angabe, Breite noch messen |
-| Huskynarr auf Instagram | Profil als Stilreferenz verlinkt | Keine kalibrierten Ansichten auswertbar |
-| Exoskelett wie bekannte chinesische Systeme | Hypershell X Series (S) und DNSYS X1 als reale Integrationskandidaten | Keine persoenliche Kompatibilitaet bestaetigt |
-| Oeffnen wie bei mechanischen Iron-Man-Cosplays | Fronttueren, seitlich ausfahrende Fluegel, aufklappbare Gliedmassenschalen | CAD-Bewegungsentwurf vorhanden |
-| Weniger Zusammenbau beim Anziehen | Vormontierte Baugruppen in einer Anziehstation | Ablauf entworfen, Zeitmessung offen |
+| Koerpermasse | 32 Felder in mm, Seiten getrennt | Fehlende Werte bleiben unbekannt |
+| Polster, Freiraum, Wandaufbau | Einstellbare radiale bzw. lineare Zuschlaege | Entwurfsannahmen, keine Komfort-/Festigkeitsfreigabe |
+| Ruestungsreferenz | Chief / Infinite, Mark VII oder eigene Referenz | Detailoberflaechen noch beschaffen/modellieren |
+| Materialweg | Foam, Druck oder Hybrid | Lasten und Befestigungen passend zum echten Material auslegen |
+| Betriebsumfang | Getragen, Ausstellung oder beides | Eigenes Nachweispaket pro Einsatz |
+| Optionale Technik | Exoskelett, HUD, Licht und Audio | Keine automatische Hardwareintegration |
+| Vormontierter Einstieg | Fronttueren, seitlich ausfahrende Fluegel, oeffnende Schalen | Idealisierter CAD-Bewegungsentwurf |
 
-Eine Angabe wie 1,66 m erlaubt **keine** verlaessliche Ableitung von Brusttiefe,
-Halsweite, Oberschenkelumfang oder Gelenkpositionen. Die 31 fehlenden linearen
-Masse bleiben im echten Profil `null`. Nur die mit `--concept` erzeugte Ansicht
-verwendet synthetische Beispielwerte mit Herkunftskennzeichnung.
+Die leere Vorlage enthaelt keine Personenmasse. Der synthetische Demo-Datensatz
+und mit `--concept` ergaenzte Werte sind nur fuer Vorschauen geeignet. Die
+Koerpergroesse allein erlaubt keine Ableitung von Brusttiefe, Halsweite,
+Oberschenkelumfang oder Gelenkpositionen.
 
-## 2. Die Silhouette
+## 2. Silhouette und unterschiedliche Proportionen
 
-Kurzer, segmentierter Torso und breite, seitlich schwebende Schulterplatten;
-keine kuenstliche Verlaengerung von Schienbeinen oder starre Plattformstelzen im
-Grundaufbau. Brusthoehe, Brustbreite und Brusttiefe werden einzeln angepasst.
-Die Schulterplatten erhalten nur einen einstellbaren optischen Ueberstand,
-statt breite Schultern in eine fuer grosse, schmale Personen skalierte Ruestung
-zu zwingen. Der Bauchbereich folgt seinem tatsaechlichen Maximalquerschnitt,
-auch beim Sitzen. Drei ueberlappende Bauchsegmente und eine hochklappbare
-Guertelschuerze verdecken Bewegungsfugen, ohne Taille oder Leisten einzuklemmen.
+Torsohoehe, Brustbreite und Brusttiefe werden einzeln angepasst. Schulterplatten
+erhalten einen separat einstellbaren optischen Ueberstand. Der Bauchbereich
+folgt seinem gemessenen Maximalquerschnitt, auch beim Sitzen. Ueberlappende
+Bauchsegmente und eine hochklappbare Guertelschuerze verdecken Bewegungsfugen,
+ohne Taille oder Leisten einzuklemmen. Kopf- und Schuhgeometrie werden aus
+entsprechenden Massen abgeleitet, nicht aus einem globalen Groessenfaktor.
 
-Optik: olivgruene facettierte Schalen, goldener Visor, dunkler flexibler Unterbau,
-wenige cyanfarbene Statuslichter. Die Mechanik bleibt unter seitlichen und
-rueckwaertigen Abdeckungen. Eine schmale Sternumleiste verdeckt die Frontnaht;
-sie ist nur an **einer** Tuer befestigt. Keine starre Bruecke ueber die Oeffnung.
+Die ausgewaehlte [Halo-Referenz](Authentizitaet-Referenz.md) bestimmt Aussenform,
+Visier, Farben, Markierungen und Unteranzugdetails. Oliv, Gold und 117 gehoeren
+zum Chief-Beispiel und sind keine Vorgabe fuer alle Spartan-Varianten. Die
+Mechanik bleibt unter passenden Abdeckungen. Eine Sternumleiste kann die
+Frontnaht verdecken; sie ist nur an **einer** Tuer befestigt. Keine starre
+Bruecke ueber die Oeffnung.
 
-Das CAD zeigt die technischen Huellen. Die finalen Mark-VI-Panzerkonturen werden
-nach der Passprobe an ein rechtmaessig beschafftes Oberflaechenmodell angepasst.
-Das Repository enthaelt weiterhin kein fertiges, individuell passendes Halo-STL-Set.
+Das CAD zeigt technische Huellen. Finale Panzerkonturen werden nach der
+Passprobe an ein rechtmaessig beschafftes Oberflaechenmodell angepasst.
+Das Repository enthaelt kein fertiges, individuell passendes Halo-STL-Set.
 
 ## 3. Vier voneinander getrennte Funktionen
 
@@ -121,9 +121,12 @@ Details: [Elektronik und optionale Aktorik](Mjolnir-Elektronik.md).
 
 ## 7. Messbare Entwicklungsziele
 
+Die Zeitziele sind Ausgangspunkte fuer die Prototypenplanung und werden je
+Projekt dokumentiert. Keine Zahl bestaetigt eine individuelle Belastbarkeit.
+
 | Ziel | Entwurfsziel | Pruefung |
 | --- | --- | --- |
-| Gewicht | Planbudget der Grundausstattung unter 12 kg | Jede Baugruppe wiegen; Exoskelett/HUD separat addieren |
+| Gewicht | Eigenes Zielbudget pro Aufbau; Basis-BOM ist ein Beispiel | Jede Baugruppe wiegen; Exoskelett/HUD separat addieren |
 | Anziehen | <= 5 Minuten mit einer Hilfsperson | Drei vollstaendige Durchlaeufe ab geparktem Zustand |
 | Notausstieg | Atem-/Sichtweg zuerst; gesamte Befreiung Ziel <= 60 s | Stromlos, sitzend und mit blockierter Tuer erproben |
 | Beweglichkeit | Sicher gehen, stehen, drehen, sitzen; keine erzwungenen Gelenkachsen | An reale schmerzfreie Bewegung anpassen |

@@ -1,6 +1,12 @@
-# V4: Von der Referenz zum tragbaren Bauteil
+# Von der Referenz zum tragbaren Bauteil
 
 ## Aufbau und Verantwortungsgrenzen
+
+Referenz, Materialweg und Umfang kommen aus dem
+[Projektprofil](Mjolnir-Konfiguration.md). Foam, Druck und Hybrid benoetigen
+jeweils eigene Verstaerkungs-, Klebe- und Verbindungsversuche. Die gleiche
+Bauraumgeometrie bedeutet keine gleiche Festigkeit. Nur ausgewaehlte
+Elektronik-/Exoskelettmodule in die Fertigungsplanung aufnehmen.
 
 Jede Baugruppe besteht aus Aussenhaut, lokalem Verstaerkungsrahmen,
 austauschbarer Verbindung und Polster-/Textilabschluss. Der eigene Ruestungstraeger

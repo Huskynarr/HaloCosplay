@@ -6,7 +6,8 @@ Prueft dokumentierte Nachweise, keine Sicherheit oder Veranstalterfreigabe.
 Ein Status passed ist eine menschliche Bewertung; Hash und Datum beweisen
 keine inhaltliche Richtigkeit. Vorlagen und Softwaretests zaehlen nicht als Hardwaretest.
 
-Revision: V4-development-2026-09-08
+Projekt: Baukasten: ungetestetes Beispiel
+Revision: template-r1
 
 | Gate | Nachweis | Dokumentation |
 | --- | --- | --- |

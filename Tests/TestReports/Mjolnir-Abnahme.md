@@ -46,3 +46,19 @@ Eine Vorlage, ein CAD-Render und bestandene Softwaretests sind keine Hardwareabn
 [Nachweisregister](../../Progress/Mjolnir-Readiness.json) enthaelt anfangs nur offene
 Gates. Fuer reale Ergebnisse eine private Kopie `build/readiness.local.json`
 verwenden; Nachweise mit SHA-256, Datum, Revision und Pruefperson registrieren.
+
+## Separate Projekte und Profilrevisionen
+
+Ein neues Register entsteht ohne bestandene Gates:
+
+```bash
+python3 tools/suit_readiness.py --init build/SuitA/readiness.local.json --project SuitA --revision r1 --profile build/SuitA.local.json
+python3 tools/suit_readiness.py --manifest build/SuitA/readiness.local.json --out build/SuitA/Readiness.local.md
+```
+
+Das Profil muss bereits existieren. Standardwurzel fuer Profil-/Nachweisdateien
+ist das Repository; `--root` erlaubt eine eigene Projektwurzel. Alle referenzierten
+Dateien muessen darin liegen. Die optionale Profilbindung speichert SHA-256:
+Aenderungen an Mass- oder Baukonfiguration machen vorhandene Nachweise unvollstaendig,
+bis diese fuer die neue Revision bewertet werden. Keine bestehenden Register
+werden durch `--init` ueberschrieben. Pruefdatum als UTC-Kalendertag dokumentieren.

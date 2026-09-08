@@ -32,9 +32,20 @@ vorhanden. Ein "Reset"-Knopf in der App loescht den gespeicherten Stand wieder.
 Die Markdown-Dateien bleiben die Single Source of Truth. Die Web-App rendert sie
 nur - inhaltliche Aenderungen erfolgen weiterhin in den .md-Dateien des Repos.
 
-## V4-Pfad
+## V4-Baukasten
 
 V4 ist der Standard fuer neue Browserprofile. Bestehende V1-V3-Auswahl bleibt
 erhalten. Die Haken dokumentieren Lesefortschritt, keine physische Bauabnahme.
-Der Nachweisbericht im V4-Pfad bleibt davon unabhaengig. Die separate
+Der Nachweisbericht im V4-Baukasten bleibt davon unabhaengig. Die separate
 [Messeanzeige](../Code/Exhibition/README.md) arbeitet auch ohne Internet.
+
+## Profile und Stuecklisten
+
+- [Profil-Konfigurator](configurator/index.html): mehrere Profile, leere Messfelder,
+  explizites Demobeispiel und JSON-Import/-Export. Lokale Speicherung nur nach Wahl.
+- [Stuecklisten-Editor](budget/index.html): eigene Mengen, Budgetpreise und Zielmassen;
+  JSON-Dateien fuer `tools/suit_budget.py`. Keine automatische Preissuche.
+
+Beide Seiten benoetigen fuer lokale JSON-Referenzen einen HTTP-Server wie oben.
+Sie versenden keine Formulardaten. Ein Export bleibt ein Entwicklungsprofil,
+keine Druck-, Sicherheits- oder Zulassungsfreigabe.

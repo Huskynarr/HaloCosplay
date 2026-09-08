@@ -4,12 +4,15 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-A comprehensive DIY project repository for building a Halo Master Chief MJOLNIR cosplay suit. This is primarily a **documentation and planning repo** with supporting embedded code - not a traditional software project. Content is written in German.
+A configurable DIY project repository for building Halo MJOLNIR cosplay suits. This is primarily a **documentation and planning repo** with supporting embedded code - not a traditional software project. Content is written in German.
 
-The active personal path is V4: Halo Infinite Mark VI GEN3, mechanical entry,
-independent armor carrier and exhibition development. See README and
-Documentation/Guides/Mjolnir-Fertigung.md. Evidence gates remain open until real
-tests are recorded; never treat software checks as hardware approval.
+The active workflow uses independent project profiles (32 measurements, fit
+settings, armor reference, material, operating mode and optional equipment).
+Start at Documentation/Guides/Mjolnir-Konfiguration.md. Template.json must stay
+unmeasured; Demo.json is explicitly synthetic and never a default body. Profiles
+and outputs use separate directories. Evidence belongs to a project and revision;
+software checks never count as hardware approval. Selecting a material or
+reference does not generate verified detail CAD or engineering calculations.
 
 Three legacy material-reference variants exist: V1 Einsteiger (foam), V2 Fortgeschritten (3D-print/hybrid with HUD), V3 Profi (exoskeleton + premium).
 

@@ -7,8 +7,8 @@ const CONTENT = {
   // Curated, ordered quick-start paths per variant. Switchable in the app.
   journeys: {
     V4: {
-      "label": "V4 Huskynarr",
-      "tag": "Mark VI GEN3 - Mechanik und Messe",
+      "label": "V4 Baukasten",
+      "tag": "Konfigurierbare Profile - Mechanik und Messe",
       "steps": [
         {
           "title": "Designziel",
@@ -135,6 +135,8 @@ const CONTENT = {
     {
       name: "Planung",
       items: [
+        { title: "Profilkonfigurator", file: "profile-configurator", sub: "Mehrere Profile, Masse und Bauoptionen" },
+        { title: "Budgetplaner", file: "budget-planner", sub: "Ausstattung und Kosten konfigurieren" },
         { title: "Komplett-Walkthrough", file: "Documentation/Guides/Komplett-Walkthrough.md" },
         { title: "Varianten", file: "Documentation/Guides/Varianten.md" },
         { title: "Kosten", file: "Documentation/Guides/Kosten.md" },

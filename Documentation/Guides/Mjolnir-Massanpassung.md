@@ -1,24 +1,25 @@
-# Massanpassung: 1660 mm, breite Schultern
+# Massanpassung fuer ein eigenes Projektprofil
 
 ## Messzustand und Herkunft
 
-Alle Eingaben sind **Millimeter**. Koerpergroesse barfuss messen; im Profil stehen
-die angegebenen 1660 mm. Schalenmasse im spaeteren Unteranzug aufnehmen. Ein bereits
+Alle Eingaben sind **Millimeter**. Ein [neues Profil](Mjolnir-Konfiguration.md)
+beginnt ohne Koerpermasse. Koerpergroesse barfuss messen; Schalenmasse im
+spaeteren Unteranzug aufnehmen. Ein bereits
 montiertes Innenpolster darf nicht erneut als Zuschlag addiert werden. Schuhe
 separat in ihrem tatsaechlichen Aussenmass erfassen. Alle Masse links und rechts
 einzeln notieren. Jeder Messdurchgang benoetigt eine zweite Person, Datum,
 Kleidung und eine Beschreibung der Endpunkte.
 
 Fotos helfen bei Stil und Proportion, aber ohne Referenzmass, neutrale Perspektive
-und definierte Pose nicht bei Fertigungsmassen. Das Instagram-Profil ist auffindbar;
-geeignete Koerperansichten konnten nicht ausgelesen werden. Es wurden **keine**
-Brust-, Taillen-, Gewichts- oder Umfangswerte aus Profilbildern geschaetzt.
+und definierte Pose nicht bei Fertigungsmassen. Unbekannte Messwerte bleiben
+`null`. Weder Koerpergroesse, Schuhgroesse noch Fotos ersetzen die erforderlichen
+Breiten, Tiefen und Umfaenge. Fuer jede Person ein eigenes Profil verwenden.
 
 ## Eingaben fuer den Generator
 
 | Feld in measurements_mm | Messdefinition |
 | --- | --- |
-| height | Barfuss Boden bis Scheitel, hier 1660 |
+| height | Barfuss Boden bis Scheitel |
 | shoulder_width | Gerade Aussenbreite ueber beide Deltamuskeln, Arme locker; nicht Knochenabstand |
 | chest_width / chest_depth | Horizontale Gerade links/rechts bzw. vorne/hinten am groessten Brustquerschnitt, normal einatmend |
 | abdomen_width / abdomen_depth | Groesste Gerade am Bauch, Maximum aus Stehen und bequemem Sitzen |
@@ -80,13 +81,15 @@ Ende. Diese rechnerische Verkuerzung ersetzt keine Gelenkbewegungsprobe.
 Gelenkfugen werden nach dem Bewegungsraum vergroessert,
 nicht durch starre prozentuale Gesamt-Skalierung ausgeglichen.
 
-## Breite Schultern bei kompakter Hoehe
+## Unterschiedliche Koerperproportionen
 
 - Torsohoehe aus torso_length; Breite aus maximalem Brust-/Bauchquerschnitt.
 - Schulterhauben folgen shoulder_width und einer separat einstellbaren optischen Zugabe.
 - Seitenfuehrungen erhalten den fuer den Einstieg erforderlichen Ausfahrweg.
 - Helm wird nach Kopf und Sichtlinie skaliert, nicht nach Koerpergroesse.
 - Schuhcover folgen echten Schuhen; keine automatische Erhoehung oder +20-%-Vorgabe.
+- Bei breiten Fuessen zuerst einen bequem passenden Schuh waehlen. EU-Groesse
+  ist keine Schuhbreite; Aussenlaenge und -breite sowie spaeter Spannhoehe messen.
 - Linke/rechte Gliedmassen werden nicht gegenseitig ueberschrieben.
 - STL-Oberflaechen lokal schneiden und verbreitern; nicht die komplette Figur
   entlang X strecken, da sonst Visor, Schraubensitze und Gelenkanschluesse verzerren.
@@ -107,7 +110,7 @@ offen, bis echte Messungen und Versuche dokumentiert sind.
 ## Ausfuellbares Messprotokoll
 
 [CSV-Messblatt](../../Design/Parametric/Profiles/Messprotokoll.csv) enthaelt alle
-32 Generatorfelder, die berichtete Koerpergroesse und getrennte Spalten fuer
+32 leeren Generatorfelder und getrennte Spalten fuer
 zwei Messungen, uebernommenen Wert, Datum, Kleidung und Endpunktnotizen. Leere
 Felder bleiben unbekannt. Es erfolgt kein automatischer Import ungepruefter Werte.
 Die zusaetzlichen Fertigungs-/Herstellermasse aus diesem Guide separat aufnehmen.

@@ -1,0 +1,282 @@
+{
+  "schema_version": 1,
+  "measurements": {
+    "height": {
+      "label": "Koerpergroesse",
+      "group": "Koerper",
+      "min": 1200,
+      "max": 2200
+    },
+    "shoulder_width": {
+      "label": "Schulterbreite",
+      "group": "Torso",
+      "min": 100,
+      "max": 700
+    },
+    "chest_width": {
+      "label": "Brustbreite",
+      "group": "Torso",
+      "min": 100,
+      "max": 700
+    },
+    "chest_depth": {
+      "label": "Brusttiefe",
+      "group": "Torso",
+      "min": 100,
+      "max": 700
+    },
+    "abdomen_width": {
+      "label": "Bauchbreite",
+      "group": "Torso",
+      "min": 100,
+      "max": 700
+    },
+    "abdomen_depth": {
+      "label": "Bauchtiefe",
+      "group": "Torso",
+      "min": 100,
+      "max": 700
+    },
+    "torso_length": {
+      "label": "Torsolaenge",
+      "group": "Torso",
+      "min": 100,
+      "max": 700
+    },
+    "hip_width": {
+      "label": "Hueftbreite",
+      "group": "Torso",
+      "min": 100,
+      "max": 700
+    },
+    "hip_depth": {
+      "label": "Huefttiefe",
+      "group": "Torso",
+      "min": 100,
+      "max": 700
+    },
+    "head_width": {
+      "label": "Kopfbreite",
+      "group": "Kopf",
+      "min": 100,
+      "max": 350
+    },
+    "head_depth": {
+      "label": "Kopftiefe",
+      "group": "Kopf",
+      "min": 100,
+      "max": 350
+    },
+    "head_height": {
+      "label": "Kopfhoehe",
+      "group": "Kopf",
+      "min": 100,
+      "max": 350
+    },
+    "upperarm_length_l": {
+      "label": "Oberarmlaenge links",
+      "group": "Arme",
+      "min": 100,
+      "max": 700
+    },
+    "upperarm_length_r": {
+      "label": "Oberarmlaenge rechts",
+      "group": "Arme",
+      "min": 100,
+      "max": 700
+    },
+    "upperarm_circumference_l": {
+      "label": "Oberarmumfang links",
+      "group": "Arme",
+      "min": 150,
+      "max": 1000
+    },
+    "upperarm_circumference_r": {
+      "label": "Oberarmumfang rechts",
+      "group": "Arme",
+      "min": 150,
+      "max": 1000
+    },
+    "forearm_length_l": {
+      "label": "Unterarmlaenge links",
+      "group": "Arme",
+      "min": 100,
+      "max": 700
+    },
+    "forearm_length_r": {
+      "label": "Unterarmlaenge rechts",
+      "group": "Arme",
+      "min": 100,
+      "max": 700
+    },
+    "forearm_circumference_l": {
+      "label": "Unterarmumfang links",
+      "group": "Arme",
+      "min": 150,
+      "max": 1000
+    },
+    "forearm_circumference_r": {
+      "label": "Unterarmumfang rechts",
+      "group": "Arme",
+      "min": 150,
+      "max": 1000
+    },
+    "thigh_length_l": {
+      "label": "Oberschenkellaenge links",
+      "group": "Beine",
+      "min": 100,
+      "max": 700
+    },
+    "thigh_length_r": {
+      "label": "Oberschenkellaenge rechts",
+      "group": "Beine",
+      "min": 100,
+      "max": 700
+    },
+    "thigh_circumference_l": {
+      "label": "Oberschenkelumfang links",
+      "group": "Beine",
+      "min": 150,
+      "max": 1000
+    },
+    "thigh_circumference_r": {
+      "label": "Oberschenkelumfang rechts",
+      "group": "Beine",
+      "min": 150,
+      "max": 1000
+    },
+    "shin_length_l": {
+      "label": "Unterschenkellaenge links",
+      "group": "Beine",
+      "min": 100,
+      "max": 700
+    },
+    "shin_length_r": {
+      "label": "Unterschenkellaenge rechts",
+      "group": "Beine",
+      "min": 100,
+      "max": 700
+    },
+    "calf_circumference_l": {
+      "label": "Wadenumfang links",
+      "group": "Beine",
+      "min": 150,
+      "max": 1000
+    },
+    "calf_circumference_r": {
+      "label": "Wadenumfang rechts",
+      "group": "Beine",
+      "min": 150,
+      "max": 1000
+    },
+    "boot_width_l": {
+      "label": "Schuh-Aussenbreite links",
+      "group": "Schuhe",
+      "min": 60,
+      "max": 200
+    },
+    "boot_width_r": {
+      "label": "Schuh-Aussenbreite rechts",
+      "group": "Schuhe",
+      "min": 60,
+      "max": 200
+    },
+    "boot_length_l": {
+      "label": "Schuh-Aussenlaenge links",
+      "group": "Schuhe",
+      "min": 100,
+      "max": 700
+    },
+    "boot_length_r": {
+      "label": "Schuh-Aussenlaenge rechts",
+      "group": "Schuhe",
+      "min": 100,
+      "max": 700
+    }
+  },
+  "allowances": {
+    "padding_radial": {
+      "label": "Polster je Seite",
+      "min": 0,
+      "max": 30,
+      "default": 8
+    },
+    "clearance_radial": {
+      "label": "Freiraum je Seite",
+      "min": 1,
+      "max": 50,
+      "default": 12
+    },
+    "shell_wall": {
+      "label": "Schalenwand",
+      "min": 1,
+      "max": 8,
+      "default": 3
+    },
+    "edge_clearance": {
+      "label": "Randabstand",
+      "min": 5,
+      "max": 60,
+      "default": 20
+    },
+    "entry_clearance_each_side": {
+      "label": "Einstiegsfreiraum je Seite",
+      "min": 10,
+      "max": 100,
+      "default": 30
+    },
+    "shoulder_visual_extension_each_side": {
+      "label": "Optische Schultererweiterung je Seite",
+      "min": 0,
+      "max": 80,
+      "default": 25
+    }
+  },
+  "build_fields": {
+    "armor_reference": {
+      "label": "Ruestungsreferenz",
+      "options": [
+        "chief-infinite",
+        "mark-vii",
+        "custom"
+      ],
+      "default": "chief-infinite"
+    },
+    "material": {
+      "label": "Materialweg",
+      "options": [
+        "hybrid",
+        "foam",
+        "printed"
+      ],
+      "default": "hybrid"
+    },
+    "operating_mode": {
+      "label": "Betriebsart",
+      "options": [
+        "wearable",
+        "exhibition",
+        "both"
+      ],
+      "default": "wearable"
+    }
+  },
+  "feature_fields": {
+    "exoskeleton": {
+      "label": "Exoskelett",
+      "default": false
+    },
+    "hud": {
+      "label": "HUD",
+      "default": false
+    },
+    "lighting": {
+      "label": "Beleuchtung",
+      "default": true
+    },
+    "audio": {
+      "label": "Audio",
+      "default": false
+    }
+  }
+}
