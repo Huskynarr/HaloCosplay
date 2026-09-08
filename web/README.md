@@ -31,3 +31,10 @@ vorhanden. Ein "Reset"-Knopf in der App loescht den gespeicherten Stand wieder.
 
 Die Markdown-Dateien bleiben die Single Source of Truth. Die Web-App rendert sie
 nur - inhaltliche Aenderungen erfolgen weiterhin in den .md-Dateien des Repos.
+
+## V4-Pfad
+
+V4 ist der Standard fuer neue Browserprofile. Bestehende V1-V3-Auswahl bleibt
+erhalten. Die Haken dokumentieren Lesefortschritt, keine physische Bauabnahme.
+Der Nachweisbericht im V4-Pfad bleibt davon unabhaengig. Die separate
+[Messeanzeige](../Code/Exhibition/README.md) arbeitet auch ohne Internet.

@@ -3,9 +3,9 @@ name: MJOLNIR design checks
 on:
   push:
     branches: [main]
-    paths: ['Design/Parametric/**', 'tools/suit_*.py', 'Materials/Mjolnir*', 'Tests/Automation/**', '.github/workflows/suit-design.yml']
+    paths: ['Design/Parametric/**', 'Progress/Mjolnir-*', 'Code/Exhibition/**', 'tools/suit_*.py', 'Materials/Mjolnir*', 'Tests/Automation/**', '.github/workflows/suit-design.yml']
   pull_request:
-    paths: ['Design/Parametric/**', 'tools/suit_*.py', 'Materials/Mjolnir*', 'Tests/Automation/**', '.github/workflows/suit-design.yml']
+    paths: ['Design/Parametric/**', 'Progress/Mjolnir-*', 'Code/Exhibition/**', 'tools/suit_*.py', 'Materials/Mjolnir*', 'Tests/Automation/**', '.github/workflows/suit-design.yml']
 
 permissions:
   contents: read
@@ -20,6 +20,11 @@ jobs:
           python-version: '3.11'
       - run: python -m unittest discover -s Tests/Automation -v
       - run: python tools/suit_budget.py --check
+      - run: python tools/suit_readiness.py --check
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node --test Tests/Automation/exhibition.test.cjs
       - run: python -m compileall -q tools/suit_fit.py tools/suit_budget.py
 
   cad:

@@ -103,3 +103,12 @@ nicht durch starre prozentuale Gesamt-Skalierung ausgeglichen.
 
 Die Fortschritte bleiben in [Prototypen und Abnahme](../../BuildGuides/Armor/Mjolnir-Prototypen.md)
 offen, bis echte Messungen und Versuche dokumentiert sind.
+
+## Ausfuellbares Messprotokoll
+
+[CSV-Messblatt](../../Design/Parametric/Profiles/Messprotokoll.csv) enthaelt alle
+32 Generatorfelder, die berichtete Koerpergroesse und getrennte Spalten fuer
+zwei Messungen, uebernommenen Wert, Datum, Kleidung und Endpunktnotizen. Leere
+Felder bleiben unbekannt. Es erfolgt kein automatischer Import ungepruefter Werte.
+Die zusaetzlichen Fertigungs-/Herstellermasse aus diesem Guide separat aufnehmen.
+Ausgefuellte Kopien unter `build/` lokal halten; nicht versehentlich committen.

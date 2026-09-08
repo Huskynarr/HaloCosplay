@@ -103,6 +103,11 @@ Dieses Projekt verlinkt nur auf externe STL-Quellen. Bitte pruefe die jeweilige 
 
 ### Offizielle Referenz
 
+Fuer V4 gilt Master Chiefs Mark VI GEN3 aus der Infinite-Kampagne. Die folgenden
+Mark-VII-PDFs sind eine verwandte Referenz, keine passende Detail-/Farbvorlage.
+Siehe [verbindliches Designziel](../Documentation/Guides/Authentizitaet-Referenz.md).
+
+
 **343 Industries / Halo Official Cosplay Guides (PDF)**
 - Quelle: Halo Waypoint Blog "Official Cosplay Guide: MARK VII" von Andy Salisbury (Community Communications Manager, 343 Industries), veroeffentlicht im Juni 2021 anlaesslich der Halo-Infinite-Multiplayer-Reveal.
 - Original-Artikel: https://www.halowaypoint.com/en-us/news/official-cosplay-guide-mark-vii

@@ -1,5 +1,14 @@
 # Master Chief MJOLNIR Build - TODO
 
+## V4: Authentizitaet und Ausstellung
+
+- [x] Mark VI GEN3 als einheitliches Arbeitsziel festlegen; Mark VII abgrenzen
+- [x] Fertigungs-, Messe- und Nachweisplanung ausarbeiten
+- [x] Hardwarefreie Offline-Anzeige fuer Beispiel-/Messdaten bereitstellen
+- [ ] Kampagnen-Referenzansichten und nutzbares Detailmodell beschaffen
+- [ ] Alle Gates im [Nachweisbericht](../Progress/Mjolnir-Readiness.md) real pruefen
+- [ ] Konkrete Veranstaltungsausgabe und Stand-/Besuchsmodus festlegen
+
 ## Huskynarr V4: aktueller persoenlicher Pfad
 
 - [x] Systementwurf, Messdefinitionen und mechanischen Einstieg ausarbeiten

@@ -35,6 +35,22 @@ python3 -m unittest discover -s Tests/Automation -v
 
 Die allgemeine Web-/Guide-Sammlung bleibt darunter als Materialreferenz erhalten.
 
+
+## V4: Authentizitaet und Messebetrieb
+
+Der persoenliche Zielstand ist Master Chief aus Halo Infinite (Mark VI GEN3).
+V1-V3 bleiben allgemeine Material-/Technikreferenzen. Fuer V4 gelten vorrangig:
+
+- [Verbindliche Referenz und optische Abnahme](Documentation/Guides/Authentizitaet-Referenz.md)
+- [Fertigungsplan und Baugruppenschnittstellen](Documentation/Guides/Mjolnir-Fertigung.md)
+- [Messebetrieb fuer gamescom und IFA](Documentation/Guides/Mjolnir-Messebetrieb.md)
+- [Reale Abnahmeprotokolle](Tests/TestReports/Mjolnir-Abnahme.md)
+- [Aktueller Nachweisstatus](Progress/Mjolnir-Readiness.md)
+- [Offline-Messeanzeige](Code/Exhibition/README.md)
+
+Die Messeanzeige ist eine reine Praesentation ohne Antriebssteuerung. Keine
+Hardwarepruefung, Detailruestung oder Veranstalterfreigabe wird als abgeschlossen markiert.
+
 ## Web-Version (durchklickbar)
 
 Es gibt eine durchklickbare Web-Version aller Guides im Halo/HUD-Design, die die
@@ -59,7 +75,7 @@ Die Kosten sind stark abhaengig von Tools, Fehlversuchen, Versand und Premium-Ma
 
 ## Projektziele
 
-- **Authentische MJOLNIR-Optik:** Mark VII / Mark VI Gen 3 Look mit originalen Farbcodes von 343 Industries.
+- **Authentische MJOLNIR-Optik:** Halo Infinite Mark VI GEN3 nach festgelegten Referenzen und geprueften Farbmustern.
 - **Tragbarkeit als Entwicklungsziel:** Modularer Aufbau; Notausstieg <60 Sekunden als noch zu pruefendes Ziel.
 - **Ruestungstraeger und Exoskelett (V4):** Eigener leichter Traeger, mechanisch oeffnende Kassetten und separat passend ausgewaehltes Serien-Exoskelett. Kein ungepruefter Lastpfad zum Boden.
 - **AR HUD & OpenCV (V3):** Near-Eye-Display (NED/Vufine) mit Pi 4/5, OpenCV-Bildverarbeitung (Freund-Feind-Erkennung / IFF), Nachtsicht, digitalem Zoom und BT-Waffentelemetrie.

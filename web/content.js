@@ -6,6 +6,64 @@
 const CONTENT = {
   // Curated, ordered quick-start paths per variant. Switchable in the app.
   journeys: {
+    V4: {
+      "label": "V4 Huskynarr",
+      "tag": "Mark VI GEN3 - Mechanik und Messe",
+      "steps": [
+        {
+          "title": "Designziel",
+          "file": "Documentation/Guides/Authentizitaet-Referenz.md"
+        },
+        {
+          "title": "Masse und Passform",
+          "file": "Documentation/Guides/Mjolnir-Massanpassung.md"
+        },
+        {
+          "title": "Systementwurf",
+          "file": "Documentation/Guides/Mjolnir-Systementwurf.md"
+        },
+        {
+          "title": "Mechanischer Einstieg",
+          "file": "Documentation/Guides/Mjolnir-Einstieg.md"
+        },
+        {
+          "title": "Detailkonstruktion",
+          "file": "Documentation/Guides/Mjolnir-Fertigung.md"
+        },
+        {
+          "title": "Konzept-CAD",
+          "file": "Design/Parametric/README.md"
+        },
+        {
+          "title": "Exoskelett",
+          "file": "Documentation/Guides/Exoskelett.md"
+        },
+        {
+          "title": "Elektronik",
+          "file": "Documentation/Guides/Mjolnir-Elektronik.md"
+        },
+        {
+          "title": "Budget",
+          "file": "Materials/Mjolnir-BOM.md"
+        },
+        {
+          "title": "Prototypen",
+          "file": "BuildGuides/Armor/Mjolnir-Prototypen.md"
+        },
+        {
+          "title": "Nachweisstatus",
+          "file": "Progress/Mjolnir-Readiness.md"
+        },
+        {
+          "title": "Messebetrieb",
+          "file": "Documentation/Guides/Mjolnir-Messebetrieb.md"
+        },
+        {
+          "title": "Messeanzeige",
+          "file": "Code/Exhibition/README.md"
+        }
+      ]
+    },
     V1: {
       label: "V1 Einsteiger",
       tag: "Foam, guenstig",
