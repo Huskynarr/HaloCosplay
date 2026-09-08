@@ -16,6 +16,7 @@ schliessen. Eine Anziehstation haelt die ungetragene Ruestung bereit.
 - [Massanpassung fuer 166 cm und breite Schultern](Documentation/Guides/Mjolnir-Massanpassung.md)
 - [Exoskelett: Hypershell / DNSYS und eigener Traeger](Documentation/Guides/Exoskelett.md)
 - [Parametrisches 3D-Modell mit Oeffnungsanimation](Design/Parametric/README.md)
+- [Bezahlbare Hardware fuer den ersten Prototyp](Materials/Mjolnir-Einkauf-Prototyp.md)
 - [Stueckliste, Kosten- und Gewichtsbudget](Materials/Mjolnir-BOM.md)
 - [Prototypenfolge und Abnahmekriterien](BuildGuides/Armor/Mjolnir-Prototypen.md)
 

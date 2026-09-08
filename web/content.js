@@ -43,6 +43,10 @@ const CONTENT = {
           "file": "Documentation/Guides/Mjolnir-Elektronik.md"
         },
         {
+          "title": "Hardware-Einkauf",
+          "file": "Materials/Mjolnir-Einkauf-Prototyp.md"
+        },
+        {
           "title": "Budget",
           "file": "Materials/Mjolnir-BOM.md"
         },
