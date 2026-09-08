@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="800" viewBox="0 0 1400 800">
+<rect width="1400" height="800" fill="#0c151b"/>
+<g font-family="sans-serif" fill="#edf4e4">
+<text x="55" y="60" font-size="28">MJOLNIR / FRONT ENTRY</text>
+<text x="55" y="95" font-size="16">Draufsicht - schematische Tueren und Eintrittsbreite</text>
+<text x="55" y="130" font-size="16" fill="#ffca74">CONCEPT_NOT_MEASURED</text>
+<text x="55" y="740" font-size="15">Nur Oeffnungshuelle. Keine Kollisions-, Passform- oder Festigkeitsfreigabe.</text>
+<text x="55" y="767" font-size="15">Gruen: Schalen / Cyan: eigener Rueckentraeger / Orange: Scharnierachsen</text>
+</g>
+<g fill="none" stroke-width="8"><path stroke="#68bcca" d="M 196.90,470.00 L 196.90,598.10 523.10,598.10 523.10,470.00"/>
+<polyline stroke="#8ba46b" points="196.90,470.00 196.90,341.90 360.00,341.90"/>
+<circle fill="#ffca74" stroke="none" cx="196.9" cy="470" r="7"/>
+<polyline stroke="#8ba46b" points="523.10,470.00 523.10,341.90 360.00,341.90"/>
+<circle fill="#ffca74" stroke="none" cx="523.1" cy="470" r="7"/>
+</g>
+<text x="360" y="645" text-anchor="middle" font-family="sans-serif" font-size="20" fill="#edf4e4">0 Grad / geschlossen</text>
+<g fill="none" stroke-width="8"><path stroke="#68bcca" d="M 835.40,470.00 L 835.40,598.10 1224.60,598.10 1224.60,470.00"/>
+<polyline stroke="#8ba46b" points="835.40,470.00 711.66,503.15 669.45,345.61"/>
+<circle fill="#ffca74" stroke="none" cx="835.4" cy="470" r="7"/>
+<polyline stroke="#8ba46b" points="1224.60,470.00 1348.34,503.15 1390.55,345.61"/>
+<circle fill="#ffca74" stroke="none" cx="1224.6" cy="470" r="7"/>
+</g>
+<text x="1030" y="645" text-anchor="middle" font-family="sans-serif" font-size="20" fill="#edf4e4">105 Grad / offen</text>
+</svg>

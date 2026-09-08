@@ -33,7 +33,11 @@ Gute Masse entscheiden ueber die Passform - egal ob du Foam-Templates skalierst 
 
 ### Zuschlag fuer Polsterung und Suit
 
-Selbst wenn du im Unteranzug misst, brauchen die Umfangsmasse einen Zuschlag fuer das Innenpolster der Ruestung und etwas Bewegungsfreiheit. Rechne bei allen Umfangsmassen **+10-15 mm** dazu, bevor du Foam-Templates oder STL-Teile skalierst. An eng anliegenden, beweglichen Stellen (Oberarm, Oberschenkel, Wade) eher Richtung +15 mm gehen; an starren Platten (Brustpanzer-Aussenmass) reicht +10 mm. Laengenmasse bekommen in der Regel keinen Zuschlag.
+Fuer den aktuellen persoenlichen Build gilt [Mjolnir-Massanpassung.md](Mjolnir-Massanpassung.md).
+Radiale Polsterstaerke und Umfangszuschlag sind nicht identisch: bei einem Kreis
+entspricht radialer Zuwachs a einem Umfangszuwachs 2*pi*a. Breite/Tiefe bekommen
+den radialen Zuschlag je Seite. Bereits mitgemessene Polster nicht doppelt addieren.
+Die fruehere pauschale Empfehlung +10-15 mm Umfang ist hiermit ersetzt.
 
 ## Allgemein
 
@@ -116,7 +120,7 @@ Beispiel:   175 cm / 183 cm = 0.956 = 95.6%
 ## Hinweise
 
 - Verschiedene Koerperregionen brauchen oft verschiedene Skalierungen!
-- Bei Umfangsmassen +10-15 mm dazurechnen fuer Unteranzug + Polsterung
+- Polster und Freiraum nach Messzustand und Querschnitt rechnen; siehe V4-Massanpassung
 - Erst Testdruck eines kleinen Teils (Unterarm), Passform pruefen, dann weitermachen
 - Armorsmith Designer ($30) berechnet die Skalierung automatisch pro Region
 - Messblatt aufbewahren - bei spaeterem Nachdruck wichtig

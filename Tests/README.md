@@ -1,5 +1,9 @@
 # Tests
 
+## MJOLNIR-Entwicklung
+
+Physische Kriterien: [Prototypen und Abnahme](../BuildGuides/Armor/Mjolnir-Prototypen.md). Berechnungspruefung: `python3 -m unittest discover -s Tests/Automation -v`. Softwaretests ersetzen keine Pass-/Lastprobe.
+
 Vorlagen fuer physische Anprobe- und Funktionstests. Vor jeder Convention
 mindestens einen vollstaendigen Tragetest dokumentieren (siehe auch
 `Documentation/Guides/Checklisten.md`).

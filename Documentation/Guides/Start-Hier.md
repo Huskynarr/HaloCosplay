@@ -1,5 +1,9 @@
 # Start hier
 
+## Aktuell: Huskynarr V4
+
+Fuer den angepassten Build zuerst den [Systementwurf](Mjolnir-Systementwurf.md) lesen. Die folgenden allgemeinen Varianten dienen als Hintergrund.
+
 Dieser Guide holt neue und erfahrene Cosplayer ab und fuehrt dich in einen sicheren, planbaren Build.
 
 **Der rote Faden:** Den kompletten Weg von der Entscheidung bis zur Convention - Schritt fuer

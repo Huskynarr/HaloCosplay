@@ -1,5 +1,9 @@
 # Komplett-Walkthrough (Anfaenger bis Profi)
 
+## Aktuell: persoenlicher V4-Pfad
+
+Fuer den aufklappbaren Huskynarr-Build gilt die [Prototypenfolge](../../BuildGuides/Armor/Mjolnir-Prototypen.md). Keine alten pauschalen Hoehen-/Stelzenskalierungen auf diesen Entwurf uebertragen.
+
 Der **rote Faden** durch das ganze Projekt: ein durchgehender, geordneter Weg von der
 ersten Entscheidung bis zum Auftritt auf der Convention. Jeder Schritt verlinkt den
 passenden Detail-Guide und ist markiert nach Schwierigkeit und Variante.

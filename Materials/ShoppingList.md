@@ -1,5 +1,9 @@
 # Shopping List (Master Chief)
 
+## Persoenliches V4-Budget
+
+Fuer den aktuellen Huskynarr-Build gilt die [MJOLNIR-Stueckliste](Mjolnir-BOM.md). Die folgenden allgemeinen Variantenbudgets werden nicht addiert.
+
 Diese Liste ist nach Kategorien gegliedert. Preise sind Richtwerte (EUR).
 
 **Direkte Kauflinks zu allen Posten:** `Materials/Einkaufsliste-Links.md`

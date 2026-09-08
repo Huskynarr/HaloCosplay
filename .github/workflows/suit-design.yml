@@ -1,0 +1,46 @@
+name: MJOLNIR design checks
+
+on:
+  push:
+    branches: [main]
+    paths: ['Design/Parametric/**', 'tools/suit_*.py', 'Materials/Mjolnir*', 'Tests/Automation/**', '.github/workflows/suit-design.yml']
+  pull_request:
+    paths: ['Design/Parametric/**', 'tools/suit_*.py', 'Materials/Mjolnir*', 'Tests/Automation/**', '.github/workflows/suit-design.yml']
+
+permissions:
+  contents: read
+
+jobs:
+  calculations:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m unittest discover -s Tests/Automation -v
+      - run: python tools/suit_budget.py --check
+      - run: python -m compileall -q tools/suit_fit.py tools/suit_budget.py
+
+  cad:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install OpenSCAD
+        run: sudo apt-get update -qq && sudo apt-get install -y openscad
+      - name: Compile concept poses and test coupons
+        env:
+          QT_QPA_PLATFORM: offscreen
+        run: |
+          mkdir -p build
+          for pose in 0 0.25 0.5 1; do
+            openscad --hardwarnings -o "build/suit-${pose}.csg" -D "open_fraction=${pose}" Design/Parametric/MjolnirEntry.scad
+          done
+          openscad --hardwarnings -o build/forearm-ring.stl -D 'view="forearm_ring"' Design/Parametric/MjolnirEntry.scad
+          openscad --hardwarnings -o build/hole-coupon.stl -D 'view="hardware"' Design/Parametric/MjolnirEntry.scad
+          test -s build/forearm-ring.stl
+          test -s build/hole-coupon.stl
+      - uses: actions/upload-artifact@v4
+        with:
+          name: concept-only-not-fabrication-approved
+          path: build/
