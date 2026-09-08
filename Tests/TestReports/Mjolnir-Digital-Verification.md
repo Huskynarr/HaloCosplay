@@ -23,11 +23,14 @@ Ab Repository-Wurzel:
 python3 -m unittest discover -s Tests/Automation -v
 python3 tools/suit_budget.py --check
 mkdir -p build
-openscad --hardwarnings -o build/suit-open.csg -D open_fraction=1 Design/Parametric/MjolnirEntry.scad
+openscad --hardwarnings -o "$PWD/build/suit-open.csg" -D open_fraction=1 Design/Parametric/MjolnirEntry.scad
+test -s build/suit-open.csg
 openscad --hardwarnings -o build/ring.stl -D 'view="forearm_ring"' Design/Parametric/MjolnirEntry.scad
 ```
 
 Die CI-Ergaenzung prueft Berechnung und CAD-Export bei relevanten Aenderungen.
+CSG-Exporte verwenden absolute Ziele und pruefen Dateiexistenz/-groesse, da
+OpenSCAD 2021.01 bei relativen CSG-Pfadfehlern mit Exitcode 0 enden kann.
 Sie ist keine Freigabe fuer den getragenen Aufbau. Bestehende HUD-/Arduino-
 Software wurde nicht funktional geaendert und hier nicht als Hardware getestet.
 

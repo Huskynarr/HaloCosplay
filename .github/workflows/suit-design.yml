@@ -34,7 +34,8 @@ jobs:
         run: |
           mkdir -p build
           for pose in 0 0.25 0.5 1; do
-            openscad --hardwarnings -o "build/suit-${pose}.csg" -D "open_fraction=${pose}" Design/Parametric/MjolnirEntry.scad
+            openscad --hardwarnings -o "$GITHUB_WORKSPACE/build/suit-${pose}.csg" -D "open_fraction=${pose}" Design/Parametric/MjolnirEntry.scad
+            test -s "$GITHUB_WORKSPACE/build/suit-${pose}.csg"
           done
           openscad --hardwarnings -o build/forearm-ring.stl -D 'view="forearm_ring"' Design/Parametric/MjolnirEntry.scad
           openscad --hardwarnings -o build/hole-coupon.stl -D 'view="hardware"' Design/Parametric/MjolnirEntry.scad

@@ -22,13 +22,17 @@ danach schwenken die Tueren. Das ist eine idealisierte
 Schwenkbewegung, kein nachgewiesener kollisionsfreier Mechanismus.
 
 ```bash
-openscad -o build/torso-closed.csg -D 'view="torso"' Design/Parametric/MjolnirEntry.scad
-openscad -o build/torso-open.csg -D 'view="torso"' -D open_fraction=1 Design/Parametric/MjolnirEntry.scad
+openscad -o "$PWD/build/torso-closed.csg" -D 'view="torso"' Design/Parametric/MjolnirEntry.scad
+openscad -o "$PWD/build/torso-open.csg" -D 'view="torso"' -D open_fraction=1 Design/Parametric/MjolnirEntry.scad
 openscad -o build/forearm-ring.stl -D 'view="forearm_ring"' Design/Parametric/MjolnirEntry.scad
 ```
 
 `build/` vorher anlegen. Die Ring-STL ist eine **synthetische Testlehre**, solange
 `concept_only=true` gilt. Keine komplette Ruestung daraus drucken.
+
+CSG-Zielpfade absolut angeben: OpenSCAD 2021.01 kann bei relativen CSG-Pfaden
+eine Fehlermeldung trotz Exitcode 0 liefern. Die CI prueft deshalb zusaetzlich,
+ob jede CSG-Ausgabedatei existiert und nicht leer ist.
 
 Die PNG-Vorschau stammt aus den tatsaechlich kompilierten Baugruppen-Meshes.
 Zur Neuberechnung werden zusaetzlich `matplotlib` und `numpy` benoetigt:
