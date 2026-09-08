@@ -3,9 +3,9 @@ name: MJOLNIR design checks
 on:
   push:
     branches: [main]
-    paths: ['Design/Parametric/**', 'Progress/Mjolnir-*', 'Code/Exhibition/**', 'tools/suit_*.py', 'Materials/Mjolnir*', 'Tests/Automation/**', '.github/workflows/suit-design.yml']
+    paths: ['Design/Parametric/**', 'web/configurator/**', 'web/budget/**', 'Progress/Mjolnir-*', 'Code/Exhibition/**', 'tools/suit_*.py', 'Materials/Mjolnir*', 'Tests/Automation/**', 'Tests/Browser/**', '.github/workflows/suit-design.yml']
   pull_request:
-    paths: ['Design/Parametric/**', 'Progress/Mjolnir-*', 'Code/Exhibition/**', 'tools/suit_*.py', 'Materials/Mjolnir*', 'Tests/Automation/**', '.github/workflows/suit-design.yml']
+    paths: ['Design/Parametric/**', 'web/configurator/**', 'web/budget/**', 'Progress/Mjolnir-*', 'Code/Exhibition/**', 'tools/suit_*.py', 'Materials/Mjolnir*', 'Tests/Automation/**', 'Tests/Browser/**', '.github/workflows/suit-design.yml']
 
 permissions:
   contents: read
@@ -24,8 +24,30 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
-      - run: node --test Tests/Automation/exhibition.test.cjs
-      - run: python -m compileall -q tools/suit_fit.py tools/suit_budget.py
+      - run: node --test Tests/Automation/*.test.cjs
+      - run: python -m compileall -q tools/suit_*.py
+
+  browser:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install isolated browser test dependencies
+        run: |
+          npm install --no-save --prefix build/browser playwright@1.62.1
+          node build/browser/node_modules/playwright/cli.js install --with-deps chromium --only-shell
+      - name: Verify interactive project workflows
+        env:
+          NODE_PATH: ${{ github.workspace }}/build/browser/node_modules
+        run: node Tests/Browser/smoke.cjs
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: project-interface-screenshots
+          path: build/browser-results/
+          if-no-files-found: ignore
 
   cad:
     runs-on: ubuntu-latest
@@ -38,6 +60,9 @@ jobs:
           QT_QPA_PLATFORM: offscreen
         run: |
           mkdir -p build
+          python3 tools/suit_fit.py --profile Design/Parametric/Profiles/Demo.json --concept --out build/PortableSuit
+          openscad --hardwarnings -o "$GITHUB_WORKSPACE/build/portable.csg" "$GITHUB_WORKSPACE/build/PortableSuit/MjolnirEntry.scad"
+          test -s "$GITHUB_WORKSPACE/build/portable.csg"
           for pose in 0 0.25 0.5 1; do
             openscad --hardwarnings -o "$GITHUB_WORKSPACE/build/suit-${pose}.csg" -D "open_fraction=${pose}" Design/Parametric/MjolnirEntry.scad
             test -s "$GITHUB_WORKSPACE/build/suit-${pose}.csg"

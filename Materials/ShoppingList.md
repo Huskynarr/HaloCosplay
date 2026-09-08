@@ -1,8 +1,12 @@
-# Shopping List (Master Chief)
+# Materialsammlung und Einkaufsreferenzen
 
-## Persoenliches V4-Budget
+## Projektbezogenes Budget
 
-Fuer den aktuellen Huskynarr-Build gilt die [MJOLNIR-Stueckliste](Mjolnir-BOM.md). Die folgenden allgemeinen Variantenbudgets werden nicht addiert.
+Die [MJOLNIR-Stueckliste](Mjolnir-BOM.md) ist ein editierbares Beispiel.
+Eine eigene Liste im [Budget-Editor](../web/budget/) bearbeiten oder per
+`suit_budget.py --bom ... --out ...` auswerten. Mengen und Preise richten
+sich nach Profil, Ausstattung, Fertigung und vorhandenem Material. Die
+folgenden Variantenbudgets sind getrennte Planungsbeispiele und werden nicht addiert.
 
 Diese Liste ist nach Kategorien gegliedert. Preise sind Richtwerte (EUR).
 
@@ -199,4 +203,4 @@ Nur fuer V3 (Stufe-C-AR nach `Documentation/Guides/Elektronik-AR-Display.md` und
 | **Gesamt (V2)** | **~750-1.270 EUR** |
 | V3-Zusatz-Hardware (optional, ohne Action-Cam) | +400-750 EUR |
 
-**Hinweis:** Dies sind reine Materialkosten einer optimierten Einkaufsliste (H2C vorhanden). Tools (Loetkolben, Dremel, Airbrush etc.), Fehldrucke, Versand und Nachkaeufe kommen dazu - realistisch 2-3x der Materialkosten. Fuer die Gesamtbudget-Planung siehe `Documentation/Guides/Kosten.md` (V2: 2.400-6.600 EUR inkl. allem).
+**Hinweis:** Diese Beispielrechnung umfasst Material und setzt einen bereits verfuegbaren Drucker voraus. Drucker, Tools (Loetkolben, Dremel, Airbrush etc.), Fehldrucke, Versand und Nachkaeufe sind je Projekt separat einzutragen. Fuer die Gesamtbudget-Planung siehe `Documentation/Guides/Kosten.md` und den [Budget-Editor](../web/budget/).

@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark">
+  <title>MJOLNIR - Profilkonfigurator</title>
+  <link rel="stylesheet" href="style.css">
+  <script defer src="profile.js"></script>
+  <script defer src="app.js"></script>
+</head>
+<body>
+  <a class="skip" href="#editor">Zum Profil</a>
+  <header>
+    <a class="back" href="../index.html">&larr; Bauhandbuch</a>
+    <p class="eyebrow">MJOLNIR / V4 BAUKASTEN</p>
+    <h1>Ein Baukasten.<br>Viele passende Profile.</h1>
+    <p class="intro">Ruestungsreferenz, Bauweise und Ausstattung waehlen. Koerper- und Schuhmasse pro Profil erfassen und fuer die Planung exportieren.</p>
+  </header>
+  <main>
+    <p id="message" class="message" role="status" aria-live="polite">Profilschema wird geladen ...</p>
+    <noscript>Der Konfigurator benoetigt JavaScript. Alternativ lassen sich die JSON-Profile und Python-Werkzeuge im Repository verwenden.</noscript>
+    <div id="workspace" class="workspace" hidden>
+      <aside class="panel profiles" aria-label="Profilverwaltung">
+        <h2>Profile</h2>
+        <label for="profiles">Aktives Profil</label>
+        <select id="profiles"></select>
+        <div class="button-grid">
+          <button id="new" type="button">Leeres Profil</button>
+          <button id="demo" type="button">Demo laden</button>
+        </div>
+        <p class="help">Neue Profile beginnen ohne Koerpermasse. Die Demo enthaelt ausschliesslich erfundene Werte.</p>
+        <button id="import" type="button">JSON importieren</button>
+        <input id="file" type="file" accept=".json,application/json" hidden>
+        <button id="export" type="button" class="accent">Aktives Profil exportieren</button>
+        <button id="delete" type="button" class="quiet">Aktives Profil entfernen</button>
+        <hr>
+        <label class="check"><input id="persist" type="checkbox"> <span>Profile in diesem Browser speichern</span></label>
+        <p id="privacy" class="help">Standard: nur im Arbeitsspeicher. Beim Neuladen gehen Eingaben verloren. Ein JSON-Export sichert das aktive Profil.</p>
+        <p class="help">Koerpermasse werden nicht an einen Server gesendet. Nach Aktivierung kann jede Person mit Zugriff auf dieses Browserprofil die gespeicherten Daten lesen. Deaktivieren entfernt diese Browserkopie.</p>
+      </aside>
+      <section id="editor" tabindex="-1">
+        <div class="panel">
+          <div class="section-heading"><h2>Profil und Bauweise</h2><span id="kind" class="badge"></span></div>
+          <label for="name">Profilname</label>
+          <input id="name" maxlength="64" autocomplete="off" spellcheck="false" aria-describedby="name-help">
+          <p id="name-help" class="help">Zum Beispiel Spartan-01. Keine Namen oder Kontaktangaben erforderlich.</p>
+          <div id="build" class="fields"></div>
+          <fieldset class="features"><legend>Optionale Ausstattung</legend><div id="features"></div></fieldset>
+          <p class="help">Die Auswahl beschreibt den geplanten Ausbau. Sie stellt keine Kompatibilitaet mit einem Exoskelett oder eine fertige Ruestungsoberflaeche her.</p>
+        </div>
+        <div class="panel">
+          <div class="section-heading"><h2>Messwerte</h2><span id="count" class="badge"></span></div>
+          <p>Alle Werte in Millimetern, links und rechts getrennt. Schuhmasse am tatsaechlich verwendeten Schuh messen. Schuhgroessen werden nicht in Millimeter umgerechnet.</p>
+          <p class="help">Die Zahlenbereiche pruefen Eingaben auf grobe Fehler. Sie belegen keine Passform. Ein leeres Feld bleibt unbekannt.</p>
+          <div id="measurements"></div>
+          <button id="confirm" type="button">Alle Werte als selbst gemessen kennzeichnen</button>
+          <p class="help">Diese Kennzeichnung dokumentiert die Herkunft der Werte. Sie ersetzt keine Passprobe. Demoprofile bleiben auch nach Bearbeitung synthetisch.</p>
+        </div>
+        <details class="panel"><summary>Konstruktionszugaben in mm</summary><p class="help">Vorbelegte Entwicklungswerte fuer Polster, Freiraum und Schalen. Material und reale Passproben koennen andere Zugaben erfordern.</p><div id="allowances" class="fields"></div></details>
+      </section>
+      <aside class="panel overview" aria-label="Planungsstatus">
+        <h2>Planungsstatus</h2>
+        <p id="status-label" class="status-label"></p>
+        <progress id="progress" max="32" value="0" aria-label="Anteil eingetragener Messwerte"></progress>
+        <p id="missing-summary"></p>
+        <div id="errors" role="status"></div>
+        <details><summary>Offene Messwerte</summary><ul id="missing"></ul></details>
+        <hr>
+        <h3>Passende naechste Schritte</h3>
+        <ul id="guides" class="guides"></ul>
+        <p class="boundary">Profil vorhanden bedeutet: Planung moeglich. Fertigungsmodelle, Lastnachweise und reale Tragetests bleiben eigenstaendige Entwicklungsschritte.</p>
+      </aside>
+    </div>
+  </main>
+  <footer>Lokaler Profilkonfigurator - keine Anmeldung, keine Cloud-Synchronisierung. <a href="README.md">Bedienung und JSON-Schnittstelle</a></footer>
+</body>
+</html>

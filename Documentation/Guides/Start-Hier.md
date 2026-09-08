@@ -1,55 +1,46 @@
 # Start hier
 
-## Aktuell: Huskynarr V4
+Ein Halo-Cosplay beginnt mit einem eigenen Projektprofil. Koerperform,
+Ruestungsvariante, Material und technische Ausstattung sind unabhaengige
+Entscheidungen. Der aktuelle [Konfigurations-Workflow](Mjolnir-Konfiguration.md)
+kann fuer mehrere Personen und Aufbauten parallel genutzt werden.
 
-Fuer den angepassten Build zuerst den [Systementwurf](Mjolnir-Systementwurf.md) lesen. Die folgenden allgemeinen Varianten dienen als Hintergrund.
+## Erste Schritte
 
-Dieser Guide holt neue und erfahrene Cosplayer ab und fuehrt dich in einen sicheren, planbaren Build.
+1. Im [Konfigurator](../../web/configurator/) oder per Kommandozeile ein leeres
+   Profil anlegen. Einen neutralen Projektnamen vergeben.
+2. [Ruestungsreferenz](Authentizitaet-Referenz.md) waehlen und Quellen festhalten.
+3. [Materialweg](Varianten.md) und Trage-/Ausstellungsbetrieb festlegen.
+4. [Masse](Mjolnir-Massanpassung.md) mit einer zweiten Person aufnehmen;
+   unbekannte Werte offen lassen. Keine EU-Schuhgroesse in Millimeter umrechnen.
+5. [Systementwurf](Mjolnir-Systementwurf.md) und die
+   [Prototypenfolge](../../BuildGuides/Armor/Mjolnir-Prototypen.md) durcharbeiten.
+6. Erste Passmodelle und einen ungetragenen Mechanikversuch herstellen.
+7. [Budget](../../web/budget/) nach vorhandenem Material und echten Angeboten
+   bearbeiten; optionale Elektronik erst nach festgelegtem Bedarf ergaenzen.
 
-**Der rote Faden:** Den kompletten Weg von der Entscheidung bis zur Convention - Schritt fuer
-Schritt, mit Skill-Level und Variante pro Schritt - findest du im
-`Documentation/Guides/Komplett-Walkthrough.md`. Diese Seite hier ist der Schnelleinstieg dorthin.
+## Material und Erfahrung
 
-## Wenn du neu bist (V1 empfohlen)
+Foam eignet sich als eigener Bauweg; gedruckte oder hybride Teile erfordern
+andere Verbindungen und Finishverfahren. V1, V2 und V3 bleiben Suchbegriffe
+fuer bestehende Guides, sind aber keine verpflichtenden Ausstattungspakete.
+Ein HUD oder Exoskelett ist auch bei aufwendigem Finish optional.
 
-1. Lies kurz: `Documentation/Guides/Varianten.md`
-2. Lies die **Top 15 Anfaengerfehler**: `Documentation/Guides/Anfaengerfehler.md`
-3. Waehle V1 Einsteiger und setze ein klares Ziel (Con-Datum oder Foto-Shoot)
-4. Lies den **Foam-Bau-Guide**: `Documentation/Guides/Foam-Bau.md` (kompletter V1-Weg)
-5. Baue zuerst Unteranzug + Tragegurt (siehe `BuildGuides/Armor/Step1.md`)
-6. Erstelle 1-2 Ruestungsteile aus Foam als Test (Schienbein + Unterarm)
-7. Finish erst nach Passformtests (Foam-Finishing in `Documentation/Guides/Lackierung-Finishing.md`)
+- [Foam-Bau](Foam-Bau.md)
+- [3D-Druck](3D-Druck.md)
+- [Lackierung und Finishing](Lackierung-Finishing.md)
+- [Anfaengerfehler](Anfaengerfehler.md)
+- [Komplett-Walkthrough](Komplett-Walkthrough.md)
 
-**Minimalziel fuer die erste Con**
-- Helm + Brust + Unterarme + Schienbeine
-- Guertel/Utility-Details spaeter
+## Erster Meilenstein
 
-## Wenn du Erfahrung hast (V2/V3)
+Ein leichter Helm-/Torso-/Schulter-Prototyp zeigt Proportion, Sicht und Einstieg.
+Fuer kleine Passlehren kann vorher ein Unterarmabschnitt entstehen. Eine feste
+Fertigungsdauer wird daraus nicht abgeleitet. Finish folgt nach der Passprobe;
+eine technisch erzeugte Huelle ist noch kein fertiges Ruestungsteil.
 
-1. Plane den Hybrid-Ansatz (3D-Helm + 3D-/Foam-Korpus)
-2. 3D-Druck Guide lesen: `Documentation/Guides/3D-Druck.md`
-3. STL-Set auswaehlen: `Resources/STL-Quellen.md`
-4. Definiere Elektronikmodule als eigenstaendige Einheiten
-5. Baue den Akku-Backpack als austauschbares Modul
-6. Fokussiere auf Finish und Details: `Documentation/Guides/Lackierung-Finishing.md`
+## Weitere Arbeitsunterlagen
 
-## Schneller Erfolg (1-2 Wochen)
-
-- Helm und Visor als erstes Detail-Highlight
-- Einfache LED-Akzente im Visor
-- Restliche Ruestung in Rohform fuer Fotos
-
-## Best Practice in 4 Regeln
-
-- Passform vor Detail
-- Gewicht auf die Huefte
-- Elektronik modular und austauschbar
-- Jede Phase testen, bevor du weitergehst
-
-## Naechste Schritte
-
-- **TODO-Liste:** `Documentation/TODO.md`
-- **Checklisten:** `Documentation/Guides/Checklisten.md`
-- **Einkaufsliste:** `Materials/ShoppingList.md`
-- **FAQ:** `Support/FAQ.md`
-- **Community:** `Resources/Community.md`
+[Aufgaben](../TODO.md), [Einkauf fuer den Prototyp](../../Materials/Mjolnir-Einkauf-Prototyp.md),
+[Checklisten](Checklisten.md), [FAQ](../../Support/FAQ.md),
+[Community](../../Resources/Community.md).

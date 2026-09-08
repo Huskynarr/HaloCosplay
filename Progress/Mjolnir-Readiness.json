@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "revision": "V4-development-2026-09-08",
+  "revision": "template-r1",
   "gates": [
     {
       "id": "REF",
@@ -62,5 +62,6 @@
       "status": "open",
       "evidence": []
     }
-  ]
+  ],
+  "project": "Baukasten: ungetestetes Beispiel"
 }

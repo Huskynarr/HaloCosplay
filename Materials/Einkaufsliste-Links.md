@@ -10,7 +10,7 @@ Filament und Drucker primaer aus dem offiziellen Bambu Lab Store.
 
 | Posten | Produkt | Shop | Preis ca. | Link |
 | --- | --- | --- | --- | --- |
-| 3D-Drucker (vorhanden) | Bambu Lab H2C | Amazon (Alternative) | ab 2.249 EUR | https://www.amazon.de/s?k=Bambu+Lab+3D-Drucker&tag=huskynarr-21 |
+| 3D-Drucker (Beispiel, Bestand je Projekt pruefen) | Bambu Lab H2C | Amazon (Alternative) | ab 2.249 EUR | https://www.amazon.de/s?k=Bambu+Lab+3D-Drucker&tag=huskynarr-21 |
 
 ## Filament (Bambu Lab Store, EU)
 

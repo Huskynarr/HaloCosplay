@@ -1,10 +1,15 @@
-# V4: Ausstellungs- und Vorfuehrbetrieb
+# Ausstellungs- und Vorfuehrbetrieb
 
 Ziel ist ein originalgetreues Fanprojekt mit nachvollziehbarer Technik. Ein
 Standplatz, eine Partnerschaft oder eine Veranstalterfreigabe ist nicht zugesagt.
 Die gewaehlte Veranstaltung und Ausgabe muessen vor der Einsatzplanung feststehen.
 
-## Drei Betriebsarten desselben Projekts
+## Betriebsarten nach Projektkonfiguration
+
+Das Profil unterscheidet `wearable`, `exhibition` und `both`. Die folgenden
+Betriebsarten gelten nur fuer den tatsaechlich geplanten Umfang; Wartung ist
+bei jedem Aufbau erforderlich. Eine Ausstellungsauswahl bestaetigt weder
+Tragbarkeit noch die Eignung eines vorhandenen Staenders.
 
 | Modus | Ausstattung | Bedienung und Grenze |
 | --- | --- | --- |

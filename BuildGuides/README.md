@@ -1,8 +1,10 @@
 # Build Guides
 
-## Persoenlicher Einstiegspfad
+## Profilbasierter Einstiegspfad
 
-[MJOLNIR-Prototypenfolge](Armor/Mjolnir-Prototypen.md) fuehrt vom Massblatt ueber den Torso-Mockup zu den vormontierten Baugruppen.
+Zuerst [Projekt konfigurieren](../Documentation/Guides/Mjolnir-Konfiguration.md).
+Die [MJOLNIR-Prototypenfolge](Armor/Mjolnir-Prototypen.md) fuehrt vom eigenen
+Massblatt ueber den Torso-Mockup zu den vormontierten Baugruppen.
 
 Schritt-fuer-Schritt Anleitungen fuer den Bau der MJOLNIR-Ruestung. Jeder Bereich hat 2 Schritte.
 

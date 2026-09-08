@@ -22,3 +22,13 @@ test('clock reversal hides measurements; unknown fields stay unknown', () => {
  assert.equal(sample.values.temperature_c,null);
  assert.equal(state(sample,now-1).values,null);
 });
+const {metadata} = require('../../Code/Exhibition/project.js');
+test('project display selects only metadata, never measurements',()=>{
+ const result=metadata({schema_version:1,profile:'Suit A',build:{armor_reference:'custom',material:'foam',operating_mode:'wearable'},measurements_mm:{height:1910}});
+ assert.equal(result.title,'Suit A');
+ assert.doesNotMatch(JSON.stringify(result),/1910|height/);
+ assert.match(result.summary,/custom/);
+});
+test('invalid project metadata is rejected',()=>{
+ for (const data of [null,{}, {schema_version:1,profile:'',build:{}}, {schema_version:1,profile:'A',build:{material:12}}]) assert.throws(()=>metadata(data));
+});

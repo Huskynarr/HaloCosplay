@@ -1,6 +1,8 @@
 # Messebudget: Zusatzumfang zur Ruestung
 
-Die [Basis-BOM](Mjolnir-BOM.md) ist ein Material-Planbudget fuer den Anzug und
+Der Ausstellungsumfang wird je [Projektprofil](../Documentation/Guides/Mjolnir-Konfiguration.md)
+festgelegt. Fuer reinen Tragebetrieb ist dieses Zusatzbudget nicht automatisch
+erforderlich. Die [Basis-BOM](Mjolnir-BOM.md) ist ein Material-Planbudget fuer den Anzug und
 seine Anziehstation. Sie ist kein Gesamtangebot fuer eine Messeausstellung.
 Die folgenden Positionen sind vor einer Budgetfreigabe mit realen Angeboten
 oder dokumentiert vorhandenem Bestand zu fuellen. Leere Betraege sind unbekannt,

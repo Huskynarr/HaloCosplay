@@ -69,6 +69,8 @@
   function navLink(item, num) {
     var a = document.createElement("a");
     a.className = "navlink"; a.href = "#" + item.file; a.setAttribute("data-file", item.file);
+    if (item.file === "profile-configurator") a.href = "configurator/";
+    if (item.file === "budget-planner") a.href = "budget/";
     a.textContent = (num ? num + ". " : "") + item.title;
     if (item.sub) a.title = item.sub;
     if (store.get("done:" + item.file) === "1") a.classList.add("done");
@@ -292,15 +294,16 @@
         '<div style="color:var(--dim);font-size:12px;margin-top:2px">' + esc(jj.tag) + '</div></button>';
     }).join("");
     docEl.innerHTML =
-      '<h1>Halo Master Chief: Entwicklungs- und Bauhandbuch</h1>' +
-      '<p style="font-size:1.08rem;color:var(--dim)">Dies ist eine durchklickbare Schritt-für-Schritt-Anleitung für den Bau deiner eigenen Master Chief Cosplay-Rüstung (MJOLNIR). Die Inhalte basieren direkt auf den Dokumentationen im Repository. Dein Fortschritt, abgehakte Aufgaben und Haken auf Einkaufslisten werden lokal in deinem Browser gespeichert.</p>' +
+      '<h1>Halo MJOLNIR: Entwicklungs- und Bauhandbuch</h1>' +
+      '<p style="font-size:1.08rem;color:var(--dim)">Ein konfigurierbarer Baukasten fuer Halo-Cosplay: Ruestungsreferenz, Materialweg und Ausstattung lassen sich pro Profil auswaehlen. Die Inhalte basieren auf den Dokumentationen im Repository. Der Lesefortschritt und Einkaufsmarkierungen bleiben lokal im Browser gespeichert; Koerperprofile werden im separaten Konfigurator nur nach ausdruecklicher Auswahl gespeichert.</p>' +
+      '<p><a class="btn btn-accent" href="configurator/">Profil konfigurieren &gt;</a> <a class="btn" href="budget/">Budget planen &gt;</a></p>' +
       '<div class="hud" style="padding:15px 18px;margin:1.5em 0;border-left:3px solid var(--cyan);background:rgba(70,200,255,0.03);">' +
       '<div class="font-disp" style="color:var(--cyan);font-weight:600;font-size:0.95rem;letter-spacing:.05em;">HINTERGRUND: WAS BEDEUTET „MJOLNIR“?</div>' +
       '<p style="font-size:0.9rem;color:var(--text);margin:.4em 0 0;line-height:1.5;">' +
       'Die Rüstung des Master Chiefs trägt die offizielle Bezeichnung <strong>MJOLNIR Powered Assault Armor</strong>. Benannt nach dem legendären Hammer des nordischen Donnergottes Thor, symbolisiert dieser Name die extreme Stärke und Widerstandskraft der Rüstung. Der V4-Pfad dokumentiert den Entwicklungsstand; Fertigungsmodelle und reale Abnahmen sind noch offen.' +
       '</p>' +
       '</div>' +
-      '<h2>Wähl deinen Pfad</h2>' +
+      '<h2>Baupfad auswaehlen</h2>' +
       '<div style="display:flex;gap:10px;flex-wrap:wrap;margin:.6em 0 1.4em">' + cards + '</div>' +
       '<div class="hud ticks" style="padding:18px 20px;margin:8px 0 22px;background:rgba(94,194,63,.05);">' +
       '<div class="font-disp" style="color:var(--accent);font-weight:700;letter-spacing:.06em;">' + esc(j.label) + ' - SCHNELLSTART</div>' +
@@ -309,10 +312,9 @@
       '</div>' +
       '<h2>So funktioniert es</h2>' +
       '<ul>' +
-      '<li>Wähle oben links deinen Schwierigkeitsgrad/Pfad (<strong>V4 Huskynarr</strong> / <strong>V1 Foam</strong> / <strong>V2 3D-Druck</strong> / <strong>V3 Profi-Exoskelett</strong>) – jede Variante führt dich strukturiert durch das Projekt.</li>' +
-      '<li>Hake <strong>Schritte</strong> in den Checklisten direkt ab – dein Fortschritt wird automatisch gesichert.</li>' +
-      '<li>Markiere auf den Einkaufslisten die Materialien und Komponenten, die du <strong>bereits besitzt</strong>.</li>' +
-      '<li>Der Statusbalken im Header visualisiert deinen <strong>Gesamtfortschritt der ausgewählten Variante</strong>.</li>' +
+      '<li><strong>V4 Baukasten</strong> verbindet Profile, Mechanik und Messebetrieb. V1 Foam, V2 3D-Druck und V3 dienen als weitere Material- und Ausbaureferenzen.</li>' +
+      '<li>Abgehakte <strong>Schritte</strong> und Einkaufsmarkierungen werden automatisch lokal gesichert.</li>' +
+      '<li>Der Statusbalken zeigt den <strong>Lesefortschritt im gewaehlten Baupfad</strong>; er ist kein Nachweis fuer einen fertigen oder tragbaren Anzug.</li>' +
       '</ul>';
     docEl.querySelectorAll(".variant-pick").forEach(function (b) {
       b.addEventListener("click", function () {
@@ -691,6 +693,8 @@
 
   function route() {
     var file = decodeURIComponent(location.hash.replace(/^#/, ""));
+    if (file === "profile-configurator") { location.href = "configurator/"; return; }
+    if (file === "budget-planner") { location.href = "budget/"; return; }
     if (!file) { welcome(); return; }
     if (file === VIEWER) { render3DViewer(); return; }
     if (file === COSPLAY) { renderCosplayGuides(); return; }

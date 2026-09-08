@@ -21,7 +21,7 @@ relevanten Abschnitten im Veranstalterpaket sichern; konkrete Rueckfragen mit
 Fotos und technischen Daten vorbereiten. Rueckmeldung, Bedingungen und
 Geltungsbereich dokumentieren. Keine Zusage liegt bisher vor.
 
-Der V4-Basisauftritt funktioniert ohne Waffen-Prop, Nebel oder Stroboskop.
+Der mechanische Basisauftritt funktioniert ohne Waffen-Prop, Nebel oder Stroboskop.
 Optionale Requisiten/Effekte erhalten eine eigene Pruefung, bevor sie in den
 Messeumfang aufgenommen werden.
 

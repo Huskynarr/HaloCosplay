@@ -1,5 +1,9 @@
 # Digitale Pruefung des MJOLNIR-Entwurfs
 
+Historischer Bericht vor der Mehrprofil-Umstellung. Aktueller Softwareumfang:
+[Baukasten-Pruefung](Mjolnir-Baukasten-Verification.md). Die folgenden Werte
+beschreiben ausschliesslich den damaligen Teststand.
+
 Datum: 2026-09-08. Grundlage: Konzeptprofil mit 1660 mm angegebener
 Koerpergroesse und 31 ausdruecklich synthetischen linearen Beispielmassen.
 

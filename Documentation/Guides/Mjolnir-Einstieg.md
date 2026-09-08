@@ -54,11 +54,11 @@ Eintrittsbreite = max(Schulter, Brust, Bauch, Huefte) + 2 * Handhabungsabstand
 Seitlicher Ausfahrweg = max(0, (Eintrittsbreite - geschlossene Innenbreite) / 2)
 ```
 
-Im mitgelieferten synthetischen Beispiel: 490 mm Schulterbreite, 30 mm
-Handhabungsabstand je Seite, 466 mm Torso-Aussenbreite, 3 mm Wand ergeben 550 mm
-geforderte Eintrittsbreite und 45 mm Ausfahrweg je Fluegel. **490 mm ist kein
-gemessenes Huskynarr-Mass.** Die stationaeren Rueckenstege duerfen nicht in die
-so berechnete lichte Eintrittsbahn hineinragen.
+Eigenstaendiges Rechenbeispiel (keine Profilvorgabe): 490 mm Schulterbreite,
+30 mm Handhabungsabstand je Seite, 466 mm Torso-Aussenbreite und 3 mm Wand
+ergeben 550 mm geforderte Eintrittsbreite und 45 mm Ausfahrweg je Fluegel.
+Die Werte des ausgewaehlten Profils stehen im erzeugten Fit-Bericht.
+Die stationaeren Rueckenstege duerfen nicht in die lichte Eintrittsbahn hineinragen.
 
 ![Draufsicht geschlossen und offen](../../Design/Parametric/Generated/OpeningEnvelope.svg)
 

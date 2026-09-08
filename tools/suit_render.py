@@ -8,22 +8,24 @@ import re
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--meshes", type=Path, default=Path("build"))
-    parser.add_argument("--out", type=Path, default=Path("Design/Parametric/Preview.png"))
+    parser.add_argument("--meshes", type=Path, required=True, help="Project directory with assembly-closed/open.stl")
+    parser.add_argument("--out", type=Path, help="Defaults to Preview.png beside the project meshes")
+    parser.add_argument("--report", type=Path, help="Fit report matching the meshes")
     args = parser.parse_args()
+    if args.out is None:
+        args.out = args.meshes / "Preview.png"
     import matplotlib
     matplotlib.use("Agg")
     import matplotlib.pyplot as plt
     import numpy as np
     from mpl_toolkits.mplot3d.art3d import Poly3DCollection
 
-    root = Path(__file__).resolve().parents[1]
-    report = json.loads((root/"Design/Parametric/Generated/fit-report.json").read_text())
+    report = json.loads((args.report or args.meshes / "fit-report.json").read_text())
     p = report["parameters_mm"]
     fig = plt.figure(figsize=(16, 10), facecolor="#0c151b")
-    fig.text(.055, .94, "MJOLNIR / HUSKYNARR", color="#edf4e4", fontsize=25, weight="bold")
+    fig.text(.055, .94, "MJOLNIR / " + report["profile"], color="#edf4e4", fontsize=25, weight="bold")
     fig.text(.055, .901, "Parametrisches Baugruppenmodell  |  mechanischer Front-Einstieg", color="#a9bbb7", fontsize=13)
-    fig.text(.055, .858, "KONZEPT - 1660 mm angegeben; weitere Koerpermasse synthetisch", color="#ffca74", fontsize=12)
+    fig.text(.055, .858, report["status"] + " | Koerpergroesse: " + str(p["body_height"]) + " mm", color="#ffca74", fontsize=12)
     for index, (name, title) in enumerate((("assembly-closed", "01  GESCHLOSSEN"), ("assembly-open", "02  AUSGEFAHREN + GEOEFFNET"))):
         text = (args.meshes/f"{name}.stl").read_text()
         values = re.findall(r"vertex\s+([-+0-9.eE]+)\s+([-+0-9.eE]+)\s+([-+0-9.eE]+)", text)
@@ -44,14 +46,20 @@ def main():
         colors[visor] = np.array([.85,.58,.22])*shade[visor,None]
         ax = fig.add_axes([.015+index*.49,.15,.49,.70], projection="3d", facecolor="#0c151b")
         ax.add_collection3d(Poly3DCollection(mesh, facecolors=colors, edgecolors="none", linewidths=0))
-        ax.set(xlim=(-700,700), ylim=(-650,500), zlim=(0,1700))
-        ax.set_box_aspect((1400,1150,1700))
+        points = mesh.reshape(-1, 3)
+        lo, hi = points.min(axis=0), points.max(axis=0)
+        span = np.maximum(hi-lo, 1)
+        margin = span * .05
+        ax.set(xlim=(lo[0]-margin[0], hi[0]+margin[0]),
+               ylim=(lo[1]-margin[1], hi[1]+margin[1]),
+               zlim=(lo[2]-margin[2], hi[2]+margin[2]))
+        ax.set_box_aspect(span + 2*margin)
         ax.set_proj_type("ortho")
         ax.view_init(elev=13, azim=-71)
         ax.set_axis_off()
         fig.text(.16+index*.49,.14,title,color="#edf4e4",fontsize=13,weight="bold")
     fig.text(.055,.077,"Originale Konzeptgeometrie aus MjolnirEntry.scad. Keine finale Halo-Oberflaeche oder Fertigungsfreigabe.", color="#b4c1bd",fontsize=11)
-    fig.text(.055,.044,"Offen: persoenliche Masse, 3D-Kollisionen, echte Gelenke/Fuehrungen, Verschluesse und physische Last-/Passprobe.",color="#b4c1bd",fontsize=11)
+    fig.text(.055,.044,"Offen: projektspezifische Passform, 3D-Kollisionen, echte Gelenke/Fuehrungen, Verschluesse und physische Last-/Passprobe.",color="#b4c1bd",fontsize=11)
     args.out.parent.mkdir(parents=True, exist_ok=True)
     fig.savefig(args.out, dpi=150, facecolor=fig.get_facecolor())
     plt.close(fig)

@@ -44,11 +44,12 @@ Dieser Guide beschreibt den vollstaendigen Finishing-Prozess von rohem 3D-Druck 
 
 **Praxis-Empfehlung:** Spruehlack fuer Grundfarbe auf grossen Panzerteilen, Airbrush fuer Details, Verlaeufe und Weathering.
 
-## 3. Master Chief Farbschema
+## 3. Farbschema nach Ruestungsreferenz
 
 ### Referenz und Farbproben
 
-Fuer den V4-Chief gilt die [Authentizitaetsreferenz](Authentizitaet-Referenz.md).
+Die im Profil ausgewaehlte [Ruestungsreferenz](Authentizitaet-Referenz.md)
+bestimmt die Farbgebung. Der folgende Chief-Vergleich ist ein Beispiel.
 Die zuvor genannten Hex-/Pantonewerte sind nicht als offizielle Lackrezeptur
 fuer Chiefs Kampagnenruestung belegt und werden nicht als solche verwendet.
 Bildschirmfarben lassen sich nicht ohne Material-/Lichtvergleich auf Lack uebertragen.
@@ -56,7 +57,7 @@ Bildschirmfarben lassen sich nicht ohne Material-/Lichtvergleich auf Lack uebert
 Drei Muster auf dem tatsaechlichen Grundmaterial anlegen: Grundierung, Gruenton,
 Alterung und finaler Klarlack. Rezept, Schichtfolge und Trockenzeiten notieren.
 Unter neutralem Licht und geplanter Hallenbeleuchtung mit der festgelegten
-Kampagnenreferenz vergleichen. Erst danach den Farbauftrag fuer alle Teile festlegen.
+Referenz vergleichen. Erst danach den Farbauftrag fuer alle Teile festlegen.
 
 Unteranzug dunkel und strukturiert; metallische Akzente, Markierungen und
 Visiertoenung nach derselben Referenz pruefen. Keine Mark-VII-Farbtabelle ungeprueft

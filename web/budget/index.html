@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark">
+  <title>Stueckliste und Budget | Halo Cosplay</title>
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="style.css">
+  <script src="budget.js" defer></script>
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <a class="skip" href="#editor">Zum Budgeteditor</a>
+  <header>
+    <nav aria-label="Projekt"><a href="../index.html">Projektuebersicht</a><a href="../configurator/index.html">Masskonfigurator</a><a href="../../Code/Exhibition/index.html">Messeanzeige</a></nav>
+    <p class="eyebrow">HALO COSPLAY / PROJEKTWERKZEUGE</p>
+    <h1>Stueckliste &amp; Budget</h1>
+    <p class="intro">Bauteile, Mengen und Budgetbereiche fuer einen eigenen Aufbau planen. Getragene Baugruppen und Ausstellungszubehoer bleiben in derselben Liste nachvollziehbar.</p>
+  </header>
+  <main id="editor">
+    <section class="toolbar" aria-label="Stueckliste verwalten">
+      <button id="new" type="button">Leere Liste</button>
+      <button id="sample" type="button">Konzeptbeispiel laden</button>
+      <button id="import" type="button">JSON importieren</button>
+      <input id="file" type="file" accept=".json,application/json" hidden>
+      <button id="export" type="button" class="accent">JSON herunterladen</button>
+      <span id="origin">Neue Stueckliste</span>
+    </section>
+    <p class="help">Die Bearbeitung bleibt in diesem Browserfenster. Zum Aufbewahren JSON herunterladen; beim Schliessen gehen nicht exportierte Aenderungen verloren. Es erfolgt keine automatische Speicherung oder Uebertragung.</p>
+    <p id="message" class="message" role="status" aria-live="polite"></p>
+    <div class="workspace">
+      <div>
+        <section class="panel" aria-labelledby="planning-title">
+          <h2 id="planning-title">Planungsrahmen</h2>
+          <div class="settings">
+            <label>Reserve in Prozent<input id="reserve" type="number" min="0" max="100" step="any" value="20"></label>
+            <label>Plan-Massenziel in Gramm<input id="target" type="number" min="0" step="any" value="0" aria-describedby="target-help"></label>
+          </div>
+          <p class="help" id="target-help">Startwert 0 g: das Ziel passend zum Projekt festlegen. Ein Planungsziel ist keine Aussage zur persoenlichen Tragfaehigkeit. Reserve wird nur auf Kosten aufgeschlagen.</p>
+        </section>
+        <section class="panel" aria-labelledby="items-title">
+          <div class="section-heading"><h2 id="items-title">Bauteile und Material</h2><button id="add" type="button">Position hinzufuegen</button></div>
+          <p class="help">Preise und Massen gelten je Einheit. Leere Masse bedeutet unbekannt. Nur als getragen markierte Positionen zaehlen zur getragenen Planmasse; alle Positionen zaehlen zum Budget.</p>
+          <div id="items"></div>
+          <p id="empty">Noch keine Positionen. Eine eigene Position hinzufuegen oder ein deutlich gekennzeichnetes Konzeptbeispiel laden.</p>
+        </section>
+        <section class="panel" aria-labelledby="excluded-title">
+          <h2 id="excluded-title">Nicht im Budget enthalten</h2>
+          <label for="excluded">Ein Ausschluss je Zeile</label>
+          <textarea id="excluded" rows="4" placeholder="Zum Beispiel: Arbeitszeit"></textarea>
+        </section>
+      </div>
+      <aside class="panel summary" aria-labelledby="totals-title">
+        <p class="eyebrow">PLANWERTE</p>
+        <h2 id="totals-title">Aktuelle Kalkulation</h2>
+        <p id="errors" role="alert"></p>
+        <dl>
+          <dt>Basisbudget</dt><dd id="base">0,00 EUR</dd>
+          <dt>Mit Kostenreserve</dt><dd id="reserved">0,00 EUR</dd>
+          <dt>Bekannte getragene Planmasse</dt><dd id="mass">0,00 kg</dd>
+        </dl>
+        <p id="comparison" class="help">Noch keine Positionen.</p>
+        <p id="unknown" class="notice"></p>
+        <p class="boundary">Budgetansaetze sind keine aktuellen Angebote. Planmassen sind keine Wiegungen. Die Kalkulation bestaetigt weder Passform noch Tragbarkeit oder die Eignung einer Konstruktion.</p>
+      </aside>
+    </div>
+    <noscript><p class="message">Der Editor benoetigt JavaScript. Alternativ kann eine eigene JSON-Stueckliste mit tools/suit_budget.py ausgewertet werden.</p></noscript>
+  </main>
+  <footer>Schema 1 / EUR. Exportdateien sind mit <code>python3 tools/suit_budget.py --bom pfad/zur/Liste.json</code> auswertbar. Die Seite benoetigt keine externen Bibliotheken; das Konzeptbeispiel wird aus dem lokalen Projekt geladen.</footer>
+</body>
+</html>

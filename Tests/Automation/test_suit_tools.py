@@ -20,17 +20,29 @@ class FitTests(unittest.TestCase):
     def complete(self):
         result = copy.deepcopy(self.profile)
         result["measurements_mm"] = dict(suit_fit.DEMO)
+        result["status"] = "measured"
         return result
 
     def test_unknown_measurements_block_normal_export(self):
         with self.assertRaisesRegex(ValueError, "Fehlende Masse"):
             suit_fit.derive(self.profile)
 
-    def test_concept_preserves_height_and_labels_every_estimate(self):
+    def test_blank_default_and_every_concept_value_are_synthetic(self):
+        self.assertEqual(len(self.profile["measurements_mm"]), 32)
+        self.assertTrue(all(value is None for value in self.profile["measurements_mm"].values()))
         r = suit_fit.derive(self.profile, concept=True)
-        self.assertEqual(r["measurements_mm"]["height"], 1660)
-        self.assertEqual(len(r["missing_measurements"]), 31)
+        self.assertEqual(r["measurements_mm"]["height"], 1800)
+        self.assertEqual(len(r["missing_measurements"]), 32)
         self.assertFalse(r["fabrication_approved"])
+        self.assertTrue(all(source == "synthetic_concept" for source in r["measurement_sources"].values()))
+
+    def test_concept_preserves_input_and_labels_every_estimate(self):
+        self.profile["measurements_mm"]["height"] = 1730
+        self.profile["measurements_mm"]["shoulder_width"] = 515
+        r = suit_fit.derive(self.profile, concept=True)
+        self.assertEqual(r["measurements_mm"]["height"], 1730)
+        self.assertEqual(r["measurements_mm"]["shoulder_width"], 515)
+        self.assertEqual(len(r["missing_measurements"]), 30)
         self.assertEqual(r["measurement_sources"]["height"], "profile_input")
         for key in r["missing_measurements"]:
             self.assertEqual(r["measurement_sources"][key], "synthetic_concept")
@@ -43,7 +55,7 @@ class FitTests(unittest.TestCase):
     def test_stature_does_not_shrink_broad_shoulders(self):
         p = self.complete()
         a = suit_fit.derive(p)["parameters_mm"]
-        p["measurements_mm"]["height"] = 1800
+        p["measurements_mm"]["height"] = 1950
         b = suit_fit.derive(p)["parameters_mm"]
         self.assertEqual(a["shoulder_span"], b["shoulder_span"])
         self.assertEqual(a["torso_height"], b["torso_height"])
@@ -53,23 +65,23 @@ class FitTests(unittest.TestCase):
         p["measurements_mm"]["forearm_length_l"] = 235
         r = suit_fit.derive(p)["parameters_mm"]
         self.assertEqual(r["forearm_length_l"], 195)
-        self.assertEqual(r["forearm_length_r"], 205)
+        self.assertEqual(r["forearm_length_r"], suit_fit.DEMO["forearm_length_r"] - 40)
 
     def test_radial_allowance_is_not_circumference_allowance(self):
         r = suit_fit.derive(self.complete())["parameters_mm"]
-        self.assertAlmostEqual(r["forearm_diameter_l"], 310/math.pi+46, places=3)
-        self.assertEqual(r["torso_width"], 466)
+        self.assertAlmostEqual(r["forearm_diameter_l"], 280/math.pi+46, places=3)
+        self.assertEqual(r["torso_width"], 426)
 
     def test_entry_slide_fills_missing_aperture(self):
         r = suit_fit.derive(self.complete())["parameters_mm"]
-        self.assertEqual(r["entry_width_required"], 550)
-        self.assertEqual(r["entry_slide_each_side"], 45)
-        self.assertEqual(r["torso_width"]-2*r["wall"]+2*r["entry_slide_each_side"], 550)
+        self.assertEqual(r["entry_width_required"], 520)
+        self.assertEqual(r["entry_slide_each_side"], 50)
+        self.assertEqual(r["torso_width"]-2*r["wall"]+2*r["entry_slide_each_side"], 520)
 
     def test_zero_slide_is_valid(self):
         p = self.complete()
         p["allowances_mm"]["entry_clearance_each_side"] = 10
-        p["measurements_mm"]["shoulder_width"] = 420
+        p["measurements_mm"]["shoulder_width"] = 400
         r = suit_fit.derive(p)["parameters_mm"]
         self.assertEqual(r["entry_slide_each_side"], 0)
 
@@ -83,7 +95,7 @@ class FitTests(unittest.TestCase):
 
     def test_typos_and_missing_height_rejected(self):
         p = self.complete()
-        p["measurements_mm"]["hieght"] = 1660
+        p["measurements_mm"]["hieght"] = 1730
         with self.assertRaises(ValueError):
             suit_fit.derive(p)
         p = self.complete()
@@ -113,7 +125,8 @@ class FitTests(unittest.TestCase):
             suit_fit.opening_envelope(400, 300, 180)
 
     def test_generated_files_match_source_and_svg_parses(self):
-        report = suit_fit.derive(self.profile, concept=True)
+        demo = json.loads(suit_fit.DEMO_PROFILE.read_text())
+        report = suit_fit.derive(demo, concept=True)
         with tempfile.TemporaryDirectory() as tmp:
             suit_fit.export(report, Path(tmp))
             for name in ("fit-report.json", "FitReport.md", "parameters.scad", "OpeningEnvelope.svg"):
