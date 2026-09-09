@@ -10,9 +10,9 @@ import shlex
 import sys
 
 try:
-    from . import suit_assets, suit_budget, suit_clamshell, suit_components, suit_engineering, suit_fit, suit_integration, suit_readiness, suit_thermal
+    from . import suit_assets, suit_budget, suit_clamshell, suit_components, suit_engineering, suit_fit, suit_hardware, suit_integration, suit_readiness, suit_thermal
 except ImportError:
-    import suit_assets, suit_budget, suit_clamshell, suit_components, suit_engineering, suit_fit, suit_integration, suit_readiness, suit_thermal
+    import suit_assets, suit_budget, suit_clamshell, suit_components, suit_engineering, suit_fit, suit_hardware, suit_integration, suit_readiness, suit_thermal
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -40,7 +40,7 @@ def finish_sheet(project):
     return '\n'.join(rows)+'\n'
 
 
-def generate(profile_path, out, concept=False, integration_path=None):
+def generate(profile_path, out, concept=False, integration_path=None, hardware_path=None):
     profile_path=Path(profile_path).resolve(); out=Path(out).resolve()
     raw=profile_path.read_bytes(); profile=json.loads(raw)
     fit=suit_fit.derive(profile, concept)
@@ -48,6 +48,7 @@ def generate(profile_path, out, concept=False, integration_path=None):
         raise ValueError('Synthetisches Profil erfordert --concept')
     reference=suit_assets.reference(fit['build']['armor_reference'])
     integration=suit_integration.plan(fit, suit_integration.configure(fit, integration_path))
+    suit_hardware.configuration(hardware_path)  # Validate before creating a package.
     engineering=suit_integration.engineering_inputs(integration)
     thermal=suit_integration.thermal_inputs(integration)
     assets=suit_assets.template(fit['profile'], reference['id'])
@@ -74,6 +75,7 @@ def generate(profile_path, out, concept=False, integration_path=None):
         suit_fit.export(fit,out/'Fit')
         suit_components.export(snapshot, out/'Components', concept=concept)
         suit_clamshell.export(snapshot, out/'Clamshell', concept=concept)
+        suit_hardware.export(out/'Hardware', config_path=hardware_path)
         suit_thermal.export(out/'thermal.local.json', out/'Thermal')
         report=suit_engineering.calculate(engineering)
         report['input_sha256']=hashlib.sha256((out/'engineering.local.json').read_bytes()).hexdigest()
@@ -107,6 +109,7 @@ def generate(profile_path, out, concept=False, integration_path=None):
                '| assets.local.json | Eigene Modelldateien, Quellen, Lizenzen, Einheiten und Hashes eintragen |',
                '| Components/ | Fuenf parametrisierte Halter-/Passproben mit Stuecklisten und Montagehinweisen |',
                '| Clamshell/ | Acht aufklappbare Arm-/Beinhuellen, eigene Seiten und Selbstanzieh-Prueffolge |',
+               '| Hardware/ | Sechs Einbaumodelle mit Einzelteilen und elektrischen Referenzschaltplaenen; Geraetemasse bleiben unabhaengig vom Koerper |',
                '| integration.local.json / Integration.* | Ausgewaehlte Einbauzonen, zugaengliche Akkus und getrennte Stromkreise |',
                '| engineering.local.json / Engineering/ | Reale Verbraucher, Akkus, Tuergewicht und Staender-Geometrie eintragen und Berichte aktualisieren |',
                '| thermal.local.json / Thermal/ | Eigene LED-Waermewege und gemessene Luftkanaele auslegen |',
@@ -134,6 +137,7 @@ def generate(profile_path, out, concept=False, integration_path=None):
                'Der Modelldateipruefer liefert Exitcode 2, solange Eingaben fehlen oder Datei-/Kantenpruefungen offen sind.',
                'Originalmodell-Dateien und reale Koerperdaten bleiben lokal. Bestehende Projektpakete werden bei Neuerzeugung nicht ueberschrieben.',
                'Engineering-Eingaben starten unbekannt; Demonstrationswerte werden dort nicht automatisch eingesetzt.',
+               'Hardware/ enthaelt einen Quellenbaukasten, keine automatisch ausgewaehlten Kaufteile. --hardware uebernimmt eine eigene geometrische Konfiguration.',
                'Die Budgetvorlage bleibt an Materialweg, vorhandene Ausstattung und Angebote anzupassen. Komponenten-BOMs nicht pauschal nochmals aufaddieren.',
                'Integrationsauswahl aendert nicht automatisch die Budgetvorlage. Insbesondere Highpower-RGB, Treiber, Optik und PD-Versorgung separat erfassen.',
                'Aenderungen an integration.local.json gelten fuer eine neu erzeugte Revision via --integration; bestehende Berichte werden nicht still ueberschrieben.',
@@ -155,9 +159,10 @@ def main(argv=None):
     parser.add_argument('--out',type=Path,required=True)
     parser.add_argument('--concept',action='store_true')
     parser.add_argument('--integration',type=Path,help='Partial equipment integration options JSON')
+    parser.add_argument('--hardware',type=Path,help='Independent hardware dimensions JSON; no body scaling')
     args=parser.parse_args(argv)
     try:
-        print(generate(args.profile,args.out,args.concept,args.integration)); return 0
+        print(generate(args.profile,args.out,args.concept,args.integration,args.hardware)); return 0
     except (ValueError,OSError,TypeError,KeyError) as exc:
         print('Baupaket-Fehler: '+str(exc),file=sys.stderr); return 2
 

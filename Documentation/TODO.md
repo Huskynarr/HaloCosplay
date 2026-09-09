@@ -16,6 +16,7 @@ Projekt, Profil und Bauteilrevision. Details im
 - [x] [Einbauplan](Guides/Mjolnir-Einbauplan.md) mit separater Komfort-/Effektversorgung und konfigurierbaren Verbrauchern
 - [x] Acht bewegliche Clamshell-Bauraumhuellen und [Selbstanzieh-Prueffolge](Guides/Mjolnir-Selbstanziehen.md)
 - [x] Thermalrechner fuer einzelne LED-Kuehlkoerper und gemessene Luftkanaele
+- [x] Sechs parametrische [Einbaumodelle und elektrische Referenzschaltplaene](Guides/Mjolnir-CAD-Schaltplaene.md) mit eigenem Quellen-/STL-Export
 
 Die folgenden Aufgaben betreffen den realen Aufbau. Sie bleiben offen, auch
 wenn digitale Vorlagen oder passende Rechenwerkzeuge bereits vorhanden sind.

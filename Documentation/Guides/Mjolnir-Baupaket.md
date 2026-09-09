@@ -174,3 +174,12 @@ angepasstes Gesamt-Detailmodellset, gemessene Kaufteil-/Lastdaten, reale
 Pass-/Funktionsversuche sowie die Abstimmung mit der konkreten Veranstaltung.
 Diese externen Arbeitsschritte bleiben in der [Projektliste](../TODO.md)
 sichtbar; digitale Vorlagen werden nicht als physische Fertigstellung gezaehlt.
+
+## Zusaetzliche Einbaumodelle und Schaltblaetter
+
+`Hardware/` enthaelt sechs parametrische Einbaumodelle und die elektrischen
+Referenzentwuerfe als portablen Quellenbaukasten. `--hardware` uebernimmt eine
+eigene geometrische JSON-Konfiguration; Kaufteilmasse werden nicht mit dem
+Koerper skaliert. Der separate Export mit `tools/suit_hardware.py --render-stl`
+kompiliert Einzelteile und protokolliert ihre STL-Kantenpruefung.
+[Dateien, Bearbeitung und Befehle](Mjolnir-CAD-Schaltplaene.md).
