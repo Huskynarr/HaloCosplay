@@ -85,6 +85,18 @@ wenn digitale Vorlagen oder passende Rechenwerkzeuge bereits vorhanden sind.
 - [ ] Passende Veranstalterunterlagen beschaffen und Vorfuehrung abstimmen
 - [ ] Betreuungsrollen und geprobten Tagesablauf festhalten
 
+## 7. Optionales Begleitsystem
+
+- [x] [Plattformvergleich und Senderkassette](Guides/Begleitroboter-Integration.md) mit Herstellerquellen dokumentiert
+- [ ] Konkrete Edition, Firmware und kompatiblen Originalsender bestaetigen
+- [ ] Nativen Follow-/HOLD-Ablauf mit Originalsteuerung ohne Ruestung erproben
+- [ ] Senderhalter vermessen und Funkabschattung mit vollstaendiger Ruestung testen
+- [ ] Lokale Stopplogik, Zielverlust, Wiederverbindung und Bremsweg nachweisen
+- [ ] Fuer eigene SDK-Integration: Datenfelder und Bewegungs-APIs am Modell pruefen
+- [ ] HUD-Mehrschreiber und Datenalter beim Prozessausfall vor Live-Anbindung loesen
+- [ ] Drohnenablauf mit Pilot und ausgeschaltetem Anzugnebel getrennt pruefen
+- [ ] Vorfuehrflaeche, Betreuung und konkrete Veranstalterbedingungen dokumentieren
+
 ## Nachweise
 
 [Prototypenfolge](../BuildGuides/Armor/Mjolnir-Prototypen.md),
