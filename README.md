@@ -82,6 +82,8 @@ ist ein separat anzupassendes System.
 - [Messebetrieb](Documentation/Guides/Mjolnir-Messebetrieb.md) und [Zusatzbudget](Materials/Mjolnir-Messebudget.md)
 - [Nachweisstatus](Progress/Mjolnir-Readiness.md) und [reale Abnahmeprotokolle](Tests/TestReports/Mjolnir-Abnahme.md)
 - [Offline-Messeanzeige](Code/Exhibition/README.md)
+- [Sender im Anzug und optionale Roboter-/Drohnenbegleitung](Documentation/Guides/Begleitroboter-Integration.md)
+- [Hardwareliste fuer das Begleitsystem](Materials/Mjolnir-Begleitsystem.md)
 
 Die mitgelieferte BOM ist ein editierbares Beispiel, kein automatisch passendes
 Angebot fuer jedes Profil. Mengen, Ausstattung, Preise und Zielmassen nach dem
