@@ -134,6 +134,20 @@
     } catch (error) {if (stillCurrent(start, token)) message(error.message + ' Alternativ die vorhandene JSON-Datei importieren. Fuer das Laden der Beispieldatei die Seite ueber einen lokalen HTTP-Server oeffnen.', true);}
     finally {element('sample').disabled = false;}
   });
+  element('fog-add').addEventListener('click', async () => {
+    const start = revision, token = ++loadToken;
+    element('fog-add').disabled = true;
+    try {
+      const response = await fetch('../../Materials/Mjolnir-Nebel-BOM.json');
+      if (!response.ok) throw new Error('Nebel-BOM nicht erreichbar.');
+      const extra = api.parse(await response.text());
+      if (!stillCurrent(start, token)) return;
+      data = api.appendModule(data, extra);
+      changed(); render();
+      message('Nebelmodul ergaenzt; bisherige Positionen, Reserve und Massenziel bleiben erhalten. Beispiel fuer PMI-Cloud-Aufbau: Preise, unbekannte Massen und bereits vorhandene LED-Technik pruefen. Ersatzteile, Nachfuellfluid und Versand separat planen.');
+    } catch (error) {if (stillCurrent(start, token)) message(error.message, true);}
+    finally {element('fog-add').disabled = false;}
+  });
   element('import').addEventListener('click', () => {element('file').click();});
   element('file').addEventListener('change', async event => {
     const file = event.target.files[0];

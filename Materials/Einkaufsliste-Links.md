@@ -102,9 +102,8 @@ Eine der folgenden Methoden waehlen (Details: `Foam-Bau.md` Abschnitt 8).
 | 40mm Luefter (Premium) | Noctua NF-A4x10 5V, 40x10 mm, 3-Pin | Amazon | ~15 EUR/Stk. | https://www.amazon.de/dp/B00NEMGCIA?tag=huskynarr-21 |
 | 40mm Luefter (guenstig) | GDSTIME 40 mm USB 5V (40x40x10 mm) | Amazon | ~15 EUR | https://www.amazon.de/dp/B08Z3H86X5?tag=huskynarr-21 |
 | Radialluefter (Nebel-Transport) | WINSINN 5015 Blower 5V, 4er-Pack | Amazon | ~13 EUR | https://www.amazon.de/dp/B096BSWDHN?tag=huskynarr-21 |
-| Ultraschall-Vernebler (Stufe 1, con-tauglich) | Honseadek 5V Mist-Maker Modul-Set (108 kHz, inkl. Controller) | Amazon | ~12 EUR | https://www.amazon.de/dp/B0FPXFV8KM?tag=huskynarr-21 |
-| Heiz-Fogger (Stufe 2, Photoshoot/Outdoor) | Vosentech MicroFogger 5 Pro (zum Einbau, Fernsteuerung, USB-C-Trigger) | Amazon (Alternative) | ~140-170 EUR | https://www.amazon.de/s?k=Mini+Smoke+Machine+Cosplay&tag=huskynarr-21 |
-| Heiz-Fogger (Hersteller) | Vosentech MicroFogger 5 Pro - Produktseite/Doku | Vosentech | - | https://vosentech.com/index.php/product/microfogger-5-pro/ |
+| Ultraschall-Vernebler (Wasser-Versuch) | Honseadek 5V Mist-Maker Modul-Set (108 kHz, inkl. Controller) | Amazon | ~12 EUR | https://www.amazon.de/dp/B0FPXFV8KM?tag=huskynarr-21 |
+| Nebelmodul (aktuelle Arbeitsbasis) | PMI SmokeNINJA Pro Cosplayer Bundle | Hersteller | Eigenes Budget: siehe Nebel-Einkaufsplan | https://pmigear.com/products/pmi-smoke-vest-on-body-smoke-system |
 | Verstaerker | AZDelivery PAM8403 2x3W mit Poti, 5er-Pack | Amazon | ~9 EUR | https://www.amazon.de/dp/B09PL77NCY?tag=huskynarr-21 |
 | Lautsprecher | Mini-Lautsprecher 40 mm 4 Ohm 3W, 2er-Set | Amazon | ~9 EUR | https://www.amazon.de/dp/B0DW5CZZM8?tag=huskynarr-21 |
 | Mikrofon | Adafruit MAX4466 Electret-Verstaerker (einstellbarer Gain) | Amazon | ~8 EUR | https://www.amazon.de/dp/B0F4ML4JHH?tag=huskynarr-21 |

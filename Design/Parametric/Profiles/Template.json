@@ -53,6 +53,7 @@
       "hud": false,
       "lighting": true,
       "audio": false
-    }
+    },
+    "fog_system": "none"
   }
 }

@@ -6,6 +6,8 @@
   const MAX_BYTES = 1024 * 1024;
   const $ = id => document.getElementById(id);
   const LABELS = {
+    none: 'Kein Nebel / Licht allein', 'pmi-cloud': 'PMI-Nebelmodul mit Originalfluid',
+    external: 'Externe Nebelquelle am Stand', 'water-mist': 'Ultraschall-Wassernebel (Versuch)',
     'chief-infinite': 'Master Chief / Infinite / Mark VI GEN3',
     'mark-vii': 'Spartan / Mark VII GEN3', custom: 'Eigene Referenz',
     hybrid: 'Hybrid: Schaumstoff und Druck', foam: 'Schaumstoff', printed: '3D-Druck',
@@ -170,6 +172,7 @@
     if (profile.build.operating_mode !== 'wearable') guide('Ausstellung und Vorfuehrbetrieb', 'Documentation/Guides/Mjolnir-Messebetrieb.md');
     if (profile.build.features.exoskeleton) guide('Exoskelett separat anpassen', 'Documentation/Guides/Exoskelett.md');
     if (profile.build.features.hud) guide('HUD und Sichtfeld planen', 'Documentation/Guides/Elektronik-HUD.md');
+    if (profile.build.fog_system !== 'none') guide('Nebelmodul, Einkauf und Pruefung', 'Documentation/Guides/Elektronik-Schubduesen.md');
     if (profile.build.features.lighting || profile.build.features.audio) guide('Elektronik und Strombudget', 'Documentation/Guides/Mjolnir-Elektronik.md');
   }
   async function json(url) {

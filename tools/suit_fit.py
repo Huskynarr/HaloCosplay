@@ -183,6 +183,7 @@ def report_md(report):
     lines = ["# Passformbericht", "", f"Profil: **{report['profile']}**", "",
              f"Status: **{report['status']}**", "",
              f"Referenz: {build['armor_reference']} / Material: {build['material']} / Betrieb: {build['operating_mode']}",
+             f"Nebeleffekt (Planung): {build['fog_system']}",
              "Optionen: " + ", ".join(f"{key}={str(value).lower()}" for key, value in build["features"].items()), "",
              "Die Auswahl dokumentiert den Baupfad; sie erzeugt keine fertigen Referenzschalen oder Kaufteilintegration.", "",
              "Keine Fertigungsfreigabe. Zahlen mit Quelle synthetic_concept sind Beispielwerte.", "",

@@ -116,3 +116,7 @@ python3 -m unittest discover -s Tests/Automation -v
 FAQ und Kontakt: [Support](Support/FAQ.md), [Kontakt](Support/Contact.md).
 Community: [405th Infantry Division](https://www.405th.com/),
 [RPF](https://www.therpf.com/).
+
+## Optionaler Duesennebel
+
+`build.fog_system` waehlt `none`, `pmi-cloud`, `external` oder `water-mist`. Bestehende Profile erhalten `none`. Der [Nebelmodul-Guide](Documentation/Guides/Elektronik-Schubduesen.md) beschreibt Arbeitsbasis, Fluid, Einkauf und Tests. Die Auswahl ist eine Planungsangabe; sie steuert kein Geraet.

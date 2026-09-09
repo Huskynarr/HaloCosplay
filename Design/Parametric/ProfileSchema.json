@@ -259,6 +259,16 @@
         "both"
       ],
       "default": "wearable"
+    },
+    "fog_system": {
+      "label": "Nebeleffekt",
+      "options": [
+        "none",
+        "pmi-cloud",
+        "external",
+        "water-mist"
+      ],
+      "default": "none"
     }
   },
   "feature_fields": {

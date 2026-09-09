@@ -48,3 +48,7 @@ node --test Tests/Automation/budget.test.cjs
 Die Tests pruefen unter anderem Referenzsummen, die Behandlung unbekannter
 getragener Massen, den Unterschied zwischen Kosten- und Massensumme sowie
 ungueltige Werte. Daraus folgt keine Hardware- oder Tragbarkeitsfreigabe.
+
+## Nebel als Zusatzmodul
+
+Die Schaltflaeche Nebelmodul ergaenzen fuegt die PMI-Beispielpositionen hinzu. Vorhandene Positionen, Reserve und Zielmasse bleiben erhalten; doppelte IDs werden abgelehnt. Massen bleiben unbekannt. Das ist keine automatische Kopplung an die Profilwahl. Bereits vorhandene Lichttechnik, Ausschluesse und Zusatzkosten separat pruefen.
