@@ -1,0 +1,132 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1500" height="1100" viewBox="0 0 1500 1100">
+<style>text{font-family:DejaVu Sans,sans-serif;fill:#193442} .wire{fill:none;stroke:#226862;stroke-width:2.3} .sym{fill:white;stroke:#193442;stroke-width:2.2} .small{font-size:16px} .net{font-size:14px;fill:#226862} .body{font-size:19px} .title{font-size:30px;font-weight:bold}</style>
+<rect width="1500" height="1100" fill="#fff"/>
+<rect x="24" y="24" width="1452" height="1052" fill="none" stroke="#a6b3ba"/>
+<text x="48" y="73" class="title" text-anchor="start">01  Komfortlueftung / unabhaengige 5 V</text>
+<text x="48" y="108" class="body" text-anchor="start">Vier native 5-V-Luefter; keine Drehzahlsteuerung und keine Verbindung zur Effektdomaene.</text>
+<line x1="48" y1="130" x2="1452" y2="130" stroke="#a6b3ba" stroke-width="2.2"/>
+<line x1="48" y1="1015" x2="1452" y2="1015" stroke="#a6b3ba" stroke-width="2.2"/>
+<text x="48" y="1048" class="small" text-anchor="start">HaloCosplay | electrical-r1 | Entwurf, keine Bauabnahme | 2026-09-09</text>
+<text x="1360" y="1048" class="small" text-anchor="start">01 / 05</text>
+<rect x="135" y="195" width="190" height="149" class="sym"/>
+<text x="230.0" y="222" class="small" text-anchor="middle">J10 / Quelle 5 V</text>
+<circle cx="325" cy="260" r="3" fill="white" stroke="#226862" data-ref="J10" data-pin="1" data-net="C5_RAW"/>
+<polyline class="wire" points="325,260 380,260" data-net="C5_RAW"/>
+<text x="380" y="250" class="net" text-anchor="start">C5_RAW</text>
+<text x="315" y="253" class="small" text-anchor="end">1 +5 V</text>
+<circle cx="325" cy="302" r="3" fill="white" stroke="#226862" data-ref="J10" data-pin="2" data-net="C_GND"/>
+<polyline class="wire" points="325,302 380,302" data-net="C_GND"/>
+<text x="380" y="292" class="net" text-anchor="start">C_GND</text>
+<text x="315" y="295" class="small" text-anchor="end">2 GND</text>
+<text x="443" y="233" class="small" text-anchor="start">F10 / TBD nach Last/Leitung</text>
+<rect x="458" y="251" width="44" height="18" class="sym"/>
+<line x1="440" y1="260" x2="458" y2="260" stroke="#193442" stroke-width="2.2"/>
+<line x1="502" y1="260" x2="520" y2="260" stroke="#193442" stroke-width="2.2"/>
+<line x1="458" y1="260" x2="502" y2="260" stroke="#193442" stroke-width="2.2"/>
+<circle cx="440" cy="260" r="3" fill="white" stroke="#226862" data-ref="F10" data-pin="1" data-net="C5_RAW"/>
+<circle cx="520" cy="260" r="3" fill="white" stroke="#226862" data-ref="F10" data-pin="2" data-net="C5_FUSED"/>
+<text x="445" y="287" class="small" text-anchor="start">Sicherung</text>
+<polyline class="wire" points="325,260 440,260" data-net="C5_RAW"/>
+<text x="675" y="215" class="small" text-anchor="start">S10</text>
+<line x1="675" y1="260" x2="695" y2="260" stroke="#193442" stroke-width="2.2"/>
+<line x1="695" y1="260" x2="737" y2="235" stroke="#193442" stroke-width="2.2"/>
+<line x1="745" y1="260" x2="765" y2="260" stroke="#193442" stroke-width="2.2"/>
+<circle cx="675" cy="260" r="3" fill="white" stroke="#226862" data-ref="S10" data-pin="1" data-net="C5_FUSED"/>
+<circle cx="765" cy="260" r="3" fill="white" stroke="#226862" data-ref="S10" data-pin="2" data-net="C5_FAN"/>
+<circle cx="695" cy="260" r="4" fill="#226862"/>
+<circle cx="745" cy="260" r="4" fill="#226862"/>
+<polyline class="wire" points="520,260 675,260" data-net="C5_FUSED"/>
+<polyline class="wire" points="765,260 1310,260" data-net="C5_FAN"/>
+<text x="945" y="241" class="net" text-anchor="start">C5_FAN</text>
+<text x="675" y="308" class="small" text-anchor="start">Nur Komfort AUS</text>
+<rect x="135" y="450" width="190" height="233" class="sym"/>
+<text x="230.0" y="477" class="small" text-anchor="middle">J11 / Helm</text>
+<circle cx="135" cy="515" r="3" fill="white" stroke="#226862" data-ref="J11" data-pin="1" data-net="C_GND"/>
+<polyline class="wire" points="135,515 80,515" data-net="C_GND"/>
+<text x="80" y="505" class="net" text-anchor="end">C_GND</text>
+<text x="145" y="508" class="small" text-anchor="start">1 GND</text>
+<circle cx="135" cy="557" r="3" fill="white" stroke="#226862" data-ref="J11" data-pin="2" data-net="C5_FAN"/>
+<polyline class="wire" points="135,557 80,557" data-net="C5_FAN"/>
+<text x="80" y="547" class="net" text-anchor="end">C5_FAN</text>
+<text x="145" y="550" class="small" text-anchor="start">2 +5 V</text>
+<circle cx="135" cy="599" r="3" fill="white" stroke="#226862" data-ref="J11" data-pin="3" data-net="NC"/>
+<line x1="130" y1="594" x2="140" y2="604" stroke="#193442" stroke-width="2.2"/>
+<line x1="130" y1="604" x2="140" y2="594" stroke="#193442" stroke-width="2.2"/>
+<text x="80" y="589" class="net" text-anchor="end">NC</text>
+<text x="145" y="592" class="small" text-anchor="start">3 TACH offen</text>
+<circle cx="135" cy="641" r="3" fill="white" stroke="#226862" data-ref="J11" data-pin="4" data-net="NC"/>
+<line x1="130" y1="636" x2="140" y2="646" stroke="#193442" stroke-width="2.2"/>
+<line x1="130" y1="646" x2="140" y2="636" stroke="#193442" stroke-width="2.2"/>
+<text x="80" y="631" class="net" text-anchor="end">NC</text>
+<text x="145" y="634" class="small" text-anchor="start">4 PWM offen</text>
+<text x="230" y="782" class="small" text-anchor="middle">Fertiger Luefter</text>
+<text x="230" y="815" class="small" text-anchor="middle">5 V / voller Lauf</text>
+<rect x="485" y="450" width="190" height="233" class="sym"/>
+<text x="580.0" y="477" class="small" text-anchor="middle">J12 / Helm</text>
+<circle cx="485" cy="515" r="3" fill="white" stroke="#226862" data-ref="J12" data-pin="1" data-net="C_GND"/>
+<polyline class="wire" points="485,515 430,515" data-net="C_GND"/>
+<text x="430" y="505" class="net" text-anchor="end">C_GND</text>
+<text x="495" y="508" class="small" text-anchor="start">1 GND</text>
+<circle cx="485" cy="557" r="3" fill="white" stroke="#226862" data-ref="J12" data-pin="2" data-net="C5_FAN"/>
+<polyline class="wire" points="485,557 430,557" data-net="C5_FAN"/>
+<text x="430" y="547" class="net" text-anchor="end">C5_FAN</text>
+<text x="495" y="550" class="small" text-anchor="start">2 +5 V</text>
+<circle cx="485" cy="599" r="3" fill="white" stroke="#226862" data-ref="J12" data-pin="3" data-net="NC"/>
+<line x1="480" y1="594" x2="490" y2="604" stroke="#193442" stroke-width="2.2"/>
+<line x1="480" y1="604" x2="490" y2="594" stroke="#193442" stroke-width="2.2"/>
+<text x="430" y="589" class="net" text-anchor="end">NC</text>
+<text x="495" y="592" class="small" text-anchor="start">3 TACH offen</text>
+<circle cx="485" cy="641" r="3" fill="white" stroke="#226862" data-ref="J12" data-pin="4" data-net="NC"/>
+<line x1="480" y1="636" x2="490" y2="646" stroke="#193442" stroke-width="2.2"/>
+<line x1="480" y1="646" x2="490" y2="636" stroke="#193442" stroke-width="2.2"/>
+<text x="430" y="631" class="net" text-anchor="end">NC</text>
+<text x="495" y="634" class="small" text-anchor="start">4 PWM offen</text>
+<text x="580" y="782" class="small" text-anchor="middle">Fertiger Luefter</text>
+<text x="580" y="815" class="small" text-anchor="middle">5 V / voller Lauf</text>
+<rect x="835" y="450" width="190" height="233" class="sym"/>
+<text x="930.0" y="477" class="small" text-anchor="middle">J13 / Torso</text>
+<circle cx="835" cy="515" r="3" fill="white" stroke="#226862" data-ref="J13" data-pin="1" data-net="C_GND"/>
+<polyline class="wire" points="835,515 780,515" data-net="C_GND"/>
+<text x="780" y="505" class="net" text-anchor="end">C_GND</text>
+<text x="845" y="508" class="small" text-anchor="start">1 GND</text>
+<circle cx="835" cy="557" r="3" fill="white" stroke="#226862" data-ref="J13" data-pin="2" data-net="C5_FAN"/>
+<polyline class="wire" points="835,557 780,557" data-net="C5_FAN"/>
+<text x="780" y="547" class="net" text-anchor="end">C5_FAN</text>
+<text x="845" y="550" class="small" text-anchor="start">2 +5 V</text>
+<circle cx="835" cy="599" r="3" fill="white" stroke="#226862" data-ref="J13" data-pin="3" data-net="NC"/>
+<line x1="830" y1="594" x2="840" y2="604" stroke="#193442" stroke-width="2.2"/>
+<line x1="830" y1="604" x2="840" y2="594" stroke="#193442" stroke-width="2.2"/>
+<text x="780" y="589" class="net" text-anchor="end">NC</text>
+<text x="845" y="592" class="small" text-anchor="start">3 TACH offen</text>
+<circle cx="835" cy="641" r="3" fill="white" stroke="#226862" data-ref="J13" data-pin="4" data-net="NC"/>
+<line x1="830" y1="636" x2="840" y2="646" stroke="#193442" stroke-width="2.2"/>
+<line x1="830" y1="646" x2="840" y2="636" stroke="#193442" stroke-width="2.2"/>
+<text x="780" y="631" class="net" text-anchor="end">NC</text>
+<text x="845" y="634" class="small" text-anchor="start">4 PWM offen</text>
+<text x="930" y="782" class="small" text-anchor="middle">Fertiger Luefter</text>
+<text x="930" y="815" class="small" text-anchor="middle">5 V / voller Lauf</text>
+<rect x="1185" y="450" width="190" height="233" class="sym"/>
+<text x="1280.0" y="477" class="small" text-anchor="middle">J14 / Torso</text>
+<circle cx="1185" cy="515" r="3" fill="white" stroke="#226862" data-ref="J14" data-pin="1" data-net="C_GND"/>
+<polyline class="wire" points="1185,515 1130,515" data-net="C_GND"/>
+<text x="1130" y="505" class="net" text-anchor="end">C_GND</text>
+<text x="1195" y="508" class="small" text-anchor="start">1 GND</text>
+<circle cx="1185" cy="557" r="3" fill="white" stroke="#226862" data-ref="J14" data-pin="2" data-net="C5_FAN"/>
+<polyline class="wire" points="1185,557 1130,557" data-net="C5_FAN"/>
+<text x="1130" y="547" class="net" text-anchor="end">C5_FAN</text>
+<text x="1195" y="550" class="small" text-anchor="start">2 +5 V</text>
+<circle cx="1185" cy="599" r="3" fill="white" stroke="#226862" data-ref="J14" data-pin="3" data-net="NC"/>
+<line x1="1180" y1="594" x2="1190" y2="604" stroke="#193442" stroke-width="2.2"/>
+<line x1="1180" y1="604" x2="1190" y2="594" stroke="#193442" stroke-width="2.2"/>
+<text x="1130" y="589" class="net" text-anchor="end">NC</text>
+<text x="1195" y="592" class="small" text-anchor="start">3 TACH offen</text>
+<circle cx="1185" cy="641" r="3" fill="white" stroke="#226862" data-ref="J14" data-pin="4" data-net="NC"/>
+<line x1="1180" y1="636" x2="1190" y2="646" stroke="#193442" stroke-width="2.2"/>
+<line x1="1180" y1="646" x2="1190" y2="636" stroke="#193442" stroke-width="2.2"/>
+<text x="1130" y="631" class="net" text-anchor="end">NC</text>
+<text x="1195" y="634" class="small" text-anchor="start">4 PWM offen</text>
+<text x="1280" y="782" class="small" text-anchor="middle">Fertiger Luefter</text>
+<text x="1280" y="815" class="small" text-anchor="middle">5 V / voller Lauf</text>
+<text x="65" y="932" class="body" text-anchor="start">Pin 1 = GND, Pin 2 = Versorgung, 3/4 einzeln offen. Steckeransicht nach Hersteller pruefen.</text>
+<text x="65" y="969" class="body" text-anchor="start">F10 und Leitung erst nach Strommessung auslegen. Ein Stromausfall stoppt auch diese Luefter.</text>
+</svg>

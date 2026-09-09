@@ -3,9 +3,9 @@ name: MJOLNIR design checks
 on:
   push:
     branches: [main]
-    paths: ['Design/Parametric/**', 'Design/Components/**', 'Design/Clamshell/**', 'Design/Engineering/**', 'Design/Thermal/**', 'Documentation/References/ArmorReferenceLibrary.json', 'web/configurator/**', 'web/budget/**', 'Progress/Mjolnir-*', 'Code/Exhibition/**', 'tools/suit_*.py', 'Materials/Mjolnir*', 'Tests/Automation/**', 'Tests/Browser/**', '.github/workflows/suit-design.yml']
+    paths: ['Design/Parametric/**', 'Design/Components/**', 'Design/HardwareKit/**', 'Design/Electrical/**', 'Design/Clamshell/**', 'Design/Engineering/**', 'Design/Thermal/**', 'Documentation/References/ArmorReferenceLibrary.json', 'web/configurator/**', 'web/budget/**', 'Progress/Mjolnir-*', 'Code/Exhibition/**', 'tools/suit_*.py', 'Materials/Mjolnir*', 'Tests/Automation/**', 'Tests/Browser/**', '.github/workflows/suit-design.yml']
   pull_request:
-    paths: ['Design/Parametric/**', 'Design/Components/**', 'Design/Clamshell/**', 'Design/Engineering/**', 'Design/Thermal/**', 'Documentation/References/ArmorReferenceLibrary.json', 'web/configurator/**', 'web/budget/**', 'Progress/Mjolnir-*', 'Code/Exhibition/**', 'tools/suit_*.py', 'Materials/Mjolnir*', 'Tests/Automation/**', 'Tests/Browser/**', '.github/workflows/suit-design.yml']
+    paths: ['Design/Parametric/**', 'Design/Components/**', 'Design/HardwareKit/**', 'Design/Electrical/**', 'Design/Clamshell/**', 'Design/Engineering/**', 'Design/Thermal/**', 'Documentation/References/ArmorReferenceLibrary.json', 'web/configurator/**', 'web/budget/**', 'Progress/Mjolnir-*', 'Code/Exhibition/**', 'tools/suit_*.py', 'Materials/Mjolnir*', 'Tests/Automation/**', 'Tests/Browser/**', '.github/workflows/suit-design.yml']
 
 permissions:
   contents: read
@@ -19,6 +19,7 @@ jobs:
         with:
           python-version: '3.11'
       - run: python -m unittest discover -s Tests/Automation -v
+      - run: python -m unittest discover -s Design/Electrical -p 'test_*.py' -v
       - run: python tools/suit_budget.py --check
       - run: python tools/suit_readiness.py --check
       - uses: actions/setup-node@v4
@@ -98,6 +99,13 @@ jobs:
             openscad --hardwarnings -D "component=\"${component}\"" -o "build/WorkshopDemo/Components/${component}.stl" build/WorkshopDemo/Components/ComponentKit.scad
             test -s "build/WorkshopDemo/Components/${component}.stl"
           done
+      - name: Validate electrical references and export accessory meshes
+        env:
+          QT_QPA_PLATFORM: offscreen
+        run: |
+          python3 Design/Electrical/generate.py --check
+          python3 tools/suit_hardware.py --out build/HardwareDemo --render-stl
+          python3 -m zipfile -c build/HaloCosplay-CAD-Schaltplaene.zip build/HardwareDemo
       - name: Compile left and right opening limb envelopes
         env:
           QT_QPA_PLATFORM: offscreen

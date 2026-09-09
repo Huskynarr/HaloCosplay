@@ -63,6 +63,7 @@ ist ein separat anzupassendes System.
 ## Bau und Technik
 
 - [Digitales Baupaket: Dateien, Modellimport und Baufolge](Documentation/Guides/Mjolnir-Baupaket.md)
+- [Sechs Einbaumodelle und elektrische Schaltplaene](Documentation/Guides/Mjolnir-CAD-Schaltplaene.md)
 - [Einbauorte: Akkus, Luft, Kamera, Audio und Highpower-RGB](Documentation/Guides/Mjolnir-Einbauplan.md)
 - [Aufklappbare Arme/Beine und selbststaendiges Anlegen](Documentation/Guides/Mjolnir-Selbstanziehen.md)
 - [Acht bewegliche Clamshell-Bauraumhuellen](Design/Clamshell/README.md)

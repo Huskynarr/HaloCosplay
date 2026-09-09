@@ -39,6 +39,10 @@ class ProjectPackageTests(unittest.TestCase):
                 self.assertEqual(suit_engineering.main(['--input', str(out / 'engineering.local.json'),
                                                        '--out', str(out / 'Engineering'), '--check']), 0)
             self.assertTrue((out / 'Components/ComponentKit.scad').is_file())
+            self.assertTrue((out / 'Hardware/CAD/HardwareKit.scad').is_file())
+            hardware = json.loads((out / 'Hardware/HardwarePackage.json').read_text())
+            self.assertFalse(hardware['hardware_approved'])
+            self.assertEqual(hardware['geometry_check'], 'not_run')
             self.assertTrue((out / 'Fit/MjolnirEntry.scad').is_file())
             self.assertTrue((out / 'Clamshell/LimbClamshell.scad').is_file())
             self.assertTrue((out / 'Integration.md').is_file())
