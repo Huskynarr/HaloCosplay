@@ -5,6 +5,18 @@ fertige Anleitung ist kein bestandener Hardwaretest. Nachweise gehoeren zu
 Projekt, Profil und Bauteilrevision. Details im
 [Konfigurations-Workflow](Guides/Mjolnir-Konfiguration.md).
 
+## Bereits digital umgesetzt
+
+- [x] [Baupaket-Generator](Guides/Mjolnir-Baupaket.md) mit getrennten Projekten und Revisionen
+- [x] Referenzkatalog mit 23 Bauteilen je Variante und kontrolliertem Modellimport
+- [x] [Detailgestaltung](Guides/Mjolnir-Detailgestaltung.md) fuer Silhouette, weiche Uebergaenge, Visier und Finish
+- [x] Fuenf editierbare [CAD-Komponentenproben](../Design/Components/README.md)
+- [x] [Technikrechner](Guides/Mjolnir-Technik-Auslegung.md) fuer Schienen, Akkus, Scharniere und Staender
+- [x] Erzeugbare Bauteil-, Bewegungs- und Finishprotokolle sowie Montage-/Transportablauf
+
+Die folgenden Aufgaben betreffen den realen Aufbau. Sie bleiben offen, auch
+wenn digitale Vorlagen oder passende Rechenwerkzeuge bereits vorhanden sind.
+
 ## 1. Projekt und Referenz
 
 - [ ] Eigenes leeres Profil anlegen und eindeutig benennen
@@ -39,7 +51,7 @@ Projekt, Profil und Bauteilrevision. Details im
 - [ ] Individuelle Innenkonturen und referenzgemaesse Aussenformen zusammenfuehren
 - [ ] Schraub-/Gurtaufnahmen, Polster, Visier- und Luefterhalter konstruieren
 - [ ] Material und Fertigungsparameter je Baugruppe dokumentieren
-- [ ] Modell-/Slicerdateien mit Teil-ID und Revision ablegen
+- [ ] Modell-/Slicerdateien mit Teil-ID und Revision ablegen und Register mit `suit_assets.py` pruefen
 - [ ] Rohbau montieren, wiegen und real testen
 - [ ] Finishmuster erstellen; erst nach Passprobe gesamte Ruestung lackieren
 - [ ] Waschbaren Unteranzug, Handschuhe und flexible Uebergaenge fertigstellen

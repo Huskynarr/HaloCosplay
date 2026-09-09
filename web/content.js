@@ -11,8 +11,16 @@ const CONTENT = {
       "tag": "Konfigurierbare Profile - Mechanik und Messe",
       "steps": [
         {
+          "title": "Baupaket erzeugen",
+          "file": "Documentation/Guides/Mjolnir-Baupaket.md"
+        },
+        {
           "title": "Designziel",
           "file": "Documentation/Guides/Authentizitaet-Referenz.md"
+        },
+        {
+          "title": "Originalgetreue Details",
+          "file": "Documentation/Guides/Mjolnir-Detailgestaltung.md"
         },
         {
           "title": "Masse und Passform",
@@ -33,6 +41,14 @@ const CONTENT = {
         {
           "title": "Konzept-CAD",
           "file": "Design/Parametric/README.md"
+        },
+        {
+          "title": "CAD-Komponentenproben",
+          "file": "Design/Components/README.md"
+        },
+        {
+          "title": "Technik auslegen",
+          "file": "Documentation/Guides/Mjolnir-Technik-Auslegung.md"
         },
         {
           "title": "Exoskelett",
@@ -135,6 +151,7 @@ const CONTENT = {
     {
       name: "Planung",
       items: [
+        { title: "Digitales Baupaket", file: "Documentation/Guides/Mjolnir-Baupaket.md", sub: "CAD, Modelle, Budget und Bauprotokolle gemeinsam erzeugen" },
         { title: "Profilkonfigurator", file: "profile-configurator", sub: "Mehrere Profile, Masse und Bauoptionen" },
         { title: "Budgetplaner", file: "budget-planner", sub: "Ausstattung und Kosten konfigurieren" },
         { title: "Komplett-Walkthrough", file: "Documentation/Guides/Komplett-Walkthrough.md" },
@@ -150,6 +167,8 @@ const CONTENT = {
     {
       name: "Bau",
       items: [
+        { title: "Originalgetreue Details", file: "Documentation/Guides/Mjolnir-Detailgestaltung.md" },
+        { title: "CAD-Komponentenproben", file: "Design/Components/README.md" },
         { title: "Foam-Bau (V1)", file: "Documentation/Guides/Foam-Bau.md" },
         { title: "3D-Druck (H2C)", file: "Documentation/Guides/3D-Druck.md" },
         { title: "Klebetechniken", file: "Documentation/Guides/Klebetechniken.md" },
@@ -162,6 +181,7 @@ const CONTENT = {
     {
       name: "Elektronik",
       items: [
+        { title: "Technik auslegen", file: "Documentation/Guides/Mjolnir-Technik-Auslegung.md" },
         { title: "Elektronik-Uebersicht", file: "Documentation/Guides/ElectronicsGuide.md" },
         { title: "V3-Systemarchitektur", file: "Documentation/Guides/V3-Systemarchitektur.md" },
         { title: "HUD", file: "Documentation/Guides/Elektronik-HUD.md" },
