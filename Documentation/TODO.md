@@ -13,6 +13,9 @@ Projekt, Profil und Bauteilrevision. Details im
 - [x] Fuenf editierbare [CAD-Komponentenproben](../Design/Components/README.md)
 - [x] [Technikrechner](Guides/Mjolnir-Technik-Auslegung.md) fuer Schienen, Akkus, Scharniere und Staender
 - [x] Erzeugbare Bauteil-, Bewegungs- und Finishprotokolle sowie Montage-/Transportablauf
+- [x] [Einbauplan](Guides/Mjolnir-Einbauplan.md) mit separater Komfort-/Effektversorgung und konfigurierbaren Verbrauchern
+- [x] Acht bewegliche Clamshell-Bauraumhuellen und [Selbstanzieh-Prueffolge](Guides/Mjolnir-Selbstanziehen.md)
+- [x] Thermalrechner fuer einzelne LED-Kuehlkoerper und gemessene Luftkanaele
 
 Die folgenden Aufgaben betreffen den realen Aufbau. Sie bleiben offen, auch
 wenn digitale Vorlagen oder passende Rechenwerkzeuge bereits vorhanden sind.
@@ -45,6 +48,8 @@ wenn digitale Vorlagen oder passende Rechenwerkzeuge bereits vorhanden sind.
 - [ ] Helm-Torso-Schulter-Prototyp testen
 - [ ] Je eine Arm-/Beinkassette bauen, Gegenseite individuell anpassen
 - [ ] Drei Anzieh- und stromlose Ausstiegsproben dokumentieren
+- [ ] Letzte Armschale, beide Gegenhaende, Schuhcover und alle Innengurte ohne Durchschluepfen pruefen
+- [ ] Powerbankwechsel, OEM-Neblerbedienung und Helmkabel mit Handschuhen selbst erreichen
 
 ## 4. Detailmodelle und Fertigung
 
@@ -61,6 +66,8 @@ wenn digitale Vorlagen oder passende Rechenwerkzeuge bereits vorhanden sind.
 - [ ] Komfortstrom und Effektsteuerung getrennt planen; realen Strombedarf messen
 - [ ] Bei Elektronik: Board, Sensoren, Schaltplan, Kabelbaum und Versorgung festlegen
 - [ ] Bei Licht: Positionen, Helligkeit und Spitzenstrom pruefen
+- [ ] Bei Highpower-RGB: Konstantstrom, Reset-Aus, Waermeweg und Foto-Banding pruefen
+- [ ] Komfortluft, Elektronikabluft und trockene Duesenluft am Gesamtaufbau getrennt testen
 - [ ] Bei Audio: Sprachverstaendlichkeit und Rueckkopplung mit Helm pruefen
 - [ ] Bei HUD: Sicht ohne Anzeige sowie Befestigung und Laufzeit pruefen
 - [ ] Bei Exoskelett: Hersteller-Passmasse, Anprobe und getrennte Integration nachweisen

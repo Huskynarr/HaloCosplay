@@ -8,7 +8,7 @@ from pathlib import Path
 import tempfile
 import unittest
 
-from tools import suit_assets, suit_engineering, suit_project
+from tools import suit_assets, suit_engineering, suit_project, suit_thermal
 
 ROOT = Path(__file__).resolve().parents[2]
 
@@ -40,6 +40,12 @@ class ProjectPackageTests(unittest.TestCase):
                                                        '--out', str(out / 'Engineering'), '--check']), 0)
             self.assertTrue((out / 'Components/ComponentKit.scad').is_file())
             self.assertTrue((out / 'Fit/MjolnirEntry.scad').is_file())
+            self.assertTrue((out / 'Clamshell/LimbClamshell.scad').is_file())
+            self.assertTrue((out / 'Integration.md').is_file())
+            integration = json.loads((out / 'Integration.json').read_text())
+            self.assertEqual(integration['profile_sha256'], package['profile_sha256'])
+            self.assertEqual(integration['configuration_sha256'], hashlib.sha256((out / 'integration.local.json').read_bytes()).hexdigest())
+            suit_thermal.export(out / 'thermal.local.json', out / 'Thermal', check=True)
             with redirect_stdout(io.StringIO()):
                 self.assertEqual(suit_assets.main(['--manifest', str(out / 'assets.local.json'),
                                                   '--report', str(out / 'AssetReport.json')]), 2)

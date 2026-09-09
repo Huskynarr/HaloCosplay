@@ -11,9 +11,16 @@ sicherheitsgerichtete Maschinensteuerung.
 | Versorgung | Verbraucher | Einbau |
 | --- | --- | --- |
 | 5 V Komfort | Luefter und optionale einfache Statusanzeige | Eigene Absicherung und erreichbarer Schalter |
-| 5 V Effekte | Ruestungs-/Helm-LEDs, Audio nach gewaehltem Modul | Getrennt vom Komfortzweig |
+| 15 V Effekte | Konstantstrom-RGB fuer Helm/Duesen nach Lichtguide | Eigene gepruefte PD-Versorgung und Treiber |
+| 5 V Effekte | Effektcontroller, Pixel nach Auswahl, trockene Duesenluefter | Geregelter Abgang, getrennt vom Komfortzweig |
 | Rechner/Display optional | Vorhandenes HUD | Eigene Versorgung nach konkreter Hardware |
 | Serien-Exoskelett | Herstellergeraet | Ausschliesslich dessen Originalsystem |
+
+[Einbauplan](Mjolnir-Einbauplan.md), [Lichtmodule](Mjolnir-Lichtmodule.md) und
+[Helmintegration](Mjolnir-Helmintegration.md) legen Einbauorte und Schnittstellen
+fest. Highpower-RGB ist keine direkt anschliessbare NeoPixel-Erweiterung.
+Bei 4-Pin-Lueftern gelten Versorgung, Pegel und PWM-Frequenz des konkreten
+Herstellers; bestehende Sketch-Pins und `analogWrite` sind keine Einbaufreigabe.
 
 Sicherungswert, Leitung und Steckverbinder werden zusammen nach realer
 Stromaufnahme, Einschaltspitze, Leitungslaenge, Temperatur und Herstellerdaten

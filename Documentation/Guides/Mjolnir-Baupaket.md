@@ -45,7 +45,10 @@ verwenden. Eigene Masse, Kaufmodelle und Berichte unter `build/` halten.
 | `Reference.json`, `Parts.csv` | Quellen, Ansichten und 23 getrennte Bauteile | Referenzabgleich und Modellrevision je Teil |
 | `assets.local.json` | Register fuer Modelldateien, Einheiten und Hashes | Eigene nutzbare Dateien und Rechteangaben |
 | `Components/` | CAD-Proben fuer Visier, Luefter, Fugen, Gelenkabdeckung und Scharnier | Kaufteilmasse, Druckverhalten, Befestigung und Einbau |
+| `Clamshell/` | Acht aufklappbare Arm-/Beinhuellen und Selbstanzieh-Prueffolge | Reale Konturen, Scharniere, Verschluesse und Erreichbarkeit |
+| `integration.local.json`, `Integration.*` | Einbauzonen und getrennte Stromkreise gemaess Auswahl | Stecker, Groessen, Massen und kollisionsfreier Einbau |
 | `engineering.local.json`, `Engineering/` | Strom-, Laufzeit-, Moment- und Sockelrechnung | Reale Verbraucher, Massen, Hebel, Akku- und Herstellerdaten |
+| `thermal.local.json`, `Thermal/` | Getrennte LED-Kuehlkoerper, Farbchips und gemessene Luftwege | Waermeleistung, Widerstaende, Einbautemperatur und Grenzwerte |
 | `BOM.local.json`, `Budget.md` | Editierbare vorhandene Kostenansaetze | Lieferangebote, Ausstattung, Bestandsmaterial und Mengen |
 | `FinishSheet.svg` | A4-Protokoll fuer sechs Muster mit 50-mm-Druckkontrolle | Echte Farbmuster, Haftung und Biegung |
 | `MovementTests.csv` | Sieben Bewegungs-, Geraeusch- und Ausstiegsproben | Ergebnis, Beobachtung und Nachweis |
@@ -114,12 +117,15 @@ openscad --hardwarnings -D 'component="fan_bracket"' -o build/Components-r2/fan_
 
 Die [Technikauslegung](Mjolnir-Technik-Auslegung.md) beschreibt die Eingaben
 fuer Verbraucher, Akkus, Scharniere und Staender sowie reale Helm-, Sicht-,
-Audio- und Luftversuche. Im eigenen Paket beginnen technische Zahlen unbekannt.
+Audio- und Luftversuche. Verbraucher und Spannungsschienen kommen aus dem
+[Einbauplan](Mjolnir-Einbauplan.md); Mengen und 5-/15-V-Ziele sind Entwurfsangaben.
+Leistungen, nutzbare Akkuenergie und thermische Messdaten beginnen unbekannt.
 Nicht vorhandene Baugruppen werden ausdruecklich weggelassen, statt erfundene
 Null-Lasten fuer vorhandene Technik einzutragen.
 
 ```bash
 python3 tools/suit_engineering.py --input build/MySuit-r1/engineering.local.json --out build/MySuit-r1/Engineering
+python3 tools/suit_thermal.py --input build/MySuit-r1/thermal.local.json --out build/MySuit-r1/Thermal
 python3 tools/suit_budget.py --bom build/MySuit-r1/BOM.local.json --out build/MySuit-r1/Budget.md
 python3 tools/suit_readiness.py --manifest build/MySuit-r1/readiness.local.json --root build/MySuit-r1 --out build/MySuit-r1/Readiness.md
 ```
@@ -128,6 +134,13 @@ Der Technikstand steht in `Engineering/`; `--check` beim gleichen Befehl
 prueft die Aktualitaet beider Berichte samt Hash der Eingabedatei.
 Elektrische Rechnungen sind keine Schaltungs-, Leitungs- oder Sicherungsfreigabe;
 statische Momente ersetzen keinen Lastversuch.
+
+Mit `--integration <Datei.json>` am Baupaket-Befehl werden Kamera, HUD,
+Highpower-/Pixellicht und Luftwege konfiguriert. Optionen und Beispiel stehen im
+[Einbauplan](Mjolnir-Einbauplan.md). Die Auswahl veraendert keine vorhandene
+Budgetdatei automatisch. [Licht-Einkauf](../../Materials/Mjolnir-Licht-Einkauf.md)
+mit vorhandenen FOG-/Basispositionen abgleichen. Clamshell-Dateien und
+[Selbstanziehfolge](Mjolnir-Selbstanziehen.md) bleiben auch ohne Elektronik nutzbar.
 
 ## 5. Reihenfolge bis zur Ausstellung
 
@@ -151,7 +164,8 @@ statische Momente ersetzen keinen Lastversuch.
 ## Softwarestand und verbleibende Arbeit
 
 CI erzeugt ein synthetisches Workshop-Demo, kompiliert die fuenf Komponenten
-zu STL und stellt es als Artefakt `concept-only-not-fabrication-approved`
+sowie alle acht Arm-/Beinhuellen geschlossen und geoeffnet zu STL und stellt
+es als Artefakt `concept-only-not-fabrication-approved`
 bereit. Die Quellparameter und Dokumentation sind enthalten. Ein gruener
 Softwaretest bestaetigt keine gedruckte oder getragene Ruestung.
 

@@ -63,6 +63,10 @@ ist ein separat anzupassendes System.
 ## Bau und Technik
 
 - [Digitales Baupaket: Dateien, Modellimport und Baufolge](Documentation/Guides/Mjolnir-Baupaket.md)
+- [Einbauorte: Akkus, Luft, Kamera, Audio und Highpower-RGB](Documentation/Guides/Mjolnir-Einbauplan.md)
+- [Aufklappbare Arme/Beine und selbststaendiges Anlegen](Documentation/Guides/Mjolnir-Selbstanziehen.md)
+- [Acht bewegliche Clamshell-Bauraumhuellen](Design/Clamshell/README.md)
+- [LED-Kuehlkoerper und gemessene Luftwege berechnen](Design/Thermal/README.md)
 - [Detailgestaltung, Unteranzug, Visier und Finish](Documentation/Guides/Mjolnir-Detailgestaltung.md)
 - [Fuenf editierbare CAD-Komponentenproben](Design/Components/README.md)
 - [Strom-, Laufzeit-, Scharnier- und Staenderauslegung](Documentation/Guides/Mjolnir-Technik-Auslegung.md)

@@ -1,8 +1,13 @@
 # Mechanischer Einstieg, Verriegelung und Anziehstation
 
 Die Basis ist ein manuell oeffnendes System. Tueren, Gurte und Schalen bleiben
-vormontiert. Eine Hilfsperson kontrolliert das Anlegen. Das Iron-Man-Vorbild
-wird durch sichtbare Schalenbewegung und geordneten Einstieg umgesetzt.
+vormontiert. Ziel ist selbststaendiges An- und Ausziehen ohne starre Arm-, Bein-,
+Hals- oder Schuhroehren zum Durchschluepfen. Eine Hilfsperson beobachtet die
+Entwicklungsproben und kann Lasten uebernehmen; ihre Hilfe ist keine Erfuellung
+des spaeteren Solo-Ablaufs. Das Iron-Man-Vorbild wird durch Schalenbewegung und
+einen geordneten Einstieg umgesetzt. Die vollstaendige
+[Bedien- und Kassettenfolge](Mjolnir-Selbstanziehen.md) beschreibt Gegenhand,
+letzte Handschale, offene Gurte und von vorn erreichbare Schulterlaschen.
 
 ## 1. Torso: ausfahren und schwenken
 
@@ -36,6 +41,7 @@ und Polster aus den Fugen entfernt sind.
 | Frontschliesser | Zwei mechanische Schliesser mit Sekundaersicherung | Modell, Lastdaten, Montageplatten und erreichbare Betaetigung |
 | Sternumleiste | Nur an rechter Tuer befestigt, ueberlappt links lose | Schalennaht und Freigang |
 | Innenpolster | Austauschbar; nicht in Fuehrung oder Scharnier faltbar | Anpassung am 1:1-Mockup |
+| Servicezugriff | Akku-/Sicherungsklappen und Hauptschalter vorne oder vorne/seitlich; unabhaengig von den Fronttueren bedienbar | Griffversuch mit beiden geruesteten Armen und Handschuhen |
 
 Magnete duerfen kosmetische Deckel ausrichten. Sie sind weder einziger
 Torso-Verschluss noch Bestandteil einer angenommenen Freigabefunktion.
@@ -83,18 +89,28 @@ ersetzt diesen Nachweis nicht. Bis dahin: Tuer nur als Tisch-/Kartonprototyp.
 
 | Baugruppe | Mechanismus | Bedienung |
 | --- | --- | --- |
-| Schulter | Schwimmende Textilaufnahme; separate Klappaufnahme fuer Parkstellung | Seitlich hochklappen; keine starre menschliche Schulterachse nachbauen |
+| Schulter | Schwimmende Textilaufnahme; separate Klappaufnahme fuer Parkstellung | Seitlich hochklappen; vordere Zuglasche zum Schliessen, kein letzter Verschluss hinten |
 | Ober-/Unterarm | Jede Schale als eigene Clamshell; Scharnier aussen, Schliesser erreichbar vorne/innen | Arm hineinlegen, nicht die Hand durch ein enges Rohr zwingen |
 | Oberschenkel | Geteilte Schale an breitem Textilaufhaenger | Front aufklappen, seitliche Exoskelett-Manschette frei halten |
 | Knie | Leichtes Pad an textilem Zwischenstueck | Verschiebt sich relativ zu beiden Schalen; keine Zwangsfuehrung |
 | Schienbein | Geteilte Schale; Entlastung zum Knoechel | Front oeffnet, Fuss bleibt im normalen Schuh |
-| Helm | Abnehmbarer Helm; separat manuell zu oeffnender Visor/Heckverschluss | Der gesamte Helm muss ohne Elektrik abgenommen werden koennen |
+| Handruecken | Leichte dauerhaft am Handschuh sitzende oder seitlich aufklappende Platte | Zweiter Arm muss mit der schon geruesteten Gegenhand bedienbar bleiben |
+| Schuhcover | Geteilter Fersen-/Spannbereich; keine geschlossene Ruestungsschlaufe unter der Sohle | Cover um den beschuhten Fuss schliessen; von vorne/seitlich wieder oeffnen |
+| Helm | Abnehmbarer Helm; separat manuell zu oeffnender Visor/Heckverschluss, offene Halsabdeckung | Ganzer Helm ohne Elektrik abnehmbar; keine enge starre Halsdurchfuehrung |
 
 Die kosmetischen Beinverbindungen haben keinen Bodenkontakt und sind keine
 Bein-Exoskelett-Tragglieder. Ellbogen, Schulter und Knie folgen keiner
 einachsigen Scharnierlinie am Koerper. Fuer Transport und Wartung lassen sich
 Kassetten ueber beschriftete Schnellverbindungen abnehmen; das ist nicht bei
 jedem Anziehen notwendig.
+
+Auch alle Innengurte muessen auf der Verschlussseite vollstaendig oeffnen und
+mit gefangenen Enden offen parken. Ein geschlossener Haltering hinter einer
+offenen Aussenschale wuerde den Zweck verfehlen. Elektrische Leitungen bleiben
+auf der hinteren Auflage oder werden am Scharnier geschuetzt gefuehrt; sie
+duerfen die freie Eintrittsfuge nicht ueberbruecken. Die vier
+[beweglichen Clamshell-Bauraumtypen](../../Design/Clamshell/README.md) bilden
+beide Seiten unabhaengig ab, enthalten aber keine fertigen Kaufgelenke.
 
 ## 3. Anziehstation D01
 
@@ -120,17 +136,23 @@ anschliessend darum geschlossen.
 
 1. Ruestung stromlos; Station standsicher; alle Kassetten offen und gehalten.
 2. Unteranzug, normale Schuhe, optional passendes Serien-Exoskelett separat anlegen.
-3. In die offen gehaltenen Beinschalen treten; Ruecken an T01 positionieren.
+3. Sitzend Schuhcover und Unterschenkelschalen um Fuss/Bein schliessen; keine
+   starre Roehre durchqueren. Ruecken an T01 positionieren; Oberschenkel offen.
 4. Eigenen Hueftgurt und stabilisierende Schultergurte schliessen; nicht mit dem
    Gurt des Serien-Exoskeletts verwechseln.
-5. Beinschalen schliessen, Knie-/Hueftfreiheit pruefen; Arme in offene Kassetten legen.
-6. Arm- und Schulterteile schliessen; Fronttueren schliessen und Seitenfuehrungen
-   kontrolliert in Tragstellung bringen. Gurt-/Kabel-/Polsterfreiheit dabei pruefen.
+5. Oberschenkelschalen vorne/innen schliessen und Knie-/Hueftfreiheit pruefen.
+   Fronttueren schliessen und Seitenfuehrungen kontrolliert in Tragstellung
+   bringen. Gurt-/Kabel-/Polsterfreiheit dabei pruefen.
+6. Textile Handschuhe anziehen, Arme in offene Kassetten legen; weniger geschickten
+   Arm zuerst schliessen. Zweiten Arm mit bereits geruesteter Gegenhand schliessen,
+   danach Schulterhauben ueber vordere Laschen absenken und sichern.
 7. Frontschliesser und Sekundaersicherungen von Hand pruefen; Stationsablagen
    vollstaendig freigeben. Vor erstem Schritt eine Sichtkontrolle rundum.
 8. Stand-/Schrittprobe ohne Helm; Helm zuletzt; Lueftung, Licht und Audio zuschalten.
 
-Zielzustand: keine Schraube, kein loser Achsstift und kein Werkzeug im Ablauf.
+Zielzustand: keine Schraube, kein loser Achsstift, kein Durchschluepfen durch
+starre Ruestung und kein Werkzeug im Ablauf. Hauptschalter, Akku-Servicezugriff
+und Entriegelungen werden mit komplett geruesteten Armen erneut erreicht.
 Die Zeitvorgabe ist ein Entwicklungsziel. Solange ein Schritt Handmontage
 einzelner Platten verlangt, wird die entsprechende Kassette ueberarbeitet.
 
