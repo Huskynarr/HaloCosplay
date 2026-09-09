@@ -25,7 +25,85 @@ Auch ein transparentes Display reduziert oder veraendert die Durchsicht durch
 Rahmen, Leiterbahnen, Tinte, Reflexionen und leuchtende Bildinhalte. Die fruehere
 pauschale Zusage einer vollstaendig erhaltenen Sicht entfaellt.
 
-## 2. Konkreter preiswerter Displayversuch
+## 2. Fertige Near-Eye-Optik als bevorzugter Ausbau
+
+Stand der Herstellerrecherche: 2026-09-09. Fuer das funktionsfaehige Helm-HUD
+wird ein komplettes optisches System mit Treiber bevorzugt. Ein hoeheres
+Displaybudget ist vorgesehen; die folgende Auswahl ist noch keine Bestellung
+oder bestaetigte mechanische Integration.
+
+| Kandidat | Belegte Herstellerangaben | Einordnung und offene Punkte |
+| --- | --- | --- |
+| [ENMESI R3](https://www.enmesi.com/sale-12375134-mipi-1920-1080-type-c-micro-lcd-display-module-for-augmented-reality-wearable.html) | LCOS-Waveguide, 1920 x 1080, 40 Grad FOV, 60 Hz; angegebene Transmission ueber 82 Prozent; Controller Type-C, internes Panel MIPI | Interessant fuer eine eigene Helmkassette. Preis verhandelbar, Mindestmenge 50 Stueck. Einzelmuster, vollstaendiger optischer Lieferumfang und Videoeingangsprotokoll unbestaetigt. |
+| [XREAL One Pro](https://www.xreal.com/one-pro) | Fertige Farb-Displaybrille, 57 Grad FOV, bis 120 Hz; USB-C mit DisplayPort-Ausgabe an der Quelle erforderlich | Praktischer Kandidat fuer einen ersten vollstaendigen HUD-Versuch. Zunaechst unzerlegt testen; Brillenrahmen, Tasten und Kabel muessen unter den Helm passen. |
+
+Der [XREAL EU-Shop](https://eu.shop.xreal.com/products/xreal-one-pro) zeigte
+599 EUR inklusive Steuern, statt 689 EUR. Der Abruf enthielt sowohl Kauf- als
+auch Nachlieferungsanzeigen; Bestand der passenden Variante ist damit nicht
+bestaetigt. Versand und gegebenenfalls Sehhilfen kommen separat hinzu.
+Die Produktseite unterscheidet IPD-Varianten 57-66 und 66-75 mm; die passende
+Variante folgt der Messung und Passprobe.
+
+Beim R3 ist die Angabe "Pupil Distance 18mm" nicht eindeutig definiert und wird
+nicht als Augenabstand eines Menschen uebernommen. Ebenso beschreibt die
+Panel-Leistungsangabe nicht automatisch den Verbrauch von Beleuchtung,
+Controller und kompletter Optik. Diese Werte bleiben im Energieplan unbekannt.
+Alle genannten optischen Werte sind Herstellerangaben, keine Messungen am Helm.
+
+AliExpress bleibt ein moeglicher Beschaffungskanal. Ein konkretes Angebot mit
+bestaetigtem Lieferumfang und Einzelstueckpreis konnte nicht verifiziert werden.
+Suchbegriffe: `optical see through AR module driver board`, `LCOS waveguide
+module evaluation kit`, `monocular HUD optical engine HDMI`. Ein als AR
+beworbenes Micro-OLED oder ein Kamerasucher kann die Umgebung verdecken;
+"AR" im Titel belegt keine Durchsicht.
+
+### 2.1 Beschaffung und Budget
+
+Als eigene Planungsreserve werden **800-1200 EUR fuer einen Display-Prototyp**
+angesetzt, inklusive Optik/Brille, kompatibler Videoquelle beziehungsweise
+Adapter, Halter und Verkabelung. Das ist kein OEM-Angebot und umfasst keine
+kundenspezifische Waveguide-Entwicklung. Vorhandene geeignete Rechner koennen
+Kosten senken. Das generische Projektbudget wird erst nach Auswahl mit dem
+realen Preis und gemessenen Leistungsbedarf befuellt.
+
+Vor einem OEM-Muster muessen folgende Angaben vorliegen:
+
+- Exakte Artikelrevision, Einzelmusterpreis, Mindestmenge und Lieferzeit;
+  Aufstellung von Optik, Beleuchtung, Controller, Firmware und Kabeln.
+- Optische Durchsicht, Farbe, nutzbare Eyebox, Eye Relief, virtuelle Bildweite,
+  Helligkeit am Auge und Regelbereich; Zeichnungen mit Befestigungspunkten.
+- Tatsaechlicher Videoeingang und unterstuetzte Aufloesungen. Type-C alleine
+  bestaetigt weder DisplayPort noch USB-Video. MIPI benoetigt einen passenden
+  Controller und ist kein beliebiger HDMI-Anschluss.
+- Versorgung, Einschaltspitze, Dauerverbrauch und Temperaturgrenzen des
+  kompletten Systems; Wiederanlauf nach Kabel- und Stromunterbrechung.
+
+### 2.2 Integration in den Halo-Helm
+
+Der erste Versuch zeigt ein sparsames farbiges Halo-HUD: Schildbalken als
+kenntliche Inszenierung sowie echte Batterie-, Temperatur- und Modusdaten.
+Schwarzer Bildhintergrund reduziert leuchtende Flaechen, beseitigt aber weder
+Brillentint noch optische Verluste. Goldvisier und Brille werden gemeinsam auf
+Durchsicht, Reflexionen und Beschlag geprueft.
+
+Host und grosse Energiequelle sitzen vorzugsweise im Torso; im Helm bleiben
+Optik und erforderliche Treiber. Kabel benoetigen Zugentlastung und eine
+loesbare Verbindung fuer das Abnehmen. Bei einer kompletten Brille werden
+zunaechst deren Originalrahmen und optische Justage erhalten. Eine wegklappbare
+OEM-Kassette folgt erst aus deren realer Geometrie und Eyebox.
+
+Eine Quelle mit USB-C-DP-Ausgang kann die XREAL direkt ansteuern. Bei HDMI ist
+ein aktiver, ausdruecklich fuer HDMI-Quelle zu USB-C-Display geeigneter und
+versorgter Adapter erforderlich; ein ueblicher USB-C-zu-HDMI-Adapter ist nicht
+umkehrbar. Diese Kombination ist vor Einbau am Tisch zu pruefen.
+
+Der bestehende I2C-OLED-Code ist kein Farb-HDMI-/DP-Renderer. Ein passender
+Renderer mit Telemetrieanbindung, Ausfallanzeige fuer veraltete Messwerte und
+geprueftem Startverhalten bleibt Implementierungsarbeit nach Hardwareauswahl.
+Die Konfiguratoroption `hud=combiner` waehlt bisher nur ein Einbaukonzept;
+sie erzeugt keine XREAL-/R3-Treiber, CAD-Passform oder verifizierte Leistungsdaten.
+
+### 2.3 Preiswerter Displayversuch als separate Option
 
 **Waveshare 1.51inch Transparent OLED**: SSD1309, 128 x 64 Pixel, monochrom
 hellblau; aktive Flaeche 35.05 x 15.32 mm, Treiberplatine 41 x 22.5 mm.
@@ -46,14 +124,6 @@ Der vorhandene [HUD-Code](../../Code/HelmetControl/hud_display.py) zeichnet ein
 SPI-Auslieferungszustand. Ein erfolgreicher PNG-Selbsttest prueft weder Anschluss,
 Resetsequenz, sichtbaren Bildausschnitt noch Lesbarkeit im Helm. Der
 [HUD-Inbetriebnahmeguide](Elektronik-HUD.md) trennt diese Schritte.
-
-Als Alternative zu selbst aufgebauter Optik kann ein vollstaendiges kommerzielles
-Near-Eye-System auf Platz und SDK geprueft werden. Beispielsweise dokumentiert
-Vuzix fuer Z100 eine Mobilgeraeteanbindung und ein Android-SDK zur Ausgabe von
-Text und Bildern. Das ist eine eigene Integration; der vorhandene OLED-Code
-laeuft darauf nicht unveraendert. Fuer diese Option liegt hier weder ein
-aktuelles Kaufangebot noch eine Helm-Passprobe vor.
-[Vuzix SDK](https://support.vuzix.com/docs/sdk-for-android)
 
 ## 3. Monokulares HUD als ausbaubares Modul
 
