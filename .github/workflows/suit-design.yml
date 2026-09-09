@@ -34,6 +34,15 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
+      - name: Exclude unused Chrome apt repository from runner dependencies
+        run: |
+          sudo python3 - <<'PY'
+          from pathlib import Path
+          # Playwright downloads its own Chromium; keep Ubuntu signature/hash checks.
+          for source in Path('/etc/apt/sources.list.d').iterdir():
+              if source.suffix in ('.list', '.sources') and 'dl.google.com/linux/chrome' in source.read_text():
+                  source.rename(source.with_suffix(source.suffix + '.disabled'))
+          PY
       - name: Install isolated browser test dependencies
         run: |
           npm install --no-save --prefix build/browser playwright@1.62.1
@@ -53,6 +62,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - name: Exclude unused Chrome apt repository from runner dependencies
+        run: |
+          sudo python3 - <<'PY'
+          from pathlib import Path
+          # OpenSCAD comes from Ubuntu; keep repository signature/hash checks.
+          for source in Path('/etc/apt/sources.list.d').iterdir():
+              if source.suffix in ('.list', '.sources') and 'dl.google.com/linux/chrome' in source.read_text():
+                  source.rename(source.with_suffix(source.suffix + '.disabled'))
+          PY
       - name: Install OpenSCAD
         run: sudo apt-get update -qq && sudo apt-get install -y openscad
       - name: Compile concept poses and test coupons
