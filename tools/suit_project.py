@@ -10,9 +10,9 @@ import shlex
 import sys
 
 try:
-    from . import suit_assets, suit_budget, suit_components, suit_engineering, suit_fit, suit_readiness
+    from . import suit_assets, suit_budget, suit_clamshell, suit_components, suit_engineering, suit_fit, suit_integration, suit_readiness, suit_thermal
 except ImportError:
-    import suit_assets, suit_budget, suit_components, suit_engineering, suit_fit, suit_readiness
+    import suit_assets, suit_budget, suit_clamshell, suit_components, suit_engineering, suit_fit, suit_integration, suit_readiness, suit_thermal
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -40,12 +40,16 @@ def finish_sheet(project):
     return '\n'.join(rows)+'\n'
 
 
-def generate(profile_path, out, concept=False):
+def generate(profile_path, out, concept=False, integration_path=None):
     profile_path=Path(profile_path).resolve(); out=Path(out).resolve()
     raw=profile_path.read_bytes(); profile=json.loads(raw)
     fit=suit_fit.derive(profile, concept)
+    if fit['input_status'] == 'synthetic' and not concept:
+        raise ValueError('Synthetisches Profil erfordert --concept')
     reference=suit_assets.reference(fit['build']['armor_reference'])
-    engineering=suit_engineering.new_project(fit['profile'])
+    integration=suit_integration.plan(fit, suit_integration.configure(fit, integration_path))
+    engineering=suit_integration.engineering_inputs(integration)
+    thermal=suit_integration.thermal_inputs(integration)
     assets=suit_assets.template(fit['profile'], reference['id'])
     bom=json.loads((ROOT/'Materials/Mjolnir-BOM.json').read_text())
     if fit['build']['fog_system']=='pmi-cloud':
@@ -59,10 +63,18 @@ def generate(profile_path, out, concept=False):
         write_json(out/'Reference.json', reference)
         write_json(out/'assets.local.json', assets)
         write_json(out/'engineering.local.json', engineering)
+        write_json(out/'thermal.local.json', thermal)
+        write_json(out/'integration.local.json', integration['configuration'])
+        integration['profile_sha256']=hashlib.sha256(raw).hexdigest()
+        integration['configuration_sha256']=hashlib.sha256((out/'integration.local.json').read_bytes()).hexdigest()
+        write_json(out/'Integration.json', integration)
+        (out/'Integration.md').write_text(suit_integration.render(integration),encoding='utf-8')
         write_json(out/'BOM.local.json', bom)
         (out/'Budget.md').write_text(budget_text, encoding='utf-8')
         suit_fit.export(fit,out/'Fit')
         suit_components.export(snapshot, out/'Components', concept=concept)
+        suit_clamshell.export(snapshot, out/'Clamshell', concept=concept)
+        suit_thermal.export(out/'thermal.local.json', out/'Thermal')
         report=suit_engineering.calculate(engineering)
         report['input_sha256']=hashlib.sha256((out/'engineering.local.json').read_bytes()).hexdigest()
         (out/'Engineering').mkdir()
@@ -94,7 +106,10 @@ def generate(profile_path, out, concept=False):
                '| Reference.json / Parts.csv | Referenzansichten und kompletter Teileumfang |',
                '| assets.local.json | Eigene Modelldateien, Quellen, Lizenzen, Einheiten und Hashes eintragen |',
                '| Components/ | Fuenf parametrisierte Halter-/Passproben mit Stuecklisten und Montagehinweisen |',
+               '| Clamshell/ | Acht aufklappbare Arm-/Beinhuellen, eigene Seiten und Selbstanzieh-Prueffolge |',
+               '| integration.local.json / Integration.* | Ausgewaehlte Einbauzonen, zugaengliche Akkus und getrennte Stromkreise |',
                '| engineering.local.json / Engineering/ | Reale Verbraucher, Akkus, Tuergewicht und Staender-Geometrie eintragen und Berichte aktualisieren |',
+               '| thermal.local.json / Thermal/ | Eigene LED-Waermewege und gemessene Luftkanaele auslegen |',
                '| BOM.local.json / Budget.md | Editierbare Budgetansaetze, keine profilberechneten Materialmengen |',
                '| FinishSheet.svg | Druckbares Protokoll fuer sechs reale Finishmuster |',
                '| MovementTests.csv | Bewegungs-, Geraeusch- und Ausstiegsproben dokumentieren |',
@@ -112,6 +127,7 @@ def generate(profile_path, out, concept=False):
                '```bash',
                f'python3 tools/suit_assets.py --manifest {q}/assets.local.json --report {q}/AssetReport.json',
                f'python3 tools/suit_engineering.py --input {q}/engineering.local.json --out {q}/Engineering',
+               f'python3 tools/suit_thermal.py --input {q}/thermal.local.json --out {q}/Thermal',
                f'python3 tools/suit_budget.py --bom {q}/BOM.local.json --out {q}/Budget.md',
                f'python3 tools/suit_readiness.py --manifest {q}/readiness.local.json --root {q} --out {q}/Readiness.md',
                '```','',
@@ -119,6 +135,8 @@ def generate(profile_path, out, concept=False):
                'Originalmodell-Dateien und reale Koerperdaten bleiben lokal. Bestehende Projektpakete werden bei Neuerzeugung nicht ueberschrieben.',
                'Engineering-Eingaben starten unbekannt; Demonstrationswerte werden dort nicht automatisch eingesetzt.',
                'Die Budgetvorlage bleibt an Materialweg, vorhandene Ausstattung und Angebote anzupassen. Komponenten-BOMs nicht pauschal nochmals aufaddieren.',
+               'Integrationsauswahl aendert nicht automatisch die Budgetvorlage. Insbesondere Highpower-RGB, Treiber, Optik und PD-Versorgung separat erfassen.',
+               'Aenderungen an integration.local.json gelten fuer eine neu erzeugte Revision via --integration; bestehende Berichte werden nicht still ueberschrieben.',
                'Ausgewaehlte HUD-, Audio-, Exoskelett- und Nebeltechnik benoetigt eigene Einbauraeume und Nachweise. Eine Profiloption bestaetigt diese nicht.', '']
         (out/'BuildPlan.md').write_text('\n'.join(lines),encoding='utf-8')
         write_json(out/'Package.json',{'schema_version':1,'project':fit['profile'],'reference':reference['id'],
@@ -136,9 +154,10 @@ def main(argv=None):
     parser.add_argument('--profile',type=Path,required=True)
     parser.add_argument('--out',type=Path,required=True)
     parser.add_argument('--concept',action='store_true')
+    parser.add_argument('--integration',type=Path,help='Partial equipment integration options JSON')
     args=parser.parse_args(argv)
     try:
-        print(generate(args.profile,args.out,args.concept)); return 0
+        print(generate(args.profile,args.out,args.concept,args.integration)); return 0
     except (ValueError,OSError,TypeError,KeyError) as exc:
         print('Baupaket-Fehler: '+str(exc),file=sys.stderr); return 2
 

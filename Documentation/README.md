@@ -14,6 +14,9 @@ Einstieg und die Grenzen des parametrischen Bauraummodells.
 - [Referenzmerkmale und vollstaendige Detailgestaltung](Guides/Mjolnir-Detailgestaltung.md)
 - [Visier-, Luefter-, Fugen-, Gelenk- und Scharnierproben](../Design/Components/README.md)
 - [Elektrische und mechanische Auslegung mit eigenen Eingaben](Guides/Mjolnir-Technik-Auslegung.md)
+- [Einbauplan fuer Akkus, Luft, Licht und Helmtechnik](Guides/Mjolnir-Einbauplan.md)
+- [Selbstanziehen mit aufklappbaren Arm-/Beinkassetten](Guides/Mjolnir-Selbstanziehen.md)
+- [Highpower-RGB und getrennte Waermewege](Guides/Mjolnir-Lichtmodule.md)
 
 Dieses Verzeichnis sammelt alle Kerninhalte fuer das Halo MJOLNIR Cosplay Projekt. Fokus: tragbares, sicheres, moeglichst authentisches Ergebnis mit klaren Ausbaustufen.
 

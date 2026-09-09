@@ -15,6 +15,22 @@ const CONTENT = {
           "file": "Documentation/Guides/Mjolnir-Baupaket.md"
         },
         {
+          "title": "Einbauorte und Luftwege",
+          "file": "Documentation/Guides/Mjolnir-Einbauplan.md"
+        },
+        {
+          "title": "Selbst an- und ausziehen",
+          "file": "Documentation/Guides/Mjolnir-Selbstanziehen.md"
+        },
+        {
+          "title": "Power-RGB und Waerme",
+          "file": "Documentation/Guides/Mjolnir-Lichtmodule.md"
+        },
+        {
+          "title": "Helm: Optik, Kamera, Audio",
+          "file": "Documentation/Guides/Mjolnir-Helmintegration.md"
+        },
+        {
           "title": "Designziel",
           "file": "Documentation/Guides/Authentizitaet-Referenz.md"
         },
@@ -167,6 +183,8 @@ const CONTENT = {
     {
       name: "Bau",
       items: [
+        { title: "Aufklappbare Arm-/Beinhuellen", file: "Design/Clamshell/README.md" },
+        { title: "Selbststaendiges Anlegen", file: "Documentation/Guides/Mjolnir-Selbstanziehen.md" },
         { title: "Originalgetreue Details", file: "Documentation/Guides/Mjolnir-Detailgestaltung.md" },
         { title: "CAD-Komponentenproben", file: "Design/Components/README.md" },
         { title: "Foam-Bau (V1)", file: "Documentation/Guides/Foam-Bau.md" },
@@ -181,6 +199,9 @@ const CONTENT = {
     {
       name: "Elektronik",
       items: [
+        { title: "Einbauorte und Stromkreise", file: "Documentation/Guides/Mjolnir-Einbauplan.md" },
+        { title: "Highpower-RGB", file: "Documentation/Guides/Mjolnir-Lichtmodule.md" },
+        { title: "Waerme und Luft rechnen", file: "Design/Thermal/README.md" },
         { title: "Technik auslegen", file: "Documentation/Guides/Mjolnir-Technik-Auslegung.md" },
         { title: "Elektronik-Uebersicht", file: "Documentation/Guides/ElectronicsGuide.md" },
         { title: "V3-Systemarchitektur", file: "Documentation/Guides/V3-Systemarchitektur.md" },

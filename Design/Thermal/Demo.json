@@ -1,0 +1,45 @@
+{
+  "schema_version": 1,
+  "project": "Synthetic Thermal Example",
+  "status": "synthetic",
+  "notes": "Reine Rechenprobe. Keine Herstellerwerte, Temperaturfreigaben oder gemessenen Luftstroeme.",
+  "modules": [
+    {
+      "id": "RGB-example",
+      "heat_load_w": 4,
+      "ambient_c": 20,
+      "sink_ambient_k_per_w": 5,
+      "surface_limit_c": null,
+      "junction_paths": [
+        {
+          "id": "R",
+          "heat_w": 1.5,
+          "junction_to_sink_k_per_w": 2,
+          "junction_limit_c": null
+        },
+        {
+          "id": "G",
+          "heat_w": 1.25,
+          "junction_to_sink_k_per_w": 3,
+          "junction_limit_c": null
+        },
+        {
+          "id": "B",
+          "heat_w": 1.25,
+          "junction_to_sink_k_per_w": 4,
+          "junction_limit_c": null
+        }
+      ]
+    }
+  ],
+  "vents": [
+    {
+      "id": "Duct-example",
+      "heat_w": 12,
+      "measured_flow_m3_h": 6,
+      "ambient_c": 20,
+      "rho_kg_m3": 1.2,
+      "cp_j_kg_k": 1000
+    }
+  ]
+}

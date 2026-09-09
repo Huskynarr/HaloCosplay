@@ -3,9 +3,9 @@ name: MJOLNIR design checks
 on:
   push:
     branches: [main]
-    paths: ['Design/Parametric/**', 'Design/Components/**', 'Design/Engineering/**', 'Documentation/References/ArmorReferenceLibrary.json', 'web/configurator/**', 'web/budget/**', 'Progress/Mjolnir-*', 'Code/Exhibition/**', 'tools/suit_*.py', 'Materials/Mjolnir*', 'Tests/Automation/**', 'Tests/Browser/**', '.github/workflows/suit-design.yml']
+    paths: ['Design/Parametric/**', 'Design/Components/**', 'Design/Clamshell/**', 'Design/Engineering/**', 'Design/Thermal/**', 'Documentation/References/ArmorReferenceLibrary.json', 'web/configurator/**', 'web/budget/**', 'Progress/Mjolnir-*', 'Code/Exhibition/**', 'tools/suit_*.py', 'Materials/Mjolnir*', 'Tests/Automation/**', 'Tests/Browser/**', '.github/workflows/suit-design.yml']
   pull_request:
-    paths: ['Design/Parametric/**', 'Design/Components/**', 'Design/Engineering/**', 'Documentation/References/ArmorReferenceLibrary.json', 'web/configurator/**', 'web/budget/**', 'Progress/Mjolnir-*', 'Code/Exhibition/**', 'tools/suit_*.py', 'Materials/Mjolnir*', 'Tests/Automation/**', 'Tests/Browser/**', '.github/workflows/suit-design.yml']
+    paths: ['Design/Parametric/**', 'Design/Components/**', 'Design/Clamshell/**', 'Design/Engineering/**', 'Design/Thermal/**', 'Documentation/References/ArmorReferenceLibrary.json', 'web/configurator/**', 'web/budget/**', 'Progress/Mjolnir-*', 'Code/Exhibition/**', 'tools/suit_*.py', 'Materials/Mjolnir*', 'Tests/Automation/**', 'Tests/Browser/**', '.github/workflows/suit-design.yml']
 
 permissions:
   contents: read
@@ -79,6 +79,19 @@ jobs:
           for component in visor_retainer fan_bracket seam_coupon joint_cover hinge_coupon; do
             openscad --hardwarnings -D "component=\"${component}\"" -o "build/WorkshopDemo/Components/${component}.stl" build/WorkshopDemo/Components/ComponentKit.scad
             test -s "build/WorkshopDemo/Components/${component}.stl"
+          done
+      - name: Compile left and right opening limb envelopes
+        env:
+          QT_QPA_PLATFORM: offscreen
+        run: |
+          for part in upperarm forearm thigh shin; do
+            for side in l r; do
+              for pose in 0 1; do
+                file="build/WorkshopDemo/Clamshell/${part}_${side}_${pose}.stl"
+                openscad --hardwarnings -D "part=\"${part}\"" -D "side=\"${side}\"" -D "open_fraction=${pose}" -o "$file" build/WorkshopDemo/Clamshell/LimbClamshell.scad
+                test -s "$file"
+              done
+            done
           done
       - uses: actions/upload-artifact@v4
         with:
