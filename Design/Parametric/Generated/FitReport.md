@@ -5,6 +5,7 @@ Profil: **Synthetic-demo-1800**
 Status: **CONCEPT_NOT_MEASURED**
 
 Referenz: chief-infinite / Material: hybrid / Betrieb: wearable
+Nebeleffekt (Planung): none
 Optionen: exoskeleton=false, hud=false, lighting=true, audio=false
 
 Die Auswahl dokumentiert den Baupfad; sie erzeugt keine fertigen Referenzschalen oder Kaufteilintegration.

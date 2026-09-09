@@ -73,5 +73,16 @@
     return 'P' + String(number).padStart(3, '0');
   }
 
-  return {empty, validate, calculate, parse, serialize, nextId};
+  function appendModule(base, extra) {
+    calculate(base); calculate(extra);
+    const ids = new Set(base.items.map(item => item.id));
+    if (extra.items.some(item => ids.has(item.id))) throw new Error('Modulposition bereits vorhanden. Bestehende Positionen bearbeiten.');
+    const merged = JSON.parse(JSON.stringify(base));
+    merged.items.push(...JSON.parse(JSON.stringify(extra.items)));
+    // Base exclusions describe the full project; module-only exclusions do not.
+    calculate(merged);
+    return merged;
+  }
+
+  return {empty, validate, calculate, parse, serialize, nextId, appendModule};
 }));

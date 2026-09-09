@@ -60,7 +60,7 @@ class ProfileWorkflowTests(unittest.TestCase):
             out = Path(tmp) / "project-export"
             self.assertEqual(suit_fit.main(["--profile", str(path), "--out", str(out)]), 0)
             report = json.loads((out / "fit-report.json").read_text())
-            self.assertEqual(report["build"], p["build"])
+            self.assertEqual(report["build"], {**p["build"], "fog_system": "none"})
             self.assertEqual(report["profile"], "Studio-01")
             self.assertFalse(report["fabrication_approved"])
 

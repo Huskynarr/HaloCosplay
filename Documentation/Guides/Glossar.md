@@ -40,8 +40,8 @@ Begriffe die in diesem Projekt verwendet werden.
 | **UWB** | Ultra-Wideband, praezise Funkortung; Basis fuer das Personen-Folgen eines Begleit-Roboters |
 | **Heading** | Blickrichtung in Grad (0-360), aus der IMU integriert, treibt den HUD-Kompass |
 | **Passthrough** | AR-Verfahren: Kamerabild + HUD-Overlay auf ein Display statt direkter Sicht |
-| **Mist Maker** | Ultraschall-Vernebler, erzeugt kalten Wasserdampf (con-tauglich) |
-| **Fogger** | Beheizter Nebelerzeuger mit Glycerin-Fluid, dichter Rauch (nur kontrolliert) |
+| **Mist Maker** | Ultraschall-Vernebler, zerstaeubt Wasser zu feinem Nebel; keine pauschale Messefreigabe |
+| **Fogger** | Beheizter Nebelerzeuger mit Glycerin-Fluid, dichter Nebel (kontrollierter Betrieb) |
 | **CFM** | Cubic Feet per Minute, Mass fuer den Luft-/Nebel-Ausstoss eines Foggers |
 
 ## 3D-Druck

@@ -6,6 +6,7 @@
     "armor_reference": "chief-infinite",
     "material": "hybrid",
     "operating_mode": "wearable",
+    "fog_system": "none",
     "features": {
       "exoskeleton": false,
       "hud": false,

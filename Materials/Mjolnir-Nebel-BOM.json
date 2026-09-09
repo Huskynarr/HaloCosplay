@@ -1,0 +1,82 @@
+{
+  "schema_version": 1,
+  "currency": "EUR",
+  "status": "planning_allowances_not_supplier_quotes",
+  "contingency_fraction": 0.2,
+  "wearable_target_g": 0,
+  "module": "fog-pmi-cloud",
+  "planning_date": "2026-09-09",
+  "excluded": [
+    "Komplette Ruestung und vorhandene Basiselektronik",
+    "Arbeitszeit, Messgeraete, Versand und Importkosten",
+    "Ersatzkammer, Nachfuellfluid und optionale Vanishing-Erweiterung"
+  ],
+  "items": [
+    {
+      "id": "FOG01",
+      "name": "PMI SmokeNINJA Pro Cosplayer Bundle mit Smoke Vest, Kammer, Fluid und Fernbedienung",
+      "qty": 1,
+      "unit_budget_eur": [
+        250,
+        350
+      ],
+      "unit_mass_target_g": null,
+      "worn": true
+    },
+    {
+      "id": "FOG02",
+      "name": "Abnehmbare Halterung, Schlauchfixierung und Duesen-Servicezugang",
+      "qty": 1,
+      "unit_budget_eur": [
+        25,
+        50
+      ],
+      "unit_mass_target_g": null,
+      "worn": true
+    },
+    {
+      "id": "FOG03",
+      "name": "LED-Ring fuer getrennte Duesenbeleuchtung",
+      "qty": 2,
+      "unit_budget_eur": [
+        5,
+        10
+      ],
+      "unit_mass_target_g": null,
+      "worn": true
+    },
+    {
+      "id": "FOG04",
+      "name": "LED-Controller und separater Taster",
+      "qty": 1,
+      "unit_budget_eur": [
+        10,
+        20
+      ],
+      "unit_mass_target_g": null,
+      "worn": true
+    },
+    {
+      "id": "FOG05",
+      "name": "Fertige 5-V-USB-Versorgung nur fuer Duesenlicht",
+      "qty": 1,
+      "unit_budget_eur": [
+        20,
+        35
+      ],
+      "unit_mass_target_g": null,
+      "worn": true
+    },
+    {
+      "id": "FOG06",
+      "name": "Kabel, Stecker, Zugentlastung und passende Absicherung fuer Licht",
+      "qty": 1,
+      "unit_budget_eur": [
+        15,
+        30
+      ],
+      "unit_mass_target_g": null,
+      "worn": true
+    }
+  ]
+}

@@ -70,7 +70,7 @@ Diese Liste ist nach Kategorien gegliedert. Preise sind Richtwerte (EUR).
 | --- | --- | --- |
 | WS2812B Strip (60 LED/m, 2m) | 15-25 EUR | Helm + Ruestung |
 | WS2812B LED-Ringe (12/16 LEDs, 2er Set) | 8-12 EUR | Schubduesen-Beleuchtung |
-| IRLZ44N N-Kanal MOSFET | 2-3 EUR | Steuerung Vernebler (Schubduesen) |
+| IRLZ44N N-Kanal MOSFET | 2-3 EUR | Nur separate Ultraschall-Versuche; kein Heizungs-/PMI-Treiber |
 | 74AHCT125 Level Shifter | 2-3 EUR | 3.3V -> 5V (Pi zu LEDs) |
 | 330-470 Ohm Widerstaende (10x) | 1-2 EUR | Datenleitung |
 | 1000 uF Kondensatoren (5x) | 2-3 EUR | Stromglaettung |
@@ -89,8 +89,8 @@ Diese Liste ist nach Kategorien gegliedert. Preise sind Richtwerte (EUR).
 | Komponente | Preis ca. | Hinweis |
 | --- | --- | --- |
 | 40mm 5V Luefter (2er-Pack) | 10-15 EUR | Noctua oder GDSTIME |
-| 5V DC Radialluefter (Blower 4010/5015) | 5-8 EUR | Nebel-Transport fuer Schubduesen |
-| 5V USB Ultraschall-Vernebler (Mist Maker) | 5-10 EUR | Nebel-Erzeugung fuer Schubduesen |
+| 5V DC Radialluefter (Blower 4010/5015) | 5-8 EUR | Nur separate Ultraschall-Versuche |
+| 5V USB Ultraschall-Vernebler (Mist Maker) | 5-10 EUR | Wasser-Versuch, nicht PMI-Arbeitsbasis |
 | PAM8403 Verstaerker + Lautsprecher | 5-8 EUR | Optional: Voice |
 | MAX4466 Mikrofon | 7-10 EUR | Optional: Voice Changer |
 | USB-Soundkarte (fuer Pi) | 5-8 EUR | Optional: Audio Output |
@@ -204,3 +204,7 @@ Nur fuer V3 (Stufe-C-AR nach `Documentation/Guides/Elektronik-AR-Display.md` und
 | V3-Zusatz-Hardware (optional, ohne Action-Cam) | +400-750 EUR |
 
 **Hinweis:** Diese Beispielrechnung umfasst Material und setzt einen bereits verfuegbaren Drucker voraus. Drucker, Tools (Loetkolben, Dremel, Airbrush etc.), Fehldrucke, Versand und Nachkaeufe sind je Projekt separat einzutragen. Fuer die Gesamtbudget-Planung siehe `Documentation/Guides/Kosten.md` und den [Budget-Editor](../web/budget/).
+
+## Optionales Nebelmodul
+
+Aktuelle Arbeitsbasis, Originalfluid und Zusatzkosten: [Nebel-Einkaufsplan](Mjolnir-Nebel-Einkauf.md). Die Basiskalkulation umfasst dieses Zusatzsystem nicht.

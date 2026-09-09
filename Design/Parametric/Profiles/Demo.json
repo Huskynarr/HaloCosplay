@@ -53,7 +53,8 @@
       "hud": false,
       "lighting": true,
       "audio": false
-    }
+    },
+    "fog_system": "none"
   },
   "brief": "Vollstaendig erfundene Beispielmasse; keine Person und kein Passformnachweis."
 }

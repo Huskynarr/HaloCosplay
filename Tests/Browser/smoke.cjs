@@ -47,6 +47,7 @@ async function downloadJSON(page, button) {
     await page.locator('#name').fill('Suit-A');
     await page.locator('#measurements_mm-height').fill('1740');
     await page.locator('#build-material').selectOption('foam');
+    await page.locator('#build-fog_system').selectOption('pmi-cloud');
     const firstId = await page.locator('#profiles').inputValue();
     await page.locator('#new').click();
     assert.equal(await page.locator('#measurements_mm-height').inputValue(), '');
@@ -59,6 +60,7 @@ async function downloadJSON(page, button) {
     assert.equal(await page.evaluate(() => localStorage.length), 0);
     const profile = await downloadJSON(page, '#export');
     assert.equal(profile.profile, 'Suit-A');
+    assert.equal(profile.build.fog_system, 'pmi-cloud');
     assert.equal(profile.measurements_mm.height, 1740);
     assert.equal(profile.measurements_mm.boot_width_l, null);
     assert.equal(profile.status, 'measurements_pending');
@@ -103,6 +105,12 @@ async function downloadJSON(page, button) {
     await page.locator('fieldset.item').waitFor();
     assert.equal(await page.locator('#base').textContent(), '20,00 - 30,00 EUR');
     assert.equal(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 1), true, 'Budget must fit mobile width');
+    await page.locator('#fog-add').click();
+    await page.waitForFunction(() => document.querySelectorAll('fieldset.item').length === 7);
+    assert.equal(await page.locator('#base').textContent(), '350,00 - 535,00 EUR');
+    await page.locator('#fog-add').click();
+    await page.waitForFunction(() => document.querySelector('#message').textContent.includes('bereits vorhanden'));
+    assert.equal(await page.locator('fieldset.item').count(), 7);
     await page.screenshot({path: path.join(output, 'budget-mobile.png'), fullPage: true});
 
     await page.goto(base + '/Code/Exhibition/');

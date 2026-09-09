@@ -134,3 +134,7 @@ ersetzt diese Arbeit nicht.
 
 Weiter: [Systementwurf](Mjolnir-Systementwurf.md),
 [Fertigung](Mjolnir-Fertigung.md), [Parametrisches CAD](../../Design/Parametric/README.md).
+
+## Optionaler Duesennebel
+
+`build.fog_system` waehlt `none`, `pmi-cloud`, `external` oder `water-mist`. Bestehende Profile erhalten `none`. Der [Nebelmodul-Guide](Elektronik-Schubduesen.md) beschreibt Arbeitsbasis, Fluid, Einkauf und Tests. Die Auswahl ist eine Planungsangabe; sie steuert kein Geraet.
