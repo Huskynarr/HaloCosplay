@@ -2,10 +2,18 @@
 
 ## Eigenes Projekt
 
+[Digitales Baupaket erzeugen](Guides/Mjolnir-Baupaket.md): ein gemeinsamer
+Projektstand mit CAD-Proben, 23 Bauteilen, Modelldateipruefung, Budget,
+Technikrechnung und real auszufuellenden Bauprotokollen.
+
 [Konfiguration und mehrere Profile](Guides/Mjolnir-Konfiguration.md): leere
 Messfelder, eigene Ruestungsreferenz, Materialweg und optionale Ausstattung.
 Der [Systementwurf](Guides/Mjolnir-Systementwurf.md) beschreibt den mechanischen
 Einstieg und die Grenzen des parametrischen Bauraummodells.
+
+- [Referenzmerkmale und vollstaendige Detailgestaltung](Guides/Mjolnir-Detailgestaltung.md)
+- [Visier-, Luefter-, Fugen-, Gelenk- und Scharnierproben](../Design/Components/README.md)
+- [Elektrische und mechanische Auslegung mit eigenen Eingaben](Guides/Mjolnir-Technik-Auslegung.md)
 
 Dieses Verzeichnis sammelt alle Kerninhalte fuer das Halo MJOLNIR Cosplay Projekt. Fokus: tragbares, sicheres, moeglichst authentisches Ergebnis mit klaren Ausbaustufen.
 

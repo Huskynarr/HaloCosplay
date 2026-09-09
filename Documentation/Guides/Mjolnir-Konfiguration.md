@@ -6,6 +6,10 @@ Unteranzuege oder Ausstattungen. Kein Koerpermass wird von einem anderen Profil
 uebernommen. Ein Wechsel des Materialwegs oder der Ausstattung erfordert eine
 erneute Pruefung der betroffenen Bauteile.
 
+Der [Baupaket-Generator](Mjolnir-Baupaket.md) verbindet dieses Profil mit
+Referenzteilen, CAD-Komponentenproben, Modellimport, Budget und Technikrechnung.
+Die folgenden Fit-Befehle bleiben fuer einzelne Bauraum-Ausgaben nutzbar.
+
 ## Browser-Workflow
 
 Den [Konfigurator](../../web/configurator/) ueber die Web-Version oder den lokalen

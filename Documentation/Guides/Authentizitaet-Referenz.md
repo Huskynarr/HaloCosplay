@@ -8,7 +8,7 @@ die geschlossene Silhouette der gewaehlten Vorlage erhalten.
 | Profilwert | Bezug | Benoetigte Festlegung |
 | --- | --- | --- |
 | chief-infinite | Master Chief, Halo Infinite Kampagne, Mark VI GEN3 | Kampagnenansichten, Markierungen und Farb-/Visiermuster |
-| mark-vii | Halo Infinite Multiplayer, Mark VII GEN3 | Konkrete Helm-/Schulterkonfiguration und Farbgebung |
+| mark-vii | Halo Infinite Multiplayer, Mark VII GEN3 | Guide-Aufbau mit Mark-VII-Helm, UA/AGATHIUS-Schultern, UA/TYPE-SA-Knien; Abweichungen belegen |
 | custom | Eigene Halo-Referenz oder bewusst eigener Entwurf | Spiel/Quelle, Modellvariante, Farbe, Embleme und Abweichungen |
 
 Die Referenzwahl im Profil erzeugt keine Detailmodelle. Fuer `custom` ist die
@@ -25,8 +25,16 @@ muessen Quellen und gewollte Abweichungen konsistent bleiben.
 - [Offizieller Mark-VII-Guide](https://www.halowaypoint.com/news/official-cosplay-guide-mark-vii)
   behandelt Mark VII GEN3 aus dem Multiplayer. Die vorhandenen PDFs passen zu
   dieser Ruestungsfamilie; sie sind keine Mark-VI-Mass- oder Farbvorlage.
-- Abrufstand: 2026-09-08. Bilder/Spielmodelle wurden nicht als eigene Werke
-  uebernommen. Nutzungsrechte jeder spaeteren Modelldatei separat festhalten.
+- [Kolby Jukes: originales Infinite-Modell](https://kolbyjukes.artstation.com/projects/OyBR0w)
+  liefert eine Quelle des Modellautors fuer Chief. Das
+  [Cinematic-Modell von Omid Moradi](https://omiiidmoradi.artstation.com/projects/d04ogJ)
+  ist eine eigene Bearbeitung und wird als ergaenzende Variante gefuehrt.
+- Abrufstand: 2026-09-09. Im
+  [maschinenlesbaren Katalog](../References/ArmorReferenceLibrary.json) sind
+  Quellen, 23 Bauteile je Referenz, erforderliche Ansichten und verbleibende
+  Nachweise hinterlegt. Katalogeintraege sind keine erworbenen Modell-Dateien.
+- Bilder/Spielmodelle wurden nicht als eigene Werke uebernommen. Nutzungsrechte
+  jeder spaeteren Modelldatei separat festhalten.
 
 ## Referenzpaket vor der Detailmodellierung
 
@@ -45,8 +53,39 @@ Bilder dienen der Form, nicht als Millimeterzeichnung.
 | REF-07 | Arme/Haende und Beine/Schuhe | Ueberlappungen und sichtbarer Unteranzug |
 | REF-08 | Farbe in mehreren Lichtsituationen | Gewaehlte Farben, Glanzgrad, Visier, Gebrauchsspuren |
 
-Diese Ansichten sind Beschaffungsaufgaben, keine bereits vollstaendige Sammlung.
-AI-Konzeptbilder gelten nicht als Beleg fuer Originalgeometrie.
+Fuer Mark VII sind die vorhandenen offiziellen Unterlagen unten seitenweise
+zugeordnet. Die projektbezogenen Bildausschnitte, Gegenansichten und Nachweise
+bleiben im Katalog als offen markiert. Fuer Chief ist eine vollstaendige,
+szenenkonsistente Sammlung weiterhin zu erstellen. AI-Konzeptbilder gelten
+nicht als Beleg fuer Originalgeometrie.
+
+## Mark-VII-Index fuer die vorhandenen Unterlagen
+
+Die Seitenzahlen gelten fuer die 106-seitige
+[Full-PDF](../../Resources/CosplayGuides/MK7_CosplayGuide_Full.pdf), ab Seite 1
+gezaehlt. Die Kapitelzuordnung wurde aus dem PDF-Text gewonnen. Seiten 6, 34 und
+83 wurden zusaetzlich visuell geprueft; dies ist kein vollstaendiger Bildaudit.
+
+| Seiten | Inhalt | Besondere Grenze |
+| --- | --- | --- |
+| 6 | Digitale Material- und Farbreferenzen | Gilt fuer den gezeigten Aufbau; kein universelles Lackrezept |
+| 7-12 | Gesamtansichten | Keine Koerpermasse oder Masszeichnung |
+| 13-15 | Bauch-, Ruecken- und Halsstruktur | Schnittmuster und Bewegungszugaben fehlen |
+| 16-26 | Helm | Optische Durchsicht eines realen Visiers nicht belegt |
+| 27-33 | Torso vorne/hinten | Reale Oeffnungsmechanik ist eigene Konstruktion |
+| 34-40 | UA/AGATHIUS-Schulter | Rechte Seite bezeichnet; linke Seite separat abgleichen |
+| 41-47 | Oberarm | Rechte Seite bezeichnet |
+| 48-54 | Unterarm | Rechte Seite bezeichnet; Anbauteile projektbezogen |
+| 55-61 | Handschuh | Linke Hand bezeichnet |
+| 62-68 | Handrueckenplatte | Zugehoerigkeit und Seitenlage pruefen |
+| 69-75 | Huefte | Reale Beugung und Zugang zu Verschluessen pruefen |
+| 76-82 | Oberschenkel | Linkes Bein bezeichnet |
+| 83-89 | UA/TYPE-SA-Knie | Nicht jede Multiplayer-Knievariante ist identisch |
+| 90-96 | Unterschenkel | Scharnier- und Wadenpassform fehlen |
+| 97-103 | Schuh | Linker Schuh bezeichnet; normale tragbare Sohle vorsehen |
+
+Die Farbfelder des gezeigten Mark-VII-Aufbaus sind im Katalog hinterlegt.
+Fuer Chief wird daraus weder das Gruen noch eine rote Visiertoennung abgeleitet.
 
 ## Anpassung an das jeweilige Koerperprofil
 
@@ -64,7 +103,8 @@ Basis. Eine fiktive Spartan-Koerpergroesse ist kein Fertigungsziel.
    Gurte, Reissverschluesse und Elektronik sollen hinter den vorgesehenen Fugen liegen.
 3. Farbproben auf dem echten Grundmaterial mit Grundierung und finalem Klarlack
    erstellen. Je Probe Rezept, Schichtfolge, Trockenzeit und Beleuchtung notieren.
-   Kein RGB-/Pantonewert ist hier als offiziell bestaetigte Lackrezeptur belegt.
+   Die digitalen Mark-VII-Werte sind Referenzfarben, keine bestaetigte Lackrezeptur.
+   Fuer Chief bleibt eine eigene Farbprobe erforderlich.
 4. Aus einem Meter Entfernung: keine offenen Drucknaehte, Kleberreste, losen
    Kanten oder zufaelligen Lichtlecks. Gebrauchsspuren nach Referenz platzieren.
 5. Visier von innen bei Hallenlicht, dunklerem Gang und ausgeschalteter Elektronik
@@ -73,5 +113,6 @@ Basis. Eine fiktive Spartan-Koerpergroesse ist kein Fertigungsziel.
 Abweichungen werden mit Foto, Grund und Auswirkung im Bauprotokoll festgehalten.
 Eine bestandene optische Pruefung ersetzt keine mechanische Pruefung.
 
-Weiter: [Fertigungsplan](Mjolnir-Fertigung.md), [Messanpassung](Mjolnir-Massanpassung.md),
+Weiter: [Detailgestaltung und druckbares Bauteilblatt](Mjolnir-Detailgestaltung.md),
+[Modellquellen und Import](../../Resources/STL-Quellen.md), [Fertigungsplan](Mjolnir-Fertigung.md), [Messanpassung](Mjolnir-Massanpassung.md),
 [Abnahme](../../Tests/TestReports/Mjolnir-Abnahme.md).

@@ -3,9 +3,9 @@ name: MJOLNIR design checks
 on:
   push:
     branches: [main]
-    paths: ['Design/Parametric/**', 'web/configurator/**', 'web/budget/**', 'Progress/Mjolnir-*', 'Code/Exhibition/**', 'tools/suit_*.py', 'Materials/Mjolnir*', 'Tests/Automation/**', 'Tests/Browser/**', '.github/workflows/suit-design.yml']
+    paths: ['Design/Parametric/**', 'Design/Components/**', 'Design/Engineering/**', 'Documentation/References/ArmorReferenceLibrary.json', 'web/configurator/**', 'web/budget/**', 'Progress/Mjolnir-*', 'Code/Exhibition/**', 'tools/suit_*.py', 'Materials/Mjolnir*', 'Tests/Automation/**', 'Tests/Browser/**', '.github/workflows/suit-design.yml']
   pull_request:
-    paths: ['Design/Parametric/**', 'web/configurator/**', 'web/budget/**', 'Progress/Mjolnir-*', 'Code/Exhibition/**', 'tools/suit_*.py', 'Materials/Mjolnir*', 'Tests/Automation/**', 'Tests/Browser/**', '.github/workflows/suit-design.yml']
+    paths: ['Design/Parametric/**', 'Design/Components/**', 'Design/Engineering/**', 'Documentation/References/ArmorReferenceLibrary.json', 'web/configurator/**', 'web/budget/**', 'Progress/Mjolnir-*', 'Code/Exhibition/**', 'tools/suit_*.py', 'Materials/Mjolnir*', 'Tests/Automation/**', 'Tests/Browser/**', '.github/workflows/suit-design.yml']
 
 permissions:
   contents: read
@@ -71,6 +71,15 @@ jobs:
           openscad --hardwarnings -o build/hole-coupon.stl -D 'view="hardware"' Design/Parametric/MjolnirEntry.scad
           test -s build/forearm-ring.stl
           test -s build/hole-coupon.stl
+      - name: Generate workshop package and compile five component prototypes
+        env:
+          QT_QPA_PLATFORM: offscreen
+        run: |
+          python3 tools/suit_project.py --profile Design/Parametric/Profiles/Demo.json --concept --out build/WorkshopDemo
+          for component in visor_retainer fan_bracket seam_coupon joint_cover hinge_coupon; do
+            openscad --hardwarnings -D "component=\"${component}\"" -o "build/WorkshopDemo/Components/${component}.stl" build/WorkshopDemo/Components/ComponentKit.scad
+            test -s "build/WorkshopDemo/Components/${component}.stl"
+          done
       - uses: actions/upload-artifact@v4
         with:
           name: concept-only-not-fabrication-approved

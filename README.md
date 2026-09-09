@@ -5,8 +5,9 @@ Koerpermasse, getrennte linke/rechte Seiten, waehlbare Ruestungsreferenz,
 Materialweg und Ausstattung. Ein Projektprofil haelt die Entscheidungen zusammen.
 Es gibt keine vorgegebene Person, Koerpergroesse oder Schuhgroesse.
 
-**Stand:** Parametrisches Bauraum-CAD, Mess- und Planungswerkzeuge sowie
-Elektronikbeispiele. Vollstaendige Halo-Detailmodelle und nachgewiesene tragende
+**Stand:** Erzeugbares digitales Baupaket mit Referenzkatalog, parametrischem
+Bauraum-CAD, fuenf Komponentenproben, Modelldateipruefung, Technikrechnungen und
+Elektronikbeispielen. Vollstaendige Halo-Detailmodelle und nachgewiesene tragende
 Mechanik fehlen weiterhin. Ein ausgefuelltes Profil erzeugt keine fertige
 Druckruestung; reale Pass-, Last- und Funktionstests bleiben erforderlich.
 
@@ -18,20 +19,21 @@ Druckruestung; reale Pass-, Last- und Funktionstests bleiben erforderlich.
 3. Referenz, Material, Trage-/Ausstellungsbetrieb und optionale Technik auswaehlen.
 4. [Messdefinitionen](Documentation/Guides/Mjolnir-Massanpassung.md) verwenden und
    jedes Projekt in ein eigenes Ausgabeverzeichnis rechnen.
-5. [Prototypenfolge](BuildGuides/Armor/Mjolnir-Prototypen.md) am realen Aufbau pruefen.
+5. [Baupaket erzeugen](Documentation/Guides/Mjolnir-Baupaket.md) und die
+   [Prototypenfolge](BuildGuides/Armor/Mjolnir-Prototypen.md) am realen Aufbau pruefen.
 
 Ab Repository-Wurzel mit Python 3.11+:
 
 ```bash
 python3 tools/suit_fit.py --init build/MySuit.local.json --name "My Suit"
 # Profil ausfuellen; danach ohne synthetische Ergaenzungen rechnen:
-python3 tools/suit_fit.py --profile build/MySuit.local.json --out build/MySuit
+python3 tools/suit_project.py --profile build/MySuit.local.json --out build/MySuit-r1
 ```
 
 Fuer die reine Demonstration ohne eigene Masse:
 
 ```bash
-python3 tools/suit_fit.py --profile Design/Parametric/Profiles/Demo.json --concept --out build/Demo
+python3 tools/suit_project.py --profile Design/Parametric/Profiles/Demo.json --concept --out build/WorkshopDemo
 ```
 
 `Template.json` enthaelt 32 leere Messfelder. `Demo.json` ist ausdruecklich
@@ -60,6 +62,10 @@ ist ein separat anzupassendes System.
 
 ## Bau und Technik
 
+- [Digitales Baupaket: Dateien, Modellimport und Baufolge](Documentation/Guides/Mjolnir-Baupaket.md)
+- [Detailgestaltung, Unteranzug, Visier und Finish](Documentation/Guides/Mjolnir-Detailgestaltung.md)
+- [Fuenf editierbare CAD-Komponentenproben](Design/Components/README.md)
+- [Strom-, Laufzeit-, Scharnier- und Staenderauslegung](Documentation/Guides/Mjolnir-Technik-Auslegung.md)
 - [Systementwurf und Baugruppen](Documentation/Guides/Mjolnir-Systementwurf.md)
 - [Einstieg, Verriegelung und Anziehstation](Documentation/Guides/Mjolnir-Einstieg.md)
 - [Parametrisches CAD und eigene Ausgabe](Design/Parametric/README.md)

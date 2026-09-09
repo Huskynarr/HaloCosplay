@@ -1,309 +1,139 @@
-# STL-Quellen und Lizenzhinweise
+# Detailmodelle: Quellen, Auswahl und Import
 
-Dieses Projekt verlinkt nur auf externe STL-Quellen. Bitte pruefe die jeweilige Lizenz und Con-Regeln, bevor du Dateien nutzt oder weiterverbreitest.
+Stand: 2026-09-09. Der [Referenzkatalog](../Documentation/References/ArmorReferenceLibrary.json)
+ordnet Modelle und Bilder den Profilwerten `chief-infinite`, `mark-vii` und
+`custom` zu. Die verlinkten Modellangebote wurden anhand der jeweiligen
+Anbieterseiten geprueft. Kaufdateien wurden nicht bezogen, geoeffnet oder auf
+Vollstaendigkeit und Passform getestet.
 
----
+## 1. Konkrete Modellkandidaten
 
-## 1. Plattformen (Suche)
-
-- Printables Suche "Halo": https://www.printables.com/search?q=halo
-- Thingiverse Suche "Halo": https://www.thingiverse.com/search?q=halo&type=things
-- MyMiniFactory Suche "Halo": https://www.myminifactory.com/search/?query=halo
-- Yeggi Meta-Suche: https://www.yeggi.com/q/halo+helmet/
-- MakerWorld Suche "Halo": https://makerworld.com/en/search?q=halo
-- CGTrader Suche "Halo armor": https://www.cgtrader.com/3d-print-models?keywords=halo+armor
-- Cults3D Suche "Halo": https://cults3d.com/en/search?q=halo
-- STLFinder Meta-Suche: https://www.stlfinder.com/3dmodels/master-chief-armor/
-
-## 2. Community / Curated
-
-- 405th Infantry Division (Armory/Files): https://www.405th.com/
-- 405th Free 3D Model Index: https://www.405th.com/forums/threads/free-3d-model-index.49376/
-- RPF Threads und Buildlogs: https://www.therpf.com/
-- Punished Props Academy (Tutorials, keine STLs): https://www.punishedprops.com/
-
-## 3. Empfohlene Modelle (Community-Favoriten)
-
-### Tier 1: Beste Qualitaet (bezahlt)
-
-**Galactic Armory** - https://galacticarmory.net/collections/halo
-- Infinite Master Chief Helmet: $19.99
-- Infinite Master Chief Armor Only: $49.99
-- Infinite Master Chief Armor + Helmet: $59.99
-- Master Chief Mark 6 Armor (76 ineinandergreifende Teile): verfuegbar
-- Mark 4 Spartan Armor: $19.99-$29.99
-- ODST Rookie Armor: $9.99-$29.99
-- Waffen (BR75, MA40, Sidekick, DMR, Magnum, MA5C): je $9.99-$10.00
-- Vorteile: Pre-split fuer kleinere Drucker, Trennlinien an natuerlichen Naehten versteckt, Teile fuer TPU/Foam-Dichtungen separiert, Loecher fuer echte Metallschnallen
-- Hinweis: Community berichtet Skalierungsprobleme (Front/Ruecken nicht im gleichen Massstab). Front ggf. auf 97.78% skalieren wenn Ruecken auf 100%
-- Standardskalierung: 6' (183 cm), ca. 200 lbs (91 kg)
-
-### Tier 2: Beste kostenlose Optionen
-
-**MakerWorld - MJOLNIR GEN3 Full Wearable Armor (Timberlake Creations)**
-- https://makerworld.com/en/models/2383460-halo-mjolnir-gen3-full-wearable-armor-suit-cosplay
-- Kostenlos, hoch detailliert, Halo Infinite Design
-- .3mf Format, bei 20% Skalierung exportiert (muss hochskaliert werden!)
-- Jede Platte, Lueftung und Tech-Suit-Verbindung modelliert
-- WICHTIG: Koerperbreite und -tiefe messen, nicht nur Umfang
-- Video-Tutorial fuer Skalierung und Slicing vorhanden
-- Update: 11.02.2026
-
-**MakerWorld - Halo Master Chief Armor (Cosplay Suit)**
-- https://makerworld.com/en/models/1971272-halo-master-chief-armor-3d-printable-cosplay-suit
-- Kostenlos, vollstaendige tragbare Ruestung
-
-**MakerWorld - FULL SIZE Halo Master Chief Armor**
-- https://makerworld.com/en/models/2344543-full-size-halo-master-chief-armor-cosplay-suit
-- Kostenlos, Vollgroesse
-
-**MoeSizzlac - Halo 3 Mark 6 Master Chief Armor Set (Thingiverse)**
-- https://www.thingiverse.com/thing:2936511
-- Kostenlos, bewaehrt in der Community
-- Basiert auf Pepakura von Art Andrews (405th)
-- Skaliert fuer 5'10" (178 cm), 185 lbs (84 kg)
-- Geschnitten fuer 8x10x8 Druckbett
-- Kein Helm enthalten (separat suchen)
-- TPU-Update verfuegbar
-
-**MoeSizzlac - Halo Reach Noble 6 Mark V Armor Set (Thingiverse)**
-- https://www.thingiverse.com/thing:3378900
-- Kostenlos, inkl. Helm
-
-**405th - Master Chief Mark 6 Halo 3 (3D printable)**
-- https://www.405th.com/forums/threads/master-chief-mjolnir-mark-6-halo-3-3d-printable-armor-files.47835/
-- Community-Thread mit Dateien und Diskussion
-
-**405th - Halo 4/5 Master Chief High Poly**
-- https://www.405th.com/forums/threads/halo-4-5-master-chief-armor-high-poly-3d-printeble-for-you.41774/
-- Hochdetailliert, einzelne Komponenten (Helm, Torso, Schien, Unterarm, Brust, Ruecken)
-
-**MakerWorld - Halo MA40 Ammo Counter (Core Matrix / Galactic Armory)**
-- https://makerworld.com/en/models/2024592-halo-ma40-ammo-counter-galactic-armory
-- Kostenloses druckbares Gehaeuse fuer einen MA40-Munitionszaehler
-- Passt zur eigenen Elektronik (`Code/WeaponControl/ammo_counter.ino`)
-
-### Tier 3: Weitere Optionen (Qualitaet pruefen)
-
-**Printables - Helm-Kandidaten:**
-- https://www.printables.com/model/23816-halo-helmet-v1
-- https://www.printables.com/model/23190-halo-helmet-mk-vi
-- https://www.printables.com/model/23815-halo-helmet-mk4
-- https://www.printables.com/model/846783-halo-helmet-master-chief
-
-**Printables - Armor/Parts:**
-- https://www.printables.com/model/1173388-halo-master-chief-mark-5-armor
-- https://www.printables.com/model/23454-halo-master-chief-full-boddy-armour
-- https://www.printables.com/model/23698-halo-master-chief-body-suit-armour-helmet
-- https://www.printables.com/model/243790-halo-4-master-chief-glove-armor-piece-for-cosplay
-- https://www.printables.com/model/1279372-master-chief-mark-6-armor-3d-print-files
-
-**CGTrader:**
-- https://www.cgtrader.com/3d-print-models/art/scans-replicas/halo-infinite-master-chief-full-body-armor-stl-files-59d1dd74-8781-4958-addd-0a7320678239
-
-### Offizielle Referenz
-
-Fuer V4 gilt Master Chiefs Mark VI GEN3 aus der Infinite-Kampagne. Die folgenden
-Mark-VII-PDFs sind eine verwandte Referenz, keine passende Detail-/Farbvorlage.
-Siehe [verbindliches Designziel](../Documentation/Guides/Authentizitaet-Referenz.md).
-
-
-**343 Industries / Halo Official Cosplay Guides (PDF)**
-- Quelle: Halo Waypoint Blog "Official Cosplay Guide: MARK VII" von Andy Salisbury (Community Communications Manager, 343 Industries), veroeffentlicht im Juni 2021 anlaesslich der Halo-Infinite-Multiplayer-Reveal.
-- Original-Artikel: https://www.halowaypoint.com/en-us/news/official-cosplay-guide-mark-vii
-- **Lokale Kopien im Repo** (offline-tauglich, Web-Vorschau im Field Manual):
-  - Mark VII GEN3 (Full): `Resources/CosplayGuides/MK7_CosplayGuide_Full.pdf`
-  - Mark VII GEN3 (Mobile, kleiner fuer Smartphones): `Resources/CosplayGuides/MK7_CosplayGuide_Mobile.pdf`
-  - Quelle/Lizenz: siehe `Resources/CosplayGuides/README.md`
-- Original-Downloads (Halo CDN):
-  - Full: https://content.halocdn.com/media/Default/community/CosplayGuides/mk7_cosplayguide_fullsize-a95f71a129ae4094aef3ea0b6121fca4.pdf
-  - Mobile: https://content.halocdn.com/media/Default/community/CosplayGuides/mk7_cosplayguide_mobile-c9b71de988af42f9b6f6010ef44a2417.pdf
-- ODST Rookie (Halo 3: ODST, ergaenzender Guide von 343): siehe verlinkten Artikel bzw. die Cosplay-Guide-Serie auf Halo Waypoint
-- Offizielle Masszeichnungen, Turnaround-Referenzen und Detail-Views
-- Hinweis: "Full"-Datei kann auf Mobilgeraeten gross sein - ggf. die Mobile-Version nutzen oder am PC herunterladen.
-
-## 4. Kommerzielle Quellen (bezahlt)
-
-- **Galactic Armory** (hochwertige STLs): https://galacticarmory.net/
-- **3D Something Australia** (Halo-Waffen-STLs MIT Firmware, optional Elektronik-Kits):
-  https://3dsomethingaustralia.com/collections/3d-print-stls
-  - Sturmgewehre MA5B / MA5C / MA5D / MA40 als STL inkl. Firmware, je ca. 35-40 AUD
-  - Optionale "Electronic Control Kits" (Sound + Ammo-Anzeige, vorverdrahtet, Firmware
-    vorinstalliert, getestet), ca. 180-250 AUD:
-    https://3dsomethingaustralia.com/collections/eletronic-control-unit
-  - Fertige funktionierende Waffe ohne Loeten; offene DIY-Alternative siehe
-    `Documentation/Guides/Waffen-Prop.md` und `Code/WeaponControl/ammo_counter.ino`
-- **Etsy** (variiert stark, Lizenz/Qualitaet pruefen): Suche "Halo Master Chief STL"
-- **CGTrader** (professionelle Modelle): https://www.cgtrader.com/
-- **Thangs / Galactic Armory Membership**: https://thangs.com/designer/Galactic%20Armory
-
----
-
-## 5. Drucken auf dem Bambu Lab H2C
-
-### Bauvolumen
-
-- Maximales Druckvolumen: ca. 325 x 320 x 325 mm (abhaengig von Duese)
-- Linke Duese: 325 x 320 mm horizontal
-- Rechte Duese: 305 x 320 mm horizontal
-- Das ist deutlich groesser als uebliche 256x256-Drucker, aber fuer Helm/Brustplatten muss trotzdem geschnitten werden
-
-### Vorteile fuer Cosplay
-
-- Multi-Material-Druck mit Vortek-Hotend (5-7 Filamente ohne Abfall)
-- Doppelt so schnell wie AMS-basierte Bambu-Drucker
-- 59 Sensoren + Quad-Kamera fuer Fehlererkennung
-- Optional: Vision Encoder Plate fuer 50 um Praezision
-- Ideal fuer mehrfarbige Details (z.B. verschiedene Gruentoene, Akzentfarben)
-
-### Grosse Teile schneiden
-
-**Bambu Studio Cut Tool (empfohlen):**
-1. Objekt auswaehlen, Cut Tool oeffnen (Taste C)
-2. Schnittachse waehlen (X, Y oder Z)
-3. Schnittebene positionieren (ziehen oder Wert eingeben)
-4. Schnitt anwenden - Modell wird in separate Objekte geteilt
-5. Einzeln exportieren und drucken
-
-**Meshmixer (Alternative, wird nicht mehr aktiv gepflegt):**
-1. Edit > Plane Cut
-2. Schnittebene positionieren
-3. Fuer Passstifte: Zylinder als Pin hinzufuegen, bei einem Teil addieren, beim anderen subtrahieren
-
-**Tipps zum Schneiden:**
-- Schnittlinien an natuerlichen Naehten der Ruestung platzieren
-- Puzzle-/Schloss-Verbindungen einplanen fuer praezises Zusammenkleben
-- Bei Galactic Armory Dateien: bereits pre-split und keyed (76 Teile beim Mark 6)
-
----
-
-## 6. Empfohlene Druckeinstellungen fuer Cosplay-Ruestung
-
-### Schichthoehe
-
-| Einsatz | Schichthoehe |
-| --- | --- |
-| Standard-Ruestungsteile | 0.20 mm |
-| Feine Details (Gravuren, Panellinien) | 0.16 mm |
-| Schneller Druck (verdeckte Teile) | 0.28 mm |
-
-### Wandstaerke (Perimeter)
-
-- **4-6 Waende** fuer Ruestungsteile, Helme und Props
-- Waende tragen mehr zur Festigkeit bei als Infill
-- Bei erhoehtem Stabilitaetsbedarf: zuerst Wandanzahl erhoehen, dann Infill
-
-### Infill
-
-- **5-15% Gyroid** als Standard fuer Ruestungsschalen
-- Gyroid verteilt Stress in alle Richtungen (besser als Grid/Lines)
-- 10-15% fuer Teile mit wenig mechanischer Belastung
-- 15-20% fuer strukturelle Teile (Schultern, Schienenbein)
-- Nie mehr als 20% noetig fuer tragbare Ruestung
-
-### Material-Vergleich
-
-| Material | Vorteile | Nachteile | Empfehlung |
+| Referenz | Quelle | Belegter Angebotsumfang | Vor dem Einsatz offen |
 | --- | --- | --- | --- |
-| **PLA/PLA+** | Einfach zu drucken, guenstig, schleift gut | Sproede, niedrige Hitzebestaendigkeit (~60C), kann sich bei Hitze verformen | Gut fuer Einsteiger, Indoor-Events |
-| **PETG/PETG+** | Schlagfest, flexibel, hitzebestaendiger (~80C) | Schwieriger zu schleifen, Stringing | **Beste Wahl fuer Cons** - haelt Temperatur und Handhabung aus |
-| **ASA** | UV-bestaendig, hitzebestaendig (~100C), stabil | Braucht Enclosure, Daempfe, schwieriger zu drucken | Outdoor-Ruestung, langfristige Haltbarkeit |
-| **TPU** | Flexibel, schlagfest | Nicht fuer starre Ruestungsteile | Dichtungen, Gelenke, Halsmanschette |
+| chief-infinite | [Galactic Armory: Infinite Master Chief Armor](https://galacticarmory.net/products/infinite-master-chief-armor-3d-print-files) | Armor Only oder Armor + Helmet; getrennte Druckteile, flexible Anschlussvarianten und Lueftungsvarianten laut Anbieter | Exakte Dateiliste, Visierherstellung, Revision, individuelle Passform, Einbaumasse |
+| chief-infinite | [Nikko Industries: Halo Infinite Master Chief Armor](https://www.nikkoindustries.com/products/halo-infinite-master-chief-armor) | Nach Koerperteilen getrennte Ruestung | Helm-/Visierumfang und vollstaendige Dateiliste nicht aus der Beschreibung ableitbar |
+| mark-vii | [Nikko Industries: Halo MK7 Full Armor](https://www.nikkoindustries.com/products/halo-mk7-full-armor) | Als volle Ruestung angebotene STL-Dateien, nach Koerperteilen getrennt | Konkrete Schulter-/Knievariante, Helm-/Visierumfang, Passform gegen Guide pruefen |
+| custom | Projektbezogene Quelle | Erst nach Festlegung der Ruestungsvariante | Alle Bauteile, Rechte und Varianten dokumentieren |
 
-**Empfehlung: PETG+ fuer den Grossteil der Ruestung, PLA+ fuer Details und Prototypen, TPU fuer flexible Verbindungsstuecke.**
+Fuer einen Chief-Aufbau ist das Galactic-Armory-Angebot der erste
+Pruefkandidat, weil dessen Beschreibung die Anschluesse an flexible Teile und
+Lueftungsvarianten konkret benennt. Dies ist eine Auswahl fuer die weitere
+Dateipruefung, keine bestaetigte Druck- oder Kaufempfehlung fuer eine bereits
+passende Ruestung. Ein Helm-Bundle ersetzt kein transparentes Visier.
 
-### Stuetzstrukturen (Supports)
+Nikko beschreibt persoenliche Nutzung und schliesst kommerziellen Druck aus.
+Galactic Armory verweist fuer kommerzielle Nutzung auf eine gesonderte
+Mitgliedschaft. Die konkreten Bedingungen zum bezogenen Modellstand gehoeren
+in das lokale Assetregister. Daraus folgt keine pauschale Freigabe fuer Verkauf,
+Weitergabe oder einen gesponserten Ausstellungsauftritt.
 
-- **Tree Supports (Slim/Hybrid)** bevorzugen - weniger Material, leichter zu entfernen
-- Top Z Distance: 0.20 mm bei 0.16 mm Schichthoehe, 0.24 mm bei 0.20 mm Schichthoehe
-- Interface Pattern: Concentric auf gekruemmten Flaechen (weniger Narben)
-- Bruecken-/Ueberhang-Geschwindigkeit: 50% der Standard-Geschwindigkeit
+Kosten werden erst mit gewaehlt identischem Paket und aktuellem Angebot in die
+Projekt-BOM eingetragen. Ein sichtbarer Einstiegspreis wird nicht als Preis
+eines Helm-Komplettpakets uebernommen. Keine Datei wird automatisch gekauft.
 
-### Druckorientierung
+## 2. Offizielle Formreferenz getrennt vom Druckmodell
 
-- Schichtlinien senkrecht zur Belastungsrichtung ausrichten
-- Ueberhaenge ueber 45 Grad minimieren
-- Kosmetisch wichtige Oberflaechen parallel zur Bauplatte
-- Festigkeit und Finish priorisieren ueber Basiskontakt
+- [Mark-VII-Cosplay-Guide](https://www.halowaypoint.com/news/official-cosplay-guide-mark-vii):
+  offizielle Bild- und Materialreferenz. Lokale PDFs unter
+  [CosplayGuides](CosplayGuides/README.md); Kapitelzuordnung in
+  [Authentizitaet-Referenz](../Documentation/Guides/Authentizitaet-Referenz.md).
+- [Kolby Jukes: Master Chief, Halo Infinite](https://kolbyjukes.artstation.com/projects/OyBR0w):
+  Bildquelle des Originalmodellautors fuer Chief; kein freies druckbares Modell.
+- [Halo Waypoint: Season-5-Varianten](https://www.halowaypoint.com/news/customization-overview-season-5):
+  Kampagnen-Chief und Multiplayer-Kit unterscheiden sich unter anderem bei der 117.
 
----
+Eine Halo-3-Mark-VI-Datei ist kein Infinite-Mark-VI-GEN3-Modell. Ein Mark-VII-Guide
+legt keine Chief-Geometrie fest. Reine Sammelsuchen, unbestaetigte Reuploads und
+angebliche kostenlose Komplettpakete werden hier nicht als gepruefte
+Beschaffung gefuehrt. Der Katalog hat derzeit keinen als vollstaendig und
+referenzpassend geprueften kostenlosen Komplettsatz.
 
-## 7. Nachbearbeitung (Post-Processing)
+## 3. Lokales Assetregister anlegen
 
-### Schritt 1: Schleifen
+Die Befehle werden im Repository-Verzeichnis ausgefuehrt. Fuer ein Projekt mit
+anderer Referenz wird der Profilwert entsprechend ersetzt.
 
-1. **120-200er Koernung**: Grobe Layer-Linien und Stuetzstrukturreste entfernen
-2. **300-400er Koernung**: Glaetten der Oberflaeche
-3. **600er Koernung** (optional): Feines Finish vor Grundierung
-4. In verschiedene Richtungen schleifen (horizontal, vertikal, diagonal, kreisfoermig)
-5. Nass schleifen ab 400er Koernung fuer besseres Ergebnis und weniger Staub
-6. Langsam und gleichmaessig arbeiten - zu viel Druck erhitzt den Kunststoff
+```bash
+python3 tools/suit_assets.py --init build/Suit-A/assets.json --project Suit-A --reference chief-infinite
+python3 tools/suit_assets.py --manifest build/Suit-A/assets.json
+```
 
-### Schritt 2: Spachteln und Fuellen (optional)
+Ein leeres Register ist absichtlich unvollstaendig. Bei fehlenden Dateien oder
+Nachweisen endet die Pruefung mit Exitcode 2. Jede der 23 Teil-IDs muss genau
+einmal vorkommen. Pfade werden relativ zum Verzeichnis der Registerdatei
+aufgeloest; absolute Pfade und Verweise ausserhalb dieses Verzeichnisses werden
+abgewiesen.
 
-**XTC-3D (Smooth-On) - Epoxid-Beschichtung:**
-- 2-Komponenten-System (2:1 Mischverhaeltnis)
-- Aufpinseln, selbstnivellierend, keine Pinselstriche
-- Fuellt Layer-Linien fast vollstaendig
-- Verarbeitungszeit: 10 Minuten, Aushaertung: ca. 4 Stunden
-- Kompatibel mit PLA, ABS, PETG, Nylon, auch Foam
-- Kann geschliffen, grundiert und lackiert werden
-- Quelle: https://www.smooth-on.com/products/xtc-3d/
+| Feld pro Teil | Eintrag |
+| --- | --- |
+| id / revision | Stabile Bauteil-ID aus dem Katalog und eigener Dateistand |
+| kind | `mesh`; fuer `undersuit` und `neck_seal` alternativ `pattern` |
+| source_url / license_note | Konkrete HTTP(S)-Quelle und lokale Dokumentation der Nutzungsbedingungen |
+| reference_views | Liste konkreter Bild-IDs oder Seiten-/Ansichtsbezeichnungen |
+| native_path / native_sha256 | Editierbare CAD-/Musterquelle und SHA-256; z.B. `models/helmet-r1.blend` |
+| mesh_path / mesh_sha256 | STL-Pruefexport und SHA-256; bei `pattern` nicht erforderlich |
+| unit_scale_mm | Millimeter je STL-Koordinateneinheit; bei Millimeterexport `1`, nicht pauschal raten |
+| notes | Paketbestand, Anpassungen, Bezugsdatum und offene Fragen |
 
-**Bondo/Auto-Spachtel:**
-- Fuer groessere Luecken und Naehte zwischen geklebten Teilen
-- Gut schleifbar, aber schwerer als XTC-3D
+Fuer eine aus STLs aufgebaute Arbeitsdatei das importierte Modell im nativen
+Format des Editors speichern; der STL-Download allein ist keine editierbare
+CAD-Quelldatei im Register. Ein Teil aus mehreren Komponenten erhaelt eine
+native Baugruppe und einen gemeinsamen STL-Pruefexport. Weitere Original- und
+Druckdateien bleiben mit Dateinamen in `notes` dokumentiert. Der Checker erfasst
+nur die beiden eingetragenen Dateien.
 
-### Schritt 3: Grundierung (Primer)
+Der Bericht nennt berechnete Pruefsummen, falls diese noch fehlen; sie koennen
+nach Abgleich in das Register uebernommen werden. Fuer die Ablage des Berichts:
 
-- **Rustoleum Painter's Touch 2x Ultra Cover** - haftet gut auf Kunststoff, fuellt kleine Risse
-- **Filler Primer** (Spruehdose) - speziell zum Fuellen feiner Kratzer und Layer-Linien
-- 2-3 duenne Schichten auftragen, jede Schicht trocknen lassen
-- Weisse Grundierung empfohlen fuer bessere Farbdeckung
-- Nach Grundierung: leicht mit 600er+ Koernung ueberschleifen
-- Wiederholen bis Oberflaeche gleichmaessig
+```bash
+python3 tools/suit_assets.py --manifest build/Suit-A/assets.json --report build/Suit-A/asset-report.json
+```
 
-### Schritt 4: Lackierung
+Der Checker prueft Existenz/Hash der Quelldatei und bei STL die Struktur,
+endliche Koordinaten, Flaechen, Abmessungen und exakte Kantenpaarung. Er
+interpretiert die native Datei nicht und prueft weder Selbstschnitte noch
+Wanddicken, Originaltreue oder Festigkeit. `fabrication_approved` und
+`authenticity_verified` bleiben daher immer `false`. Aktuelle Grenzen: maximal
+100 MiB je Datei und 300.000 Dreiecke pro Pruefexport; hochaufgeloeste Originale
+koennen ausserhalb dieses Pruefexports lokal aufbewahrt werden.
 
-- **Spruehlack** funktioniert sehr gut auf 3D-Drucken, besonders Metallic-Toene
-- **Acrylfarben** (Pinsel/Airbrush) fuer Details und Farbverlaeufe
-- Duenne Schichten auftragen, trocknen lassen zwischen Schichten
-- Master Chief Farben: OD Green (Olive Drab) als Basis, dunkleres Gruen fuer Schatten, Gold/Amber fuer Visor
+Download-Archive und unveraenderte Originaldateien bleiben lokal unter
+`build/Suit-A/`. Der Ordner ist von Git ausgeschlossen. Auch lizenzierte Kaufdateien
+gehoeren ohne ausdrueckliche Weitergaberechte nicht in ein oeffentliches Repo.
+Der private lokale Bestand benoetigt eine eigene Sicherung, da `build/` kein
+Archivierungsdienst ist. Oeffentlich bleiben Quellenkatalog, Werkzeuge und
+leere Vorlagen.
 
-### Schritt 5: Weathering (Alterungseffekte)
+## 4. Ein konkreter Importablauf
 
-- Verduennte schwarze/braune Acrylfarbe in Vertiefungen wischen
-- Trockenbuersten (Dry Brushing) mit hellerem Gruen/Silber auf Kanten
-- Schwamm-Technik fuer Abplatzer und Kampfschaden
-- Silber/Gunmetal an Kanten fuer abgenutztes Metall
+1. Paketname, Anbieter-URL, Bezugsdatum, Version und Nutzungsbedingungen erfassen.
+   Downloadarchiv unveraendert aufbewahren. Eine separate Arbeitskopie anlegen.
+2. Dateien den 23 Bauteil-IDs zuordnen. Fehlende Haende, Hals, Unteranzug und Visier
+   ausdruecklich offen lassen; die Bezeichnung "Full Armor" ersetzt die Inventur
+   nicht. Mehrere Dateien fuer ein Teil bleiben im nativen Baugruppendokument und in
+   `notes` als Satz nachvollziehbar; die Teil-ID wird nicht dupliziert.
+3. Einheit und Original-Abmessungen im Modellprogramm pruefen. STL enthaelt
+   normalerweise keine eindeutige Laengeneinheit; keine 20%- oder 100%-Annahme
+   aus dem Dateinamen ableiten.
+4. Front, Ruecken und Gelenkanschluesse gemeinsam laden. Urspruengliche
+   Skalierungsunterschiede messen; keine pauschale 97,78%-Korrektur anwenden.
+5. Jedes Segment an die benoetigte Innengeometrie anpassen. Laenge, Breite und
+   Tiefe getrennt pruefen. Gravierungen und Wanddicken nach der Anpassung
+   kontrollieren. Keine globale Standardskalierung nach Koerpergroesse.
+6. Offene Kanten, invertierte Flaechen, Selbstdurchdringungen, duenne Waende und
+   nicht passende Anschlussstellen pruefen. Automatische Reparaturen mit der
+   Originalkopie vergleichen und erst dann uebernehmen.
+7. Druckraum des tatsaechlichen Druckers, Duese und gewaehltes Material eintragen.
+   Druckschnitte an unauffaellige oder vorgesehene Fugen legen; Servicefugen von
+   spaeter zu verklebenden Drucknaehten unterscheiden.
+8. Kurze Passringe und Verbindungsmuster drucken. Erst nach deren Auswertung den
+   Helm/Torso/Schulter-Musterbau beginnen. Proben im Material und in der
+   Orientierung des spaeteren Bauteils herstellen.
+9. Jede Aenderung mit neuem Dateistand und Pruefsumme erfassen. Hersteller-
+   Varianten, eigene Reparaturen und persoenliche Anpassungen getrennt benennen.
 
-### Schritt 6: Versiegelung (Clear Coat)
-
-- **Satin-Klarlack** fuer realistischen Ruestungs-Look (nicht zu glaenzend, nicht zu matt)
-- Optionen: Rustoleum Clear, Golden Artist Colors Heavy Gel (haltbarer), Mod Podge
-- 2-3 duenne Schichten fuer maximalen Schutz
-- Schuetzt vor Abrieb auf Conventions
-
----
-
-## 8. Empfehlung fuer die Modell-Auswahl
-
-1. Lizenz erlaubt private Nutzung?
-2. Ist die Quelle aktiv und dokumentiert Skalierung/Passform?
-3. Wird das Modell in Segmenten angeboten (Druckbarkeit)?
-4. Enthaltene Visor-Datei getrennt? (praktisch fuer Anpassung)
-5. Gibt es Community-Feedback/Build-Logs?
-6. Passen die Teile ins Bambu H2C Bauvolumen (325x320x325 mm)?
-
-## 9. Suchbegriffe (Beispiele)
-
-- "Halo Mark VI helmet"
-- "Halo Mark VII armor"
-- "Halo Infinite Master Chief armor STL"
-- "MJOLNIR GEN3 cosplay 3D print"
-- "Master Chief chest" / "forearm" / "shin"
-- "M6D pistol" / "MA5 assault rifle" (Prop)
-
-## 10. Ablage im Repo
-
-Lege heruntergeladene STLs in `Design/Designs/3D-Models/` ab und dokumentiere Quelle + Lizenz in `Design/Designs/3D-Models/README.md`.
+Es gibt hier keinen vorgeschriebenen Drucker, kein universelles Infill-Limit
+und keine von einem Softwaretest belegte Materialfestigkeit. Kosmetische Schalen
+und tragende Beschlaege erfordern unterschiedliche Konstruktion und Erprobung.
+Fuer den gestalterischen Ablauf gilt
+[Mjolnir-Detailgestaltung](../Documentation/Guides/Mjolnir-Detailgestaltung.md).
