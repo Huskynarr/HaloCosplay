@@ -28,6 +28,10 @@ bleibt bei unterschiedlichen Anzugprofilen gleich gross; nur seine Einbaulage
 und die umgebende Schale aendern sich. Ohne ausgewaehlten AR-Bildgeber wird der
 HUD-Traeger nicht als optisch passende Halterung fuer XREAL oder ENMESI behauptet.
 
+Die Duesenblende ist eine trockene Lichtaufnahme. Eine abgesetzte heisse
+OEM-Nebelkammer braucht einen eigenen, noch auszulegenden Halter. Technik,
+Kammerverlaengerung und Alternativen: [Nebeltechnik](Mjolnir-Nebeltechnik.md).
+
 ## 2. Schaltblaetter
 
 [Elektrischer Entwurf](../../Design/Electrical/README.md) enthaelt Symbole,

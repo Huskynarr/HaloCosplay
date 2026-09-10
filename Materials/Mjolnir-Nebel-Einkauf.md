@@ -1,6 +1,6 @@
 # Einkauf: optionales Nebelmodul
 
-Stand 2026-09-09. Arbeitsbasis und Einbau:
+Stand 2026-09-10. Arbeitsbasis und Einbau:
 [Schubduesen-Guide](../Documentation/Guides/Elektronik-Schubduesen.md).
 
 Die folgenden EUR-Bereiche sind eigene Beschaffungsbudgets, keine verifizierten
@@ -25,6 +25,23 @@ Schalten der Heizung oder zusaetzlicher Druckluefter wird fuer diese Variante
 bestellt. Im Bundle vorhandenes Fluid nicht nochmals als Startbedarf zaehlen.
 Nachfuellfluid, Ersatzkammer und Vanishing Kit sind spaetere Zusatzposten.
 Kammern und Fluide nur in den vom Hersteller vorgesehenen Paarungen einsetzen.
+
+## Optionale technische Ausbaustufen
+
+Diese Positionen sind **nicht** in den Summen oder der JSON-BOM enthalten.
+Auswahl und Angebot folgen der [technischen Entscheidung](../Documentation/Guides/Mjolnir-Nebeltechnik.md).
+
+| Option | Beschaffungsumfang | Vor Auswahl zu klaeren |
+| --- | --- | --- |
+| Kammer naeher an die Duese | [Original Chamber Extension Cable](https://pmigear.com/products/pmi-chamber-extension-cable), eigene warme Serviceaufnahme | Exakte Geraete-/Kammerkompatibilitaet; Kabellaenge und thermische Montage |
+| Gemeinsamer Foto-Start | Passender OEM-Kabeltaster oder OEM-DMX-Modul mit Anleitung | Anschlussdaten, Stop-/Ausfallverhalten; Preis und lieferbare SKU offen |
+| Je Duese eine Quelle | Zweites vollstaendiges OEM-Geraet mit Akku/Kammer und Befestigung | Masse, Energie und zwei separat stoppbare Kanaele; keine zwei Kammern an einem Ausgang |
+| Kurzer sichtbarer Nebel | Vollstaendiges passendes Vanishing Kit | Eigene Kammer/Duese sowie Freigabe der konkreten Schlauch-/Vest-Kombination |
+| Andere Steuerplattform | MicroFogger 5 Pro mit dafuer bestimmtem Steuerkabel oder Tiny FX | Ersetzt FOG01; eigener Halter, Fluid und Waermeauslegung statt PMI-Vest-Uebernahme |
+
+Vor Bestellung aktuelle Montageanleitung der konkreten PRO-V2-/Vest-Version
+und Sicherheitsdatenblatt sichern. Die alte frei abrufbare PRO-Anleitung ist
+keine hinreichende Freigabe eines koerpernahen Sonderaufbaus.
 
 Alle getragenen Massen sind in der [JSON-BOM](Mjolnir-Nebel-BOM.json) unbekannt.
 Vor einer Gewichtsbewertung die komplette Baugruppe inklusive Fluidfuellung,
