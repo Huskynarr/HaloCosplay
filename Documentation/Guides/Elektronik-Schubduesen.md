@@ -1,11 +1,15 @@
 # Schubduesen: Nebelmodul mit beleuchtetem Auslass
 
-Stand: 2026-09-09. Optionaler Effekt fuer unterschiedliche Projektprofile.
+Stand: 2026-09-10. Optionaler Effekt fuer unterschiedliche Projektprofile.
 Entwicklungsentscheidung: kompakter Fertig-Nebler mit Originalfluid und
 vorgesehener Schlauchfuehrung, ergaenzt um separat versorgtes RGB-Power-Licht
 und optionale trockene Effektluefter am offenen Auslass.
 Der Effekt erzeugt sichtbaren Nebel, keinen Antrieb. Die Integration in die
 Ruestung ist noch nicht physisch erprobt.
+
+Heiz-/Aerosolprinzip, Kammerrevisionen, belegte OEM-Steueroptionen und gezielte
+Verbesserungen stehen im [Nebeltechnik-Guide](Mjolnir-Nebeltechnik.md).
+Die eigene CAD-Lichtblende ist kein nachgebauter interner PMI-Verdampfer.
 
 ## Auswahl und Fluid
 
@@ -30,7 +34,9 @@ Es ist deshalb keine vorbehaltlos kompatible Austauschfuellung der Arbeitsbasis.
 
 Die fruehere Aussage, kleine Foto-Nebler seien generell nicht fuer Kostueme
 geeignet, ist damit korrigiert. Ebenso entfallen pauschale Laufzeitangaben und
-angebliche USB-C-/GPIO-Trigger ohne Nachweis fuer das konkrete Geraet.
+angebliche universelle GPIO-Trigger. Beim PRO V2 sind OEM-Kabeltaster und
+optional DMX ueber die USB-C-Steuerfunktion inzwischen herstellerseitig belegt;
+ein offenes Protokoll oder passendes Eigenbau-Pinout liegt weiterhin nicht vor.
 
 ## Mechanischer Aufbau
 
@@ -92,10 +98,13 @@ werden in dieser Stufe manuell koordiniert; eine automatische Synchronisation
 ist noch nicht implementiert. Es gibt keinen universellen USB-C-Trigger und
 keinen blind startenden/stoppenden Toggle-Ausgang im Projektcode.
 
-Fuer spaetere Synchronisation muss ein dokumentierter externer Eingang der
-exakten Geraeteversion vorliegen. Erst danach folgen elektrische Anpassung,
+Fuer spaetere Synchronisation ist beim PRO V2 jetzt ein konkreter OEM-Weg
+belegt: optionaler Kabeltaster oder passendes DMX-Modul an der USB-C-Schnittstelle.
+[Hersteller: PRO-V2-Steuerung](https://pmigear.com/products/pmi-smokeninja-pro-v2).
+Die Anleitung des Zubehoers muss Pinbelegung bzw. DMX-Kanaele sowie eindeutiges
+Start-/Stopverhalten bestaetigen. Erst danach folgen elektrische Anpassung,
 Zeitbegrenzung und Ausfalltests. Betriebsbereit-Anzeige und Temperatur-/Leerlauf-
-Schutz des Geraets werden nicht umgangen.
+Schutz bleiben wirksam; aus der USB-C-Steckerform folgt keine freie GPIO-Belegung.
 
 Fuer den ersten ungetragenen Versuch ist **ein kurzer Impuls von etwa einer
 Sekunde** ein gestalterischer Startpunkt, sofern der Geraetemodus dies erlaubt.
@@ -251,9 +260,12 @@ Duesenstoss ist das PMI-System die bevorzugte Arbeitsbasis.
 
 ## Quellen und Dokumentationsstand
 
-Herstellerseiten oben geprueft am 2026-09-09. Zusaetzlich:
+Herstellerseiten erneut geprueft am 2026-09-10. Zusaetzlich:
 [PMI-Anleitung und Tutorials](https://pmigear.com/pages/smokeninja-pro-tutorial).
-Der dortige PDF-Abruf war in dieser Recherche nicht erfolgreich. Die Anleitung
-zur tatsaechlich gelieferten Revision sowie das Fluid-Sicherheitsdatenblatt
-muessen vor Bestellung/Integration vorliegen. Die hier dokumentierte Auswahl
-ist ein begruendeter Beschaffungs- und Prototypenplan, keine bestandene Bauprobe.
+Das dort verlinkte PDF konnte jetzt abgerufen werden. Sein englischer Teil
+stammt aus September 2024 und ist keine eindeutige Anleitung fuer die heutige
+PRO-V2-/Vest-Kombination. Seine Abstands- und Betriebsangaben unterscheiden sich
+teilweise von aktuellen Produktseiten. Der
+[Nebeltechnik-Guide](Mjolnir-Nebeltechnik.md) dokumentiert diese Revisionsfrage.
+Passende aktuelle Montageanleitung und Fluid-Sicherheitsdatenblatt muessen vor
+Integration vorliegen. Die Auswahl bleibt ein Beschaffungs-/Prototypenplan.
