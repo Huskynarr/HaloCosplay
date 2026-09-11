@@ -222,6 +222,9 @@ const CONTENT = {
     {
       name: "Material + Einkauf",
       items: [
+        { title: "Nebeltechnik und OEM-Systeme", file: "Documentation/Guides/Mjolnir-Nebeltechnik.md" },
+        { title: "CAD und Schaltplaene", file: "Documentation/Guides/Mjolnir-CAD-Schaltplaene.md" },
+        { title: "Interaktiver Produktkatalog", file: "product-catalog" },
         { title: "Einkaufsliste mit Links", file: "Materials/Einkaufsliste-Links.md" },
         { title: "Komponentenliste", file: "Materials/ShoppingList.md" },
         { title: "Material-Ueberblick", file: "Documentation/Guides/Materialien.md" },

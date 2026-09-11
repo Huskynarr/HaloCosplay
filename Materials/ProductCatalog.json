@@ -1,0 +1,1448 @@
+{
+  "schema_version": 1,
+  "updated_on": "2026-09-11",
+  "affiliate": {
+    "amazon_de_tag": "huskynarr-21",
+    "disclosure": "Als Amazon-Partner verdient der Betreiber an qualifizierten Verkaeufen. Amazon-Suchen sind als Affiliate gekennzeichnet; Herstellerlinks enthalten keine Partnerkennung."
+  },
+  "categories": [
+    {
+      "id": "armor",
+      "label": "Ruestung und Oberflaeche"
+    },
+    {
+      "id": "mechanics",
+      "label": "Oeffnung und Befestigung"
+    },
+    {
+      "id": "comfort",
+      "label": "Unteranzug und Belueftung"
+    },
+    {
+      "id": "power",
+      "label": "Stromversorgung"
+    },
+    {
+      "id": "light",
+      "label": "Licht und Treiber"
+    },
+    {
+      "id": "control",
+      "label": "Steuerung und Sensoren"
+    },
+    {
+      "id": "helmet",
+      "label": "AR, Kamera und Audio"
+    },
+    {
+      "id": "fog",
+      "label": "Nebel und Schubduesen"
+    },
+    {
+      "id": "companion",
+      "label": "Exoskelett und Begleitung"
+    },
+    {
+      "id": "workshop",
+      "label": "Werkstatt und Messmittel"
+    }
+  ],
+  "products": [
+    {
+      "id": "armor-infinite",
+      "name": "Galactic Armory: Infinite Master Chief STL",
+      "category": "armor",
+      "status": "alternative",
+      "compatibility": "Eine Ruestungsreferenz auswaehlen. Lizenz, Dateiumfang, Skalierung und Oeffnungskonstruktion vor Kauf pruefen; keine fertigen Clamshell-Fertigungsdaten.",
+      "quantity_note": "1 Dateipaket",
+      "guides": [
+        "Documentation/Guides/Authentizitaet-Referenz.md",
+        "Documentation/Guides/3D-Druck.md"
+      ],
+      "parts": [
+        "helm",
+        "brust",
+        "schulter",
+        "arm",
+        "bein"
+      ],
+      "links": [
+        {
+          "label": "Hersteller / Produktquelle",
+          "url": "https://galacticarmory.net/products/infinite-master-chief-armor-3d-print-files",
+          "kind": "manufacturer",
+          "affiliate": false,
+          "checked_on": "2026-09-11"
+        }
+      ],
+      "price_eur": null
+    },
+    {
+      "id": "armor-mk7",
+      "name": "Nikko Industries: Halo MK7 STL",
+      "category": "armor",
+      "status": "alternative",
+      "compatibility": "Alternative zum Infinite-Master-Chief-Paket. MK7 und Master Chief nicht ohne bewusste Designentscheidung mischen.",
+      "quantity_note": "1 Dateipaket",
+      "guides": [
+        "Documentation/Guides/Authentizitaet-Referenz.md",
+        "Documentation/Guides/3D-Druck.md"
+      ],
+      "parts": [
+        "helm",
+        "brust",
+        "schulter",
+        "arm",
+        "bein"
+      ],
+      "links": [
+        {
+          "label": "Hersteller / Produktquelle",
+          "url": "https://www.nikkoindustries.com/products/halo-mk7-full-armor",
+          "kind": "manufacturer",
+          "affiliate": false,
+          "checked_on": "2026-09-11"
+        }
+      ],
+      "price_eur": null
+    },
+    {
+      "id": "eva",
+      "name": "EVA-Foam 2 / 6 / 10 mm",
+      "category": "armor",
+      "status": "specification",
+      "compatibility": "Dichte, Dicke und Kontaktkleber an einer Probe testen. Mengen aus Zuschnittplan bestimmen.",
+      "quantity_note": "Nach Aufbau",
+      "guides": [
+        "Documentation/Guides/Foam-Bau.md",
+        "Documentation/Guides/Klebetechniken.md"
+      ],
+      "parts": [
+        "helm",
+        "brust",
+        "schulter",
+        "arm",
+        "bein",
+        "stiefel"
+      ],
+      "links": [
+        {
+          "label": "Amazon-Suche (Affiliate)",
+          "url": "https://www.amazon.de/s?k=Cosplay+EVA+Foam+2+6+10+mm&tag=huskynarr-21",
+          "kind": "search",
+          "affiliate": true,
+          "checked_on": null
+        }
+      ],
+      "price_eur": null
+    },
+    {
+      "id": "petg",
+      "name": "PETG-Filament",
+      "category": "armor",
+      "status": "specification",
+      "compatibility": "Druckprofil und Nahtproben validieren; Wandstaerke und Hitzebestaendigkeit sind keine Materialnamen-Garantie.",
+      "quantity_note": "Nach Aufbau",
+      "guides": [
+        "Documentation/Guides/3D-Druck.md",
+        "Documentation/Guides/Mjolnir-Fertigung.md"
+      ],
+      "parts": [
+        "helm",
+        "brust",
+        "schulter",
+        "arm",
+        "bein"
+      ],
+      "links": [
+        {
+          "label": "Amazon-Suche (Affiliate)",
+          "url": "https://www.amazon.de/s?k=PETG+Filament+1.75+mm&tag=huskynarr-21",
+          "kind": "search",
+          "affiliate": true,
+          "checked_on": null
+        }
+      ],
+      "price_eur": null
+    },
+    {
+      "id": "visor",
+      "name": "Transparente PETG-Visierplatte",
+      "category": "armor",
+      "status": "specification",
+      "compatibility": "Plattendicke nach Formversuch. Goldtoenung gegen Sichtfeld und Lichtdurchlass testen; kein Augenschutz-Nachweis.",
+      "quantity_note": "Nach Aufbau",
+      "guides": [
+        "Documentation/Guides/Lackierung-Finishing.md",
+        "Documentation/Guides/Mjolnir-Helmintegration.md"
+      ],
+      "parts": [
+        "visier"
+      ],
+      "links": [
+        {
+          "label": "Amazon-Suche (Affiliate)",
+          "url": "https://www.amazon.de/s?k=PETG+Platte+transparent+tiefziehen&tag=huskynarr-21",
+          "kind": "search",
+          "affiliate": true,
+          "checked_on": null
+        }
+      ],
+      "price_eur": null
+    },
+    {
+      "id": "paint",
+      "name": "Grundierung, Fueller und Farbsystem",
+      "category": "armor",
+      "status": "specification",
+      "compatibility": "Zu Foam oder PETG passendes System nach Probeflaeche waehlen. Ruestungsreferenz bestimmt Farbe und Glanzgrad.",
+      "quantity_note": "Nach Aufbau",
+      "guides": [
+        "Documentation/Guides/Lackierung-Finishing.md",
+        "Documentation/Guides/Mjolnir-Detailgestaltung.md"
+      ],
+      "parts": [
+        "helm",
+        "brust",
+        "schulter",
+        "arm",
+        "bein"
+      ],
+      "links": [
+        {
+          "label": "Amazon-Suche (Affiliate)",
+          "url": "https://www.amazon.de/s?k=Cosplay+flexible+Grundierung+EVA+PETG+Fueller&tag=huskynarr-21",
+          "kind": "search",
+          "affiliate": true,
+          "checked_on": null
+        }
+      ],
+      "price_eur": null
+    },
+    {
+      "id": "glue",
+      "name": "Kontaktkleber fuer EVA",
+      "category": "armor",
+      "status": "specification",
+      "compatibility": "Kleber nach Materialfreigabe und Verarbeitungshinweisen auswaehlen; Probe vor Flaechenverklebung.",
+      "quantity_note": "Nach Aufbau",
+      "guides": [
+        "Documentation/Guides/Klebetechniken.md",
+        "Documentation/Guides/Foam-Bau.md"
+      ],
+      "parts": [
+        "brust",
+        "arm",
+        "bein"
+      ],
+      "links": [
+        {
+          "label": "Amazon-Suche (Affiliate)",
+          "url": "https://www.amazon.de/s?k=EVA+Foam+Kontaktkleber+Cosplay&tag=huskynarr-21",
+          "kind": "search",
+          "affiliate": true,
+          "checked_on": null
+        }
+      ],
+      "price_eur": null
+    },
+    {
+      "id": "hinges",
+      "name": "Scharniere mit herausnehmbarem Stift",
+      "category": "mechanics",
+      "status": "specification",
+      "compatibility": "Abmessungen erst nach Scharniercoupon und Bauraumpruefung festlegen. Metallbeschlag mit lastverteilender Gegenplatte.",
+      "quantity_note": "Nach Aufbau",
+      "guides": [
+        "Documentation/Guides/Mjolnir-Selbstanziehen.md",
+        "Documentation/Guides/Mjolnir-Fertigung.md"
+      ],
+      "parts": [
+        "helm",
+        "brust",
+        "arm",
+        "bein",
+        "stiefel"
+      ],
+      "links": [
+        {
+          "label": "Amazon-Suche (Affiliate)",
+          "url": "https://www.amazon.de/s?k=Scharnier+herausnehmbarer+Stift+klein&tag=huskynarr-21",
+          "kind": "search",
+          "affiliate": true,
+          "checked_on": null
+        }
+      ],
+      "price_eur": null
+    },
+    {
+      "id": "latches",
+      "name": "Mechanische Schnellverschluesse",
+      "category": "mechanics",
+      "status": "specification",
+      "compatibility": "Vom Traeger erreichbar und ohne Strom entriegelbar. Magnete nur zur Positionierung, nicht als alleinige Lastsicherung.",
+      "quantity_note": "Nach Aufbau",
+      "guides": [
+        "Documentation/Guides/Mjolnir-Selbstanziehen.md",
+        "Documentation/Guides/Mjolnir-Einstieg.md"
+      ],
+      "parts": [
+        "brust",
+        "arm",
+        "bein",
+        "stiefel"
+      ],
+      "links": [
+        {
+          "label": "Amazon-Suche (Affiliate)",
+          "url": "https://www.amazon.de/s?k=Spannverschluss+klein+einstellbar&tag=huskynarr-21",
+          "kind": "search",
+          "affiliate": true,
+          "checked_on": null
+        }
+      ],
+      "price_eur": null
+    },
+    {
+      "id": "webbing",
+      "name": "Gurtband, Schnallen und Polster",
+      "category": "mechanics",
+      "status": "specification",
+      "compatibility": "Lastverteilung am eigenen Tragegestell erproben. Schnallen zugaenglich halten; keine belegte Lastableitung zum Boden.",
+      "quantity_note": "Nach Aufbau",
+      "guides": [
+        "Documentation/Guides/Unteranzug-Befestigung.md",
+        "Documentation/Guides/Exoskelett.md"
+      ],
+      "parts": [
+        "brust",
+        "schulter",
+        "bein",
+        "exo"
+      ],
+      "links": [
+        {
+          "label": "Amazon-Suche (Affiliate)",
+          "url": "https://www.amazon.de/s?k=Gurtband+25+mm+Steckschliessen+Polster&tag=huskynarr-21",
+          "kind": "search",
+          "affiliate": true,
+          "checked_on": null
+        }
+      ],
+      "price_eur": null
+    },
+    {
+      "id": "fasteners",
+      "name": "M3 / M4 Schrauben, Muttern, Unterlegscheiben",
+      "category": "mechanics",
+      "status": "specification",
+      "compatibility": "Laengen und Stueckzahl aus finalem CAD. Einsaetze erst nach Ausreissprobe und Wandstaerkenpruefung.",
+      "quantity_note": "Nach Aufbau",
+      "guides": [
+        "Documentation/Guides/Mjolnir-CAD-Schaltplaene.md",
+        "Documentation/Guides/Mjolnir-Fertigung.md"
+      ],
+      "parts": [
+        "helm",
+        "brust",
+        "arm",
+        "bein"
+      ],
+      "links": [
+        {
+          "label": "Amazon-Suche (Affiliate)",
+          "url": "https://www.amazon.de/s?k=M3+M4+Schrauben+Muttern+Unterlegscheiben+Sortiment&tag=huskynarr-21",
+          "kind": "search",
+          "affiliate": true,
+          "checked_on": null
+        }
+      ],
+      "price_eur": null
+    },
+    {
+      "id": "undersuit",
+      "name": "Atmungsaktiver schwarzer Unteranzug",
+      "category": "comfort",
+      "status": "specification",
+      "compatibility": "Groesse aus Profil; Beweglichkeit, Toilettenzugang und Waschbarkeit pruefen. Keine pauschale Einheitsgroesse.",
+      "quantity_note": "Nach Aufbau",
+      "guides": [
+        "Documentation/Guides/Unteranzug-Befestigung.md",
+        "Documentation/Guides/Mjolnir-Massanpassung.md"
+      ],
+      "parts": [
+        "hand",
+        "brust",
+        "bein"
+      ],
+      "links": [
+        {
+          "label": "Amazon-Suche (Affiliate)",
+          "url": "https://www.amazon.de/s?k=schwarze+Funktionsunterwaesche+Langarm+Hose&tag=huskynarr-21",
+          "kind": "search",
+          "affiliate": true,
+          "checked_on": null
+        }
+      ],
+      "price_eur": null
+    },
+    {
+      "id": "gloves",
+      "name": "Schwarze Arbeitshandschuhe mit Fingergefuehl",
+      "category": "comfort",
+      "status": "specification",
+      "compatibility": "Bedienelemente und Entriegelungen mit Handschuhen testen. Handplatten separat befestigen.",
+      "quantity_note": "Nach Aufbau",
+      "guides": [
+        "Documentation/Guides/Unteranzug-Befestigung.md",
+        "Documentation/Guides/Mjolnir-Selbstanziehen.md"
+      ],
+      "parts": [
+        "hand"
+      ],
+      "links": [
+        {
+          "label": "Amazon-Suche (Affiliate)",
+          "url": "https://www.amazon.de/s?k=schwarze+Arbeitshandschuhe+duenn+griffig&tag=huskynarr-21",
+          "kind": "search",
+          "affiliate": true,
+          "checked_on": null
+        }
+      ],
+      "price_eur": null
+    },
+    {
+      "id": "shoes",
+      "name": "Schuhe mit passender Weite",
+      "category": "comfort",
+      "status": "specification",
+      "compatibility": "Fusslaenge, Ballenbreite und Spann getrennt messen. Anprobe vor Ruestungskonstruktion; aufklappbare Cover ueber eigenem Schuh.",
+      "quantity_note": "Nach Aufbau",
+      "guides": [
+        "Materials/Shoes.md",
+        "Documentation/Guides/Mjolnir-Massanpassung.md"
+      ],
+      "parts": [
+        "stiefel"
+      ],
+      "links": [
+        {
+          "label": "Amazon-Suche (Affiliate)",
+          "url": "https://www.amazon.de/s?k=Schuhe+extra+weit+breite+Zehenbox&tag=huskynarr-21",
+          "kind": "search",
+          "affiliate": true,
+          "checked_on": null
+        }
+      ],
+      "price_eur": null
+    },
+    {
+      "id": "fan",
+      "name": "Noctua NF-A4x10 5V PWM",
+      "category": "comfort",
+      "status": "candidate",
+      "compatibility": "5-V-Version, kein 12-V-Ersatz. Rahmen 40 x 40 mm; Bauraum inklusive Auflagen laut Datenblatt bis 12 mm. Luftweg und Geraeusch im Helm pruefen.",
+      "quantity_note": "Nach Luftweg, Start: 2",
+      "guides": [
+        "Documentation/Guides/Elektronik-Luefter.md",
+        "Documentation/Guides/Mjolnir-Einbauplan.md",
+        "Documentation/Guides/Mjolnir-Helmintegration.md"
+      ],
+      "parts": [
+        "helm",
+        "brust"
+      ],
+      "links": [
+        {
+          "label": "Hersteller / Produktquelle",
+          "url": "https://www.noctua.at/en/products/nf-a4x10-5v-pwm/specifications",
+          "kind": "manufacturer",
+          "affiliate": false,
+          "checked_on": "2026-09-11"
+        },
+        {
+          "label": "Amazon-Suche (Affiliate)",
+          "url": "https://www.amazon.de/s?k=Noctua+NF-A4x10+5V+PWM&tag=huskynarr-21",
+          "kind": "search",
+          "affiliate": true,
+          "checked_on": null
+        }
+      ],
+      "price_eur": null
+    },
+    {
+      "id": "effect-bank",
+      "name": "USB-C-PD-Powerbank mit 15-V-Profil",
+      "category": "power",
+      "status": "specification",
+      "compatibility": "15 V am verwendeten Port unter Last nachweisen. Dauerleistung aus LED-, Luefter- und Steuerungsbudget plus Reserve bestimmen; keine Parallel-Port-Garantie.",
+      "quantity_note": "1 separate Effektversorgung",
+      "guides": [
+        "Documentation/Guides/Elektronik-Batterie.md",
+        "Documentation/Guides/Mjolnir-Einbauplan.md",
+        "Documentation/Guides/Mjolnir-Lichtmodule.md"
+      ],
+      "parts": [
+        "akku",
+        "brust"
+      ],
+      "links": [
+        {
+          "label": "Amazon-Suche (Affiliate)",
+          "url": "https://www.amazon.de/s?k=USB+C+PD+Powerbank+15V+3A&tag=huskynarr-21",
+          "kind": "search",
+          "affiliate": true,
+          "checked_on": null
+        }
+      ],
+      "price_eur": null
+    },
+    {
+      "id": "comfort-bank",
+      "name": "USB-Powerbank fuer 5-V-Komfortversorgung",
+      "category": "power",
+      "status": "specification",
+      "compatibility": "Abschaltautomatik bei kleiner Last und Dauerbetrieb testen. Entnehmbar nahe Huefte oder seitlich tief am Rumpf; Entriegelung frei halten.",
+      "quantity_note": "1 getrennte Komfortversorgung",
+      "guides": [
+        "Documentation/Guides/Elektronik-Batterie.md",
+        "Documentation/Guides/Mjolnir-Einbauplan.md"
+      ],
+      "parts": [
+        "akku"
+      ],
+      "links": [
+        {
+          "label": "Amazon-Suche (Affiliate)",
+          "url": "https://www.amazon.de/s?k=USB+Powerbank+5V+3A+Dauerbetrieb&tag=huskynarr-21",
+          "kind": "search",
+          "affiliate": true,
+          "checked_on": null
+        }
+      ],
+      "price_eur": null
+    },
+    {
+      "id": "pd-sink",
+      "name": "SparkFun USB-C Power Delivery Board (STUSB4500)",
+      "category": "power",
+      "status": "candidate",
+      "compatibility": "DEV-15801. PDO-Konfiguration auf 15 V und Fehlerfall bei fehlendem Profil pruefen; keine ungepruefte Versorgung direkt an LEDs.",
+      "quantity_note": "1",
+      "guides": [
+        "Documentation/Guides/Mjolnir-CAD-Schaltplaene.md",
+        "Design/Electrical/BOM.md"
+      ],
+      "parts": [
+        "akku"
+      ],
+      "links": [
+        {
+          "label": "Hersteller / Produktquelle",
+          "url": "https://www.sparkfun.com/sparkfun-power-delivery-board-usb-c-qwiic.html",
+          "kind": "manufacturer",
+          "affiliate": false,
+          "checked_on": "2026-09-11"
+        }
+      ],
+      "price_eur": null
+    },
+    {
+      "id": "buck",
+      "name": "Pololu D24V10F5, 5 V / 1 A",
+      "category": "power",
+      "status": "candidate",
+      "compatibility": "Nur fuer den zugewiesenen Steuerzweig. Kein pauschaler Versorger fuer Pi, Audio und alle Luefter; Strom- und Waermebudget beachten.",
+      "quantity_note": "Nach Schaltplan",
+      "guides": [
+        "Documentation/Guides/Mjolnir-CAD-Schaltplaene.md",
+        "Design/Electrical/BOM.md"
+      ],
+      "parts": [
+        "akku"
+      ],
+      "links": [
+        {
+          "label": "Hersteller / Produktquelle",
+          "url": "https://www.pololu.com/product/2831",
+          "kind": "manufacturer",
+          "affiliate": false,
+          "checked_on": "2026-09-11"
+        }
+      ],
+      "price_eur": null
+    },
+    {
+      "id": "fuses",
+      "name": "Sicherungen und beruehrungssichere Halter",
+      "category": "power",
+      "status": "specification",
+      "compatibility": "Wert, Abschaltvermoegen und Leitungsschutz nach realem Zweigstrom und Kabelquerschnitt bestimmen. Keine universelle Sicherungsgroesse.",
+      "quantity_note": "Nach Aufbau",
+      "guides": [
+        "Documentation/Guides/Elektronik-Verdrahtung.md",
+        "Design/Electrical/BOM.md"
+      ],
+      "parts": [
+        "akku"
+      ],
+      "links": [
+        {
+          "label": "Amazon-Suche (Affiliate)",
+          "url": "https://www.amazon.de/s?k=DC+Sicherungshalter+Kabel+Sicherungen&tag=huskynarr-21",
+          "kind": "search",
+          "affiliate": true,
+          "checked_on": null
+        }
+      ],
+      "price_eur": null
+    },
+    {
+      "id": "wire",
+      "name": "Flexible Litze, Stecker und Zugentlastung",
+      "category": "power",
+      "status": "specification",
+      "compatibility": "Querschnitt nach Strom, Laenge und Spannungsabfall. Verpolsichere Stecker; bewegte Naehte mit Biegereserve und Trennstellen.",
+      "quantity_note": "Nach Aufbau",
+      "guides": [
+        "Documentation/Guides/Elektronik-Verdrahtung.md",
+        "Documentation/Guides/Mjolnir-Selbstanziehen.md"
+      ],
+      "parts": [
+        "akku",
+        "arm",
+        "bein",
+        "helm"
+      ],
+      "links": [
+        {
+          "label": "Amazon-Suche (Affiliate)",
+          "url": "https://www.amazon.de/s?k=Silikonlitze+verriegelbare+Steckverbinder+Zugentlastung&tag=huskynarr-21",
+          "kind": "search",
+          "affiliate": true,
+          "checked_on": null
+        }
+      ],
+      "price_eur": null
+    },
+    {
+      "id": "rgb-star",
+      "name": "Cree XP-E2 RGB auf Star-Platine",
+      "category": "light",
+      "status": "candidate",
+      "compatibility": "Sechs Konstantstromkanaele fuer das Referenzsystem: je drei fuer Helm und Duesen. Zwei RGB-Stars je Baugruppe; Serienverdrahtung und Vorwaertsspannung pruefen.",
+      "quantity_note": "4 im Referenzaufbau",
+      "guides": [
+        "Documentation/Guides/Mjolnir-Lichtmodule.md",
+        "Materials/Mjolnir-Licht-Einkauf.md",
+        "Documentation/Guides/Elektronik-Schubduesen.md"
+      ],
+      "parts": [
+        "helm",
+        "brust"
+      ],
+      "links": [
+        {
+          "label": "Hersteller / Produktquelle",
+          "url": "https://www.ledsupply.com/leds/cree-xpe2-rgb-high-power-led",
+          "kind": "manufacturer",
+          "affiliate": false,
+          "checked_on": "2026-09-11"
+        }
+      ],
+      "price_eur": null
+    },
+    {
+      "id": "ldd",
+      "name": "Mean Well LDD-350L",
+      "category": "light",
+      "status": "candidate",
+      "compatibility": "350 mA Konstantstrom, je Farbkanal ein Treiber. Eingangsspielraum und PWM-Pegel nach Referenzschaltung; kein direkter RGB-Star-Anschluss an GPIO.",
+      "quantity_note": "6 im Referenzaufbau",
+      "guides": [
+        "Documentation/Guides/Mjolnir-Lichtmodule.md",
+        "Design/Electrical/BOM.md"
+      ],
+      "parts": [
+        "helm",
+        "brust",
+        "akku"
+      ],
+      "links": [
+        {
+          "label": "Hersteller / Produktquelle",
+          "url": "https://www.meanwell.com/Upload/PDF/LDD-L/LDD-L-SPEC.PDF",
+          "kind": "datasheet",
+          "affiliate": false,
+          "checked_on": null
+        },
+        {
+          "label": "Amazon-Suche (Affiliate)",
+          "url": "https://www.amazon.de/s?k=Mean+Well+LDD-350L&tag=huskynarr-21",
+          "kind": "search",
+          "affiliate": true,
+          "checked_on": null
+        }
+      ],
+      "price_eur": null
+    },
+    {
+      "id": "buffer",
+      "name": "TI SN74AHCT1G125",
+      "category": "light",
+      "status": "candidate",
+      "compatibility": "5-V-Puffer fuer 3,3-V-Steuersignal. Gehaeuse, Enable-Pegel und Verhalten bei Ausfall der Steuerspannung nach Schaltplan pruefen.",
+      "quantity_note": "6 im Referenzaufbau",
+      "guides": [
+        "Documentation/Guides/Mjolnir-CAD-Schaltplaene.md",
+        "Design/Electrical/BOM.md"
+      ],
+      "parts": [
+        "akku"
+      ],
+      "links": [
+        {
+          "label": "Hersteller / Produktquelle",
+          "url": "https://www.ti.com/product/SN74AHCT1G125",
+          "kind": "manufacturer",
+          "affiliate": false,
+          "checked_on": "2026-09-11"
+        }
+      ],
+      "price_eur": null
+    },
+    {
+      "id": "heatsink",
+      "name": "LED-Kuehlkoerper und Waermeleitmaterial",
+      "category": "light",
+      "status": "specification",
+      "compatibility": "Kuehlkoerper erst nach thermischem Test dimensionieren. Aussenflaechen gegen Beruehrung abschirmen; Nebelweg und Luftansaugung trennen.",
+      "quantity_note": "Nach Aufbau",
+      "guides": [
+        "Documentation/Guides/Mjolnir-Lichtmodule.md",
+        "Documentation/Guides/Mjolnir-Einbauplan.md"
+      ],
+      "parts": [
+        "helm",
+        "brust"
+      ],
+      "links": [
+        {
+          "label": "Amazon-Suche (Affiliate)",
+          "url": "https://www.amazon.de/s?k=LED+Star+Kuehlkoerper+Waermeleitpad&tag=huskynarr-21",
+          "kind": "search",
+          "affiliate": true,
+          "checked_on": null
+        }
+      ],
+      "price_eur": null
+    },
+    {
+      "id": "diffuser",
+      "name": "RGB-Diffusor und Blendschutz",
+      "category": "light",
+      "status": "specification",
+      "compatibility": "Nur temperaturgeeignete Optik. Keine Hochleistungs-LED direkt in Sichtlinie; Duesenlicht nach aussen mit Begrenzung der Helligkeit.",
+      "quantity_note": "Nach Aufbau",
+      "guides": [
+        "Documentation/Guides/Mjolnir-Lichtmodule.md",
+        "Documentation/Guides/Elektronik-Schubduesen.md"
+      ],
+      "parts": [
+        "helm",
+        "brust"
+      ],
+      "links": [
+        {
+          "label": "Amazon-Suche (Affiliate)",
+          "url": "https://www.amazon.de/s?k=LED+Diffusor+opal+Polycarbonat&tag=huskynarr-21",
+          "kind": "search",
+          "affiliate": true,
+          "checked_on": null
+        }
+      ],
+      "price_eur": null
+    },
+    {
+      "id": "pixels",
+      "name": "WS2812B 5-V-LEDs fuer Akzentlicht",
+      "category": "light",
+      "status": "specification",
+      "compatibility": "Eigener abgesicherter 5-V-Zweig und Strombudget. Akzentlicht ersetzt keine Konstantstromtreiber fuer die RGB-Stars.",
+      "quantity_note": "Nach Aufbau",
+      "guides": [
+        "Documentation/Guides/LED-Effekte.md",
+        "Documentation/Guides/Elektronik-Verdrahtung.md"
+      ],
+      "parts": [
+        "arm",
+        "brust",
+        "helm"
+      ],
+      "links": [
+        {
+          "label": "Amazon-Suche (Affiliate)",
+          "url": "https://www.amazon.de/s?k=WS2812B+5V+LED+Strip&tag=huskynarr-21",
+          "kind": "search",
+          "affiliate": true,
+          "checked_on": null
+        }
+      ],
+      "price_eur": null
+    },
+    {
+      "id": "controller",
+      "name": "Arduino-kompatibler Mikrocontroller",
+      "category": "control",
+      "status": "specification",
+      "compatibility": "Pinbelegung, PWM-Kanaele, Logikpegel und Firmware mit der gewaehlten Boardvariante abgleichen. Boardauswahl bleibt offen.",
+      "quantity_note": "Nach Aufbau",
+      "guides": [
+        "Documentation/Guides/Mjolnir-Elektronik.md",
+        "Documentation/Guides/Mjolnir-CAD-Schaltplaene.md"
+      ],
+      "parts": [
+        "akku",
+        "arm"
+      ],
+      "links": [
+        {
+          "label": "Amazon-Suche (Affiliate)",
+          "url": "https://www.amazon.de/s?k=Arduino+Nano+Mikrocontroller&tag=huskynarr-21",
+          "kind": "search",
+          "affiliate": true,
+          "checked_on": null
+        }
+      ],
+      "price_eur": null
+    },
+    {
+      "id": "temp",
+      "name": "DS18B20-Temperaturfuehler",
+      "category": "control",
+      "status": "candidate",
+      "compatibility": "Messung fuer Anzeige und Protokoll. Kein alleiniger unabhaengiger Uebertemperaturschutz; Ankopplung und Fehlererkennung testen.",
+      "quantity_note": "Nach Messstellen",
+      "guides": [
+        "Documentation/Guides/Mjolnir-Lichtmodule.md",
+        "Documentation/Guides/Mjolnir-Technik-Auslegung.md"
+      ],
+      "parts": [
+        "helm",
+        "brust"
+      ],
+      "links": [
+        {
+          "label": "Hersteller / Produktquelle",
+          "url": "https://www.adafruit.com/product/381",
+          "kind": "manufacturer",
+          "affiliate": false,
+          "checked_on": "2026-09-11"
+        }
+      ],
+      "price_eur": null
+    },
+    {
+      "id": "relay",
+      "name": "Omron G5LE-1A DC5",
+      "category": "control",
+      "status": "candidate",
+      "compatibility": "Kontaktlast, Spule, Freilaufdiode und stromlosen Zustand nach Schaltung pruefen. Kein zertifiziertes Sicherheitsrelais.",
+      "quantity_note": "Nach Referenzschaltung",
+      "guides": [
+        "Design/Electrical/BOM.md",
+        "Documentation/Guides/Mjolnir-CAD-Schaltplaene.md"
+      ],
+      "parts": [
+        "akku"
+      ],
+      "links": [
+        {
+          "label": "Hersteller / Produktquelle",
+          "url": "https://omronfs.omron.com/en_US/ecb/products/pdf/en-g5le.pdf",
+          "kind": "datasheet",
+          "affiliate": false,
+          "checked_on": null
+        },
+        {
+          "label": "Amazon-Suche (Affiliate)",
+          "url": "https://www.amazon.de/s?k=Omron+G5LE-1A+DC5&tag=huskynarr-21",
+          "kind": "search",
+          "affiliate": true,
+          "checked_on": null
+        }
+      ],
+      "price_eur": null
+    },
+    {
+      "id": "pi",
+      "name": "Raspberry Pi Zero 2 W",
+      "category": "helmet",
+      "status": "candidate",
+      "compatibility": "Anzeige- und Kamerarechner; mini-HDMI, kein natives USB-C-DisplayPort-Signal. AR-Brille braucht eine passende Videoquelle oder einen aktiven Adapter.",
+      "quantity_note": "Optional 1",
+      "guides": [
+        "Documentation/Guides/Elektronik-AR-Display.md",
+        "Documentation/Guides/Mjolnir-Helmintegration.md",
+        "Documentation/Guides/Elektronik-HUD.md"
+      ],
+      "parts": [
+        "hud",
+        "helm"
+      ],
+      "links": [
+        {
+          "label": "Hersteller / Produktquelle",
+          "url": "https://www.raspberrypi.com/products/raspberry-pi-zero-2-w/",
+          "kind": "manufacturer",
+          "affiliate": false,
+          "checked_on": "2026-09-11"
+        },
+        {
+          "label": "Amazon-Suche (Affiliate)",
+          "url": "https://www.amazon.de/s?k=Raspberry+Pi+Zero+2+W&tag=huskynarr-21",
+          "kind": "search",
+          "affiliate": true,
+          "checked_on": null
+        }
+      ],
+      "price_eur": null
+    },
+    {
+      "id": "ar",
+      "name": "XREAL One Pro, komplette AR-Brille",
+      "category": "helmet",
+      "status": "alternative",
+      "compatibility": "Premium-Kandidat mit fertiger Optik. USB-C-DisplayPort-Quelle, Pupillendistanz, Augenabstand und Helmfreiraum pruefen. Kein gesicherter Einbau ohne Muster.",
+      "quantity_note": "Optional 1",
+      "guides": [
+        "Documentation/Guides/Elektronik-AR-Display.md",
+        "Documentation/Guides/Mjolnir-Helmintegration.md"
+      ],
+      "parts": [
+        "hud"
+      ],
+      "links": [
+        {
+          "label": "Hersteller / Produktquelle",
+          "url": "https://www.xreal.com/one-pro",
+          "kind": "manufacturer",
+          "affiliate": false,
+          "checked_on": "2026-09-11"
+        },
+        {
+          "label": "Amazon-Suche (Affiliate)",
+          "url": "https://www.amazon.de/s?k=XREAL+One+Pro&tag=huskynarr-21",
+          "kind": "search",
+          "affiliate": true,
+          "checked_on": null
+        }
+      ],
+      "price_eur": null
+    },
+    {
+      "id": "oled",
+      "name": "Waveshare 1.51-inch transparent OLED",
+      "category": "helmet",
+      "status": "alternative",
+      "compatibility": "Nur fuer Tischdemo oder sichtbares Dekodisplay. Ohne Zusatzoptik kein fokussierbares Near-Eye-AR; keine preiswerte direkte Alternative zur AR-Brille.",
+      "quantity_note": "Optional 1 fuer Demo",
+      "guides": [
+        "Documentation/Guides/Elektronik-AR-Display.md",
+        "Documentation/Guides/Elektronik-HUD.md"
+      ],
+      "parts": [
+        "hud"
+      ],
+      "links": [
+        {
+          "label": "Hersteller / Produktquelle",
+          "url": "https://www.waveshare.com/1.51inch-transparent-oled.htm",
+          "kind": "manufacturer",
+          "affiliate": false,
+          "checked_on": null
+        }
+      ],
+      "price_eur": null
+    },
+    {
+      "id": "camera",
+      "name": "Raspberry Pi Camera Module 3",
+      "category": "helmet",
+      "status": "candidate",
+      "compatibility": "Sichtoeffnung hinter dunklem Helmsegment vorsehen, nicht hinter undurchsichtiger Lackierung. Standard 25 x 24 x 11,5 mm; Wide hat anderen Bauraum.",
+      "quantity_note": "Optional 1",
+      "guides": [
+        "Documentation/Guides/Mjolnir-Helmintegration.md"
+      ],
+      "parts": [
+        "helm"
+      ],
+      "links": [
+        {
+          "label": "Hersteller / Produktquelle",
+          "url": "https://www.raspberrypi.com/products/camera-module-3/",
+          "kind": "manufacturer",
+          "affiliate": false,
+          "checked_on": "2026-09-11"
+        },
+        {
+          "label": "Amazon-Suche (Affiliate)",
+          "url": "https://www.amazon.de/s?k=Raspberry+Pi+Camera+Module+3&tag=huskynarr-21",
+          "kind": "search",
+          "affiliate": true,
+          "checked_on": null
+        }
+      ],
+      "price_eur": null
+    },
+    {
+      "id": "camera-cable",
+      "name": "Kamerakabel fuer Pi Zero, 22 auf 15 Pin",
+      "category": "helmet",
+      "status": "candidate",
+      "compatibility": "Camera Module 3 wird mit Standardkabel geliefert. Pi Zero benoetigt eigenes kompatibles Kamerakabel; Richtung und Laenge pruefen.",
+      "quantity_note": "1 pro Kamera am Pi Zero",
+      "guides": [
+        "Documentation/Guides/Mjolnir-Helmintegration.md"
+      ],
+      "parts": [
+        "helm"
+      ],
+      "links": [
+        {
+          "label": "Hersteller / Produktquelle",
+          "url": "https://www.raspberrypi.com/products/camera-module-3/",
+          "kind": "manufacturer",
+          "affiliate": false,
+          "checked_on": "2026-09-11"
+        },
+        {
+          "label": "Amazon-Suche (Affiliate)",
+          "url": "https://www.amazon.de/s?k=Raspberry+Pi+Zero+Kamera+Kabel+22+15+Pin&tag=huskynarr-21",
+          "kind": "search",
+          "affiliate": true,
+          "checked_on": null
+        }
+      ],
+      "price_eur": null
+    },
+    {
+      "id": "amp",
+      "name": "Adafruit MAX98357A I2S Mono-Verstaerker",
+      "category": "helmet",
+      "status": "candidate",
+      "compatibility": "Digitaler I2S-Audioeingang; GPIO-Zuordnung, Versorgung und Lautsprecherimpedanz abgleichen. Schall nach aussen, nicht unmittelbar ans Ohr.",
+      "quantity_note": "Optional 1",
+      "guides": [
+        "Documentation/Guides/Elektronik-Audio.md",
+        "Documentation/Guides/Mjolnir-Helmintegration.md"
+      ],
+      "parts": [
+        "helm",
+        "brust"
+      ],
+      "links": [
+        {
+          "label": "Hersteller / Produktquelle",
+          "url": "https://www.adafruit.com/product/3006",
+          "kind": "manufacturer",
+          "affiliate": false,
+          "checked_on": "2026-09-11"
+        }
+      ],
+      "price_eur": null
+    },
+    {
+      "id": "mic",
+      "name": "Adafruit MAX9814 Mikrofon mit AGC",
+      "category": "helmet",
+      "status": "candidate",
+      "compatibility": "Analoger Ausgang: am Pi nur mit zusaetzlichem ADC / Audiointerface. Montage im Kinnbereich mit Windschutz und Abstand zu Lueftern.",
+      "quantity_note": "Optional 1",
+      "guides": [
+        "Documentation/Guides/Elektronik-Audio.md",
+        "Documentation/Guides/Mjolnir-Helmintegration.md"
+      ],
+      "parts": [
+        "helm"
+      ],
+      "links": [
+        {
+          "label": "Hersteller / Produktquelle",
+          "url": "https://www.adafruit.com/product/1713",
+          "kind": "manufacturer",
+          "affiliate": false,
+          "checked_on": "2026-09-11"
+        }
+      ],
+      "price_eur": null
+    },
+    {
+      "id": "usb-audio",
+      "name": "USB-Audiointerface mit Mikrofoneingang",
+      "category": "helmet",
+      "status": "alternative",
+      "compatibility": "Alternative zur Analog-Mikrofonplatine. Linux-Unterstuetzung, OTG-Anschluss und Latenz testen; kein ungepruefter passiver Adapter.",
+      "quantity_note": "Nach Aufbau",
+      "guides": [
+        "Documentation/Guides/Elektronik-Audio.md",
+        "Documentation/Guides/Mjolnir-Helmintegration.md"
+      ],
+      "parts": [
+        "helm",
+        "akku"
+      ],
+      "links": [
+        {
+          "label": "Amazon-Suche (Affiliate)",
+          "url": "https://www.amazon.de/s?k=USB+Audio+Interface+Linux+Mikrofon+Eingang&tag=huskynarr-21",
+          "kind": "search",
+          "affiliate": true,
+          "checked_on": null
+        }
+      ],
+      "price_eur": null
+    },
+    {
+      "id": "speaker",
+      "name": "Kompakter Lautsprecher fuer Aussen-Audio",
+      "category": "helmet",
+      "status": "specification",
+      "compatibility": "Impedanz und Belastbarkeit passend zum Verstaerker. Rueckkopplung mit Kinnmikrofon pruefen, Lautstaerke begrenzen.",
+      "quantity_note": "Nach Aufbau",
+      "guides": [
+        "Documentation/Guides/Elektronik-Audio.md",
+        "Documentation/Guides/Mjolnir-Helmintegration.md"
+      ],
+      "parts": [
+        "brust",
+        "helm"
+      ],
+      "links": [
+        {
+          "label": "Amazon-Suche (Affiliate)",
+          "url": "https://www.amazon.de/s?k=Lautsprecher+4+Ohm+3W+klein&tag=huskynarr-21",
+          "kind": "search",
+          "affiliate": true,
+          "checked_on": null
+        }
+      ],
+      "price_eur": null
+    },
+    {
+      "id": "pmi-vest",
+      "name": "PMI Smoke Vest On-Body Smoke System",
+      "category": "fog",
+      "status": "alternative",
+      "compatibility": "OEM-Wearable-Kandidat. Bundle-Inhalt und konkrete Geraeterevision schriftlich abgleichen; allgemeine Abstandsangaben und Wearable-Anwendung bleiben zu klaeren.",
+      "quantity_note": "1 OEM-Paket statt separatem Doppelgeraet",
+      "guides": [
+        "Documentation/Guides/Mjolnir-Nebeltechnik.md",
+        "Documentation/Guides/Elektronik-Schubduesen.md",
+        "Materials/Mjolnir-Nebel-Einkauf.md"
+      ],
+      "parts": [
+        "brust"
+      ],
+      "links": [
+        {
+          "label": "Hersteller / Produktquelle",
+          "url": "https://pmigear.com/products/pmi-smoke-vest-on-body-smoke-system",
+          "kind": "manufacturer",
+          "affiliate": false,
+          "checked_on": null
+        }
+      ],
+      "price_eur": null
+    },
+    {
+      "id": "pmi-ninja",
+      "name": "PMI SmokeNINJA PRO V2",
+      "category": "fog",
+      "status": "alternative",
+      "compatibility": "Alternative zum kompletten Vest-Bundle. Originalakku, Originalkammer und freigegebenes Fluid verwenden; eigene RGB- und Luftwege separat.",
+      "quantity_note": "Optional 1",
+      "guides": [
+        "Documentation/Guides/Mjolnir-Nebeltechnik.md",
+        "Documentation/Guides/Elektronik-Schubduesen.md"
+      ],
+      "parts": [
+        "brust"
+      ],
+      "links": [
+        {
+          "label": "Hersteller / Produktquelle",
+          "url": "https://pmigear.com/products/pmi-smokeninja-pro-v2",
+          "kind": "manufacturer",
+          "affiliate": false,
+          "checked_on": "2026-09-11"
+        }
+      ],
+      "price_eur": null
+    },
+    {
+      "id": "pmi-extension",
+      "name": "PMI Chamber Extension Cable",
+      "category": "fog",
+      "status": "candidate",
+      "compatibility": "Nur nach Bestaetigung fuer die konkrete Kammer/Geraeterevision. Kein beliebiges verlaengertes Heizkabel.",
+      "quantity_note": "Nach OEM-Aufbau",
+      "guides": [
+        "Documentation/Guides/Mjolnir-Nebeltechnik.md"
+      ],
+      "parts": [
+        "brust"
+      ],
+      "links": [
+        {
+          "label": "Hersteller / Produktquelle",
+          "url": "https://pmigear.com/products/pmi-chamber-extension-cable",
+          "kind": "manufacturer",
+          "affiliate": false,
+          "checked_on": "2026-09-11"
+        }
+      ],
+      "price_eur": null
+    },
+    {
+      "id": "pmi-fluid",
+      "name": "PMI Vanishing Formula Kit",
+      "category": "fog",
+      "status": "candidate",
+      "compatibility": "Nur im vom Hersteller freigegebenen System und Mischungsverhaeltnis. Glyzerin oder PG nicht frei dosieren. Bundle-Inhalt gegen separat benoetigtes Fluid pruefen.",
+      "quantity_note": "Nach OEM-Verbrauch",
+      "guides": [
+        "Documentation/Guides/Mjolnir-Nebeltechnik.md",
+        "Materials/Mjolnir-Nebel-Einkauf.md"
+      ],
+      "parts": [
+        "brust"
+      ],
+      "links": [
+        {
+          "label": "Hersteller / Produktquelle",
+          "url": "https://pmigear.com/products/pmi-vanishing-formula-kit",
+          "kind": "manufacturer",
+          "affiliate": false,
+          "checked_on": "2026-09-11"
+        }
+      ],
+      "price_eur": null
+    },
+    {
+      "id": "microfogger",
+      "name": "Vosentech MicroFogger 5 Pro",
+      "category": "fog",
+      "status": "alternative",
+      "compatibility": "Alternative zu PMI. Eigene Einbaupruefung und OEM-Freigaben erforderlich; keine Uebernahme fremder Schlaeuche oder Fluide.",
+      "quantity_note": "Optional 1",
+      "guides": [
+        "Documentation/Guides/Mjolnir-Nebeltechnik.md",
+        "Documentation/Guides/Elektronik-Schubduesen.md"
+      ],
+      "parts": [
+        "brust"
+      ],
+      "links": [
+        {
+          "label": "Hersteller / Produktquelle",
+          "url": "https://vosentech.com/index.php/product/microfogger-5-pro/",
+          "kind": "manufacturer",
+          "affiliate": false,
+          "checked_on": "2026-09-11"
+        }
+      ],
+      "price_eur": null
+    },
+    {
+      "id": "fog-control",
+      "name": "Vosentech MicroFogger Control Cable",
+      "category": "fog",
+      "status": "candidate",
+      "compatibility": "Nur fuer bestaetigtes kompatibles MicroFogger-Modell. Steuerschnittstelle pruefen; nicht an unbekannte PMI-Pins anschliessen.",
+      "quantity_note": "Optional 1",
+      "guides": [
+        "Documentation/Guides/Mjolnir-Nebeltechnik.md"
+      ],
+      "parts": [
+        "brust"
+      ],
+      "links": [
+        {
+          "label": "Hersteller / Produktquelle",
+          "url": "https://vosentech.com/index.php/product/microfogger-control-cable/",
+          "kind": "manufacturer",
+          "affiliate": false,
+          "checked_on": null
+        }
+      ],
+      "price_eur": null
+    },
+    {
+      "id": "nozzle-fan",
+      "name": "Kleiner 5-V-Luefter fuer Duesenlicht-Effekt",
+      "category": "fog",
+      "status": "specification",
+      "compatibility": "Trockener Bypass um den Nebelauslass; kein unfreigegebener Gegendruck im OEM-Nebelweg. Drehzahlrampe mit Licht synchronisieren.",
+      "quantity_note": "Nach Aufbau",
+      "guides": [
+        "Documentation/Guides/Elektronik-Schubduesen.md",
+        "Documentation/Guides/Mjolnir-Einbauplan.md"
+      ],
+      "parts": [
+        "brust"
+      ],
+      "links": [
+        {
+          "label": "Amazon-Suche (Affiliate)",
+          "url": "https://www.amazon.de/s?k=5V+PWM+Luefter+40mm&tag=huskynarr-21",
+          "kind": "search",
+          "affiliate": true,
+          "checked_on": null
+        }
+      ],
+      "price_eur": null
+    },
+    {
+      "id": "go2",
+      "name": "Unitree Go2",
+      "category": "companion",
+      "status": "alternative",
+      "compatibility": "Optionale eigenstaendige Begleitung. PRO-Follow und EDU-SDK sind unterschiedliche Kaufentscheidungen; beaufsichtigter Testbereich, keine universelle Senderkompatibilitaet.",
+      "quantity_note": "Optional 1, ausserhalb Basisbudget",
+      "guides": [
+        "Documentation/Guides/Begleitroboter-Integration.md",
+        "Materials/Mjolnir-Begleitsystem.md"
+      ],
+      "parts": [
+        "exo"
+      ],
+      "links": [
+        {
+          "label": "Hersteller / Produktquelle",
+          "url": "https://www.unitree.com/go2/",
+          "kind": "manufacturer",
+          "affiliate": false,
+          "checked_on": "2026-09-11"
+        }
+      ],
+      "price_eur": null
+    },
+    {
+      "id": "exo-x1",
+      "name": "DNSYS X1",
+      "category": "companion",
+      "status": "alternative",
+      "compatibility": "Optionales Serien-Exoskelett. Passform und Ruestungskollisionen pruefen; keine nachgewiesene Ableitung des Ruestungsgewichts zum Boden.",
+      "quantity_note": "Optional 1, ausserhalb Basisbudget",
+      "guides": [
+        "Documentation/Guides/Exoskelett.md"
+      ],
+      "parts": [
+        "exo"
+      ],
+      "links": [
+        {
+          "label": "Hersteller / Produktquelle",
+          "url": "https://dnsys.ai/products/dnsys-x1-exoskeleton-every-step-is-a-leap-forward-carbon-carbon-pro",
+          "kind": "manufacturer",
+          "affiliate": false,
+          "checked_on": "2026-09-11"
+        }
+      ],
+      "price_eur": null
+    },
+    {
+      "id": "multimeter",
+      "name": "Multimeter mit abgesicherten Stromeingaengen",
+      "category": "workshop",
+      "status": "specification",
+      "compatibility": "Spannung, Durchgang und Zweigstrom messen. Messbereich und Sicherungen passend auswaehlen; Bedienungsanleitung beachten.",
+      "quantity_note": "1 Werkstattgeraet",
+      "guides": [
+        "Documentation/Guides/Elektronik-Verdrahtung.md",
+        "Documentation/Guides/Mjolnir-Technik-Auslegung.md"
+      ],
+      "parts": [],
+      "links": [
+        {
+          "label": "Amazon-Suche (Affiliate)",
+          "url": "https://www.amazon.de/s?k=Digital+Multimeter+abgesicherter+Stromeingang&tag=huskynarr-21",
+          "kind": "search",
+          "affiliate": true,
+          "checked_on": null
+        }
+      ],
+      "price_eur": null
+    },
+    {
+      "id": "pd-meter",
+      "name": "USB-C-PD-Messgeraet mit Profilanzeige",
+      "category": "workshop",
+      "status": "specification",
+      "compatibility": "15-V-Aushandlung und Leistung unter Last pruefen. Messgeraet muss die verwendete PD-Leistung durchleiten koennen.",
+      "quantity_note": "1 Werkstattgeraet",
+      "guides": [
+        "Documentation/Guides/Elektronik-Strombudget.md",
+        "Documentation/Guides/Mjolnir-Lichtmodule.md"
+      ],
+      "parts": [],
+      "links": [
+        {
+          "label": "Amazon-Suche (Affiliate)",
+          "url": "https://www.amazon.de/s?k=USB+C+PD+Tester+PDO+Anzeige+15V&tag=huskynarr-21",
+          "kind": "search",
+          "affiliate": true,
+          "checked_on": null
+        }
+      ],
+      "price_eur": null
+    },
+    {
+      "id": "bench-supply",
+      "name": "Labornetzteil mit Strombegrenzung",
+      "category": "workshop",
+      "status": "specification",
+      "compatibility": "Spannungsbereich und Leistung fuer den 15-V-Prototyp waehlen. Zuerst auf dem Tisch testen, dann im Kostuem.",
+      "quantity_note": "1 Werkstattgeraet",
+      "guides": [
+        "Documentation/Guides/Mjolnir-Technik-Auslegung.md",
+        "Documentation/Guides/Mjolnir-CAD-Schaltplaene.md"
+      ],
+      "parts": [],
+      "links": [
+        {
+          "label": "Amazon-Suche (Affiliate)",
+          "url": "https://www.amazon.de/s?k=Labornetzteil+regelbar+Strombegrenzung+30V&tag=huskynarr-21",
+          "kind": "search",
+          "affiliate": true,
+          "checked_on": null
+        }
+      ],
+      "price_eur": null
+    },
+    {
+      "id": "solder",
+      "name": "Loetstation und passende Crimpzange",
+      "category": "workshop",
+      "status": "specification",
+      "compatibility": "Crimpeinsatz muss zum gewaehlten Kontakt passen. Verbindungen mechanisch pruefen und isolieren.",
+      "quantity_note": "Nach Aufbau",
+      "guides": [
+        "Documentation/Guides/Elektronik-Verdrahtung.md"
+      ],
+      "parts": [],
+      "links": [
+        {
+          "label": "Amazon-Suche (Affiliate)",
+          "url": "https://www.amazon.de/s?k=Loetstation+Crimpzange+Steckverbinder&tag=huskynarr-21",
+          "kind": "search",
+          "affiliate": true,
+          "checked_on": null
+        }
+      ],
+      "price_eur": null
+    }
+  ]
+}

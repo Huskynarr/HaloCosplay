@@ -1,7 +1,8 @@
 # Amazon Creators API - Link-Updater (lokal)
 
-Aktualisiert die Amazon-Links in `Materials/Einkaufsliste-Links.md` und
-`Materials/ShoppingList.md` ueber die **Amazon Creators API** (Nachfolger der
+> Der aktuelle Produktkatalog wird ausschliesslich aus `Materials/ProductCatalog.json` mit `python tools/suit_catalog.py` erzeugt. Dieser Legacy-Updater bearbeitet nur noch `Materials/ShoppingList.md`; die folgenden API-Arbeitsschritte gelten nicht fuer den Webkatalog. Shop-Suchen werden dort nicht automatisch durch den ersten Treffer ersetzt.
+
+Legacy-Werkzeug fuer Amazon-Links in `Materials/ShoppingList.md` ueber die **Amazon Creators API** (Nachfolger der
 Product Advertising API, Login-with-Amazon OAuth 2.0).
 
 ## Warum lokal und nicht in GitHub Actions?

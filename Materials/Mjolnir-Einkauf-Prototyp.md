@@ -1,5 +1,9 @@
 # Bezahlbare Einkaufsliste fuer den ersten Prototyp
 
+Aktuelle Produktzuordnung: [zentraler Produktkatalog](../web/products/) und
+[Einkaufslinks mit Auswahlkriterien](Einkaufsliste-Links.md). Budgetwerte in dieser
+Datei sind Planungswerte, keine aktuellen Shop-Angebote.
+
 Stand: 2026-09-08. Umfang: Helm-Belueftung, Elektronikpruefstand und manuell
 aufklappbarer Torso als Muster. Noch keine komplette Ruestung und kein fertiges
 Exoskelett. Vorhandene Powerbanks, Rechner und Werkzeuge zuerst verwenden.

@@ -1,5 +1,9 @@
 # Materialsammlung und Einkaufsreferenzen
 
+Aktuelle Produktzuordnung: [zentraler Produktkatalog](../web/products/) und
+[Einkaufslinks mit Auswahlkriterien](Einkaufsliste-Links.md). Budgetwerte in dieser
+Datei sind Planungswerte, keine aktuellen Shop-Angebote.
+
 ## Projektbezogenes Budget
 
 Die [MJOLNIR-Stueckliste](Mjolnir-BOM.md) ist ein editierbares Beispiel.
@@ -170,11 +174,10 @@ Nur fuer V3 (Stufe-C-AR nach `Documentation/Guides/Elektronik-AR-Display.md` und
 | PVC-Rohr (Kern) | 5-10 EUR | Stabilisierung |
 | Grundierung + Farbe | 15-25 EUR | Passend zum Armor |
 
-## Beispiel-Links (LEDs)
+## Produkte fuer Licht
 
-- https://www.amazon.de/dp/B07LCKMLN5?tag=huskynarr-21
-- https://leds-and-more.de/Highpower-LED-3-Watt-Ultra-Kalt-Weiss-20000K-200-Lumen-140
-- https://leds-and-more.de/SMD-RGB-LED-SK6812-5050-steuerbar-mit-integr-Controller-auf-Platine-rund
+[RGB-Stars, Treiber und Akzentlicht im Produktkatalog](../web/products/).
+Die frueheren Beispiel-ASINs werden nicht als gepruefte Angebote weitergefuehrt.
 
 ## Bezugsquellen (DE)
 
