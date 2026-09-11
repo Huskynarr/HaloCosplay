@@ -4,9 +4,17 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-A comprehensive DIY project repository for building a Halo Master Chief MJOLNIR cosplay suit. This is primarily a **documentation and planning repo** with supporting embedded code - not a traditional software project. Content is written in German.
+A configurable DIY project repository for building Halo MJOLNIR cosplay suits. This is primarily a **documentation and planning repo** with supporting embedded code - not a traditional software project. Content is written in German.
 
-Three build variants exist: V1 Einsteiger (foam), V2 Fortgeschritten (3D-print/hybrid with HUD), V3 Profi (exoskeleton + premium).
+The active workflow uses independent project profiles (32 measurements, fit
+settings, armor reference, material, operating mode and optional equipment).
+Start at Documentation/Guides/Mjolnir-Konfiguration.md. Template.json must stay
+unmeasured; Demo.json is explicitly synthetic and never a default body. Profiles
+and outputs use separate directories. Evidence belongs to a project and revision;
+software checks never count as hardware approval. Selecting a material or
+reference does not generate verified detail CAD or engineering calculations.
+
+Three legacy material-reference variants exist: V1 Einsteiger (foam), V2 Fortgeschritten (3D-print/hybrid with HUD), V3 Profi (exoskeleton + premium).
 
 ## Repository Structure
 
@@ -31,7 +39,8 @@ Three build variants exist: V1 Einsteiger (foam), V2 Fortgeschritten (3D-print/h
 - `Code/HelmetControl/hud_display.py` - main HUD loop driving a transparent OLED (SSD1309) over I2C
 - Dependencies: `pip install -r Code/HelmetControl/requirements.txt` (luma.oled, Pillow, smbus2)
 - Config: copy `config.example.json` to `config.json`; battery status via `battery.example.json` to `battery.json`
-- No test suite exists; testing is manual on hardware
+- Hardware tests remain manual; fit/budget/readiness tests: `python3 -m unittest discover -s Tests/Automation -v`
+- Offline exhibition validation: `node --test Tests/Automation/exhibition.test.cjs`
 
 ### Arduino Controllers
 - `Code/HelmetControl/MainControlCode.ino` - I2C slave receiving brightness commands (basic)

@@ -1,0 +1,92 @@
+{
+  "schema_version": 1,
+  "project": "Synthetic Engineering Demo",
+  "status": "synthetic",
+  "notes": "Invented arithmetic example only. No measured device, construction or capability.",
+  "target_duration_h": 2,
+  "batteries": [
+    {
+      "id": "B1",
+      "usable_energy_wh": 40
+    },
+    {
+      "id": "B2",
+      "usable_energy_wh": 20
+    }
+  ],
+  "rails": [
+    {
+      "id": "R5V",
+      "battery_id": "B1",
+      "voltage_v": 5,
+      "efficiency_fraction": 0.8,
+      "idle_input_w": 0.5,
+      "consumers": [
+        {
+          "id": "Light",
+          "quantity": 2,
+          "power_w": 5,
+          "duty_fraction": 0.5,
+          "peak_power_w": 6
+        },
+        {
+          "id": "Fan",
+          "quantity": 1,
+          "power_w": 2,
+          "duty_fraction": 1,
+          "peak_power_w": 3
+        }
+      ]
+    },
+    {
+      "id": "R12V",
+      "battery_id": "B1",
+      "voltage_v": 12,
+      "efficiency_fraction": 0.9,
+      "idle_input_w": 0.2,
+      "consumers": [
+        {
+          "id": "Audio",
+          "quantity": 1,
+          "power_w": 9,
+          "duty_fraction": 0.2,
+          "peak_power_w": 12
+        }
+      ]
+    },
+    {
+      "id": "RIndependent",
+      "battery_id": "B2",
+      "voltage_v": 5,
+      "efficiency_fraction": 1,
+      "idle_input_w": 0,
+      "consumers": [
+        {
+          "id": "IndependentSystem",
+          "quantity": 1,
+          "power_w": 10,
+          "duty_fraction": 0.25,
+          "peak_power_w": 10
+        }
+      ]
+    }
+  ],
+  "hinges": [
+    {
+      "id": "Panel",
+      "panel_mass_kg": 0.8,
+      "com_distance_m": 0.12,
+      "gravity_axis_factor": 1
+    }
+  ],
+  "stand": {
+    "total_mass_kg": 30,
+    "base_width_x_m": 0.8,
+    "base_width_y_m": 0.6,
+    "com_x_m": 0.05,
+    "com_y_m": -0.03,
+    "force_x_n": 25,
+    "force_y_n": 25,
+    "force_height_m": 1.2
+  }
+}

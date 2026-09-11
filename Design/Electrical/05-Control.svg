@@ -1,0 +1,142 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1500" height="1100" viewBox="0 0 1500 1100">
+<style>text{font-family:DejaVu Sans,sans-serif;fill:#193442} .wire{fill:none;stroke:#226862;stroke-width:2.3} .sym{fill:white;stroke:#193442;stroke-width:2.2} .small{font-size:16px} .net{font-size:14px;fill:#226862} .body{font-size:19px} .title{font-size:30px;font-weight:bold}</style>
+<rect width="1500" height="1100" fill="#fff"/>
+<rect x="24" y="24" width="1452" height="1052" fill="none" stroke="#a6b3ba"/>
+<text x="48" y="73" class="title" text-anchor="start">05  3,3-V-PWM und Freigabe</text>
+<text x="48" y="108" class="body" text-anchor="start">Ein Pufferkanal im Detail; identische Schaltung sechsmal. Relaisfreigabe ist separat und statisch.</text>
+<line x1="48" y1="130" x2="1452" y2="130" stroke="#a6b3ba" stroke-width="2.2"/>
+<line x1="48" y1="1015" x2="1452" y2="1015" stroke="#a6b3ba" stroke-width="2.2"/>
+<text x="48" y="1048" class="small" text-anchor="start">HaloCosplay | electrical-r1 | Entwurf, keine Bauabnahme | 2026-09-09</text>
+<text x="1360" y="1048" class="small" text-anchor="start">05 / 05</text>
+<rect x="660" y="180" width="270" height="191" class="sym"/>
+<text x="795.0" y="207" class="small" text-anchor="middle">B30 / AHCT1G125</text>
+<circle cx="660" cy="245" r="3" fill="white" stroke="#226862" data-ref="B30" data-pin="2" data-net="PWM_H_R"/>
+<polyline class="wire" points="660,245 605,245" data-net="PWM_H_R"/>
+<text x="605" y="235" class="net" text-anchor="end">PWM_H_R</text>
+<text x="670" y="238" class="small" text-anchor="start">2 A / 3,3 V</text>
+<circle cx="660" cy="287" r="3" fill="white" stroke="#226862" data-ref="B30" data-pin="1" data-net="E_GND"/>
+<polyline class="wire" points="660,287 605,287" data-net="E_GND"/>
+<text x="605" y="277" class="net" text-anchor="end">E_GND</text>
+<text x="670" y="280" class="small" text-anchor="start">1 /OE = 0</text>
+<circle cx="660" cy="329" r="3" fill="white" stroke="#226862" data-ref="B30" data-pin="3" data-net="E_GND"/>
+<polyline class="wire" points="660,329 605,329" data-net="E_GND"/>
+<text x="605" y="319" class="net" text-anchor="end">E_GND</text>
+<text x="670" y="322" class="small" text-anchor="start">3 GND</text>
+<circle cx="930" cy="245" r="3" fill="white" stroke="#226862" data-ref="B30" data-pin="5" data-net="E5_CTRL"/>
+<polyline class="wire" points="930,245 985,245" data-net="E5_CTRL"/>
+<text x="985" y="235" class="net" text-anchor="start">E5_CTRL</text>
+<text x="920" y="238" class="small" text-anchor="end">5 VCC</text>
+<circle cx="930" cy="287" r="3" fill="white" stroke="#226862" data-ref="B30" data-pin="4" data-net="DIM_H_R"/>
+<polyline class="wire" points="930,287 985,287" data-net="DIM_H_R"/>
+<text x="985" y="277" class="net" text-anchor="start">DIM_H_R</text>
+<text x="920" y="280" class="small" text-anchor="end">4 Y / DIM</text>
+<text x="368" y="218" class="small" text-anchor="start">R30 / 10 kohm</text>
+<rect x="356" y="263" width="18" height="42" class="sym"/>
+<line x1="365" y1="245" x2="365" y2="263" stroke="#193442" stroke-width="2.2"/>
+<line x1="365" y1="305" x2="365" y2="325" stroke="#193442" stroke-width="2.2"/>
+<circle cx="365" cy="245" r="3" fill="white" stroke="#226862" data-ref="R30" data-pin="1" data-net="PWM_H_R"/>
+<circle cx="365" cy="325" r="3" fill="white" stroke="#226862" data-ref="R30" data-pin="2" data-net="E_GND"/>
+<polyline class="wire" points="365,245 605,245" data-net="PWM_H_R"/>
+<circle cx="365" cy="245" r="4" fill="#226862"/>
+<circle cx="365" cy="245" r="3" fill="white" stroke="#226862" data-ref="R30" data-pin="1" data-net="PWM_H_R"/>
+<polyline class="wire" points="365,245 310,245" data-net="PWM_H_R"/>
+<text x="310" y="235" class="net" text-anchor="end">PWM_H_R</text>
+<circle cx="365" cy="325" r="3" fill="white" stroke="#226862" data-ref="R30" data-pin="2" data-net="E_GND"/>
+<polyline class="wire" points="365,325 310,325" data-net="E_GND"/>
+<text x="310" y="315" class="net" text-anchor="end">E_GND</text>
+<text x="1170" y="350" class="small" text-anchor="start">C30 / 100 nF / &gt;=10 V; am IC</text>
+<line x1="1150" y1="325" x2="1150" y2="350" stroke="#193442" stroke-width="2.2"/>
+<line x1="1135" y1="350" x2="1165" y2="350" stroke="#193442" stroke-width="2.2"/>
+<line x1="1135" y1="363" x2="1165" y2="363" stroke="#193442" stroke-width="2.2"/>
+<line x1="1150" y1="363" x2="1150" y2="390" stroke="#193442" stroke-width="2.2"/>
+<circle cx="1150" cy="325" r="3" fill="white" stroke="#226862" data-ref="C30" data-pin="1" data-net="E5_CTRL"/>
+<circle cx="1150" cy="390" r="3" fill="white" stroke="#226862" data-ref="C30" data-pin="2" data-net="E_GND"/>
+<circle cx="1150" cy="325" r="3" fill="white" stroke="#226862" data-ref="C30" data-pin="1" data-net="E5_CTRL"/>
+<polyline class="wire" points="1150,325 1095,325" data-net="E5_CTRL"/>
+<text x="1095" y="315" class="net" text-anchor="end">E5_CTRL</text>
+<circle cx="1150" cy="390" r="3" fill="white" stroke="#226862" data-ref="C30" data-pin="2" data-net="E_GND"/>
+<polyline class="wire" points="1150,390 1095,390" data-net="E_GND"/>
+<text x="1095" y="380" class="net" text-anchor="end">E_GND</text>
+<text x="60" y="428" class="small" text-anchor="start">B30...B35: Eingang bei Reset hochohmig -&gt; R30...R35 ziehen A LOW; /OE dauerhaft an E_GND.</text>
+<text x="60" y="454" class="small" text-anchor="start">DIM nicht mit 10-kohm-Pulldown allein absichern: offener LDD-DIM-Eingang bedeutet EIN.</text>
+<text x="60" y="480" class="small" text-anchor="start">Direkter 5-V-Pufferausgang; DIM-Strom/LOW-Pegel real messen. Kein Ioff-Nachweis fuer den Puffer.</text>
+<text x="65" y="539" class="body" text-anchor="start">Relais-Freigabe / Gate LOW bei getrenntem MCU oder offener Temperaturkontaktkette</text>
+<rect x="225" y="590" width="285" height="107" class="sym"/>
+<text x="367.5" y="617" class="small" text-anchor="middle">J21 / externe Oeffner</text>
+<circle cx="225" cy="655" r="3" fill="white" stroke="#226862" data-ref="J21" data-pin="1" data-net="MCU_READY"/>
+<polyline class="wire" points="225,655 170,655" data-net="MCU_READY"/>
+<text x="170" y="645" class="net" text-anchor="end">MCU_READY</text>
+<text x="235" y="648" class="small" text-anchor="start">1 READY</text>
+<circle cx="510" cy="655" r="3" fill="white" stroke="#226862" data-ref="J21" data-pin="2" data-net="READY_AFTER_TH"/>
+<polyline class="wire" points="510,655 565,655" data-net="READY_AFTER_TH"/>
+<text x="565" y="645" class="net" text-anchor="start">READY_AFTER_TH</text>
+<text x="500" y="648" class="small" text-anchor="end">2 TH_OUT</text>
+<text x="225" y="718" class="small" text-anchor="start">Temperaturkontakte unbestimmt</text>
+<text x="225" y="745" class="small" text-anchor="start">Stecker offen = keine Freigabe</text>
+<text x="653" y="628" class="small" text-anchor="start">R20 / 100 ohm</text>
+<rect x="668" y="646" width="44" height="18" class="sym"/>
+<line x1="650" y1="655" x2="668" y2="655" stroke="#193442" stroke-width="2.2"/>
+<line x1="712" y1="655" x2="730" y2="655" stroke="#193442" stroke-width="2.2"/>
+<circle cx="650" cy="655" r="3" fill="white" stroke="#226862" data-ref="R20" data-pin="1" data-net="READY_AFTER_TH"/>
+<circle cx="730" cy="655" r="3" fill="white" stroke="#226862" data-ref="R20" data-pin="2" data-net="RELAY_GATE"/>
+<polyline class="wire" points="565,655 650,655" data-net="READY_AFTER_TH"/>
+<polyline class="wire" points="730,655 865,655" data-net="RELAY_GATE"/>
+<text x="793" y="693" class="small" text-anchor="start">R21 / 10 kohm</text>
+<rect x="781" y="738" width="18" height="42" class="sym"/>
+<line x1="790" y1="720" x2="790" y2="738" stroke="#193442" stroke-width="2.2"/>
+<line x1="790" y1="780" x2="790" y2="800" stroke="#193442" stroke-width="2.2"/>
+<circle cx="790" cy="720" r="3" fill="white" stroke="#226862" data-ref="R21" data-pin="1" data-net="RELAY_GATE"/>
+<circle cx="790" cy="800" r="3" fill="white" stroke="#226862" data-ref="R21" data-pin="2" data-net="E_GND"/>
+<polyline class="wire" points="790,655 790,720" data-net="RELAY_GATE"/>
+<circle cx="790" cy="655" r="4" fill="#226862"/>
+<circle cx="790" cy="800" r="3" fill="white" stroke="#226862" data-ref="R21" data-pin="2" data-net="E_GND"/>
+<polyline class="wire" points="790,800 735,800" data-net="E_GND"/>
+<text x="735" y="790" class="net" text-anchor="end">E_GND</text>
+<line x1="865" y1="655" x2="900" y2="655" stroke="#193442" stroke-width="2.2"/>
+<line x1="900" y1="625" x2="900" y2="690" stroke="#193442" stroke-width="2.2"/>
+<line x1="915" y1="615" x2="915" y2="645" stroke="#193442" stroke-width="2.2"/>
+<line x1="915" y1="650" x2="915" y2="665" stroke="#193442" stroke-width="2.2"/>
+<line x1="915" y1="670" x2="915" y2="700" stroke="#193442" stroke-width="2.2"/>
+<line x1="915" y1="615" x2="960" y2="615" stroke="#193442" stroke-width="2.2"/>
+<line x1="960" y1="615" x2="960" y2="580" stroke="#193442" stroke-width="2.2"/>
+<line x1="915" y1="700" x2="960" y2="700" stroke="#193442" stroke-width="2.2"/>
+<line x1="960" y1="700" x2="960" y2="755" stroke="#193442" stroke-width="2.2"/>
+<circle cx="865" cy="655" r="3" fill="white" stroke="#226862" data-ref="Q20" data-pin="1" data-net="RELAY_GATE"/>
+<circle cx="960" cy="580" r="3" fill="white" stroke="#226862" data-ref="Q20" data-pin="3" data-net="COIL_LOW"/>
+<circle cx="960" cy="755" r="3" fill="white" stroke="#226862" data-ref="Q20" data-pin="2" data-net="E_GND"/>
+<text x="975" y="668" class="small" text-anchor="start">Q20 / AO3400A</text>
+<text x="878" y="605" class="small" text-anchor="start">3 D</text>
+<text x="975" y="735" class="small" text-anchor="start">2 S</text>
+<text x="860" y="642" class="small" text-anchor="start">1 G</text>
+<circle cx="960" cy="755" r="3" fill="white" stroke="#226862" data-ref="Q20" data-pin="2" data-net="E_GND"/>
+<polyline class="wire" points="960,755 1015,755" data-net="E_GND"/>
+<text x="1015" y="745" class="net" text-anchor="start">E_GND</text>
+<polyline class="wire" points="960,580 960,560 1190,560 1190,610" data-net="COIL_LOW"/>
+<rect x="1180" y="645" width="26" height="95" class="sym"/>
+<line x1="1193" y1="610" x2="1193" y2="645" stroke="#193442" stroke-width="2.2"/>
+<line x1="1193" y1="740" x2="1193" y2="790" stroke="#193442" stroke-width="2.2"/>
+<circle cx="1193" cy="610" r="3" fill="white" stroke="#226862" data-ref="K20" data-pin="5" data-net="COIL_LOW"/>
+<circle cx="1193" cy="790" r="3" fill="white" stroke="#226862" data-ref="K20" data-pin="2" data-net="E5_CTRL"/>
+<polyline class="wire" points="1190,610 1193,610" data-net="COIL_LOW"/>
+<circle cx="1193" cy="790" r="3" fill="white" stroke="#226862" data-ref="K20" data-pin="2" data-net="E5_CTRL"/>
+<polyline class="wire" points="1193,790 1248,790" data-net="E5_CTRL"/>
+<text x="1248" y="780" class="net" text-anchor="start">E5_CTRL</text>
+<text x="1060" y="685" class="small" text-anchor="start">K20</text>
+<text x="1040" y="710" class="small" text-anchor="start">Spule 2/5</text>
+<polyline class="wire" points="1193,610 1340,610 1340,655" data-net="COIL_LOW"/>
+<circle cx="1193" cy="610" r="4" fill="#226862"/>
+<line x1="1340" y1="655" x2="1340" y2="670" stroke="#193442" stroke-width="2.2"/>
+<polygon points="1326,670 1354,670 1340,695" class="sym"/>
+<line x1="1326" y1="695" x2="1354" y2="695" stroke="#193442" stroke-width="2.2"/>
+<line x1="1340" y1="695" x2="1340" y2="715" stroke="#193442" stroke-width="2.2"/>
+<circle cx="1340" cy="655" r="3" fill="white" stroke="#226862" data-ref="D20" data-pin="A" data-net="COIL_LOW"/>
+<circle cx="1340" cy="715" r="3" fill="white" stroke="#226862" data-ref="D20" data-pin="K" data-net="E5_CTRL"/>
+<polyline class="wire" points="1340,715 1340,790 1193,790" data-net="E5_CTRL"/>
+<circle cx="1193" cy="790" r="4" fill="#226862"/>
+<text x="1360" y="678" class="small" text-anchor="start">D20</text>
+<text x="1360" y="706" class="small" text-anchor="start">1N4007</text>
+<text x="60" y="874" class="body" text-anchor="start">J30: 1 E_GND, 2 READY, 3 H_R, 4 H_G, 5 H_B, 6 N_R, 7 N_G, 8 N_B. Nur 3,3-V-Signale.</text>
+<text x="60" y="914" class="small" text-anchor="start">J22: 1 E5_CTRL, 2 E_GND. Controller braucht dokumentierten 5-V-Eingang und eigene 3,3-V-Regelung.</text>
+<text x="60" y="953" class="small" text-anchor="start">Reset-AUS gilt stationaer bei hochohmigen GPIOs; Brownout, Kontaktprellen und Abschaltimpulse messen.</text>
+<text x="60" y="986" class="small" text-anchor="start">Temperatursperre/Watchdog/MCU-Pinwahl noch nicht implementiert. Kein Sicherheitsrelais, kein Not-Halt.</text>
+</svg>

@@ -1,97 +1,77 @@
-# Elektronik und HUD
+# Elektronik: HUD-Inbetriebnahme
 
-> **Level:** [F] Fortgeschritten | [P] Profi  |  **Varianten:** V2/V3
-> **Voraussetzungen:** Strombudget gerechnet (`Documentation/Guides/Elektronik-Strombudget.md`), Loetkenntnisse, Grundlagen Raspberry Pi/I2C.
+Der vorhandene Python-Code ist eine Anzeige-Demonstration fuer SSD1309 mit
+128 x 64 Bildpunkten. Eine funktionierende Displayansteuerung und eine im Helm
+lesbare optische Anzeige sind getrennte Arbeitsschritte. Grundlage sind
+[Displaywahl und Optik](Elektronik-AR-Display.md) sowie
+[Einbauorte im Helm](Mjolnir-Helmintegration.md).
 
-Ziel ist ein tragbares, modulares HUD-System mit sicherer Stromversorgung. Die Basis ist ein Raspberry Pi Zero 2 W mit transparentem OLED-Display. Eine guenstige Alternative ist ein einfarbiges, gruener LED-HUD ohne AR-Funktionen.
+## Hardwarepfad
 
-## Kernkomponenten
+1. Ein gewaehltes SSD1309-Modul auf der Werkbank mit der Herstellerdemo pruefen.
+2. Schnittstellenmodus, Reset, Pegel, Anschlussbelegung und sichtbare
+   Bildkoordinaten protokollieren.
+3. Den Repository-HUD-Code mit dem tatsaechlich geprueften Modul verbinden.
+4. Erst danach eine optische Passprobe und den mechanischen Einbau durchfuehren.
 
-- Raspberry Pi Zero 2 W
-- Transparentes OLED 1.51" (I2C/SPI, 128x64)
-- PiSugar 3 Plus (5000 mAh) oder 5V/3A UPS
-- Optional: Arduino Nano fuer LEDs/Luefter
-- 40 mm Luefter (Helm), LED-Strips, Audio
+Fuer das Waveshare 1.51inch Transparent OLED ist Vierdraht-SPI der
+Auslieferungszustand. I2C erfordert eine Hardware-Umschaltung. Die
+[Herstelleranleitung](https://www.waveshare.net/wiki/1.51inch_Transparent_OLED)
+ist fuer den exakten Platinenstand massgeblich. Die fruehere pauschale
+Vier-Leitungs-Anweisung ohne Modus-/Resetpruefung ist kein gueltiger
+Verdrahtungsplan.
 
-## Systemdiagramm (Uebersicht)
+## Vorhandene Software und Grenzen
 
+| Datei | Bereits vorhanden | Zusaetzlich zu pruefen |
+| --- | --- | --- |
+| [hud_display.py](../../Code/HelmetControl/hud_display.py) | Bildaufbau, Animationen, I2C-Backend ueber luma.oled | Reales Modul, Busadresse, Reset, Bildausrichtung und sichtbare Pixel |
+| [config.example.json](../../Code/HelmetControl/config.example.json) | Konfigurationsvorlage | Tatsaechliche I2C-Adresse und Projektpfade |
+| [hud_state.example.json](../../Code/HelmetControl/hud_state.example.json) | Beispielwerte fuer die Anzeige | Reale Datenquelle; ohne Quelle bleibt es Demo |
+| [battery.example.json](../../Code/HelmetControl/battery.example.json) | Beispiel fuer Batteriewerte | Gepruefte Messung oder Herstellertelemetrie |
+| [requirements.txt](../../Code/HelmetControl/requirements.txt) | Softwareabhaengigkeiten | Installation auf der gewaehlten OS-Version |
+
+Der Code besitzt gegenwaertig kein auswaehlbares SPI-Backend und keine im Code
+konfigurierte modulspezifische Resetleitung. Ein SPI-Modul ist deshalb kein
+unveraendert einsteckbarer Ersatz. Die Auswahl eines Boards im Einkauf oder im
+Konfigurator fuegt fehlende Treiber nicht hinzu.
+
+Ein hardwarefreier Bildtest aus dem Repository-Stamm:
+
+```bash
+python3 Code/HelmetControl/hud_display.py --selftest build/HudTest.png
 ```
-+---------------------+
-|   PiSugar 3 Plus    |
-|     5000mAh         |
-+----------+----------+
-           | 5V/3A
-           v
-+---------------------+      I2C        +------------------+
-|  Raspberry Pi       |<-------------> |  Transparent     |
-|    Zero 2 W         |                |  OLED Display    |
-+----------+----------+                +------------------+
-           |
-           | I2C/Serial
-           v
-+---------------------+
-|  Arduino Nano       |
-|  (optional)         |
-+----------+----------+
-           |
-           +--> LED Strips
-           +--> Helmet Fans
-           +--> Audio Amp
-```
 
-## Verkabelung (OLED via I2C)
+Der Ausgabeordner muss vorher existieren. Das Ergebnis belegt den Bildaufbau;
+Busfunktion, Stromaufnahme und Optik sind dabei nicht beteiligt.
 
-- VCC -> 3.3V
-- GND -> GND
-- SDA -> GPIO 2 (Pin 3)
-- SCL -> GPIO 3 (Pin 5)
+## Versorgung und Montage
 
-Test: `i2cdetect -y 1` (Adresse meist 0x3C/0x3D)
+Fuer die Grundausstattung ist kein Akku im Helm vorgesehen. Die Versorgung
+kommt ueber einen geschuetzten, loesbaren Helm-Kabelstrang aus dem getragenen
+Elektroniksystem. Akku- und Wandlerwahl richten sich nach dem gemessenen
+[Strombudget](Elektronik-Strombudget.md). Akkus oder Powerbank-Ausgaenge werden
+nicht direkt parallel verbunden. Eine gewuenschte Umschaltung zwischen
+Versorgungen braucht dafuer ausgelegte Hardware.
 
-## Stromversorgung
+Display und moeglicher lokaler Kamerarechner teilen sich nicht automatisch eine
+Stromfreigabe mit starken Aussen-LEDs. Lueftung bleibt beim Ausschalten der
+Showeffekte verfuegbar; die konkrete Verteilung beschreibt
+[Mjolnir-Elektronik](Mjolnir-Elektronik.md).
 
-- PiSugar 3 Plus direkt auf den Pi montieren
-- Optionaler Backup-LiPo parallel (nur mit Schutzschaltung)
-- Akku im Backpack montieren, Kabelkanal im Under-Suit
-- Laden immer ausserhalb des Kostuems
+Die Platine sitzt in einer loesbaren trockenen Kassette. Die Halterung des
+Anzeigemoduls wird nach der optischen Passprobe festgelegt. Die generische
+[Visierhalter-Probe](../../Design/Components/README.md) liefert keine
+Near-Eye-Optik und keinen Nachweis fuer das Anbringen von Displayglas am Auge.
 
-## Montage im Helm
+## Nachweise vor geschlossenem Helm
 
-- OLED vor dem dominanten Auge, 3-5 cm Abstand mit Linse/Prisma
-- Pi im Nackenbereich oder rueckwaerts im Helm
-- Zwei Luefter fuer Belueftung
-- Kabel sauber mit Klett/Spiralschlauch sichern
+- Reales Testbild mit allen Randpixeln und eindeutiger Links-/Rechtsmarkierung.
+- Start, Neustart, Spannungsabfall und vollstaendige Abschaltung auf der Werkbank.
+- Lesbarkeit, freie zentrale Sicht und Reflexe im hellen sowie dunklen Umfeld.
+- Mechanisches Wegklappen mit Handschuhen und Brille, ohne Kontakt zum Gesicht.
+- Stromaufnahme und Temperatur mit dem gleichzeitig laufenden Kameramodul.
 
-## Software
-
-- Raspberry Pi OS Lite
-- Python + luma.oled
-- Beispiel: `Code/HelmetControl/hud_display.py`
-- Dependencies: `Code/HelmetControl/requirements.txt`
-- Konfig: `Code/HelmetControl/config.example.json` (als `config.json` kopieren)
-- Batterie-Input: `Code/HelmetControl/battery.example.json`
-- Live-Werte (Schild/Ammo/Heading): `Code/HelmetControl/hud_state.example.json`
-  (als `hud_state.json` kopieren; andere Module schreiben hier rein)
-- Arduino: `Code/HelmetControl/HelmetMultiEffects.ino` (empfohlen: Effekte, Luefter-PWM, I2C);
-  `MainControlCode.ino` ist die Minimal-Variante (nur Helligkeit)
-- Pi-Steuerung des Arduinos: `Code/HelmetControl/helmet_control.py`
-  (z.B. `python3 helmet_control.py effect heartbeat`, `fan 180`)
-- HUD ohne Hardware testen: `python3 hud_display.py --selftest hud_test.png`
-
-## Weitere Guides
-
-- Code-Uebersicht und Pin-Belegung: `Code/README.md`
-- Strombudget: `Documentation/Guides/Elektronik-Strombudget.md`
-- Verdrahtung: `Documentation/Guides/Elektronik-Verdrahtung.md`
-- V3-Gesamtsystem (Module, Stromschienen): `Documentation/Guides/V3-Systemarchitektur.md`
-
-## HUD-Erweiterungen (optional)
-
-- Batterieanzeige aus Datei (siehe `battery.example.json`)
-- Logging zu `hud_log.txt` (konfigurierbar)
-
-## Guenstige HUD-Alternative
-
-- Einfarbiger LED-Frame im Visor (gruener Akzent)
-- Kein transparentes Display, nur optische Effekte
-- Deutlich leichter, weniger Strom, schneller umzusetzen
+Alle Resultate gehoeren mit Kaufteilrevision, Konfiguration und Foto in das
+eigene Bauprojekt. Ein Testwert aus einer anderen Helmform ist keine
+Passbestaetigung fuer diese Konstruktion.

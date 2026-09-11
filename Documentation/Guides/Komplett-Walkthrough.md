@@ -1,5 +1,12 @@
 # Komplett-Walkthrough (Anfaenger bis Profi)
 
+## Aktuell: konfigurierbarer Projektpfad
+
+Mit [Konfiguration und eigenem Profil](Mjolnir-Konfiguration.md) beginnen.
+Fuer den aufklappbaren Aufbau gilt die [Prototypenfolge](../../BuildGuides/Armor/Mjolnir-Prototypen.md).
+Die folgenden Varianten sind Material-/Technikreferenzen. Koerperregionen
+separat vermessen; pauschale Hoehen-/Stelzenskalierungen sind keine Passformauslegung.
+
 Der **rote Faden** durch das ganze Projekt: ein durchgehender, geordneter Weg von der
 ersten Entscheidung bis zum Auftritt auf der Convention. Jeder Schritt verlinkt den
 passenden Detail-Guide und ist markiert nach Schwierigkeit und Variante.

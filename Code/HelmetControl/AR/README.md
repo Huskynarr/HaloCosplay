@@ -1,15 +1,19 @@
 # AR-Passthrough (V3) - Beispielcode
 
-Lauffaehiges Beispiel fuer **Stufe C** (Voll-AR mit Kamera-Passthrough) aus
-`Documentation/Guides/Elektronik-AR-Display.md`. Kamera -> HUD-Overlay -> Display,
-mit Sicherheits-Failsafe. Gedacht fuer Raspberry Pi 4/5 oder Jetson.
+Kamera-/Overlay-Demonstrator aus dem
+[AR-Guide](../../../Documentation/Guides/Elektronik-AR-Display.md).
+Kamera -> HUD-Overlay -> Display, mit Software-Warnanzeigen.
+Die gewaehlte Rechner-, Kamera- und Displaykombination bleibt real zu pruefen;
+ein Selbsttest bestaetigt keine Hardwarekompatibilitaet oder Sichtfreigabe.
 
 > **SICHERHEIT zuerst.** Passthrough ersetzt die direkte Sicht. Ein Ausfall ist
 > kein Bug, sondern Blindheit in der Bewegung. Mechanischer Notausblick
 > (hochklappbarer/absetzbarer Visor in Sekunden, ohne Werkzeug) und ein Handler
 > sind **Pflicht**. Nicht auf Treppen/in Menschenmengen mit aktivem Passthrough.
-> Vollstaendige Regeln: `Documentation/Guides/Elektronik-AR-Display.md` Abschnitt 3
-> und `Documentation/Guides/Sicherheit.md`.
+> Einordnung und Grenzen stehen im
+> [AR-Guide](../../../Documentation/Guides/Elektronik-AR-Display.md).
+> Die Standardausstattung behaelt direkte optische Sicht; Passthrough bleibt
+> ein stationaerer Versuch.
 
 ## Dateien
 
@@ -49,13 +53,17 @@ python3 ar_passthrough.py --selftest hud_test.png
 
 So prueft man Overlay und Lesbarkeit am Schreibtisch, bevor Hardware dranhaengt.
 
-## Failsafe-Verhalten
+## Software-Warnanzeigen und Grenzen
 
 - **Kein frischer Frame** laenger als `frame_timeout_ms`: roter Banner
-  "SICHT PRUEFEN - VISOR HOCH". Das Bild wird nie kommentarlos schwarz.
-- **Latenz ueber `latency_limit_ms`** (gleitender Mittelwert): gelbe Warnung
-  "LATENZ HOCH". Latenz/FPS stehen dauerhaft unten links - das ist der
-  Pflicht-Latenztest vor jedem Einsatz.
+  "SICHT PRUEFEN - VISOR HOCH", sofern Kameraaufruf und Anzeigeschleife
+  weiterlaufen. Bei blockiertem Aufruf, Strom-, Programm- oder Displayausfall
+  kann auch dieser Hinweis ausbleiben.
+- **Zeitwert ueber `latency_limit_ms`** (gleitender Mittelwert): gelbe Warnung
+  "LATENZ HOCH". Der aktuelle Code erfasst nur die Zeit bis nach dem
+  Kameraabruf, noch vor Overlay und Displayausgabe. Die Felder `latency_ms`
+  und `fps` sind deshalb keine End-to-End-Latenz oder gemessene sichtbare
+  Bildrate. Eine Hardwaremessung der kompletten Pipeline fehlt.
 - **Akku unter `low_battery_percent`** (vom Sensor-Feeder): Banner
   "AKKU SCHWACH - VISOR HOCH".
 

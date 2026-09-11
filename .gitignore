@@ -18,3 +18,8 @@ hud_test*.png
 *.env
 tools/amazon-creators/.env
 !*.env.example
+
+# Local body measurements and generated working copies
+*.local.json
+*.local.md
+build/

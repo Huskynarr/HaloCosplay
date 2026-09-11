@@ -1,159 +1,118 @@
-# Authentizitaets-Referenz: Master Chief (Halo Infinite)
+# Ruestungsreferenz und optische Abnahme
 
-> **Level:** [A] Anfaenger | [F] Fortgeschritten | [P] Profi  |  **Varianten:** alle (V1/V2/V3)
+Die Ruestungsreferenz wird im [Projektprofil](Mjolnir-Konfiguration.md) bewusst
+gewaehlt. Ein Referenzpaket gehoert zu genau einem Spiel, Ruestungstyp und
+Aussehen. Die mechanische Oeffnung ist eine eigene Interpretation und soll
+die geschlossene Silhouette der gewaehlten Vorlage erhalten.
 
-Dieser Guide beschreibt, woran ein **authentischer Master Chief nach HALO INFINITE** erkennbar ist. Ziel ist es, beim Bauen bewusst beim Infinite-Look (MJOLNIR GEN3, klassisches Olivgruen, aktuelle Proportionen) zu bleiben und nicht ungewollt in Halo-4/5- oder Halo-3-Stilelemente abzudriften.
+| Profilwert | Bezug | Benoetigte Festlegung |
+| --- | --- | --- |
+| chief-infinite | Master Chief, Halo Infinite Kampagne, Mark VI GEN3 | Kampagnenansichten, Markierungen und Farb-/Visiermuster |
+| mark-vii | Halo Infinite Multiplayer, Mark VII GEN3 | Guide-Aufbau mit Mark-VII-Helm, UA/AGATHIUS-Schultern, UA/TYPE-SA-Knien; Abweichungen belegen |
+| custom | Eigene Halo-Referenz oder bewusst eigener Entwurf | Spiel/Quelle, Modellvariante, Farbe, Embleme und Abweichungen |
 
-Der Guide gilt fuer alle drei Bauvarianten gleichermassen:
-- **V1 (Foam):** Silhouette und Farbschema sind hier am wichtigsten, weil feine Panel Lines schwerer umsetzbar sind. Konzentriere dich auf saubere Grundform und korrekte Proportionen.
-- **V2 (3D-Druck/TPU, HUD):** kann alle Details (Panel Lines, Tech-Suit-Verbindungen, Visor) sauber abbilden.
-- **V3 (Profi, Exoskelett, AR):** zusaetzlich Augenmerk auf authentische Silhouette trotz Exoskelett-Aufbau.
+Die Referenzwahl im Profil erzeugt keine Detailmodelle. Fuer `custom` ist die
+zusaetzliche Referenzbeschreibung im Bauprotokoll erforderlich. Verschiedene
+Profile duerfen verschiedene Vorlagen verwenden; innerhalb eines Projekts
+muessen Quellen und gewollte Abweichungen konsistent bleiben.
 
-Konkrete Farbtoene, RGB-Werte und die Visor-Herstellung stehen in `Documentation/Guides/Lackierung-Finishing.md`. Dieser Guide dupliziert sie nicht, sondern erklaert **wo** sie hingehoeren.
+## Quellen und Grenzen
 
-## 1. Silhouette und Proportionen (MJOLNIR GEN3)
+- [Halo: Customization Overview, Season 5](https://www.halowaypoint.com/news/customization-overview-season-5)
+  benennt Chiefs Kampagnenruestung als GEN3 Mark VI. Das Multiplayer-Kit laesst
+  laut Artikel die 117-Gravur weg und erlaubt andere Farben/Embleme. Daher keine
+  beliebige Multiplayer-Konfiguration als exakte Kampagnenvorlage verwenden.
+- [Offizieller Mark-VII-Guide](https://www.halowaypoint.com/news/official-cosplay-guide-mark-vii)
+  behandelt Mark VII GEN3 aus dem Multiplayer. Die vorhandenen PDFs passen zu
+  dieser Ruestungsfamilie; sie sind keine Mark-VI-Mass- oder Farbvorlage.
+- [Kolby Jukes: originales Infinite-Modell](https://kolbyjukes.artstation.com/projects/OyBR0w)
+  liefert eine Quelle des Modellautors fuer Chief. Das
+  [Cinematic-Modell von Omid Moradi](https://omiiidmoradi.artstation.com/projects/d04ogJ)
+  ist eine eigene Bearbeitung und wird als ergaenzende Variante gefuehrt.
+- Abrufstand: 2026-09-09. Im
+  [maschinenlesbaren Katalog](../References/ArmorReferenceLibrary.json) sind
+  Quellen, 23 Bauteile je Referenz, erforderliche Ansichten und verbleibende
+  Nachweise hinterlegt. Katalogeintraege sind keine erworbenen Modell-Dateien.
+- Bilder/Spielmodelle wurden nicht als eigene Werke uebernommen. Nutzungsrechte
+  jeder spaeteren Modelldatei separat festhalten.
 
-Die Wiedererkennung von Master Chief haengt mehr an der **Gesamtsilhouette** als an Einzeldetails. Wer die Form richtig trifft, wird auch ohne perfekte Lackierung sofort erkannt.
+## Referenzpaket vor der Detailmodellierung
 
-### Helm
+Je Ansicht eine eindeutige Bild-ID, URL oder eigene Aufnahme, Spielszene,
+Aufnahmedatum, Perspektive und zulaessige Nutzung dokumentieren. Die zum Projekt
+passenden Ansichten haben Vorrang; etwaige Varianten-Abweichungen explizit markieren. Perspektivische
+Bilder dienen der Form, nicht als Millimeterzeichnung.
 
-- **Geschlossener, kompakter Dome** mit der charakteristischen breiten, leicht trapezfoermigen **Visor-Oeffnung**.
-- Die Visor-Oeffnung ist **breiter als hoch** und sitzt mittig-hoch; darunter laeuft die Frontpartie nach unten zur Kinnpartie zusammen.
-- Seitlich sitzen die markanten **Ohr-/Seitenmodule** (leicht erhabene Panels). Hinten ein flacher, zur Halsbasis geschuetzter Abschluss.
-- Infinite-Helm wirkt **schlanker und runder** als der kantige Halo-4/5-Helm.
+| ID | Erforderliche Ansicht | Zu pruefende Merkmale |
+| --- | --- | --- |
+| REF-01 | Ganzkoerper frontal, neutral | Helm-/Brustbreite, Schulterlage, Segmentlaengen |
+| REF-02 | Ganzkoerper hinten | Rueckenmodule, Huefte, Fugen und Kabelfreiheit |
+| REF-03/04 | Beide Seiten | Brusttiefe, Helmprofil, Schulterversatz, Knie |
+| REF-05 | Helm vorne/seitlich/hinten | Visierkontur, Kinn, Seitenmodule, Halsabschluss |
+| REF-06 | Brust und Ruecken nah | Plattengrenzen, referenzgemaesse Markierungen, Vertiefungen, Oberflaechen |
+| REF-07 | Arme/Haende und Beine/Schuhe | Ueberlappungen und sichtbarer Unteranzug |
+| REF-08 | Farbe in mehreren Lichtsituationen | Gewaehlte Farben, Glanzgrad, Visier, Gebrauchsspuren |
 
-### Brustplatte und Torso
+Fuer Mark VII sind die vorhandenen offiziellen Unterlagen unten seitenweise
+zugeordnet. Die projektbezogenen Bildausschnitte, Gegenansichten und Nachweise
+bleiben im Katalog als offen markiert. Fuer Chief ist eine vollstaendige,
+szenenkonsistente Sammlung weiterhin zu erstellen. AI-Konzeptbilder gelten
+nicht als Beleg fuer Originalgeometrie.
 
-- Klare, **leicht gewoelbte Brustplatte** mit zentralem Hals-/Kragenmodul.
-- Die Bauchpartie (Tech-Suit) ist betont schlanker als die Brust- und Schulterpartie. Das ergibt die typische **V-/Keilform** des Oberkoerpers.
-- Sichtbare Trennung zwischen harten Panzerplatten und dem darunterliegenden **Tech-Suit (Undersuit)** an Achseln, Bauch und Gelenken.
+## Mark-VII-Index fuer die vorhandenen Unterlagen
 
-### Schulter-Pauldrons
+Die Seitenzahlen gelten fuer die 106-seitige
+[Full-PDF](../../Resources/CosplayGuides/MK7_CosplayGuide_Full.pdf), ab Seite 1
+gezaehlt. Die Kapitelzuordnung wurde aus dem PDF-Text gewonnen. Seiten 6, 34 und
+83 wurden zusaetzlich visuell geprueft; dies ist kein vollstaendiger Bildaudit.
 
-- **Grosse, gerundete Pauldrons**, die deutlich ueber die Schulterlinie hinausragen und nach aussen abfallen.
-- Sie sind ein Haupterkennungsmerkmal. Zu kleine oder zu flache Pauldrons lassen die Silhouette sofort "falsch" wirken.
+| Seiten | Inhalt | Besondere Grenze |
+| --- | --- | --- |
+| 6 | Digitale Material- und Farbreferenzen | Gilt fuer den gezeigten Aufbau; kein universelles Lackrezept |
+| 7-12 | Gesamtansichten | Keine Koerpermasse oder Masszeichnung |
+| 13-15 | Bauch-, Ruecken- und Halsstruktur | Schnittmuster und Bewegungszugaben fehlen |
+| 16-26 | Helm | Optische Durchsicht eines realen Visiers nicht belegt |
+| 27-33 | Torso vorne/hinten | Reale Oeffnungsmechanik ist eigene Konstruktion |
+| 34-40 | UA/AGATHIUS-Schulter | Rechte Seite bezeichnet; linke Seite separat abgleichen |
+| 41-47 | Oberarm | Rechte Seite bezeichnet |
+| 48-54 | Unterarm | Rechte Seite bezeichnet; Anbauteile projektbezogen |
+| 55-61 | Handschuh | Linke Hand bezeichnet |
+| 62-68 | Handrueckenplatte | Zugehoerigkeit und Seitenlage pruefen |
+| 69-75 | Huefte | Reale Beugung und Zugang zu Verschluessen pruefen |
+| 76-82 | Oberschenkel | Linkes Bein bezeichnet |
+| 83-89 | UA/TYPE-SA-Knie | Nicht jede Multiplayer-Knievariante ist identisch |
+| 90-96 | Unterschenkel | Scharnier- und Wadenpassform fehlen |
+| 97-103 | Schuh | Linker Schuh bezeichnet; normale tragbare Sohle vorsehen |
 
-### Gesamtlinien
+Die Farbfelder des gezeigten Mark-VII-Aufbaus sind im Katalog hinterlegt.
+Fuer Chief wird daraus weder das Gruen noch eine rote Visiertoennung abgeleitet.
 
-- Infinite setzt auf **glattere, schlankere Linien** als Halo 4/5 (das viele kleine, kantige Tech-Details und Spalten hatte).
-- Im Vergleich zu Halo CE/3 ist die GEN3-Form **etwas funktionaler/militaerischer**, aber wieder naeher am klassischen, ruhigeren Look als an der "over-engineered" 4/5-Optik.
+## Anpassung an das jeweilige Koerperprofil
 
-**Worauf es fuer die Wiedererkennung ankommt (Prioritaet):**
+Die reale Schulter- und Gelenklage bestimmt die Innengeometrie. Kopf, Torso,
+Arme und Beine separat anpassen; keine uniforme Skalierung nach Koerpergroesse.
+Die Aussenform wird darueber rekonstruiert. Ein engerer Taillenlook darf keine
+Kompression oder Bewegungseinschraenkung erzwingen. Normales Schuhwerk bildet die
+Basis. Eine fiktive Spartan-Koerpergroesse ist kein Fertigungsziel.
 
-1. Helm-Form mit korrekter Visor-Oeffnung
-2. Grosse, gerundete Schulter-Pauldrons
-3. V-foermige Oberkoerper-Silhouette (breite Schultern, schlanke Taille)
-4. Klassisches Olivgruen (siehe Abschnitt 2)
+## Sichtbare Qualitaet und Abnahme
 
-Hinweis zu Massen: Verlasse dich auf die **offiziellen 343-Cosplay-Guides** und gepruefte STL-Modelle (siehe `Resources/STL-Quellen.md`) statt auf geratene Einzelmasse. Eigene Koerpermasse nimmst du mit `Documentation/Guides/Messblatt.md` auf.
+1. Silhouette in Front/Seite/Ruecken bei gleichem Kamerastand mit REF-01 bis 04
+   vergleichen. Helm und Torso zuerst; Fehler vor dem kompletten Druck korrigieren.
+2. Fugen, Befestigung und Unteranzug auch bei angehobenen Armen fotografieren.
+   Gurte, Reissverschluesse und Elektronik sollen hinter den vorgesehenen Fugen liegen.
+3. Farbproben auf dem echten Grundmaterial mit Grundierung und finalem Klarlack
+   erstellen. Je Probe Rezept, Schichtfolge, Trockenzeit und Beleuchtung notieren.
+   Die digitalen Mark-VII-Werte sind Referenzfarben, keine bestaetigte Lackrezeptur.
+   Fuer Chief bleibt eine eigene Farbprobe erforderlich.
+4. Aus einem Meter Entfernung: keine offenen Drucknaehte, Kleberreste, losen
+   Kanten oder zufaelligen Lichtlecks. Gebrauchsspuren nach Referenz platzieren.
+5. Visier von innen bei Hallenlicht, dunklerem Gang und ausgeschalteter Elektronik
+   testen. Aussenwirkung und Sicht sind getrennte Abnahmepunkte.
 
-## 2. Farbschema und Platzierung
+Abweichungen werden mit Foto, Grund und Auswirkung im Bauprotokoll festgehalten.
+Eine bestandene optische Pruefung ersetzt keine mechanische Pruefung.
 
-Der genaue Gruenton, die RGB-Referenz und die empfohlenen Lacke stehen in `Documentation/Guides/Lackierung-Finishing.md` (Abschnitt "Master Chief Farbschema"). Hier geht es nur um die **Platzierung** der Farben fuer den Infinite-Look.
-
-### Grundfarbe
-
-- Der gesamte Hartpanzer (Helm, Brust, Pauldrons, Arme, Beine) traegt das **klassische Olivgruen**.
-- Infinite ist bewusst **zurueck beim klassischen Olive** (nicht das dunklere/gesaettigtere Gruen aus Halo 4/5). Halte den Ton ruhig und militaerisch, nicht leuchtend.
-
-### Wo Schwarz / Gunmetal sitzt
-
-- **Schwarz:** Tech-Suit/Undersuit-Bereiche (Achseln, Bauch, Hals, Kniekehlen, Ellenbeugen), tiefe Panel Lines, Gelenkdichtungen.
-- **Gunmetal / Dunkelgrau:** mechanische Details, Lueftungsschlitze, freiliegende Mechanik an Gelenken, kleine Tech-Module. Sparsam einsetzen, nicht grossflaechig.
-
-### Wo der Visor sitzt
-
-- Der **Gold-/Kupfer-Visor** ist der einzige farbige Akzent im Gesicht und der staerkste Blickfang (siehe Abschnitt 3).
-
-## 3. Visor (Gold/Kupfer, Reflexion)
-
-- Master Chiefs Visor ist ein **warmes Gold mit Kupfer-/Bronzestich** und deutlicher **Spiegelung** (reflektiert Umgebung, leicht durchsichtig von innen).
-- Kein gruenes, blaues oder silbernes Visor - das wuerde an andere Spartans oder andere Spiele erinnern.
-- Der Goldton sollte **warm** wirken, nicht zitronen-/neongelb.
-
-**Herstellung:** Material, Vakuumformen und die Zwei-Schritt-Gold/Chrome-Toenung sind vollstaendig in `Documentation/Guides/Lackierung-Finishing.md` (Abschnitt "Visor-Herstellung") beschrieben. Fuer V2/V3 mit beleuchtetem HUD siehe zusaetzlich `Documentation/Guides/Elektronik-HUD.md` und die Forschungsnotizen in `Documentation/Guides/LED-Visor-Forschung.md`.
-
-## 4. Schluessel-Details, die den Look ausmachen
-
-Diese Details heben einen guten Build von einem generischen "gruener Soldat"-Kostuem ab. Weniger ist mehr - Infinite wirkt aufgeraeumt.
-
-### UNSC-Markierungen (sparsam)
-
-- UNSC-Logos, Service-Tags oder Nummern nur **vereinzelt und klein** anbringen (z.B. ein Schulter-Pauldron, Brust). Master Chief traegt **keine** flaechig bedruckte Ruestung.
-- Im Zweifel weglassen: Infinite-Chief ist betont schlicht markiert.
-
-### Panel Lines
-
-- Panel Lines (Trennfugen zwischen Plattensegmenten) geben der Ruestung Tiefe und Massstab.
-- Bei V2/V3 sind sie oft schon im STL modelliert. Betone sie mit einer **schwarzen Wash** (Methode in `Documentation/Guides/Lackierung-Finishing.md`, Abschnitt Weathering).
-- Bei V1 (Foam) Panel Lines mit dem Lotkolben/Detailer einbrennen oder gravieren - siehe `Documentation/Guides/Foam-Bau.md`.
-- Linien sollen den **echten Plattengrenzen folgen**, nicht zufaellig verteilt sein.
-
-### Weathering-Logik (wo Gebrauchsspuren plausibel sind)
-
-Weathering soll eine Geschichte erzaehlen, nicht "gleichmaessig dreckig" wirken. Platziere Abnutzung dort, wo sie im echten Einsatz entstuende:
-
-- **Vorderkanten und Ecken:** Pauldron-Kanten, Knie, Unterarm-Vorderseiten, Brustkanten - hier reibt und schlaegt es zuerst. Freigelegtes Metall (Silber/Gunmetal) an genau diesen Stellen.
-- **Tiefliegende Bereiche:** dunkle Wash sammelt sich in Panel Lines und Vertiefungen (Schatten/Schmutz).
-- **Hochkontakt-Flaechen:** Unterarme und Brust bekommen mehr Kratzer (Anlehnen, Tragen, Waffe).
-- **Unten mehr als oben:** Schienbeine/Stiefel duerfen erdiger/staubiger sein als der Helm.
-- **Niemals durchgehende Kratzerlinien** - unregelmaessige Punkte und Striche wirken echt.
-
-Die konkreten Techniken (schwarze Wash, Dry Brushing, Schwammtechnik, Pigmente, Battle Damage) stehen in `Documentation/Guides/Lackierung-Finishing.md`. Master Chief ist ein **moderat** gealtertes "Kampf-genutzt"-Finish, kein verrostetes Wrack.
-
-### Finish-Grad
-
-- Mattes bis seidenmattes Finish (Glanz wirkt wie Spielzeug). Klarlack-Wahl siehe Lackierung-Finishing.md.
-
-## 5. Halo Infinite vs. CE / 3 / 4 / 5 (kurzer Vergleich)
-
-Damit du bewusst beim Infinite-Look bleibst, hier die wichtigsten Unterschiede. Beim Mischen von Stilen "stimmt" am Ende keiner.
-
-| Spiel | Generation | Charakteristik | Gruenton | Visor |
-| --- | --- | --- | --- | --- |
-| Halo CE | Mark V | rundlich, einfach, klobiger Helm | klassisch Olive | Gold |
-| Halo 3 | Mark VI | ikonisch, etwas detaillierter, ausgewogene Proportionen | klassisch Olive | Gold |
-| Halo 4 | GEN2 | kantig, viele kleine Tech-Spalten, "techy" Helm | dunkler/gesaettigter | Gold |
-| Halo 5 | GEN2 | noch detaillierter, schmalere/aggressivere Linien | dunkler/gesaettigter | Gold |
-| **Halo Infinite** | **GEN3** | **schlanker, glatter, aufgeraeumter; runderer Helm; zurueck zum klassischen, ruhigen Look** | **klassisch Olive** | **Gold/Kupfer** |
-
-**Worauf du fuer Infinite achtest:**
-
-- **Glattere, ruhigere Flaechen** als Halo 4/5 (weniger kleinteilige Tech-Spalten).
-- **Runderer, kompakterer Helm** als der kantige 4/5-Helm.
-- **Klassisches Olivgruen**, nicht das dunklere 4/5-Gruen (siehe Lackierung-Finishing.md, Hinweis zur Spiel-Variation).
-- **Grosse, gerundete Pauldrons** als deutliches Erkennungsmerkmal.
-
-Wenn du ein STL waehlst (siehe `Resources/STL-Quellen.md`): achte darauf, dass es explizit als **Infinite / MJOLNIR GEN3** ausgewiesen ist. Halo-3-Mark-VI- oder Halo-4/5-Modelle sehen aehnlich aus, treffen aber die Infinite-Silhouette nicht.
-
-## 6. Referenz-Beschaffung
-
-Gute Referenzen sind die beste Versicherung gegen einen "fast richtigen" Build. Sammle vor und waehrend des Baus Bildmaterial.
-
-### Offizielle Quellen
-
-- **343 Industries Cosplay Guides (PDF):** offizielle Masszeichnungen und Referenzen. Der Mark-VII-GEN3-Guide ist in `Resources/STL-Quellen.md` (Abschnitt "Offizielle Referenz") verlinkt.
-- **Offizielle Halo-Infinite-Renders und Key-Art:** zeigen die saubere Soll-Silhouette und den korrekten Farbton/Visor.
-
-#### Offizielle Lore zum Mark VII (GEN3) laut 343 Industries
-
-Quelle: Halo Waypoint Blog "Official Cosplay Guide: MARK VII" (Andy Salisbury, 343 Industries, Juni 2021). Die Lorenzbeschreibung hilft, das Designziel der GEN3-Ruestung zu verstehen:
-
-- "Created with input from Dr. Halsey herself, the latest Mark VII iteration refreshes the Mjolnir technical architecture with breakthroughs in neural interfaces, shield emitters, fusion power, and armor formulation."
-- "The Mark VII designation refers to a number of prototype platforms that test the ever-evolving Mjolnir Generation 3 standard. The most recent design to bear the name was selected by Dr. Halsey from Materials Group's KEYSTONE development program."
-
-Uebersetzung/Kurzfassung: Der Mark VII aktualisiert die MJOLNIR-Architektur in Neural-Interface, Schildemitter, Fusionsenergie und Ruestungsformulierung. "Mark VII" ist eine Serie von Prototyp-Plattformen zur Erprobung des GEN3-Standards; die aktuelle Variante wurde von Dr. Halsey aus dem KEYSTONE-Programm der Materials Group ausgewaehlt.
-
-### In-Game-Referenz
-
-- **In-Game-Screenshots** aus Halo Infinite (Kampagne, Multiplayer-Customization, Theater-Modus) - beste Quelle fuer Farbe unter verschiedenem Licht und fuer Detail-Platzierung.
-- Drehe den Charakter in der Ruestungs-Anpassung, um alle Seiten (Ruecken, Pauldron-Profil, Helm hinten) zu sehen.
-
-### Community
-
-- **405th Infantry Division** und **RPF**: Build-Logs anderer Infinite-Chiefs zeigen, was in 3D-Druck/Foam tatsaechlich funktioniert. Links in `Resources/STL-Quellen.md` (Abschnitt "Community / Curated") und in `Resources/Community.md`.
-- **Eigene Referenz-Sammlung:** lege gesammelte Bilder, Links und Ideen in `Design/Designs/IdeasReferences.md` ab.
-
-### Praxis-Tipp
-
-- Drucke 2-3 Referenzbilder aus oder lege sie auf dem Tablet bereit, waehrend du lackierst und Weathering anbringst. Vergleiche regelmaessig - die Silhouette und der Goldton des Visors sind die Punkte, die man beim Bauen am leichtesten "verliert".
+Weiter: [Detailgestaltung und druckbares Bauteilblatt](Mjolnir-Detailgestaltung.md),
+[Modellquellen und Import](../../Resources/STL-Quellen.md), [Fertigungsplan](Mjolnir-Fertigung.md), [Messanpassung](Mjolnir-Massanpassung.md),
+[Abnahme](../../Tests/TestReports/Mjolnir-Abnahme.md).

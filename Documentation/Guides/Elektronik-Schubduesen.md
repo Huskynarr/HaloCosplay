@@ -1,323 +1,271 @@
-# Beleuchtete Schubduesen & Nebel-Effekte (Jetpack)
+# Schubduesen: Nebelmodul mit beleuchtetem Auslass
 
-> **Level:** [F] Fortgeschritten | [P] Profi  |  **Varianten:** V2/V3 (Jetpack/Backpack)
-> **Voraussetzungen:** Arduino IDE eingerichtet, Grundlagen Elektronik-Verdrahtung (`Documentation/Guides/Elektronik-Verdrahtung.md`), Grundlagen LED-Effekte (`Documentation/Guides/LED-Effekte.md`).
+Stand: 2026-09-10. Optionaler Effekt fuer unterschiedliche Projektprofile.
+Entwicklungsentscheidung: kompakter Fertig-Nebler mit Originalfluid und
+vorgesehener Schlauchfuehrung, ergaenzt um separat versorgtes RGB-Power-Licht
+und optionale trockene Effektluefter am offenen Auslass.
+Der Effekt erzeugt sichtbaren Nebel, keinen Antrieb. Die Integration in die
+Ruestung ist noch nicht physisch erprobt.
 
-Dieses Modul beschreibt den Bau, die Verkabelung und die Programmierung von beleuchteten Schubduesen (Thrusters) am Rueckenmodul (Jetpack) des MJOLNIR-Suits, inklusive eines aktiven Nebelausstosses fuer den ultimativen Show-Effekt.
+Heiz-/Aerosolprinzip, Kammerrevisionen, belegte OEM-Steueroptionen und gezielte
+Verbesserungen stehen im [Nebeltechnik-Guide](Mjolnir-Nebeltechnik.md).
+Die eigene CAD-Lichtblende ist kein nachgebauter interner PMI-Verdampfer.
 
----
+## Auswahl und Fluid
 
-## 1. Funktionsprinzip & Uebersicht
+**Arbeitsbasis: PMI SmokeNINJA Pro, beim Neukauf genaue V2-/Bundle-Version
+pruefen, mit PMI Smoke Vest.** Der Hersteller bietet diese Kombination fuer
+Nebel am getragenen Kostuem an. Das Cosplayer Bundle umfasst Nebler, Weste,
+Kammer, Cloud-Fluid und Fernbedienung. Die Weste allein erzeugt keinen Nebel.
+Lieferumfang und lieferbare Revision vor der Bestellung abgleichen.
+[Hersteller: Smoke Vest und Bundles](https://pmigear.com/products/pmi-smoke-vest-on-body-smoke-system).
 
-Der Effekt besteht aus drei Saeulen:
-1. **Lichtquelle:** Ein programmierbarer RGB-LED-Ring (WS2812B NeoPixel) am Fuss der Duese erzeugt dynamische Flammeneffekte (Flackern, Nachbrenner-Blau, Zuendungs-Orange).
-2. **Diffusion:** Die Duese selbst wird aus transparentem/transluzentem Kunststoff gefertigt und angeraut. Dies streut das Licht perfekt und laesst die Duese wie eine gluehende Plasma-Kammer wirken.
-3. **Nebel-Effekt:** Ein kompakter 5V-Ultraschall-Vernebler verdampft Wasser im Inneren des Rucksacks. Ein kleiner Radialluefter (Blower) drueckt den kalten Dampf durch Schlaeuche direkt in die Schubduesen, wo er von den LEDs beleuchtet wird.
+PMI nennt fuer **Cloud Formula pflanzliches Glycerin und Propylenglykol**.
+Verwendet wird das zur Kammer freigegebene Originalfluid. Eine selbst gemischte
+Glycerin/PG-Mischung ist fuer diesen Aufbau nicht vorgesehen. Lebensmittelqualitaet
+ist keine Freigabe fuer beliebige Erhitzung oder das Einatmen des Aerosols.
+[Hersteller: Fluid und Betrieb](https://pmigear.com/pages/troubleshoot).
 
-```
-+-------------------------------------------------------------+
-| Rucksack / Jetpack-Gehaeuse                                  |
-|                                                             |
-|   [Wassertank] ---> (Docht) ---> [Ultraschall-Vernebler]    |
-|        ^                                 |                  |
-|    [Radialluefter 5V] (Luftstrom)         v                  |
-|                                    [Nebelschlauch]          |
-|                                          |                  |
-+------------------------------------------|------------------+
-                                           v
-                             +---------------------------+
-                             | Schubduese (Transluzent)   |
-                             |                           |
-                             |   *(LED-Ring)*            |
-                             |   ============            |
-                             |   [Dampfaustritt] ==> ~~~ |
-                             +---------------------------+
-```
+Fuer kuerzer sichtbare Effekte kommt spaeter das **Vanishing Formula Kit** infrage.
+Es hat eine eigene Kammer und Duese; Fluide nicht mischen. Die Kombination dieses
+Kits mit der konkreten Schlauchfuehrung muss vor einer Umstellung geklaert werden.
+Es ist deshalb keine vorbehaltlos kompatible Austauschfuellung der Arbeitsbasis.
+[Hersteller: Vanishing Kit](https://pmigear.com/products/pmi-vanishing-formula-kit).
 
----
+Die fruehere Aussage, kleine Foto-Nebler seien generell nicht fuer Kostueme
+geeignet, ist damit korrigiert. Ebenso entfallen pauschale Laufzeitangaben und
+angebliche universelle GPIO-Trigger. Beim PRO V2 sind OEM-Kabeltaster und
+optional DMX ueber die USB-C-Steuerfunktion inzwischen herstellerseitig belegt;
+ein offenes Protokoll oder passendes Eigenbau-Pinout liegt weiterhin nicht vor.
 
-## 2. Benoetigte Materialien
+## Mechanischer Aufbau
 
-### Mechanik & Gehaeuse
-* **Transluzenter Kunststoff:**
-  * **Fuer 3D-Druck:** Transparentes PETG-Filament (z. B. "PETG Clear" oder "Translucent Orange/Blue")
-  * **Alternativ (analog):** Acrylglas-Rohre (Plexiglas) mit passendem Durchmesser.
-* **Diffusion:** Schleifpapier (Koernung 320, 400 und 800), evtl. Diffusionsfolie oder duenner Verpackungsschaum.
-* **Nebelschlauch:** Silikonschlauch (8-10 mm Innendurchmesser).
-* **Wassertank:** Kleine, flache und auslaufsichere Plastikflasche (ca. 150-250 ml) mit Schraubverschluss.
+Ein Nebler speist zunaechst zwei Rueckenauslaesse. Das ist ein Entwurfsziel;
+Dichte und Gleichmaessigkeit nach der Aufteilung muessen gemessen werden.
 
-### Elektronik & Nebler-Hardware
-* **LED-Ringe:** 2x WS2812B RGB LED-Ringe (z. B. mit 12 oder 16 LEDs, Aussendurchmesser passend zum Dueseneingang).
-* **Vernebler-Modul:** 5V USB Ultraschall-Vernebler-Platine (Mist Maker), wie sie in Mini-Luftbefeuchtern verbaut sind (inkl. Piezo-Keramikscheibe und Baumwoll-Docht).
-* **Luefter fuer Nebeltransport:** 5V DC Radialluefter (Blower Fan, z. B. 4010 oder 5015). Wichtig: Radialluefter bauen Druck auf, Axialluefter (normale PC-Luefter) sind ungeeignet!
-* **Leistungstreiber (MOSFET):** IRLZ44N N-Kanal MOSFET (zum Ein-/Ausschalten des Neblers und des Luefters ueber den Arduino).
-* **Widerstaende:** 1x 10k Ohm (Pull-Down-Widerstand fuer das MOSFET-Gate), 1x 220 Ohm (Gate-Widerstand), 1x 330 Ohm (LED-Datenleitung).
-* **Diode:** 1x 1N4007 (Freilaufdiode fuer den Lueftermotor).
-* **Kondensator:** 1x 1000 uF Elektrolytkondensator (Gleichrichter/Glaettung).
-
----
-
-## 3. Mechanischer Bau
-
-### A. Die Schubduesen (Diffusion)
-1. **Drucken (PETG):** Drucke die Duesen-Inserts aus transparentem PETG.
-   * *Tipp:* Nutze den **Vase Mode** (Spiral-Druck) fuer eine einzelne, durchgehende Aussenwand ohne Naehte, oder drucke mit nur **1 Aussenwand** und **0% Infill**. Das spart Gewicht und leitet das Licht optimal.
-2. **Mattieren:** Schleife die gedruckten oder aus Acrylrohr geschnittenen Duesen von **innen und aussen** gruendlich mit 400er, dann mit 800er Schleifpapier nass ab. Die Oberflaeche muss milchig-trueb (satiniert) werden.
-3. **Alternative Diffusion:** Falls das Licht der einzelnen LEDs immer noch als "Punkte" sichtbar ist (Hotspots), klebe eine Lage Backpapier oder duenne Verpackungsfolie (Schaumfolie) in die Duese.
-
-### B. Das Nebel-System (Tank & Luefter)
-1. **Tank vorbereiten:** Bohre zwei Loecher in den Deckel der Plastikflasche:
-   * **Loch 1 (Lufteinlass):** Klebe hier den Luftauslass des 5V-Radialluefters ein (z. B. mit Heisskleber/Epoxidharz).
-   * **Loch 2 (Nebelauslass):** Klebe den Silikonschlauch ein. Er muss knapp unter dem Deckel enden und fuehrt spaeter zu den Duesen (Y-Verteiler nutzen fuer zwei Duesen).
-2. **Piezo-Element montieren:** Die Ultraschall-Scheibe wird per Halterung so knapp ueber dem Wassertank platziert, dass der Baumwoll-Docht permanent im Wasser haengt und das Wasser per Kapillareffekt an die Unterseite der Metallscheibe saugt.
-   * > [!CAUTION]
-   * > Die Rueckseite des Piezo-Elements (mit den Kabeln) und die Steuerplatine duerfen **niemals nass werden**! Dichte alle elektrischen Anschluesse mit Epoxidharz oder Silikon ab.
-3. **Schlauchfuehrung:** Verlege die Silikonschlaeuche mit Gefaelle zurueck zum Tank, damit kondensiertes Wasser zurueckfliessen kann und den Schlauch nicht verstopft.
-
----
-
-## 4. Verdrahtung & Schaltplan
-
-Das Nebel-Modul benoetigt deutlich mehr Strom als die Steuersignale des Arduino liefern koennen. Wir steuern den Vernebler und den Luefter daher ueber einen **IRLZ44N MOSFET** an.
-
-```
-                              Powerbank +5V (GND-gemeinsam!)
-                                   |
-                                   +---------------------+---------------+
-                                   |                     |               |
-                                [Nebler +]            [Luefter +]      [LED VCC]
-                                   |                     |               |
-                                   |                  [Diode] (Kathode)  |
-                                   |                     |               |
-                                [Nebler -]            [Luefter -]         |
-                                   |                     |               |
-                                   +----------+----------+               |
-                                              |                          |
-                                        (Drain Pin 2)                    |
-                                              |                          |
-   Arduino Pin 9 ---[220R]---+-----------(Gate Pin 1)                    |
-                             |                |                          |
-                          [10k Ohm]     (Source Pin 3)                   |
-                             |                |                          |
-   Arduino GND --------------+----------------+--------------------------+
-                                              |
-   Arduino Pin 5 ---[330R]--------------------+-----------------------> LED DATA IN
+```mermaid
+flowchart TD
+  A["Nebler mit Originalakku und Schutzhuelle"] --> B["Herstelleradapter und Schlauchverteilung"]
+  B --> C["Linker Rueckenauslass"]
+  B --> D["Rechter Rueckenauslass"]
+  E["Separate LED-Versorgung und Controller"] --> F["RGB-Module ausserhalb des Nebelwegs"]
+  F -.-> C
+  F -.-> D
+  G["Trockene Aussenluft und Effektluefter"] --> H["Eigene Kanaele bis neben den offenen Auslass"]
+  H -.-> C
+  H -.-> D
 ```
 
-* **10k Ohm Widerstand (Pull-Down):** Zieht das Gate des MOSFETs auf GND, wenn der Arduino bootet, damit der Nebler nicht unkontrolliert startet.
-* **1N4007 Diode (Freilaufdiode):** Schuetzt den MOSFET vor Spannungsspitzen des Radialluefters (induktive Last) beim Ausschalten. Die markierte Seite (Kathode/Ring) kommt an +5V, die andere an den Luefter-Minuspol.
-* **1000 uF Kondensator:** Parallel zu +5V und GND nahe am LED-Ring platzieren, um Spannungseinbrueche durch den Anlaufstrom des Luefters zu puffern.
+- Geraet in seiner vorgesehenen Schutzhuelle an einer herausnehmbaren Kassette
+  befestigen. Der Ruestungstraeger nimmt die Zusatzmasse auf; duenne Zierschalen
+  dienen nicht als alleinige Befestigung. Hersteller-Belueftung freihalten.
+- Schutzhuelle und Nebler bleiben zugaenglich. Keine luftdichte Foam-Kapsel und
+  kein improvisierter Heizblock. Einbauabstaende und erlaubte Betriebslagen aus
+  der Anleitung der gelieferten Revision uebernehmen.
+- Original-Schlauchmaterial und freigegebene Adapter als Ausgangspunkt nutzen.
+  Die Weste verteilt Nebel teilweise ueber gelochte Leitungen: fuer konzentrierte
+  Duesen sind passende geschlossene Leitungsabschnitte erforderlich. Vorhandene
+  Verteilloecher nicht wahllos zukleben; keine Staudruckerhoehung erzwingen.
+- Beide Wege kurz und moeglichst aehnlich fuehren. Schlauchinnendurchmesser,
+  Mindestbiegeradius und zulaessige Laenge am konkreten System festlegen.
+  Keine willkuerliche Verengung am Ende und keine Absperrventile im Nebelauslass.
+- Schlaeuche duerfen Gelenke, Fronttueren, Notausstieg oder Schnellverschluesse
+  nicht kreuzen und blockieren. Geeignete leicht trennbare Serviceverbindungen
+  verwenden; deren Trennkraft und Dichtigkeit separat pruefen.
+- Kondensat an zugaenglichen Stellen kontrollieren und nach Herstelleranleitung
+  entfernen. Kein automatischer Ruecklauf von verschmutztem Kondensat in die Kammer.
+- Auslaesse vom Helm, der Ansaugluft der Helmlueftung, Haut und Publikumswegen
+  weg ausrichten. Halo-Referenz entscheidet ueber die Form und Position; ein
+  zusaetzliches Jetpack ist nicht fuer jede Ruestungsreferenz originalgetreu.
+- RGB-Module optisch auf den Nebel richten, elektrisch und mechanisch vom feuchten
+  Kanal trennen. Diffusor, Kleber und Schalenmaterial erst nach Temperaturprobe
+  festlegen. Papier/Foam im warmen Auslass ist kein vorgesehener Diffusor.
 
----
+## Versorgung und Ausloesung
 
-## 5. Software (Arduino Code)
+Der Nebler bleibt auf seiner vorgesehenen Hersteller-Stromversorgung. Die
+Ruestungselektronik schaltet weder Heizelement noch Akku. Laden und Betrieb
+richten sich nach der Anleitung; keine gemeinsame 5-V-Leistungsannahme fuer
+Nebel und LEDs. **Kein zusaetzlicher Luefter wird in den Nebelschlauch gesetzt.**
+Die unten beschriebenen Effektluefter besitzen unabhaengige trockene Luftwege;
+sie veraendern keine interne Geraetelueftung und druecken nicht in die
+Herstellerkammer oder deren Schlauchverteiler.
 
-Dieser Sketch steuert das Verhalten: Im Normalzustand (Idle) flackern die Duesen leicht blaeulich-orange (Plasma-Bereitschaft). Wird ein Taster gedrueckt (oder ein Signal vom I2C-Bus empfangen), zuendet der Nachbrenner: Die LEDs wechseln auf helles Orange/Gelb/Weiss-Flackern und der Nebel wird aktiviert.
+Zunaechst erfolgt die Ausloesung ueber den Originaltaster bzw. die Original-
+Fernbedienung. Start-/Stopverhalten, Funkverlust und ein haengender Taster werden
+am Tisch geprueft. Der Hauptschalter muss erreichbar bleiben. Nebel und Licht
+werden in dieser Stufe manuell koordiniert; eine automatische Synchronisation
+ist noch nicht implementiert. Es gibt keinen universellen USB-C-Trigger und
+keinen blind startenden/stoppenden Toggle-Ausgang im Projektcode.
 
-Der Code spricht **beide Nebel-Stufen** an: `MIST_PIN` schaltet den Ultraschall-Vernebler + Radialluefter (Stufe 1), `FOGGER_PIN` triggert einen beheizten Micro-Fogger (Stufe 2, siehe Abschnitt 7). Du verkabelst nur den Pin der Stufe, die du nutzt - der jeweils andere bleibt einfach frei. Ueber `FOGGER_MOMENTARY` waehlst du, ob der Fogger per Dauerpegel (USB-C-Trigger) oder per kurzem Impuls (Optokoppler ueber die Fernbedienung) angesteuert wird.
+Fuer spaetere Synchronisation ist beim PRO V2 jetzt ein konkreter OEM-Weg
+belegt: optionaler Kabeltaster oder passendes DMX-Modul an der USB-C-Schnittstelle.
+[Hersteller: PRO-V2-Steuerung](https://pmigear.com/products/pmi-smokeninja-pro-v2).
+Die Anleitung des Zubehoers muss Pinbelegung bzw. DMX-Kanaele sowie eindeutiges
+Start-/Stopverhalten bestaetigen. Erst danach folgen elektrische Anpassung,
+Zeitbegrenzung und Ausfalltests. Betriebsbereit-Anzeige und Temperatur-/Leerlauf-
+Schutz bleiben wirksam; aus der USB-C-Steckerform folgt keine freie GPIO-Belegung.
 
-```cpp
-#include <Adafruit_NeoPixel.h>
+Fuer den ersten ungetragenen Versuch ist **ein kurzer Impuls von etwa einer
+Sekunde** ein gestalterischer Startpunkt, sofern der Geraetemodus dies erlaubt.
+Danach vollstaendig stoppen und gemaess Geraeteanzeige/Anleitung warten. Diese
+Angabe ist weder eine Herstellergrenze noch ein erlaubter Dauerzyklus. Kein
+periodischer Automatiknebel im Messepublikum.
 
-#define LED_PIN       5    // Datenleitung LED-Ringe
-#define NUM_LEDS     24    // Gesamtzahl der LEDs (z.B. 2x 12 Ringe in Reihe)
-#define TRIGGER_PIN   2    // Taster fuer Boost-Modus (Gegen GND geschaltet)
-#define MIST_PIN      9    // MOSFET-Gate: Ultraschall-Vernebler + Luefter (Stufe 1)
-#define FOGGER_PIN    8    // Trigger fuer beheizten Micro-Fogger (Stufe 2)
+## RGB-Power-Licht und trockener Startwind
 
-// Trigger-Art des Foggers (siehe Abschnitt 7):
-//   false = Pegel/Hold: Pin bleibt HIGH waehrend des Boosts
-//           (z.B. USB-C-Trigger oder Relais auf eine Trigger-Leitung)
-//   true  = Momentan: kurzer Impuls zum Starten UND Stoppen
-//           (z.B. Optokoppler ueber die Tasten-Pads der Fernbedienung)
-#define FOGGER_MOMENTARY false
-#define FOGGER_PULSE_MS  120   // Impulslaenge bei FOGGER_MOMENTARY
+Arbeitsbasis fuer den hellen Farblichtanteil ist je Auslass ein 20-mm-RGB-Star
+auf echtem Metallkuehlkoerper. Die zwei Auslaesse werden als symmetrisches Paar
+mit drei Konstantstromkanaelen betrieben. Die
+[Lichtmodul-Auslegung](Mjolnir-Lichtmodule.md) beschreibt die Reihenschaltung,
+350-mA-Prototypenstufe, 15-V-Versorgung, Temperaturmessung und optische
+Abschirmung. Ein kleiner Pixelring kann eine umlaufende Animation ergaenzen;
+er ist eine eigene Last und wird nicht ungeprueft als Power-Licht verbucht.
 
-#define BRIGHTNESS_IDLE 80  // Moderate Helligkeit fuer Idle
-#define BRIGHTNESS_BOOST 255 // Volle Leistung beim Zuenden
+Jede Lichtkassette sitzt seitlich ausserhalb des Nebelkanals. Die Optik zeigt
+in den Nebel unmittelbar nach dem freien Austritt. Nebel darf nicht auf die
+LED-Platine oder durch den Kuehlkoerper geleitet werden. Eine austauschbare
+Schutzscheibe trennt den trockenen Lichtraum von der feuchten Umgebung;
+Abstand, Dichtung, Temperatur und Ablagerungen werden am Muster geprueft.
+Der freie Querschnitt des Hersteller-Auslasses bleibt erhalten.
 
-Adafruit_NeoPixel strip(NUM_LEDS, LED_PIN, NEO_GRB + NEO_KHZ800);
+Fuer den Startwind ist **je Auslass ein Noctua NF-A4x10 5V PWM** als leiser
+Tischversuchs-Kandidat vorgesehen. Der Hersteller nennt maximal 0,35 W,
+8,9 m3/h freien Luftstrom und 1,95 mm Wassersaeule maximalen statischen Druck.
+Freier Luftstrom und maximaler Druck gelten nicht gleichzeitig; im Kanal
+faellt der Durchsatz geringer aus. Der kleine Axialluefter ist kein
+leistungsstarkes Geblaese fuer lange enge Leitungen.
+[Noctua: technische Daten](https://www.noctua.at/en/products/nf-a4x10-5v-pwm/specifications).
 
-bool isBoosting = false;
-unsigned long boostStartTime = 0;
-const unsigned long BOOST_DURATION = 5000; // Boost laeuft 5 Sekunden
+Der mechanische Aufbau besitzt fuer jeden Luefter einen eigenen Ansaugschlitz
+an der trockenen Aussenseite des Rueckenmoduls, ein Schutzgitter und einen
+kurzen, weiten Kanal. Dessen Ende liegt neben dem Nebelaustritt, stromabwaerts
+zur Umgebung offen. Keine Manschette dichtet die zwei Wege zu einer gemeinsamen
+Druckkammer ab. Das Luftbild darf den Nebel vor der Kamera leicht mitnehmen,
+ihn aber nicht in die Ruestung, zur Helm-Ansaugung oder zur Quelle zurueckdruecken.
+Ein Wechsel von Nebelmenge oder Rueckstroemung beim Luefterstart bedeutet:
+Versuch stoppen und Auslassgeometrie korrigieren.
 
-// Beheizten Fogger triggern (Stufe 2). on=true startet, on=false stoppt.
-void setFogger(bool on) {
-  if (FOGGER_MOMENTARY) {
-    // kurzer "Tastendruck" - sowohl zum Starten als auch zum Stoppen (Toggle)
-    digitalWrite(FOGGER_PIN, HIGH);
-    delay(FOGGER_PULSE_MS);
-    digitalWrite(FOGGER_PIN, LOW);
-  } else {
-    digitalWrite(FOGGER_PIN, on ? HIGH : LOW); // Pegel halten
-  }
-}
+Die 5-V-Motorversorgung bleibt konstant; die Drehzahlregelung nutzt den
+separaten PWM-Eingang. Noctua verlangt dafuer etwa 25 kHz, zulaessig 21-28 kHz,
+und beschreibt die geeignete CMOS-Ansteuerung. Das ist eine andere Frequenz
+als die LDD-Lichtdimmung. Tachosignale bleiben bei zwei Lueftern getrennt.
+[Noctua: Mikrocontroller-Ansteuerung](https://www.noctua.at/en/support/faqs/microcontroller-guide-pwm-setup-and-rpm-monitoring).
+Die vorhandenen Effekt-Sketches werden nicht ohne Timer-, Pegel- und
+Verdrahtungspruefung als kompatibel eingestuft.
 
-void setup() {
-  pinMode(TRIGGER_PIN, INPUT_PULLUP);
-  pinMode(MIST_PIN, OUTPUT);
-  pinMode(FOGGER_PIN, OUTPUT);
-  digitalWrite(MIST_PIN, LOW);   // Vernebler aus
-  digitalWrite(FOGGER_PIN, LOW); // Fogger-Trigger inaktiv
+## Ablauf fuer ein gestelltes Startfoto
 
-  strip.begin();
-  strip.setBrightness(BRIGHTNESS_IDLE);
-  strip.show();
-}
+Der folgende Ablauf ist ein gestalterischer Versuchsplan fuer den freigegebenen
+Aufnahmebereich. Die Prozentwerte beziehen sich ausschliesslich auf eine zuvor
+eingemessene erlaubte Fotostufe, nicht auf unbeschraenkten Chip-Maximalstrom.
 
-void loop() {
-  // Taster abfragen (LOW-aktiv)
-  if (digitalRead(TRIGGER_PIN) == LOW && !isBoosting) {
-    isBoosting = true;
-    boostStartTime = millis();
-    digitalWrite(MIST_PIN, HIGH); // Stufe 1: Vernebler + Luefter an
-    setFogger(true);              // Stufe 2: beheizten Fogger zuenden
-    strip.setBrightness(BRIGHTNESS_BOOST);
-  }
-
-  // Boost-Zeit abgelaufen?
-  if (isBoosting && (millis() - boostStartTime > BOOST_DURATION)) {
-    isBoosting = false;
-    digitalWrite(MIST_PIN, LOW); // Stufe 1 aus
-    setFogger(false);            // Stufe 2 aus
-    strip.setBrightness(BRIGHTNESS_IDLE);
-  }
-
-  // Effekte rendern
-  if (isBoosting) {
-    renderBoostEffect();
-  } else {
-    renderIdleEffect();
-  }
-  
-  strip.show();
-  delay(20); // ca. 50 FPS
-}
-
-// Subtiler Plasma-Idle Effekt (pulsierendes Blau mit leichtem orange-rotem Kern)
-void renderIdleEffect() {
-  float pulse = (sin(millis() / 800.0) + 1.0) * 0.5; // 0.0 bis 1.0
-  uint8_t baseBlue = 100 + (pulse * 80);
-  uint8_t baseGreen = 20 + (pulse * 30);
-
-  for (int i = 0; i < NUM_LEDS; i++) {
-    // Jede dritte LED flackert leicht orange
-    if (i % 3 == 0) {
-      uint8_t flicker = random(30, 80);
-      strip.setPixelColor(i, flicker, flicker / 3, 0); // Warmes Orange
-    } else {
-      strip.setPixelColor(i, 0, baseGreen, baseBlue); // Kuehles Sci-Fi-Blau
-    }
-  }
-}
-
-// Aggressiver Nachbrenner/Feuer-Effekt (Gelb-Orange-Weisses Flackern)
-void renderBoostEffect() {
-  for (int i = 0; i < NUM_LEDS; i++) {
-    uint8_t r = random(200, 255);
-    uint8_t g = random(80, 160);
-    uint8_t b = random(0, 40);
-    
-    // Sehr selten ein weisser Blitz fuer Plasma-Eruptionen
-    if (random(0, 100) > 95) {
-      r = 255; g = 255; b = 255;
-    }
-    
-    strip.setPixelColor(i, r, g, b);
-  }
-}
-```
-
----
-
-## 6. Praxis-Tipps & Convention-Sicherheit
-
-* **Destilliertes Wasser nutzen:** Verwende im Wassertank ausschliesslich destilliertes Wasser. Normales Leitungswasser hinterlaesst beim Verdunsten haessliche Kalkflecken auf der mattierten Ruestung und setzt die feinen Poren der Piezo-Scheibe extrem schnell zu.
-* **Dichtigkeit & Transport:** Leere den Wassertank vor jedem Transport und drehe den Deckel fest zu. Baue am besten ein kleines Ventil oder einen Absperrhahn in den Schlauch ein, falls der Rucksack hingelegt wird.
-* **Convention-Regeln beachten:** Kalter Wasserdampf (Ultraschall) ist auf 99 % der Conventions erlaubt, da er keine Hitze erzeugt und rueckstandsfrei verfliegt. Verwende **keine** Nebelmaschinen mit Fluiden (Glycerin/Glykol) im Con-Alltag - diese erzeugen Hitze, riechen, verkleben die Duesen und loesen Feuermelder aus. Fuer Photoshoots/Outdoor gibt es trotzdem einen dichteren Effekt - siehe Abschnitt 7.
-* **Batterielaufzeit:** Die Ultraschall-Platine zieht ca. 300-400 mA, der Radialluefter ca. 150 mA. Zusammen mit den LEDs erhoeht das den Stromverbrauch um ca. 0.6 A im Boost-Modus. Kalkuliere dies in deinem Strombudget ein (`Documentation/Guides/Elektronik-Strombudget.md`).
-* **Wasserstand-Sensor:** Wenn du den Nebler trocken laufen laesst, verbrennt der Baumwoll-Docht. Nutze entweder einen durchsichtigen Sichtschlitz im Rucksack oder rueste einen einfachen digitalen Wasserstandssensor (Liquid Level Sensor) am Wassertank nach, der den MOSFET deaktiviert, wenn das Wasser leer ist.
-
----
-
-## 7. Alternative: Beheizter Micro-Fogger (dichter Rauch, nur kontrolliert)
-
-Der Ultraschall-Kaltnebel aus Abschnitt 1-6 ist con-tauglich, aber duenn und
-"wabernd". Wer fuer **Photoshoots, Outdoor oder Buehne** dichten, dramatischen
-Rauch will (wie ein echter Triebwerksausstoss), nutzt einen **beheizten
-Glycerin-Fogger**. Genau das sind die kompakten Foto-Geraete:
-
-| Geraet | Typ | Laufzeit (Dauerbetrieb) | Hinweis |
+| Phase | RGB-Licht | Trockener Effektluefter | OEM-Nebel |
 | --- | --- | --- | --- |
-| Vosentech MicroFogger 5 Pro | **zum Einbauen** | ca. 30 min (mittel) | Fernsteuerung 30 m, wechselbarer Akku - **die Maker-Wahl** |
-| PMI Smoke Ninja / Pro | Handgeraet | ~15 min (Pro: kurze Stoesse) | sehr effizientes "Clean Fog"-Fluid, aber versiegelt |
-| Ulanzi FM01 Filmog Ace | Handgeraet | ~15-20 min | 40 W, ~366 g, Veggie-Glycerin |
-| LensGo Smoke B | Handgeraet | ~18 min | 40 W |
+| Bereit | Schwache eingemessene Grundfarbe | Aus | Aus |
+| Start, ca. 0-0,8 s | Weicher Anstieg zur Fotostufe | Anlaufen ab ermittelter sicherer Startdrehzahl, dann ansteigen | Separater manueller Impuls nach Geraetebereitschaft |
+| Fotomoment, ca. 0,8-1,8 s | Stabile Farbe und Helligkeit | Konstante erprobte Stufe | Impuls gemaess freigegebenem Geraetemodus; Laufzeit nicht aus dieser Tabelle ableiten |
+| Ausklang, ca. 1,8-3 s | Weich abblenden | Drehzahl senken und stoppen | Aus; Stopzustand pruefen |
+| Abbruch | Licht abschalten | Effektluefter stoppen | Separat ueber OEM-Bedienung stoppen |
 
-### Warum der MicroFogger fuer den Suit
+Diese Zeiten sind keine programmierten Nebelbefehle oder Herstellergrenzen.
+Nebel bleibt manuell ueber Originaltaster/Fernbedienung bedient. Unabhaengige
+Starttaster fuer Fotoeffekt und OEM-Nebel muessen erreichbar sein; die konkrete
+Originalfernbedienung darf Halten, Greifen und Notausstieg nicht behindern.
+Eine gemeinsame automatische Startsequenz wird erst nach nachgewiesener
+Geraeteschnittstelle implementiert. Es gibt keine Behauptung eines vorhandenen
+GPIO-, USB-C- oder Bluetooth-Start-/Stopprotokolls.
 
-Smoke Ninja, Ulanzi und LensGo sind **versiegelte Foto-Handgeraete** - schlecht
-ins Jetpack zu integrieren. Der **Vosentech MicroFogger 5 Pro** ist explizit zum
-**Einbau in Props** gebaut (Fernsteuerung, wechselbarer Akku, food-grade
-Glycerin/PG). Das ist die sinnvolle Basis fuer eine "eigene Version", statt ein
-Foto-Geraet auszuschlachten. Der Nebel wird wie in Abschnitt 3 ueber einen
-Radialluefter + Schlauch zu den Duesen gefuehrt.
+Der Abbruch der Show schaltet die Komfortlueftung im Helm und Anzug **nicht**
+ab. Die Lichtkuehlung darf nur dann mit abgeschaltet werden, wenn der
+Nachlaufbedarf thermisch geklaert ist. Ein Haupt-Aus fuer alle Stromkreise bleibt
+zusaetzlich erreichbar; anschliessend Helm oeffnen und den Betrieb beenden.
 
-### Ehrliche Grenzen (vor dem Kauf lesen)
+## Zusatzerprobung fuer Licht und Luft
 
-- **Hitze:** Heizelement (~40 W). Nicht direkt an Foam/Kleber/Akku fuehren,
-  Schlauch und Auslass werden warm.
-- **Feuermelder:** echter Rauch kann Melder ausloesen. **Nicht** in geschlossenen
-  Hallen / auf der Con-Flaeche. Nur Outdoor oder mit Erlaubnis des Veranstalters.
-- **Rueckstand:** Glycerin hinterlaesst mit der Zeit einen feinen Film - Duesen
-  und Umgebung gelegentlich reinigen.
-- **Strombudget:** ein 40-W-Fogger zieht viel mehr als die Ultraschall-Loesung.
-  Bester Trick: den MicroFogger auf seinem **eigenen wechselbaren Akku** laufen
-  lassen und vom Suit nur das Trigger-Signal geben - so bleibt die Heizlast
-  komplett aus deinem Strombudget (Entkopplung wie in `V3-Systemarchitektur.md`).
-  Eigener Akku haelt ca. 14 min (voll) / 30 min (mittel) - Ersatzakku einpacken.
+1. Nur trockenes Lichtmodul: Strom, Spannung, Resetverhalten und Temperatur
+   pruefen; Strahlrichtung aus Besucher- und Trageperspektive kontrollieren.
+2. Nur Effektluft: Anlaufen, Stoppen, Gitter, Lautstaerke und austretenden Luftweg
+   pruefen. Kein Nebelschlauch ist Teil dieses Kreises.
+3. Nur OEM-Nebel in freigegebener Konfiguration: Flussbild und Kondensat aufnehmen.
+4. Kombination am ungetragenen Rueckenmodul: pruefen, ob Luft den Nebel unerwuenscht
+   zuruecktraegt, zerreisst oder bereits am Auslass stark verduennt.
+5. Fotos mit realem Hintergrund und vorgesehenen Verschlusszeiten: Farbaussteuerung,
+   PWM-Streifen und Rollingshutter-Artefakte dokumentieren. Details stehen in der
+   [Lichtmodul-Anleitung](Mjolnir-Lichtmodule.md).
+6. Erst nach diesen Proben integrieren: Kabel-/Schlauchfreiheit beim Oeffnen,
+   Zugang zu allen Stopptastern und unveraenderte Frischluftversorgung kontrollieren.
 
-### MicroFogger 5 Pro: Steuerung per Arduino
+## Offene Messwerte und Auslegung
 
-Der MicroFogger laesst sich neben dem Knopf ueber die **mitgelieferte Funk-
-Fernbedienung (4 Kanaele)** ODER ueber den **USB-C-Port als Steuer-/Trigger-
-Schnittstelle** ansteuern. Drei Wege, von elegant zu pragmatisch:
+| Groesse | Ermittlung und Auswirkung |
+| --- | --- |
+| Geraet inkl. Akku, Fluid und Huelle | Aussenmasse und tatsaechliche Masse bestimmen; Kassette und Traeger danach auslegen |
+| Schlauchwege links/rechts | Laenge, Querschnitt, Biegungen und Verzugsfreiheit aufnehmen |
+| Auslass und Halterung | Temperatur bei Referenzimpuls und Wiederholungsfolge messen; Grenzen nach Materialdaten und Geraeteanleitung festlegen |
+| Fluidaustrag | Verbrauch aus gewogener/dokumentierter Betriebsserie; Restvolumen und Reserve bestimmen |
+| Nebelbild | Einzelauslass, beide Auslaesse, Tageslicht, Hallenlicht und Bewegung vergleichen |
+| Akku | Nutzbare Energie und reale Impulszahl messen; Displaylaufzeit nicht als Nebelzeit interpretieren |
+| LED-Strom | LED-Datenblatt und Messung bei maximal erlaubter Helligkeit; Kabel, Stecker und Sicherung daran auslegen |
+| Trockene Effektluft | Einbau-Durchsatz, Drehzahl, Anlaufverhalten und Nebel-Rueckstroemung; keine Freiluftkennzahl als reale Kanalwirkung annehmen |
+| Lichtkassette | Temperatur, Reflexionen, Kondensat und Strahlrichtung in allen erlaubten Posen |
 
-1. **USB-C-Steuerport (sauberste Loesung):** Vosentech bewirbt den Port explizit
-   zum Anbinden an ein eigenes Trigger-System. Wenn Pinout/Protokoll dokumentiert
-   sind, haengt der Arduino direkt dran - kein Funk noetig. **Zuerst bei Vosentech
-   / im Manual abklaeren** (exaktes Pinout war oeffentlich nicht auffindbar).
-2. **Vorhandene Fernbedienung "druecken" lassen:** Statt einen neuen RF-Sender zu
-   bauen (Frequenz + Codierung des Fobs treffen = fummelig), einen **Optokoppler
-   oder Transistor ueber die Tasten-Pads der Original-Fernbedienung** loeten. Der
-   Arduino schaltet den Optokoppler, die echte Fernbedienung sendet - originale
-   Funkpaarung bleibt erhalten, ~2 Bauteile pro Taste. Robust und simpel.
-3. **Servo/Solenoid auf den Geraeteknopf:** Mikro-Servo drueckt physisch den
-   Hauptknopf. Protokoll-unabhaengig, aber klobig - nur als Fallback.
+Rechenweg fuer getrennte Stromkreise: `E_Wh = P_W * t_s / 3600` je Impuls.
+Bereitschaftsleistung und Verluste kommen dazu. Fuer LEDs gilt `I_A = P_W / U_V`.
+Ohne gemessene Leistung und nutzbare Akkuenergie wird keine Laufzeit zugesagt.
+Im Budget bleiben unbekannte Massen `null`; sie sind nicht null Gramm.
 
-So oder so triggert am Ende ein **GPIO-Pin** des Schubduesen-Arduino den Fogger -
-gekoppelt an denselben Boost-Taster, der auch die LEDs auf volle Helligkeit setzt
-(Abschnitt 5). Ein Boost = Licht + Rauch gleichzeitig.
+## Konfiguration und Einkauf
 
-### Sauberer Einbau ins Jetpack
+Im [Profil-Konfigurator](../../web/configurator/) gibt es unter Nebeleffekt:
+`none`, `pmi-cloud`, `external` und `water-mist`. Alte Profile starten mit `none`.
+Die Auswahl dokumentiert den Bauweg und verweist hierher; sie schaltet keine
+Hardware und erzeugt keine thermisch gepruefte Einbaugeometrie.
 
-- **Eigener Akku, nur Trigger vom Suit** (siehe Strombudget oben) - das ist der
-  sauberste Schnitt: ein einziges Signalkabel statt Heizstrom durch den Suit.
-- **Hitze isolieren:** Heizteil/Auslass werden heiss. In eine belueftete Kammer
-  mit Abstand zu Foam, Kleber und LiPo setzen; Halterung aus Metall/Hochtemp-Kunststoff.
-- **Lage:** Fogger halbwegs aufrecht/eben halten (Fluid-Zufuhr) - nicht kippen.
-- **Refill-/Akku-Klappe:** Tank reicht nur ~7-15 min. Eine **gut erreichbare
-  Klappe** am Rucksack einplanen (Fluid nachfuellen UND Akku wechseln), nicht
-  hinter verklebten Platten vergraben.
-- **Nebelfuehrung:** Auslass per Silikonschlauch + Radialluefter und Y-Verteiler
-  zu den zwei Duesen - identisch zur Ultraschall-Variante (Abschnitt 3).
+Die [Zusatz-BOM](../../Materials/Mjolnir-Nebel-BOM.json) enthaelt das PMI-Beispiel.
+Im [Budgeteditor](../../web/budget/) fuegt **Nebelmodul ergaenzen** dessen
+Positionen hinzu, ohne die vorhandene Liste zu ersetzen. Doppelte Modul-IDs
+werden abgelehnt. Bereits vorhandene LEDs, Controller und Versorgung koennen
+entfallen; die Ausstattung muss dafuer real vorhanden und ausreichend sein.
 
-### Empfehlung: zwei Stufen
+[Beschaffungsplan mit Kosten](../../Materials/Mjolnir-Nebel-Einkauf.md).
+Fuer RGB-Power-Licht und trockene Effektluefter gilt die
+[zusaetzliche Licht-Einkaufsliste](../../Materials/Mjolnir-Licht-Einkauf.md).
+FOG03-FOG06 werden dort mit vorhandenen Teilen abgeglichen; einfache 5-V-Ringe
+und ihre Versorgung sind kein elektrisch passender Ersatz fuer den
+15-V-Konstantstromaufbau. Die generische Nebel-BOM bleibt eine guenstige
+Ausgangsvariante und wird durch die neue Liste nicht automatisch ersetzt.
+Die Basis-BOM enthaelt das Nebelsystem nicht automatisch. Die Auswahl im
+Koerperprofil aendert eine getrennte Budgetdatei nicht ohne diese Aktion.
 
-1. **Con-Alltag:** Ultraschall-Kaltnebel (Abschnitt 1-6) - sicher, erlaubt.
-2. **Beast Mode (Photoshoot/Outdoor):** MicroFogger - dichter Rauch, kontrollierte
-   Umgebung, mit Handler.
+## Freigabe und Alternativen
 
-Kauflinks und Bezugsquellen gehoeren in `Materials/Einkaufsliste-Links.md`,
-falls du dich fuer ein Geraet entscheidest.
+Fuer einen getragenen Aufbau zuerst das [Nebel-Pruefprotokoll](../../Tests/TestReports/Mjolnir-Nebel-Abnahme.md)
+am Tisch und dann am vollstaendigen Kostuem abarbeiten. Nebel ist auf einer
+Messe nicht automatisch erlaubt, auch Ultraschall-Wassernebel nicht. Fuer
+Gamescom/IFA ist eine konkrete Freigabe der zustaendigen Veranstaltungstechnik
+fuer Ort, Geraet, Fluid und Vorfuehrablauf einzuholen. Melder und Lueftung bleiben
+im normalen Betrieb; die Freigabe wird nicht aus der Fluidchemie abgeleitet.
+Bis dahin funktioniert die Vorfuehrung ausschliesslich mit Licht.
+
+`external` verlegt die Quelle an den Ausstellungsstand; Schlauchbindung,
+Stolperstellen und Trennung vor Bewegungen werden gesondert geplant. Das ist
+keine automatisch passende tragbare Loesung.
+
+`water-mist` bleibt eine guenstige Versuchsvariante fuer feinen Wassernebel.
+Ultraschall zerstaeubt Wasser, statt es zu verdampfen. Nur fuer Wasser bestimmte
+Module erhalten kein Glycerin/PG-Fluid. Dichtigkeit, Hygiene, Kondensat und
+Sichtbarkeit bleiben auch dort zu pruefen. Fuer den gewuenschten deutlichen
+Duesenstoss ist das PMI-System die bevorzugte Arbeitsbasis.
+
+## Quellen und Dokumentationsstand
+
+Herstellerseiten erneut geprueft am 2026-09-10. Zusaetzlich:
+[PMI-Anleitung und Tutorials](https://pmigear.com/pages/smokeninja-pro-tutorial).
+Das dort verlinkte PDF konnte jetzt abgerufen werden. Sein englischer Teil
+stammt aus September 2024 und ist keine eindeutige Anleitung fuer die heutige
+PRO-V2-/Vest-Kombination. Seine Abstands- und Betriebsangaben unterscheiden sich
+teilweise von aktuellen Produktseiten. Der
+[Nebeltechnik-Guide](Mjolnir-Nebeltechnik.md) dokumentiert diese Revisionsfrage.
+Passende aktuelle Montageanleitung und Fluid-Sicherheitsdatenblatt muessen vor
+Integration vorliegen. Die Auswahl bleibt ein Beschaffungs-/Prototypenplan.

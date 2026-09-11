@@ -1,0 +1,111 @@
+{
+  "schema_version": 1,
+  "revision": "fog-integration-r1",
+  "reviewed_on": "2026-09-10",
+  "status": "INTEGRATION_REFERENCE_NOT_HARDWARE_VALIDATED",
+  "hardware_approved": false,
+  "runtime_configuration": false,
+  "guide": "../../Documentation/Guides/Mjolnir-Nebeltechnik.md",
+  "baseline": {
+    "device_family": "PMI SmokeNINJA PRO V2",
+    "body_harness": "PMI Smoke Vest; exact compatible revision pending",
+    "fluid": "PMI Cloud Formula; exact chamber pairing pending",
+    "source_count": 1,
+    "target_outlet_count": 2,
+    "power": "OEM battery and electronics",
+    "trigger": "OEM manual button or OEM remote",
+    "automatic_fog_control_implemented": false,
+    "original_heater_schematic_available": false,
+    "worn_configuration_manual_verified": false
+  },
+  "verified_manufacturer_features": [
+    {
+      "feature": "PRO V2 wired button / USB-C control and optional DMX module",
+      "source": "https://pmigear.com/products/pmi-smokeninja-pro-v2",
+      "scope": "Feature availability only; no public pinout or protocol established in this review"
+    },
+    {
+      "feature": "Chamber V3.0 with AERO mesh design in current bundle",
+      "source": "https://pmigear.com/products/pmi-smokeninja-pro-v2",
+      "scope": "No internal heater design, setpoint or construction drawing supplied"
+    },
+    {
+      "feature": "Chamber extension: 600 mm cable; up to three cables / 1800 mm",
+      "source": "https://pmigear.com/products/pmi-chamber-extension-cable",
+      "scope": "Exact device / chamber / fluid compatibility remains unverified"
+    },
+    {
+      "feature": "Smoke Vest for wearable PMI systems",
+      "source": "https://pmigear.com/products/pmi-smoke-vest-on-body-smoke-system",
+      "scope": "Does not validate a modified costume, remote chamber or third-party fogger"
+    }
+  ],
+  "revision_conflicts": [
+    {
+      "field": "body_proximity",
+      "earlier_manual": "September 2024 PRO manual PDF page 8: 3 m nozzle distance, 0.5 m from flammable / heat-sensitive materials",
+      "current_product": "Smoke Vest describes protected on-body integration",
+      "resolution": "Obtain matching current instructions for actual device, chamber, vest and outlet path; do not assume earlier limits are waived"
+    },
+    {
+      "field": "output_time_and_fluid_consumption",
+      "earlier_manual": "15 min maximum-mode total output; Steam 0.1 ml/min",
+      "current_faq": "About 18 min total output; Steam 0.05 ml/min",
+      "resolution": "Keep revision-specific reference values separate; measure the actual assembly"
+    }
+  ],
+  "candidate_upgrades": [
+    {
+      "id": "remote_oem_chamber",
+      "selected": false,
+      "hypothesis": "Shorter aerosol path can reduce transport lag and condensation",
+      "required_evidence": ["device_chamber_cable_compatibility", "permitted_orientation", "thermal_enclosure", "retention", "stop_tail_measurement"]
+    },
+    {
+      "id": "two_independent_oem_sources",
+      "selected": false,
+      "hypothesis": "Separate source per outlet can improve left/right control",
+      "required_evidence": ["mass_and_power_budget", "two_source_trigger_timing", "thermal_test", "manual_stop_for_both"]
+    },
+    {
+      "id": "oem_wired_or_dmx_sync",
+      "selected": false,
+      "required_evidence": ["accessory_revision", "pinout_or_dmx_channel_map", "start_stop_semantics", "disconnect_behavior", "power_cycle_behavior"]
+    }
+  ],
+  "unknown_oem_parameters": {
+    "heater_power_w": null,
+    "heater_setpoint_c": null,
+    "thermal_trip_c": null,
+    "maximum_backpressure_pa": null,
+    "permitted_hose_id_mm": null,
+    "maximum_hose_length_mm": null,
+    "permitted_worn_orientation": null,
+    "external_trigger_pinout": null,
+    "dmx_channel_map": null,
+    "ready_feedback_interface": null,
+    "fluid_sds_revision": null
+  },
+  "actual_assembly_measurements": {
+    "filled_mass_g": null,
+    "envelope_xyz_mm": null,
+    "left_hose_length_mm": null,
+    "right_hose_length_mm": null,
+    "trigger_to_visible_left_ms": null,
+    "trigger_to_visible_right_ms": null,
+    "visible_tail_after_stop_ms": null,
+    "fluid_g_per_test_series": null,
+    "energy_wh_per_test_series": null,
+    "chamber_peak_c": null,
+    "outlet_peak_c": null,
+    "body_side_peak_c": null,
+    "condensate_g_per_test_series": null
+  },
+  "design_boundaries": [
+    "No electrical Y-splitter for two chambers on one fogger",
+    "No proprietary heater or battery switching by suit controller",
+    "Dry RGB and effect air stay separate from OEM aerosol path",
+    "No trigger status presented as measured fog or device readiness",
+    "Existing HardwareKit nozzle is not a tested hot-chamber enclosure"
+  ]
+}

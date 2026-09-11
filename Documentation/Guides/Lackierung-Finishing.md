@@ -44,33 +44,24 @@ Dieser Guide beschreibt den vollstaendigen Finishing-Prozess von rohem 3D-Druck 
 
 **Praxis-Empfehlung:** Spruehlack fuer Grundfarbe auf grossen Panzerteilen, Airbrush fuer Details, Verlaeufe und Weathering.
 
-## 3. Master Chief Farbschema
+## 3. Farbschema nach Ruestungsreferenz
 
-### Das Gruen
+### Referenz und Farbproben
 
-Master Chief's Farbe ist ein **Oliv-/Salbeigruen**, kein leuchtend helles Gruen.
+Die im Profil ausgewaehlte [Ruestungsreferenz](Authentizitaet-Referenz.md)
+bestimmt die Farbgebung. Der folgende Chief-Vergleich ist ein Beispiel.
+Die zuvor genannten Hex-/Pantonewerte sind nicht als offizielle Lackrezeptur
+fuer Chiefs Kampagnenruestung belegt und werden nicht als solche verwendet.
+Bildschirmfarben lassen sich nicht ohne Material-/Lichtvergleich auf Lack uebertragen.
 
-**Offizielle 343 Industries Farbreferenz:**
-- **Primary Armor (Titanium Sage):** `#798785` / Pantone 5487 C (Hauptfarbe der Panzerung)
+Drei Muster auf dem tatsaechlichen Grundmaterial anlegen: Grundierung, Gruenton,
+Alterung und finaler Klarlack. Rezept, Schichtfolge und Trockenzeiten notieren.
+Unter neutralem Licht und geplanter Hallenbeleuchtung mit der festgelegten
+Referenz vergleichen. Erst danach den Farbauftrag fuer alle Teile festlegen.
 
-**Beste Treffer fuer Spruehlacke:**
-- **Rust-Oleum "Oregano" (Satin)** - der meistempfohlene Farbton in der 405th Community
-- **Krylon "Olive Drab"** oder **"Italian Olive"** - Alternativen
-- Standard **US Military OD Green** (aktueller Farbton)
-
-**RGB-Referenz:** R:89, G:120, B:89 (Hex: #597859)
-
-**Hinweis:** Das Gruen variiert je nach Spiel:
-- Halo CE/3: mehr Olive Drab
-- Halo 4/5: etwas dunkler/gesaettigter
-- Halo Infinite: zurueck zum klassischen Olive
-
-### Sekundaerfarben
-
-- **Techsuit Mesh (Unteranzug-Struktur):** `#3d3e3e` / Pantone 426 C (Schwarz-Grau fuer Gelenkbereiche und Texturen)
-- **Warning Accents (Warnmarkierungen):** `#c43f37` / Pantone 7622 C (Dunkles Rot-Orange fuer Detailmarkierungen)
-- **Dunkelgrau/Gunmetal** fuer mechanische Details, Lueftungsschlitze
-- **Gold/Orange reflektierend** fuer den Visor (siehe Abschnitt Visor)
+Unteranzug dunkel und strukturiert; metallische Akzente, Markierungen und
+Visiertoenung nach derselben Referenz pruefen. Keine Mark-VII-Farbtabelle ungeprueft
+auf Mark VI GEN3 uebertragen. Visiermuster vor der Fertigung auf Sicht und Beschlag testen.
 
 ## 4. Weathering (Alterungseffekte)
 
@@ -180,7 +171,7 @@ Die Versiegelung verschliesst die Poren und gibt eine lackierbare, dehnbare Basi
 ### Schritt 3: Flexibler Lack (Halo-Infinite-Gruen)
 
 - Auf der flexiblen Versiegelung haftet **flexibler Lack** dauerhaft, ohne zu reissen.
-- Fuer das Master-Chief-Olivgruen aus **Halo Infinite** (klassisches Olivgruen, RGB R:89 G:120 B:89, Hex #597859) gilt dieselbe Farbreferenz wie in Abschnitt 3.
+- Fuer den Gruenton gilt das dokumentierte und abgenommene Materialmuster aus Abschnitt 3.
 - **Flexible Lacke:** Acryl-Bastelfarben (mit etwas Flexibilisator/Textilmedium) oder spezielle flexible Spruehlacke. Reine harte Auto-Spruehlacke koennen auf grossen Bewegungsflaechen reissen - auf duennen, gebogenen Foam-Teilen testen.
 - **Plasti Dip in Farbe** ist ebenfalls als farbige Variante erhaeltlich und bleibt dehnbar - gute Wahl fuer grosse Flaechen.
 - Mehrere duenne Schichten auftragen, Bewegungsbereiche (Gelenke, Falten) bewusst beruecksichtigen.

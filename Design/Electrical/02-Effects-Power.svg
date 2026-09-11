@@ -1,0 +1,109 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1500" height="1100" viewBox="0 0 1500 1100">
+<style>text{font-family:DejaVu Sans,sans-serif;fill:#193442} .wire{fill:none;stroke:#226862;stroke-width:2.3} .sym{fill:white;stroke:#193442;stroke-width:2.2} .small{font-size:16px} .net{font-size:14px;fill:#226862} .body{font-size:19px} .title{font-size:30px;font-weight:bold}</style>
+<rect width="1500" height="1100" fill="#fff"/>
+<rect x="24" y="24" width="1452" height="1052" fill="none" stroke="#a6b3ba"/>
+<text x="48" y="73" class="title" text-anchor="start">02  Effektversorgung / manuelle Trennung</text>
+<text x="48" y="108" class="body" text-anchor="start">15-V-PD-Ausgang, lokale 5 V, Relais-Freigabe. Schaltkontakt ist ohne Spulenstrom offen.</text>
+<line x1="48" y1="130" x2="1452" y2="130" stroke="#a6b3ba" stroke-width="2.2"/>
+<line x1="48" y1="1015" x2="1452" y2="1015" stroke="#a6b3ba" stroke-width="2.2"/>
+<text x="48" y="1048" class="small" text-anchor="start">HaloCosplay | electrical-r1 | Entwurf, keine Bauabnahme | 2026-09-09</text>
+<text x="1360" y="1048" class="small" text-anchor="start">02 / 05</text>
+<rect x="130" y="170" width="290" height="149" class="sym"/>
+<text x="275.0" y="197" class="small" text-anchor="middle">J20 / DEV-15801</text>
+<circle cx="420" cy="235" r="3" fill="white" stroke="#226862" data-ref="J20" data-pin="VOUT" data-net="E15_RAW"/>
+<polyline class="wire" points="420,235 475,235" data-net="E15_RAW"/>
+<text x="475" y="225" class="net" text-anchor="start">E15_RAW</text>
+<text x="410" y="228" class="small" text-anchor="end">VOUT VOUT</text>
+<circle cx="420" cy="277" r="3" fill="white" stroke="#226862" data-ref="J20" data-pin="GND" data-net="E_GND"/>
+<polyline class="wire" points="420,277 475,277" data-net="E_GND"/>
+<text x="475" y="267" class="net" text-anchor="start">E_GND</text>
+<text x="410" y="270" class="small" text-anchor="end">GND GND</text>
+<text x="145" y="347" class="small" text-anchor="start">USB-C PD -&gt; NVM 15 V</text>
+<text x="145" y="374" class="small" text-anchor="start">Konfiguration / Messung offen</text>
+<text x="598" y="208" class="small" text-anchor="start">F20 / TBD nach Last/Leitung</text>
+<rect x="613" y="226" width="44" height="18" class="sym"/>
+<line x1="595" y1="235" x2="613" y2="235" stroke="#193442" stroke-width="2.2"/>
+<line x1="657" y1="235" x2="675" y2="235" stroke="#193442" stroke-width="2.2"/>
+<line x1="613" y1="235" x2="657" y2="235" stroke="#193442" stroke-width="2.2"/>
+<circle cx="595" cy="235" r="3" fill="white" stroke="#226862" data-ref="F20" data-pin="1" data-net="E15_RAW"/>
+<circle cx="675" cy="235" r="3" fill="white" stroke="#226862" data-ref="F20" data-pin="2" data-net="E15_FUSED"/>
+<text x="865" y="190" class="small" text-anchor="start">S20</text>
+<line x1="865" y1="235" x2="885" y2="235" stroke="#193442" stroke-width="2.2"/>
+<line x1="885" y1="235" x2="927" y2="210" stroke="#193442" stroke-width="2.2"/>
+<line x1="935" y1="235" x2="955" y2="235" stroke="#193442" stroke-width="2.2"/>
+<circle cx="865" cy="235" r="3" fill="white" stroke="#226862" data-ref="S20" data-pin="1" data-net="E15_FUSED"/>
+<circle cx="955" cy="235" r="3" fill="white" stroke="#226862" data-ref="S20" data-pin="2" data-net="E15_SW"/>
+<circle cx="885" cy="235" r="4" fill="#226862"/>
+<circle cx="935" cy="235" r="4" fill="#226862"/>
+<polyline class="wire" points="475,235 595,235" data-net="E15_RAW"/>
+<polyline class="wire" points="675,235 865,235" data-net="E15_FUSED"/>
+<polyline class="wire" points="955,235 1090,235" data-net="E15_SW"/>
+<text x="1050" y="210" class="net" text-anchor="start">E15_SW</text>
+<text x="665" y="317" class="small" text-anchor="start">S20 ist erreichbar; trennt auch die lokale Effektsteuerung.</text>
+<rect x="190" y="430" width="285" height="191" class="sym"/>
+<text x="332.5" y="457" class="small" text-anchor="middle">U20 / D24V10F5</text>
+<circle cx="190" cy="495" r="3" fill="white" stroke="#226862" data-ref="U20" data-pin="VIN" data-net="E15_SW"/>
+<polyline class="wire" points="190,495 135,495" data-net="E15_SW"/>
+<text x="135" y="485" class="net" text-anchor="end">E15_SW</text>
+<text x="200" y="488" class="small" text-anchor="start">VIN VIN</text>
+<circle cx="190" cy="537" r="3" fill="white" stroke="#226862" data-ref="U20" data-pin="GND" data-net="E_GND"/>
+<polyline class="wire" points="190,537 135,537" data-net="E_GND"/>
+<text x="135" y="527" class="net" text-anchor="end">E_GND</text>
+<text x="200" y="530" class="small" text-anchor="start">GND GND</text>
+<circle cx="475" cy="495" r="3" fill="white" stroke="#226862" data-ref="U20" data-pin="VOUT" data-net="E5_RAW"/>
+<polyline class="wire" points="475,495 530,495" data-net="E5_RAW"/>
+<text x="530" y="485" class="net" text-anchor="start">E5_RAW</text>
+<text x="465" y="488" class="small" text-anchor="end">VOUT 5 V</text>
+<circle cx="475" cy="537" r="3" fill="white" stroke="#226862" data-ref="U20" data-pin="SHDN" data-net="NC"/>
+<line x1="470" y1="532" x2="480" y2="542" stroke="#193442" stroke-width="2.2"/>
+<line x1="470" y1="542" x2="480" y2="532" stroke="#193442" stroke-width="2.2"/>
+<text x="530" y="527" class="net" text-anchor="start">NC</text>
+<text x="465" y="530" class="small" text-anchor="end">SHDN offen</text>
+<circle cx="475" cy="579" r="3" fill="white" stroke="#226862" data-ref="U20" data-pin="PG" data-net="NC"/>
+<line x1="470" y1="574" x2="480" y2="584" stroke="#193442" stroke-width="2.2"/>
+<line x1="470" y1="584" x2="480" y2="574" stroke="#193442" stroke-width="2.2"/>
+<text x="530" y="569" class="net" text-anchor="start">NC</text>
+<text x="465" y="572" class="small" text-anchor="end">PG offen</text>
+<text x="683" y="468" class="small" text-anchor="start">F21 / 5-V-Abgang; TBD</text>
+<rect x="698" y="486" width="44" height="18" class="sym"/>
+<line x1="680" y1="495" x2="698" y2="495" stroke="#193442" stroke-width="2.2"/>
+<line x1="742" y1="495" x2="760" y2="495" stroke="#193442" stroke-width="2.2"/>
+<line x1="698" y1="495" x2="742" y2="495" stroke="#193442" stroke-width="2.2"/>
+<circle cx="680" cy="495" r="3" fill="white" stroke="#226862" data-ref="F21" data-pin="1" data-net="E5_RAW"/>
+<circle cx="760" cy="495" r="3" fill="white" stroke="#226862" data-ref="F21" data-pin="2" data-net="E5_CTRL"/>
+<polyline class="wire" points="530,495 680,495" data-net="E5_RAW"/>
+<polyline class="wire" points="760,495 900,495" data-net="E5_CTRL"/>
+<text x="810" y="523" class="net" text-anchor="start">E5_CTRL</text>
+<text x="1170" y="445" class="small" text-anchor="start">C20 / 33 uF / 50 V; Eingangspuffer</text>
+<line x1="1150" y1="420" x2="1150" y2="445" stroke="#193442" stroke-width="2.2"/>
+<line x1="1135" y1="445" x2="1165" y2="445" stroke="#193442" stroke-width="2.2"/>
+<line x1="1135" y1="458" x2="1165" y2="458" stroke="#193442" stroke-width="2.2"/>
+<line x1="1150" y1="458" x2="1150" y2="485" stroke="#193442" stroke-width="2.2"/>
+<text x="1122" y="436" class="small" text-anchor="start">+</text>
+<circle cx="1150" cy="420" r="3" fill="white" stroke="#226862" data-ref="C20" data-pin="+" data-net="E15_SW"/>
+<circle cx="1150" cy="485" r="3" fill="white" stroke="#226862" data-ref="C20" data-pin="-" data-net="E_GND"/>
+<circle cx="1150" cy="420" r="3" fill="white" stroke="#226862" data-ref="C20" data-pin="+" data-net="E15_SW"/>
+<polyline class="wire" points="1150,420 1095,420" data-net="E15_SW"/>
+<text x="1095" y="410" class="net" text-anchor="end">E15_SW</text>
+<circle cx="1150" cy="485" r="3" fill="white" stroke="#226862" data-ref="C20" data-pin="-" data-net="E_GND"/>
+<polyline class="wire" points="1150,485 1095,485" data-net="E_GND"/>
+<text x="1095" y="475" class="net" text-anchor="end">E_GND</text>
+<text x="875" y="565" class="small" text-anchor="start">C20 nah an VIN; LC-Spitzen pruefen.</text>
+<text x="65" y="663" class="body" text-anchor="start">K20 / G5LE-1A DC5: Kontakt auf Blatt 02, Spule und Treiber auf Blatt 05.</text>
+<polyline class="wire" points="260,765 480,765" data-net="E15_SW"/>
+<text x="260" y="743" class="net" text-anchor="start">E15_SW</text>
+<circle cx="480" cy="765" r="3" fill="white" stroke="#226862" data-ref="K20" data-pin="1" data-net="E15_SW"/>
+<line x1="480" y1="765" x2="540" y2="765" stroke="#193442" stroke-width="2.2"/>
+<circle cx="540" cy="765" r="4" fill="#226862"/>
+<line x1="540" y1="765" x2="600" y2="725" stroke="#193442" stroke-width="2.2"/>
+<circle cx="625" cy="765" r="4" fill="#226862"/>
+<line x1="625" y1="765" x2="690" y2="765" stroke="#193442" stroke-width="2.2"/>
+<circle cx="690" cy="765" r="3" fill="white" stroke="#226862" data-ref="K20" data-pin="3" data-net="E15_LED"/>
+<polyline class="wire" points="690,765 1020,765" data-net="E15_LED"/>
+<text x="765" y="743" class="net" text-anchor="start">E15_LED -&gt; U30...U35</text>
+<text x="475" y="811" class="small" text-anchor="start">1 COM</text>
+<text x="640" y="811" class="small" text-anchor="start">3 NO</text>
+<text x="65" y="905" class="body" text-anchor="start">K20 schaltet Freigabe, niemals PWM. Kontaktlast und Einschaltstrom am LED-Verbund messen.</text>
+<text x="65" y="946" class="body" text-anchor="start">F20/F21 bleiben TBD. 5-V-MCU, Puffer und Spule nutzen E_GND; C_GND bleibt getrennt.</text>
+<text x="65" y="982" class="small" text-anchor="start">Relais klebt / MOSFET defekt: kein garantierter Fehler-AUS-Zustand. S20 bleibt direkte Trennung.</text>
+</svg>

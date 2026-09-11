@@ -1,76 +1,144 @@
-# HaloCosplay: Master Chief MJOLNIR Projekt
+# HaloCosplay: konfigurierbare MJOLNIR-Projektmappe
 
-Dieses Repository ist eine vollstaendige DIY-Projektmappe fuer ein moeglichst authentisches Halo Master Chief Cosplay mit Ruestung, Helm, Prop-Waffe und optionaler Elektronik (HUD, Akku-Backpack, AR/Display). Das Projekt ist in drei Varianten strukturiert: Einsteiger (Foam), Fortgeschritten (3D-Druck/Hybrid) und Profi (Exoskelett + Premium-Materialien).
+Werkzeuge und Bauanleitungen fuer unterschiedliche Halo-Cosplays: eigene
+Koerpermasse, getrennte linke/rechte Seiten, waehlbare Ruestungsreferenz,
+Materialweg und Ausstattung. Ein Projektprofil haelt die Entscheidungen zusammen.
+Es gibt keine vorgegebene Person, Koerpergroesse oder Schuhgroesse.
 
-## Web-Version (durchklickbar)
+**Stand:** Erzeugbares digitales Baupaket mit Referenzkatalog, parametrischem
+Bauraum-CAD, fuenf Komponentenproben, Modelldateipruefung, Technikrechnungen und
+Elektronikbeispielen. Vollstaendige Halo-Detailmodelle und nachgewiesene tragende
+Mechanik fehlen weiterhin. Ein ausgefuelltes Profil erzeugt keine fertige
+Druckruestung; reale Pass-, Last- und Funktionstests bleiben erforderlich.
 
-Es gibt eine durchklickbare Web-Version aller Guides im Halo/HUD-Design, die die
-Markdown-Dateien live rendert und Fortschritt + Einkaufs-Haken lokal im Browser
-speichert (LocalStorage): **https://huskynarr.github.io/HaloCosplay/**
+## Produkte und Einkaufslinks
 
-- Quellcode und lokale Nutzung: `web/README.md`
-- Deploy laeuft automatisch (`.github/workflows/pages.yml`); in den Repo-Settings
-  unter Pages als Source "GitHub Actions" waehlen.
+Der [interaktive Produktkatalog](web/products/) verbindet 52 Produkte und
+Spezifikationen mit Baugruppen und Anleitungen. Herstellerquellen, gekennzeichnete
+Amazon-Affiliate-Suchen und Kompatibilitaetshinweise sind zentral gepflegt.
+Eigene Merklisten lassen sich mit Mengen als JSON oder CSV exportieren.
+Preise bleiben bis zum konkreten Angebot offen. Die
+[Einkaufsliste](Materials/Einkaufsliste-Links.md) ist die erzeugte Markdown-Ausgabe.
 
-## Varianten im Ueberblick
+## Eigenes Projekt starten
 
-| Variante | Ziel | Materialien | Technik | Budget (Richtwert) | Dauer (Richtwert) |
-| --- | --- | --- | --- | --- | --- |
-| V1 Einsteiger | klassisches Cosplay | EVA-Foam, Kunststoff, Holz | einfache LEDs | 800-2.700 EUR | 2-5 Monate |
-| V2 Fortgeschritten | detailstark + stabil | 3D-Druck + Foam | HUD + Pi, Akku | 2.400-6.600 EUR | 4-8 Monate |
-| V3 Profi | High-End + Exoskelett | Alu/Carbon, CNC/3D | HUD, Sensorik, Exo | 6.000+ EUR | 8-14 Monate |
+1. [Konfiguration und Mehrprofil-Workflow](Documentation/Guides/Mjolnir-Konfiguration.md)
+   lesen oder den [Profil-Konfigurator](web/configurator/) oeffnen.
+2. Ein leeres Profil anlegen; unbekannte Masse bleiben `null`.
+3. Referenz, Material, Trage-/Ausstellungsbetrieb und optionale Technik auswaehlen.
+4. [Messdefinitionen](Documentation/Guides/Mjolnir-Massanpassung.md) verwenden und
+   jedes Projekt in ein eigenes Ausgabeverzeichnis rechnen.
+5. [Baupaket erzeugen](Documentation/Guides/Mjolnir-Baupaket.md) und die
+   [Prototypenfolge](BuildGuides/Armor/Mjolnir-Prototypen.md) am realen Aufbau pruefen.
 
-## Hinweis zu Kosten
+Ab Repository-Wurzel mit Python 3.11+:
 
-Die Kosten sind stark abhaengig von Tools, Fehlversuchen, Versand und Premium-Materialien. Realistisch ist oft das 2-3x der Minimalannahmen.
+```bash
+python3 tools/suit_fit.py --init build/MySuit.local.json --name "My Suit"
+# Profil ausfuellen; danach ohne synthetische Ergaenzungen rechnen:
+python3 tools/suit_project.py --profile build/MySuit.local.json --out build/MySuit-r1
+```
 
-## Projektziele
+Fuer die reine Demonstration ohne eigene Masse:
 
-- **Authentische MJOLNIR-Optik:** Mark VII / Mark VI Gen 3 Look mit originalen Farbcodes von 343 Industries.
-- **Tragbare, sichere Bauweise:** Modularer Aufbau fuer Conventions mit Notausstieg in <60 Sekunden.
-- **Mechanisches Exoskelett (V3):** Passives Traggestell zur Lastableitung (Schultern -> Huefte) mit Taulman Alloy 910 Gelenken, H-Harness Rigging und bungeegestuetzten PEX-Hydraulikkolben.
-- **AR HUD & OpenCV (V3):** Near-Eye-Display (NED/Vufine) mit Pi 4/5, OpenCV-Bildverarbeitung (Freund-Feind-Erkennung / IFF), Nachtsicht, digitalem Zoom und BT-Waffentelemetrie.
-- **Munitionszaehler (MA40/MA5):** Integrierte Zaehlerelektronik (Arduino/Pico) mit SSD1306-OLED-Anzeige, Schussabnahme am Abzug und Reload-Erkennung.
+```bash
+python3 tools/suit_project.py --profile Design/Parametric/Profiles/Demo.json --concept --out build/WorkshopDemo
+```
 
-## Quick Start
+`Template.json` enthaelt 32 leere Messfelder. `Demo.json` ist ausdruecklich
+synthetisch. Mit `--concept` duerfen fehlende Masse fuer eine Konzeptansicht
+ergaenzt werden; diese Herkunft bleibt sichtbar. Ohne die Option stoppt die
+Berechnung bei fehlenden Werten. Private Profile und Berichte unter `build/`
+halten; dieser Ordner wird nicht versioniert.
 
-1. **Roter Faden / Komplett-Walkthrough (Anfaenger bis Profi):** `Documentation/Guides/Komplett-Walkthrough.md`
-2. **Start-Here-Guide lesen:** `Documentation/Guides/Start-Hier.md`
-3. **Projektuebersicht lesen:** `Documentation/README.md`
-4. **Variante waehlen (V1 Foam, V2 3D-Druck, V3 Exoskelett):** `Documentation/Guides/Varianten.md`
-5. **TODO-Liste nutzen:** `Documentation/TODO.md`
-6. **Bau- und Skalierungsplanung (Shin +15%, Biceps 1.1x):** `BuildGuides/Armor/Step1.md`
-7. **Exoskelett & Hydraulik-Bauplaene:** `Documentation/Guides/Exoskelett.md`
-8. **Schubduesen & Nebeleffekte:** [Elektronik-Schubduesen.md](Documentation/Guides/Elektronik-Schubduesen.md)
-9. **Kosten und Zeitplan:** `Documentation/Guides/Kosten.md` und `Documentation/Guides/Zeitplan.md`
-10. **Elektronik-Systemplanung:** `Documentation/Guides/Elektronik-HUD.md`, fuer V3 das Gesamtsystem `Documentation/Guides/V3-Systemarchitektur.md`
-11. **Einkaufen:** Komponenten `Materials/ShoppingList.md`, direkte Kauflinks `Materials/Einkaufsliste-Links.md`
-12. **Code-Uebersicht (OLED HUD, AR, LED-Effekte, Ammo-Counter):** `Code/README.md`
+![Technische 2D-Draufsicht des synthetischen Oeffnungsbeispiels](Design/Parametric/Generated/OpeningEnvelope.svg)
 
-## Projektstruktur
+## Konfigurierbare Entscheidungen
 
-- `Documentation/` Projektuebersicht, Sicherheits- und Technikdokumentation
-- `Documentation/TODO.md` **Haupt-Todoliste** fuer das gesamte Projekt
-- `BuildGuides/` Schritt-fuer-Schritt Bauphasen (Ruestung, Helm, Elektronik)
-- `Materials/` Einkaufslisten, Komponenten und Quellen
-- `Code/` Beispielcode fuer HUD, LEDs und Controller
-- `Design/` Skizzen, Vorlagen, 3D-Modelle
-- `Resources/` Tools, Links, STL-Quellen, Community, Referenzen
-- `Support/` FAQ und Kontakt
+| Auswahl | Moeglichkeiten | Wirkung und Grenze |
+| --- | --- | --- |
+| Ruestungsreferenz | Chief / Infinite Mark VI GEN3, Mark VII, eigene Referenz | Eindeutiger Planungsbezug; keine automatische Detailmodellbeschaffung |
+| Materialweg | Hybrid, Foam, 3D-Druck | Dokumentiert den Bauweg; Wandstaerke und Befestigungen separat auslegen |
+| Einsatz | Getragen, Ausstellung, beides | Legt den Projektumfang fest; reale Abnahme je Einsatz erforderlich |
+| Ausstattung | Exoskelett, HUD, Licht, Audio jeweils optional | Keine feste Elektronikpflicht; Aktivierung ersetzt keine Integration |
+| Passform | Eigene mm-Werte und einstellbare Zuschlaege | Laenge, Breite, Tiefe und Seiten bleiben unabhaengig |
 
-## Sicherheit und Conventions
+Das mechanische Basiskonzept verwendet vormontierte Baugruppen: Seitenfluegel
+ausfahren, Frontschalen aufklappen, Einstieg und Handverschluesse. Die
+Anziehstation haelt ausschliesslich ungetragene Ruestung. Der eigene Traeger
+verteilt Ruestungsgewicht auf den Koerper; ein optionales Hueft-Exoskelett
+ist ein separat anzupassendes System.
 
-- Siehe `Documentation/Guides/Sicherheit.md`
-- Siehe `Documentation/Guides/Convention-Regeln.md`
+## Bau und Technik
 
-## Support
+- [Digitales Baupaket: Dateien, Modellimport und Baufolge](Documentation/Guides/Mjolnir-Baupaket.md)
+- [Sechs Einbaumodelle und elektrische Schaltplaene](Documentation/Guides/Mjolnir-CAD-Schaltplaene.md)
+- [Einbauorte: Akkus, Luft, Kamera, Audio und Highpower-RGB](Documentation/Guides/Mjolnir-Einbauplan.md)
+- [Aufklappbare Arme/Beine und selbststaendiges Anlegen](Documentation/Guides/Mjolnir-Selbstanziehen.md)
+- [Acht bewegliche Clamshell-Bauraumhuellen](Design/Clamshell/README.md)
+- [LED-Kuehlkoerper und gemessene Luftwege berechnen](Design/Thermal/README.md)
+- [Detailgestaltung, Unteranzug, Visier und Finish](Documentation/Guides/Mjolnir-Detailgestaltung.md)
+- [Fuenf editierbare CAD-Komponentenproben](Design/Components/README.md)
+- [Strom-, Laufzeit-, Scharnier- und Staenderauslegung](Documentation/Guides/Mjolnir-Technik-Auslegung.md)
+- [Systementwurf und Baugruppen](Documentation/Guides/Mjolnir-Systementwurf.md)
+- [Einstieg, Verriegelung und Anziehstation](Documentation/Guides/Mjolnir-Einstieg.md)
+- [Parametrisches CAD und eigene Ausgabe](Design/Parametric/README.md)
+- [Ruestungsreferenz und optische Abnahme](Documentation/Guides/Authentizitaet-Referenz.md)
+- [Fertigungsplan und Schnittstellen](Documentation/Guides/Mjolnir-Fertigung.md)
+- [Exoskelett und eigener Traeger](Documentation/Guides/Exoskelett.md)
+- [Elektronik und optionale Aktorik](Documentation/Guides/Mjolnir-Elektronik.md)
+- [Bezahlbare Hardware fuer einen ersten Prototyp](Materials/Mjolnir-Einkauf-Prototyp.md)
+- [Budget-Editor mit JSON-Import/-Export](web/budget/) und [Beispiel-BOM](Materials/Mjolnir-BOM.md)
+- [Messebetrieb](Documentation/Guides/Mjolnir-Messebetrieb.md) und [Zusatzbudget](Materials/Mjolnir-Messebudget.md)
+- [Nachweisstatus](Progress/Mjolnir-Readiness.md) und [reale Abnahmeprotokolle](Tests/TestReports/Mjolnir-Abnahme.md)
+- [Offline-Messeanzeige](Code/Exhibition/README.md)
+- [Sender im Anzug und optionale Roboter-/Drohnenbegleitung](Documentation/Guides/Begleitroboter-Integration.md)
+- [Hardwareliste fuer das Begleitsystem](Materials/Mjolnir-Begleitsystem.md)
 
-- FAQ: `Support/FAQ.md`
-- Kontakt: `Support/Contact.md`
+Die mitgelieferte BOM ist ein editierbares Beispiel, kein automatisch passendes
+Angebot fuer jedes Profil. Mengen, Ausstattung, Preise und Zielmassen nach dem
+eigenen Entwurf anpassen. Testberichte gehoeren jeweils zum geprueften Projekt
+und zur dokumentierten Revision. Softwarepruefungen sind keine Hardwarefreigabe.
 
-## Community
+## Web-Version und lokale Nutzung
 
-- 405th Infantry Division: https://www.405th.com/
-- RPF: https://www.therpf.com/
+[Web-Version](https://huskynarr.github.io/HaloCosplay/) mit Guides,
+[Konfigurator](web/configurator/) und lokaler Fortschrittsverwaltung.
+Der Konfigurator unterstuetzt mehrere Profile, JSON-Import/-Export und
+optionales Speichern im Browser. Die Bedienung ist in
+[Konfiguration](Documentation/Guides/Mjolnir-Konfiguration.md) beschrieben.
+Technische Start-/Deploy-Hinweise: [web/README.md](web/README.md).
 
-Viel Erfolg beim Bau. Schritt fuer Schritt, und immer zuerst die sichere Tragbarkeit testen.
+## Weitere Material- und Technikreferenzen
+
+V1 (Foam), V2 (3D-Druck/Hybrid) und V3 (erweiterte Technik) sind historische
+Guide-Kategorien. Sie sind keine Pflichtpakete und keine Garantie, dass Module
+ohne Umbau kompatibel sind. Material, Referenz und Elektronik werden fuer jedes
+Projekt getrennt entschieden.
+
+- [Dokumentationshub](Documentation/README.md)
+- [Varianten und Bauwege](Documentation/Guides/Varianten.md)
+- [Komplett-Walkthrough](Documentation/Guides/Komplett-Walkthrough.md)
+- [Projektaufgaben](Documentation/TODO.md)
+- [STL-Quellen](Resources/STL-Quellen.md)
+- [Materialsammlung](Materials/ShoppingList.md)
+- [Sicherheit](Documentation/Guides/Sicherheit.md) und [Convention-Regeln](Documentation/Guides/Convention-Regeln.md)
+
+## Projektstruktur und Pruefung
+
+`Documentation/` enthaelt die Guides, `BuildGuides/` die Bauphasen, `Design/`
+Profile und CAD, `Materials/` Budgetvorlagen, `Code/` Elektronikbeispiele,
+`tools/` Generatoren und `Tests/` Softwaretests sowie physische Protokolle.
+
+```bash
+python3 tools/suit_budget.py --check
+python3 -m unittest discover -s Tests/Automation -v
+```
+
+FAQ und Kontakt: [Support](Support/FAQ.md), [Kontakt](Support/Contact.md).
+Community: [405th Infantry Division](https://www.405th.com/),
+[RPF](https://www.therpf.com/).
+
+## Optionaler Duesennebel
+
+`build.fog_system` waehlt `none`, `pmi-cloud`, `external` oder `water-mist`. Bestehende Profile erhalten `none`. Der [Nebelmodul-Guide](Documentation/Guides/Elektronik-Schubduesen.md) beschreibt Arbeitsbasis, Fluid, Einkauf und Tests. Die Auswahl ist eine Planungsangabe; sie steuert kein Geraet.

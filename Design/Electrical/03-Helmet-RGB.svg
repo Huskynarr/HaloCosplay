@@ -1,0 +1,185 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1500" height="1100" viewBox="0 0 1500 1100">
+<style>text{font-family:DejaVu Sans,sans-serif;fill:#193442} .wire{fill:none;stroke:#226862;stroke-width:2.3} .sym{fill:white;stroke:#193442;stroke-width:2.2} .small{font-size:16px} .net{font-size:14px;fill:#226862} .body{font-size:19px} .title{font-size:30px;font-weight:bold}</style>
+<rect width="1500" height="1100" fill="#fff"/>
+<rect x="24" y="24" width="1452" height="1052" fill="none" stroke="#a6b3ba"/>
+<text x="48" y="73" class="title" text-anchor="start">03  RGB-Konstantstrom / Helmpaar</text>
+<text x="48" y="108" class="body" text-anchor="start">Drei getrennte 350-mA-Strange; links und rechts je Farbe in Reihe. Vier Stars insgesamt.</text>
+<line x1="48" y1="130" x2="1452" y2="130" stroke="#a6b3ba" stroke-width="2.2"/>
+<line x1="48" y1="1015" x2="1452" y2="1015" stroke="#a6b3ba" stroke-width="2.2"/>
+<text x="48" y="1048" class="small" text-anchor="start">HaloCosplay | electrical-r1 | Entwurf, keine Bauabnahme | 2026-09-09</text>
+<text x="1360" y="1048" class="small" text-anchor="start">03 / 05</text>
+<rect x="245" y="170" width="230" height="191" class="sym"/>
+<text x="360.0" y="197" class="small" text-anchor="middle">U30 / LDD-350L</text>
+<circle cx="245" cy="235" r="3" fill="white" stroke="#226862" data-ref="U30" data-pin="1" data-net="E15_LED"/>
+<polyline class="wire" points="245,235 190,235" data-net="E15_LED"/>
+<text x="190" y="225" class="net" text-anchor="end">E15_LED</text>
+<text x="255" y="228" class="small" text-anchor="start">1 +Vin</text>
+<circle cx="245" cy="277" r="3" fill="white" stroke="#226862" data-ref="U30" data-pin="3" data-net="DIM_H_R"/>
+<polyline class="wire" points="245,277 190,277" data-net="DIM_H_R"/>
+<text x="190" y="267" class="net" text-anchor="end">DIM_H_R</text>
+<text x="255" y="270" class="small" text-anchor="start">3 DIM</text>
+<circle cx="245" cy="319" r="3" fill="white" stroke="#226862" data-ref="U30" data-pin="4" data-net="E_GND"/>
+<polyline class="wire" points="245,319 190,319" data-net="E_GND"/>
+<text x="190" y="309" class="net" text-anchor="end">E_GND</text>
+<text x="255" y="312" class="small" text-anchor="start">4 -Vin</text>
+<circle cx="475" cy="235" r="3" fill="white" stroke="#226862" data-ref="U30" data-pin="6" data-net="LED_H_R_OUT"/>
+<polyline class="wire" points="475,235 530,235" data-net="LED_H_R_OUT"/>
+<text x="530" y="225" class="net" text-anchor="start">LED_H_R_OUT</text>
+<text x="465" y="228" class="small" text-anchor="end">6 +Vout</text>
+<circle cx="475" cy="277" r="3" fill="white" stroke="#226862" data-ref="U30" data-pin="5" data-net="LED_H_R_RET"/>
+<polyline class="wire" points="475,277 530,277" data-net="LED_H_R_RET"/>
+<text x="530" y="267" class="net" text-anchor="start">LED_H_R_RET</text>
+<text x="465" y="270" class="small" text-anchor="end">5 -Vout</text>
+<line x1="735" y1="235" x2="760" y2="235" stroke="#193442" stroke-width="2.2"/>
+<polygon points="760,219 760,251 790,235" class="sym"/>
+<line x1="790" y1="218" x2="790" y2="252" stroke="#193442" stroke-width="2.2"/>
+<line x1="790" y1="235" x2="825" y2="235" stroke="#193442" stroke-width="2.2"/>
+<line x1="770" y1="210" x2="784" y2="196" stroke="#193442" stroke-width="2.2"/>
+<line x1="784" y1="196" x2="777" y2="198" stroke="#193442" stroke-width="2.2"/>
+<line x1="784" y1="196" x2="782" y2="203" stroke="#193442" stroke-width="2.2"/>
+<line x1="784" y1="210" x2="798" y2="196" stroke="#193442" stroke-width="2.2"/>
+<line x1="798" y1="196" x2="791" y2="198" stroke="#193442" stroke-width="2.2"/>
+<line x1="798" y1="196" x2="796" y2="203" stroke="#193442" stroke-width="2.2"/>
+<text x="780" y="279" class="small" text-anchor="middle">LED_HL_R</text>
+<text x="745" y="215" class="small" text-anchor="start">A</text>
+<text x="808" y="215" class="small" text-anchor="start">K</text>
+<circle cx="735" cy="235" r="3" fill="white" stroke="#226862" data-ref="LED_HL_R" data-pin="A" data-net="LED_H_R_OUT"/>
+<circle cx="825" cy="235" r="3" fill="white" stroke="#226862" data-ref="LED_HL_R" data-pin="K" data-net="LED_H_R_MID"/>
+<line x1="1090" y1="235" x2="1115" y2="235" stroke="#193442" stroke-width="2.2"/>
+<polygon points="1115,219 1115,251 1145,235" class="sym"/>
+<line x1="1145" y1="218" x2="1145" y2="252" stroke="#193442" stroke-width="2.2"/>
+<line x1="1145" y1="235" x2="1180" y2="235" stroke="#193442" stroke-width="2.2"/>
+<line x1="1125" y1="210" x2="1139" y2="196" stroke="#193442" stroke-width="2.2"/>
+<line x1="1139" y1="196" x2="1132" y2="198" stroke="#193442" stroke-width="2.2"/>
+<line x1="1139" y1="196" x2="1137" y2="203" stroke="#193442" stroke-width="2.2"/>
+<line x1="1139" y1="210" x2="1153" y2="196" stroke="#193442" stroke-width="2.2"/>
+<line x1="1153" y1="196" x2="1146" y2="198" stroke="#193442" stroke-width="2.2"/>
+<line x1="1153" y1="196" x2="1151" y2="203" stroke="#193442" stroke-width="2.2"/>
+<text x="1135" y="279" class="small" text-anchor="middle">LED_HR_R</text>
+<text x="1100" y="215" class="small" text-anchor="start">A</text>
+<text x="1163" y="215" class="small" text-anchor="start">K</text>
+<circle cx="1090" cy="235" r="3" fill="white" stroke="#226862" data-ref="LED_HR_R" data-pin="A" data-net="LED_H_R_MID"/>
+<circle cx="1180" cy="235" r="3" fill="white" stroke="#226862" data-ref="LED_HR_R" data-pin="K" data-net="LED_H_R_RET"/>
+<polyline class="wire" points="530,235 735,235" data-net="LED_H_R_OUT"/>
+<polyline class="wire" points="825,235 1090,235" data-net="LED_H_R_MID"/>
+<text x="910" y="217" class="net" text-anchor="middle">LED_H_R_MID</text>
+<polyline class="wire" points="1180,235 1260,235 1260,326 585,326 585,277 530,277" data-net="LED_H_R_RET"/>
+<text x="810" y="351" class="net" text-anchor="start">LED_H_R_RET nur zu Pin 5</text>
+<rect x="245" y="408" width="230" height="191" class="sym"/>
+<text x="360.0" y="435" class="small" text-anchor="middle">U31 / LDD-350L</text>
+<circle cx="245" cy="473" r="3" fill="white" stroke="#226862" data-ref="U31" data-pin="1" data-net="E15_LED"/>
+<polyline class="wire" points="245,473 190,473" data-net="E15_LED"/>
+<text x="190" y="463" class="net" text-anchor="end">E15_LED</text>
+<text x="255" y="466" class="small" text-anchor="start">1 +Vin</text>
+<circle cx="245" cy="515" r="3" fill="white" stroke="#226862" data-ref="U31" data-pin="3" data-net="DIM_H_G"/>
+<polyline class="wire" points="245,515 190,515" data-net="DIM_H_G"/>
+<text x="190" y="505" class="net" text-anchor="end">DIM_H_G</text>
+<text x="255" y="508" class="small" text-anchor="start">3 DIM</text>
+<circle cx="245" cy="557" r="3" fill="white" stroke="#226862" data-ref="U31" data-pin="4" data-net="E_GND"/>
+<polyline class="wire" points="245,557 190,557" data-net="E_GND"/>
+<text x="190" y="547" class="net" text-anchor="end">E_GND</text>
+<text x="255" y="550" class="small" text-anchor="start">4 -Vin</text>
+<circle cx="475" cy="473" r="3" fill="white" stroke="#226862" data-ref="U31" data-pin="6" data-net="LED_H_G_OUT"/>
+<polyline class="wire" points="475,473 530,473" data-net="LED_H_G_OUT"/>
+<text x="530" y="463" class="net" text-anchor="start">LED_H_G_OUT</text>
+<text x="465" y="466" class="small" text-anchor="end">6 +Vout</text>
+<circle cx="475" cy="515" r="3" fill="white" stroke="#226862" data-ref="U31" data-pin="5" data-net="LED_H_G_RET"/>
+<polyline class="wire" points="475,515 530,515" data-net="LED_H_G_RET"/>
+<text x="530" y="505" class="net" text-anchor="start">LED_H_G_RET</text>
+<text x="465" y="508" class="small" text-anchor="end">5 -Vout</text>
+<line x1="735" y1="473" x2="760" y2="473" stroke="#193442" stroke-width="2.2"/>
+<polygon points="760,457 760,489 790,473" class="sym"/>
+<line x1="790" y1="456" x2="790" y2="490" stroke="#193442" stroke-width="2.2"/>
+<line x1="790" y1="473" x2="825" y2="473" stroke="#193442" stroke-width="2.2"/>
+<line x1="770" y1="448" x2="784" y2="434" stroke="#193442" stroke-width="2.2"/>
+<line x1="784" y1="434" x2="777" y2="436" stroke="#193442" stroke-width="2.2"/>
+<line x1="784" y1="434" x2="782" y2="441" stroke="#193442" stroke-width="2.2"/>
+<line x1="784" y1="448" x2="798" y2="434" stroke="#193442" stroke-width="2.2"/>
+<line x1="798" y1="434" x2="791" y2="436" stroke="#193442" stroke-width="2.2"/>
+<line x1="798" y1="434" x2="796" y2="441" stroke="#193442" stroke-width="2.2"/>
+<text x="780" y="517" class="small" text-anchor="middle">LED_HL_G</text>
+<text x="745" y="453" class="small" text-anchor="start">A</text>
+<text x="808" y="453" class="small" text-anchor="start">K</text>
+<circle cx="735" cy="473" r="3" fill="white" stroke="#226862" data-ref="LED_HL_G" data-pin="A" data-net="LED_H_G_OUT"/>
+<circle cx="825" cy="473" r="3" fill="white" stroke="#226862" data-ref="LED_HL_G" data-pin="K" data-net="LED_H_G_MID"/>
+<line x1="1090" y1="473" x2="1115" y2="473" stroke="#193442" stroke-width="2.2"/>
+<polygon points="1115,457 1115,489 1145,473" class="sym"/>
+<line x1="1145" y1="456" x2="1145" y2="490" stroke="#193442" stroke-width="2.2"/>
+<line x1="1145" y1="473" x2="1180" y2="473" stroke="#193442" stroke-width="2.2"/>
+<line x1="1125" y1="448" x2="1139" y2="434" stroke="#193442" stroke-width="2.2"/>
+<line x1="1139" y1="434" x2="1132" y2="436" stroke="#193442" stroke-width="2.2"/>
+<line x1="1139" y1="434" x2="1137" y2="441" stroke="#193442" stroke-width="2.2"/>
+<line x1="1139" y1="448" x2="1153" y2="434" stroke="#193442" stroke-width="2.2"/>
+<line x1="1153" y1="434" x2="1146" y2="436" stroke="#193442" stroke-width="2.2"/>
+<line x1="1153" y1="434" x2="1151" y2="441" stroke="#193442" stroke-width="2.2"/>
+<text x="1135" y="517" class="small" text-anchor="middle">LED_HR_G</text>
+<text x="1100" y="453" class="small" text-anchor="start">A</text>
+<text x="1163" y="453" class="small" text-anchor="start">K</text>
+<circle cx="1090" cy="473" r="3" fill="white" stroke="#226862" data-ref="LED_HR_G" data-pin="A" data-net="LED_H_G_MID"/>
+<circle cx="1180" cy="473" r="3" fill="white" stroke="#226862" data-ref="LED_HR_G" data-pin="K" data-net="LED_H_G_RET"/>
+<polyline class="wire" points="530,473 735,473" data-net="LED_H_G_OUT"/>
+<polyline class="wire" points="825,473 1090,473" data-net="LED_H_G_MID"/>
+<text x="910" y="455" class="net" text-anchor="middle">LED_H_G_MID</text>
+<polyline class="wire" points="1180,473 1260,473 1260,564 585,564 585,515 530,515" data-net="LED_H_G_RET"/>
+<text x="810" y="589" class="net" text-anchor="start">LED_H_G_RET nur zu Pin 5</text>
+<rect x="245" y="646" width="230" height="191" class="sym"/>
+<text x="360.0" y="673" class="small" text-anchor="middle">U32 / LDD-350L</text>
+<circle cx="245" cy="711" r="3" fill="white" stroke="#226862" data-ref="U32" data-pin="1" data-net="E15_LED"/>
+<polyline class="wire" points="245,711 190,711" data-net="E15_LED"/>
+<text x="190" y="701" class="net" text-anchor="end">E15_LED</text>
+<text x="255" y="704" class="small" text-anchor="start">1 +Vin</text>
+<circle cx="245" cy="753" r="3" fill="white" stroke="#226862" data-ref="U32" data-pin="3" data-net="DIM_H_B"/>
+<polyline class="wire" points="245,753 190,753" data-net="DIM_H_B"/>
+<text x="190" y="743" class="net" text-anchor="end">DIM_H_B</text>
+<text x="255" y="746" class="small" text-anchor="start">3 DIM</text>
+<circle cx="245" cy="795" r="3" fill="white" stroke="#226862" data-ref="U32" data-pin="4" data-net="E_GND"/>
+<polyline class="wire" points="245,795 190,795" data-net="E_GND"/>
+<text x="190" y="785" class="net" text-anchor="end">E_GND</text>
+<text x="255" y="788" class="small" text-anchor="start">4 -Vin</text>
+<circle cx="475" cy="711" r="3" fill="white" stroke="#226862" data-ref="U32" data-pin="6" data-net="LED_H_B_OUT"/>
+<polyline class="wire" points="475,711 530,711" data-net="LED_H_B_OUT"/>
+<text x="530" y="701" class="net" text-anchor="start">LED_H_B_OUT</text>
+<text x="465" y="704" class="small" text-anchor="end">6 +Vout</text>
+<circle cx="475" cy="753" r="3" fill="white" stroke="#226862" data-ref="U32" data-pin="5" data-net="LED_H_B_RET"/>
+<polyline class="wire" points="475,753 530,753" data-net="LED_H_B_RET"/>
+<text x="530" y="743" class="net" text-anchor="start">LED_H_B_RET</text>
+<text x="465" y="746" class="small" text-anchor="end">5 -Vout</text>
+<line x1="735" y1="711" x2="760" y2="711" stroke="#193442" stroke-width="2.2"/>
+<polygon points="760,695 760,727 790,711" class="sym"/>
+<line x1="790" y1="694" x2="790" y2="728" stroke="#193442" stroke-width="2.2"/>
+<line x1="790" y1="711" x2="825" y2="711" stroke="#193442" stroke-width="2.2"/>
+<line x1="770" y1="686" x2="784" y2="672" stroke="#193442" stroke-width="2.2"/>
+<line x1="784" y1="672" x2="777" y2="674" stroke="#193442" stroke-width="2.2"/>
+<line x1="784" y1="672" x2="782" y2="679" stroke="#193442" stroke-width="2.2"/>
+<line x1="784" y1="686" x2="798" y2="672" stroke="#193442" stroke-width="2.2"/>
+<line x1="798" y1="672" x2="791" y2="674" stroke="#193442" stroke-width="2.2"/>
+<line x1="798" y1="672" x2="796" y2="679" stroke="#193442" stroke-width="2.2"/>
+<text x="780" y="755" class="small" text-anchor="middle">LED_HL_B</text>
+<text x="745" y="691" class="small" text-anchor="start">A</text>
+<text x="808" y="691" class="small" text-anchor="start">K</text>
+<circle cx="735" cy="711" r="3" fill="white" stroke="#226862" data-ref="LED_HL_B" data-pin="A" data-net="LED_H_B_OUT"/>
+<circle cx="825" cy="711" r="3" fill="white" stroke="#226862" data-ref="LED_HL_B" data-pin="K" data-net="LED_H_B_MID"/>
+<line x1="1090" y1="711" x2="1115" y2="711" stroke="#193442" stroke-width="2.2"/>
+<polygon points="1115,695 1115,727 1145,711" class="sym"/>
+<line x1="1145" y1="694" x2="1145" y2="728" stroke="#193442" stroke-width="2.2"/>
+<line x1="1145" y1="711" x2="1180" y2="711" stroke="#193442" stroke-width="2.2"/>
+<line x1="1125" y1="686" x2="1139" y2="672" stroke="#193442" stroke-width="2.2"/>
+<line x1="1139" y1="672" x2="1132" y2="674" stroke="#193442" stroke-width="2.2"/>
+<line x1="1139" y1="672" x2="1137" y2="679" stroke="#193442" stroke-width="2.2"/>
+<line x1="1139" y1="686" x2="1153" y2="672" stroke="#193442" stroke-width="2.2"/>
+<line x1="1153" y1="672" x2="1146" y2="674" stroke="#193442" stroke-width="2.2"/>
+<line x1="1153" y1="672" x2="1151" y2="679" stroke="#193442" stroke-width="2.2"/>
+<text x="1135" y="755" class="small" text-anchor="middle">LED_HR_B</text>
+<text x="1100" y="691" class="small" text-anchor="start">A</text>
+<text x="1163" y="691" class="small" text-anchor="start">K</text>
+<circle cx="1090" cy="711" r="3" fill="white" stroke="#226862" data-ref="LED_HR_B" data-pin="A" data-net="LED_H_B_MID"/>
+<circle cx="1180" cy="711" r="3" fill="white" stroke="#226862" data-ref="LED_HR_B" data-pin="K" data-net="LED_H_B_RET"/>
+<polyline class="wire" points="530,711 735,711" data-net="LED_H_B_OUT"/>
+<polyline class="wire" points="825,711 1090,711" data-net="LED_H_B_MID"/>
+<text x="910" y="693" class="net" text-anchor="middle">LED_H_B_MID</text>
+<polyline class="wire" points="1180,711 1260,711 1260,802 585,802 585,753 530,753" data-net="LED_H_B_RET"/>
+<text x="810" y="827" class="net" text-anchor="start">LED_H_B_RET nur zu Pin 5</text>
+<text x="65" y="916" class="body" text-anchor="start">JHL / JHR: 1 R+, 2 R-, 3 G+, 4 G-, 5 B+, 6 B-. Netzzuordnung: Connectors.md.</text>
+<text x="65" y="951" class="body" text-anchor="start">Gleichnamige Netze sind verbunden. LED_*_MID verbindet nur die zwei gleichfarbigen Chips.</text>
+<text x="65" y="985" class="small" text-anchor="start">Keine gemeinsame Anode/Kathode, kein LED-Rueckleiter an E_GND. Nur spannungslos stecken.</text>
+</svg>
