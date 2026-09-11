@@ -1,5 +1,9 @@
 # Einkauf: RGB-Power-Licht und trockene Duesenluefter
 
+Aktuelle Produktzuordnung: [zentraler Produktkatalog](../web/products/) und
+[Einkaufslinks mit Auswahlkriterien](Einkaufsliste-Links.md). Budgetwerte in dieser
+Datei sind Planungswerte, keine aktuellen Shop-Angebote.
+
 Stand: 2026-09-09. Beschaffungsplan fuer zwei Helmlampen und zwei beleuchtete
 Duesen. Die [Lichtauslegung](../Documentation/Guides/Mjolnir-Lichtmodule.md)
 ist massgeblich fuer Verschaltung und Messungen. Es wurde nichts bestellt.

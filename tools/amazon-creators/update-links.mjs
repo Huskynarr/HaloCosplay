@@ -22,7 +22,8 @@ import { CreatorsApi } from "./creators-api.mjs";
 
 const HERE = dirname(fileURLToPath(import.meta.url));
 const REPO = resolve(HERE, "../..");
-const FILES = ["Materials/Einkaufsliste-Links.md", "Materials/ShoppingList.md"];
+// The generated product catalog is maintained by suit_catalog.py, never this legacy updater.
+const FILES = ["Materials/ShoppingList.md"];
 const args = new Set(process.argv.slice(2));
 const mode = args.has("--write") ? "write" : args.has("--check") ? "check" : "audit";
 

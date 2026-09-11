@@ -1,5 +1,9 @@
 # Einkauf: optionales Nebelmodul
 
+Aktuelle Produktzuordnung: [zentraler Produktkatalog](../web/products/) und
+[Einkaufslinks mit Auswahlkriterien](Einkaufsliste-Links.md). Budgetwerte in dieser
+Datei sind Planungswerte, keine aktuellen Shop-Angebote.
+
 Stand 2026-09-10. Arbeitsbasis und Einbau:
 [Schubduesen-Guide](../Documentation/Guides/Elektronik-Schubduesen.md).
 

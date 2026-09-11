@@ -1,5 +1,9 @@
 # Begleitsystem: Beschaffung nach Plattformwahl
 
+Aktuelle Produktzuordnung: [zentraler Produktkatalog](../web/products/) und
+[Einkaufslinks mit Auswahlkriterien](Einkaufsliste-Links.md). Budgetwerte in dieser
+Datei sind Planungswerte, keine aktuellen Shop-Angebote.
+
 Stand: 2026-09-09. Ergaenzung zum
 [Begleitkonzept](../Documentation/Guides/Begleitroboter-Integration.md).
 Diese Positionen sind optional und werden nicht automatisch in das generische

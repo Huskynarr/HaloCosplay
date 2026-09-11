@@ -11,6 +11,15 @@ Elektronikbeispielen. Vollstaendige Halo-Detailmodelle und nachgewiesene tragend
 Mechanik fehlen weiterhin. Ein ausgefuelltes Profil erzeugt keine fertige
 Druckruestung; reale Pass-, Last- und Funktionstests bleiben erforderlich.
 
+## Produkte und Einkaufslinks
+
+Der [interaktive Produktkatalog](web/products/) verbindet 52 Produkte und
+Spezifikationen mit Baugruppen und Anleitungen. Herstellerquellen, gekennzeichnete
+Amazon-Affiliate-Suchen und Kompatibilitaetshinweise sind zentral gepflegt.
+Eigene Merklisten lassen sich mit Mengen als JSON oder CSV exportieren.
+Preise bleiben bis zum konkreten Angebot offen. Die
+[Einkaufsliste](Materials/Einkaufsliste-Links.md) ist die erzeugte Markdown-Ausgabe.
+
 ## Eigenes Projekt starten
 
 1. [Konfiguration und Mehrprofil-Workflow](Documentation/Guides/Mjolnir-Konfiguration.md)

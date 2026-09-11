@@ -3,9 +3,9 @@ name: MJOLNIR design checks
 on:
   push:
     branches: [main]
-    paths: ['Design/Parametric/**', 'Design/Components/**', 'Design/HardwareKit/**', 'Design/Electrical/**', 'Design/Clamshell/**', 'Design/Engineering/**', 'Design/Thermal/**', 'Documentation/References/ArmorReferenceLibrary.json', 'web/configurator/**', 'web/budget/**', 'Progress/Mjolnir-*', 'Code/Exhibition/**', 'tools/suit_*.py', 'Materials/Mjolnir*', 'Tests/Automation/**', 'Tests/Browser/**', '.github/workflows/suit-design.yml']
+    paths: ['Design/Parametric/**', 'Design/Components/**', 'Design/HardwareKit/**', 'Design/Electrical/**', 'Design/Clamshell/**', 'Design/Engineering/**', 'Design/Thermal/**', 'Documentation/References/ArmorReferenceLibrary.json', 'web/configurator/**', 'web/budget/**', 'web/products/**', 'web/app.js', 'web/content.js', 'web/index.html', 'Materials/ProductCatalog.json', 'Materials/Einkaufsliste-Links.md', 'Progress/Mjolnir-*', 'Code/Exhibition/**', 'tools/suit_*.py', 'Materials/Mjolnir*', 'Tests/Automation/**', 'Tests/Browser/**', '.github/workflows/suit-design.yml']
   pull_request:
-    paths: ['Design/Parametric/**', 'Design/Components/**', 'Design/HardwareKit/**', 'Design/Electrical/**', 'Design/Clamshell/**', 'Design/Engineering/**', 'Design/Thermal/**', 'Documentation/References/ArmorReferenceLibrary.json', 'web/configurator/**', 'web/budget/**', 'Progress/Mjolnir-*', 'Code/Exhibition/**', 'tools/suit_*.py', 'Materials/Mjolnir*', 'Tests/Automation/**', 'Tests/Browser/**', '.github/workflows/suit-design.yml']
+    paths: ['Design/Parametric/**', 'Design/Components/**', 'Design/HardwareKit/**', 'Design/Electrical/**', 'Design/Clamshell/**', 'Design/Engineering/**', 'Design/Thermal/**', 'Documentation/References/ArmorReferenceLibrary.json', 'web/configurator/**', 'web/budget/**', 'web/products/**', 'web/app.js', 'web/content.js', 'web/index.html', 'Materials/ProductCatalog.json', 'Materials/Einkaufsliste-Links.md', 'Progress/Mjolnir-*', 'Code/Exhibition/**', 'tools/suit_*.py', 'Materials/Mjolnir*', 'Tests/Automation/**', 'Tests/Browser/**', '.github/workflows/suit-design.yml']
 
 permissions:
   contents: read
@@ -20,6 +20,7 @@ jobs:
           python-version: '3.11'
       - run: python -m unittest discover -s Tests/Automation -v
       - run: python -m unittest discover -s Design/Electrical -p 'test_*.py' -v
+      - run: python tools/suit_catalog.py --check
       - run: python tools/suit_budget.py --check
       - run: python tools/suit_readiness.py --check
       - uses: actions/setup-node@v4
@@ -46,7 +47,7 @@ jobs:
           PY
       - name: Install isolated browser test dependencies
         run: |
-          npm install --no-save --prefix build/browser playwright@1.62.1
+          npm install --no-save --prefix build/browser playwright@1.62.1 marked@12
           node build/browser/node_modules/playwright/cli.js install --with-deps chromium --only-shell
       - name: Verify interactive project workflows
         env:
