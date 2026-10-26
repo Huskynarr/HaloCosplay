@@ -12,6 +12,7 @@ Live values (all optional) are read from JSON files so other modules can
 feed the HUD without coupling (see V3-Systemarchitektur.md):
   - battery_path: {"battery_percent": 78, "voltage": 7.4}
   - state_path:   {"shield_percent": 80, "ammo": 27, "heading": 123}
+                  plus optional "vision_contacts"/"vision_ts" from vision_bridge.py
 Missing files simply fall back to a self-running demo animation.
 
 Hardware-free test (renders PNG frames instead of driving the OLED):
@@ -140,6 +141,22 @@ def read_state(config, t):
             "battery": safe_float(data.get("robot_battery")),
             "guard": str(data.get("robot_state", "")).lower() == "guard",
         }
+
+    # Optional real contacts from vision_bridge.py (AI Camera). Only used while
+    # fresh: if the camera stalls, the tracker falls back to the demo blips
+    # instead of showing frozen contacts.
+    vision_ts = safe_float(data.get("vision_ts"))
+    contacts = data.get("vision_contacts")
+    if vision_ts is not None and isinstance(contacts, list) and time.time() - vision_ts < 2.0:
+        state["contacts"] = []
+        for c in contacts[:6]:
+            if not isinstance(c, dict):
+                continue
+            bearing = safe_float(c.get("bearing"))
+            dist = safe_float(c.get("distance"))
+            if bearing is None or dist is None:
+                continue
+            state["contacts"].append((bearing, max(0.0, min(1.0, dist))))
     return state
 
 
@@ -191,7 +208,7 @@ def draw_shield(draw, shield, t):
         draw.text((40, 28), "RECHARGE", fill=1)
 
 
-def draw_motion_tracker(draw, t, robot=None):
+def draw_motion_tracker(draw, t, robot=None, contacts=None):
     cx, cy, r = 24, 48, 14
     draw.ellipse((cx - r, cy - r, cx + r, cy + r), outline=1)
     draw.ellipse((cx - r // 2, cy - r // 2, cx + r // 2, cy + r // 2), outline=1)
@@ -199,14 +216,22 @@ def draw_motion_tracker(draw, t, robot=None):
     angle = (t * 2.0) % (2 * math.pi)
     draw.line((cx, cy, cx + int(r * math.cos(angle)),
                cy + int(r * math.sin(angle))), fill=1)
-    # Deterministic blips that drift inward (hostile contacts)
-    for i in range(2):
-        blip_t = (t * 0.4 + i * 0.5) % 1.0
-        blip_a = (i * 2.4 + t * 0.1) % (2 * math.pi)
-        dist = r * (1.0 - blip_t * 0.8)
-        bx = cx + int(dist * math.cos(blip_a))
-        by = cy + int(dist * math.sin(blip_a))
-        draw.rectangle((bx - 1, by - 1, bx + 1, by + 1), fill=1)
+    if contacts is not None:
+        # Real contacts (vision_bridge.py): bearing 0 = straight ahead = up
+        for bearing, rel_dist in contacts:
+            ca = math.radians(bearing)
+            bx = cx + int(r * rel_dist * math.sin(ca))
+            by = cy - int(r * rel_dist * math.cos(ca))
+            draw.rectangle((bx - 1, by - 1, bx + 1, by + 1), fill=1)
+    else:
+        # Deterministic blips that drift inward (hostile contacts, demo)
+        for i in range(2):
+            blip_t = (t * 0.4 + i * 0.5) % 1.0
+            blip_a = (i * 2.4 + t * 0.1) % (2 * math.pi)
+            dist = r * (1.0 - blip_t * 0.8)
+            bx = cx + int(dist * math.cos(blip_a))
+            by = cy + int(dist * math.sin(blip_a))
+            draw.rectangle((bx - 1, by - 1, bx + 1, by + 1), fill=1)
     # Companion robot as a friendly hollow diamond (vs filled hostile squares).
     # Maps 0-6 m to tracker radius; low battery makes it blink.
     if robot:
@@ -254,7 +279,7 @@ def draw_hud(t, battery, state, config):
     draw = ImageDraw.Draw(image)
     draw_compass(draw, state["heading"])
     draw_shield(draw, state["shield"], t)
-    draw_motion_tracker(draw, t, state.get("robot"))
+    draw_motion_tracker(draw, t, state.get("robot"), state.get("contacts"))
     draw_ammo(draw, state["ammo"])
     if config.get("show_battery"):
         draw_battery(draw, battery, config.get("low_battery_percent", 20), t)

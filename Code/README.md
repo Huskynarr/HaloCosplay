@@ -17,6 +17,17 @@ Dieses Verzeichnis enthaelt Beispielcode fuer Helm- und Ruestungs-LEDs sowie das
 - `robot_bridge.py` - **Konzept-Bruecke** Begleit-Roboter (WLAN/UDP) ->
   `hud_state.json`, zeigt den Robo als Marker auf dem Motion-Tracker. Siehe
   `Documentation/Guides/Begleitroboter-Integration.md`. Test: `python3 robot_bridge.py --selftest`
+- `voice_control.py` - **Sprachsteuerung + Helmfunk (Pi 5, optional)**: Push-to-Talk,
+  Offline-Erkennung (Vosk), Befehle an Helm-Arduino (I2C) und per Optokoppler an
+  Schubduesen-/Ruestungs-Taster, Helmfunk-Stimme (Audio Option C).
+  Test: `python3 voice_control.py --selftest`, Tippen statt Sprechen: `--keyboard`
+- `vision_bridge.py` - **Bruecke** Raspberry Pi AI Camera (IMX500) -> `hud_state.json`,
+  echte Kontakte auf dem Bewegungsmelder. Test: `python3 vision_bridge.py --selftest`
+- `hud_state.py` - gemeinsamer, gesperrter Schreibzugriff auf `hud_state.json` fuer
+  alle Bruecken (verhindert, dass sie sich gegenseitig Werte ueberschreiben)
+- `voice_config.example.json` / `requirements-voice.txt` - Konfiguration und
+  Zusatz-Dependencies der Sprachsteuerung. Anleitung:
+  `Documentation/Guides/Elektronik-Sprachsteuerung.md`
 - `requirements.txt` - Python-Dependencies (`pip install -r requirements.txt`)
 - `config.example.json` - Beispiel-Konfiguration (als `config.json` kopieren)
 - `battery.example.json` - Beispiel fuer Batteriestatus-Datei
@@ -47,8 +58,8 @@ Hintergrund und **Sicherheit**: `Documentation/Guides/Elektronik-AR-Display.md`.
 - **`HelmetMultiEffects.ino`** - Erweiterter Controller mit:
   - 5 Visor-LED-Effekte (Static, Breathing, Heartbeat, Chase, Flicker), 10 LEDs an Pin 6 (`VISOR_COUNT` anpassen)
   - Taster-Umschaltung zwischen Effekten
-  - I2C-Kommandos vom Pi (Helligkeit, Luefter-Speed, Effekt-Wahl)
-  - Luefter-PWM Steuerung
+  - I2C-Kommandos vom Pi (Helligkeit, Luefter-Speed, Effekt-Wahl, Farbe `0x04 R G B`)
+  - Luefter-PWM Steuerung (31 kHz, kein hoerbares Pfeifen)
   - Boot-Sequence beim Einschalten
 
 ## ArmorControl

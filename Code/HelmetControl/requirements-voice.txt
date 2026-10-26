@@ -1,0 +1,9 @@
+# Zusaetzlich zu requirements.txt fuer voice_control.py / vision_bridge.py (Pi 5).
+# numpy, scipy, gpiozero und picamera2 besser per apt installieren:
+#   sudo apt install python3-numpy python3-scipy python3-gpiozero python3-picamera2 imx500-all
+# und das venv mit --system-site-packages anlegen.
+vosk
+sounddevice
+smbus2
+# optional, natuerlichere Stimme innen:
+# piper-tts

@@ -110,6 +110,7 @@ const CONTENT = {
         { title: "Verdrahtung", file: "Documentation/Guides/Elektronik-Verdrahtung.md" },
         { title: "Luefter", file: "Documentation/Guides/Elektronik-Luefter.md" },
         { title: "Audio / Voice", file: "Documentation/Guides/Elektronik-Audio.md" },
+        { title: "Sprachsteuerung (Pi 5)", file: "Documentation/Guides/Elektronik-Sprachsteuerung.md" },
         { title: "Autostart (Pi)", file: "Documentation/Guides/Elektronik-Autostart.md" },
         { title: "Code-Uebersicht", file: "Code/README.md" },
       ],
