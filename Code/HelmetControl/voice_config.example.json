@@ -1,0 +1,23 @@
+{
+  "i2c_bus": 1,
+  "helmet_addr": "0x08",
+  "ptt_gpio": 17,
+  "boost_gpio": 27,
+  "armor_gpio": 22,
+  "pulse_ms": 200,
+  "mic_device": "USB",
+  "outer_device": "MAX98357",
+  "inner_alsa": "plughw:CARD=Device,DEV=0",
+  "voice_gate": 0.01,
+  "voice_drive": 6.0,
+  "voice_volume": 0.8,
+  "vosk_model": "models/vosk-model-small-de-0.15",
+  "piper_voice": "voices/de_DE-kerstin-low.onnx",
+  "state_path": "hud_state.json",
+  "announce": {
+    "person": "Person",
+    "dog": "Hund",
+    "cat": "Katze"
+  },
+  "announce_pause_s": 12
+}

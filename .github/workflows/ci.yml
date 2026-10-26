@@ -46,12 +46,15 @@ jobs:
       - name: Alle Python-Dateien kompilieren
         run: python -m compileall -q Code/
 
-      - name: Hardwarefreie Selftests (HUD + Sensor-Bridge)
+      - name: Hardwarefreie Selftests (HUD, Bridges, Sprachsteuerung)
         run: |
           python -m pip install --quiet Pillow
           cd Code/HelmetControl
           python hud_display.py --selftest /tmp/hud.png
           python sensor_bridge.py --selftest --state /tmp/s.json --battery /tmp/b.json
+          python robot_bridge.py --selftest --state /tmp/r.json
+          python vision_bridge.py --selftest --state /tmp/v.json
+          python voice_control.py --selftest
 
   arduino:
     name: Arduino-Sketches kompilieren

@@ -31,7 +31,13 @@ Three build variants exist: V1 Einsteiger (foam), V2 Fortgeschritten (3D-print/h
 - `Code/HelmetControl/hud_display.py` - main HUD loop driving a transparent OLED (SSD1309) over I2C
 - Dependencies: `pip install -r Code/HelmetControl/requirements.txt` (luma.oled, Pillow, smbus2)
 - Config: copy `config.example.json` to `config.json`; battery status via `battery.example.json` to `battery.json`
-- No test suite exists; testing is manual on hardware
+- No test suite exists; testing is manual on hardware (hardware-free `--selftest` modes run in CI)
+- All writers of `hud_state.json` must use `hud_state.merge()` (file lock + atomic replace) so modules don't clobber each other's keys
+
+### Voice control + vision (Python, Raspberry Pi 5, optional)
+- `Code/HelmetControl/voice_control.py` - push-to-talk voice commands (Vosk), I2C to helmet Arduino, optocoupler "button presses" to thruster/armor Arduinos, helmet radio voice (Audio Option C)
+- `Code/HelmetControl/vision_bridge.py` - AI Camera (IMX500) detections -> `vision_contacts` in `hud_state.json` -> motion tracker
+- Guide: `Documentation/Guides/Elektronik-Sprachsteuerung.md`
 
 ### Arduino Controllers
 - `Code/HelmetControl/MainControlCode.ino` - I2C slave receiving brightness commands (basic)

@@ -5,12 +5,14 @@ The Arduino listens as I2C slave (default address 0x08) and understands:
     0x01 <0-255>  visor brightness
     0x02 <0-255>  fan speed (PWM)
     0x03 <0-4>    effect select
+    0x04 <r g b>  visor color (each 0-255)
 
 Usage examples:
     python3 helmet_control.py brightness 128
     python3 helmet_control.py fan 180
     python3 helmet_control.py effect heartbeat
     python3 helmet_control.py effect 3
+    python3 helmet_control.py color 255 180 20
     python3 helmet_control.py demo
 
 Wiring and protocol: see Code/README.md and
@@ -24,6 +26,7 @@ import time
 CMD_BRIGHTNESS = 0x01
 CMD_FAN = 0x02
 CMD_EFFECT = 0x03
+CMD_COLOR = 0x04
 
 # Must match the mode order in HelmetMultiEffects.ino
 EFFECTS = {
@@ -48,9 +51,11 @@ def open_bus(bus_num):
 
 
 def send(bus, addr, cmd, value, retries=3):
+    """value: ein Byte oder eine Liste von Bytes (z.B. R, G, B fuer 0x04)."""
+    values = value if isinstance(value, (list, tuple)) else [value]
     for attempt in range(retries):
         try:
-            bus.write_i2c_block_data(addr, cmd, [value & 0xFF])
+            bus.write_i2c_block_data(addr, cmd, [v & 0xFF for v in values])
             return
         except OSError as exc:
             if attempt == retries - 1:
@@ -110,6 +115,10 @@ def main():
     p_effect = sub.add_parser("effect",
                               help="Effekt: " + ", ".join(EFFECTS) + " oder 0-4")
     p_effect.add_argument("value")
+    p_color = sub.add_parser("color", help="Visor-Farbe R G B (je 0-255)")
+    p_color.add_argument("r")
+    p_color.add_argument("g")
+    p_color.add_argument("b")
     sub.add_parser("demo", help="Alle Effekte nacheinander vorfuehren")
 
     args = parser.parse_args()
@@ -122,6 +131,9 @@ def main():
         action = (CMD_FAN, parse_byte(args.value, "Luefter-Speed"))
     elif args.command == "effect":
         action = (CMD_EFFECT, parse_effect(args.value))
+    elif args.command == "color":
+        action = (CMD_COLOR, [parse_byte(args.r, "Rot"), parse_byte(args.g, "Gruen"),
+                              parse_byte(args.b, "Blau")])
 
     bus = open_bus(args.bus)
     try:

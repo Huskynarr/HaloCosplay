@@ -27,8 +27,14 @@ Was das konkret bringt:
 
 Einzige erlaubte Kopplungen: der SensorFeeder speist den AR-Rechner per
 USB/Serial (Heading, Akku, Temperatur), und der Pi darf dem Helm-Arduino per I2C
-Kommandos geben (Helligkeit, Effekt). Beide Verbindungen sind so gebaut, dass ihr
-Ausfall nichts lahmlegt.
+Kommandos geben (Helligkeit, Effekt, Farbe). Beide Verbindungen sind so gebaut,
+dass ihr Ausfall nichts lahmlegt.
+
+Optional darf der Pi zusaetzlich die **Taster** anderer Module "druecken": ein
+Optokoppler parallel zum vorhandenen Taster (z.B. Boost der Schubduesen). Das ist
+keine Vernetzung - das Modul bleibt autark, behaelt seine eigene Sicherheitslogik
+und sein eigener Taster funktioniert weiter. So arbeitet die Sprachsteuerung
+(`Elektronik-Sprachsteuerung.md`).
 
 ## 2. Module und Verantwortlichkeiten
 
@@ -40,6 +46,7 @@ Ausfall nichts lahmlegt.
 | POV-Kamera | Helm | autarke Action-Cam | Abschnitt 4 |
 | Schubduesen-LEDs + Nebler | Ruecken | Arduino/ESP32 | `Elektronik-Schubduesen.md` |
 | Voice Changer + Lautsprecher | Brust/Helm | eigenes Modul | `Elektronik-Audio.md` |
+| Sprachsteuerung + Kamera-Erkennung (optional, nicht mit Stufe C) | Helm | Pi 5 | `Elektronik-Sprachsteuerung.md` |
 | Armor-LEDs | Torso/Glieder | Arduino Nano | `Code/ArmorControl/MultiEffects.ino` |
 
 ```

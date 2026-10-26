@@ -56,6 +56,10 @@ GND --+--- MAX4466 GND
 - USB-Soundkarte noetig (Pi Zero hat keinen Audio-Ausgang): ~5 EUR fuer USB Audio Adapter
 - Mehr CPU-Last, aber flexiblere Effekte
 - Kann auf dem gleichen Pi wie das HUD laufen
+- **Fertige Umsetzung fuer den Pi 5:** `Code/HelmetControl/voice_control.py` - Helmfunk-Effekt
+  (Bandpass, Saettigung, Rauschsperre) ueber einen I2S-Verstaerker (MAX98357A), dazu
+  Sprachbefehle per Push-to-Talk. Anleitung: [Elektronik-Sprachsteuerung.md](Elektronik-Sprachsteuerung.md)
+- Nicht auf demselben Pi wie das AR-Passthrough (Stufe C) betreiben (`V3-Systemarchitektur.md`)
 
 ## Lautsprecher-Platzierung
 

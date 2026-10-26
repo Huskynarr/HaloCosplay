@@ -8,6 +8,11 @@ Code/HelmetControl/battery.json
 Code/HelmetControl/hud_state.json
 Code/HelmetControl/hud_log.txt
 Code/HelmetControl/AR/ar_config.json
+Code/HelmetControl/voice_config.json
+Code/HelmetControl/coco_labels.txt
+Code/HelmetControl/models/
+Code/HelmetControl/voices/
+*.json.lock
 
 # Build/Test-Artefakte
 *.tmp
