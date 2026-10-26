@@ -31,14 +31,14 @@ import os
 import sys
 import time
 
+import hud_state
+
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 DEFAULT_STATE = os.path.join(BASE_DIR, "hud_state.json")
 DEFAULT_PORT = 9009
 
 # Telemetry keys the robot may send -> kept as-is in hud_state.json
 ROBOT_KEYS = ("robot_distance_m", "robot_bearing", "robot_battery", "robot_state")
-# Keys owned by other modules that must survive a robot update
-PRESERVE_KEYS = ("ammo", "shield_percent", "heading")
 
 
 def parse_datagram(raw):
@@ -78,17 +78,9 @@ def atomic_write(path, payload):
 
 def merge_into_state(data, state_path):
     """Write robot fields into hud_state.json, preserving other modules' keys."""
-    state = load_state(state_path)
-    updated = {k: v for k, v in state.items() if k in PRESERVE_KEYS}
-    # carry over any previous robot fields, then apply the new datagram
-    for k in ROBOT_KEYS:
-        if k in state:
-            updated[k] = state[k]
-    for k in ROBOT_KEYS:
-        if k in data:
-            updated[k] = data[k]
-    atomic_write(state_path, updated)
-    return updated
+    # Nur Robo-Felder aendern; alle Schluessel anderer Module bleiben erhalten
+    updates = {k: data[k] for k in ROBOT_KEYS if k in data}
+    return hud_state.merge(state_path, updates)
 
 
 def run(listen, port, state_path, stale_after=3.0):
@@ -109,11 +101,8 @@ def run(listen, port, state_path, stale_after=3.0):
             except socket.timeout:
                 # No packet: mark robot as lost so the HUD can drop the marker
                 if last_seen and time.time() - last_seen > stale_after:
-                    state = load_state(state_path)
-                    if "robot_distance_m" in state:
-                        for k in ROBOT_KEYS:
-                            state.pop(k, None)
-                        atomic_write(state_path, state)
+                    if "robot_distance_m" in load_state(state_path):
+                        hud_state.merge(state_path, remove=ROBOT_KEYS)
                         print("robot_bridge: Robo-Signal verloren - Marker entfernt")
                     last_seen = None
                 continue

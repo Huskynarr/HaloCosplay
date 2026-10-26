@@ -24,6 +24,8 @@ import os
 import sys
 import time
 
+import hud_state
+
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 DEFAULT_BAUD = 115200
 DEFAULT_STATE = os.path.join(BASE_DIR, "hud_state.json")
@@ -58,11 +60,12 @@ def update_files(data, state_path, battery_path, keep_state=None):
     keep_state preserves fields the sensor does not provide (e.g. ammo/shield
     set by another module) across writes.
     """
-    state = dict(keep_state or {})
+    updates = dict(keep_state or {})
     if "heading" in data:
-        state["heading"] = data["heading"]
-    if state:
-        atomic_write(state_path, state)
+        updates["heading"] = data["heading"]
+    # merge() aendert nur diese Schluessel - Werte anderer Module (robot_*,
+    # vision_*, ammo, shield) bleiben erhalten, auch wenn sie sich spaeter aendern
+    state = hud_state.merge(state_path, updates) if updates else {}
 
     battery = {}
     if "battery" in data:
@@ -72,18 +75,6 @@ def update_files(data, state_path, battery_path, keep_state=None):
     if battery:
         atomic_write(battery_path, battery)
     return state
-
-
-def load_existing_state(state_path):
-    """Read current hud_state.json so we don't clobber ammo/shield etc."""
-    if not os.path.exists(state_path):
-        return {}
-    try:
-        with open(state_path, "r", encoding="utf-8") as handle:
-            data = json.load(handle)
-        return data if isinstance(data, dict) else {}
-    except (OSError, ValueError):
-        return {}
 
 
 def run(port, baud, state_path, battery_path, reconnect_delay=2.0):
@@ -98,16 +89,13 @@ def run(port, baud, state_path, battery_path, reconnect_delay=2.0):
         try:
             with serial.Serial(port, baud, timeout=1.0) as ser:
                 print("sensor_bridge: verbunden")
-                # keep ammo/shield that other modules may have written
-                keep = {k: v for k, v in load_existing_state(state_path).items()
-                        if k in ("ammo", "shield_percent")}
                 while True:
                     raw = ser.readline().decode("utf-8", errors="ignore")
                     if not raw:
                         continue  # timeout, just keep waiting
                     data = parse_line(raw)
                     if data:
-                        update_files(data, state_path, battery_path, keep)
+                        update_files(data, state_path, battery_path)
         except serial.SerialException as exc:
             print(f"sensor_bridge: Port-Problem ({exc}), neuer Versuch in "
                   f"{reconnect_delay}s", file=sys.stderr)
