@@ -27,7 +27,7 @@ pauschale Zusage einer vollstaendig erhaltenen Sicht entfaellt.
 
 ## 2. Fertige Near-Eye-Optik als bevorzugter Ausbau
 
-Stand der Herstellerrecherche: 2026-09-09. Fuer das funktionsfaehige Helm-HUD
+Stand der Herstellerrecherche: 2026-10-28. Fuer das funktionsfaehige Helm-HUD
 wird ein komplettes optisches System mit Treiber bevorzugt. Ein hoeheres
 Displaybudget ist vorgesehen; die folgende Auswahl ist noch keine Bestellung
 oder bestaetigte mechanische Integration.
@@ -36,6 +36,9 @@ oder bestaetigte mechanische Integration.
 | --- | --- | --- |
 | [ENMESI R3](https://www.enmesi.com/sale-12375134-mipi-1920-1080-type-c-micro-lcd-display-module-for-augmented-reality-wearable.html) | LCOS-Waveguide, 1920 x 1080, 40 Grad FOV, 60 Hz; angegebene Transmission ueber 82 Prozent; Controller Type-C, internes Panel MIPI | Interessant fuer eine eigene Helmkassette. Preis verhandelbar, Mindestmenge 50 Stueck. Einzelmuster, vollstaendiger optischer Lieferumfang und Videoeingangsprotokoll unbestaetigt. |
 | [XREAL One Pro](https://www.xreal.com/one-pro) | Fertige Farb-Displaybrille, 57 Grad FOV, bis 120 Hz; USB-C mit DisplayPort-Ausgabe an der Quelle erforderlich | Praktischer Kandidat fuer einen ersten vollstaendigen HUD-Versuch. Zunaechst unzerlegt testen; Brillenrahmen, Tasten und Kabel muessen unter den Helm passen. |
+| [Birdbath-Module auf AliExpress](https://www.aliexpress.com/w/wholesale-birdbath-ar-module.html) | Birdbath-Optik mit 0.52/0.71/1.03 Zoll Micro-OLED oder Micro-LCD, FOV 30-50 Grad, teilweise mit Treiberplatine und HDMI/Type-C | Preiswerter Einstieg fuer eine eigene Helmkassette. Lieferumfang, Transmission und Eyebox je Anbieter stark unterschiedlich; Einzelmuster mit Spezifikation anfordern. |
+| [Viture Pro XR](https://www.viture.com/products/viture-pro-xr) | Fertige Farb-Displaybrille, 46 Grad FOV, 120 Hz, electrochromic Dimming; USB-C DisplayPort-Eingang | Alternative zur XREAL One Pro mit eingebauter Abdunkelung. Preis und Verfuegbarkeit vor Kauf pruefen; Brillenrahmen muessen unter den Helm passen. |
+| [Even Realities G1](https://www.evenrealities.com/g1) | Fertige AR-Brille mit Waveguide, gruenes monochromes Display, sehr geringes Gewicht, Bluetooth statt DisplayPort | Kompakte Alternative fuer dezente Statusanzeigen. Kein farbiges Bild und kein DisplayPort-Videoeingang; Anbindung laeuft ueber App/Bluetooth, nicht direkt vom Helm-Rechner. |
 
 Der [XREAL EU-Shop](https://eu.shop.xreal.com/products/xreal-one-pro) zeigte
 599 EUR inklusive Steuern, statt 689 EUR. Der Abruf enthielt sowohl Kauf- als
@@ -43,6 +46,13 @@ auch Nachlieferungsanzeigen; Bestand der passenden Variante ist damit nicht
 bestaetigt. Versand und gegebenenfalls Sehhilfen kommen separat hinzu.
 Die Produktseite unterscheidet IPD-Varianten 57-66 und 66-75 mm; die passende
 Variante folgt der Messung und Passprobe.
+
+Fuer eine eigene Helmkassette bleiben die Birdbath-Module und der ENMESI R3 die
+interessantesten Wege, weil sie eine Optik ohne fertigen Brillenrahmen liefern.
+Fertige Brillen wie XREAL One Pro oder Viture Pro XR sind der schnellere Test,
+bringen aber Rahmen, Gewicht und Kabelfuehrung mit, die unter dem Helm Platz
+brauchen. Das Even Realities G1 ist die dezenteste Loesung, ersetzt aber keinen
+farbigen Videoeingang und eignet sich eher fuer Status- als fuer Bildinhalte.
 
 Beim R3 ist die Angabe "Pupil Distance 18mm" nicht eindeutig definiert und wird
 nicht als Augenabstand eines Menschen uebernommen. Ebenso beschreibt die
