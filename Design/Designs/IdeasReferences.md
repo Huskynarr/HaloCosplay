@@ -7,6 +7,24 @@ Sammlung von Erweiterungsideen fuer das HUD und die Ruestungselektronik. Von ein
 - Pinterest Master Chief HUD: https://www.pinterest.de/pin/424112489902404943/
 - DeviantArt HUD Concept: https://www.deviantart.com/blooderific/art/Halo-Master-Chief-hud-444610711
 
+## Prop- und Nebel-Referenzen
+
+### PMI Smoke Vest (oft auch als "Smokewest" bezeichnet)
+
+- Offizielle Produktreferenz: https://pmigear.com/products/pmi-smoke-vest-on-body-smoke-system
+- Interessant fuer das Projekt sind nicht die genaue Produktform, sondern die
+  **modulare Verteilung**: geschuetzte Fogger-Tasche am Koerper, flexible
+  Schlauchfuehrung, zusaetzliche Schlauchlaengen und frei waehlbare
+  Austrittspunkte.
+- **Waffe:** Der Nebelerzeuger bleibt am Koerper; ein abnehmbarer Schlaucharm
+  versorgt einen Diffusor an Muzzle/Seitenauslass der Prop-Waffe.
+- **Schubduesen:** Ein zentraler Nebler speist beide Duesen ueber einen
+  Y-Verteiler. Die Duesen bleiben als beleuchtete, austauschbare Endmodule
+  wartbar.
+- Die PMI Smoke Vest dient nur als Design- und Aufbauinspiration. Beheizter
+  Fog bleibt auf kontrollierte Outdoor-/Photoshooting-Szenarien beschraenkt;
+  fuer Conventions bleibt die kalte, rueckstandsfreie Variante die erste Wahl.
+
 ## Software-Ideen (nach Schwierigkeit)
 
 ### Einfach (Pi Zero 2 W reicht)
