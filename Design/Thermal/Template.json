@@ -1,0 +1,33 @@
+{
+  "schema_version": 1,
+  "project": "My Suit",
+  "status": "inputs_pending",
+  "notes": "",
+  "modules": [
+    {
+      "id": "Sink-1",
+      "heat_load_w": null,
+      "ambient_c": null,
+      "sink_ambient_k_per_w": null,
+      "surface_limit_c": null,
+      "junction_paths": [
+        {
+          "id": "Die-1",
+          "heat_w": null,
+          "junction_to_sink_k_per_w": null,
+          "junction_limit_c": null
+        }
+      ]
+    }
+  ],
+  "vents": [
+    {
+      "id": "Duct-1",
+      "heat_w": null,
+      "measured_flow_m3_h": null,
+      "ambient_c": null,
+      "rho_kg_m3": null,
+      "cp_j_kg_k": null
+    }
+  ]
+}

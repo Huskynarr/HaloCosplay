@@ -16,7 +16,9 @@ Dieses Verzeichnis enthaelt Beispielcode fuer Helm- und Ruestungs-LEDs sowie das
   parallel zum HUD. Test ohne Hardware: `python3 sensor_bridge.py --selftest`
 - `robot_bridge.py` - **Konzept-Bruecke** Begleit-Roboter (WLAN/UDP) ->
   `hud_state.json`, zeigt den Robo als Marker auf dem Motion-Tracker. Siehe
-  `Documentation/Guides/Begleitroboter-Integration.md`. Test: `python3 robot_bridge.py --selftest`
+  [Begleitguide](../Documentation/Guides/Begleitroboter-Integration.md).
+  Nur Anzeige, keine Bewegungssteuerung; Datenalter bei Prozessausfall und
+  konkurrierende Schreiber sind noch offen. Test: `python3 robot_bridge.py --selftest`
 - `requirements.txt` - Python-Dependencies (`pip install -r requirements.txt`)
 - `config.example.json` - Beispiel-Konfiguration (als `config.json` kopieren)
 - `battery.example.json` - Beispiel fuer Batteriestatus-Datei

@@ -1,5 +1,23 @@
 # Dokumentationshub
 
+## Eigenes Projekt
+
+[Digitales Baupaket erzeugen](Guides/Mjolnir-Baupaket.md): ein gemeinsamer
+Projektstand mit CAD-Proben, 23 Bauteilen, Modelldateipruefung, Budget,
+Technikrechnung und real auszufuellenden Bauprotokollen.
+
+[Konfiguration und mehrere Profile](Guides/Mjolnir-Konfiguration.md): leere
+Messfelder, eigene Ruestungsreferenz, Materialweg und optionale Ausstattung.
+Der [Systementwurf](Guides/Mjolnir-Systementwurf.md) beschreibt den mechanischen
+Einstieg und die Grenzen des parametrischen Bauraummodells.
+
+- [Referenzmerkmale und vollstaendige Detailgestaltung](Guides/Mjolnir-Detailgestaltung.md)
+- [Visier-, Luefter-, Fugen-, Gelenk- und Scharnierproben](../Design/Components/README.md)
+- [Elektrische und mechanische Auslegung mit eigenen Eingaben](Guides/Mjolnir-Technik-Auslegung.md)
+- [Einbauplan fuer Akkus, Luft, Licht und Helmtechnik](Guides/Mjolnir-Einbauplan.md)
+- [Selbstanziehen mit aufklappbaren Arm-/Beinkassetten](Guides/Mjolnir-Selbstanziehen.md)
+- [Highpower-RGB und getrennte Waermewege](Guides/Mjolnir-Lichtmodule.md)
+
 Dieses Verzeichnis sammelt alle Kerninhalte fuer das Halo MJOLNIR Cosplay Projekt. Fokus: tragbares, sicheres, moeglichst authentisches Ergebnis mit klaren Ausbaustufen.
 
 ## Einstieg
@@ -8,7 +26,7 @@ Dieses Verzeichnis sammelt alle Kerninhalte fuer das Halo MJOLNIR Cosplay Projek
 - Phasen-Kurzuebersicht (verweist auf den Walkthrough): `Documentation/Guides/BuildGuide.md`
 - Start hier: `Documentation/Guides/Start-Hier.md`
 - Variantenvergleich und Auswahl: `Documentation/Guides/Varianten.md`
-- **Authentischer Halo-Infinite-Look (Referenz):** `Documentation/Guides/Authentizitaet-Referenz.md`
+- **Ruestungsreferenz und optische Abnahme:** `Documentation/Guides/Authentizitaet-Referenz.md`
 - **Messblatt (Koerpermasse):** `Documentation/Guides/Messblatt.md`
 - **Anfaengerfehler (Top 15):** `Documentation/Guides/Anfaengerfehler.md`
 - Checklisten: `Documentation/Guides/Checklisten.md`
@@ -95,7 +113,7 @@ Dieses Verzeichnis sammelt alle Kerninhalte fuer das Halo MJOLNIR Cosplay Projek
 
 ## Projektprinzipien
 
-- Modulares Design: V1 -> V2 -> V3 ausbaubar
+- Modulares Design: Material, Referenz und Technik je Profil kombinieren; Schnittstellen pruefen
 - Gewicht zuerst: Tragbarkeit geht vor Detailgrad
 - Elektronik entkoppeln: austauschbare Module, sichere Kabelwege
 - Dokumentation laufend pflegen (Passform, Tests, Lessons Learned)
