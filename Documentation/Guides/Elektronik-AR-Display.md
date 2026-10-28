@@ -1,184 +1,183 @@
-# Elektronik: AR-Display fuer den Helm
+# Elektronik: HUD, transparentes Display und AR im Helm
 
-> **Level:** [A] Stufe A (alle) | [F] Stufe B | [P] Stufe C (Profi)  |  **Varianten:** Stufe A alle, Stufe C nur V3
-> **Voraussetzungen:** Fuer Stufe C solides Strom-/Hitzebudget (`Documentation/Guides/Elektronik-Strombudget.md`), Linux/OpenCV-Kenntnisse und zwingend ein Sicherheits-Failsafe (Abschnitt 3).
+Die vorgesehene Basis ist ein optisch durchsichtiges Visier. Ein optionales,
+seitlich angeordnetes und von Hand wegklappbares monokulares HUD ergaenzt kleine
+Statusanzeigen. Kamera und Anzeige ersetzen beim Gehen nicht die direkte Sicht.
+Die genaue Einbaulage beschreibt [Helmintegration](Mjolnir-Helmintegration.md).
 
-Dieser Guide behandelt das Thema "Augmented Reality" im Master-Chief-Helm (HALO INFINITE, MJOLNIR GEN3) ehrlich und technisch fundiert. Das Wunschziel vieler Builder ist ein Voll-AR-Helm mit Kamera-Passthrough wie im Spiel. Das ist machbar, aber teuer, schwer, stromhungrig und sicherheitskritisch. Dieser Guide erklaert die Stufen, das Endausbau-Konzept (V3) und vor allem die Grenzen und Risiken.
+## 1. Transparent ist noch kein lesbares HUD
 
-**Kurzfassung:** Fuer fast alle Conventions ist Stufe A (statischer HUD-Look) die richtige Wahl. Stufe C (Kamera-Passthrough) ist ein Showpiece fuer kontrollierte Umgebungen, kein Alltags-Setup.
+Ein transparentes OLED ist eine echte Anzeige, aber kein fertiges Near-Eye-System.
+Wenige Zentimeter vor dem Auge lassen sich seine Pixel normalerweise nicht
+bequem scharfstellen. Fuer ein virtuell weiter entferntes Bild werden passende
+Abbildungsoptik, Augenabstand und Justage benoetigt. Ein einfacher transparenter
+Spiegel allein loest das Fokusproblem nicht. Das ist auch die zentrale Aufgabe
+von Near-Eye-Optiken in der [optischen Fachliteratur](https://www.nature.com/articles/s41377-024-01674-0).
 
-## 1. Was bedeutet "AR" im Cosplay
-
-Der Begriff "AR" wird im Cosplay sehr unscharf benutzt. In der Praxis gibt es drei klar trennbare Stufen mit komplett unterschiedlichem Aufwand und Risiko.
-
-### Stufe A: Statischer HUD-Look (Empfehlung fuer alle)
-
-Ein transparentes OLED zeigt eine fixe oder animierte HALO-Infinite-Grafik (Schildbalken, Munitionsanzeige, Wegpunkte, Boot-Sequenz). Das Bild ist Deko, es trackt nichts, es reagiert nicht auf die Umgebung. Die direkte Sicht durch den Visor bleibt vollstaendig erhalten.
-
-- Sicher: kein Sichtverlust, kein Sturzrisiko durch Elektronik
-- Leicht, stromsparend, bereits vollstaendig dokumentiert
-- Genau das, was 99% der Betrachter als "AR-Helm" wahrnehmen
-
-Details dazu in `Documentation/Guides/Elektronik-HUD.md` und zur optischen Umsetzung in `Documentation/Guides/LED-Visor-Forschung.md`.
-
-### Stufe B: See-Through-Combiner (schwebendes Bild)
-
-Ein kleines Display strahlt ueber einen halbdurchlaessigen Spiegel (Beamsplitter, "Combiner") in das Sichtfeld. Das HUD-Bild scheint zu schweben, die reale Umgebung bleibt durch das Glas hindurch sichtbar. Das ist optisch dem "echten" AR am naechsten, ohne die Sicht zu ersetzen.
-
-- Sicht bleibt frei (Bild liegt ueber der Realsicht, nicht statt ihr)
-- Deutlich aufwendiger als Stufe A: Optik, Fokus, Justage
-- Im Helm wenig Platz fuer einen sauberen Combiner-Aufbau
-- Realistisch eher monokular (ein Auge), zweiaeugig ist sehr fummelig
-
-Stufe B ist ein guter Mittelweg fuer V2/V3, wenn man mehr will als ein statisches Bild, aber die Sicherheit der Realsicht nicht aufgeben moechte.
-
-### Stufe C: Voll-AR mit Kamera-Passthrough (Showpiece)
-
-Eine Kamera filmt die Umgebung, ein Rechner legt ein HUD-Overlay darueber, das Ergebnis geht auf ein Display direkt vor den Augen. Die direkte Sicht durch den Visor wird ersetzt. Das ist der Endausbau-Wunsch (V3) und das, was im Spiel passiert.
-
-- Maximaler Wow-Effekt, echtes "Spiel-Feeling"
-- Hoechster Aufwand, hoechste Kosten, hoechstes Gewicht
-- **Sicherheitskritisch:** wer die Realsicht ersetzt, sieht bei jedem Fehler nichts mehr (siehe Abschnitt 3)
-
-## 2. Stufe C im Detail (Kamera-Passthrough)
-
-Passthrough heisst: jeder Frame muss Kamera -> Rechner -> Overlay -> Display in moeglichst unter 20-30 ms durchlaufen. Alles darueber fuehlt sich wie "Schwimmen" an, verursacht Uebelkeit (Motion Sickness) und macht das Gehen gefaehrlich. Deshalb gilt:
-
-> **ESP32, Arduino und Raspberry Pi Zero reichen fuer Passthrough NICHT aus.** Sie haben weder die Rechenleistung noch die Kamera-/Display-Bandbreite. Diese Boards bleiben fuer LEDs, Luefter und Sensorik.
-
-### Rechner (das Herz)
-
-| Plattform | Eignung Passthrough | Hinweis |
+| Ausfuehrung | Wirkung | Entscheidung fuer dieses Projekt |
 | --- | --- | --- |
-| Raspberry Pi Zero 2 W | ungeeignet | nur fuer Stufe A (statischer HUD) |
-| ESP32 / Arduino | ungeeignet | nur LEDs/Luefter/Sensorik |
-| Raspberry Pi 4 (4-8 GB) | Minimum | CSI-Kamera + kleines Display, einfaches Overlay, mit Tuning Richtung niedrige Latenz |
-| Raspberry Pi 5 | brauchbar | mehr Reserve, aber mehr Hitze und Strom |
-| Jetson Nano / Orin Nano | gut | dedizierte GPU, ideal fuer schwerere Overlays/CV, teuer und durstig |
+| Kleine Anzeige als sichtbare Helm-Dekoration | Pixel sind von aussen oder auf dem Tisch sichtbar; Lesbarkeit am Auge offen | Guenstiger Effektversuch, ausserhalb des zentralen Sichtfensters |
+| Monokulares HUD mit Abbildungsoptik und Combiner | Kleine Information scheinbar vor der realen Umgebung | Optionaler Ausbau nach optischer Passprobe |
+| Ganzflaechige transparente Scheibe ohne Optik | Kein automatisch scharfes oder raeumlich verankertes Bild | Kein vorgesehener AR-Ersatz |
+| Kamera-Passthrough mit augennaher Anzeige | Direkte Sicht wird durch Video ersetzt | Getrennter stationaerer Demonstrator |
 
-Realistisch: Pi 5 oder Jetson, wenn es fluessig sein soll. Pi 4 geht als Einstieg, wird aber schnell zum Latenz-Flaschenhals, sobald das Overlay aufwendiger wird.
+Auch ein transparentes Display reduziert oder veraendert die Durchsicht durch
+Rahmen, Leiterbahnen, Tinte, Reflexionen und leuchtende Bildinhalte. Die fruehere
+pauschale Zusage einer vollstaendig erhaltenen Sicht entfaellt.
 
-### Kamera
+## 2. Fertige Near-Eye-Optik als bevorzugter Ausbau
 
-- **CSI-Kamera** (direkt am Pi/Jetson) statt USB-Webcam: niedrigere Latenz, weniger CPU-Overhead
-- Sichtfeld (FOV): moeglichst weit (90-120 Grad), sonst entsteht Tunnelblick (siehe Abschnitt 3)
-- Globaler vs. Rolling Shutter: Rolling Shutter "verwischt" bei schnellen Kopfbewegungen
-- Eine Kamera mittig ist einfach, erzeugt aber einen Parallaxe-Versatz zur echten Augenposition (man greift daneben). Zwei Kameras fuer Stereo verdoppeln Aufwand und Latenz.
-- Schwachlicht: Conventions sind oft dunkel; billige Kameras rauschen stark und werden langsam (laengere Belichtung = mehr Latenz)
+Stand der Herstellerrecherche: 2026-09-09. Fuer das funktionsfaehige Helm-HUD
+wird ein komplettes optisches System mit Treiber bevorzugt. Ein hoeheres
+Displaybudget ist vorgesehen; die folgende Auswahl ist noch keine Bestellung
+oder bestaetigte mechanische Integration.
 
-### Display
-
-- Ein kleines LCD/OLED pro Auge oder ein gemeinsames Display mit Optik vor beiden Augen
-- Wichtig: Aufloesung, Helligkeit, und vor allem die Optik (Linse), damit das Bild ein paar Zentimeter vor dem Auge ueberhaupt scharf erscheint
-- Hohe Bildrate (>= 60 fps) reduziert Uebelkeit
-- Mehr Pixel und mehr Helligkeit = mehr Strom und mehr Hitze
-
-### Software (Grundidee)
-
-Die Pipeline ist im Kern simpel, die Tuecke steckt in der Latenz:
-
-```
-1. Kamera-Frame holen      (CSI, libcamera / picamera2)
-2. Optional: entzerren     (OpenCV, falls Weitwinkel-Verzerrung)
-3. HUD-Overlay zeichnen     (Schild, Munition, Wegpunkte)
-4. Frame auf Display ausgeben (Pygame / Framebuffer / DRM)
-5. zurueck zu 1 (Zielschleife unter 20-30 ms)
-```
-
-- **OpenCV** fuer Frame-Handling, einfache Bildverarbeitung und fortgeschrittene Filter:
-  - **Freund-Feind-Erkennung (IFF):** Echtzeit-Bildanalyse zur Personenerkennung (z. B. via Haar-Cascades oder YOLO). Personen im Sichtfeld werden mit einem roten Zielrahmen ("TARGET DETECTED") markiert.
-  - **Nachtsicht und Zoom:** Digitale Aufbereitung des Video-Feeds (z. B. gruener Farbkanal-Filter fuer Nachtsicht und digitaler Zoom), steuerbar ueber Sprachbefehle oder Taster.
-  - **Munitions-Telemetrie:** Drahtlose (Bluetooth) oder serielle Schnittstelle zur direkten Koppelung mit der Ruestungswaffe (MA40/MA5), um den Echtzeit-Munitionsstand direkt im Helm-HUD einzublenden.
-- **Pygame** oder direkter Framebuffer-/DRM-Zugriff fuer schnelle Ausgabe ohne Desktop-Overhead
-- Kein Desktop, keine WLAN-Last, GPU-Pfad nutzen wo moeglich
-- Jede zusaetzliche "intelligente" Funktion (Objekterkennung, Tracking) kostet Latenz und Strom
-
-Beispielcode im Repo:
-- **Stufe A (statisches OLED-HUD):** `Code/HelmetControl/hud_display.py`
-- **Stufe C (Passthrough-Pipeline):** `Code/HelmetControl/AR/` - lauffaehiges Beispiel mit
-  Kamera-Anbindung (picamera2/OpenCV), Halo-HUD-Overlay (`hud_overlay.py`), Latenzmessung
-  und Sicherheits-Failsafe (`ar_passthrough.py`), dazu ein ESP32-Sensor-Feeder
-  (`SensorFeeder/SensorFeeder.ino`). Hardwarefreier Test:
-  `python3 ar_passthrough.py --selftest hud_test.png`. Details: `Code/HelmetControl/AR/README.md`.
-
-Das Beispiel ist bewusst schlank gehalten; eine produktive, ruckelfreie Passthrough-Pipeline
-mit niedriger Latenz bleibt ein eigenes, groesseres Software-Projekt.
-
-## 3. Sicherheit (zwingend lesen)
-
-Sobald Stufe C die direkte Sicht ersetzt, ist die Elektronik sicherheitskritisch. Ein HUD-Bug ist harmlos, ein blinder Cosplayer auf einer Treppe nicht.
-
-### Die konkreten Gefahren
-
-- **Latenz/Ruckeln:** verzoegertes Bild = Uebelkeit, Fehleinschaetzung von Distanzen, Stolpern
-- **Ausfall (Software-Crash, Kabelbruch, Akkuausfall):** Display wird schwarz = sofortige Blindheit mitten in der Bewegung
-- **Tunnelblick:** Kamera-FOV ist kleiner als das menschliche Sichtfeld; Hindernisse seitlich werden nicht gesehen
-- **Fehlende Tiefenwahrnehmung:** eine Mono-Kamera liefert kein echtes 3D; Treppenstufen, Tischkanten und Abstaende werden falsch eingeschaetzt
-- **Parallaxe:** Kamera sitzt nicht exakt auf Augenhoehe -> man greift und tritt daneben
-- **Hitze:** Pi/Jetson plus Display direkt am Kopf, im geschlossenen Helm
-
-### Pflicht-Regeln fuer Stufe C
-
-1. **Immer ein mechanischer Notausblick.** Visor in Sekunden hochklappbar oder absetzbar, ohne Werkzeug, ohne fremde Hilfe. Quick-Release am Visor ist Pflicht.
-2. **Quick-Release am Helm/Visor** so positionieren, dass er auch mit Handschuhen blind erreichbar ist.
-3. **Handler zwingend.** Eine begleitende Person, die fuehrt, warnt und im Notfall den Helm abnimmt. Nie allein mit aktivem Passthrough laufen.
-4. **Nicht auf Treppen, Rolltreppen, Rampen oder in Menschenmengen** mit aktivem Passthrough. Vorher Visor hoch oder Helm ab.
-5. **Sichtbarer Test vor jedem Einsatz:** Akkustand, Latenz, Bildausfall-Verhalten. Bei Ausfall sofort Notausblick nutzen.
-6. **Akku-Reserve und sauberes Failsafe:** definiertes Verhalten bei Unterspannung; im Zweifel lieber rechtzeitig Visor hoch.
-7. **Stationaer bevorzugen:** Passthrough am besten im Stehen/Sitzen auf der Buehne oder am Stand vorfuehren, nicht beim Laufen durch die Halle.
-
-Mehr zu allgemeiner Tragesicherheit, Hitze und Notausstieg in `Documentation/Guides/Sicherheit.md`. Praxis im Con-Alltag (Gedraenge, Pausen, Handler) in `Documentation/Guides/Convention-Alltag.md`.
-
-## 4. Realistische Empfehlung
-
-Fuer den allergroessten Teil aller Auftritte ist **Stufe A (statischer HUD)** die richtige Wahl: sicher, leicht, robust, und vom Betrachter ohnehin nicht von "echtem" AR zu unterscheiden. Stufe B ist der ambitionierte Mittelweg, wenn man ein schwebendes Bild bei freier Sicht moechte. **Stufe C ist ein Showpiece** fuer kontrollierte Umgebungen (Buehne, Foto-Set, eigener Stand) mit Handler.
-
-### Microcontroller-Rollenverteilung
-
-Auch im Voll-AR-Helm bleibt die klassische Arbeitsteilung sinnvoll:
-
-| Aufgabe | Plattform | Begruendung |
+| Kandidat | Belegte Herstellerangaben | Einordnung und offene Punkte |
 | --- | --- | --- |
-| Kamera + Overlay + Display | Raspberry Pi 4/5 oder Jetson | braucht Rechenleistung und Bandbreite |
-| LED-Effekte (Visor, Armor) | ESP32 / Arduino Nano | echtzeitfaehig, stromsparend, robust |
-| Luefter-Steuerung (PWM, Temperatur) | ESP32 / Arduino | laeuft unabhaengig vom Grafik-Rechner weiter |
-| Sensorik (Taster, Temperatur, Akku) | ESP32 / Arduino | entlastet den Pi, einfaches Failsafe |
+| [ENMESI R3](https://www.enmesi.com/sale-12375134-mipi-1920-1080-type-c-micro-lcd-display-module-for-augmented-reality-wearable.html) | LCOS-Waveguide, 1920 x 1080, 40 Grad FOV, 60 Hz; angegebene Transmission ueber 82 Prozent; Controller Type-C, internes Panel MIPI | Interessant fuer eine eigene Helmkassette. Preis verhandelbar, Mindestmenge 50 Stueck. Einzelmuster, vollstaendiger optischer Lieferumfang und Videoeingangsprotokoll unbestaetigt. |
+| [XREAL One Pro](https://www.xreal.com/one-pro) | Fertige Farb-Displaybrille, 57 Grad FOV, bis 120 Hz; USB-C mit DisplayPort-Ausgabe an der Quelle erforderlich | Praktischer Kandidat fuer einen ersten vollstaendigen HUD-Versuch. Zunaechst unzerlegt testen; Brillenrahmen, Tasten und Kabel muessen unter den Helm passen. |
 
-Wichtig: Luefter und Notbeleuchtung sollten **nicht** vom Grafik-Rechner abhaengen. Faellt der Pi aus, muessen Luefter und ein eventuelles Not-LED weiterlaufen.
+Der [XREAL EU-Shop](https://eu.shop.xreal.com/products/xreal-one-pro) zeigte
+599 EUR inklusive Steuern, statt 689 EUR. Der Abruf enthielt sowohl Kauf- als
+auch Nachlieferungsanzeigen; Bestand der passenden Variante ist damit nicht
+bestaetigt. Versand und gegebenenfalls Sehhilfen kommen separat hinzu.
+Die Produktseite unterscheidet IPD-Varianten 57-66 und 66-75 mm; die passende
+Variante folgt der Messung und Passprobe.
 
-## 5. Roadmap V1 -> V2 -> V3
+Beim R3 ist die Angabe "Pupil Distance 18mm" nicht eindeutig definiert und wird
+nicht als Augenabstand eines Menschen uebernommen. Ebenso beschreibt die
+Panel-Leistungsangabe nicht automatisch den Verbrauch von Beleuchtung,
+Controller und kompletter Optik. Diese Werte bleiben im Energieplan unbekannt.
+Alle genannten optischen Werte sind Herstellerangaben, keine Messungen am Helm.
 
-Die Varianten bauen aufeinander auf. Man kann jederzeit auf einer Stufe bleiben.
+AliExpress bleibt ein moeglicher Beschaffungskanal. Ein konkretes Angebot mit
+bestaetigtem Lieferumfang und Einzelstueckpreis konnte nicht verifiziert werden.
+Suchbegriffe: `optical see through AR module driver board`, `LCOS waveguide
+module evaluation kit`, `monocular HUD optical engine HDMI`. Ein als AR
+beworbenes Micro-OLED oder ein Kamerasucher kann die Umgebung verdecken;
+"AR" im Titel belegt keine Durchsicht.
 
-| Variante | AR-Stufe | Hardware | Komplexitaet | Grobkosten (nur AR/HUD-Anteil) |
-| --- | --- | --- | --- | --- |
-| V1 (Foam, Einsteiger) | A (oder gar kein HUD) | einfache gruene LEDs / kleines OLED | gering | ca. 20-60 EUR |
-| V2 (3D-Druck, Fortgeschritten) | A, optional B | Pi Zero 2 W + transparentes OLED, ggf. Combiner | mittel | ca. 80-200 EUR |
-| V3 (Profi, Exoskelett) | C (Showpiece), faellt auf A zurueck | Pi 5 / Jetson + CSI-Kamera + Display(s) + Optik | sehr hoch | ca. 300-700+ EUR |
+### 2.1 Beschaffung und Budget
 
-Empfohlener Pfad:
+Als eigene Planungsreserve werden **800-1200 EUR fuer einen Display-Prototyp**
+angesetzt, inklusive Optik/Brille, kompatibler Videoquelle beziehungsweise
+Adapter, Halter und Verkabelung. Das ist kein OEM-Angebot und umfasst keine
+kundenspezifische Waveguide-Entwicklung. Vorhandene geeignete Rechner koennen
+Kosten senken. Das generische Projektbudget wird erst nach Auswahl mit dem
+realen Preis und gemessenen Leistungsbedarf befuellt.
 
-1. **V1/V2 starten mit Stufe A.** Funktioniert, sieht gut aus, ist sicher.
-2. **Optional Stufe B testen** (Combiner an einem Auge), wenn Stufe A sitzt.
-3. **Stufe C nur in V3**, mit voller Sicherheitsausstattung (Quick-Release, Handler) und immer mit Rueckfallebene auf Stufe A oder freie Sicht.
+Vor einem OEM-Muster muessen folgende Angaben vorliegen:
 
-Allgemeine Variantenuebersicht: `Documentation/Guides/Varianten.md`. Exoskelett-Kontext fuer V3: `Documentation/Guides/Exoskelett.md`.
+- Exakte Artikelrevision, Einzelmusterpreis, Mindestmenge und Lieferzeit;
+  Aufstellung von Optik, Beleuchtung, Controller, Firmware und Kabeln.
+- Optische Durchsicht, Farbe, nutzbare Eyebox, Eye Relief, virtuelle Bildweite,
+  Helligkeit am Auge und Regelbereich; Zeichnungen mit Befestigungspunkten.
+- Tatsaechlicher Videoeingang und unterstuetzte Aufloesungen. Type-C alleine
+  bestaetigt weder DisplayPort noch USB-Video. MIPI benoetigt einen passenden
+  Controller und ist kein beliebiger HDMI-Anschluss.
+- Versorgung, Einschaltspitze, Dauerverbrauch und Temperaturgrenzen des
+  kompletten Systems; Wiederanlauf nach Kabel- und Stromunterbrechung.
 
-## 6. Strom und Hitze (der Knackpunkt von Stufe C)
+### 2.2 Integration in den Halo-Helm
 
-Ein Pi 4/5 oder Jetson plus Display zieht ein Vielfaches eines Pi Zero mit OLED und erzeugt entsprechend Abwaerme, direkt am Kopf.
+Der erste Versuch zeigt ein sparsames farbiges Halo-HUD: Schildbalken als
+kenntliche Inszenierung sowie echte Batterie-, Temperatur- und Modusdaten.
+Schwarzer Bildhintergrund reduziert leuchtende Flaechen, beseitigt aber weder
+Brillentint noch optische Verluste. Goldvisier und Brille werden gemeinsam auf
+Durchsicht, Reflexionen und Beschlag geprueft.
 
-- **Pi Zero 2 W + OLED (Stufe A):** ca. 0.3-0.4 A bei 5 V, kaum Hitze
-- **Pi 4 + Display + Kamera (Stufe C):** grob 1.5-3 A bei 5 V unter Last, deutliche Abwaerme
-- **Pi 5 / Jetson (Stufe C):** noch mehr; aktive Kuehlung Pflicht
+Host und grosse Energiequelle sitzen vorzugsweise im Torso; im Helm bleiben
+Optik und erforderliche Treiber. Kabel benoetigen Zugentlastung und eine
+loesbare Verbindung fuer das Abnehmen. Bei einer kompletten Brille werden
+zunaechst deren Originalrahmen und optische Justage erhalten. Eine wegklappbare
+OEM-Kassette folgt erst aus deren realer Geometrie und Eyebox.
 
-Konsequenzen, die vor dem Bau geklaert sein muessen:
+Eine Quelle mit USB-C-DP-Ausgang kann die XREAL direkt ansteuern. Bei HDMI ist
+ein aktiver, ausdruecklich fuer HDMI-Quelle zu USB-C-Display geeigneter und
+versorgter Adapter erforderlich; ein ueblicher USB-C-zu-HDMI-Adapter ist nicht
+umkehrbar. Diese Kombination ist vor Einbau am Tisch zu pruefen.
 
-1. **Strombudget neu rechnen.** Ein Stufe-C-Setup halbiert bis drittelt die Laufzeit gegenueber Stufe A. Akku entsprechend groesser dimensionieren. Details und Beispielrechnungen in `Documentation/Guides/Elektronik-Strombudget.md`.
-2. **Aktive Kuehlung.** Pi/Jetson brauchen Kuehlkoerper plus Luefter; im geschlossenen Helm zusaetzlich Helmbelueftung. Siehe `Documentation/Guides/Elektronik-Luefter.md`.
-3. **Akku-Auslegung und Sicherheit.** Groesserer LiPo/Powerbank, Schutzschaltung, sauberes Verhalten bei Unterspannung. Siehe `Documentation/Guides/Elektronik-Batterie.md`.
-4. **Verkabelung.** Hoehere Stroeme = dickere Leitungen, sauberer Stecker, Zugentlastung. Siehe `Documentation/Guides/Elektronik-Verdrahtung.md`.
+Der bestehende I2C-OLED-Code ist kein Farb-HDMI-/DP-Renderer. Ein passender
+Renderer mit Telemetrieanbindung, Ausfallanzeige fuer veraltete Messwerte und
+geprueftem Startverhalten bleibt Implementierungsarbeit nach Hardwareauswahl.
+Die Konfiguratoroption `hud=combiner` waehlt bisher nur ein Einbaukonzept;
+sie erzeugt keine XREAL-/R3-Treiber, CAD-Passform oder verifizierte Leistungsdaten.
 
-## Fazit
+### 2.3 Preiswerter Displayversuch als separate Option
 
-Voll-AR mit Kamera-Passthrough ist als V3-Showpiece machbar, aber es ist ein eigenes Hardware- und Software-Projekt mit echtem Verletzungsrisiko, sobald es die Sicht ersetzt. Wer einen zuverlaessigen, beeindruckenden Helm fuer den Con-Alltag will, faehrt mit **Stufe A** am besten. Stufe C nur bauen, wenn Latenz, Kuehlung, Akku und vor allem die Sicherheits-Rueckfallebene sauber geloest sind.
+**Waveshare 1.51inch Transparent OLED**: SSD1309, 128 x 64 Pixel, monochrom
+hellblau; aktive Flaeche 35.05 x 15.32 mm, Treiberplatine 41 x 22.5 mm.
+Das Modul unterstuetzt SPI und I2C bei 3.3/5 V Versorgung. Werkseitig ist
+Vierdraht-SPI gewaehlt; fuer I2C muessen laut Hersteller zwei 0-Ohm-Widerstaende
+umgesetzt werden. Anschluss- und Resetkonfiguration sind vor dem Betrieb zu
+pruefen. [Waveshare-Dokumentation](https://www.waveshare.net/wiki/1.51inch_Transparent_OLED)
+
+Die [Hersteller-Produktseite](https://www.waveshare.com/1.51inch-transparent-oled.htm)
+wurde am 2026-09-09 mit 19.99 USD und ohne Lagerbestand im Suchindex gefunden;
+der direkte Abruf war gesperrt. Das ist eine Preisorientierung, kein verfuegbares
+Angebot und kein deutscher Endpreis. Optik, Halter, Rechner, Versand und Abgaben
+sind nicht enthalten. Eine RGB-Anzeige oder ein grosses Visier entsteht daraus
+nicht.
+
+Der vorhandene [HUD-Code](../../Code/HelmetControl/hud_display.py) zeichnet ein
+128-x-64-Bild und benutzt I2C. Er ist damit nicht automatisch kompatibel mit dem
+SPI-Auslieferungszustand. Ein erfolgreicher PNG-Selbsttest prueft weder Anschluss,
+Resetsequenz, sichtbaren Bildausschnitt noch Lesbarkeit im Helm. Der
+[HUD-Inbetriebnahmeguide](Elektronik-HUD.md) trennt diese Schritte.
+
+## 3. Monokulares HUD als ausbaubares Modul
+
+Die mechanische Entwicklungsrichtung ist ein kleines Modul seitlich oberhalb
+der normalen Blickachse. Links oder rechts wird nach Passprobe entschieden;
+Augendominanz allein bestimmt die Position nicht. Das zentrale Sichtfenster und
+der Blick auf Boden und Stufen bleiben frei. Display, Linse und gegebenenfalls
+Combiner werden gemeinsam justiert und danach gegen Verstellen gesichert.
+
+Noetige Eigenschaften:
+
+- Einstellbare Hoehe, seitliche Lage, Neigung und optischer Abstand; Brille und
+  Wimpern duerfen bei Kopfbewegung keinen Kontakt bekommen.
+- Definierte wegklappbare Parkposition, die ohne Strom und mit Handschuhen
+  erreichbar ist; Kabelschlaufe ausserhalb der Klemmstellen.
+- Kleine Statusflaeche statt dauernd gefuelltem Bild; Helligkeit von dunkel aus
+  einstellen, Reflexe bei geschlossenem und offenem Visier vergleichen.
+- Abgerundete Einfassung des optischen Bauteils und mechanische Sicherung; ein
+  loses Displayglas gehoert nicht unmittelbar vor das Auge.
+
+Vor Detail-CAD sind der nutzbare Augenraum, die Austrittspupille beziehungsweise
+Eyebox des gewaehlten Optikmoduls, Scharfstellbereich und Sichtfeld zu erproben.
+Ein pauschaler Montageabstand von 3-5 cm ersetzt diese Angaben nicht. Eine
+beliebige Lupe oder ein Prisma wird deshalb nicht als fertiges Kaufrezept
+festgelegt.
+
+## 4. HUD-Funktion und echte AR unterscheiden
+
+Batteriestatus, Temperaturen, Betriebsmodus oder ein inszenierter Schildbalken
+brauchen keine AR. Eine tatsaechlich an der Umgebung verankerte Markierung
+braucht dagegen kalibrierte Optik, Lageverfolgung und ein geeignetes
+Koordinatensystem. Ein IMU-Kompass oder Kamera-Overlay alleine liefert das nicht.
+
+Die vorhandenen Demo-Anzeigen bleiben als Simulation kenntlich. Ein gruener
+Videofilter ist keine Nachtsicht, digitaler Zoom erzeugt keine zusaetzlichen
+Bilddetails und allgemeine Personenerkennung ist keine Freund-Feind-Erkennung.
+Solche Funktionen gehoeren nicht zur zugesagten Helm-Ausstattung.
+
+## 5. Kamera-Passthrough bleibt ein eigener Demonstrator
+
+[Code/HelmetControl/AR](../../Code/HelmetControl/AR/README.md) enthaelt eine
+Kamera-/Overlay-Demonstration. Der Code misst aktuell die Zeit um den
+Kameraabruf vor Overlay und Anzeige. Die dort dargestellten Latenz-/FPS-Werte
+sind deshalb **kein Nachweis der End-to-End-Latenz oder der sichtbaren Bildrate**.
+Belichtung, interne Puffer, Bildverarbeitung und Displayausgabe muessen fuer
+eine solche Messung mit erfasst werden. Ein Warnbanner hilft zudem nicht bei
+Stromausfall, blockierter Software oder ausgefallenem Bildschirm.
+
+Es gibt hier keinen nachgewiesenen Grenzwert, ab dem das Gehen mit diesem
+Eigenbau freigegeben waere. Ein leistungsstaerkerer Rechner, CSI oder 60 fps
+alleine liefern diese Freigabe ebenfalls nicht. Die Wahl des Rechners folgt
+der gemessenen kompletten Pipeline und dem Waermebudget.
+
+Fuer einen stationaeren Demonstrator gelten direkte mechanische Freisicht ohne
+Strom, erreichbare Helm-/Visierentriegelung und eine begleitende Person beim
+Versuch. Realsicht wird vor Ortswechsel wiederhergestellt. Der alltagstaugliche
+Projektpfad bleibt das durchsichtige Visier mit optionalem kleinen HUD.

@@ -1,4 +1,18 @@
-# Schuhe / Boots (Master Chief Cosplay)
+# Schuhe und Boot Covers nach eigenem Profil
+
+## Ausgangspunkt fuer alle Schuhformen
+
+Ein bequem passender Schuh bestimmt die Innengeometrie des Covers. Im
+[Projektprofil](../Documentation/Guides/Mjolnir-Konfiguration.md) werden
+Aussenlaenge und maximale Aussenbreite links/rechts separat erfasst. Spann-,
+Fersen- und Knoechelhoehe fuer die Detailkonstruktion zusaetzlich aufnehmen.
+EU-Groesse ist keine definierte Breite. Schmale und breite Fuesse erhalten
+eigene Cover, keine pauschale Vergroesserung um mehrere Schuhgroessen.
+
+Die folgenden Plattform-, Material- und Modellbeispiele sind Varianten.
+Eine Erhoehung ist kein Standard und wird aus Koerpergroesse oder Halo-Vorbild
+nicht automatisch abgeleitet. Laufsohle, Abrollbewegung und Bodenfreiheit
+am realen Schuh pruefen; Beispielgewichte gelten nicht fuer jedes Profil.
 
 Ziel: breite, massive Silhouette mit hoher Sohle, die man fuer Ruestung kaschieren kann.
 Spartan-Boots brauchen ein stabiles Fundament - die Schuhwahl bestimmt Komfort, Haltbarkeit und Gesamthaltung.

@@ -1,8 +1,13 @@
-# 3D-Druck Guide (Bambu Lab H2C)
+# 3D-Druck: Workflow und Druckerbeispiel
 
 > **Level:** [F] Fortgeschritten | [P] Profi  |  **Varianten:** V2/V3  |  **Voraussetzungen:** FDM-Drucker (Bambu Lab H2C), Slicer (Bambu Studio), STL-Dateien (siehe `Resources/STL-Quellen.md`), Grundkenntnisse 3D-Druck. Fachbegriffe siehe `Documentation/Guides/Glossar.md`.
 
-Dieser Guide beschreibt den 3D-Druck-Workflow fuer ein vollstaendiges Master Chief MJOLNIR Armor Set mit dem Bambu Lab H2C.
+Der Workflow gilt fuer gedruckte oder hybride Baugruppen aus dem
+[Projektprofil](Mjolnir-Konfiguration.md). Das folgende Bambu-Lab-Beispiel ist
+keine vorausgesetzte Ausstattung. Bauraum, Materialien, Firmware und Slicer
+am tatsaechlichen Drucker pruefen; grosse Schalen passend zum eigenen Bauraum
+segmentieren. Profilmasse ersetzen weder lokale Passlehren noch Lastversuche.
+Die nachfolgenden Druckwerte sind Ausgangsbeispiele, keine universelle Bauteilfreigabe.
 
 ## Drucker-Spezifikationen (H2C)
 

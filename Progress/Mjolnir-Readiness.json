@@ -1,0 +1,67 @@
+{
+  "schema_version": 1,
+  "revision": "template-r1",
+  "gates": [
+    {
+      "id": "REF",
+      "status": "open",
+      "evidence": []
+    },
+    {
+      "id": "FIT",
+      "status": "open",
+      "evidence": []
+    },
+    {
+      "id": "CAD",
+      "status": "open",
+      "evidence": []
+    },
+    {
+      "id": "MECH",
+      "status": "open",
+      "evidence": []
+    },
+    {
+      "id": "EXIT",
+      "status": "open",
+      "evidence": []
+    },
+    {
+      "id": "VISION",
+      "status": "open",
+      "evidence": []
+    },
+    {
+      "id": "THERMAL",
+      "status": "open",
+      "evidence": []
+    },
+    {
+      "id": "POWER",
+      "status": "open",
+      "evidence": []
+    },
+    {
+      "id": "FINISH",
+      "status": "open",
+      "evidence": []
+    },
+    {
+      "id": "STAND",
+      "status": "open",
+      "evidence": []
+    },
+    {
+      "id": "DEMO",
+      "status": "open",
+      "evidence": []
+    },
+    {
+      "id": "EVENT",
+      "status": "open",
+      "evidence": []
+    }
+  ],
+  "project": "Baukasten: ungetestetes Beispiel"
+}

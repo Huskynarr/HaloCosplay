@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark">
+  <title>Produktkatalog | Halo Cosplay</title>
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="style.css">
+  <script src="catalog.js" defer></script>
+  <script src="products.js" defer></script>
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <a class="skip" href="#catalog">Zum Produktkatalog</a>
+  <header>
+    <nav aria-label="Projekt"><a href="../index.html">Bauhandbuch</a><a href="../configurator/">Masskonfigurator</a><a href="../budget/">Budgetplaner</a><a href="../../Code/Exhibition/">Messeanzeige</a></nav>
+    <div class="hero"><div><p class="eyebrow">HALO COSPLAY / AUSRUESTUNG</p><h1>Vom Entwurf<br>zum passenden Bauteil.</h1><p class="intro">Produkte und Auswahlkriterien fuer Ruestung, Helm, Licht und Nebel. Mit Herstellerquellen, Bauanleitungen und einer eigenen Einkaufsmerkliste.</p></div><div class="hero-meta"><span id="total">—</span><p>Produkte &amp; Spezifikationen</p><small id="catalog-date"></small></div></div>
+  </header>
+  <main id="catalog">
+    <div class="notice"><strong>Auswahlhilfe fuer den Prototyp</strong><p>Kandidaten sind nicht als Gesamtsystem erprobt. Alternativen nicht automatisch gemeinsam bestellen. Preise und Verfuegbarkeit im Shop pruefen; es liegen keine aktuellen Preisangebote vor.</p><p id="disclosure">Werbung / Affiliate: Amazon-Suchlinks enthalten die Partnerkennung huskynarr-21. Herstellerlinks enthalten keine Partnerkennung.</p></div>
+    <noscript><p>Der interaktive Katalog benoetigt JavaScript. Die <a href="../../Materials/Einkaufsliste-Links.md">vollstaendige Einkaufsliste als Markdown</a> bleibt verfuegbar.</p></noscript>
+    <section class="filters" aria-label="Produkte filtern">
+      <label class="search">Produkt oder Funktion<input id="search" type="search" placeholder="z. B. Nebel, RGB, Kamerakabel …"></label>
+      <label>Baugruppe<select id="category"><option value="">Alle Baugruppen</option></select></label>
+      <label>Auswahlstatus<select id="status"><option value="">Alle Auswahlstaende</option><option value="candidate">Kandidat</option><option value="alternative">Option / Alternative</option><option value="specification">Produktspezifikation offen</option></select></label>
+      <label>Linktyp<select id="source"><option value="">Alle Quellen</option><option value="direct">Hersteller / Datenblatt</option><option value="search">Mit Shop-Suche</option></select></label>
+      <button id="reset" type="button">Filter zuruecksetzen</button>
+    </section>
+    <p id="context" hidden></p>
+    <div class="workspace">
+      <section aria-label="Produkte"><p id="count" role="status" aria-live="polite">Katalog wird geladen …</p><div id="cards" class="cards"></div><p id="empty" hidden>Keine passenden Eintraege. Suchbegriff kuerzen oder Filter zuruecksetzen.</p></section>
+      <aside class="selection" aria-labelledby="selection-title"><p class="eyebrow">EIGENE AUSWAHL</p><h2 id="selection-title">Einkaufsmerkliste</h2><p id="selection-count" aria-live="polite">0 Positionen</p><div id="selected"></div><p class="hint">Mengen werden einzeln festgelegt. Die Auswahl bleibt in diesem Fenster; zum Aufbewahren JSON herunterladen. Kein automatischer Warenkorb und keine Speicherung im Browser.</p><div class="actions"><button id="export-json" class="accent" type="button" disabled>JSON herunterladen</button><button id="export-csv" type="button" disabled>CSV herunterladen</button><button id="import" type="button">Merkliste importieren</button><button id="clear" type="button" disabled>Auswahl leeren</button></div><input id="file" type="file" accept=".json,application/json" hidden><p id="message" role="status" aria-live="polite"></p><a href="../budget/">Angebotspreise im Budgetplaner erfassen ↗</a><p class="hint">Katalog-Merklisten haben unbekannte Preise. Sie sind kein Importformat des Budgetplaners.</p></aside>
+    </div>
+  </main>
+  <a class="selection-shortcut" href="#selection-title" id="selection-jump">Zur Merkliste · 0</a>
+  <footer><a href="../index.html#Materials/Einkaufsliste-Links.md">Einkaufsliste im Bauhandbuch</a><p>Ein Quelldatum bestaetigt den geprueften Seiteninhalt, keine Hardwarefreigabe. Shop-Suchen sind keine geprueften Artikelangebote.</p></footer>
+</body>
+</html>

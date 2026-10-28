@@ -1,0 +1,49 @@
+{
+  "schema_version": 1,
+  "project": "My Suit",
+  "status": "inputs_pending",
+  "notes": "",
+  "target_duration_h": null,
+  "batteries": [
+    {
+      "id": "B1",
+      "usable_energy_wh": null
+    }
+  ],
+  "rails": [
+    {
+      "id": "R1",
+      "battery_id": "B1",
+      "voltage_v": null,
+      "efficiency_fraction": null,
+      "idle_input_w": null,
+      "consumers": [
+        {
+          "id": "C1",
+          "quantity": null,
+          "power_w": null,
+          "duty_fraction": null,
+          "peak_power_w": null
+        }
+      ]
+    }
+  ],
+  "hinges": [
+    {
+      "id": "H1",
+      "panel_mass_kg": null,
+      "com_distance_m": null,
+      "gravity_axis_factor": null
+    }
+  ],
+  "stand": {
+    "total_mass_kg": null,
+    "base_width_x_m": null,
+    "base_width_y_m": null,
+    "com_x_m": null,
+    "com_y_m": null,
+    "force_x_n": null,
+    "force_y_n": null,
+    "force_height_m": null
+  }
+}

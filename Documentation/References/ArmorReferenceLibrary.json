@@ -1,0 +1,2365 @@
+{
+  "schema_version": 1,
+  "checked_at": "2026-09-09",
+  "scope": "Quellen- und Bauteilkatalog; keine erworbenen Detaildateien oder physische Abnahme.",
+  "side_convention": "l/r aus Sicht der tragenden Person; front/back relativ zum Bauteil.",
+  "references": [
+    {
+      "id": "chief-infinite",
+      "title": "Halo Infinite: Master Chief, Kampagne, Mark VI GEN3",
+      "configuration": {
+        "game": "Halo Infinite",
+        "appearance": "Kampagnen-Master-Chief; Szene und Versionsstand im Projekt festhalten"
+      },
+      "sources": [
+        {
+          "id": "chief-campaign-definition",
+          "url": "https://www.halowaypoint.com/news/customization-overview-season-5",
+          "title": "Halo Waypoint: Customization Overview Season 5",
+          "kind": "official_article",
+          "scope": "Bestaetigt Kampagnen-GEN3 Mark VI und Abweichung des Multiplayer-Kits: fehlende 117, variable Farben/Embleme.",
+          "license_note": "Visuelle Referenz; keine Freigabe zur Weitergabe von Bildern oder Modellen abgeleitet."
+        },
+        {
+          "id": "chief-original-model",
+          "url": "https://kolbyjukes.artstation.com/projects/OyBR0w",
+          "title": "Kolby Jukes: Halo Infinite Master Chief model",
+          "kind": "original_artist_portfolio",
+          "scope": "Primarquelle des Modellautors mit Bildreferenzen. Modellstand/Marketinglicht vor Verwendung mit gewaehlter Kampagnenszene vergleichen.",
+          "license_note": "Visuelle Referenz; keine Freigabe zur Weitergabe von Bildern oder Modellen abgeleitet."
+        },
+        {
+          "id": "chief-cinematic-model",
+          "url": "https://omiiidmoradi.artstation.com/projects/d04ogJ",
+          "title": "Omid Moradi: Master Chief opening cinematic",
+          "kind": "original_artist_portfolio",
+          "scope": "Separates Cinematic-Modell auf Basis des Spielmodells. Nur Zusatzreferenz; nicht still mit Kampagnengeometrie vermischen.",
+          "license_note": "Visuelle Referenz; keine Freigabe zur Weitergabe von Bildern oder Modellen abgeleitet."
+        },
+        {
+          "id": "ga-chief-files",
+          "url": "https://galacticarmory.net/products/infinite-master-chief-armor-3d-print-files",
+          "title": "Galactic Armory: Infinite Master Chief Armor",
+          "kind": "paid_model_creator",
+          "scope": "Modellkandidat mit Armor Only/Armor + Helmet; flexible Anschluss- und Lueftungsvarianten laut Anbieter. Keine Passformabnahme.",
+          "license_note": "Anbieter nennt gesonderte kommerzielle Nutzung ueber Mitgliedschaft. Gekaufte Dateien und zugehoerige Bedingungen lokal dokumentieren; keine Repo-Weitergabe.",
+          "purchase_required": true,
+          "downloaded": false
+        },
+        {
+          "id": "nikko-chief-files",
+          "url": "https://www.nikkoindustries.com/products/halo-infinite-master-chief-armor",
+          "title": "Nikko Industries: Halo Infinite Master Chief Armor",
+          "kind": "paid_model_creator",
+          "scope": "Alternativer segmentierter Ruestungskandidat; vollstaendige Dateiliste und Helm-/Visierumfang vor Bezug pruefen.",
+          "license_note": "Anbieter: nur persoenliche Nutzung, kein kommerzieller Druck. Keine Repo-Weitergabe; Ausstellungsnutzung gesondert klaeren.",
+          "purchase_required": true,
+          "downloaded": false
+        }
+      ],
+      "parts": [
+        {
+          "id": "helmet",
+          "label": "Helmschale",
+          "reference_source_ids": [
+            "chief-original-model"
+          ],
+          "model_source_ids": [
+            "ga-chief-files",
+            "nikko-chief-files"
+          ],
+          "required_views": [
+            "front",
+            "left",
+            "right",
+            "back",
+            "top",
+            "bottom"
+          ],
+          "checkpoints": [
+            "Visieroeffnung und Stirnkante",
+            "Kinnkontur und Seitenmodule",
+            "Halsfreiheit bei Drehung"
+          ],
+          "missing_evidence": [
+            "Projektbezogener Bildausschnitt mit Ansicht und Datei-ID",
+            "Angepasstes Detailmodell oder Schnittmuster",
+            "Realer Form- und Passvergleich"
+          ],
+          "model_status": "not_imported",
+          "guide_pages_1based": []
+        },
+        {
+          "id": "visor",
+          "label": "Visier",
+          "reference_source_ids": [
+            "chief-original-model"
+          ],
+          "model_source_ids": [],
+          "required_views": [
+            "front",
+            "left",
+            "right",
+            "inside"
+          ],
+          "checkpoints": [
+            "Aussenkontur ohne Verzug",
+            "Durchsicht und Reflexion getrennt",
+            "Wechselbarer Randrahmen"
+          ],
+          "missing_evidence": [
+            "Projektbezogener Bildausschnitt mit Ansicht und Datei-ID",
+            "Angepasstes Detailmodell oder Schnittmuster",
+            "Realer Form- und Passvergleich"
+          ],
+          "model_status": "not_imported",
+          "guide_pages_1based": []
+        },
+        {
+          "id": "torso_front",
+          "label": "Torso vorne",
+          "reference_source_ids": [
+            "chief-original-model"
+          ],
+          "model_source_ids": [
+            "ga-chief-files",
+            "nikko-chief-files"
+          ],
+          "required_views": [
+            "front",
+            "left",
+            "right",
+            "top",
+            "bottom"
+          ],
+          "checkpoints": [
+            "Brustkontur und Plattenstaffelung",
+            "Markierungen und Emblemposition",
+            "Oeffnungsfuge in Plattengrenze"
+          ],
+          "missing_evidence": [
+            "Projektbezogener Bildausschnitt mit Ansicht und Datei-ID",
+            "Angepasstes Detailmodell oder Schnittmuster",
+            "Realer Form- und Passvergleich"
+          ],
+          "model_status": "not_imported",
+          "guide_pages_1based": []
+        },
+        {
+          "id": "torso_back",
+          "label": "Torso hinten",
+          "reference_source_ids": [
+            "chief-original-model"
+          ],
+          "model_source_ids": [
+            "ga-chief-files",
+            "nikko-chief-files"
+          ],
+          "required_views": [
+            "back",
+            "left",
+            "right",
+            "top",
+            "bottom"
+          ],
+          "checkpoints": [
+            "Rueckenmodule und Auslaesse",
+            "Technik bleibt hinter Aussenkontur",
+            "Zugang und Fluchtweg frei"
+          ],
+          "missing_evidence": [
+            "Projektbezogener Bildausschnitt mit Ansicht und Datei-ID",
+            "Angepasstes Detailmodell oder Schnittmuster",
+            "Realer Form- und Passvergleich"
+          ],
+          "model_status": "not_imported",
+          "guide_pages_1based": []
+        },
+        {
+          "id": "shoulder_l",
+          "label": "Schulter links",
+          "reference_source_ids": [
+            "chief-original-model"
+          ],
+          "model_source_ids": [
+            "ga-chief-files",
+            "nikko-chief-files"
+          ],
+          "required_views": [
+            "front",
+            "back",
+            "outer",
+            "inner",
+            "top",
+            "bottom"
+          ],
+          "checkpoints": [
+            "Kontur und seitengerechte Anbauteile",
+            "Ueberlappung bei Armhebung",
+            "Verdeckte schwebende Aufhaengung"
+          ],
+          "missing_evidence": [
+            "Projektbezogener Bildausschnitt mit Ansicht und Datei-ID",
+            "Angepasstes Detailmodell oder Schnittmuster",
+            "Realer Form- und Passvergleich"
+          ],
+          "model_status": "not_imported",
+          "guide_pages_1based": []
+        },
+        {
+          "id": "shoulder_r",
+          "label": "Schulter rechts",
+          "reference_source_ids": [
+            "chief-original-model"
+          ],
+          "model_source_ids": [
+            "ga-chief-files",
+            "nikko-chief-files"
+          ],
+          "required_views": [
+            "front",
+            "back",
+            "outer",
+            "inner",
+            "top",
+            "bottom"
+          ],
+          "checkpoints": [
+            "Kontur und seitengerechte Anbauteile",
+            "Ueberlappung bei Armhebung",
+            "Verdeckte schwebende Aufhaengung"
+          ],
+          "missing_evidence": [
+            "Projektbezogener Bildausschnitt mit Ansicht und Datei-ID",
+            "Angepasstes Detailmodell oder Schnittmuster",
+            "Realer Form- und Passvergleich"
+          ],
+          "model_status": "not_imported",
+          "guide_pages_1based": []
+        },
+        {
+          "id": "upperarm_l",
+          "label": "Oberarm links",
+          "reference_source_ids": [
+            "chief-original-model"
+          ],
+          "model_source_ids": [
+            "ga-chief-files",
+            "nikko-chief-files"
+          ],
+          "required_views": [
+            "front",
+            "back",
+            "outer",
+            "inner",
+            "top",
+            "bottom"
+          ],
+          "checkpoints": [
+            "Laenge zwischen Achsel und Ellenbogen",
+            "Drehfreiheit und Abschlusskante",
+            "Naht auf Innenseite oder Originalfuge"
+          ],
+          "missing_evidence": [
+            "Projektbezogener Bildausschnitt mit Ansicht und Datei-ID",
+            "Angepasstes Detailmodell oder Schnittmuster",
+            "Realer Form- und Passvergleich"
+          ],
+          "model_status": "not_imported",
+          "guide_pages_1based": []
+        },
+        {
+          "id": "upperarm_r",
+          "label": "Oberarm rechts",
+          "reference_source_ids": [
+            "chief-original-model"
+          ],
+          "model_source_ids": [
+            "ga-chief-files",
+            "nikko-chief-files"
+          ],
+          "required_views": [
+            "front",
+            "back",
+            "outer",
+            "inner",
+            "top",
+            "bottom"
+          ],
+          "checkpoints": [
+            "Laenge zwischen Achsel und Ellenbogen",
+            "Drehfreiheit und Abschlusskante",
+            "Naht auf Innenseite oder Originalfuge"
+          ],
+          "missing_evidence": [
+            "Projektbezogener Bildausschnitt mit Ansicht und Datei-ID",
+            "Angepasstes Detailmodell oder Schnittmuster",
+            "Realer Form- und Passvergleich"
+          ],
+          "model_status": "not_imported",
+          "guide_pages_1based": []
+        },
+        {
+          "id": "forearm_l",
+          "label": "Unterarm links",
+          "reference_source_ids": [
+            "chief-original-model"
+          ],
+          "model_source_ids": [
+            "ga-chief-files",
+            "nikko-chief-files"
+          ],
+          "required_views": [
+            "front",
+            "back",
+            "outer",
+            "inner",
+            "top",
+            "bottom"
+          ],
+          "checkpoints": [
+            "Handgelenkabschluss",
+            "Zubehoer der gewaehlten Konfiguration",
+            "Oeffnung ohne Abziehen des Handschuhs"
+          ],
+          "missing_evidence": [
+            "Projektbezogener Bildausschnitt mit Ansicht und Datei-ID",
+            "Angepasstes Detailmodell oder Schnittmuster",
+            "Realer Form- und Passvergleich"
+          ],
+          "model_status": "not_imported",
+          "guide_pages_1based": []
+        },
+        {
+          "id": "forearm_r",
+          "label": "Unterarm rechts",
+          "reference_source_ids": [
+            "chief-original-model"
+          ],
+          "model_source_ids": [
+            "ga-chief-files",
+            "nikko-chief-files"
+          ],
+          "required_views": [
+            "front",
+            "back",
+            "outer",
+            "inner",
+            "top",
+            "bottom"
+          ],
+          "checkpoints": [
+            "Handgelenkabschluss",
+            "Zubehoer der gewaehlten Konfiguration",
+            "Oeffnung ohne Abziehen des Handschuhs"
+          ],
+          "missing_evidence": [
+            "Projektbezogener Bildausschnitt mit Ansicht und Datei-ID",
+            "Angepasstes Detailmodell oder Schnittmuster",
+            "Realer Form- und Passvergleich"
+          ],
+          "model_status": "not_imported",
+          "guide_pages_1based": []
+        },
+        {
+          "id": "hand_l",
+          "label": "Hand links",
+          "reference_source_ids": [
+            "chief-original-model"
+          ],
+          "model_source_ids": [
+            "ga-chief-files",
+            "nikko-chief-files"
+          ],
+          "required_views": [
+            "back",
+            "palm",
+            "left",
+            "right",
+            "fingers"
+          ],
+          "checkpoints": [
+            "Handrueckenplatte getrennt vom Handschuh",
+            "Finger bleiben frei beweglich",
+            "Unterarmnaht in Greifpose verdeckt"
+          ],
+          "missing_evidence": [
+            "Projektbezogener Bildausschnitt mit Ansicht und Datei-ID",
+            "Angepasstes Detailmodell oder Schnittmuster",
+            "Realer Form- und Passvergleich"
+          ],
+          "model_status": "not_imported",
+          "guide_pages_1based": []
+        },
+        {
+          "id": "hand_r",
+          "label": "Hand rechts",
+          "reference_source_ids": [
+            "chief-original-model"
+          ],
+          "model_source_ids": [
+            "ga-chief-files",
+            "nikko-chief-files"
+          ],
+          "required_views": [
+            "back",
+            "palm",
+            "left",
+            "right",
+            "fingers"
+          ],
+          "checkpoints": [
+            "Handrueckenplatte getrennt vom Handschuh",
+            "Finger bleiben frei beweglich",
+            "Unterarmnaht in Greifpose verdeckt"
+          ],
+          "missing_evidence": [
+            "Projektbezogener Bildausschnitt mit Ansicht und Datei-ID",
+            "Angepasstes Detailmodell oder Schnittmuster",
+            "Realer Form- und Passvergleich"
+          ],
+          "model_status": "not_imported",
+          "guide_pages_1based": []
+        },
+        {
+          "id": "waist",
+          "label": "Hueft- und Bauchsegmente",
+          "reference_source_ids": [
+            "chief-original-model"
+          ],
+          "model_source_ids": [
+            "ga-chief-files",
+            "nikko-chief-files"
+          ],
+          "required_views": [
+            "front",
+            "back",
+            "left",
+            "right",
+            "top",
+            "bottom"
+          ],
+          "checkpoints": [
+            "Guertelhierarchie und Bauchabschluss",
+            "Ueberlappung bei Hueftbeugung",
+            "Zugang zu Verschluessen"
+          ],
+          "missing_evidence": [
+            "Projektbezogener Bildausschnitt mit Ansicht und Datei-ID",
+            "Angepasstes Detailmodell oder Schnittmuster",
+            "Realer Form- und Passvergleich"
+          ],
+          "model_status": "not_imported",
+          "guide_pages_1based": []
+        },
+        {
+          "id": "thigh_l",
+          "label": "Oberschenkel links",
+          "reference_source_ids": [
+            "chief-original-model"
+          ],
+          "model_source_ids": [
+            "ga-chief-files",
+            "nikko-chief-files"
+          ],
+          "required_views": [
+            "front",
+            "back",
+            "outer",
+            "inner",
+            "top",
+            "bottom"
+          ],
+          "checkpoints": [
+            "Knie- und Hueftabstand",
+            "Seitendetails statt pauschalem Spiegeln",
+            "Laengenanpassung in ruhiger Flaeche"
+          ],
+          "missing_evidence": [
+            "Projektbezogener Bildausschnitt mit Ansicht und Datei-ID",
+            "Angepasstes Detailmodell oder Schnittmuster",
+            "Realer Form- und Passvergleich"
+          ],
+          "model_status": "not_imported",
+          "guide_pages_1based": []
+        },
+        {
+          "id": "thigh_r",
+          "label": "Oberschenkel rechts",
+          "reference_source_ids": [
+            "chief-original-model"
+          ],
+          "model_source_ids": [
+            "ga-chief-files",
+            "nikko-chief-files"
+          ],
+          "required_views": [
+            "front",
+            "back",
+            "outer",
+            "inner",
+            "top",
+            "bottom"
+          ],
+          "checkpoints": [
+            "Knie- und Hueftabstand",
+            "Seitendetails statt pauschalem Spiegeln",
+            "Laengenanpassung in ruhiger Flaeche"
+          ],
+          "missing_evidence": [
+            "Projektbezogener Bildausschnitt mit Ansicht und Datei-ID",
+            "Angepasstes Detailmodell oder Schnittmuster",
+            "Realer Form- und Passvergleich"
+          ],
+          "model_status": "not_imported",
+          "guide_pages_1based": []
+        },
+        {
+          "id": "knee_l",
+          "label": "Knie links",
+          "reference_source_ids": [
+            "chief-original-model"
+          ],
+          "model_source_ids": [
+            "ga-chief-files",
+            "nikko-chief-files"
+          ],
+          "required_views": [
+            "front",
+            "back",
+            "left",
+            "right",
+            "top",
+            "bottom"
+          ],
+          "checkpoints": [
+            "Gewaehlte Knievariante",
+            "Sitz vor Kniescheibe",
+            "Ueberlappung bei Beugung"
+          ],
+          "missing_evidence": [
+            "Projektbezogener Bildausschnitt mit Ansicht und Datei-ID",
+            "Angepasstes Detailmodell oder Schnittmuster",
+            "Realer Form- und Passvergleich"
+          ],
+          "model_status": "not_imported",
+          "guide_pages_1based": []
+        },
+        {
+          "id": "knee_r",
+          "label": "Knie rechts",
+          "reference_source_ids": [
+            "chief-original-model"
+          ],
+          "model_source_ids": [
+            "ga-chief-files",
+            "nikko-chief-files"
+          ],
+          "required_views": [
+            "front",
+            "back",
+            "left",
+            "right",
+            "top",
+            "bottom"
+          ],
+          "checkpoints": [
+            "Gewaehlte Knievariante",
+            "Sitz vor Kniescheibe",
+            "Ueberlappung bei Beugung"
+          ],
+          "missing_evidence": [
+            "Projektbezogener Bildausschnitt mit Ansicht und Datei-ID",
+            "Angepasstes Detailmodell oder Schnittmuster",
+            "Realer Form- und Passvergleich"
+          ],
+          "model_status": "not_imported",
+          "guide_pages_1based": []
+        },
+        {
+          "id": "shin_l",
+          "label": "Unterschenkel links",
+          "reference_source_ids": [
+            "chief-original-model"
+          ],
+          "model_source_ids": [
+            "ga-chief-files",
+            "nikko-chief-files"
+          ],
+          "required_views": [
+            "front",
+            "back",
+            "outer",
+            "inner",
+            "top",
+            "bottom"
+          ],
+          "checkpoints": [
+            "Frontgrat und Wadenkontur",
+            "Scharnierzugang hinten",
+            "Abstand zur Schuhbewegung"
+          ],
+          "missing_evidence": [
+            "Projektbezogener Bildausschnitt mit Ansicht und Datei-ID",
+            "Angepasstes Detailmodell oder Schnittmuster",
+            "Realer Form- und Passvergleich"
+          ],
+          "model_status": "not_imported",
+          "guide_pages_1based": []
+        },
+        {
+          "id": "shin_r",
+          "label": "Unterschenkel rechts",
+          "reference_source_ids": [
+            "chief-original-model"
+          ],
+          "model_source_ids": [
+            "ga-chief-files",
+            "nikko-chief-files"
+          ],
+          "required_views": [
+            "front",
+            "back",
+            "outer",
+            "inner",
+            "top",
+            "bottom"
+          ],
+          "checkpoints": [
+            "Frontgrat und Wadenkontur",
+            "Scharnierzugang hinten",
+            "Abstand zur Schuhbewegung"
+          ],
+          "missing_evidence": [
+            "Projektbezogener Bildausschnitt mit Ansicht und Datei-ID",
+            "Angepasstes Detailmodell oder Schnittmuster",
+            "Realer Form- und Passvergleich"
+          ],
+          "model_status": "not_imported",
+          "guide_pages_1based": []
+        },
+        {
+          "id": "boot_l",
+          "label": "Schuhpanzer links",
+          "reference_source_ids": [
+            "chief-original-model"
+          ],
+          "model_source_ids": [
+            "ga-chief-files",
+            "nikko-chief-files"
+          ],
+          "required_views": [
+            "front",
+            "back",
+            "outer",
+            "inner",
+            "top",
+            "bottom"
+          ],
+          "checkpoints": [
+            "Zehenkontur und Spannstaffelung",
+            "Schuh passt eigenstaendig",
+            "Freie Sohlenflexion und Bodenhaftung"
+          ],
+          "missing_evidence": [
+            "Projektbezogener Bildausschnitt mit Ansicht und Datei-ID",
+            "Angepasstes Detailmodell oder Schnittmuster",
+            "Realer Form- und Passvergleich"
+          ],
+          "model_status": "not_imported",
+          "guide_pages_1based": []
+        },
+        {
+          "id": "boot_r",
+          "label": "Schuhpanzer rechts",
+          "reference_source_ids": [
+            "chief-original-model"
+          ],
+          "model_source_ids": [
+            "ga-chief-files",
+            "nikko-chief-files"
+          ],
+          "required_views": [
+            "front",
+            "back",
+            "outer",
+            "inner",
+            "top",
+            "bottom"
+          ],
+          "checkpoints": [
+            "Zehenkontur und Spannstaffelung",
+            "Schuh passt eigenstaendig",
+            "Freie Sohlenflexion und Bodenhaftung"
+          ],
+          "missing_evidence": [
+            "Projektbezogener Bildausschnitt mit Ansicht und Datei-ID",
+            "Angepasstes Detailmodell oder Schnittmuster",
+            "Realer Form- und Passvergleich"
+          ],
+          "model_status": "not_imported",
+          "guide_pages_1based": []
+        },
+        {
+          "id": "undersuit",
+          "label": "Unteranzug",
+          "reference_source_ids": [
+            "chief-original-model"
+          ],
+          "model_source_ids": [],
+          "required_views": [
+            "front",
+            "back",
+            "left",
+            "right",
+            "joint_details"
+          ],
+          "checkpoints": [
+            "Unterschiedliche Texturen statt glattem Einteiler",
+            "Keine sichtbaren Logos/Reissverschluesse",
+            "Waschbare und abnehmbare Polster"
+          ],
+          "missing_evidence": [
+            "Projektbezogener Bildausschnitt mit Ansicht und Datei-ID",
+            "Angepasstes Detailmodell oder Schnittmuster",
+            "Realer Form- und Passvergleich"
+          ],
+          "model_status": "not_imported",
+          "guide_pages_1based": []
+        },
+        {
+          "id": "neck_seal",
+          "label": "Halsabschluss",
+          "reference_source_ids": [
+            "chief-original-model"
+          ],
+          "model_source_ids": [],
+          "required_views": [
+            "front",
+            "back",
+            "left",
+            "right",
+            "top"
+          ],
+          "checkpoints": [
+            "Rippenrichtung und Anschluss an Torso",
+            "Helmdrehung ohne Zug",
+            "Separat zu oeffnen"
+          ],
+          "missing_evidence": [
+            "Projektbezogener Bildausschnitt mit Ansicht und Datei-ID",
+            "Angepasstes Detailmodell oder Schnittmuster",
+            "Realer Form- und Passvergleich"
+          ],
+          "model_status": "not_imported",
+          "guide_pages_1based": []
+        }
+      ],
+      "status": "reference_catalog_not_complete_build"
+    },
+    {
+      "id": "mark-vii",
+      "title": "Halo Infinite: Mark VII GEN3, offizieller Guide-Aufbau",
+      "configuration": {
+        "game": "Halo Infinite",
+        "appearance": "Guide-Aufbau; Helm Mark VII, Schulter UA/AGATHIUS, Knie UA/TYPE SA",
+        "variant_changes_require_evidence": true
+      },
+      "sources": [
+        {
+          "id": "mk7-official-article",
+          "url": "https://www.halowaypoint.com/news/official-cosplay-guide-mark-vii",
+          "title": "Halo Waypoint: Official Cosplay Guide MARK VII",
+          "kind": "official_article",
+          "scope": "Einstieg zu offiziellen Mark-VII-GEN3-Ansichten und PDF-Downloads.",
+          "license_note": "Visuelle Referenz; keine Freigabe zur Weitergabe von Bildern oder Modellen abgeleitet."
+        },
+        {
+          "id": "mk7-official-pdf",
+          "url": "https://content.halocdn.com/media/Default/community/CosplayGuides/mk7_cosplayguide_fullsize-a95f71a129ae4094aef3ea0b6121fca4.pdf",
+          "title": "343 Industries: Spartan Mark VII GEN3 Cosplay Guide",
+          "kind": "official_pdf",
+          "scope": "106 Seiten; Bauteilkapitel und Materialzuordnung. Seitenangaben beziehen sich auf PDF-Seiten ab 1.",
+          "license_note": "Guide dient Cosplay-Referenz; Seite 4 grenzt Verkauf ab. Kein offenes Modellpaket oder pauschale kommerzielle Lizenz.",
+          "local_path": "Resources/CosplayGuides/MK7_CosplayGuide_Full.pdf",
+          "page_count": 106,
+          "inspection": {
+            "text_index": "all_pages",
+            "visually_reviewed_pages": [
+              6,
+              34,
+              83
+            ]
+          }
+        },
+        {
+          "id": "mk7-turnaround",
+          "url": "https://content.halocdn.com/media/Default/community/CosplayGuides/mkvii-cosplay-guide-blog-image-2-77c824d134ea4341b976a32f882a0522.png",
+          "title": "Mark VII: offizielles Turnaround-Vorschaubild",
+          "kind": "official_image",
+          "scope": "Verlinkte Gesamtansichten; fuer Bauteilabgleich Detailkapitel verwenden.",
+          "license_note": "Visuelle Referenz; keine Freigabe zur Weitergabe von Bildern oder Modellen abgeleitet."
+        },
+        {
+          "id": "nikko-mk7-files",
+          "url": "https://www.nikkoindustries.com/products/halo-mk7-full-armor",
+          "title": "Nikko Industries: Halo MK7 Full Armor STL",
+          "kind": "paid_model_creator",
+          "scope": "Nach Koerperteilen getrenntes Modellangebot. Genaue Schulter-/Knievariante und enthaltenes Visier sind auf der Produkttextseite nicht vollstaendig bestaetigt.",
+          "license_note": "Anbieter: nur persoenliche Nutzung, kein kommerzieller Druck. Keine Repo-Weitergabe; Ausstellungsnutzung gesondert klaeren.",
+          "purchase_required": true,
+          "downloaded": false
+        }
+      ],
+      "parts": [
+        {
+          "id": "helmet",
+          "label": "Helmschale",
+          "reference_source_ids": [
+            "mk7-official-pdf"
+          ],
+          "model_source_ids": [
+            "nikko-mk7-files"
+          ],
+          "required_views": [
+            "front",
+            "left",
+            "right",
+            "back",
+            "top",
+            "bottom"
+          ],
+          "checkpoints": [
+            "Visieroeffnung und Stirnkante",
+            "Kinnkontur und Seitenmodule",
+            "Halsfreiheit bei Drehung"
+          ],
+          "missing_evidence": [
+            "Projektbezogener Bildausschnitt mit Ansicht und Datei-ID",
+            "Angepasstes Detailmodell oder Schnittmuster",
+            "Realer Form- und Passvergleich"
+          ],
+          "model_status": "not_imported",
+          "guide_pages_1based": [
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23,
+            24,
+            25,
+            26
+          ]
+        },
+        {
+          "id": "visor",
+          "label": "Visier",
+          "reference_source_ids": [
+            "mk7-official-pdf"
+          ],
+          "model_source_ids": [],
+          "required_views": [
+            "front",
+            "left",
+            "right",
+            "inside"
+          ],
+          "checkpoints": [
+            "Aussenkontur ohne Verzug",
+            "Durchsicht und Reflexion getrennt",
+            "Wechselbarer Randrahmen"
+          ],
+          "missing_evidence": [
+            "Projektbezogener Bildausschnitt mit Ansicht und Datei-ID",
+            "Angepasstes Detailmodell oder Schnittmuster",
+            "Realer Form- und Passvergleich"
+          ],
+          "model_status": "not_imported",
+          "guide_pages_1based": [
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23,
+            24,
+            25,
+            26
+          ]
+        },
+        {
+          "id": "torso_front",
+          "label": "Torso vorne",
+          "reference_source_ids": [
+            "mk7-official-pdf"
+          ],
+          "model_source_ids": [
+            "nikko-mk7-files"
+          ],
+          "required_views": [
+            "front",
+            "left",
+            "right",
+            "top",
+            "bottom"
+          ],
+          "checkpoints": [
+            "Brustkontur und Plattenstaffelung",
+            "Markierungen und Emblemposition",
+            "Oeffnungsfuge in Plattengrenze"
+          ],
+          "missing_evidence": [
+            "Projektbezogener Bildausschnitt mit Ansicht und Datei-ID",
+            "Angepasstes Detailmodell oder Schnittmuster",
+            "Realer Form- und Passvergleich"
+          ],
+          "model_status": "not_imported",
+          "guide_pages_1based": [
+            27,
+            28,
+            29,
+            30,
+            31,
+            32,
+            33
+          ]
+        },
+        {
+          "id": "torso_back",
+          "label": "Torso hinten",
+          "reference_source_ids": [
+            "mk7-official-pdf"
+          ],
+          "model_source_ids": [
+            "nikko-mk7-files"
+          ],
+          "required_views": [
+            "back",
+            "left",
+            "right",
+            "top",
+            "bottom"
+          ],
+          "checkpoints": [
+            "Rueckenmodule und Auslaesse",
+            "Technik bleibt hinter Aussenkontur",
+            "Zugang und Fluchtweg frei"
+          ],
+          "missing_evidence": [
+            "Projektbezogener Bildausschnitt mit Ansicht und Datei-ID",
+            "Angepasstes Detailmodell oder Schnittmuster",
+            "Realer Form- und Passvergleich"
+          ],
+          "model_status": "not_imported",
+          "guide_pages_1based": [
+            27,
+            28,
+            29,
+            30,
+            31,
+            32,
+            33
+          ]
+        },
+        {
+          "id": "shoulder_l",
+          "label": "Schulter links",
+          "reference_source_ids": [
+            "mk7-official-pdf"
+          ],
+          "model_source_ids": [
+            "nikko-mk7-files"
+          ],
+          "required_views": [
+            "front",
+            "back",
+            "outer",
+            "inner",
+            "top",
+            "bottom"
+          ],
+          "checkpoints": [
+            "Kontur und seitengerechte Anbauteile",
+            "Ueberlappung bei Armhebung",
+            "Verdeckte schwebende Aufhaengung"
+          ],
+          "missing_evidence": [
+            "Projektbezogener Bildausschnitt mit Ansicht und Datei-ID",
+            "Angepasstes Detailmodell oder Schnittmuster",
+            "Realer Form- und Passvergleich",
+            "Gegenseite separat belegen; der Guide bezeichnet in diesem Kapitel nur die andere Koerperseite"
+          ],
+          "model_status": "not_imported",
+          "guide_pages_1based": [
+            34,
+            35,
+            36,
+            37,
+            38,
+            39,
+            40
+          ]
+        },
+        {
+          "id": "shoulder_r",
+          "label": "Schulter rechts",
+          "reference_source_ids": [
+            "mk7-official-pdf"
+          ],
+          "model_source_ids": [
+            "nikko-mk7-files"
+          ],
+          "required_views": [
+            "front",
+            "back",
+            "outer",
+            "inner",
+            "top",
+            "bottom"
+          ],
+          "checkpoints": [
+            "Kontur und seitengerechte Anbauteile",
+            "Ueberlappung bei Armhebung",
+            "Verdeckte schwebende Aufhaengung"
+          ],
+          "missing_evidence": [
+            "Projektbezogener Bildausschnitt mit Ansicht und Datei-ID",
+            "Angepasstes Detailmodell oder Schnittmuster",
+            "Realer Form- und Passvergleich"
+          ],
+          "model_status": "not_imported",
+          "guide_pages_1based": [
+            34,
+            35,
+            36,
+            37,
+            38,
+            39,
+            40
+          ]
+        },
+        {
+          "id": "upperarm_l",
+          "label": "Oberarm links",
+          "reference_source_ids": [
+            "mk7-official-pdf"
+          ],
+          "model_source_ids": [
+            "nikko-mk7-files"
+          ],
+          "required_views": [
+            "front",
+            "back",
+            "outer",
+            "inner",
+            "top",
+            "bottom"
+          ],
+          "checkpoints": [
+            "Laenge zwischen Achsel und Ellenbogen",
+            "Drehfreiheit und Abschlusskante",
+            "Naht auf Innenseite oder Originalfuge"
+          ],
+          "missing_evidence": [
+            "Projektbezogener Bildausschnitt mit Ansicht und Datei-ID",
+            "Angepasstes Detailmodell oder Schnittmuster",
+            "Realer Form- und Passvergleich",
+            "Gegenseite separat belegen; der Guide bezeichnet in diesem Kapitel nur die andere Koerperseite"
+          ],
+          "model_status": "not_imported",
+          "guide_pages_1based": [
+            41,
+            42,
+            43,
+            44,
+            45,
+            46,
+            47
+          ]
+        },
+        {
+          "id": "upperarm_r",
+          "label": "Oberarm rechts",
+          "reference_source_ids": [
+            "mk7-official-pdf"
+          ],
+          "model_source_ids": [
+            "nikko-mk7-files"
+          ],
+          "required_views": [
+            "front",
+            "back",
+            "outer",
+            "inner",
+            "top",
+            "bottom"
+          ],
+          "checkpoints": [
+            "Laenge zwischen Achsel und Ellenbogen",
+            "Drehfreiheit und Abschlusskante",
+            "Naht auf Innenseite oder Originalfuge"
+          ],
+          "missing_evidence": [
+            "Projektbezogener Bildausschnitt mit Ansicht und Datei-ID",
+            "Angepasstes Detailmodell oder Schnittmuster",
+            "Realer Form- und Passvergleich"
+          ],
+          "model_status": "not_imported",
+          "guide_pages_1based": [
+            41,
+            42,
+            43,
+            44,
+            45,
+            46,
+            47
+          ]
+        },
+        {
+          "id": "forearm_l",
+          "label": "Unterarm links",
+          "reference_source_ids": [
+            "mk7-official-pdf"
+          ],
+          "model_source_ids": [
+            "nikko-mk7-files"
+          ],
+          "required_views": [
+            "front",
+            "back",
+            "outer",
+            "inner",
+            "top",
+            "bottom"
+          ],
+          "checkpoints": [
+            "Handgelenkabschluss",
+            "Zubehoer der gewaehlten Konfiguration",
+            "Oeffnung ohne Abziehen des Handschuhs"
+          ],
+          "missing_evidence": [
+            "Projektbezogener Bildausschnitt mit Ansicht und Datei-ID",
+            "Angepasstes Detailmodell oder Schnittmuster",
+            "Realer Form- und Passvergleich",
+            "Gegenseite separat belegen; der Guide bezeichnet in diesem Kapitel nur die andere Koerperseite"
+          ],
+          "model_status": "not_imported",
+          "guide_pages_1based": [
+            48,
+            49,
+            50,
+            51,
+            52,
+            53,
+            54
+          ]
+        },
+        {
+          "id": "forearm_r",
+          "label": "Unterarm rechts",
+          "reference_source_ids": [
+            "mk7-official-pdf"
+          ],
+          "model_source_ids": [
+            "nikko-mk7-files"
+          ],
+          "required_views": [
+            "front",
+            "back",
+            "outer",
+            "inner",
+            "top",
+            "bottom"
+          ],
+          "checkpoints": [
+            "Handgelenkabschluss",
+            "Zubehoer der gewaehlten Konfiguration",
+            "Oeffnung ohne Abziehen des Handschuhs"
+          ],
+          "missing_evidence": [
+            "Projektbezogener Bildausschnitt mit Ansicht und Datei-ID",
+            "Angepasstes Detailmodell oder Schnittmuster",
+            "Realer Form- und Passvergleich"
+          ],
+          "model_status": "not_imported",
+          "guide_pages_1based": [
+            48,
+            49,
+            50,
+            51,
+            52,
+            53,
+            54
+          ]
+        },
+        {
+          "id": "hand_l",
+          "label": "Hand links",
+          "reference_source_ids": [
+            "mk7-official-pdf"
+          ],
+          "model_source_ids": [
+            "nikko-mk7-files"
+          ],
+          "required_views": [
+            "back",
+            "palm",
+            "left",
+            "right",
+            "fingers"
+          ],
+          "checkpoints": [
+            "Handrueckenplatte getrennt vom Handschuh",
+            "Finger bleiben frei beweglich",
+            "Unterarmnaht in Greifpose verdeckt"
+          ],
+          "missing_evidence": [
+            "Projektbezogener Bildausschnitt mit Ansicht und Datei-ID",
+            "Angepasstes Detailmodell oder Schnittmuster",
+            "Realer Form- und Passvergleich"
+          ],
+          "model_status": "not_imported",
+          "guide_pages_1based": [
+            55,
+            56,
+            57,
+            58,
+            59,
+            60,
+            61,
+            62,
+            63,
+            64,
+            65,
+            66,
+            67,
+            68
+          ]
+        },
+        {
+          "id": "hand_r",
+          "label": "Hand rechts",
+          "reference_source_ids": [
+            "mk7-official-pdf"
+          ],
+          "model_source_ids": [
+            "nikko-mk7-files"
+          ],
+          "required_views": [
+            "back",
+            "palm",
+            "left",
+            "right",
+            "fingers"
+          ],
+          "checkpoints": [
+            "Handrueckenplatte getrennt vom Handschuh",
+            "Finger bleiben frei beweglich",
+            "Unterarmnaht in Greifpose verdeckt"
+          ],
+          "missing_evidence": [
+            "Projektbezogener Bildausschnitt mit Ansicht und Datei-ID",
+            "Angepasstes Detailmodell oder Schnittmuster",
+            "Realer Form- und Passvergleich",
+            "Gegenseite separat belegen; der Guide bezeichnet in diesem Kapitel nur die andere Koerperseite"
+          ],
+          "model_status": "not_imported",
+          "guide_pages_1based": [
+            55,
+            56,
+            57,
+            58,
+            59,
+            60,
+            61,
+            62,
+            63,
+            64,
+            65,
+            66,
+            67,
+            68
+          ]
+        },
+        {
+          "id": "waist",
+          "label": "Hueft- und Bauchsegmente",
+          "reference_source_ids": [
+            "mk7-official-pdf"
+          ],
+          "model_source_ids": [
+            "nikko-mk7-files"
+          ],
+          "required_views": [
+            "front",
+            "back",
+            "left",
+            "right",
+            "top",
+            "bottom"
+          ],
+          "checkpoints": [
+            "Guertelhierarchie und Bauchabschluss",
+            "Ueberlappung bei Hueftbeugung",
+            "Zugang zu Verschluessen"
+          ],
+          "missing_evidence": [
+            "Projektbezogener Bildausschnitt mit Ansicht und Datei-ID",
+            "Angepasstes Detailmodell oder Schnittmuster",
+            "Realer Form- und Passvergleich"
+          ],
+          "model_status": "not_imported",
+          "guide_pages_1based": [
+            69,
+            70,
+            71,
+            72,
+            73,
+            74,
+            75
+          ]
+        },
+        {
+          "id": "thigh_l",
+          "label": "Oberschenkel links",
+          "reference_source_ids": [
+            "mk7-official-pdf"
+          ],
+          "model_source_ids": [
+            "nikko-mk7-files"
+          ],
+          "required_views": [
+            "front",
+            "back",
+            "outer",
+            "inner",
+            "top",
+            "bottom"
+          ],
+          "checkpoints": [
+            "Knie- und Hueftabstand",
+            "Seitendetails statt pauschalem Spiegeln",
+            "Laengenanpassung in ruhiger Flaeche"
+          ],
+          "missing_evidence": [
+            "Projektbezogener Bildausschnitt mit Ansicht und Datei-ID",
+            "Angepasstes Detailmodell oder Schnittmuster",
+            "Realer Form- und Passvergleich"
+          ],
+          "model_status": "not_imported",
+          "guide_pages_1based": [
+            76,
+            77,
+            78,
+            79,
+            80,
+            81,
+            82
+          ]
+        },
+        {
+          "id": "thigh_r",
+          "label": "Oberschenkel rechts",
+          "reference_source_ids": [
+            "mk7-official-pdf"
+          ],
+          "model_source_ids": [
+            "nikko-mk7-files"
+          ],
+          "required_views": [
+            "front",
+            "back",
+            "outer",
+            "inner",
+            "top",
+            "bottom"
+          ],
+          "checkpoints": [
+            "Knie- und Hueftabstand",
+            "Seitendetails statt pauschalem Spiegeln",
+            "Laengenanpassung in ruhiger Flaeche"
+          ],
+          "missing_evidence": [
+            "Projektbezogener Bildausschnitt mit Ansicht und Datei-ID",
+            "Angepasstes Detailmodell oder Schnittmuster",
+            "Realer Form- und Passvergleich",
+            "Gegenseite separat belegen; der Guide bezeichnet in diesem Kapitel nur die andere Koerperseite"
+          ],
+          "model_status": "not_imported",
+          "guide_pages_1based": [
+            76,
+            77,
+            78,
+            79,
+            80,
+            81,
+            82
+          ]
+        },
+        {
+          "id": "knee_l",
+          "label": "Knie links",
+          "reference_source_ids": [
+            "mk7-official-pdf"
+          ],
+          "model_source_ids": [
+            "nikko-mk7-files"
+          ],
+          "required_views": [
+            "front",
+            "back",
+            "left",
+            "right",
+            "top",
+            "bottom"
+          ],
+          "checkpoints": [
+            "Gewaehlte Knievariante",
+            "Sitz vor Kniescheibe",
+            "Ueberlappung bei Beugung"
+          ],
+          "missing_evidence": [
+            "Projektbezogener Bildausschnitt mit Ansicht und Datei-ID",
+            "Angepasstes Detailmodell oder Schnittmuster",
+            "Realer Form- und Passvergleich"
+          ],
+          "model_status": "not_imported",
+          "guide_pages_1based": [
+            83,
+            84,
+            85,
+            86,
+            87,
+            88,
+            89
+          ]
+        },
+        {
+          "id": "knee_r",
+          "label": "Knie rechts",
+          "reference_source_ids": [
+            "mk7-official-pdf"
+          ],
+          "model_source_ids": [
+            "nikko-mk7-files"
+          ],
+          "required_views": [
+            "front",
+            "back",
+            "left",
+            "right",
+            "top",
+            "bottom"
+          ],
+          "checkpoints": [
+            "Gewaehlte Knievariante",
+            "Sitz vor Kniescheibe",
+            "Ueberlappung bei Beugung"
+          ],
+          "missing_evidence": [
+            "Projektbezogener Bildausschnitt mit Ansicht und Datei-ID",
+            "Angepasstes Detailmodell oder Schnittmuster",
+            "Realer Form- und Passvergleich"
+          ],
+          "model_status": "not_imported",
+          "guide_pages_1based": [
+            83,
+            84,
+            85,
+            86,
+            87,
+            88,
+            89
+          ]
+        },
+        {
+          "id": "shin_l",
+          "label": "Unterschenkel links",
+          "reference_source_ids": [
+            "mk7-official-pdf"
+          ],
+          "model_source_ids": [
+            "nikko-mk7-files"
+          ],
+          "required_views": [
+            "front",
+            "back",
+            "outer",
+            "inner",
+            "top",
+            "bottom"
+          ],
+          "checkpoints": [
+            "Frontgrat und Wadenkontur",
+            "Scharnierzugang hinten",
+            "Abstand zur Schuhbewegung"
+          ],
+          "missing_evidence": [
+            "Projektbezogener Bildausschnitt mit Ansicht und Datei-ID",
+            "Angepasstes Detailmodell oder Schnittmuster",
+            "Realer Form- und Passvergleich"
+          ],
+          "model_status": "not_imported",
+          "guide_pages_1based": [
+            90,
+            91,
+            92,
+            93,
+            94,
+            95,
+            96
+          ]
+        },
+        {
+          "id": "shin_r",
+          "label": "Unterschenkel rechts",
+          "reference_source_ids": [
+            "mk7-official-pdf"
+          ],
+          "model_source_ids": [
+            "nikko-mk7-files"
+          ],
+          "required_views": [
+            "front",
+            "back",
+            "outer",
+            "inner",
+            "top",
+            "bottom"
+          ],
+          "checkpoints": [
+            "Frontgrat und Wadenkontur",
+            "Scharnierzugang hinten",
+            "Abstand zur Schuhbewegung"
+          ],
+          "missing_evidence": [
+            "Projektbezogener Bildausschnitt mit Ansicht und Datei-ID",
+            "Angepasstes Detailmodell oder Schnittmuster",
+            "Realer Form- und Passvergleich"
+          ],
+          "model_status": "not_imported",
+          "guide_pages_1based": [
+            90,
+            91,
+            92,
+            93,
+            94,
+            95,
+            96
+          ]
+        },
+        {
+          "id": "boot_l",
+          "label": "Schuhpanzer links",
+          "reference_source_ids": [
+            "mk7-official-pdf"
+          ],
+          "model_source_ids": [
+            "nikko-mk7-files"
+          ],
+          "required_views": [
+            "front",
+            "back",
+            "outer",
+            "inner",
+            "top",
+            "bottom"
+          ],
+          "checkpoints": [
+            "Zehenkontur und Spannstaffelung",
+            "Schuh passt eigenstaendig",
+            "Freie Sohlenflexion und Bodenhaftung"
+          ],
+          "missing_evidence": [
+            "Projektbezogener Bildausschnitt mit Ansicht und Datei-ID",
+            "Angepasstes Detailmodell oder Schnittmuster",
+            "Realer Form- und Passvergleich"
+          ],
+          "model_status": "not_imported",
+          "guide_pages_1based": [
+            97,
+            98,
+            99,
+            100,
+            101,
+            102,
+            103
+          ]
+        },
+        {
+          "id": "boot_r",
+          "label": "Schuhpanzer rechts",
+          "reference_source_ids": [
+            "mk7-official-pdf"
+          ],
+          "model_source_ids": [
+            "nikko-mk7-files"
+          ],
+          "required_views": [
+            "front",
+            "back",
+            "outer",
+            "inner",
+            "top",
+            "bottom"
+          ],
+          "checkpoints": [
+            "Zehenkontur und Spannstaffelung",
+            "Schuh passt eigenstaendig",
+            "Freie Sohlenflexion und Bodenhaftung"
+          ],
+          "missing_evidence": [
+            "Projektbezogener Bildausschnitt mit Ansicht und Datei-ID",
+            "Angepasstes Detailmodell oder Schnittmuster",
+            "Realer Form- und Passvergleich",
+            "Gegenseite separat belegen; der Guide bezeichnet in diesem Kapitel nur die andere Koerperseite"
+          ],
+          "model_status": "not_imported",
+          "guide_pages_1based": [
+            97,
+            98,
+            99,
+            100,
+            101,
+            102,
+            103
+          ]
+        },
+        {
+          "id": "undersuit",
+          "label": "Unteranzug",
+          "reference_source_ids": [
+            "mk7-official-pdf"
+          ],
+          "model_source_ids": [],
+          "required_views": [
+            "front",
+            "back",
+            "left",
+            "right",
+            "joint_details"
+          ],
+          "checkpoints": [
+            "Unterschiedliche Texturen statt glattem Einteiler",
+            "Keine sichtbaren Logos/Reissverschluesse",
+            "Waschbare und abnehmbare Polster"
+          ],
+          "missing_evidence": [
+            "Projektbezogener Bildausschnitt mit Ansicht und Datei-ID",
+            "Angepasstes Detailmodell oder Schnittmuster",
+            "Realer Form- und Passvergleich"
+          ],
+          "model_status": "not_imported",
+          "guide_pages_1based": [
+            13,
+            14,
+            15
+          ]
+        },
+        {
+          "id": "neck_seal",
+          "label": "Halsabschluss",
+          "reference_source_ids": [
+            "mk7-official-pdf"
+          ],
+          "model_source_ids": [],
+          "required_views": [
+            "front",
+            "back",
+            "left",
+            "right",
+            "top"
+          ],
+          "checkpoints": [
+            "Rippenrichtung und Anschluss an Torso",
+            "Helmdrehung ohne Zug",
+            "Separat zu oeffnen"
+          ],
+          "missing_evidence": [
+            "Projektbezogener Bildausschnitt mit Ansicht und Datei-ID",
+            "Angepasstes Detailmodell oder Schnittmuster",
+            "Realer Form- und Passvergleich"
+          ],
+          "model_status": "not_imported",
+          "guide_pages_1based": [
+            15
+          ]
+        }
+      ],
+      "status": "reference_catalog_not_complete_build",
+      "palette_reference": {
+        "source_id": "mk7-official-pdf",
+        "page_1based": 6,
+        "meaning": "Digitale Richtwerte des gezeigten Guide-Aufbaus; keine Lackrezeptur und keine Chief-Palette.",
+        "swatches": [
+          {
+            "role": "armor_primary",
+            "hex_samples": [
+              "#798785",
+              "#68827F",
+              "#647674"
+            ],
+            "pantone_label": "5487 C"
+          },
+          {
+            "role": "armor_secondary",
+            "hex_samples": [
+              "#C43F37",
+              "#A11915",
+              "#B71212"
+            ],
+            "pantone_label": "7622 C"
+          },
+          {
+            "role": "visor",
+            "hex_samples": [
+              "#8D2115",
+              "#761C12",
+              "#61170F"
+            ],
+            "pantone_label": "7627 C"
+          },
+          {
+            "role": "techsuit_primary",
+            "hex_samples": [
+              "#3D3E3E",
+              "#343536",
+              "#2C2E2F"
+            ],
+            "pantone_label": "426 C"
+          }
+        ]
+      }
+    },
+    {
+      "id": "custom",
+      "title": "Eigene festgelegte Halo-Konfiguration",
+      "configuration": {
+        "game": null,
+        "appearance": null
+      },
+      "sources": [],
+      "parts": [
+        {
+          "id": "helmet",
+          "label": "Helmschale",
+          "reference_source_ids": [],
+          "model_source_ids": [],
+          "required_views": [
+            "front",
+            "left",
+            "right",
+            "back",
+            "top",
+            "bottom"
+          ],
+          "checkpoints": [
+            "Visieroeffnung und Stirnkante",
+            "Kinnkontur und Seitenmodule",
+            "Halsfreiheit bei Drehung"
+          ],
+          "missing_evidence": [
+            "Konkrete Vorlage und belegte Quellen fehlen",
+            "Projektbezogener Bildausschnitt mit Ansicht und Datei-ID",
+            "Angepasstes Detailmodell oder Schnittmuster",
+            "Realer Form- und Passvergleich"
+          ],
+          "model_status": "not_imported",
+          "guide_pages_1based": []
+        },
+        {
+          "id": "visor",
+          "label": "Visier",
+          "reference_source_ids": [],
+          "model_source_ids": [],
+          "required_views": [
+            "front",
+            "left",
+            "right",
+            "inside"
+          ],
+          "checkpoints": [
+            "Aussenkontur ohne Verzug",
+            "Durchsicht und Reflexion getrennt",
+            "Wechselbarer Randrahmen"
+          ],
+          "missing_evidence": [
+            "Konkrete Vorlage und belegte Quellen fehlen",
+            "Projektbezogener Bildausschnitt mit Ansicht und Datei-ID",
+            "Angepasstes Detailmodell oder Schnittmuster",
+            "Realer Form- und Passvergleich"
+          ],
+          "model_status": "not_imported",
+          "guide_pages_1based": []
+        },
+        {
+          "id": "torso_front",
+          "label": "Torso vorne",
+          "reference_source_ids": [],
+          "model_source_ids": [],
+          "required_views": [
+            "front",
+            "left",
+            "right",
+            "top",
+            "bottom"
+          ],
+          "checkpoints": [
+            "Brustkontur und Plattenstaffelung",
+            "Markierungen und Emblemposition",
+            "Oeffnungsfuge in Plattengrenze"
+          ],
+          "missing_evidence": [
+            "Konkrete Vorlage und belegte Quellen fehlen",
+            "Projektbezogener Bildausschnitt mit Ansicht und Datei-ID",
+            "Angepasstes Detailmodell oder Schnittmuster",
+            "Realer Form- und Passvergleich"
+          ],
+          "model_status": "not_imported",
+          "guide_pages_1based": []
+        },
+        {
+          "id": "torso_back",
+          "label": "Torso hinten",
+          "reference_source_ids": [],
+          "model_source_ids": [],
+          "required_views": [
+            "back",
+            "left",
+            "right",
+            "top",
+            "bottom"
+          ],
+          "checkpoints": [
+            "Rueckenmodule und Auslaesse",
+            "Technik bleibt hinter Aussenkontur",
+            "Zugang und Fluchtweg frei"
+          ],
+          "missing_evidence": [
+            "Konkrete Vorlage und belegte Quellen fehlen",
+            "Projektbezogener Bildausschnitt mit Ansicht und Datei-ID",
+            "Angepasstes Detailmodell oder Schnittmuster",
+            "Realer Form- und Passvergleich"
+          ],
+          "model_status": "not_imported",
+          "guide_pages_1based": []
+        },
+        {
+          "id": "shoulder_l",
+          "label": "Schulter links",
+          "reference_source_ids": [],
+          "model_source_ids": [],
+          "required_views": [
+            "front",
+            "back",
+            "outer",
+            "inner",
+            "top",
+            "bottom"
+          ],
+          "checkpoints": [
+            "Kontur und seitengerechte Anbauteile",
+            "Ueberlappung bei Armhebung",
+            "Verdeckte schwebende Aufhaengung"
+          ],
+          "missing_evidence": [
+            "Konkrete Vorlage und belegte Quellen fehlen",
+            "Projektbezogener Bildausschnitt mit Ansicht und Datei-ID",
+            "Angepasstes Detailmodell oder Schnittmuster",
+            "Realer Form- und Passvergleich"
+          ],
+          "model_status": "not_imported",
+          "guide_pages_1based": []
+        },
+        {
+          "id": "shoulder_r",
+          "label": "Schulter rechts",
+          "reference_source_ids": [],
+          "model_source_ids": [],
+          "required_views": [
+            "front",
+            "back",
+            "outer",
+            "inner",
+            "top",
+            "bottom"
+          ],
+          "checkpoints": [
+            "Kontur und seitengerechte Anbauteile",
+            "Ueberlappung bei Armhebung",
+            "Verdeckte schwebende Aufhaengung"
+          ],
+          "missing_evidence": [
+            "Konkrete Vorlage und belegte Quellen fehlen",
+            "Projektbezogener Bildausschnitt mit Ansicht und Datei-ID",
+            "Angepasstes Detailmodell oder Schnittmuster",
+            "Realer Form- und Passvergleich"
+          ],
+          "model_status": "not_imported",
+          "guide_pages_1based": []
+        },
+        {
+          "id": "upperarm_l",
+          "label": "Oberarm links",
+          "reference_source_ids": [],
+          "model_source_ids": [],
+          "required_views": [
+            "front",
+            "back",
+            "outer",
+            "inner",
+            "top",
+            "bottom"
+          ],
+          "checkpoints": [
+            "Laenge zwischen Achsel und Ellenbogen",
+            "Drehfreiheit und Abschlusskante",
+            "Naht auf Innenseite oder Originalfuge"
+          ],
+          "missing_evidence": [
+            "Konkrete Vorlage und belegte Quellen fehlen",
+            "Projektbezogener Bildausschnitt mit Ansicht und Datei-ID",
+            "Angepasstes Detailmodell oder Schnittmuster",
+            "Realer Form- und Passvergleich"
+          ],
+          "model_status": "not_imported",
+          "guide_pages_1based": []
+        },
+        {
+          "id": "upperarm_r",
+          "label": "Oberarm rechts",
+          "reference_source_ids": [],
+          "model_source_ids": [],
+          "required_views": [
+            "front",
+            "back",
+            "outer",
+            "inner",
+            "top",
+            "bottom"
+          ],
+          "checkpoints": [
+            "Laenge zwischen Achsel und Ellenbogen",
+            "Drehfreiheit und Abschlusskante",
+            "Naht auf Innenseite oder Originalfuge"
+          ],
+          "missing_evidence": [
+            "Konkrete Vorlage und belegte Quellen fehlen",
+            "Projektbezogener Bildausschnitt mit Ansicht und Datei-ID",
+            "Angepasstes Detailmodell oder Schnittmuster",
+            "Realer Form- und Passvergleich"
+          ],
+          "model_status": "not_imported",
+          "guide_pages_1based": []
+        },
+        {
+          "id": "forearm_l",
+          "label": "Unterarm links",
+          "reference_source_ids": [],
+          "model_source_ids": [],
+          "required_views": [
+            "front",
+            "back",
+            "outer",
+            "inner",
+            "top",
+            "bottom"
+          ],
+          "checkpoints": [
+            "Handgelenkabschluss",
+            "Zubehoer der gewaehlten Konfiguration",
+            "Oeffnung ohne Abziehen des Handschuhs"
+          ],
+          "missing_evidence": [
+            "Konkrete Vorlage und belegte Quellen fehlen",
+            "Projektbezogener Bildausschnitt mit Ansicht und Datei-ID",
+            "Angepasstes Detailmodell oder Schnittmuster",
+            "Realer Form- und Passvergleich"
+          ],
+          "model_status": "not_imported",
+          "guide_pages_1based": []
+        },
+        {
+          "id": "forearm_r",
+          "label": "Unterarm rechts",
+          "reference_source_ids": [],
+          "model_source_ids": [],
+          "required_views": [
+            "front",
+            "back",
+            "outer",
+            "inner",
+            "top",
+            "bottom"
+          ],
+          "checkpoints": [
+            "Handgelenkabschluss",
+            "Zubehoer der gewaehlten Konfiguration",
+            "Oeffnung ohne Abziehen des Handschuhs"
+          ],
+          "missing_evidence": [
+            "Konkrete Vorlage und belegte Quellen fehlen",
+            "Projektbezogener Bildausschnitt mit Ansicht und Datei-ID",
+            "Angepasstes Detailmodell oder Schnittmuster",
+            "Realer Form- und Passvergleich"
+          ],
+          "model_status": "not_imported",
+          "guide_pages_1based": []
+        },
+        {
+          "id": "hand_l",
+          "label": "Hand links",
+          "reference_source_ids": [],
+          "model_source_ids": [],
+          "required_views": [
+            "back",
+            "palm",
+            "left",
+            "right",
+            "fingers"
+          ],
+          "checkpoints": [
+            "Handrueckenplatte getrennt vom Handschuh",
+            "Finger bleiben frei beweglich",
+            "Unterarmnaht in Greifpose verdeckt"
+          ],
+          "missing_evidence": [
+            "Konkrete Vorlage und belegte Quellen fehlen",
+            "Projektbezogener Bildausschnitt mit Ansicht und Datei-ID",
+            "Angepasstes Detailmodell oder Schnittmuster",
+            "Realer Form- und Passvergleich"
+          ],
+          "model_status": "not_imported",
+          "guide_pages_1based": []
+        },
+        {
+          "id": "hand_r",
+          "label": "Hand rechts",
+          "reference_source_ids": [],
+          "model_source_ids": [],
+          "required_views": [
+            "back",
+            "palm",
+            "left",
+            "right",
+            "fingers"
+          ],
+          "checkpoints": [
+            "Handrueckenplatte getrennt vom Handschuh",
+            "Finger bleiben frei beweglich",
+            "Unterarmnaht in Greifpose verdeckt"
+          ],
+          "missing_evidence": [
+            "Konkrete Vorlage und belegte Quellen fehlen",
+            "Projektbezogener Bildausschnitt mit Ansicht und Datei-ID",
+            "Angepasstes Detailmodell oder Schnittmuster",
+            "Realer Form- und Passvergleich"
+          ],
+          "model_status": "not_imported",
+          "guide_pages_1based": []
+        },
+        {
+          "id": "waist",
+          "label": "Hueft- und Bauchsegmente",
+          "reference_source_ids": [],
+          "model_source_ids": [],
+          "required_views": [
+            "front",
+            "back",
+            "left",
+            "right",
+            "top",
+            "bottom"
+          ],
+          "checkpoints": [
+            "Guertelhierarchie und Bauchabschluss",
+            "Ueberlappung bei Hueftbeugung",
+            "Zugang zu Verschluessen"
+          ],
+          "missing_evidence": [
+            "Konkrete Vorlage und belegte Quellen fehlen",
+            "Projektbezogener Bildausschnitt mit Ansicht und Datei-ID",
+            "Angepasstes Detailmodell oder Schnittmuster",
+            "Realer Form- und Passvergleich"
+          ],
+          "model_status": "not_imported",
+          "guide_pages_1based": []
+        },
+        {
+          "id": "thigh_l",
+          "label": "Oberschenkel links",
+          "reference_source_ids": [],
+          "model_source_ids": [],
+          "required_views": [
+            "front",
+            "back",
+            "outer",
+            "inner",
+            "top",
+            "bottom"
+          ],
+          "checkpoints": [
+            "Knie- und Hueftabstand",
+            "Seitendetails statt pauschalem Spiegeln",
+            "Laengenanpassung in ruhiger Flaeche"
+          ],
+          "missing_evidence": [
+            "Konkrete Vorlage und belegte Quellen fehlen",
+            "Projektbezogener Bildausschnitt mit Ansicht und Datei-ID",
+            "Angepasstes Detailmodell oder Schnittmuster",
+            "Realer Form- und Passvergleich"
+          ],
+          "model_status": "not_imported",
+          "guide_pages_1based": []
+        },
+        {
+          "id": "thigh_r",
+          "label": "Oberschenkel rechts",
+          "reference_source_ids": [],
+          "model_source_ids": [],
+          "required_views": [
+            "front",
+            "back",
+            "outer",
+            "inner",
+            "top",
+            "bottom"
+          ],
+          "checkpoints": [
+            "Knie- und Hueftabstand",
+            "Seitendetails statt pauschalem Spiegeln",
+            "Laengenanpassung in ruhiger Flaeche"
+          ],
+          "missing_evidence": [
+            "Konkrete Vorlage und belegte Quellen fehlen",
+            "Projektbezogener Bildausschnitt mit Ansicht und Datei-ID",
+            "Angepasstes Detailmodell oder Schnittmuster",
+            "Realer Form- und Passvergleich"
+          ],
+          "model_status": "not_imported",
+          "guide_pages_1based": []
+        },
+        {
+          "id": "knee_l",
+          "label": "Knie links",
+          "reference_source_ids": [],
+          "model_source_ids": [],
+          "required_views": [
+            "front",
+            "back",
+            "left",
+            "right",
+            "top",
+            "bottom"
+          ],
+          "checkpoints": [
+            "Gewaehlte Knievariante",
+            "Sitz vor Kniescheibe",
+            "Ueberlappung bei Beugung"
+          ],
+          "missing_evidence": [
+            "Konkrete Vorlage und belegte Quellen fehlen",
+            "Projektbezogener Bildausschnitt mit Ansicht und Datei-ID",
+            "Angepasstes Detailmodell oder Schnittmuster",
+            "Realer Form- und Passvergleich"
+          ],
+          "model_status": "not_imported",
+          "guide_pages_1based": []
+        },
+        {
+          "id": "knee_r",
+          "label": "Knie rechts",
+          "reference_source_ids": [],
+          "model_source_ids": [],
+          "required_views": [
+            "front",
+            "back",
+            "left",
+            "right",
+            "top",
+            "bottom"
+          ],
+          "checkpoints": [
+            "Gewaehlte Knievariante",
+            "Sitz vor Kniescheibe",
+            "Ueberlappung bei Beugung"
+          ],
+          "missing_evidence": [
+            "Konkrete Vorlage und belegte Quellen fehlen",
+            "Projektbezogener Bildausschnitt mit Ansicht und Datei-ID",
+            "Angepasstes Detailmodell oder Schnittmuster",
+            "Realer Form- und Passvergleich"
+          ],
+          "model_status": "not_imported",
+          "guide_pages_1based": []
+        },
+        {
+          "id": "shin_l",
+          "label": "Unterschenkel links",
+          "reference_source_ids": [],
+          "model_source_ids": [],
+          "required_views": [
+            "front",
+            "back",
+            "outer",
+            "inner",
+            "top",
+            "bottom"
+          ],
+          "checkpoints": [
+            "Frontgrat und Wadenkontur",
+            "Scharnierzugang hinten",
+            "Abstand zur Schuhbewegung"
+          ],
+          "missing_evidence": [
+            "Konkrete Vorlage und belegte Quellen fehlen",
+            "Projektbezogener Bildausschnitt mit Ansicht und Datei-ID",
+            "Angepasstes Detailmodell oder Schnittmuster",
+            "Realer Form- und Passvergleich"
+          ],
+          "model_status": "not_imported",
+          "guide_pages_1based": []
+        },
+        {
+          "id": "shin_r",
+          "label": "Unterschenkel rechts",
+          "reference_source_ids": [],
+          "model_source_ids": [],
+          "required_views": [
+            "front",
+            "back",
+            "outer",
+            "inner",
+            "top",
+            "bottom"
+          ],
+          "checkpoints": [
+            "Frontgrat und Wadenkontur",
+            "Scharnierzugang hinten",
+            "Abstand zur Schuhbewegung"
+          ],
+          "missing_evidence": [
+            "Konkrete Vorlage und belegte Quellen fehlen",
+            "Projektbezogener Bildausschnitt mit Ansicht und Datei-ID",
+            "Angepasstes Detailmodell oder Schnittmuster",
+            "Realer Form- und Passvergleich"
+          ],
+          "model_status": "not_imported",
+          "guide_pages_1based": []
+        },
+        {
+          "id": "boot_l",
+          "label": "Schuhpanzer links",
+          "reference_source_ids": [],
+          "model_source_ids": [],
+          "required_views": [
+            "front",
+            "back",
+            "outer",
+            "inner",
+            "top",
+            "bottom"
+          ],
+          "checkpoints": [
+            "Zehenkontur und Spannstaffelung",
+            "Schuh passt eigenstaendig",
+            "Freie Sohlenflexion und Bodenhaftung"
+          ],
+          "missing_evidence": [
+            "Konkrete Vorlage und belegte Quellen fehlen",
+            "Projektbezogener Bildausschnitt mit Ansicht und Datei-ID",
+            "Angepasstes Detailmodell oder Schnittmuster",
+            "Realer Form- und Passvergleich"
+          ],
+          "model_status": "not_imported",
+          "guide_pages_1based": []
+        },
+        {
+          "id": "boot_r",
+          "label": "Schuhpanzer rechts",
+          "reference_source_ids": [],
+          "model_source_ids": [],
+          "required_views": [
+            "front",
+            "back",
+            "outer",
+            "inner",
+            "top",
+            "bottom"
+          ],
+          "checkpoints": [
+            "Zehenkontur und Spannstaffelung",
+            "Schuh passt eigenstaendig",
+            "Freie Sohlenflexion und Bodenhaftung"
+          ],
+          "missing_evidence": [
+            "Konkrete Vorlage und belegte Quellen fehlen",
+            "Projektbezogener Bildausschnitt mit Ansicht und Datei-ID",
+            "Angepasstes Detailmodell oder Schnittmuster",
+            "Realer Form- und Passvergleich"
+          ],
+          "model_status": "not_imported",
+          "guide_pages_1based": []
+        },
+        {
+          "id": "undersuit",
+          "label": "Unteranzug",
+          "reference_source_ids": [],
+          "model_source_ids": [],
+          "required_views": [
+            "front",
+            "back",
+            "left",
+            "right",
+            "joint_details"
+          ],
+          "checkpoints": [
+            "Unterschiedliche Texturen statt glattem Einteiler",
+            "Keine sichtbaren Logos/Reissverschluesse",
+            "Waschbare und abnehmbare Polster"
+          ],
+          "missing_evidence": [
+            "Konkrete Vorlage und belegte Quellen fehlen",
+            "Projektbezogener Bildausschnitt mit Ansicht und Datei-ID",
+            "Angepasstes Detailmodell oder Schnittmuster",
+            "Realer Form- und Passvergleich"
+          ],
+          "model_status": "not_imported",
+          "guide_pages_1based": []
+        },
+        {
+          "id": "neck_seal",
+          "label": "Halsabschluss",
+          "reference_source_ids": [],
+          "model_source_ids": [],
+          "required_views": [
+            "front",
+            "back",
+            "left",
+            "right",
+            "top"
+          ],
+          "checkpoints": [
+            "Rippenrichtung und Anschluss an Torso",
+            "Helmdrehung ohne Zug",
+            "Separat zu oeffnen"
+          ],
+          "missing_evidence": [
+            "Konkrete Vorlage und belegte Quellen fehlen",
+            "Projektbezogener Bildausschnitt mit Ansicht und Datei-ID",
+            "Angepasstes Detailmodell oder Schnittmuster",
+            "Realer Form- und Passvergleich"
+          ],
+          "model_status": "not_imported",
+          "guide_pages_1based": []
+        }
+      ],
+      "status": "reference_catalog_not_complete_build"
+    }
+  ]
+}

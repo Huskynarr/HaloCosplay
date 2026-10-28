@@ -1,37 +1,46 @@
-# Halo Master Chief Cosplay Guide (MJOLNIR)
+# HaloCosplay: konfigurierbare MJOLNIR-Projektmappe
 
-> Kostenlose, deutschsprachige Schritt-für-Schritt-Anleitung zum Bau eines tragbaren Halo Master Chief MJOLNIR Cosplays. Drei Bauwege: V1 (EVA-Foam, Einsteiger), V2 (3D-Druck mit HUD, Fortgeschritten), V3 (Exoskelett + AR-HUD, Profi). Umfasst Rüstung, Helm, Lackierung, Befestigung, Elektronik (Raspberry Pi/Arduino), Materiallisten mit Kauflinks und Sicherheits-/Convention-Hinweise.
+> Deutschsprachige Projektmappe fuer Halo-Cosplays mit eigenen Koerperprofilen,
+> waehlbarer Ruestungsreferenz, Materialweg, Einsatz und optionaler Technik.
+> Enthalten sind Bauraum-CAD, Konfigurator, Budget-Editor, Bauanleitungen und
+> Elektronikbeispiele. Keine fertigen Halo-Detailmodelle oder Hardwarefreigaben.
 
-Web-App (durchklickbar, Fortschritt im Browser): https://huskynarr.github.io/HaloCosplay/web/
-Quellcode/Repository: https://github.com/Huskynarr/HaloCosplay
+Web-App: https://huskynarr.github.io/HaloCosplay/
+Repository: https://github.com/Huskynarr/HaloCosplay
 
-## Einstieg
-- [Start: Wo anfangen](https://huskynarr.github.io/HaloCosplay/Documentation/Guides/Start-Hier.md)
-- [Varianten V1/V2/V3 im Vergleich](https://huskynarr.github.io/HaloCosplay/Documentation/Guides/Varianten.md)
-- [Kompletter Walkthrough (Anfänger bis Profi)](https://huskynarr.github.io/HaloCosplay/Documentation/Guides/Komplett-Walkthrough.md)
-- [Kosten](https://huskynarr.github.io/HaloCosplay/Documentation/Guides/Kosten.md)
-- [Zeitplan](https://huskynarr.github.io/HaloCosplay/Documentation/Guides/Zeitplan.md)
+## Einstieg und Konfiguration
 
-## Bau
-- [Foam-Bau (V1)](https://huskynarr.github.io/HaloCosplay/Documentation/Guides/Foam-Bau.md)
-- [3D-Druck (V2, Bambu Lab H2C)](https://huskynarr.github.io/HaloCosplay/Documentation/Guides/3D-Druck.md)
-- [Lackierung und Finishing](https://huskynarr.github.io/HaloCosplay/Documentation/Guides/Lackierung-Finishing.md)
-- [Unteranzug und Befestigung](https://huskynarr.github.io/HaloCosplay/Documentation/Guides/Unteranzug-Befestigung.md)
-- [Exoskelett (V3)](https://huskynarr.github.io/HaloCosplay/Documentation/Guides/Exoskelett.md)
+- [Eigenes Projekt konfigurieren](https://huskynarr.github.io/HaloCosplay/Documentation/Guides/Mjolnir-Konfiguration.md)
+- [Mehrprofil-Konfigurator](https://huskynarr.github.io/HaloCosplay/web/configurator/)
+- [Budget-Editor](https://huskynarr.github.io/HaloCosplay/web/budget/)
+- [Messdefinitionen](https://huskynarr.github.io/HaloCosplay/Documentation/Guides/Mjolnir-Massanpassung.md)
+- [Parametrisches CAD](https://huskynarr.github.io/HaloCosplay/Design/Parametric/README.md)
 
-## Elektronik
-- [HUD](https://huskynarr.github.io/HaloCosplay/Documentation/Guides/Elektronik-HUD.md)
-- [AR-Display (V3)](https://huskynarr.github.io/HaloCosplay/Documentation/Guides/Elektronik-AR-Display.md)
-- [V3-Systemarchitektur](https://huskynarr.github.io/HaloCosplay/Documentation/Guides/V3-Systemarchitektur.md)
-- [Schubdüsen und Nebel](https://huskynarr.github.io/HaloCosplay/Documentation/Guides/Elektronik-Schubduesen.md)
-- [Strombudget](https://huskynarr.github.io/HaloCosplay/Documentation/Guides/Elektronik-Strombudget.md)
+Template.json enthaelt 32 unbekannte Masse, Demo.json ausschliesslich
+synthetische Beispiele. Eigene Profile und Ausgabeordner getrennt halten.
+Ohne expliziten Konzeptmodus werden fehlende Masse nicht ergaenzt. Referenz-
+und Materialwahl dokumentieren den Umfang; sie erzeugen keine Detailgeometrie,
+Festigkeitsbemessung oder Herstellerintegration.
 
-## Material und Einkauf
-- [Einkaufsliste mit Kauflinks](https://huskynarr.github.io/HaloCosplay/Materials/Einkaufsliste-Links.md)
-- [Komponentenliste (BOM)](https://huskynarr.github.io/HaloCosplay/Materials/ShoppingList.md)
-- [STL-Quellen](https://huskynarr.github.io/HaloCosplay/Resources/STL-Quellen.md)
+## Bau und Technik
 
-## Sicherheit und Convention
+- [Systementwurf](https://huskynarr.github.io/HaloCosplay/Documentation/Guides/Mjolnir-Systementwurf.md)
+- [Fertigung und Schnittstellen](https://huskynarr.github.io/HaloCosplay/Documentation/Guides/Mjolnir-Fertigung.md)
+- [Ruestungsreferenz](https://huskynarr.github.io/HaloCosplay/Documentation/Guides/Authentizitaet-Referenz.md)
+- [Bauwege](https://huskynarr.github.io/HaloCosplay/Documentation/Guides/Varianten.md)
+- [Exoskelett und eigener Traeger](https://huskynarr.github.io/HaloCosplay/Documentation/Guides/Exoskelett.md)
+- [Elektronik](https://huskynarr.github.io/HaloCosplay/Documentation/Guides/Mjolnir-Elektronik.md)
+- [Einkauf fuer einen Prototyp](https://huskynarr.github.io/HaloCosplay/Materials/Mjolnir-Einkauf-Prototyp.md)
+
+## Nachweise und Betrieb
+
+- [Projektaufgaben](https://huskynarr.github.io/HaloCosplay/Documentation/TODO.md)
+- [Physische Abnahme](https://huskynarr.github.io/HaloCosplay/Tests/TestReports/Mjolnir-Abnahme.md)
+- [Messebetrieb](https://huskynarr.github.io/HaloCosplay/Documentation/Guides/Mjolnir-Messebetrieb.md)
+- [Messeanzeige](https://huskynarr.github.io/HaloCosplay/Code/Exhibition/README.md)
 - [Sicherheit](https://huskynarr.github.io/HaloCosplay/Documentation/Guides/Sicherheit.md)
-- [Convention-Regeln (DE, inkl. Waffengesetz)](https://huskynarr.github.io/HaloCosplay/Documentation/Guides/Convention-Regeln.md)
-- [Checklisten](https://huskynarr.github.io/HaloCosplay/Documentation/Guides/Checklisten.md)
+- [Convention-Regeln](https://huskynarr.github.io/HaloCosplay/Documentation/Guides/Convention-Regeln.md)
+
+Nachweise gehoeren zum jeweiligen Projekt und zur dokumentierten Revision.
+Softwaretests, Beispielpreise und Zielmassen sind keine realen Pass-, Last-,
+Laufzeit- oder Veranstalternachweise.

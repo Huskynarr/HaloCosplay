@@ -7,7 +7,7 @@
   var ROOT = "../"; // app in /web/, markdown at repo root
   var TOP_DIRS = ["Documentation/", "Code/", "Materials/", "Resources/", "Design/", "BuildGuides/", "Tests/", "Progress/"];
   var NS = "mfm:";
-  var VARIANTS = ["V1", "V2", "V3"];
+  var VARIANTS = ["V4", "V1", "V2", "V3"];
   var VIEWER = "3d-viewer"; // sentinel hash for the interactive 3D armor model
   var COSPLAY = "cosplay-guides"; // sentinel hash for the official 343 cosplay guide PDFs
 
@@ -26,7 +26,7 @@
 
   // ---- state ----
   var variant = store.get("variant");
-  if (VARIANTS.indexOf(variant) < 0) variant = "V3";
+  if (VARIANTS.indexOf(variant) < 0) variant = "V4";
   var currentFile = "", docEl;
 
   function jr() { return CONTENT.journeys[variant]; }
@@ -69,6 +69,9 @@
   function navLink(item, num) {
     var a = document.createElement("a");
     a.className = "navlink"; a.href = "#" + item.file; a.setAttribute("data-file", item.file);
+    if (item.file === "profile-configurator") a.href = "configurator/";
+    if (item.file === "budget-planner") a.href = "budget/";
+    if (item.file === "product-catalog") a.href = "products/";
     a.textContent = (num ? num + ". " : "") + item.title;
     if (item.sub) a.title = item.sub;
     if (store.get("done:" + item.file) === "1") a.classList.add("done");
@@ -246,7 +249,14 @@
   function postProcess(root, file) {
     root.querySelectorAll("a[href]").forEach(function (a) {
       var href = a.getAttribute("href");
-      if (/^(https?:|mailto:)/.test(href)) { a.target = "_blank"; a.rel = "noopener"; return; }
+      if (/^(https?:|mailto:)/.test(href)) {
+        a.target = "_blank"; a.rel = "noopener noreferrer";
+        if (window.SuitProducts && window.SuitProductData && SuitProducts.affiliate(href, SuitProductData.affiliate.amazon_de_tag)) {
+          a.rel += " sponsored nofollow";
+          if (!/affiliate/i.test(a.textContent)) a.appendChild(document.createTextNode(" (Affiliate)"));
+        }
+        return;
+      }
       if (href.charAt(0) === "#") return;
       var res = resolveHref(href, file);
       if (/\.md$/i.test(res)) { a.setAttribute("href", "#" + res); }
@@ -292,15 +302,16 @@
         '<div style="color:var(--dim);font-size:12px;margin-top:2px">' + esc(jj.tag) + '</div></button>';
     }).join("");
     docEl.innerHTML =
-      '<h1>Halo Master Chief Cosplay Guide (Vollständige Anleitung)</h1>' +
-      '<p style="font-size:1.08rem;color:var(--dim)">Dies ist eine durchklickbare Schritt-für-Schritt-Anleitung für den Bau deiner eigenen Master Chief Cosplay-Rüstung (MJOLNIR). Die Inhalte basieren direkt auf den Dokumentationen im Repository. Dein Fortschritt, abgehakte Aufgaben und Haken auf Einkaufslisten werden lokal in deinem Browser gespeichert.</p>' +
+      '<h1>Halo MJOLNIR: Entwicklungs- und Bauhandbuch</h1>' +
+      '<p style="font-size:1.08rem;color:var(--dim)">Ein konfigurierbarer Baukasten fuer Halo-Cosplay: Ruestungsreferenz, Materialweg und Ausstattung lassen sich pro Profil auswaehlen. Die Inhalte basieren auf den Dokumentationen im Repository. Der Lesefortschritt und Einkaufsmarkierungen bleiben lokal im Browser gespeichert; Koerperprofile werden im separaten Konfigurator nur nach ausdruecklicher Auswahl gespeichert.</p>' +
+      '<p><a class="btn btn-accent" href="configurator/">Profil konfigurieren &gt;</a> <a class="btn" href="budget/">Budget planen &gt;</a> <a class="btn" href="products/">Produkte und Einkaufslinks &gt;</a></p>' +
       '<div class="hud" style="padding:15px 18px;margin:1.5em 0;border-left:3px solid var(--cyan);background:rgba(70,200,255,0.03);">' +
       '<div class="font-disp" style="color:var(--cyan);font-weight:600;font-size:0.95rem;letter-spacing:.05em;">HINTERGRUND: WAS BEDEUTET „MJOLNIR“?</div>' +
       '<p style="font-size:0.9rem;color:var(--text);margin:.4em 0 0;line-height:1.5;">' +
-      'Die Rüstung des Master Chiefs trägt die offizielle Bezeichnung <strong>MJOLNIR Powered Assault Armor</strong>. Benannt nach dem legendären Hammer des nordischen Donnergottes Thor, symbolisiert dieser Name die extreme Stärke und Widerstandskraft der Rüstung. Dieser Guide liefert dir die vollständige Bauanleitung für dein eigenes tragbares Replika.' +
+      'Die Rüstung des Master Chiefs trägt die offizielle Bezeichnung <strong>MJOLNIR Powered Assault Armor</strong>. Benannt nach dem legendären Hammer des nordischen Donnergottes Thor, symbolisiert dieser Name die extreme Stärke und Widerstandskraft der Rüstung. Der V4-Pfad dokumentiert den Entwicklungsstand; Fertigungsmodelle und reale Abnahmen sind noch offen.' +
       '</p>' +
       '</div>' +
-      '<h2>Wähl deinen Pfad</h2>' +
+      '<h2>Baupfad auswaehlen</h2>' +
       '<div style="display:flex;gap:10px;flex-wrap:wrap;margin:.6em 0 1.4em">' + cards + '</div>' +
       '<div class="hud ticks" style="padding:18px 20px;margin:8px 0 22px;background:rgba(94,194,63,.05);">' +
       '<div class="font-disp" style="color:var(--accent);font-weight:700;letter-spacing:.06em;">' + esc(j.label) + ' - SCHNELLSTART</div>' +
@@ -309,10 +320,9 @@
       '</div>' +
       '<h2>So funktioniert es</h2>' +
       '<ul>' +
-      '<li>Wähle oben links deinen Schwierigkeitsgrad/Pfad (<strong>V1 Foam</strong> / <strong>V2 3D-Druck</strong> / <strong>V3 Profi-Exoskelett</strong>) – jede Variante führt dich strukturiert durch das Projekt.</li>' +
-      '<li>Hake <strong>Schritte</strong> in den Checklisten direkt ab – dein Fortschritt wird automatisch gesichert.</li>' +
-      '<li>Markiere auf den Einkaufslisten die Materialien und Komponenten, die du <strong>bereits besitzt</strong>.</li>' +
-      '<li>Der Statusbalken im Header visualisiert deinen <strong>Gesamtfortschritt der ausgewählten Variante</strong>.</li>' +
+      '<li><strong>V4 Baukasten</strong> verbindet Profile, Mechanik und Messebetrieb. V1 Foam, V2 3D-Druck und V3 dienen als weitere Material- und Ausbaureferenzen.</li>' +
+      '<li>Abgehakte <strong>Schritte</strong> und Einkaufsmarkierungen werden automatisch lokal gesichert.</li>' +
+      '<li>Der Statusbalken zeigt den <strong>Lesefortschritt im gewaehlten Baupfad</strong>; er ist kein Nachweis fuer einen fertigen oder tragbaren Anzug.</li>' +
       '</ul>';
     docEl.querySelectorAll(".variant-pick").forEach(function (b) {
       b.addEventListener("click", function () {
@@ -348,19 +358,34 @@
     else { next.disabled = true; next.onclick = null; }
   }
 
+  function appendProducts(file) {
+    if (!window.SuitProducts || !window.SuitProductData) return;
+    var products = SuitProducts.filter(SuitProductData, {guide: file});
+    if (!products.length) return;
+    var section = document.createElement("section");
+    section.className = "catalog-context";
+    section.innerHTML = '<h2>Produkte zu dieser Anleitung</h2><p>Kandidaten und Auswahlkriterien; kein Nachweis eines erprobten Gesamtsystems.</p><ul>' +
+      products.slice(0, 6).map(function (p) { return '<li><a href="products/?product=' + encodeURIComponent(p.id) + '">' + esc(p.name) + '</a> — ' + esc(SuitProducts.status[p.status]) + '</li>'; }).join("") +
+      '</ul><p><a class="btn" href="products/?guide=' + encodeURIComponent(file) + '">Alle ' + products.length + ' zugeordneten Produkte &gt;</a></p>';
+    docEl.appendChild(section);
+  }
+
   function loadDoc(file) {
     currentFile = file; setActive(file); closeNav();
     docEl.innerHTML = '<p class="font-mono" style="color:var(--dim)">// lade ' + esc(file) + ' ...</p>';
     fetch(ROOT + file, { cache: "no-cache" })
       .then(function (r) { if (!r.ok) throw new Error(r.status); return r.text(); })
       .then(function (md) {
+        if (currentFile !== file) return;
         docEl.innerHTML = marked.parse(md);
         docEl.classList.remove("glitch-in"); void docEl.offsetWidth; docEl.classList.add("glitch-in");
         postProcess(docEl, file);
+        appendProducts(file);
         updateJourneyFoot(file);
         window.scrollTo(0, 0);
       })
       .catch(function () {
+        if (currentFile !== file) return;
         $("#journey-foot").style.display = "none";
         docEl.innerHTML = '<h1>Nicht gefunden</h1><p>Die Datei <code>' + esc(file) +
           '</code> konnte nicht geladen werden. Laeuft die Seite ueber einen Webserver (nicht per file://)?</p>';
@@ -400,7 +425,7 @@
     docEl.innerHTML =
       '<h1>Offizielle Cosplay-Guides (343 Industries)</h1>' +
       '<p style="color:var(--dim)">Die offiziellen Referenz-PDFs von 343 Industries zum Mark VII (MJOLNIR GEN3) - ' +
-      'mit Masszeichnungen, Turnaround-Ansichten und Detail-Views. Direkt aus dem Repo, ' +
+      'mit Turnaround-Ansichten und Detail-Views. Mark VII ist keine exakte Vorlage fuer Chiefs Mark VI GEN3. Direkt aus dem Repo, ' +
       'funktioniert auch offline (z.B. auf der Convention ohne Wlan).</p>' +
       '<div class="mv-toolbar" style="margin-bottom:10px">' + tabs + '</div>' +
       '<div id="cg-frame-wrap" class="cg-wrap">' +
@@ -459,63 +484,47 @@
     { id: "helm", label: "Helm", pos: "0 1.69 0.07", normal: "0 0.15 1", variant: "V1-V3",
       material: "EVA-Foam 6-10 mm (V1) oder PETG-Druck (V2/V3)",
       desc: "Die ikonische MJOLNIR-Helmschale. In V1 aus mehreren Foam-Schalen geformt, in V2/V3 mehrteilig gedruckt, gespachtelt und verschliffen.",
-      guide: "Documentation/Guides/3D-Druck.md",
-      buy: [{ t: "EVA-Foam (Staerken waehlbar)", u: "https://www.amazon.de/dp/B085WBSS5B?tag=huskynarr-21" }] },
+      guide: "Documentation/Guides/3D-Druck.md" },
     { id: "visier", label: "Visier", pos: "0 1.62 0.13", normal: "0 0 1", variant: "V1-V3",
       material: "Getoentes/verspiegeltes PETG oder Polycarbonat",
-      desc: "Das goldene Visier. Thermogeformtes PETG, getoent und innen verspiegelt - Anti-Fog-Beschichtung nicht vergessen.",
-      guide: "Documentation/Guides/Lackierung-Finishing.md",
-      buy: [{ t: "PETG-Platte transparent", u: "https://www.amazon.de/dp/B01AC7WHOM?tag=huskynarr-21" },
-            { t: "Anti-Fog-Spray", u: "https://www.amazon.de/dp/B088HGLNQV?tag=huskynarr-21" }] },
+      desc: "Das goldene Visier. Thermogeformtes PETG mit gepruefter Toenung. Lichtdurchlass, Verzerrung und Beschlagen im getragenen Helm testen.",
+      guide: "Documentation/Guides/Lackierung-Finishing.md" },
     { id: "hud", label: "HUD (im Helm)", pos: "0.07 1.66 0.10", normal: "0.3 0 1", variant: "V2-V3",
-      material: "Raspberry Pi Zero 2 W + transparentes OLED (SSD1309)",
-      desc: "Optionales Head-up-Display hinter dem Visier: Schild- und Akkustand auf transparentem OLED. Details im HUD-Guide.",
-      guide: "Documentation/Guides/Elektronik-HUD.md",
-      buy: [{ t: "Transparentes OLED 1.51\"", u: "https://www.amazon.de/dp/B0B8N46G24?tag=huskynarr-21" },
-            { t: "Raspberry Pi Zero 2 W", u: "https://www.amazon.de/s?k=Raspberry+Pi+Zero+2+W&tag=huskynarr-21" },
-            { t: "PiSugar (Pi-Zero-UPS)", u: "https://www.amazon.de/dp/B09QS12N1W?tag=huskynarr-21" }] },
+      material: "AR-Brille mit fertiger Optik und kompatibler Videoquelle",
+      desc: "Optionales AR-Display mit fokussierbarer Optik. Augenabstand, Sichtfeld und HDMI/DisplayPort-Schnittstelle vor Einbau pruefen. Transparentes OLED allein ist kein Near-Eye-AR.",
+      guide: "Documentation/Guides/Elektronik-AR-Display.md" },
     { id: "brust", label: "Brustpanzer", pos: "0 1.27 0.17", normal: "0 0 1", variant: "V1-V3",
       material: "EVA-Foam 6 mm + 2 mm Detaillagen / PETG",
       desc: "Brust- und Rueckenplatte. Traegt einen Grossteil der Optik und dient als Montagepunkt fuer Gurte und Elektronik.",
-      guide: "Documentation/Guides/Foam-Bau.md",
-      buy: [{ t: "EVA-Foam 6 mm", u: "https://www.amazon.de/dp/B07DCGMXQZ?tag=huskynarr-21" }] },
+      guide: "Documentation/Guides/Foam-Bau.md" },
     { id: "schulter", label: "Schulterpanzer", pos: "0.27 1.42 0.04", normal: "0.8 0.2 0.6", variant: "V1-V3",
       material: "EVA-Foam 6 mm, warm gebogen",
-      desc: "Die markanten Schulter-Pauldrons (UNSC-Logo links). Per Klett oder Magnet an der Brustplatte gehalten.",
-      guide: "Documentation/Guides/Foam-Bau.md",
-      buy: [{ t: "EVA-Foam 6 mm", u: "https://www.amazon.de/dp/B07DCGMXQZ?tag=huskynarr-21" }] },
+      desc: "Schulterplatten passend zur gewaehlten Ruestungsreferenz. Mechanische Sicherung am Tragegestell; Magnete koennen bei der Positionierung helfen.",
+      guide: "Documentation/Guides/Foam-Bau.md" },
     { id: "arm", label: "Unterarm / Gauntlet", pos: "0.34 1.05 0.10", normal: "0.8 0 0.6", variant: "V1-V3",
-      material: "EVA-Foam 6 mm, als Roehre verklebt",
-      desc: "Unterarmschienen mit Bedienfeld-Detail. Muessen ueber die Hand passen - innen offen oder mit Klettverschluss.",
-      guide: "Documentation/Guides/Foam-Bau.md",
-      buy: [{ t: "EVA-Foam 6 mm", u: "https://www.amazon.de/dp/B07DCGMXQZ?tag=huskynarr-21" }] },
+      material: "Seitlich oeffnende Halbschalen mit Scharnier und Schnellverschluss",
+      desc: "Unterarmschienen seitlich um den Arm schliessen. Entriegelung muss mit der anderen Hand erreichbar sein; kein Durchschluepfen durch geschlossene Ringe.",
+      guide: "Documentation/Guides/Mjolnir-Selbstanziehen.md" },
     { id: "hand", label: "Handschuhe + Unteranzug", pos: "0 1.02 0.17", normal: "0 0 1", variant: "V1-V3",
       material: "Schwarzer Unteranzug + taktische Handschuhe",
       desc: "Die schwarze Basisschicht. Traegt Magnete/Klett fuer die Panzerteile und bestimmt den sicheren, beweglichen Sitz.",
-      guide: "Documentation/Guides/Unteranzug-Befestigung.md",
-      buy: [{ t: "Morphsuit (Unteranzug)", u: "https://www.amazon.de/dp/B00LEG800Q?tag=huskynarr-21" },
-            { t: "Mechanix Handschuhe", u: "https://www.amazon.de/dp/B0001VNZZU?tag=huskynarr-21" }] },
+      guide: "Documentation/Guides/Unteranzug-Befestigung.md" },
     { id: "bein", label: "Oberschenkel + Beinpanzer", pos: "0.13 0.80 0.13", normal: "0.4 0 1", variant: "V1-V3",
       material: "EVA-Foam 6 mm + Schaumfutter",
-      desc: "Oberschenkel- und Knieplatten. An einem Beingurt oder Strumpf fixiert, damit nichts rutscht.",
-      guide: "Documentation/Guides/Foam-Bau.md",
-      buy: [{ t: "EVA-Foam (Staerken waehlbar)", u: "https://www.amazon.de/dp/B085WBSS5B?tag=huskynarr-21" }] },
+      desc: "Seitlich oeffnende Oberschenkel- und Schienbeinschalen mit separater Knieabdeckung. Passform, Oeffnungswinkel und Sitz am Tragegurt testen.",
+      guide: "Documentation/Guides/Mjolnir-Selbstanziehen.md" },
     { id: "stiefel", label: "Stiefel / Schienbein", pos: "0.13 0.20 0.13", normal: "0.3 0.3 1", variant: "V1-V3",
       material: "Stabile Stiefel + Foam-Schienbein-Cover",
       desc: "Schienbein-Panzer ueber festen Stiefeln. Auf sicheren Stand und Treppentauglichkeit achten.",
-      guide: "Materials/Shoes.md",
-      buy: [{ t: "EVA-Foam 6 mm (Cover)", u: "https://www.amazon.de/dp/B07DCGMXQZ?tag=huskynarr-21" }] },
+      guide: "Materials/Shoes.md" },
     { id: "akku", label: "Akku + Elektronik", pos: "0 1.25 -0.20", normal: "0 0 -1", variant: "V2-V3",
-      material: "LiFePO4-Akku / USB-Powerbank + Verteilung",
-      desc: "Stromversorgung fuer HUD, Luefter, LEDs und Audio - meist im Rueckenteil verbaut. Strombudget vorher rechnen.",
-      guide: "Documentation/Guides/Elektronik-Batterie.md",
-      buy: [{ t: "Powerbank 10.000 mAh (schlank)", u: "https://www.amazon.de/dp/B0D4MDHB21?tag=huskynarr-21" },
-            { t: "Powerbank 20.000 mAh (V3)", u: "https://www.amazon.de/dp/B0CZ9LH53B?tag=huskynarr-21" }] },
+      material: "Getrennte 5-V-Komfort- und 15-V-Effektversorgung",
+      desc: "Entnehmbare Powerbanks tief und seitlich am Rumpf oder nahe der Huefte. Luftkanaele und Entriegelungen frei halten; Strombudget und Leitungswege separat planen.",
+      guide: "Documentation/Guides/Mjolnir-Einbauplan.md" },
     { id: "exo", label: "Exoskelett", pos: "0.16 0.95 -0.10", normal: "0.6 0 -0.6", variant: "V3",
-      material: "Alu-Profil 3030/2020 + Gelenke",
-      desc: "Optionales Traggestell, das Gewicht auf die Huefte verlagert und Servo-/Aktuatorbewegung erlaubt. Nur V3.",
-      guide: "Documentation/Guides/Exoskelett.md",
-      buy: [{ t: "Aluprofil 3030 Nut 8", u: "https://www.amazon.de/dp/B097414JW7?tag=huskynarr-21" }] },
+      material: "Nach realem Lastpfad auszulegender Traeger; Serien-Exo separat",
+      desc: "Eigener Ruestungstraeger und optionales separat angepasstes Serien-Exoskelett. Keine nachgewiesene Lastableitung zum Boden.",
+      guide: "Documentation/Guides/Exoskelett.md" },
   ];
   var PLACEHOLDER_MODEL = "https://modelviewer.dev/shared-assets/models/Astronaut.glb";
   var LOCAL_MODEL = "models/spartan.glb"; // relative to /web/index.html
@@ -543,12 +552,13 @@
     var img = '<img class="pp-img" src="' + ROOT + 'web/img/parts/' + p.id + '.jpg" alt="' + esc(p.label) +
       '" loading="lazy" decoding="async" onerror="this.remove()">';
     var buy = "";
-    if (p.buy && p.buy.length) {
-      buy = '<div class="pp-buy"><div class="pp-buy-head font-mono">Material kaufen</div>' +
-        p.buy.map(function (b) {
-          return '<a class="pp-buy-link" href="' + b.u + '" target="_blank" rel="noopener nofollow sponsored">' + esc(b.t) + ' &#8599;</a>';
-        }).join("") +
-        '<div class="pp-buy-note font-mono">Amazon-Partnerlinks (Tag huskynarr-21)</div></div>';
+    if (window.SuitProducts && window.SuitProductData) {
+      var products = SuitProducts.filter(SuitProductData, {part: p.id});
+      buy = '<div class="pp-buy"><div class="pp-buy-head font-mono">Passende Produkte und Auswahlkriterien</div>' +
+        products.slice(0, 5).map(function (product) {
+          return '<a class="pp-buy-link" href="products/?product=' + encodeURIComponent(product.id) + '">' + esc(product.name) + '</a>';
+        }).join("") + '<a class="pp-buy-link" href="products/?part=' + p.id + '">Alle ' + products.length + ' Eintraege fuer dieses Teil &gt;</a>' +
+        '<div class="pp-buy-note font-mono">Kandidaten und Alternativen; Passform und Schnittstellen vor Kauf pruefen.</div></div>';
     }
     panel.innerHTML =
       '<div class="pp-head font-disp">' + esc(p.label) + '<span class="pp-var">' + esc(p.variant) + '</span></div>' +
@@ -691,6 +701,9 @@
 
   function route() {
     var file = decodeURIComponent(location.hash.replace(/^#/, ""));
+    if (file === "profile-configurator") { location.href = "configurator/"; return; }
+    if (file === "budget-planner") { location.href = "budget/"; return; }
+    if (file === "product-catalog") { location.href = "products/"; return; }
     if (!file) { welcome(); return; }
     if (file === VIEWER) { render3DViewer(); return; }
     if (file === COSPLAY) { renderCosplayGuides(); return; }
@@ -723,7 +736,7 @@
     $("#reset-btn").addEventListener("click", function () {
       if (confirm("Gespeicherten Fortschritt (Schritte, Einkaufs-Haken) in diesem Browser loeschen?")) {
         store.reset();
-        variant = "V3"; // keys gone; keep a sane default
+        variant = "V4"; // keys gone; keep a sane default
         buildNav(); renderProgress(); markDone();
         if (currentFile) loadDoc(currentFile); else welcome();
         toast("Fortschritt zurueckgesetzt");

@@ -1,5 +1,13 @@
 # V3-Systemarchitektur: Alle Module im Zusammenspiel
 
+## Einordnung in das konfigurierbare Projekt
+
+Der [Systementwurf](Mjolnir-Systementwurf.md) ergaenzt einen eigenen Traeger und
+mechanischen Einstieg. Die [Elektronikplanung](Mjolnir-Elektronik.md) trennt
+Komfort und Effekte; ein ausgewaehltes Serien-Exoskelett bleibt eigenstaendig.
+Nur die im Projektprofil geplanten Module einbeziehen. Die folgenden
+V3-Schienenwerte sind Beispielwerte, keine Bemessung neuer Hardware.
+
 > **Level:** [P] Profi  |  **Varianten:** V3 (einzelne Module auch fuer V2 nutzbar)
 > **Voraussetzungen:** Strombudget verstanden (`Elektronik-Strombudget.md`), Einzelmodule
 > bekannt (HUD, LEDs, Schubduesen, Audio, AR). Dieser Guide verdrahtet nichts neu -
@@ -38,7 +46,7 @@ Ausfall nichts lahmlegt.
 | Visor-LEDs + Helm-Luefter | Helm | Arduino Nano (I2C Slave 0x08) | `Code/HelmetControl/HelmetMultiEffects.ino` |
 | Sensorik (IMU, Akku, Temp) | Helm | ESP32 | `Code/HelmetControl/AR/SensorFeeder/` |
 | POV-Kamera | Helm | autarke Action-Cam | Abschnitt 4 |
-| Schubduesen-LEDs + Nebler | Ruecken | Arduino/ESP32 | `Elektronik-Schubduesen.md` |
+| Schubduesen-LEDs; Nebler separat | Ruecken | LED-Controller / Original-Fernbedienung | `Elektronik-Schubduesen.md` |
 | Voice Changer + Lautsprecher | Brust/Helm | eigenes Modul | `Elektronik-Audio.md` |
 | Armor-LEDs | Torso/Glieder | Arduino Nano | `Code/ArmorControl/MultiEffects.ino` |
 
@@ -46,11 +54,11 @@ Ausfall nichts lahmlegt.
         HELM                                RUECKEN / BACKPACK
 +---------------------------+      +------------------------------------+
 | Pi 4/5 (AR + HUD)         |<-USB-| (Akkus sitzen im Backpack)         |
-| ESP32 SensorFeeder      --+      | Arduino: Duesen-LEDs + Nebler      |
+| ESP32 SensorFeeder      --+      | Arduino: nur Duesen-LEDs          |
 | Nano: Visor-LED + Luefter |      |   [eigener Boost-Taster]           |
 |   [eigener Effekt-Taster] |      |                                    |
 | Action-Cam (autark, POV)  |      | Schiene 1: Powerbank/Step-Down Pi  |
-+---------------------------+      | Schiene 2: LEDs + Nebler + Luefter |
++---------------------------+      | Schiene 2: LEDs + Luefter         |
         BRUST                      | Schiene 3: Audio                   |
 +---------------------------+      +------------------------------------+
 | Mikro (innen) -> Voice-   |
@@ -66,17 +74,17 @@ drei getrennt abgesicherte 5V-Schienen ab:
 | Schiene | Verbraucher | Spitzenlast ca. | Sicherung |
 | --- | --- | --- | --- |
 | 1: Rechner | Pi 4/5 + AR-Display + Kamera, SensorFeeder | 1.5-3.0 A | 3 A |
-| 2: Effekte | Visor-/Armor-/Duesen-LEDs, Nebler, alle Luefter | 2.0-3.5 A (Boost) | 5-10 A |
+| 2: Effekte | Visor-/Armor-/Duesen-LEDs und Luefter | 2.0-3.5 A (Boost) | 5-10 A |
 | 3: Audio | Voice Changer + Verstaerker + Lautsprecher | 0.3-0.8 A | 2 A |
 
-Warum getrennt: Der Nebler-Boost und LED-Spitzen erzeugen Spannungseinbrueche,
+Warum getrennt: LED-Spitzen und Luefter-Anlauf erzeugen Spannungseinbrueche,
 die einen Pi mitten im Passthrough rebooten wuerden (= ploetzliche Blindheit).
 Der Rechner bekommt deshalb IMMER eine eigene Versorgung. Audio liegt getrennt,
 weil Stoergeraeusche (Brummen/Zirpen) fast immer ueber gemeinsame
 Versorgungsleitungen einstreuen.
 
 - **Stromaufnahme Voll-V3: typisch 4-5 A im Betrieb, bis ~7-8 A in der Spitze**
-  (alle Schienen-Maxima zusammen, z.B. Nebler-Boost gleichzeitig mit Pi-Last).
+  (alle Schienen-Maxima zusammen, z.B. LED-Boost gleichzeitig mit Pi-Last).
   Die Spitzen treten kurz und selten gleichzeitig auf - die getrennten Schienen
   fangen genau das ab. Rechne dein konkretes Setup mit `Elektronik-Strombudget.md`
   durch, plane 20-30% Reserve ein und MISS vor dem Einbau.
@@ -128,7 +136,7 @@ Grundsatz aus dem ElectronicsGuide gilt verschaerft: **Nie alle Module gleichzei
 erstmals einschalten.**
 
 1. Jedes Modul einzeln am Labornetzteil/USB testen (Strom messen, notieren)
-2. Schiene 2 aufbauen: LEDs + Luefter + Nebler zusammen, Boost-Spitzenstrom messen
+2. Schiene 2 aufbauen: LEDs + Luefter zusammen, Boost-Spitzenstrom messen
 3. Schiene 1 aufbauen: Pi + Display + Kamera, Latenztest, Waermetest 30+ Minuten
 4. Schiene 3 aufbauen: Audio, Rueckkopplungstest im geschlossenen Helm
 5. Alles zusammen aus den finalen Akkus: Gesamtstrom messen, gegen Budget pruefen
@@ -166,3 +174,5 @@ Luefter-Ausfall im geschlossenen Helm (Hitzestau - siehe `Sicherheit.md`).
 - Strombudget: `Elektronik-Strombudget.md` | Batterien: `Elektronik-Batterie.md`
 - Verdrahtung: `Elektronik-Verdrahtung.md` | Luefter: `Elektronik-Luefter.md`
 - Exoskelett (mechanischer V3-Teil): `Exoskelett.md`
+
+Das PMI-Nebelmodul nutzt seine eigene Originalversorgung und Originalbedienung. Die historischen 5-V-Schienenwerte enthalten dessen Leistungsbedarf nicht. Aktueller Aufbau: [Schubduesen](Elektronik-Schubduesen.md).

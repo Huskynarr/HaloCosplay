@@ -1,0 +1,308 @@
+{
+  "schema_version": 1,
+  "status": "EXAMPLE_MESH_CHECKS_PASSED",
+  "fabrication_approved": false,
+  "source_sha256": {
+    "HardwareKit.scad": "ba4a270d16c37ec23365d8b8efaaba30fca4d4528052000a51555886c32cd1c5",
+    "Parameters.scad": "792154d44d116250e9f8ba7cbf7808d54d3ce30baafcd2d29de19581b9b2c6f1",
+    "ExampleConfig.json": "299e055b987ca23428a43115f75cbe0f4211239d0954b72d36316b20825b3990",
+    "Manifest.json": "1628a127209e229fad648923fb6ce92c99ec2b83b4cc9e426966bdd32378f79c"
+  },
+  "renderer": "OpenSCAD version 2021.01",
+  "export_format": "asciistl",
+  "validation": "tools/suit_assets.py inspect_stl(data, 1)",
+  "mesh_repaired": false,
+  "parts": [
+    {
+      "id": "powerbank_base",
+      "triangles": 2880,
+      "bounds_mm": {
+        "min": [
+          -54.6,
+          -76.6,
+          0.0
+        ],
+        "max": [
+          54.6,
+          76.6,
+          13.0
+        ]
+      },
+      "size_mm": [
+        109.2,
+        153.2,
+        13.0
+      ],
+      "surface_area_mm2": 42000.81766319189,
+      "nonpaired_edges": 0,
+      "inconsistent_edges": 0,
+      "edge_checks_complete": true,
+      "limits": "Exakte Koordinaten; keine Reparatur, Selbstschnitt-, Wandstaerken- oder Formpruefung."
+    },
+    {
+      "id": "transmitter_base",
+      "triangles": 1848,
+      "bounds_mm": {
+        "min": [
+          -36.6,
+          -59.1,
+          0.0
+        ],
+        "max": [
+          36.6,
+          59.1,
+          15.0
+        ]
+      },
+      "size_mm": [
+        73.2,
+        118.2,
+        15.0
+      ],
+      "surface_area_mm2": 24539.276422899868,
+      "nonpaired_edges": 0,
+      "inconsistent_edges": 0,
+      "edge_checks_complete": true,
+      "limits": "Exakte Koordinaten; keine Reparatur, Selbstschnitt-, Wandstaerken- oder Formpruefung."
+    },
+    {
+      "id": "camera_base",
+      "triangles": 3460,
+      "bounds_mm": {
+        "min": [
+          -22.0,
+          -19.0,
+          0.0
+        ],
+        "max": [
+          22.0,
+          19.0,
+          41.0
+        ]
+      },
+      "size_mm": [
+        44.0,
+        38.0,
+        41.0
+      ],
+      "surface_area_mm2": 17509.40719656588,
+      "nonpaired_edges": 0,
+      "inconsistent_edges": 0,
+      "edge_checks_complete": true,
+      "limits": "Exakte Koordinaten; keine Reparatur, Selbstschnitt-, Wandstaerken- oder Formpruefung."
+    },
+    {
+      "id": "camera_lid",
+      "triangles": 988,
+      "bounds_mm": {
+        "min": [
+          -22.0,
+          -19.0,
+          0.0
+        ],
+        "max": [
+          22.0,
+          19.0,
+          3.0
+        ]
+      },
+      "size_mm": [
+        44.0,
+        38.0,
+        3.0
+      ],
+      "surface_area_mm2": 3860.554322164177,
+      "nonpaired_edges": 0,
+      "inconsistent_edges": 0,
+      "edge_checks_complete": true,
+      "limits": "Exakte Koordinaten; keine Reparatur, Selbstschnitt-, Wandstaerken- oder Formpruefung."
+    },
+    {
+      "id": "hud_base",
+      "triangles": 1360,
+      "bounds_mm": {
+        "min": [
+          -27.0,
+          -18.0,
+          0.0
+        ],
+        "max": [
+          27.0,
+          23.0,
+          14.0
+        ]
+      },
+      "size_mm": [
+        54.0,
+        41.0,
+        14.0
+      ],
+      "surface_area_mm2": 5696.189875387014,
+      "nonpaired_edges": 0,
+      "inconsistent_edges": 0,
+      "edge_checks_complete": true,
+      "limits": "Exakte Koordinaten; keine Reparatur, Selbstschnitt-, Wandstaerken- oder Formpruefung."
+    },
+    {
+      "id": "hud_arm",
+      "triangles": 1240,
+      "bounds_mm": {
+        "min": [
+          -20.0,
+          -65.0,
+          0.0
+        ],
+        "max": [
+          20.0,
+          5.0,
+          10.0
+        ]
+      },
+      "size_mm": [
+        40.0,
+        70.0,
+        10.0
+      ],
+      "surface_area_mm2": 5022.466850323425,
+      "nonpaired_edges": 0,
+      "inconsistent_edges": 0,
+      "edge_checks_complete": true,
+      "limits": "Exakte Koordinaten; keine Reparatur, Selbstschnitt-, Wandstaerken- oder Formpruefung."
+    },
+    {
+      "id": "nozzle_shroud",
+      "triangles": 3068,
+      "bounds_mm": {
+        "min": [
+          -73.55,
+          -82.0,
+          0.0
+        ],
+        "max": [
+          73.55,
+          70.0,
+          24.0
+        ]
+      },
+      "size_mm": [
+        147.1,
+        152.0,
+        24.0
+      ],
+      "surface_area_mm2": 45041.81240183815,
+      "nonpaired_edges": 0,
+      "inconsistent_edges": 0,
+      "edge_checks_complete": true,
+      "limits": "Exakte Koordinaten; keine Reparatur, Selbstschnitt-, Wandstaerken- oder Formpruefung."
+    },
+    {
+      "id": "nozzle_diffuser",
+      "triangles": 1168,
+      "bounds_mm": {
+        "min": [
+          -70.0,
+          -70.0,
+          0.0
+        ],
+        "max": [
+          70.0,
+          70.0,
+          2.0
+        ]
+      },
+      "size_mm": [
+        140.0,
+        140.0,
+        2.0
+      ],
+      "surface_area_mm2": 24356.305510928825,
+      "nonpaired_edges": 0,
+      "inconsistent_edges": 0,
+      "edge_checks_complete": true,
+      "limits": "Exakte Koordinaten; keine Reparatur, Selbstschnitt-, Wandstaerken- oder Formpruefung."
+    },
+    {
+      "id": "nozzle_fan_bracket",
+      "triangles": 1576,
+      "bounds_mm": {
+        "min": [
+          -24.0,
+          -24.0,
+          0.0
+        ],
+        "max": [
+          24.0,
+          37.0,
+          3.0
+        ]
+      },
+      "size_mm": [
+        48.0,
+        61.0,
+        3.0
+      ],
+      "surface_area_mm2": 5429.642479238211,
+      "nonpaired_edges": 0,
+      "inconsistent_edges": 0,
+      "edge_checks_complete": true,
+      "limits": "Exakte Koordinaten; keine Reparatur, Selbstschnitt-, Wandstaerken- oder Formpruefung."
+    },
+    {
+      "id": "controller_base",
+      "triangles": 3820,
+      "bounds_mm": {
+        "min": [
+          -53.0,
+          -38.0,
+          0.0
+        ],
+        "max": [
+          53.0,
+          38.0,
+          33.0
+        ]
+      },
+      "size_mm": [
+        106.0,
+        76.0,
+        33.0
+      ],
+      "surface_area_mm2": 40139.49581556778,
+      "nonpaired_edges": 0,
+      "inconsistent_edges": 0,
+      "edge_checks_complete": true,
+      "limits": "Exakte Koordinaten; keine Reparatur, Selbstschnitt-, Wandstaerken- oder Formpruefung."
+    },
+    {
+      "id": "controller_lid",
+      "triangles": 2212,
+      "bounds_mm": {
+        "min": [
+          -53.0,
+          -38.0,
+          0.0
+        ],
+        "max": [
+          53.0,
+          38.0,
+          3.0
+        ]
+      },
+      "size_mm": [
+        106.0,
+        76.0,
+        3.0
+      ],
+      "surface_area_mm2": 16656.22125148272,
+      "nonpaired_edges": 0,
+      "inconsistent_edges": 0,
+      "edge_checks_complete": true,
+      "limits": "Exakte Koordinaten; keine Reparatur, Selbstschnitt-, Wandstaerken- oder Formpruefung."
+    }
+  ],
+  "limits": [
+    "Nur synthetische Beispielparameter; keine Passung fuer ein bestimmtes Kaufteil.",
+    "Keine Druck-, Festigkeits-, Sichtfeld-, Funk- oder thermische Freigabe.",
+    "Kantenpruefung ist keine vollstaendige Selbstschnitt- oder Mindestwandstaerkenpruefung."
+  ]
+}

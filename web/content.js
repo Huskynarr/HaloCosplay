@@ -6,6 +6,100 @@
 const CONTENT = {
   // Curated, ordered quick-start paths per variant. Switchable in the app.
   journeys: {
+    V4: {
+      "label": "V4 Baukasten",
+      "tag": "Konfigurierbare Profile - Mechanik und Messe",
+      "steps": [
+        {
+          "title": "Baupaket erzeugen",
+          "file": "Documentation/Guides/Mjolnir-Baupaket.md"
+        },
+        {
+          "title": "Einbauorte und Luftwege",
+          "file": "Documentation/Guides/Mjolnir-Einbauplan.md"
+        },
+        {
+          "title": "Selbst an- und ausziehen",
+          "file": "Documentation/Guides/Mjolnir-Selbstanziehen.md"
+        },
+        {
+          "title": "Power-RGB und Waerme",
+          "file": "Documentation/Guides/Mjolnir-Lichtmodule.md"
+        },
+        {
+          "title": "Helm: Optik, Kamera, Audio",
+          "file": "Documentation/Guides/Mjolnir-Helmintegration.md"
+        },
+        {
+          "title": "Designziel",
+          "file": "Documentation/Guides/Authentizitaet-Referenz.md"
+        },
+        {
+          "title": "Originalgetreue Details",
+          "file": "Documentation/Guides/Mjolnir-Detailgestaltung.md"
+        },
+        {
+          "title": "Masse und Passform",
+          "file": "Documentation/Guides/Mjolnir-Massanpassung.md"
+        },
+        {
+          "title": "Systementwurf",
+          "file": "Documentation/Guides/Mjolnir-Systementwurf.md"
+        },
+        {
+          "title": "Mechanischer Einstieg",
+          "file": "Documentation/Guides/Mjolnir-Einstieg.md"
+        },
+        {
+          "title": "Detailkonstruktion",
+          "file": "Documentation/Guides/Mjolnir-Fertigung.md"
+        },
+        {
+          "title": "Konzept-CAD",
+          "file": "Design/Parametric/README.md"
+        },
+        {
+          "title": "CAD-Komponentenproben",
+          "file": "Design/Components/README.md"
+        },
+        {
+          "title": "Technik auslegen",
+          "file": "Documentation/Guides/Mjolnir-Technik-Auslegung.md"
+        },
+        {
+          "title": "Exoskelett",
+          "file": "Documentation/Guides/Exoskelett.md"
+        },
+        {
+          "title": "Elektronik",
+          "file": "Documentation/Guides/Mjolnir-Elektronik.md"
+        },
+        {
+          "title": "Hardware-Einkauf",
+          "file": "Materials/Mjolnir-Einkauf-Prototyp.md"
+        },
+        {
+          "title": "Budget",
+          "file": "Materials/Mjolnir-BOM.md"
+        },
+        {
+          "title": "Prototypen",
+          "file": "BuildGuides/Armor/Mjolnir-Prototypen.md"
+        },
+        {
+          "title": "Nachweisstatus",
+          "file": "Progress/Mjolnir-Readiness.md"
+        },
+        {
+          "title": "Messebetrieb",
+          "file": "Documentation/Guides/Mjolnir-Messebetrieb.md"
+        },
+        {
+          "title": "Messeanzeige",
+          "file": "Code/Exhibition/README.md"
+        }
+      ]
+    },
     V1: {
       label: "V1 Einsteiger",
       tag: "Foam, guenstig",
@@ -73,6 +167,9 @@ const CONTENT = {
     {
       name: "Planung",
       items: [
+        { title: "Digitales Baupaket", file: "Documentation/Guides/Mjolnir-Baupaket.md", sub: "CAD, Modelle, Budget und Bauprotokolle gemeinsam erzeugen" },
+        { title: "Profilkonfigurator", file: "profile-configurator", sub: "Mehrere Profile, Masse und Bauoptionen" },
+        { title: "Budgetplaner", file: "budget-planner", sub: "Ausstattung und Kosten konfigurieren" },
         { title: "Komplett-Walkthrough", file: "Documentation/Guides/Komplett-Walkthrough.md" },
         { title: "Varianten", file: "Documentation/Guides/Varianten.md" },
         { title: "Kosten", file: "Documentation/Guides/Kosten.md" },
@@ -86,6 +183,10 @@ const CONTENT = {
     {
       name: "Bau",
       items: [
+        { title: "Aufklappbare Arm-/Beinhuellen", file: "Design/Clamshell/README.md" },
+        { title: "Selbststaendiges Anlegen", file: "Documentation/Guides/Mjolnir-Selbstanziehen.md" },
+        { title: "Originalgetreue Details", file: "Documentation/Guides/Mjolnir-Detailgestaltung.md" },
+        { title: "CAD-Komponentenproben", file: "Design/Components/README.md" },
         { title: "Foam-Bau (V1)", file: "Documentation/Guides/Foam-Bau.md" },
         { title: "3D-Druck (H2C)", file: "Documentation/Guides/3D-Druck.md" },
         { title: "Klebetechniken", file: "Documentation/Guides/Klebetechniken.md" },
@@ -98,6 +199,10 @@ const CONTENT = {
     {
       name: "Elektronik",
       items: [
+        { title: "Einbauorte und Stromkreise", file: "Documentation/Guides/Mjolnir-Einbauplan.md" },
+        { title: "Highpower-RGB", file: "Documentation/Guides/Mjolnir-Lichtmodule.md" },
+        { title: "Waerme und Luft rechnen", file: "Design/Thermal/README.md" },
+        { title: "Technik auslegen", file: "Documentation/Guides/Mjolnir-Technik-Auslegung.md" },
         { title: "Elektronik-Uebersicht", file: "Documentation/Guides/ElectronicsGuide.md" },
         { title: "V3-Systemarchitektur", file: "Documentation/Guides/V3-Systemarchitektur.md" },
         { title: "HUD", file: "Documentation/Guides/Elektronik-HUD.md" },
@@ -117,6 +222,9 @@ const CONTENT = {
     {
       name: "Material + Einkauf",
       items: [
+        { title: "Nebeltechnik und OEM-Systeme", file: "Documentation/Guides/Mjolnir-Nebeltechnik.md" },
+        { title: "CAD und Schaltplaene", file: "Documentation/Guides/Mjolnir-CAD-Schaltplaene.md" },
+        { title: "Interaktiver Produktkatalog", file: "product-catalog" },
         { title: "Einkaufsliste mit Links", file: "Materials/Einkaufsliste-Links.md" },
         { title: "Komponentenliste", file: "Materials/ShoppingList.md" },
         { title: "Material-Ueberblick", file: "Documentation/Guides/Materialien.md" },
