@@ -48,6 +48,84 @@ Cosplay-Einsatz. [DNSYS FAQ](https://dnsys.ai/pages/faq)
 Herstellerleistungen wie Reichweite, Watt oder Ermuedungsreduktion werden nicht
 in ein angeblich tragbares Ruestungsgewicht umgerechnet.
 
+## 2a. Tragende Exoskelette als Ruestungstraeger
+
+Geh-Exoskelette (Abschnitt 2) unterstuetzen die Hueftbewegung, tragen aber
+kein Ruestungsgewicht zum Boden. Tragende Industrie-Exoskelette verfolgen einen
+anderen Ansatz: Sie leiten Last von den Schultern oder vom Ruecken ueber eine
+starre Struktur in eine Hueft- oder Beinauflage. Genau diese Funktion braucht
+ein schwerer MJOLNIR-Aufbau.
+
+### 2a.1 Festool EXO 18 als konkreter Kandidat
+
+**Festool Akku-Exoskelett EXO 18 HPC 4,0 I-Plus** (18 V):
+
+| Angabe | Wert | Quelle |
+| --- | --- | --- |
+| Unterstuetzte Last | bis 18 kg | [Festool Produktseite](https://www.festool.de/produkte/exo-18-hpc-40-i-plus/576000) |
+| Eigengewicht | ca. 3.2 kg (mit Akku) | [Festool Produktseite](https://www.festool.de/produkte/exo-18-hpc-40-i-plus/576000) |
+| Akku | 18 V, 4.0 Ah HighPower | [Festool Akku-Exoskelett EXO 18 HPC 4,0 I-Plus](https://www.festool.de/produkte/exo-18-hpc-40-i-plus/576000) |
+| Passform | Schultergurte, Hueftgurt, verstellbar | [Festool Produktseite](https://www.festool.de/produkte/exo-18-hpc-40-i-plus/576000) |
+| Preis | ca. 500 EUR | Festool Haendler |
+
+Angaben sind Herstellerangaben, keine Messung am Projekt. Aktueller Preis,
+Revision und Lieferumfang sind vor Kauf zu pruefen. Das EXO 18 ist ein
+Werkzeug-Exoskelett fuer wiederholtes Heben, kein Ruestungstraeger. Die
+18-kg-Angabe gilt fuer zentrisch gefuehrte Lasten, nicht fuer eine
+Ruestungsschale mit ungleichmaessiger Lastverteilung.
+
+**Was das EXO 18 nicht leistet:**
+
+- Es ersetzt keinen eigenen Tragerahmen: Ruestungsschalen brauchen eigene
+  Befestigungspunkte, die das EXO 18 nicht mitbringt.
+- Es traegt nicht das gesamte Ruestungsgewicht zum Boden: Der Koerper traegt
+  weiterhin einen Teil, und die Lastverteilung haengt von der Schalenform ab.
+- Es hat keine Freigabe fuer verkleideten Einsatz oder Umbauten. Originalgurte,
+  Akkufach und Elektronik bleiben unveraendert.
+
+### 2a.2 Konzept: EXO 18 als tragender Kern des eigenen Traegers
+
+Das EXO 18 wird als tragender Kern des eigenen Tragers T01 verwendet, ohne
+mechanische oder elektrische Veraenderung am Geraet. Die Ruestungsschale
+bekommt eigene Anbaupunkte, die nur an den vom Hersteller vorgesehenen
+Montagepunkten oder an einer separat bemessenen Kostuemhalterung ansetzen.
+
+Konzept in fuenf Schritten:
+
+1. **Lastpfad klaeren:** Ruestungsgewicht fliesst von der Schale ueber eigene
+   Anbaupunkte in die EXO-Schultergurte und von dort ueber die EXO-Struktur in
+   die Hueftauflage. Keine Last ueber Gelenke, Motoren oder Sensoren des Geraets.
+2. **Freihaltebereiche aufnehmen:** Motoren, bewegte Hebel, Akkuentriegelung
+   und Bedienelemente als CAD-Volumina erfassen, inklusive Bewegungsraum und
+   Wartungszugang. Keine dichte Verkleidung um die Lueftung.
+3. **Schale aufteilen:** Ruestungsschalen um die Freihaltebereiche aufteilen,
+   mit loesbaren Verbindungen zum Trager. Schnellabwurf bleibt moeglich.
+4. **Gurtlage pruefen:** EXO-Originalgurte und eigene Polsterung gemeinsam
+   anprobieren. Ueberlagern sich Druckzonen oder rutschen Gurte, ist dieser
+   Aufbau nicht kompatibel.
+5. **Passprobe unter Last:** Zuerst stromlos mit Mockup-Gewicht, dann mit
+   realer Ruestungslast und Temperatur. Erst nach bestandener Probe wird der
+   Aufbau als tragend bezeichnet.
+
+### 2a.3 Notausstieg und Nachweise
+
+Das EXO 18 bleibt jederzeit stromlos entfernbar. Der eigene Trager und die
+Schale muessen getrennt vom Geraet abnehmbar sein, ohne dass Motoren, Gurte
+oder Akku blockieren. Ein Notausstieg unter Zeitdruck wird mit Handschuhen und
+ohne Werkzeug geuebt.
+
+| Pruefung | Ergebnis derzeit | Abbruchkriterium |
+| --- | --- | --- |
+| EXO 18 passt nach Originalanleitung | Offen | Ausserhalb Herstellerbereich / Passform ungeklaert |
+| Eigene Schale an vom Hersteller vorgesehenen Punkten | Offen | Kein dokumentierter Anbaupunkt / Lastpfad ungeklaert |
+| Volle Bewegung ohne Fremdkontakt | Offen | Schale beruehrt Hebel, Motor oder Sensor |
+| Akku und Abschaltung erreichbar | Offen | Ruestung muss dafuer demontiert werden |
+| Notausstieg stromlos mit Handschuhen | Offen | Befreiung erfordert Werkzeug oder Demontage |
+
+Alternative tragende Systeme wie German Bionic Apogee sind grosser, teurer und
+ebenfalls nicht fuer verkleideten Einsatz freigegeben. Sie bleiben hier als
+Referenz genannt, nicht als Kaufkandidat.
+
 ## 3. Eigener passiver Traeger T01
 
 Zwei einstellbare Rueckenstege verbinden eine breite, gepolsterte Hueftauflage
