@@ -77,6 +77,44 @@ FX-Rail 10.000 mAh = 4-8 h** je nach LED-Effekt. Zwei Powerbanks im Ruecken
 reichen also fuer einen vollen Con-Tag - mehr Akkus sind nicht noetig, aber
 ca. 750-800 g zusaetzliches Gewicht muss der Guertel/Tragerahmen hergeben.
 
+### Laufzeit-Ziel: 10 Stunden und mehr
+
+Fuer einen langen Con-Tag (Gamescom/DoKomi von Oeffnung bis Schluss) reicht das
+Standard-Setup knapp nicht. Zwei Wege, beide kombinierbar:
+
+**Weg 1: Groessere Powerbanks (einfach, aber schwer)**
+
+| Schiene | Verbraucher | Fuer 10 h noetig | Empfehlung |
+| --- | --- | --- | --- |
+| Pi-Rail | ca. 8 W | ca. 80 Wh | 26.800 mAh (ca. 99 Wh, ca. 500 g) |
+| FX-Rail | ca. 4-6 W | ca. 40-60 Wh | 20.000 mAh (ca. 63 Wh nutzbar, ca. 380 g) |
+
+Gesamtgewicht nur Akkus: ca. 900 g. Achtung: Powerbanks ueber 100 Wh duerfen
+nicht ins Flugzeug - bei Anreise mit dem Auto egal.
+
+**Weg 2: Verbrauch senken (leichter, kostet Planung statt Geld)**
+
+- LEDs auf 50% Helligkeit + gruener Kanal: FX-Rail faellt von 18 W Worst-Case
+  auf 3-4 W - der groesste Hebel ueberhaupt
+- Luefter per PWM auf 60% (der Arduino-Code macht das schon)
+- OLED-Helligkeit reduzieren (im Helm reicht 50% locker)
+- Show-Effekte (100% Weiss, Alarm) nur fuer Momente, nicht Dauerbetrieb
+
+**Weg 3: Hot-Swap (schon im Standard-Setup machbar)**
+
+Zweite Powerbank derselben Groesse in die Brust-/Guerteltasche, in einer Pause
+(auf der Toilette, beim Essen) umstecken. 2x 20.000 mAh Pi-Rail = 15+ h. Voraussetzung:
+die Nabelschnur/Verkabelung muss einen Wechsel ohne Halbausbau erlauben - beim
+Bau der Stromverteilung einplanen (Stecker statt fest verloetet).
+
+**Nebler:** haengen bewusst NICHT an den Powerbanks. Der MicroFogger o.ae. hat
+einen eigenen, wechselbaren Akku - fuer einen langen Tag einen Ersatzakku und
+100-200 ml Fluid einpacken. Begrenzend ist das Fluid, nicht der Akku.
+
+**Realistische 10-h-Kombination:** Weg 2 (Disziplin bei den LEDs) + Weg 1 fuer
+die Pi-Rail (26.800 mAh) + 20.000 mAh FX-Rail. Dann bleiben selbst bei viel
+Show-Effekt 20-30% Reserve, wie es der Mess-Pflicht-Abschnitt unten fordert.
+
 ### Wichtige Grenzen
 
 - **5V/3A pro Port:** Eine normale Powerbank liefert max. 15 W pro USB-C-Port. Die
