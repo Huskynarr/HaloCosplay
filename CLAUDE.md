@@ -16,6 +16,7 @@ Three build variants exist: V1 Einsteiger (foam), V2 Fortgeschritten (3D-print/h
 - `Documentation/Guides/Lackierung-Finishing.md` - surface prep, painting, weathering, visor creation
 - `Documentation/Guides/Unteranzug-Befestigung.md` - undersuit options, magnets, velcro, harness
 - `Documentation/Guides/Elektronik-*.md` - HUD, battery, wiring, fans, audio, autostart guides
+- `Documentation/Guides/Elektronik-Show-Praxis-Module.md` - shield-hit touch effect, handler alert, hydration reminder
 - `Documentation/Guides/Convention-Regeln.md` - German con rules (Gamescom, DoKomi, MCC, etc.) + Waffengesetz
 - `Documentation/Guides/Transport.md` - packing and transporting armor to conventions
 - `BuildGuides/` - step-by-step build phases for Armor, Helmet, and Electronics
@@ -42,7 +43,7 @@ Three build variants exist: V1 Einsteiger (foam), V2 Fortgeschritten (3D-print/h
 ### Arduino Controllers
 - `Code/HelmetControl/MainControlCode.ino` - I2C slave receiving brightness commands (basic)
 - `Code/HelmetControl/HelmetMultiEffects.ino` - **advanced**: 5 visor effects + I2C commands + fan PWM + button switching
-- `Code/ArmorControl/MultiEffects.ino` - **advanced**: 5 LED effects + button switching + boot sequence
+- `Code/ArmorControl/MultiEffects.ino` - **advanced**: 5 LED effects + button switching + boot sequence + shield-hit touch sensors + handler alert
 - `Code/HelmetControl/LightingEffectsCode.ino` - simple LED running effect
 - `Code/ArmorControl/MainControlCode.ino` - simple LED breathing effect
 - `Code/ArmorControl/LightingEffectsCode.ino` - simple LED chase effect
