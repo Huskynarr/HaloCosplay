@@ -106,6 +106,7 @@ erklaert jeden Schritt und verlinkt die Detail-Guides, hier wird nur abgehakt.
 - [ ] Alle Elektronik ausserhalb der Ruestung testen
 - [ ] Optional: Voice Changer / Lautsprecher
 - [ ] Optional: Sprachsteuerung + Kamera-Erkennung auf Pi 5 (siehe [Elektronik-Sprachsteuerung.md](Guides/Elektronik-Sprachsteuerung.md))
+- [ ] Optional: Shield-Hit, Handler-Alert, Trink-Erinnerung (siehe [Elektronik-Show-Praxis-Module.md](Guides/Elektronik-Show-Praxis-Module.md))
 - [ ] Optional: Indoor-Navigation fuer Gamescom/IFA (siehe [Elektronik-Indoor-Navigation.md](Guides/Elektronik-Indoor-Navigation.md))
 - [ ] Optional: Schubduesen-Effekt und Nebler aufbauen (siehe [Elektronik-Schubduesen.md](Guides/Elektronik-Schubduesen.md))
 
