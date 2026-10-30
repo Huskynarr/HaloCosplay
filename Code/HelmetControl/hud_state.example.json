@@ -1,5 +1,6 @@
 {
   "shield_percent": 80,
   "ammo": 27,
-  "heading": 123
+  "heading": 123,
+  "hydration_due": false
 }
