@@ -268,10 +268,12 @@ class HydrationTimer:
             wait = self.snooze_s or self.interval
             self.snooze_s = 0.0
             self.wake.clear()
-            if self.stop.wait(wait):
-                return
-            if self.wake.is_set() or not self.enabled:
-                continue        # neu gestartet (getrunken/snooze) oder deaktiviert
+            if self.wake.wait(wait):
+                if self.stop.is_set():
+                    return
+                continue        # neu gestartet (getrunken/snooze) -> Intervall neu
+            if not self.enabled:
+                continue        # deaktiviert
             hud_state.merge(self.state_path, {"hydration_due": True})
             self.out.say("Hydration erforderlich.")
             self.out.beep("ok")
@@ -514,7 +516,7 @@ class Helmet:
         self.outputs = {}
         self.audio = None
         self.commander = Commander(self)
-        self.hydration = self._try("Hydration-Timer", lambda: HydrationTimer(cfg, self))
+        self.hydration_timer = self._try("Hydration-Timer", lambda: HydrationTimer(cfg, self))
         self._setup_gpio()
         threading.Thread(target=self._scanner_loop, daemon=True).start()
 
@@ -594,20 +596,20 @@ class Helmet:
         self.say("Scanner aktiv." if on else "Scanner aus.")
 
     def hydration(self, action):
-        if self.hydration is None:
+        if self.hydration_timer is None:
             self.say("Trink-Erinnerung nicht aktiv.")
             return
         if action == "done":
-            self.hydration.done()
+            self.hydration_timer.done()
             self.say("Hydration protokolliert.")
         elif action == "snooze":
-            self.hydration.snooze(10)
+            self.hydration_timer.snooze(10)
             self.say("Erinnerung in 10 Minuten.")
         elif action == "off":
-            self.hydration.set_enabled(False)
+            self.hydration_timer.set_enabled(False)
             self.say("Trink-Erinnerung aus.")
         elif action == "on":
-            self.hydration.set_enabled(True)
+            self.hydration_timer.set_enabled(True)
             self.say("Trink-Erinnerung an.")
 
     def status(self):
@@ -694,6 +696,22 @@ def test_hydration_timer():
     return failed
 
 
+def test_helmet_hydration_wiring():
+    """Echte Verdrahtung: Helmet-Methode erreicht den Timer (kein Shadowing)."""
+    state = os.path.join(tempfile.gettempdir(), "hydration_wiring_selftest.json")
+    if os.path.exists(state):
+        os.remove(state)
+    helmet = Helmet(dict(DEFAULTS, state_path=state, piper_voice="/nonexistent"))
+    ok_timer = helmet.hydration_timer is not None
+    helmet.hydration("off")            # frueher: TypeError durch Shadowing
+    ok_call = "hydration_due" not in hud_state.load(state)
+    helmet.hydration_timer.stop.set()
+    failed = sum(not x for x in (ok_timer, ok_call))
+    print(f"  [{'ok' if failed == 0 else 'FEHLER'}] Helmet-Hydration-Verdrahtung: "
+          f"Timer={ok_timer} Aufruf={ok_call}")
+    return failed
+
+
 def run_selftest():
     rec = Recorder()
     cmd = Commander(rec)
@@ -722,6 +740,7 @@ def run_selftest():
         failed += not ok
         print(f"  [{'ok' if ok else 'FEHLER'}] {asciify(text):<18} -> {rec.calls}")
     failed += test_hydration_timer()
+    failed += test_helmet_hydration_wiring()
     missing = [w for w in WORDS if SPOKEN.get(w, w) not in VOCAB]
     if missing or failed:
         sys.exit(f"Selftest fehlgeschlagen ({failed} Faelle, fehlende Woerter: {missing})")
