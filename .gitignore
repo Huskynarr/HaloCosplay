@@ -23,3 +23,6 @@ hud_test*.png
 *.env
 tools/amazon-creators/.env
 !*.env.example
+
+# Session-Scratch der Subagent-Ausfuehrung (Berichte enthalten Umlaute, wuerde ASCII-CI brechen)
+.superpowers/
