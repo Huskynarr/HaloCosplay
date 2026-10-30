@@ -7,6 +7,7 @@ Features:
   - scrolling compass (N/E/S/W) driven by live heading or demo rotation
   - motion tracker with sweep and blips
   - ammo counter, battery readout with low-battery flash
+  - hydration reminder banner (blinking, driven by "hydration_due" flag)
 
 Live values (all optional) are read from JSON files so other modules can
 feed the HUD without coupling (see V3-Systemarchitektur.md):
@@ -23,6 +24,7 @@ import argparse
 import json
 import math
 import os
+import sys
 import time
 
 from PIL import Image, ImageDraw
@@ -157,6 +159,10 @@ def read_state(config, t):
             if bearing is None or dist is None:
                 continue
             state["contacts"].append((bearing, max(0.0, min(1.0, dist))))
+
+    # Trink-Erinnerung (voice_control.py): Flag -> blinkendes Banner
+    if data.get("hydration_due"):
+        state["hydration_due"] = True
     return state
 
 
@@ -274,6 +280,13 @@ def draw_battery(draw, battery, low_threshold, t):
     draw.text((48, 54), text, fill=1)
 
 
+def draw_hydration_banner(draw, t):
+    """Blinkendes Banner ueber dem HUD, solange hydration_due gesetzt ist."""
+    if int(t * 2) % 2 == 0:
+        draw.rectangle((10, 30, 118, 46), outline=1, fill=0)
+        draw.text((38, 34), "TRINKEN!", fill=1)
+
+
 def draw_hud(t, battery, state, config):
     image = Image.new("1", (WIDTH, HEIGHT))
     draw = ImageDraw.Draw(image)
@@ -283,6 +296,8 @@ def draw_hud(t, battery, state, config):
     draw_ammo(draw, state["ammo"])
     if config.get("show_battery"):
         draw_battery(draw, battery, config.get("low_battery_percent", 20), t)
+    if state.get("hydration_due"):
+        draw_hydration_banner(draw, t)
     return image
 
 
@@ -309,7 +324,16 @@ def run_selftest(out_path):
         battery = {"percent": 78, "voltage": 7.4}
         frame = draw_hud(t, battery, state, dict(CONFIG, show_battery=True))
         frame.convert("L").save(f"{base}_{i}{ext}")
-    print(f"Selftest-Frames gespeichert: {base}_boot{ext}, {base}_0{ext}, {base}_1{ext}")
+    state_h = read_state(CONFIG, 0.0)
+    state_h["hydration_due"] = True
+    frame = draw_hud(0.0, battery, state_h, dict(CONFIG, show_battery=True))
+    frame.convert("L").save(f"{base}_2{ext}")
+    banner = Image.open(f"{base}_2{ext}").convert("L")
+    ok_banner = banner.getpixel((10, 30)) == 255   # Outline des Banners
+    print(f"  [{'ok' if ok_banner else 'FEHLER'}] Hydration-Banner gerendert")
+    if not ok_banner:
+        sys.exit("Selftest fehlgeschlagen: Hydration-Banner fehlt")
+    print(f"Selftest-Frames gespeichert: {base}_boot{ext}, {base}_0{ext}, {base}_1{ext}, {base}_2{ext}")
 
 
 def main():
