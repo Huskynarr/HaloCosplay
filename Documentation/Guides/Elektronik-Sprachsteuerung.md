@@ -199,6 +199,7 @@ PTT-Taster halten, sprechen, loslassen. Ein hoher Ton = verstanden, ein tiefer =
 | "scanner an" / "aus" | Ansagen wie "Person links" aus der Kamera-Erkennung |
 | "stimme aus" / "an" | Helmfunk nach aussen stumm/aktiv |
 | "status" | Temperatur, Helm-Verbindung, Kamera ansagen |
+| "wasser" / "spaeter" / "trinken aus" / "trinken an" | Trink-Erinnerung: getrunken / 10 min Snooze / aus / an |
 
 Farben: gold, rot, gruen, blau, gelb, orange, weiss, lila, tuerkis. Neue Woerter in
 `WORDS`/`COLORS` von `voice_control.py` eintragen; die Erkennung lernt sie automatisch.
