@@ -65,6 +65,7 @@ DEFAULTS = {
     "state_path": "hud_state.json",
     "announce": {"person": "Person", "dog": "Hund", "cat": "Katze"},
     "announce_pause_s": 12,
+    "hydration_interval_min": 45,
 }
 
 # Helm-Arduino-Protokoll (siehe HelmetMultiEffects.ino / helmet_control.py)
@@ -83,13 +84,14 @@ COLORS = {
 }
 WORDS = ["visier", "ruestung", "licht", "weiter", "nebel", "boost", "schub", "show",
          "alarm", "stopp", "ruhe", "heller", "dunkler", "aus", "an", "luefter", "voll",
-         "leise", "normal", "staerker", "schwaecher", "scanner", "stimme", "status"]
+         "leise", "normal", "staerker", "schwaecher", "scanner", "stimme", "status",
+         "wasser", "trinken", "spaeter"]
 
 # Vosk liefert echte Umlaute; der Code arbeitet ASCII (Repo-Konvention).
 UMLAUTS = {0xe4: "ae", 0xf6: "oe", 0xfc: "ue", 0xdf: "ss", 0xc4: "Ae", 0xd6: "Oe", 0xdc: "Ue"}
 SPOKEN = {"ruestung": "r\u00fcstung", "luefter": "l\u00fcfter", "staerker": "st\u00e4rker",
           "schwaecher": "schw\u00e4cher", "gruen": "gr\u00fcn", "weiss": "wei\u00df",
-          "tuerkis": "t\u00fcrkis"}
+          "tuerkis": "t\u00fcrkis", "spaeter": "sp\u00e4ter"}
 VOCAB = sorted({SPOKEN.get(w, w) for w in WORDS + list(EFFECTS) + list(COLORS)})
 
 
@@ -176,6 +178,16 @@ class Commander:
             out.set_voice("aus" not in w)
         elif "status" in w:
             out.status()
+        elif w & {"wasser", "trinken", "spaeter"}:
+            if "aus" in w:
+                out.hydration("off")
+            elif "an" in w:
+                out.hydration("on")
+            elif "spaeter" in w:
+                out.hydration("snooze")
+            else:
+                out.hydration("done")
+            out.beep("ok")
         elif w & {"ruestung", "licht"}:
             out.pulse("armor")          # naechster Effekt am Ruestungs-Arduino
             out.beep("ok")
@@ -225,6 +237,60 @@ class Commander:
             handled = True
         self.out.beep("ok" if handled else "err")
         return handled
+
+
+# ============================== Hydration ==============================
+
+class HydrationTimer:
+    """Erinnert alle N Minuten ans Trinken: Ansage innen + HUD-Banner.
+
+    Das HUD-Flag (hydration_due) geht ueber hud_state.merge() in die
+    hud_state.json - hud_display.py zeigt solange ein blinkendes Banner.
+    Faellt der Pi aus, faellt nur die Erinnerung aus - kein Sicherheitsmodul.
+    """
+
+    def __init__(self, cfg, out, interval_min=None):
+        # interval_min nur fuer den Selftest; Produktion floort auf 60 s
+        if interval_min is None:
+            self.interval = max(60.0, float(cfg.get("hydration_interval_min", 45)) * 60.0)
+        else:
+            self.interval = max(0.0, float(interval_min)) * 60.0
+        self.snooze_s = 0.0
+        self.state_path = cfg["state_path"]
+        self.out = out
+        self.enabled = True
+        self.wake = threading.Event()
+        self.stop = threading.Event()
+        threading.Thread(target=self._loop, daemon=True).start()
+
+    def _loop(self):
+        while not self.stop.is_set():
+            wait = self.snooze_s or self.interval
+            self.snooze_s = 0.0
+            self.wake.clear()
+            if self.stop.wait(wait):
+                return
+            if self.wake.is_set() or not self.enabled:
+                continue        # neu gestartet (getrunken/snooze) oder deaktiviert
+            hud_state.merge(self.state_path, {"hydration_due": True})
+            self.out.say("Hydration erforderlich.")
+            self.out.beep("ok")
+
+    def done(self):
+        """Getrunken: Flag weg, Timer voll neu starten."""
+        hud_state.merge(self.state_path, remove=("hydration_due",))
+        self.wake.set()
+
+    def snooze(self, minutes=10):
+        """Flag weg, naechste Erinnerung erst in `minutes` Minuten."""
+        self.snooze_s = minutes * 60.0
+        hud_state.merge(self.state_path, remove=("hydration_due",))
+        self.wake.set()
+
+    def set_enabled(self, on):
+        self.enabled = bool(on)
+        hud_state.merge(self.state_path, remove=("hydration_due",))
+        self.wake.set()
 
 
 # ============================== Hardware ==============================
@@ -448,6 +514,7 @@ class Helmet:
         self.outputs = {}
         self.audio = None
         self.commander = Commander(self)
+        self.hydration = self._try("Hydration-Timer", lambda: HydrationTimer(cfg, self))
         self._setup_gpio()
         threading.Thread(target=self._scanner_loop, daemon=True).start()
 
@@ -526,6 +593,23 @@ class Helmet:
         self.commander.set_effect(EFFECTS["lauflicht"] if on else DEFAULT_EFFECT)
         self.say("Scanner aktiv." if on else "Scanner aus.")
 
+    def hydration(self, action):
+        if self.hydration is None:
+            self.say("Trink-Erinnerung nicht aktiv.")
+            return
+        if action == "done":
+            self.hydration.done()
+            self.say("Hydration protokolliert.")
+        elif action == "snooze":
+            self.hydration.snooze(10)
+            self.say("Erinnerung in 10 Minuten.")
+        elif action == "off":
+            self.hydration.set_enabled(False)
+            self.say("Trink-Erinnerung aus.")
+        elif action == "on":
+            self.hydration.set_enabled(True)
+            self.say("Trink-Erinnerung an.")
+
     def status(self):
         state = hud_state.load(self.cfg["state_path"])
         cam = "aktiv" if time.time() - float(state.get("vision_ts") or 0) < 3 else "aus"
@@ -591,6 +675,25 @@ class Recorder:
         return record
 
 
+def test_hydration_timer():
+    """Timer mit verkuerztem Intervall: Ansage + Flag, done() raeumt auf."""
+    state = os.path.join(tempfile.gettempdir(), "hydration_selftest.json")
+    if os.path.exists(state):
+        os.remove(state)
+    rec = Recorder()
+    timer = HydrationTimer({"state_path": state}, rec, interval_min=0.01)  # 0,6 s
+    time.sleep(0.9)
+    ok_announce = ("say", "Hydration erforderlich.") in rec.calls
+    ok_flag = hud_state.load(state).get("hydration_due") is True
+    timer.done()
+    ok_cleared = "hydration_due" not in hud_state.load(state)
+    timer.stop.set()
+    failed = sum(not x for x in (ok_announce, ok_flag, ok_cleared))
+    print(f"  [{'ok' if failed == 0 else 'FEHLER'}] Hydration-Timer: "
+          f"Ansage={ok_announce} Flag={ok_flag} done()={ok_cleared}")
+    return failed
+
+
 def run_selftest():
     rec = Recorder()
     cmd = Commander(rec)
@@ -605,6 +708,10 @@ def run_selftest():
         ("stimme aus", ("set_voice", False)),
         ("alarm", ("helmet", CMD_EFFECT, 2)),
         ("stopp", ("helmet", CMD_COLOR, list(COLORS["gold"]))),
+        ("wasser", ("hydration", "done")),
+        ("spaeter", ("hydration", "snooze")),
+        ("trinken aus", ("hydration", "off")),
+        ("trinken an", ("hydration", "on")),
         ("blablub", ("beep", "err")),
     ]
     failed = 0
@@ -614,6 +721,7 @@ def run_selftest():
         ok = expected in rec.calls
         failed += not ok
         print(f"  [{'ok' if ok else 'FEHLER'}] {asciify(text):<18} -> {rec.calls}")
+    failed += test_hydration_timer()
     missing = [w for w in WORDS if SPOKEN.get(w, w) not in VOCAB]
     if missing or failed:
         sys.exit(f"Selftest fehlgeschlagen ({failed} Faelle, fehlende Woerter: {missing})")

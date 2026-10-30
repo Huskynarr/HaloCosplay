@@ -19,5 +19,6 @@
     "dog": "Hund",
     "cat": "Katze"
   },
-  "announce_pause_s": 12
+  "announce_pause_s": 12,
+  "hydration_interval_min": 45
 }
