@@ -62,6 +62,7 @@ bool alertBtnPrev = HIGH;
 unsigned long alertHoldStart = 0;
 bool alertHoldDone = false;
 unsigned long alertLastBeep = 0;
+bool touchPrev[4] = {LOW, LOW, LOW, LOW};
 
 void setup() {
   pinMode(BUTTON_PIN, INPUT_PULLUP);
@@ -155,9 +156,12 @@ void idleFlicker() {
 
 // --- Show + Praxis ---
 
+// Flankenerkennung LOW->HIGH: ein langes Beruehren zaehlt nur EINEN Treffer,
+// nicht einen pro loop-Durchlauf.
 void checkTouches() {
   for (uint8_t i = 0; i < 4; i++) {
-    if (digitalRead(TOUCH_PINS[i]) == HIGH) {
+    bool reading = digitalRead(TOUCH_PINS[i]);
+    if (reading == HIGH && touchPrev[i] == LOW) {   // neue Beruehrung (Flanke)
       unsigned long now = millis();
       if (hitCount == 0 || now - hitWindowStart > HIT_WINDOW_MS) {
         hitCount = 0;
@@ -165,8 +169,10 @@ void checkTouches() {
       }
       hitCount++;
       shieldHitEffect(hitCount >= 3);
+      touchPrev[i] = reading;
       return;               // ein Treffer pro Durchlauf reicht
     }
+    touchPrev[i] = reading;
   }
 }
 
