@@ -216,6 +216,7 @@ void checkAlertButton() {
     if (!alertHoldDone && millis() - alertHoldStart >= ALERT_HOLD_MS) {
       alertHoldDone = true;
       alertActive = !alertActive;
+      strip.setBrightness(alertActive ? 255 : BRIGHTNESS);
       strip.clear();
       strip.show();
       tone(BUZZER_PIN, alertActive ? 1400 : 900, 150);
@@ -226,7 +227,9 @@ void checkAlertButton() {
 
 // Nicht-blockierend: 2 Hz rotes Blinken + 2 Piep-Toene pro Sekunde.
 void alertEffect() {
-  setAllColor(255, 0, 0, (millis() % 500) < 250 ? 255 : 0);
+  bool on = (millis() % 500) < 250;
+  strip.setBrightness(on ? 255 : 0);
+  setAllColor(255, 0, 0, on ? 255 : 0);
   if (millis() - alertLastBeep >= 500) {
     alertLastBeep = millis();
     tone(BUZZER_PIN, 1200, 90);
