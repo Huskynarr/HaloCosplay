@@ -7,11 +7,26 @@ laedt ein Modell aus diesem Ordner:
 web/models/spartan.glb
 ```
 
-Solange diese Datei fehlt, zeigt der Viewer automatisch ein **Platzhalter-Modell**
-(Googles "Astronaut", CC-BY) und blendet einen Hinweis ein. Sobald `spartan.glb`
-vorhanden ist, wird sie automatisch verwendet.
+**Diese Datei ist jetzt im Repository enthalten** und wird automatisch aus den
+parametrischen Ruestungs-STLs generiert (siehe Design/Armor). Sie zeigt die
+eigene MJOLNIR-Konstruktion.
 
-## Empfohlenes Modell (kostenlos, CC-BY)
+Falls die Datei fehlt, zeigt der Viewer automatisch ein **Platzhalter-Modell**
+(Googles "Astronaut", CC-BY) und blendet einen Hinweis ein.
+
+## Neugenerierung
+
+Die GLB entsteht aus den 18 Armor-STLs mit Blender:
+
+1. STLs importieren, zu einem Mesh verbinden
+2. Zentrieren und auf 1,8 m Hoehe skalieren
+3. Armor-Material zuweisen
+4. Als GLB exportieren nach web/models/spartan.glb
+
+Bei Aenderungen an Design/Armor/MasterChiefArmor.scad die STLs neu exportieren
+(./Design/Armor/export_stl.sh) und die GLB neu generieren.
+
+## Alternatives Modell (falls eigene GLB nicht verfuegbar)
 
 **Spartan Armour MKV - Halo Reach** von **McCarthy3D**
 - Lizenz: **CC-BY 4.0** (Namensnennung erforderlich, kommerziell erlaubt)
