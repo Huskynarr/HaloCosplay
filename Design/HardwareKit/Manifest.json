@@ -1,0 +1,120 @@
+{
+  "schema_version": 1,
+  "status": "HARDWARE_PROTOTYPES_NOT_VALIDATED",
+  "fabrication_approved": false,
+  "units": "mm",
+  "config_file": "ExampleConfig.json",
+  "source": "HardwareKit.scad",
+  "parts": [
+    {
+      "id": "powerbank_base",
+      "component": "powerbank",
+      "part": "base",
+      "file": "powerbank_base.stl",
+      "title": "Offener Powerbanktraeger",
+      "print_orientation": "Boden auf Druckbett; Gurtpfade offen halten",
+      "hardware_fit": "UNMEASURED_EXAMPLE",
+      "fabrication_approved": false
+    },
+    {
+      "id": "transmitter_base",
+      "component": "transmitter",
+      "part": "base",
+      "file": "transmitter_base.stl",
+      "title": "Originalsender-Gurttraeger",
+      "print_orientation": "Rueckplatte auf Druckbett",
+      "hardware_fit": "UNMEASURED_EXAMPLE",
+      "fabrication_approved": false
+    },
+    {
+      "id": "camera_base",
+      "component": "camera",
+      "part": "base",
+      "file": "camera_base.stl",
+      "title": "Kamera-Sensorgehaeuse",
+      "print_orientation": "Boden auf Druckbett; horizontale Bohrungen nacharbeiten",
+      "hardware_fit": "UNMEASURED_EXAMPLE",
+      "fabrication_approved": false
+    },
+    {
+      "id": "camera_lid",
+      "component": "camera",
+      "part": "lid",
+      "file": "camera_lid.stl",
+      "title": "Kameradeckel",
+      "print_orientation": "Flache Seite auf Druckbett",
+      "hardware_fit": "UNMEASURED_EXAMPLE",
+      "fabrication_approved": false
+    },
+    {
+      "id": "hud_base",
+      "component": "hud",
+      "part": "base",
+      "file": "hud_base.stl",
+      "title": "HUD-Scharnierbasis",
+      "print_orientation": "Basisplatte auf Druckbett; Scharnierunterseite ggf. stuetzen",
+      "hardware_fit": "UNMEASURED_EXAMPLE",
+      "fabrication_approved": false
+    },
+    {
+      "id": "hud_arm",
+      "component": "hud",
+      "part": "arm",
+      "file": "hud_arm.stl",
+      "title": "HUD-Klapparm",
+      "print_orientation": "Zylindertangente auf Druckbett; Plattenunterseite ab Z=3 stuetzen",
+      "hardware_fit": "UNMEASURED_EXAMPLE",
+      "fabrication_approved": false
+    },
+    {
+      "id": "nozzle_shroud",
+      "component": "nozzle",
+      "part": "shroud",
+      "file": "nozzle_shroud.stl",
+      "title": "Trockener Duesen-Lichtring",
+      "print_orientation": "Flansch auf Druckbett",
+      "hardware_fit": "UNMEASURED_EXAMPLE",
+      "fabrication_approved": false
+    },
+    {
+      "id": "nozzle_diffuser",
+      "component": "nozzle",
+      "part": "diffuser",
+      "file": "nozzle_diffuser.stl",
+      "title": "Diffusor-Geometrie",
+      "print_orientation": "Flach auf Druckbett oder als CAD-Vorlage fuer Plattenmaterial",
+      "hardware_fit": "UNMEASURED_EXAMPLE",
+      "fabrication_approved": false
+    },
+    {
+      "id": "nozzle_fan_bracket",
+      "component": "nozzle",
+      "part": "fan_bracket",
+      "file": "nozzle_fan_bracket.stl",
+      "title": "Separater trockener Luefterhalter",
+      "print_orientation": "Flach auf Druckbett",
+      "hardware_fit": "UNMEASURED_EXAMPLE",
+      "fabrication_approved": false
+    },
+    {
+      "id": "controller_base",
+      "component": "controller",
+      "part": "base",
+      "file": "controller_base.stl",
+      "title": "Belueftete Servicewanne",
+      "print_orientation": "Boden auf Druckbett; waagerechte Luftschlitze kontrollieren",
+      "hardware_fit": "UNMEASURED_EXAMPLE",
+      "fabrication_approved": false
+    },
+    {
+      "id": "controller_lid",
+      "component": "controller",
+      "part": "lid",
+      "file": "controller_lid.stl",
+      "title": "Beluefteter Servicedeckel",
+      "print_orientation": "Flach auf Druckbett",
+      "hardware_fit": "UNMEASURED_EXAMPLE",
+      "fabrication_approved": false
+    }
+  ]
+}

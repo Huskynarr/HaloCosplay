@@ -1,0 +1,27 @@
+{
+  "schema_version": 1,
+  "currency": "EUR",
+  "status": "planning_allowances_not_supplier_quotes",
+  "contingency_fraction": 0.3,
+  "wearable_target_g": 12000,
+  "excluded": ["Serien-Exoskelett und dessen Akkus", "optionales HUD/AR", "optionale Aktorik", "Werkzeugmaschinen", "Arbeitszeit", "Reisen", "individuelle Versand-/Importkosten"],
+  "items": [
+    {"id":"T01","name":"Eigener Traeger, Polster und Gurte","qty":1,"unit_budget_eur":[160,320],"unit_mass_target_g":1500,"worn":true},
+    {"id":"T02","name":"Torso-/Rueckenschalen inkl. Lack","qty":1,"unit_budget_eur":[180,350],"unit_mass_target_g":2100,"worn":true},
+    {"id":"T03","name":"Zwei gefuehrte Seitenfluegel","qty":1,"unit_budget_eur":[100,240],"unit_mass_target_g":550,"worn":true},
+    {"id":"T04","name":"Metall-Tuerscharniere","qty":4,"unit_budget_eur":[12,25],"unit_mass_target_g":40,"worn":true},
+    {"id":"T05","name":"Frontschliesser mit Sekundaersicherung","qty":2,"unit_budget_eur":[20,45],"unit_mass_target_g":60,"worn":true},
+    {"id":"T06","name":"Parkbolzen und erreichbare Trennstellen","qty":1,"unit_budget_eur":[50,100],"unit_mass_target_g":180,"worn":true},
+    {"id":"S01","name":"Schulterkassette je Seite","qty":2,"unit_budget_eur":[40,90],"unit_mass_target_g":300,"worn":true},
+    {"id":"A01","name":"Armkassette je Seite, Ober-/Unterarm","qty":2,"unit_budget_eur":[60,130],"unit_mass_target_g":500,"worn":true},
+    {"id":"H01","name":"Bauchlamellen und Guertelschuerze","qty":1,"unit_budget_eur":[45,100],"unit_mass_target_g":450,"worn":true},
+    {"id":"L01","name":"Beinkassette je Seite, inkl. Kniepad","qty":2,"unit_budget_eur":[90,170],"unit_mass_target_g":850,"worn":true},
+    {"id":"F01","name":"Schuhcover je Seite, ohne Schuhe","qty":2,"unit_budget_eur":[25,60],"unit_mass_target_g":175,"worn":true},
+    {"id":"K01","name":"Helm mit Visor und Polster","qty":1,"unit_budget_eur":[140,300],"unit_mass_target_g":1200,"worn":true},
+    {"id":"E01","name":"Komfort-/Effektelektronik und Kabel","qty":1,"unit_budget_eur":[100,220],"unit_mass_target_g":450,"worn":true},
+    {"id":"E02","name":"Passende fertige Energieversorgung","qty":1,"unit_budget_eur":[50,100],"unit_mass_target_g":500,"worn":true},
+    {"id":"U01","name":"Unteranzug und Handschuhe","qty":1,"unit_budget_eur":[70,160],"unit_mass_target_g":600,"worn":true},
+    {"id":"D01","name":"Unbelastete Anziehstation mit Ablagen","qty":1,"unit_budget_eur":[180,400],"unit_mass_target_g":null,"worn":false},
+    {"id":"P01","name":"Karton, Passlehren, Prototypmaterial","qty":1,"unit_budget_eur":[70,160],"unit_mass_target_g":null,"worn":false}
+  ]
+}

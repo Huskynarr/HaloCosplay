@@ -1,53 +1,98 @@
-# Elektronik: Helm-Belueftung (Luefter)
+# Luftfuehrung und Kuehlung in Helm und Torso
 
-> **Level:** [A] Anfaenger | [F] Fortgeschritten | [P] Profi  |  **Varianten:** alle
-> **Voraussetzungen:** 5V-Stromversorgung im Helm vorhanden; fuer PWM-Regelung Arduino (`Documentation/Guides/Elektronik-Verdrahtung.md`).
+Stand: 2026-09-09. Die Komfortlueftung tauscht warme, feuchte Innenluft gegen
+Aussenluft aus. Sie ist keine Klimaanlage: Lufttemperatur unter Umgebung,
+beschlagfreies Visier oder eine bestimmte Tragedauer werden nicht garantiert.
+LED-Kuehlkoerper, Elektronikfaecher und Nebelauslaesse bekommen getrennte Wege.
 
-Luefter im Helm sind bei Convention-Tragen nahezu Pflicht. Sie verhindern Beschlagen des Visiers und halten die Temperatur ertraeglich.
+## Helm: Luft zum Visier
 
-## Empfohlene Luefter
+Arbeitsbasis sind zwei zugaengliche 40-mm-Luefter in seitlichen Kiefer-/Wangenpods.
+Beide saugen frische Aussenluft durch ein geschuetztes Gitter an und schieben sie
+durch kurze, breite Kanaele zur unteren Visierkante. Flache Austrittsschlitze
+verteilen einen Teilstrom ueber die Visierinnenseite. Ein zweiter offener Weg
+versorgt den Kopfbereich. Oben hinten treten Waerme und Feuchtigkeit aus.
 
-| Luefter | Groesse | Lautstaerke | Luftstrom | Strom | Preis ca. |
-| --- | --- | --- | --- | --- | --- |
-| Noctua NF-A4x10 5V | 40x40x10 mm | 17.9 dBA (fast unhoerrbar) | 4.8 CFM | 50 mA | 15 EUR/Stueck |
-| GDSTIME 40mm USB (3-Speed) | 40x40x10 mm | 22-26 dBA | 4.5-6.1 CFM | 80-150 mA | 10 EUR/2er-Pack |
-| Wathai 50mm USB (3-Speed) | 50x50x10 mm | 25-28 dBA | 7-9 CFM | 100-200 mA | 12 EUR/2er-Pack |
+Die Ansaugung liegt nicht am nebelbelasteten Ruecken und nicht direkt unter
+einem LED-Kuehlkoerper. Das Mikrofon liegt ausserhalb des Luftstrahls. Polster
+und Kanaele sind herausnehmbar; Haare oder Textil duerfen nicht ans Laufrad
+gelangen. Die Laufradgitter bleiben auch bei abgenommenem Helm wirksam.
 
-**Noctua NF-A4x10 5V** ist der Gold-Standard fuer leisen Betrieb. **GDSTIME** ist der beliebteste in der 405th Community wegen Preis und 3-Stufen-Schalter.
+Enge lange Schlaeuche sind fuer kleine Axialluefter kein guenstiger Ausgangspunkt.
+Ein Blower kommt erst nach Vergleich seiner Druck-/Volumenstromkennlinie infrage.
+Maximalvolumenstrom und maximaler statischer Druck gelten nicht gleichzeitig.
+Gitter, Filter, Biegungen und Spalte veraendern den Betriebspunkt.
 
-## Platzierung (2-Luefter-Setup)
+## Torso: Abstandstextil und getrennte Faecher
 
-```
-       +------ Exhaust (oben hinten) ------+
-       |          heisse Luft raus          |
-       |                                    |
-       |         +------+                   |
-       |         | Helm |                   |
-       |         |      |                   |
-       |         +------+                   |
-       |                                    |
-       +------ Intake (unten hinten) -------+
-                  kuehle Luft rein
-```
+Zwei 60-mm-Luefter sitzen versuchsweise in unteren seitlichen Einlaessen.
+Abstandstextil und Luftstege halten Wege zwischen Unteranzug und Schalen frei.
+Die Luft stroemt an Brust und Ruecken nach oben; Auslaesse liegen seitlich unter
+den Schulterhauben. Diese muessen bei gesenkten Armen und geschlossenem Torso
+frei bleiben.
 
-- **Intake-Luefter:** unterer Hinterkopf (Kinn-/Kieferbereich), zieht kuehle Luft rein
-- **Exhaust-Luefter:** oberer Hinterkopf, drueckt heisse Luft und Feuchtigkeit raus
-- Erzeugt Luftstrom ueber das Gesicht und verhindert Visor-Beschlagen
-- Mit Klett befestigen fuer einfaches Entfernen
-- Kabel entlang der Innenpolster-Kanaele fuehren
+Akkus, LED-Treiber und Recorder sitzen in eigenen Servicefaechern. Deren
+warme Abluft wird nach aussen gefuehrt, nicht zuerst ueber den Koerper oder
+ins Helmvisier. Durchgehender dicker Foam wuerde die Luftwege schliessen.
+Weiche Abstandsteile duerfen nicht in Scharniere oder Schliesser geraten.
 
-## Axial vs. Radialluefter
+Peltiermodule sind in dieser Arbeitsbasis nicht vorgesehen: Sie verlagern
+Waerme und erzeugen zusaetzliche Abwaerme auf der heissen Seite. Eine spaetere
+Kuehlweste ist eine eigenstaendige Option mit neuem Masse-/Passformtest.
 
-- **Axialluefter** (Standard-PC-Luefter): mehr Gesamtluftvolumen, gut fuer allgemeine Kuehlung
-- **Radialluefter** (Blower): koennen Luft durch Kanaele gezielt zum Visor leiten, besser gegen Beschlagen
+## Verifizierte Luefterkandidaten
 
-## Anschluss
+| Verwendung | Kandidat | Geometrie ohne Entkoppler | Hersteller-Maximalwert | Freier Maximalvolumenstrom |
+| --- | --- | --- | --- | --- |
+| Helm, zweimal | Noctua NF-A4x20 **5V PWM** | 40 x 40 x 20 mm; Lochabstand 32 mm | 0,5 W / 0,1 A je Luefter | 9,4 m3/h je Luefter |
+| Torso, zweimal | Noctua NF-A6x25 **5V PWM** | 60 x 60 x 25 mm; Lochabstand 50 mm | 1,3 W / 0,26 A je Luefter | 29,2 m3/h je Luefter |
 
-- 5V direkt von der Stromschiene (gleiche Versorgung wie Pi/Arduino)
-- Optional per PWM vom Arduino steuern (Geschwindigkeitsregelung, Batterie sparen)
-- JST-XH 2-Pin Stecker fuer einfaches Trennen
+[Herstellerdaten Helm-Luefter](https://www.noctua.at/en/products/nf-a4x20-5v-pwm/specifications),
+[Herstellerdaten Torso-Luefter](https://www.noctua.at/en/products/nf-a6x25-5v-pwm/specifications).
+Zusammen ergeben die vier Motoren nach diesen Maximalwerten 3,6 W bzw. 0,72 A
+bei 5 V. Controller, Umwandlung, Einschaltverhalten und weitere Verbraucher
+kommen hinzu. Die reale Kanalfoerderung wird gemessen; Hersteller-Maximalwerte
+werden nicht als garantierter Helmluftwechsel addiert.
 
-## Stromverbrauch (2 Luefter)
+20-35 EUR je Qualitaetsluefter sind ein eigener Budgetansatz, kein abgerufenes
+Angebot. Guenstigere Module sind moeglich, wenn Strom, Anlauf, Geraeusch,
+Druckkennlinie und Montageabmessungen fuer die konkrete Ausfuehrung vorliegen.
 
-- Noctua: 2 x 50 mA = 0.1 A
-- GDSTIME (max): 2 x 150 mA = 0.3 A
+## Versorgung und Drehzahl
+
+Die 5-V-Komfortversorgung hat einen eigenen frontseitigen Schalter. Der
+Effektschalter fuer RGB und Duesenluft unterbricht sie nicht. Ein Ausfall der
+Komfort-Powerbank schaltet ihre Verbraucher trotzdem ab; das ist keine
+redundante Versorgung. Akkus nicht parallel verdrahten.
+
+Vierleiter-Luefter erhalten konstante geregelte 5 V am Versorgungspin und ein
+separates PWM-Steuersignal. Noctua nennt 25 kHz als Ziel und 21-28 kHz als
+unterstuetzten Bereich. Pegel-/Ausgangsschaltung folgen der
+[Herstelleranleitung](https://www.noctua.at/en/support/faqs/microcontroller-guide-pwm-setup-and-rpm-monitoring).
+Ein Zwei-Pin-Stecker fuehrt keine getrennte PWM-/Tachoschnittstelle.
+
+Die bisherigen Arduino-Beispiele mit einfachem `analogWrite` sind nicht
+automatisch fuer diese Frequenz oder Vierleiter-Luefter geeignet. Kein
+Motorstrom durch einen GPIO. RPM-Signale mehrerer Luefter werden nicht
+zusammengelegt. Ein Grafikrechner-Absturz darf den Komfortzweig nicht
+softwareseitig ausschalten; Reset und Ausfallverhalten werden real geprueft.
+
+## Einbauversuche
+
+1. Luftwege im offenen Rohbau mit leichtem Prueffaehnchen sichtbar machen;
+   keinen Nebler an die Atemluftfuehrung anschliessen.
+2. Volumenstrom am installierten Auslass messen, Gitter und Kanaele montiert
+   lassen. Geraeusch und Vibration mit/ohne Polster vergleichen.
+3. Visiermuster, Brille, Atmung und Kopfbewegungen im beaufsichtigten kurzen
+   Versuch pruefen. Temperatur/Feuchte innen und Umgebung dokumentieren.
+4. Bei maximal geplanter Licht-/Recorderleistung pruefen, ob warme Abluft in
+   einen Helmeinlass gelangt.
+5. Effekt-Aus, Grafik-Neustart und Komfort-Abschaltung am Tisch pruefen.
+   Beschlag, Unwohlsein oder Luftwegestoerung fuehren zum Oeffnen/Absetzen.
+
+Der [Thermalrechner](../../Design/Thermal/README.md) berechnet die stationaere
+Temperaturerhoehung durch angegebene Elektronikwaerme bei gemessenem Luftstrom.
+Er modelliert weder den menschlichen Waermehaushalt noch Verdunstung oder eine
+medizinisch sichere Tragedauer. Gesamtplatzierung:
+[Einbauplan](Mjolnir-Einbauplan.md); Helm:
+[Optik, Kamera und Audio](Mjolnir-Helmintegration.md).

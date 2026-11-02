@@ -1,0 +1,60 @@
+{
+  "schema_version": 1,
+  "profile": "Synthetic-demo-1800",
+  "status": "synthetic",
+  "measurements_mm": {
+    "height": 1800,
+    "shoulder_width": 460,
+    "chest_width": 380,
+    "chest_depth": 270,
+    "abdomen_width": 370,
+    "abdomen_depth": 280,
+    "torso_length": 470,
+    "hip_width": 390,
+    "hip_depth": 300,
+    "head_width": 160,
+    "head_depth": 200,
+    "head_height": 240,
+    "upperarm_length_l": 310,
+    "upperarm_length_r": 310,
+    "upperarm_circumference_l": 320,
+    "upperarm_circumference_r": 320,
+    "forearm_length_l": 270,
+    "forearm_length_r": 270,
+    "forearm_circumference_l": 280,
+    "forearm_circumference_r": 280,
+    "thigh_length_l": 420,
+    "thigh_length_r": 420,
+    "thigh_circumference_l": 550,
+    "thigh_circumference_r": 550,
+    "shin_length_l": 405,
+    "shin_length_r": 405,
+    "calf_circumference_l": 370,
+    "calf_circumference_r": 370,
+    "boot_width_l": 110,
+    "boot_width_r": 110,
+    "boot_length_l": 290,
+    "boot_length_r": 290
+  },
+  "allowances_mm": {
+    "padding_radial": 8,
+    "clearance_radial": 12,
+    "shell_wall": 3,
+    "edge_clearance": 20,
+    "entry_clearance_each_side": 30,
+    "shoulder_visual_extension_each_side": 25
+  },
+  "build": {
+    "armor_reference": "chief-infinite",
+    "material": "hybrid",
+    "operating_mode": "wearable",
+    "features": {
+      "exoskeleton": false,
+      "hud": false,
+      "lighting": true,
+      "audio": false
+    },
+    "fog_system": "none"
+  },
+  "brief": "Vollstaendig erfundene Beispielmasse; keine Person und kein Passformnachweis."
+}

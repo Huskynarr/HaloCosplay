@@ -16,7 +16,12 @@ Dieses Verzeichnis enthaelt Beispielcode fuer Helm- und Ruestungs-LEDs sowie das
   parallel zum HUD. Test ohne Hardware: `python3 sensor_bridge.py --selftest`
 - `robot_bridge.py` - **Konzept-Bruecke** Begleit-Roboter (WLAN/UDP) ->
   `hud_state.json`, zeigt den Robo als Marker auf dem Motion-Tracker. Siehe
-  `Documentation/Guides/Begleitroboter-Integration.md`. Test: `python3 robot_bridge.py --selftest`
+- `robot_bridge.py` - **Konzept-Bruecke** Begleit-Roboter (WLAN/UDP) ->
+  `hud_state.json`, zeigt den Robo als Marker auf dem Motion-Tracker. Siehe
+  [Begleitguide](../Documentation/Guides/Begleitroboter-Integration.md).
+  Nur Anzeige, keine Bewegungssteuerung; Schreibzugriff gesperrt ueber
+  `hud_state.py`, Datenalter bei Prozessausfall noch offen. Test:
+  `python3 robot_bridge.py --selftest`
 - `voice_control.py` - **Sprachsteuerung + Helmfunk (Pi 5, optional)**: Push-to-Talk,
   Offline-Erkennung (Vosk), Befehle an Helm-Arduino (I2C) und per Optokoppler an
   Schubduesen-/Ruestungs-Taster, Helmfunk-Stimme (Audio Option C).

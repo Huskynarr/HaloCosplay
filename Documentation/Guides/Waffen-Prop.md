@@ -106,6 +106,42 @@ ikonischste Waffen-Gimmick. Drei Wege:
 
 STL-Quellen fuer die Waffe selbst (mit/ohne Firmware): `Resources/STL-Quellen.md`.
 
+## PMI Smoke Vest als Inspiration: Nebel aus der Waffe
+
+Die **PMI Smoke Vest / das On-Body Smoke System** ist eine gute Referenz fuer
+die Systemarchitektur: Der Fogger sitzt geschuetzt am Koerper und wird ueber
+flexible Schlaeuche zu frei waehlbaren Austrittspunkten gefuehrt. Fuer die
+Prop-Waffe uebernehmen wir dieses Prinzip, statt einen heissen und schweren
+Fogger in die Waffe einzubauen.
+
+### Empfohlener Aufbau
+
+1. **Fogger am Koerper:** Eine eigene, gut belueftete Tasche am Ruecken- oder
+   Hueftmodul nimmt Fogger, Fluid und dessen Akku auf. Die Tasche muss fuer
+   Akkuwechsel, Nachfuellen und eine schnelle Trennung erreichbar bleiben.
+2. **Schlaucharm zur Waffe:** Ein hitzebestaendiger Silikon- oder PU-Schlauch
+   laeuft unter dem Arm entlang. Ein Schnellverschluss am Unterarm oder
+   Vordergriff trennt die Waffe vom restlichen System.
+3. **Prop-Diffusor:** Am Laufende sitzt kein offener, realistischer Lauf,
+   sondern ein klar als Requisite erkennbarer, milchiger Muendungs- oder
+   Seitenauslassring. So verteilt sich der Nebel weich und kann mit einer
+   kleinen LED synchronisiert werden.
+4. **Drei Betriebsarten:** `Vest only` fuer die Duesen, `Weapon only` fuer
+   Fotos und `Both` fuer den kurzen Show-Impuls. Das Umschalten erfolgt per
+   verriegeltem Taster oder ueber das vorhandene Boost-Signal.
+
+### Wichtige Grenzen
+
+- Den beheizten Fogger, das Fluid und den Akku **nicht** in Griff, Magazin
+  oder Lauf der Waffe unterbringen: Hitze, Gewicht und Leckage gehoeren aus
+  dem Handmodul heraus.
+- Der Nebelauslass ist ein visueller Effekt fuer Fotos/Outdoor und macht die
+  Prop-Waffe nicht con-tauglicher. Veranstalterfreigabe und die Regeln aus
+  `Convention-Regeln.md` gelten weiterhin.
+- Fuer Conventions: Fogger deaktiviert lassen oder nur die kalte
+  Ultraschall-Variante verwenden, sofern der Veranstalter das ausdruecklich
+  erlaubt.
+
 ## Sicherheits-Checkliste
 
 - [ ] Keine scharfen Kanten oder Spitzen
