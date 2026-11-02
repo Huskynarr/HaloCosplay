@@ -26,3 +26,8 @@ tools/amazon-creators/.env
 
 # Session-Scratch der Subagent-Ausfuehrung (Berichte enthalten Umlaute, wuerde ASCII-CI brechen)
 .superpowers/
+
+# Local body measurements and generated working copies
+*.local.json
+*.local.md
+build/

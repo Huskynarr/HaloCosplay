@@ -1,0 +1,1721 @@
+{
+  "schema_version": 1,
+  "revision": "electrical-r1",
+  "status": "design_only",
+  "hardware_approved": false,
+  "sources": {
+    "ldd": "https://www.meanwell.com/Upload/PDF/LDD-L/LDD-L-SPEC.PDF",
+    "buffer": "https://www.ti.com/lit/ds/symlink/sn74ahct1g125.pdf",
+    "mosfet": "https://www.aosmd.com/res/data_sheets/AO3400A.pdf",
+    "relay": "https://omronfs.omron.com/en_US/ecb/products/pdf/en-g5le.pdf",
+    "diode": "https://www.vishay.com/docs/88503/1n4001.pdf",
+    "regulator": "https://www.pololu.com/product/2831",
+    "pd": "https://www.sparkfun.com/sparkfun-power-delivery-board-usb-c-qwiic.html",
+    "fan": "https://www.noctua.at/pub/media/wysiwyg/Noctua_PWM_specifications_white_paper.pdf",
+    "led": "https://www.ledsupply.com/leds/cree-xpe2-rgb-high-power-led"
+  },
+  "components": [
+    {
+      "ref": "J10",
+      "kind": "connector",
+      "value": "5 V Komfort-Eingang; kodiert",
+      "pins": {
+        "1": "C5_RAW",
+        "2": "C_GND"
+      },
+      "sheet": "01",
+      "source": null
+    },
+    {
+      "ref": "F10",
+      "kind": "fuse",
+      "value": "TBD nach Last/Leitung",
+      "pins": {
+        "1": "C5_RAW",
+        "2": "C5_FUSED"
+      },
+      "sheet": "01",
+      "source": null,
+      "rating_a": null
+    },
+    {
+      "ref": "S10",
+      "kind": "switch_no",
+      "value": "Komfort EIN/AUS; DC-Rating TBD",
+      "pins": {
+        "1": "C5_FUSED",
+        "2": "C5_FAN"
+      },
+      "sheet": "01",
+      "source": null
+    },
+    {
+      "ref": "J11",
+      "kind": "connector",
+      "value": "Helm links; 5-V-Noctua-PWM",
+      "pins": {
+        "1": "C_GND",
+        "2": "C5_FAN",
+        "3": null,
+        "4": null
+      },
+      "sheet": "01",
+      "source": "fan"
+    },
+    {
+      "ref": "J12",
+      "kind": "connector",
+      "value": "Helm rechts; 5-V-Noctua-PWM",
+      "pins": {
+        "1": "C_GND",
+        "2": "C5_FAN",
+        "3": null,
+        "4": null
+      },
+      "sheet": "01",
+      "source": "fan"
+    },
+    {
+      "ref": "J13",
+      "kind": "connector",
+      "value": "Torso links; 5-V-Noctua-PWM",
+      "pins": {
+        "1": "C_GND",
+        "2": "C5_FAN",
+        "3": null,
+        "4": null
+      },
+      "sheet": "01",
+      "source": "fan"
+    },
+    {
+      "ref": "J14",
+      "kind": "connector",
+      "value": "Torso rechts; 5-V-Noctua-PWM",
+      "pins": {
+        "1": "C_GND",
+        "2": "C5_FAN",
+        "3": null,
+        "4": null
+      },
+      "sheet": "01",
+      "source": "fan"
+    },
+    {
+      "ref": "J20",
+      "kind": "module_boundary",
+      "value": "SparkFun DEV-15801 / STUSB4500",
+      "pins": {
+        "VOUT": "E15_RAW",
+        "GND": "E_GND"
+      },
+      "sheet": "02",
+      "source": "pd",
+      "input_interface": "USB-C PD",
+      "configured_output_v": 15,
+      "configuration_verified": false
+    },
+    {
+      "ref": "F20",
+      "kind": "fuse",
+      "value": "TBD nach Last/Leitung",
+      "pins": {
+        "1": "E15_RAW",
+        "2": "E15_FUSED"
+      },
+      "sheet": "02",
+      "source": null,
+      "rating_a": null
+    },
+    {
+      "ref": "S20",
+      "kind": "switch_no",
+      "value": "Lichtversorgung AUS; DC-Rating TBD",
+      "pins": {
+        "1": "E15_FUSED",
+        "2": "E15_SW"
+      },
+      "sheet": "02",
+      "source": null
+    },
+    {
+      "ref": "U20",
+      "kind": "regulator_module",
+      "value": "Pololu D24V10F5 #2831",
+      "pins": {
+        "VIN": "E15_SW",
+        "GND": "E_GND",
+        "VOUT": "E5_RAW",
+        "SHDN": null,
+        "PG": null
+      },
+      "sheet": "02",
+      "source": "regulator"
+    },
+    {
+      "ref": "F21",
+      "kind": "fuse",
+      "value": "5-V-Abgang; TBD",
+      "pins": {
+        "1": "E5_RAW",
+        "2": "E5_CTRL"
+      },
+      "sheet": "02",
+      "source": null,
+      "rating_a": null
+    },
+    {
+      "ref": "C20",
+      "kind": "capacitor_polarized",
+      "value": "33 uF / 50 V; Eingangspuffer",
+      "pins": {
+        "+": "E15_SW",
+        "-": "E_GND"
+      },
+      "sheet": "02",
+      "source": "regulator"
+    },
+    {
+      "ref": "K20",
+      "kind": "relay_no",
+      "value": "Omron G5LE-1A DC5",
+      "pins": {
+        "1": "E15_SW",
+        "3": "E15_LED",
+        "2": "E5_CTRL",
+        "5": "COIL_LOW"
+      },
+      "sheet": "02",
+      "source": "relay"
+    },
+    {
+      "ref": "D20",
+      "kind": "diode",
+      "value": "1N4007; Freilauf",
+      "pins": {
+        "A": "COIL_LOW",
+        "K": "E5_CTRL"
+      },
+      "sheet": "02",
+      "source": "diode"
+    },
+    {
+      "ref": "Q20",
+      "kind": "nmos",
+      "value": "AO3400A; SOT-23",
+      "pins": {
+        "1": "RELAY_GATE",
+        "2": "E_GND",
+        "3": "COIL_LOW"
+      },
+      "sheet": "02",
+      "source": "mosfet",
+      "pin_names": {
+        "1": "G",
+        "2": "S",
+        "3": "D"
+      }
+    },
+    {
+      "ref": "R20",
+      "kind": "resistor",
+      "value": "100 ohm",
+      "pins": {
+        "1": "READY_AFTER_TH",
+        "2": "RELAY_GATE"
+      },
+      "sheet": "02",
+      "source": null
+    },
+    {
+      "ref": "R21",
+      "kind": "resistor",
+      "value": "10 kohm",
+      "pins": {
+        "1": "RELAY_GATE",
+        "2": "E_GND"
+      },
+      "sheet": "02",
+      "source": null
+    },
+    {
+      "ref": "J21",
+      "kind": "connector",
+      "value": "Temperaturkontaktkette; potentialfreie Oeffner",
+      "pins": {
+        "1": "MCU_READY",
+        "2": "READY_AFTER_TH"
+      },
+      "sheet": "02",
+      "source": null,
+      "implementation": "external_unselected_no_jumper_default"
+    },
+    {
+      "ref": "J22",
+      "kind": "connector",
+      "value": "MCU lokale Versorgung; 5 V IN -> eigene 3V3-Regelung",
+      "pins": {
+        "1": "E5_CTRL",
+        "2": "E_GND"
+      },
+      "sheet": "02",
+      "source": null
+    },
+    {
+      "ref": "J30",
+      "kind": "connector",
+      "value": "3,3-V-MCU-Signale; nur Effektdomaene",
+      "pins": {
+        "1": "E_GND",
+        "2": "MCU_READY",
+        "3": "PWM_H_R",
+        "4": "PWM_H_G",
+        "5": "PWM_H_B",
+        "6": "PWM_N_R",
+        "7": "PWM_N_G",
+        "8": "PWM_N_B"
+      },
+      "sheet": "05",
+      "source": null
+    },
+    {
+      "ref": "U30",
+      "kind": "ldd",
+      "value": "MEAN WELL LDD-350L",
+      "pins": {
+        "1": "E15_LED",
+        "3": "DIM_H_R",
+        "4": "E_GND",
+        "5": "LED_H_R_RET",
+        "6": "LED_H_R_OUT"
+      },
+      "sheet": "03",
+      "source": "ldd"
+    },
+    {
+      "ref": "B30",
+      "kind": "buffer",
+      "value": "SN74AHCT1G125DBVR",
+      "pins": {
+        "1": "E_GND",
+        "2": "PWM_H_R",
+        "3": "E_GND",
+        "4": "DIM_H_R",
+        "5": "E5_CTRL"
+      },
+      "sheet": "05",
+      "source": "buffer"
+    },
+    {
+      "ref": "R30",
+      "kind": "resistor",
+      "value": "10 kohm",
+      "pins": {
+        "1": "PWM_H_R",
+        "2": "E_GND"
+      },
+      "sheet": "05",
+      "source": null
+    },
+    {
+      "ref": "C30",
+      "kind": "capacitor",
+      "value": "100 nF / >=10 V; am IC",
+      "pins": {
+        "1": "E5_CTRL",
+        "2": "E_GND"
+      },
+      "sheet": "05",
+      "source": "buffer"
+    },
+    {
+      "ref": "LED_HL_R",
+      "kind": "led",
+      "value": "HL / R",
+      "pins": {
+        "A": "LED_H_R_OUT",
+        "K": "LED_H_R_MID"
+      },
+      "sheet": "03",
+      "source": "led",
+      "star": "HL"
+    },
+    {
+      "ref": "LED_HR_R",
+      "kind": "led",
+      "value": "HR / R",
+      "pins": {
+        "A": "LED_H_R_MID",
+        "K": "LED_H_R_RET"
+      },
+      "sheet": "03",
+      "source": "led",
+      "star": "HR"
+    },
+    {
+      "ref": "U31",
+      "kind": "ldd",
+      "value": "MEAN WELL LDD-350L",
+      "pins": {
+        "1": "E15_LED",
+        "3": "DIM_H_G",
+        "4": "E_GND",
+        "5": "LED_H_G_RET",
+        "6": "LED_H_G_OUT"
+      },
+      "sheet": "03",
+      "source": "ldd"
+    },
+    {
+      "ref": "B31",
+      "kind": "buffer",
+      "value": "SN74AHCT1G125DBVR",
+      "pins": {
+        "1": "E_GND",
+        "2": "PWM_H_G",
+        "3": "E_GND",
+        "4": "DIM_H_G",
+        "5": "E5_CTRL"
+      },
+      "sheet": "05",
+      "source": "buffer"
+    },
+    {
+      "ref": "R31",
+      "kind": "resistor",
+      "value": "10 kohm",
+      "pins": {
+        "1": "PWM_H_G",
+        "2": "E_GND"
+      },
+      "sheet": "05",
+      "source": null
+    },
+    {
+      "ref": "C31",
+      "kind": "capacitor",
+      "value": "100 nF / >=10 V; am IC",
+      "pins": {
+        "1": "E5_CTRL",
+        "2": "E_GND"
+      },
+      "sheet": "05",
+      "source": "buffer"
+    },
+    {
+      "ref": "LED_HL_G",
+      "kind": "led",
+      "value": "HL / G",
+      "pins": {
+        "A": "LED_H_G_OUT",
+        "K": "LED_H_G_MID"
+      },
+      "sheet": "03",
+      "source": "led",
+      "star": "HL"
+    },
+    {
+      "ref": "LED_HR_G",
+      "kind": "led",
+      "value": "HR / G",
+      "pins": {
+        "A": "LED_H_G_MID",
+        "K": "LED_H_G_RET"
+      },
+      "sheet": "03",
+      "source": "led",
+      "star": "HR"
+    },
+    {
+      "ref": "U32",
+      "kind": "ldd",
+      "value": "MEAN WELL LDD-350L",
+      "pins": {
+        "1": "E15_LED",
+        "3": "DIM_H_B",
+        "4": "E_GND",
+        "5": "LED_H_B_RET",
+        "6": "LED_H_B_OUT"
+      },
+      "sheet": "03",
+      "source": "ldd"
+    },
+    {
+      "ref": "B32",
+      "kind": "buffer",
+      "value": "SN74AHCT1G125DBVR",
+      "pins": {
+        "1": "E_GND",
+        "2": "PWM_H_B",
+        "3": "E_GND",
+        "4": "DIM_H_B",
+        "5": "E5_CTRL"
+      },
+      "sheet": "05",
+      "source": "buffer"
+    },
+    {
+      "ref": "R32",
+      "kind": "resistor",
+      "value": "10 kohm",
+      "pins": {
+        "1": "PWM_H_B",
+        "2": "E_GND"
+      },
+      "sheet": "05",
+      "source": null
+    },
+    {
+      "ref": "C32",
+      "kind": "capacitor",
+      "value": "100 nF / >=10 V; am IC",
+      "pins": {
+        "1": "E5_CTRL",
+        "2": "E_GND"
+      },
+      "sheet": "05",
+      "source": "buffer"
+    },
+    {
+      "ref": "LED_HL_B",
+      "kind": "led",
+      "value": "HL / B",
+      "pins": {
+        "A": "LED_H_B_OUT",
+        "K": "LED_H_B_MID"
+      },
+      "sheet": "03",
+      "source": "led",
+      "star": "HL"
+    },
+    {
+      "ref": "LED_HR_B",
+      "kind": "led",
+      "value": "HR / B",
+      "pins": {
+        "A": "LED_H_B_MID",
+        "K": "LED_H_B_RET"
+      },
+      "sheet": "03",
+      "source": "led",
+      "star": "HR"
+    },
+    {
+      "ref": "U33",
+      "kind": "ldd",
+      "value": "MEAN WELL LDD-350L",
+      "pins": {
+        "1": "E15_LED",
+        "3": "DIM_N_R",
+        "4": "E_GND",
+        "5": "LED_N_R_RET",
+        "6": "LED_N_R_OUT"
+      },
+      "sheet": "04",
+      "source": "ldd"
+    },
+    {
+      "ref": "B33",
+      "kind": "buffer",
+      "value": "SN74AHCT1G125DBVR",
+      "pins": {
+        "1": "E_GND",
+        "2": "PWM_N_R",
+        "3": "E_GND",
+        "4": "DIM_N_R",
+        "5": "E5_CTRL"
+      },
+      "sheet": "05",
+      "source": "buffer"
+    },
+    {
+      "ref": "R33",
+      "kind": "resistor",
+      "value": "10 kohm",
+      "pins": {
+        "1": "PWM_N_R",
+        "2": "E_GND"
+      },
+      "sheet": "05",
+      "source": null
+    },
+    {
+      "ref": "C33",
+      "kind": "capacitor",
+      "value": "100 nF / >=10 V; am IC",
+      "pins": {
+        "1": "E5_CTRL",
+        "2": "E_GND"
+      },
+      "sheet": "05",
+      "source": "buffer"
+    },
+    {
+      "ref": "LED_NL_R",
+      "kind": "led",
+      "value": "NL / R",
+      "pins": {
+        "A": "LED_N_R_OUT",
+        "K": "LED_N_R_MID"
+      },
+      "sheet": "04",
+      "source": "led",
+      "star": "NL"
+    },
+    {
+      "ref": "LED_NR_R",
+      "kind": "led",
+      "value": "NR / R",
+      "pins": {
+        "A": "LED_N_R_MID",
+        "K": "LED_N_R_RET"
+      },
+      "sheet": "04",
+      "source": "led",
+      "star": "NR"
+    },
+    {
+      "ref": "U34",
+      "kind": "ldd",
+      "value": "MEAN WELL LDD-350L",
+      "pins": {
+        "1": "E15_LED",
+        "3": "DIM_N_G",
+        "4": "E_GND",
+        "5": "LED_N_G_RET",
+        "6": "LED_N_G_OUT"
+      },
+      "sheet": "04",
+      "source": "ldd"
+    },
+    {
+      "ref": "B34",
+      "kind": "buffer",
+      "value": "SN74AHCT1G125DBVR",
+      "pins": {
+        "1": "E_GND",
+        "2": "PWM_N_G",
+        "3": "E_GND",
+        "4": "DIM_N_G",
+        "5": "E5_CTRL"
+      },
+      "sheet": "05",
+      "source": "buffer"
+    },
+    {
+      "ref": "R34",
+      "kind": "resistor",
+      "value": "10 kohm",
+      "pins": {
+        "1": "PWM_N_G",
+        "2": "E_GND"
+      },
+      "sheet": "05",
+      "source": null
+    },
+    {
+      "ref": "C34",
+      "kind": "capacitor",
+      "value": "100 nF / >=10 V; am IC",
+      "pins": {
+        "1": "E5_CTRL",
+        "2": "E_GND"
+      },
+      "sheet": "05",
+      "source": "buffer"
+    },
+    {
+      "ref": "LED_NL_G",
+      "kind": "led",
+      "value": "NL / G",
+      "pins": {
+        "A": "LED_N_G_OUT",
+        "K": "LED_N_G_MID"
+      },
+      "sheet": "04",
+      "source": "led",
+      "star": "NL"
+    },
+    {
+      "ref": "LED_NR_G",
+      "kind": "led",
+      "value": "NR / G",
+      "pins": {
+        "A": "LED_N_G_MID",
+        "K": "LED_N_G_RET"
+      },
+      "sheet": "04",
+      "source": "led",
+      "star": "NR"
+    },
+    {
+      "ref": "U35",
+      "kind": "ldd",
+      "value": "MEAN WELL LDD-350L",
+      "pins": {
+        "1": "E15_LED",
+        "3": "DIM_N_B",
+        "4": "E_GND",
+        "5": "LED_N_B_RET",
+        "6": "LED_N_B_OUT"
+      },
+      "sheet": "04",
+      "source": "ldd"
+    },
+    {
+      "ref": "B35",
+      "kind": "buffer",
+      "value": "SN74AHCT1G125DBVR",
+      "pins": {
+        "1": "E_GND",
+        "2": "PWM_N_B",
+        "3": "E_GND",
+        "4": "DIM_N_B",
+        "5": "E5_CTRL"
+      },
+      "sheet": "05",
+      "source": "buffer"
+    },
+    {
+      "ref": "R35",
+      "kind": "resistor",
+      "value": "10 kohm",
+      "pins": {
+        "1": "PWM_N_B",
+        "2": "E_GND"
+      },
+      "sheet": "05",
+      "source": null
+    },
+    {
+      "ref": "C35",
+      "kind": "capacitor",
+      "value": "100 nF / >=10 V; am IC",
+      "pins": {
+        "1": "E5_CTRL",
+        "2": "E_GND"
+      },
+      "sheet": "05",
+      "source": "buffer"
+    },
+    {
+      "ref": "LED_NL_B",
+      "kind": "led",
+      "value": "NL / B",
+      "pins": {
+        "A": "LED_N_B_OUT",
+        "K": "LED_N_B_MID"
+      },
+      "sheet": "04",
+      "source": "led",
+      "star": "NL"
+    },
+    {
+      "ref": "LED_NR_B",
+      "kind": "led",
+      "value": "NR / B",
+      "pins": {
+        "A": "LED_N_B_MID",
+        "K": "LED_N_B_RET"
+      },
+      "sheet": "04",
+      "source": "led",
+      "star": "NR"
+    },
+    {
+      "ref": "JHL",
+      "kind": "connector",
+      "value": "RGB-Star; 6 getrennte Pads",
+      "pins": {
+        "1": "LED_H_R_OUT",
+        "2": "LED_H_R_MID",
+        "3": "LED_H_G_OUT",
+        "4": "LED_H_G_MID",
+        "5": "LED_H_B_OUT",
+        "6": "LED_H_B_MID"
+      },
+      "sheet": "03",
+      "source": null
+    },
+    {
+      "ref": "JHR",
+      "kind": "connector",
+      "value": "RGB-Star; 6 getrennte Pads",
+      "pins": {
+        "1": "LED_H_R_MID",
+        "2": "LED_H_R_RET",
+        "3": "LED_H_G_MID",
+        "4": "LED_H_G_RET",
+        "5": "LED_H_B_MID",
+        "6": "LED_H_B_RET"
+      },
+      "sheet": "03",
+      "source": null
+    },
+    {
+      "ref": "JNL",
+      "kind": "connector",
+      "value": "RGB-Star; 6 getrennte Pads",
+      "pins": {
+        "1": "LED_N_R_OUT",
+        "2": "LED_N_R_MID",
+        "3": "LED_N_G_OUT",
+        "4": "LED_N_G_MID",
+        "5": "LED_N_B_OUT",
+        "6": "LED_N_B_MID"
+      },
+      "sheet": "04",
+      "source": null
+    },
+    {
+      "ref": "JNR",
+      "kind": "connector",
+      "value": "RGB-Star; 6 getrennte Pads",
+      "pins": {
+        "1": "LED_N_R_MID",
+        "2": "LED_N_R_RET",
+        "3": "LED_N_G_MID",
+        "4": "LED_N_G_RET",
+        "5": "LED_N_B_MID",
+        "6": "LED_N_B_RET"
+      },
+      "sheet": "04",
+      "source": null
+    }
+  ],
+  "channels": [
+    {
+      "id": "H_R",
+      "driver": "U30",
+      "buffer": "B30",
+      "pulldown": "R30",
+      "decoupling": "C30",
+      "leds": [
+        "LED_HL_R",
+        "LED_HR_R"
+      ],
+      "current_a": 0.35,
+      "pwm_hz_range": [
+        100,
+        1000
+      ]
+    },
+    {
+      "id": "H_G",
+      "driver": "U31",
+      "buffer": "B31",
+      "pulldown": "R31",
+      "decoupling": "C31",
+      "leds": [
+        "LED_HL_G",
+        "LED_HR_G"
+      ],
+      "current_a": 0.35,
+      "pwm_hz_range": [
+        100,
+        1000
+      ]
+    },
+    {
+      "id": "H_B",
+      "driver": "U32",
+      "buffer": "B32",
+      "pulldown": "R32",
+      "decoupling": "C32",
+      "leds": [
+        "LED_HL_B",
+        "LED_HR_B"
+      ],
+      "current_a": 0.35,
+      "pwm_hz_range": [
+        100,
+        1000
+      ]
+    },
+    {
+      "id": "N_R",
+      "driver": "U33",
+      "buffer": "B33",
+      "pulldown": "R33",
+      "decoupling": "C33",
+      "leds": [
+        "LED_NL_R",
+        "LED_NR_R"
+      ],
+      "current_a": 0.35,
+      "pwm_hz_range": [
+        100,
+        1000
+      ]
+    },
+    {
+      "id": "N_G",
+      "driver": "U34",
+      "buffer": "B34",
+      "pulldown": "R34",
+      "decoupling": "C34",
+      "leds": [
+        "LED_NL_G",
+        "LED_NR_G"
+      ],
+      "current_a": 0.35,
+      "pwm_hz_range": [
+        100,
+        1000
+      ]
+    },
+    {
+      "id": "N_B",
+      "driver": "U35",
+      "buffer": "B35",
+      "pulldown": "R35",
+      "decoupling": "C35",
+      "leds": [
+        "LED_NL_B",
+        "LED_NR_B"
+      ],
+      "current_a": 0.35,
+      "pwm_hz_range": [
+        100,
+        1000
+      ]
+    }
+  ],
+  "unresolved": {
+    "fuse_ratings_a": null,
+    "wire_gauge_mm2": null,
+    "thermal_contact_part_and_trip_temperature": null,
+    "controller_gpio_assignment": null,
+    "measured_dim_input_current_a": null,
+    "power_sequencing_and_relay_release_with_diode_ms": null,
+    "pd_nvm_configuration_and_source_validation": null
+  },
+  "nets": {
+    "C5_FAN": [
+      {
+        "ref": "S10",
+        "pin": "2"
+      },
+      {
+        "ref": "J11",
+        "pin": "2"
+      },
+      {
+        "ref": "J12",
+        "pin": "2"
+      },
+      {
+        "ref": "J13",
+        "pin": "2"
+      },
+      {
+        "ref": "J14",
+        "pin": "2"
+      }
+    ],
+    "C5_FUSED": [
+      {
+        "ref": "F10",
+        "pin": "2"
+      },
+      {
+        "ref": "S10",
+        "pin": "1"
+      }
+    ],
+    "C5_RAW": [
+      {
+        "ref": "J10",
+        "pin": "1"
+      },
+      {
+        "ref": "F10",
+        "pin": "1"
+      }
+    ],
+    "COIL_LOW": [
+      {
+        "ref": "K20",
+        "pin": "5"
+      },
+      {
+        "ref": "D20",
+        "pin": "A"
+      },
+      {
+        "ref": "Q20",
+        "pin": "3"
+      }
+    ],
+    "C_GND": [
+      {
+        "ref": "J10",
+        "pin": "2"
+      },
+      {
+        "ref": "J11",
+        "pin": "1"
+      },
+      {
+        "ref": "J12",
+        "pin": "1"
+      },
+      {
+        "ref": "J13",
+        "pin": "1"
+      },
+      {
+        "ref": "J14",
+        "pin": "1"
+      }
+    ],
+    "DIM_H_B": [
+      {
+        "ref": "U32",
+        "pin": "3"
+      },
+      {
+        "ref": "B32",
+        "pin": "4"
+      }
+    ],
+    "DIM_H_G": [
+      {
+        "ref": "U31",
+        "pin": "3"
+      },
+      {
+        "ref": "B31",
+        "pin": "4"
+      }
+    ],
+    "DIM_H_R": [
+      {
+        "ref": "U30",
+        "pin": "3"
+      },
+      {
+        "ref": "B30",
+        "pin": "4"
+      }
+    ],
+    "DIM_N_B": [
+      {
+        "ref": "U35",
+        "pin": "3"
+      },
+      {
+        "ref": "B35",
+        "pin": "4"
+      }
+    ],
+    "DIM_N_G": [
+      {
+        "ref": "U34",
+        "pin": "3"
+      },
+      {
+        "ref": "B34",
+        "pin": "4"
+      }
+    ],
+    "DIM_N_R": [
+      {
+        "ref": "U33",
+        "pin": "3"
+      },
+      {
+        "ref": "B33",
+        "pin": "4"
+      }
+    ],
+    "E15_FUSED": [
+      {
+        "ref": "F20",
+        "pin": "2"
+      },
+      {
+        "ref": "S20",
+        "pin": "1"
+      }
+    ],
+    "E15_LED": [
+      {
+        "ref": "K20",
+        "pin": "3"
+      },
+      {
+        "ref": "U30",
+        "pin": "1"
+      },
+      {
+        "ref": "U31",
+        "pin": "1"
+      },
+      {
+        "ref": "U32",
+        "pin": "1"
+      },
+      {
+        "ref": "U33",
+        "pin": "1"
+      },
+      {
+        "ref": "U34",
+        "pin": "1"
+      },
+      {
+        "ref": "U35",
+        "pin": "1"
+      }
+    ],
+    "E15_RAW": [
+      {
+        "ref": "J20",
+        "pin": "VOUT"
+      },
+      {
+        "ref": "F20",
+        "pin": "1"
+      }
+    ],
+    "E15_SW": [
+      {
+        "ref": "S20",
+        "pin": "2"
+      },
+      {
+        "ref": "U20",
+        "pin": "VIN"
+      },
+      {
+        "ref": "C20",
+        "pin": "+"
+      },
+      {
+        "ref": "K20",
+        "pin": "1"
+      }
+    ],
+    "E5_CTRL": [
+      {
+        "ref": "F21",
+        "pin": "2"
+      },
+      {
+        "ref": "K20",
+        "pin": "2"
+      },
+      {
+        "ref": "D20",
+        "pin": "K"
+      },
+      {
+        "ref": "J22",
+        "pin": "1"
+      },
+      {
+        "ref": "B30",
+        "pin": "5"
+      },
+      {
+        "ref": "C30",
+        "pin": "1"
+      },
+      {
+        "ref": "B31",
+        "pin": "5"
+      },
+      {
+        "ref": "C31",
+        "pin": "1"
+      },
+      {
+        "ref": "B32",
+        "pin": "5"
+      },
+      {
+        "ref": "C32",
+        "pin": "1"
+      },
+      {
+        "ref": "B33",
+        "pin": "5"
+      },
+      {
+        "ref": "C33",
+        "pin": "1"
+      },
+      {
+        "ref": "B34",
+        "pin": "5"
+      },
+      {
+        "ref": "C34",
+        "pin": "1"
+      },
+      {
+        "ref": "B35",
+        "pin": "5"
+      },
+      {
+        "ref": "C35",
+        "pin": "1"
+      }
+    ],
+    "E5_RAW": [
+      {
+        "ref": "U20",
+        "pin": "VOUT"
+      },
+      {
+        "ref": "F21",
+        "pin": "1"
+      }
+    ],
+    "E_GND": [
+      {
+        "ref": "J20",
+        "pin": "GND"
+      },
+      {
+        "ref": "U20",
+        "pin": "GND"
+      },
+      {
+        "ref": "C20",
+        "pin": "-"
+      },
+      {
+        "ref": "Q20",
+        "pin": "2"
+      },
+      {
+        "ref": "R21",
+        "pin": "2"
+      },
+      {
+        "ref": "J22",
+        "pin": "2"
+      },
+      {
+        "ref": "J30",
+        "pin": "1"
+      },
+      {
+        "ref": "U30",
+        "pin": "4"
+      },
+      {
+        "ref": "B30",
+        "pin": "1"
+      },
+      {
+        "ref": "B30",
+        "pin": "3"
+      },
+      {
+        "ref": "R30",
+        "pin": "2"
+      },
+      {
+        "ref": "C30",
+        "pin": "2"
+      },
+      {
+        "ref": "U31",
+        "pin": "4"
+      },
+      {
+        "ref": "B31",
+        "pin": "1"
+      },
+      {
+        "ref": "B31",
+        "pin": "3"
+      },
+      {
+        "ref": "R31",
+        "pin": "2"
+      },
+      {
+        "ref": "C31",
+        "pin": "2"
+      },
+      {
+        "ref": "U32",
+        "pin": "4"
+      },
+      {
+        "ref": "B32",
+        "pin": "1"
+      },
+      {
+        "ref": "B32",
+        "pin": "3"
+      },
+      {
+        "ref": "R32",
+        "pin": "2"
+      },
+      {
+        "ref": "C32",
+        "pin": "2"
+      },
+      {
+        "ref": "U33",
+        "pin": "4"
+      },
+      {
+        "ref": "B33",
+        "pin": "1"
+      },
+      {
+        "ref": "B33",
+        "pin": "3"
+      },
+      {
+        "ref": "R33",
+        "pin": "2"
+      },
+      {
+        "ref": "C33",
+        "pin": "2"
+      },
+      {
+        "ref": "U34",
+        "pin": "4"
+      },
+      {
+        "ref": "B34",
+        "pin": "1"
+      },
+      {
+        "ref": "B34",
+        "pin": "3"
+      },
+      {
+        "ref": "R34",
+        "pin": "2"
+      },
+      {
+        "ref": "C34",
+        "pin": "2"
+      },
+      {
+        "ref": "U35",
+        "pin": "4"
+      },
+      {
+        "ref": "B35",
+        "pin": "1"
+      },
+      {
+        "ref": "B35",
+        "pin": "3"
+      },
+      {
+        "ref": "R35",
+        "pin": "2"
+      },
+      {
+        "ref": "C35",
+        "pin": "2"
+      }
+    ],
+    "LED_H_B_MID": [
+      {
+        "ref": "LED_HL_B",
+        "pin": "K"
+      },
+      {
+        "ref": "LED_HR_B",
+        "pin": "A"
+      },
+      {
+        "ref": "JHL",
+        "pin": "6"
+      },
+      {
+        "ref": "JHR",
+        "pin": "5"
+      }
+    ],
+    "LED_H_B_OUT": [
+      {
+        "ref": "U32",
+        "pin": "6"
+      },
+      {
+        "ref": "LED_HL_B",
+        "pin": "A"
+      },
+      {
+        "ref": "JHL",
+        "pin": "5"
+      }
+    ],
+    "LED_H_B_RET": [
+      {
+        "ref": "U32",
+        "pin": "5"
+      },
+      {
+        "ref": "LED_HR_B",
+        "pin": "K"
+      },
+      {
+        "ref": "JHR",
+        "pin": "6"
+      }
+    ],
+    "LED_H_G_MID": [
+      {
+        "ref": "LED_HL_G",
+        "pin": "K"
+      },
+      {
+        "ref": "LED_HR_G",
+        "pin": "A"
+      },
+      {
+        "ref": "JHL",
+        "pin": "4"
+      },
+      {
+        "ref": "JHR",
+        "pin": "3"
+      }
+    ],
+    "LED_H_G_OUT": [
+      {
+        "ref": "U31",
+        "pin": "6"
+      },
+      {
+        "ref": "LED_HL_G",
+        "pin": "A"
+      },
+      {
+        "ref": "JHL",
+        "pin": "3"
+      }
+    ],
+    "LED_H_G_RET": [
+      {
+        "ref": "U31",
+        "pin": "5"
+      },
+      {
+        "ref": "LED_HR_G",
+        "pin": "K"
+      },
+      {
+        "ref": "JHR",
+        "pin": "4"
+      }
+    ],
+    "LED_H_R_MID": [
+      {
+        "ref": "LED_HL_R",
+        "pin": "K"
+      },
+      {
+        "ref": "LED_HR_R",
+        "pin": "A"
+      },
+      {
+        "ref": "JHL",
+        "pin": "2"
+      },
+      {
+        "ref": "JHR",
+        "pin": "1"
+      }
+    ],
+    "LED_H_R_OUT": [
+      {
+        "ref": "U30",
+        "pin": "6"
+      },
+      {
+        "ref": "LED_HL_R",
+        "pin": "A"
+      },
+      {
+        "ref": "JHL",
+        "pin": "1"
+      }
+    ],
+    "LED_H_R_RET": [
+      {
+        "ref": "U30",
+        "pin": "5"
+      },
+      {
+        "ref": "LED_HR_R",
+        "pin": "K"
+      },
+      {
+        "ref": "JHR",
+        "pin": "2"
+      }
+    ],
+    "LED_N_B_MID": [
+      {
+        "ref": "LED_NL_B",
+        "pin": "K"
+      },
+      {
+        "ref": "LED_NR_B",
+        "pin": "A"
+      },
+      {
+        "ref": "JNL",
+        "pin": "6"
+      },
+      {
+        "ref": "JNR",
+        "pin": "5"
+      }
+    ],
+    "LED_N_B_OUT": [
+      {
+        "ref": "U35",
+        "pin": "6"
+      },
+      {
+        "ref": "LED_NL_B",
+        "pin": "A"
+      },
+      {
+        "ref": "JNL",
+        "pin": "5"
+      }
+    ],
+    "LED_N_B_RET": [
+      {
+        "ref": "U35",
+        "pin": "5"
+      },
+      {
+        "ref": "LED_NR_B",
+        "pin": "K"
+      },
+      {
+        "ref": "JNR",
+        "pin": "6"
+      }
+    ],
+    "LED_N_G_MID": [
+      {
+        "ref": "LED_NL_G",
+        "pin": "K"
+      },
+      {
+        "ref": "LED_NR_G",
+        "pin": "A"
+      },
+      {
+        "ref": "JNL",
+        "pin": "4"
+      },
+      {
+        "ref": "JNR",
+        "pin": "3"
+      }
+    ],
+    "LED_N_G_OUT": [
+      {
+        "ref": "U34",
+        "pin": "6"
+      },
+      {
+        "ref": "LED_NL_G",
+        "pin": "A"
+      },
+      {
+        "ref": "JNL",
+        "pin": "3"
+      }
+    ],
+    "LED_N_G_RET": [
+      {
+        "ref": "U34",
+        "pin": "5"
+      },
+      {
+        "ref": "LED_NR_G",
+        "pin": "K"
+      },
+      {
+        "ref": "JNR",
+        "pin": "4"
+      }
+    ],
+    "LED_N_R_MID": [
+      {
+        "ref": "LED_NL_R",
+        "pin": "K"
+      },
+      {
+        "ref": "LED_NR_R",
+        "pin": "A"
+      },
+      {
+        "ref": "JNL",
+        "pin": "2"
+      },
+      {
+        "ref": "JNR",
+        "pin": "1"
+      }
+    ],
+    "LED_N_R_OUT": [
+      {
+        "ref": "U33",
+        "pin": "6"
+      },
+      {
+        "ref": "LED_NL_R",
+        "pin": "A"
+      },
+      {
+        "ref": "JNL",
+        "pin": "1"
+      }
+    ],
+    "LED_N_R_RET": [
+      {
+        "ref": "U33",
+        "pin": "5"
+      },
+      {
+        "ref": "LED_NR_R",
+        "pin": "K"
+      },
+      {
+        "ref": "JNR",
+        "pin": "2"
+      }
+    ],
+    "MCU_READY": [
+      {
+        "ref": "J21",
+        "pin": "1"
+      },
+      {
+        "ref": "J30",
+        "pin": "2"
+      }
+    ],
+    "PWM_H_B": [
+      {
+        "ref": "J30",
+        "pin": "5"
+      },
+      {
+        "ref": "B32",
+        "pin": "2"
+      },
+      {
+        "ref": "R32",
+        "pin": "1"
+      }
+    ],
+    "PWM_H_G": [
+      {
+        "ref": "J30",
+        "pin": "4"
+      },
+      {
+        "ref": "B31",
+        "pin": "2"
+      },
+      {
+        "ref": "R31",
+        "pin": "1"
+      }
+    ],
+    "PWM_H_R": [
+      {
+        "ref": "J30",
+        "pin": "3"
+      },
+      {
+        "ref": "B30",
+        "pin": "2"
+      },
+      {
+        "ref": "R30",
+        "pin": "1"
+      }
+    ],
+    "PWM_N_B": [
+      {
+        "ref": "J30",
+        "pin": "8"
+      },
+      {
+        "ref": "B35",
+        "pin": "2"
+      },
+      {
+        "ref": "R35",
+        "pin": "1"
+      }
+    ],
+    "PWM_N_G": [
+      {
+        "ref": "J30",
+        "pin": "7"
+      },
+      {
+        "ref": "B34",
+        "pin": "2"
+      },
+      {
+        "ref": "R34",
+        "pin": "1"
+      }
+    ],
+    "PWM_N_R": [
+      {
+        "ref": "J30",
+        "pin": "6"
+      },
+      {
+        "ref": "B33",
+        "pin": "2"
+      },
+      {
+        "ref": "R33",
+        "pin": "1"
+      }
+    ],
+    "READY_AFTER_TH": [
+      {
+        "ref": "R20",
+        "pin": "1"
+      },
+      {
+        "ref": "J21",
+        "pin": "2"
+      }
+    ],
+    "RELAY_GATE": [
+      {
+        "ref": "Q20",
+        "pin": "1"
+      },
+      {
+        "ref": "R20",
+        "pin": "2"
+      },
+      {
+        "ref": "R21",
+        "pin": "1"
+      }
+    ]
+  }
+}
