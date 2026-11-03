@@ -69,6 +69,48 @@ rechnet das Erkennungsnetz selbst, der Helmfunk-Effekt kostet nur wenige Prozent
 | PTT-Taster | Mikrotaster, z.B. im Handschuh | 2 EUR | Sprechen = Befehl |
 | Optokoppler | 2x PC817 + 2x 330 Ohm | 2 EUR | Taster der anderen Module druecken |
 
+### 3.1 SBC-Alternativen zum Pi 5 (Stand 2026-11-03)
+
+Die Frage kommt haeufig: Warum nicht Orange Pi, Radxa oder Banana Pi? Die
+kurze Antwort lautet: Fuer die Kombination aus Sprachsteuerung (Vosk) und
+Raspberry-Pi-AI-Camera (IMX500) gibt es im Hobby-Budget keine echte Alternative.
+Die lange Antwort folgt unten; sie ist trotzdem lesenswert, weil die Alternativen
+fuer andere Aufgaben im Projekt sinnvoll sein koennen.
+
+| SBC | SoC | RAM | Preis ca. | Bewertung fuer diesen Anwendungsfall |
+| --- | --- | --- | --- | --- |
+| Raspberry Pi 5 (4 GB) | BCM2712 | 4 GB | 70 EUR | Referenz. IMX500-Treiber, libcamera, GPIO, Community. |
+| Orange Pi 5 Max | RK3588 | 8/16 GB | 110-160 EUR | Mehr Rechenleistung, aber kein IMX500-Treiber. NPU hilft nicht, weil die Erkennung auf der Kamera laeuft. |
+| Orange Pi 5 Pro | RK3588S | 4/8 GB | 90-130 EUR | Wie 5 Max, kompakter. Gleiches IMX500-Problem. |
+| Radxa Rock 5T | RK3588(S) | 4-16 GB | 100-180 EUR | Gutes Board, gleiche Kamera-Frage. Rockchip-ISP unter mainline Linux eingeschraenkt. |
+| Banana Pi BPI-M7 | RK3588 | 4-16 GB | 90-150 EUR | Wie oben. |
+| Khadas VIM4 | A311D | 2-8 GB | 120-200 EUR | Amlogic-ISP noch problematischer als Rockchip. Kein IMX500. |
+| Jetson Orin Nano Super | Grace/Orin | 8 GB | 220 EUR | Starke NPU, aber 7-15 W Dauerlast sprengt das Helm-Budget. IMX500 ebenfalls nicht unterstuetzt. |
+
+**Warum der IMX500-Treiber entscheidend ist:** Die AI Camera rechnet das
+Erkennungsnetz auf dem Kamerachip (0,2 A, keine CPU-Last). Das ist der Grund,
+warum das Helm-Budget aufgeht. Dieser Chip braucht den rpicam/libcamera-Treiber
+von Raspberry Pi; Rockchip- und Amlogic-Boards unterstuetzen ihn nicht ohne
+eigenen Port. Ein Wechsel auf RK3588 wuerde bedeuten, die Personenerkennung
+entweder auf die CPU zu verlagern (Strombudget sprengt) oder eine andere
+Kameraloesung zu suchen (neue Integration, neue Software, neue Kosten).
+
+**Wo die Alternativen trotzdem Sinn machen:**
+
+- **Orange Pi 5 / Radxa Rock 5 als stationaerer Demonstrator:** Wenn die
+  AR-Passthrough-Demo (Stufe C) auf einem Tisch-Rechner statt im Helm laeuft,
+  ist ein RK3588 mit 8 GB eine ehrliche Wahl. Mehr NPU, mehr RAM, aehnlicher Preis.
+- **Jetson Orin Nano fuer Bildverarbeitung ausserhalb des Helms:** Fuer
+  Trainings- oder Analyse-Aufgaben in der Werkstatt, nicht fuer den Tragebetrieb.
+- **ESP32-S3 statt Pi Zero 2 W fuer das reine OLED-HUD** (siehe
+  Elektronik-Strombudget): Spart 0,2-0,25 A Dauerlast, braucht aber eine Portierung
+  der Python-Skripte nach C/Arduino.
+
+**Fazit:** Im Helm bleibt der Pi 5. Die RK3588-Boards sind gute Rechner, aber
+ohne IMX500-Treiber verlieren sie ihren wichtigsten Vorteil hier. Wer ein
+anderes Kameramodul waehlt, muss das gesamte Strombudget und die Software neu
+aufrollen - das ist kein Upgrade, sondern ein Neubau.
+
 ## 4. Verdrahtung
 
 ### Pi 5 GPIO
