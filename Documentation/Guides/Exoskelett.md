@@ -126,6 +126,40 @@ Alternative tragende Systeme wie German Bionic Apogee sind grosser, teurer und
 ebenfalls nicht fuer verkleideten Einsatz freigegeben. Sie bleiben hier als
 Referenz genannt, nicht als Kaufkandidat.
 
+### 2a.4 zEXO BodyOS als offene Exo-Plattform (Referenz)
+
+Ascentiz hat auf der IFA 2026 **BodyOS** vorgestellt, eine offene
+Entwicklerplattform fuer tragbare Robotik rund um die eigenen Hueft-Exos
+(H PRO / H Ultra). Konzept:
+
+- **Mechanische Ebene:** Der Exo-Guertel ist eine definierte Schnittstelle fuer
+  selbst gedruckte oder gefraesste Anbauteile. Sensorhalter, Zubehoertraeger
+  oder Schutzbuegel lassen sich montieren, ohne das Exo umzubauen.
+- **Hardware-Ebene:** Das Rechenmodul (B-Core Pi 1) bietet Bluetooth, USB,
+  RJ45, Kameraeingang, CAN-FD und RS485 fuer externe Sensoren und Aktoren.
+- **Daten-Ebene:** Eine offene API gibt qualifizierten Entwicklern Zugriff auf
+  Exoskelett-Bewegungsdaten (Gang, Hueftwinkel, Kraftprofile).
+- **Software-Ebene:** BodyOS-SDK mit Bibliotheken, Beispielen und Dokumentation.
+
+[Hersteller-Blog: BodyOS auf der IFA 2026](https://ascentizexo.com/de-de/blogs/news/bodyos-wearable-robotics-developer-platform/)
+
+**Relevanz fuer dieses Projekt:** Das Konzept deckt sich mit der T01-Idee
+(eigener Trager als mechanische Schnittstelle, Geraet bleibt unveraendert).
+Anders als beim Festool EXO 18 gibt es hier eine offene API und eine
+entwicklerfreundliche Hardware-Schnittstelle. Fuer den MJOLNIR-Einsatz waere
+das interessant, wenn:
+
+1. Das Hueft-Exo (H PRO/Ultra) nach Herstellerangabe Ruestungsgewicht
+   unterstuetzt (Geh-Unterstuetzung ist dokumentiert, Lastabstuetzung wie beim
+   Hypershell ausdrücklich NICHT im Funktionsumfang).
+2. Die offene API auch ohne kommerzielle Entwicklerlizenz fuer ein
+   nicht-kommerzielles Fan-Projekt nutzbar ist.
+3. Das Rechenmodul in das Strombudget passt (keine Angaben im Blog).
+
+**Status:** Referenz, kein Kaufkandidat. Preis, Verfuegbarkeit und
+API-Bedingungen sind im Blog nicht genannt. Bei Interesse vor einem Kauf
+direkt beim Hersteller anfragen (API-Lizenz, Lastangaben, Stromverbrauch).
+
 ## 3. Eigener passiver Traeger T01
 
 Zwei einstellbare Rueckenstege verbinden eine breite, gepolsterte Hueftauflage

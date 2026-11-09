@@ -10,6 +10,7 @@ Dieser Guide hilft beim realistischen Power-Budget und bei der Laufzeitplanung.
 | --- | --- | --- | --- |
 | Raspberry Pi Zero 2 W (idle, WiFi aus) | 0.12 A | 1.0 A | Stark abhaengig von CPU-Last |
 | Raspberry Pi Zero 2 W (HUD-Betrieb) | 0.25-0.40 A | 1.0 A | WiFi aus, HDMI aus, GPU 16 MB |
+| ESP32-S31 mit Linux (Developer Preview) | noch unklar | noch unklar | Keine belastbaren Verbrauchsangaben; siehe Elektronik-Sprachsteuerung, Abschnitt 3.2 |
 | Raspberry Pi 5 (idle) | 0.4-0.6 A | 2.4 A | WiFi aus, HDMI aus |
 | Raspberry Pi 5 (HUD + Sprachsteuerung) | 0.9-1.4 A | 2.4 A | Vosk + Kamera aktiv; siehe Pi-5-Abschnitt unten |
 | Transparentes OLED (SSD1309) | 0.02-0.05 A | 0.05 A | Helligkeit entscheidend |

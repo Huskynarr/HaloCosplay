@@ -111,6 +111,37 @@ ohne IMX500-Treiber verlieren sie ihren wichtigsten Vorteil hier. Wer ein
 anderes Kameramodul waehlt, muss das gesamte Strombudget und die Software neu
 aufrollen - das ist kein Upgrade, sondern ein Neubau.
 
+### 3.2 ESP32-S31 mit Linux (Stand 2026-11-03)
+
+Der ESP32-S31 ist ein neuer RISC-V-Mikrocontroller von Espressif mit MMU.
+Seit August 2026 laeuft darauf erstmals ein **regulaeres Linux nativ** (Kernel
+6.18, Buildroot 2025.02 als BSP von Espressif; parallel Community-Images mit
+WLAN und Bluetooth). Rund 11,6 MByte stehen Linux auf dem WROOM-3-Modul zur
+Verfuegung; WLAN schafft ca. 40 Mbit/s Senden, 33 Mbit/s Empfangen. SSH und
+WireGuard funktionieren.
+
+[heise: Linux auf dem ESP32-S31](https://www.heise.de/news/Espressif-und-Bastler-bringen-regulaeres-Linux-auf-den-ESP32-S31-11517063.html)
+
+**Warum das spannend ist:** Ein Linux-faehiger Mikrocontroller im
+Watt-Bereich koennte langfristig den Pi Zero 2 W im Helm ersetzen - I2C-OLED,
+Sensor-Bridge und Sprachausgabe auf einem Chip, ohne Linux-Overhead des Pi.
+
+**Warum er heute noch nicht dafuer taugt:**
+
+- **Keine Audio- und Kamera-Treiber.** Genau die beiden Schnittstellen, die
+  das Helm-Modul braucht (USB-Soundkarte, AI Camera), fehlen.
+- **FPU ungenutzt.** Gleitkommazahlen laufen in Software - Vosk und jede
+  Audioverarbeitung waeren damit unpraktikabel langsam.
+- **11,6 MByte RAM.** Vosk braucht mehr; schon der Pi Zero 2 W hat 512 MB.
+- **Developer Preview.** Espressif selbst empfiehlt den eigenen Zweig nicht
+  fuer den Produktiveinsatz. WLAN/BT laufen nur in Community-Ports.
+
+**Einordnung fuer dieses Projekt:** Beobachten, nicht einbauen. Wenn Espressif
+Audio-Treiber, FPU-Support und ein stabiles BSP nachlegt, wird der S31 zu einer
+echten Option fuer das HUD-Modul - mit deutlich weniger Strom als der Pi Zero
+2 W. Bis dahin bleibt der ESP32-S3 (ohne Linux, Arduino/C++) die ehrlichere
+Wahl fuer das OLED-HUD, und der Pi 5 fuer Sprache und Kamera.
+
 ## 4. Verdrahtung
 
 ### Pi 5 GPIO
