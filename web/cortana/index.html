@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cortana-Chip Viewer</title>
+<style>
+  :root { --bg:#0a0f14; --cyan:#00d9ff; --dim:#5a7a8a; --text:#e7f0f4; }
+  body { background:var(--bg); color:var(--text); font-family:'Segoe UI',system-ui,sans-serif;
+         display:flex; flex-direction:column; align-items:center; min-height:100vh; margin:0; padding:2rem 1rem; }
+  h1 { color:var(--cyan); font-weight:600; letter-spacing:.1em; margin:0 0 .3em; }
+  .tag { color:var(--dim); font-size:.85rem; margin-bottom:2rem; }
+  .card { background:rgba(0,217,255,.04); border:1px solid rgba(0,217,255,.25); border-radius:12px;
+          padding:2rem 2.5rem; min-width:300px; text-align:center; }
+  .name { font-size:2.2rem; font-weight:700; color:var(--cyan); letter-spacing:.15em; }
+  .status { color:var(--dim); margin:.5rem 0 1.5rem; }
+  .bar { background:rgba(255,255,255,.08); border-radius:4px; height:10px; margin:.6rem 0; overflow:hidden; }
+  .bar-fill { height:100%; background:var(--cyan); transition:width .4s; }
+  .label { font-size:.75rem; color:var(--dim); text-transform:uppercase; letter-spacing:.1em; text-align:left; margin-top:1rem; }
+  .tagline { margin-top:1.5rem; font-style:italic; color:var(--cyan); opacity:.8; }
+  button { background:var(--cyan); color:#001318; border:none; padding:.8rem 1.8rem; border-radius:6px;
+           font-size:1rem; font-weight:600; cursor:pointer; margin-bottom:1.5rem; }
+  button:disabled { opacity:.4; cursor:not-allowed; }
+  #log { color:var(--dim); font-size:.8rem; margin-top:1rem; max-width:340px; }
+  .husky .name { color:#7cff6b; }
+  .husky .bar-fill { background:#7cff6b; }
+</style>
+</head>
+<body>
+<h1>CORTANA CHIP</h1>
+<p class="tag">Kontaktloser Charakter-Viewer &middot; Web BLE</p>
+<button id="connect">Chip verbinden</button>
+<div class="card" id="card" style="display:none">
+  <div class="name" id="name">--</div>
+  <div class="status" id="status">--</div>
+  <div class="label">Schild</div>
+  <div class="bar"><div class="bar-fill" id="shield" style="width:0%"></div></div>
+  <div class="label">Energie</div>
+  <div class="bar"><div class="bar-fill" id="energy" style="width:0%"></div></div>
+  <div class="label">Modus</div>
+  <div id="mode">--</div>
+  <div class="tagline" id="tagline"></div>
+</div>
+<div id="log"></div>
+<script>
+const SERVICE = "4fafc201-1fb5-459e-8fcc-c5c9c331914b";
+const CHAR_DATA = "beb5483f-36e1-4688-b7f5-ea07361b26a8";
+let device, server, characteristic;
+
+document.getElementById("connect").onclick = async () => {
+  try {
+    device = await navigator.bluetooth.requestDevice({
+      filters: [{ namePrefix: "cortana" }, { namePrefix: "husky" }],
+      optionalServices: [SERVICE]
+    });
+    log("Verbinde mit " + device.name + " ...");
+    server = await device.gatt.connect();
+    const service = await server.getPrimaryService(SERVICE);
+    characteristic = await service.getCharacteristic(CHAR_DATA);
+    await characteristic.startNotifications();
+    characteristic.addEventListener("characteristicvaluechanged", handleData);
+    log("Verbunden. Warte auf Daten ...");
+  } catch (e) { log("Fehler: " + e.message); }
+};
+
+function handleData(e) {
+  const data = JSON.parse(new TextDecoder().decode(e.target.value));
+  document.getElementById("card").style.display = "block";
+  document.getElementById("name").textContent = data.name;
+  document.getElementById("status").textContent = "Status: " + data.status;
+  document.getElementById("shield").style.width = data.shield + "%";
+  document.getElementById("energy").style.width = data.energy + "%";
+  document.getElementById("mode").textContent = data.mode;
+  const card = document.getElementById("card");
+  card.classList.toggle("husky", data.id.startsWith("husky"));
+  // Tagline kommt nur im statischen JSON; im BLE-Status optional
+  if (data.tagline) document.getElementById("tagline").textContent = data.tagline;
+}
+
+function log(msg) { document.getElementById("log").textContent = msg; }
+</script>
+</body>
+</html>

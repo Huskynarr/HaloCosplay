@@ -1,0 +1,15 @@
+{
+  "id": "husky_v1",
+  "name": "HUSKYNARR",
+  "status": "online",
+  "shield": 85,
+  "energy": 92,
+  "mode": "builder",
+  "theme": {
+    "color_primary": "#7cff6b",
+    "color_accent": "#c9ffbf",
+    "icon": "husky"
+  },
+  "tagline": "Bau sie, dann trag sie.",
+  "version": 1
+}

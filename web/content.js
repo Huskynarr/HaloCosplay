@@ -217,6 +217,7 @@ const CONTENT = {
         { title: "Audio / Voice", file: "Documentation/Guides/Elektronik-Audio.md" },
         { title: "Sprachsteuerung (Pi 5)", file: "Documentation/Guides/Elektronik-Sprachsteuerung.md" },
         { title: "Cortana-Chip (Konzept)", file: "Documentation/Guides/Elektronik-Cortana-Chip.md" },
+        { title: "Cortana-Chip Viewer", file: "cortana-viewer", sub: "Web-BLE-Anzeige fuer den Chip" },
         { title: "Indoor-Navigation (Gamescom/IFA)", file: "Documentation/Guides/Elektronik-Indoor-Navigation.md" },
         { title: "Show- und Praxis-Module", file: "Documentation/Guides/Elektronik-Show-Praxis-Module.md" },
         { title: "Autostart (Pi)", file: "Documentation/Guides/Elektronik-Autostart.md" },

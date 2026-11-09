@@ -10,6 +10,7 @@
   var VARIANTS = ["V4", "V1", "V2", "V3"];
   var VIEWER = "3d-viewer"; // sentinel hash for the interactive 3D armor model
   var COSPLAY = "cosplay-guides"; // sentinel hash for the official 343 cosplay guide PDFs
+  var CORTANA = "cortana-viewer"; // sentinel hash for the Web-BLE chip viewer
 
   // ---- LocalStorage (namespaced) ----
   var store = {
@@ -572,6 +573,21 @@
     });
   }
 
+  function renderCortanaViewer() {
+    currentFile = CORTANA; setActive(CORTANA); closeNav();
+    $("#journey-foot").style.display = "none";
+    docEl.innerHTML =
+      '<h1>Cortana-Chip Viewer</h1>' +
+      '<p style="color:var(--dim)">Web-BLE-Anzeige fuer den Cortana-Chip. '+
+      'Chrome oder Edge noetig (Web Bluetooth), Chip muss an und in Reichweite sein.</p>' +
+      '<iframe src="cortana/index.html" style="width:100%;height:640px;border:1px solid var(--cyan);border-radius:8px;background:#0a0f14" '+
+      'title="Cortana-Chip Web-BLE Viewer"></iframe>' +
+      '<p class="font-mono" style="color:var(--dim);font-size:12px;margin-top:1em">' +
+      'Hinweis: Web Bluetooth benoetigt HTTPS oder localhost. Auf GitHub Pages funktioniert es direkt.</p>';
+    docEl.classList.remove("glitch-in"); void docEl.offsetWidth; docEl.classList.add("glitch-in");
+    window.scrollTo(0, 0);
+  }
+
   function render3DViewer() {
     currentFile = VIEWER; setActive(VIEWER); closeNav();
     $("#journey-foot").style.display = "none";
@@ -707,6 +723,7 @@
     if (!file) { welcome(); return; }
     if (file === VIEWER) { render3DViewer(); return; }
     if (file === COSPLAY) { renderCosplayGuides(); return; }
+    if (file === CORTANA) { renderCortanaViewer(); return; }
     loadDoc(file);
   }
 
