@@ -1,0 +1,15 @@
+{
+  "id": "cortana_v1",
+  "name": "CORTANA",
+  "status": "online",
+  "shield": 100,
+  "energy": 100,
+  "mode": "assist",
+  "theme": {
+    "color_primary": "#00d9ff",
+    "color_accent": "#7ff5ff",
+    "icon": "cortana"
+  },
+  "tagline": "Ich bin ganz in Ihrer Naehe.",
+  "version": 1
+}
