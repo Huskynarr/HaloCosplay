@@ -63,6 +63,7 @@ Dieses Verzeichnis sammelt alle Kerninhalte fuer das Halo MJOLNIR Cosplay Projek
 - **Helm-Belueftung (Luefter):** `Documentation/Guides/Elektronik-Luefter.md`
 - **Audio und Voice Changer:** `Documentation/Guides/Elektronik-Audio.md`
 - **AR-Display und Kamera-Passthrough (V3, ehrliche Grenzen):** `Documentation/Guides/Elektronik-AR-Display.md`
+- **Cortana-Chip als kontaktloses Daten-Dock (Konzept):** `Documentation/Guides/Elektronik-Cortana-Chip.md`
 - **V3-Systemarchitektur (alle Module, Stromschienen, POV-Kamera):** `Documentation/Guides/V3-Systemarchitektur.md`
 - **Elektronik-Gesamtuebersicht + Modulmatrix V1/V2/V3:** `Documentation/Guides/ElectronicsGuide.md`
 
