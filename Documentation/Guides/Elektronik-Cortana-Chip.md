@@ -127,7 +127,7 @@ mindestens 2 mm Abstand zu allen Metallteilen.
 | Punkt | Warum offen |
 | --- | --- |
 | ST60-Evaluationsboard verfuegbar? | ST verkauft EVALST60A3H1; Bastler-Verfuegbarkeit und Preis pruefen |
-| Antennenlayout | ST-Layoutguide nötig; Falschlayout = keine Verbindung |
+| Antennenlayout | ST-Layoutguide noetig; Falschlayout = keine Verbindung |
 | Holo-Box-Verfuegbarkeit | Razer Project AVA ist ein Konzept; chinesische Produkte sind nicht verifiziert |
 | MakerWorld-Modell anpassbar? | Lizenz und Remix-Erlaubnis pruefen |
 | Stromversorgung im Chip | LiPo + Lader oder Kabel vom Anzug; Gewicht und Sicherheit klaeren |
