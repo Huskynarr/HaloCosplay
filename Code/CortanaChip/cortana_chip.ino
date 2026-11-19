@@ -84,6 +84,16 @@ void loadCharacter(const char* path) {
   character.mode = doc["mode"].as<String>();
 }
 
+// Muss vor setupBLE() stehen: die Arduino-IDE erzeugt nur fuer Funktionen
+// automatische Prototypen, nicht fuer Klassen.
+class ServerCallbacks : public BLEServerCallbacks {
+  void onConnect(BLEServer* s) override { deviceConnected = true; }
+  void onDisconnect(BLEServer* s) override {
+    deviceConnected = false;
+    pServer->getAdvertising()->start();
+  }
+};
+
 void setupBLE() {
   BLEDevice::init(character.id.c_str());
   pServer = BLEDevice::createServer();
@@ -113,14 +123,6 @@ void updateDataChar() {
   pDataChar->setValue(out.c_str());
   pDataChar->notify();
 }
-
-class ServerCallbacks : public BLEServerCallbacks {
-  void onConnect(BLEServer* s) override { deviceConnected = true; }
-  void onDisconnect(BLEServer* s) override {
-    deviceConnected = false;
-    pServer->getAdvertising()->start();
-  }
-};
 
 void drawPage() {
   display.clearDisplay();
