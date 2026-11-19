@@ -564,7 +564,7 @@
     mvLoading = true;
     var s = document.createElement("script");
     s.type = "module";
-    s.src = "https://unpkg.com/@google/model-viewer@3.5.0/dist/model-viewer.min.js";
+    s.src = "vendor/model-viewer-3.5.0.min.js";
     s.onerror = function () { cb(new Error("load failed")); };
     document.head.appendChild(s);
     customElements.whenDefined("model-viewer").then(function () { cb(); });

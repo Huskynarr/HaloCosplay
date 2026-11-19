@@ -7,7 +7,7 @@ const path = require('node:path');
 const {chromium} = require('playwright');
 const root = path.resolve(__dirname, '../..');
 const output = path.join(root, 'build/browser-results');
-const mime = {'.html': 'text/html', '.js': 'text/javascript', '.css': 'text/css', '.json': 'application/json', '.svg': 'image/svg+xml'};
+const mime = {'.html': 'text/html', '.js': 'text/javascript', '.css': 'text/css', '.json': 'application/json', '.svg': 'image/svg+xml', '.woff2': 'font/woff2'};
 const server = http.createServer(async (request, response) => {
   try {
     const pathname = decodeURIComponent(new URL(request.url, 'http://localhost').pathname);
@@ -202,9 +202,10 @@ async function downloadJSON(page, button) {
     await page.locator('#reset').click();
     assert.equal(await page.locator('.card').count(), 52);
 
-    // Main page: markdown parser and sanitizer are served from web/vendor, the other CDNs are stubbed.
-    await page.route('https://cdn.tailwindcss.com**', route => route.fulfill({body:'', contentType:'application/javascript'}));
-    await page.route('https://fonts.googleapis.com/**', route => route.fulfill({body:'', contentType:'text/css'}));
+    // Main page: styles, fonts, markdown parser and sanitizer are served locally.
+    const external = [];
+    const recordExternal = request => { if (/^https?:/.test(request.url()) && !request.url().startsWith(base)) external.push(request.url()); };
+    page.on('request', recordExternal);
     await page.goto(base + '/web/index.html#Documentation/Guides/Mjolnir-Nebeltechnik.md');
     await page.locator('.catalog-context').waitFor();
     assert.equal(await page.locator('.catalog-context li').count(), 6);
@@ -215,11 +216,16 @@ async function downloadJSON(page, button) {
     await page.locator('#doc a[rel~="sponsored"]').first().waitFor();
     assert.match(await page.locator('#doc a[rel~="sponsored"]').first().textContent(), /Affiliate/);
     assert.equal(await page.locator('#doc a[href*="pololu.com"]').getAttribute('rel'), 'noopener noreferrer');
-    await page.route('https://unpkg.com/**', route => route.abort());
+    await page.route('**/vendor/model-viewer-*.js', route => route.abort());
     await page.goto(base + '/web/index.html#3d-viewer');
     await page.waitForFunction(() => document.querySelector('#mv-banner')?.textContent.includes('konnte nicht geladen'));
     await page.locator('.part-row[data-id="hud"]').click();
     assert.match(await page.locator('#part-panel').textContent(), /XREAL One Pro/);
+    await page.evaluate(() => document.fonts.ready);
+    assert.equal(await page.evaluate(() => document.fonts.check('16px Barlow') && document.fonts.check('600 16px "Chakra Petch"')), true, 'Local fonts load');
+    assert.equal(await page.evaluate(() => getComputedStyle(document.querySelector('.hidden') || document.body).boxSizing), 'border-box', 'Local Tailwind build applies');
+    assert.deepEqual(external, [], 'Main page loads nothing from third-party hosts');
+    page.off('request', recordExternal);
     await page.locator('#part-panel a[href="products/?part=hud"]').click();
     await page.locator('.card').first().waitFor();
     assert.equal(await page.locator('.card').count(), 3);
