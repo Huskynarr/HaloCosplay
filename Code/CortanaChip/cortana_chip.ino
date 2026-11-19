@@ -1,6 +1,8 @@
 // Cortana-Chip Firmware - ESP32-S3 (Arduino).
 // Stellt Charakter-Daten per BLE bereit und zeigt Status auf dem OLED.
-// Bibliotheken: Adafruit SSD1306, Adafruit GFX, BLEDevice (ESP32-Core).
+// Bibliotheken: Adafruit SSD1306, Adafruit GFX, ArduinoJson, BLEDevice (ESP32-Core).
+// ESP32-Arduino-Core 3.3.x verwenden: Core 4.0 ersetzt die BLEDevice-API durch
+// BLE.h, dafuer ist dieser Sketch noch nicht portiert.
 //
 // Verhalten:
 //  - Charakter-Daten (cortana_v1.json / husky_v1.json) aus LittleFS lesen
