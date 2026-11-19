@@ -71,6 +71,32 @@ Keine automatische Sensorintegration ist bereits fertig. Der vorhandene
 ESP32-Beispielcode muss an Board-Pinbelegung, Sensor und Versorgung angepasst
 werden. Die Messeanzeige importiert bislang Dateien und steuert keine Hardware.
 
+### Magnetmuster fuer das leichtere Anlegen
+
+Ergaenzung vom 2026-11-16 fuer eine leichte Blende und eine Unterarmprobe.
+Die Mengen sind ein eigener Versuchsansatz, keine Stueckliste fuer den ganzen
+Anzug. Nicht in den obigen Gesamtbetraegen enthalten; Preise erst anhand des
+konkreten Angebots eintragen. Aufbau und Herstellerquellen stehen im
+[Befestigungs-Guide](../Documentation/Guides/Unteranzug-Befestigung.md#neodym-magnete).
+Der [CAD-Mustersatz](../Design/Components/README.md#magnetpaar-zum-leichteren-anlegen)
+enthaelt je Halterpaar vier Druckteile fuer vier Magnete, vier
+Montage-/Deckelschrauben mit Muttern und breiten Scheiben sowie eine
+Textilschlaufe. Fuer Blende und Unterarmprobe den Satz zweimal fertigen;
+Klebstoff und Stahlgegenstuecke werden in dieser Variante nicht verwendet.
+
+| Menge fuer den Versuch | Auswahl | Zweck / Kaufbedingung |
+| --- | --- | --- |
+| 10 Stueck | Axial magnetisierte Neodym-Scheiben 10 x 3 mm, z. B. N42 | Zwei Kontaktpunkte je Muster brauchen bei Magnetpaarung zusammen acht Magnete; zwei bleiben als Reserve |
+| Optional 10 Stueck | Axial magnetisierte Neodym-Scheiben 12 x 3 mm, z. B. N45 | Vergleichsgroesse erst bei ausreichendem Bauraum; eigene passende Halter erforderlich |
+| Optional 4 Stueck | Ferromagnetische Stahlgegenstuecke | Vergleich Magnet/Stahl statt Magnetpaar; Material, Dicke und reale Haftung pruefen |
+| 1 Mustersatz | Gefangene Magnethalter, kurze Fuehrungslaschen und Schrauben | Passend zu Magnettoleranz, Schale und Gurt; erst Haltermuster fertigen, dann vervielfaeltigen |
+| 2 Stueck | Gut greifbare Textil-Zuglaschen | Leichte Blende abheben beziehungsweise entriegelte Kassette oeffnen, mit Handschuhen pruefen |
+| Nach Bedarf | Beschichtungs-/kunststoffvertraeglicher Polymer- oder 2K-Epoxidkleber | Nur bei geklebter Aufnahme; Materialprobe und Hersteller-Aushaertezeit beachten |
+
+Mechanischen Kassettenverschluss und vorhandene Gurtaufhaengung beibehalten.
+Ein fertiger magnetisch-mechanischer Gurtverschluss ist eine gesonderte
+Vergleichsoption; vor Auswahl Gurtbreite und Entriegelungsrichtung festlegen.
+
 ## Erst nach dem Passmodell bestellen
 
 - **Seitliche Linearfuehrungen:** Schienenlaenge, Hub und Wagenanzahl aus der

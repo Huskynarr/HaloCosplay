@@ -34,5 +34,19 @@
   "hinge_plate_mm": 4,
   "fastener_shaft_mm": 4,
   "fastener_head_mm": 7,
-  "fastener_counterbore_mm": 2
+  "fastener_counterbore_mm": 2,
+  "magnet_diameter_mm": 10,
+  "magnet_thickness_mm": 3,
+  "magnet_clearance_mm": 0.3,
+  "magnet_axial_clearance_mm": 0.2,
+  "magnet_pitch_mm": 26,
+  "magnet_wall_mm": 2,
+  "magnet_floor_mm": 2,
+  "magnet_lid_mm": 1,
+  "magnet_lip_mm": 0.8,
+  "magnet_guide_mm": 4,
+  "magnet_guide_height_mm": 3,
+  "magnet_guide_clearance_mm": 0.4,
+  "magnet_mount_hole_mm": 3.4,
+  "magnet_strap_width_mm": 12
 }

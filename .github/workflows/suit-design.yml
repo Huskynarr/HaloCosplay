@@ -3,9 +3,9 @@ name: MJOLNIR design checks
 on:
   push:
     branches: [main]
-    paths: ['Design/Parametric/**', 'Design/Components/**', 'Design/HardwareKit/**', 'Design/Electrical/**', 'Design/Clamshell/**', 'Design/Engineering/**', 'Design/Thermal/**', 'Documentation/References/ArmorReferenceLibrary.json', 'web/configurator/**', 'web/budget/**', 'web/products/**', 'web/app.js', 'web/content.js', 'web/index.html', 'Materials/ProductCatalog.json', 'Materials/Einkaufsliste-Links.md', 'Progress/Mjolnir-*', 'Code/Exhibition/**', 'tools/suit_*.py', 'Materials/Mjolnir*', 'Tests/Automation/**', 'Tests/Browser/**', '.github/workflows/suit-design.yml']
+    paths: ['Design/Parametric/**', 'Design/Components/**', 'Design/HardwareKit/**', 'Design/Electrical/**', 'Design/Clamshell/**', 'Design/Engineering/**', 'Design/Thermal/**', 'Documentation/References/ArmorReferenceLibrary.json', 'web/configurator/**', 'web/budget/**', 'web/products/**', 'web/app.js', 'web/content.js', 'web/index.html', 'web/monitoring.js', 'web/cortana/**', 'Materials/ProductCatalog.json', 'Materials/Einkaufsliste-Links.md', 'Progress/Mjolnir-*', 'Code/Exhibition/**', 'tools/suit_*.py', 'Materials/Mjolnir*', 'Tests/Automation/**', 'Tests/Browser/**', '.github/workflows/suit-design.yml']
   pull_request:
-    paths: ['Design/Parametric/**', 'Design/Components/**', 'Design/HardwareKit/**', 'Design/Electrical/**', 'Design/Clamshell/**', 'Design/Engineering/**', 'Design/Thermal/**', 'Documentation/References/ArmorReferenceLibrary.json', 'web/configurator/**', 'web/budget/**', 'web/products/**', 'web/app.js', 'web/content.js', 'web/index.html', 'Materials/ProductCatalog.json', 'Materials/Einkaufsliste-Links.md', 'Progress/Mjolnir-*', 'Code/Exhibition/**', 'tools/suit_*.py', 'Materials/Mjolnir*', 'Tests/Automation/**', 'Tests/Browser/**', '.github/workflows/suit-design.yml']
+    paths: ['Design/Parametric/**', 'Design/Components/**', 'Design/HardwareKit/**', 'Design/Electrical/**', 'Design/Clamshell/**', 'Design/Engineering/**', 'Design/Thermal/**', 'Documentation/References/ArmorReferenceLibrary.json', 'web/configurator/**', 'web/budget/**', 'web/products/**', 'web/app.js', 'web/content.js', 'web/index.html', 'web/monitoring.js', 'web/cortana/**', 'Materials/ProductCatalog.json', 'Materials/Einkaufsliste-Links.md', 'Progress/Mjolnir-*', 'Code/Exhibition/**', 'tools/suit_*.py', 'Materials/Mjolnir*', 'Tests/Automation/**', 'Tests/Browser/**', '.github/workflows/suit-design.yml']
 
 permissions:
   contents: read
@@ -91,14 +91,19 @@ jobs:
           openscad --hardwarnings -o build/hole-coupon.stl -D 'view="hardware"' Design/Parametric/MjolnirEntry.scad
           test -s build/forearm-ring.stl
           test -s build/hole-coupon.stl
-      - name: Generate workshop package and compile five component prototypes
+      - name: Generate workshop package and compile six component prototypes
         env:
           QT_QPA_PLATFORM: offscreen
         run: |
           python3 tools/suit_project.py --profile Design/Parametric/Profiles/Demo.json --concept --out build/WorkshopDemo
-          for component in visor_retainer fan_bracket seam_coupon joint_cover hinge_coupon; do
+          for component in visor_retainer fan_bracket seam_coupon joint_cover hinge_coupon magnet_mount; do
             openscad --hardwarnings -D "component=\"${component}\"" -o "build/WorkshopDemo/Components/${component}.stl" build/WorkshopDemo/Components/ComponentKit.scad
             test -s "build/WorkshopDemo/Components/${component}.stl"
+          done
+          python3 -m unittest discover -s Tests/Automation -p test_components.py -v
+          for part in base base_lid mate mate_lid; do
+            openscad --hardwarnings -D 'component="magnet_mount"' -D "magnet_part=\"${part}\"" -o "build/WorkshopDemo/Components/magnet_${part}.stl" build/WorkshopDemo/Components/ComponentKit.scad
+            test -s "build/WorkshopDemo/Components/magnet_${part}.stl"
           done
       - name: Validate electrical references and export accessory meshes
         env:

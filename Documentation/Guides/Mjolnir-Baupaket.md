@@ -1,7 +1,7 @@
 # MJOLNIR: vom Profil zum digitalen Baupaket
 
 Ein Befehl erzeugt einen zusammenhaengenden Werkstattstand: Referenz und
-Teileliste, Bauraum-CAD, fuenf editierbare Komponentenproben, Budget,
+Teileliste, Bauraum-CAD, sechs editierbare Komponentenproben, Budget,
 Technik-Arbeitsblatt sowie Finish- und Bewegungsprotokolle. Der Aufbau bleibt
 fuer unterschiedliche Personen, Materialien und Ruestungsvarianten nutzbar.
 
@@ -44,7 +44,7 @@ verwenden. Eigene Masse, Kaufmodelle und Berichte unter `build/` halten.
 | `profile.local.json`, `Fit/` | Unveraenderter Profilsnapshot, Bauraumhuelle, Oeffnungsansichten | Passform am Koerper, Kollisionen und Bewegungsfreiheit |
 | `Reference.json`, `Parts.csv` | Quellen, Ansichten und 23 getrennte Bauteile | Referenzabgleich und Modellrevision je Teil |
 | `assets.local.json` | Register fuer Modelldateien, Einheiten und Hashes | Eigene nutzbare Dateien und Rechteangaben |
-| `Components/` | CAD-Proben fuer Visier, Luefter, Fugen, Gelenkabdeckung und Scharnier | Kaufteilmasse, Druckverhalten, Befestigung und Einbau |
+| `Components/` | CAD-Proben fuer Visier, Luefter, Fugen, Gelenkabdeckung, Scharnier und Magnetpaar | Kaufteilmasse, Druckverhalten, Befestigung und Einbau |
 | `Clamshell/` | Acht aufklappbare Arm-/Beinhuellen und Selbstanzieh-Prueffolge | Reale Konturen, Scharniere, Verschluesse und Erreichbarkeit |
 | `integration.local.json`, `Integration.*` | Einbauzonen und getrennte Stromkreise gemaess Auswahl | Stecker, Groessen, Massen und kollisionsfreier Einbau |
 | `engineering.local.json`, `Engineering/` | Strom-, Laufzeit-, Moment- und Sockelrechnung | Reale Verbraucher, Massen, Hebel, Akku- und Herstellerdaten |
@@ -108,8 +108,11 @@ python3 tools/suit_components.py --profile build/MySuit.local.json --config buil
 ```
 
 Fuer Demo- oder unvollstaendige Profile ist auch hier `--concept` erforderlich.
-Die fuenf Selektoren heissen `visor_retainer`, `fan_bracket`, `seam_coupon`,
-`joint_cover` und `hinge_coupon`. Beispiel mit installiertem OpenSCAD:
+Die sechs Selektoren heissen `visor_retainer`, `fan_bracket`, `seam_coupon`,
+`joint_cover`, `hinge_coupon` und `magnet_mount`. Das Magnetpaar hat vier getrennte
+Druckteile; `magnet_part` waehlt `base`, `base_lid`, `mate` oder `mate_lid`.
+[Parameter und Montage](../../Design/Components/README.md#magnetpaar-zum-leichteren-anlegen).
+Beispiel mit installiertem OpenSCAD:
 
 ```bash
 openscad --hardwarnings -D 'component="fan_bracket"' -o build/Components-r2/fan_bracket.stl build/Components-r2/ComponentKit.scad
@@ -163,7 +166,7 @@ mit vorhandenen FOG-/Basispositionen abgleichen. Clamshell-Dateien und
 
 ## Softwarestand und verbleibende Arbeit
 
-CI erzeugt ein synthetisches Workshop-Demo, kompiliert die fuenf Komponenten
+CI erzeugt ein synthetisches Workshop-Demo, kompiliert die sechs Komponenten
 sowie alle acht Arm-/Beinhuellen geschlossen und geoeffnet zu STL und stellt
 es als Artefakt `concept-only-not-fabrication-approved`
 bereit. Die Quellparameter und Dokumentation sind enthalten. Ein gruener

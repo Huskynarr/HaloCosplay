@@ -32,6 +32,13 @@ BOUNDS = {
     "hinge_barrel_height_mm": (5, 20), "hinge_plate_mm": (3, 8),
     "fastener_shaft_mm": (2, 6), "fastener_head_mm": (5, 12),
     "fastener_counterbore_mm": (1, 4),
+    "magnet_diameter_mm": (8, 16), "magnet_thickness_mm": (2, 5),
+    "magnet_clearance_mm": (0.1, 0.8), "magnet_axial_clearance_mm": (0.1, 0.5),
+    "magnet_pitch_mm": (20, 50), "magnet_wall_mm": (1.5, 4),
+    "magnet_floor_mm": (1.5, 4), "magnet_lid_mm": (0.8, 2),
+    "magnet_lip_mm": (0.6, 2), "magnet_guide_mm": (3, 6),
+    "magnet_guide_height_mm": (2, 5), "magnet_guide_clearance_mm": (0.2, 0.8),
+    "magnet_mount_hole_mm": (3, 5), "magnet_strap_width_mm": (8, 20),
 }
 COMPONENTS = {
     "visor_retainer": {
@@ -79,6 +86,20 @@ COMPONENTS = {
         "test": "Spiele von links nach rechts zuordnen. Reale Stifte und Schrauben einfuehren; Spiel, Drehbarkeit und Restmaterial messen. Gedruckter Vergleichsstift ersetzt kein Kaufteil. Keine Scharnierlast, Lebensdauer oder Koerperlast daraus ableiten.",
         "parameters": ["hinge_pin_mm", "hinge_barrel_mm", "hinge_barrel_height_mm", "hinge_plate_mm", "fastener_shaft_mm", "fastener_head_mm", "fastener_counterbore_mm", "clearances_mm"],
     },
+    "magnet_mount": {
+        "title": "Gefangenes Neodym-Magnetpaar mit Fuehrung und Zuglasche",
+        "material": "PETG als Tischprobe; Material, Schichtlage und Schraubauflagen am realen Aufbau pruefen",
+        "quantity": "1 Paar: base, base_lid, mate, mate_lid; je einmal drucken",
+        "purchased": "4 axial magnetisierte Scheiben in konfigurierter Abmessung; 4 passende Metallschrauben mit Muttern und 8 breiten Scheiben; Textilband fuer eine greifbare Schlaufe. Schraubenlaenge nach Traeger, Deckel und Untergrund bestimmen.",
+        "purpose": "Leichte Platten ansetzen und kontrolliert abheben; mechanisch gefangene Magnete und zwei kurze Fuehrungsstifte vergleichen. Kein tragender Kassettenverschluss.",
+        "test": "Zuerst Istmasse, Polung, Taschenpassung und Deckelueberdeckung pruefen. Beide Deckel verschrauben, ohne sie zu verformen. Fuehrung muss beim Abheben frei werden. Senkrechte Halte-, seitliche Verschiebe- und Abhebekraft messen. 50-mal ungetragen verbinden/loesen, danach Halter und Magnete kontrollieren. Mit Handschuhen und bereits geruesteter Gegenhand pruefen. Reale Haltewirkung bleibt offen; Gurte und Kassettenverschluesse separat erhalten.",
+        "parameters": ["magnet_diameter_mm", "magnet_thickness_mm", "magnet_clearance_mm",
+                       "magnet_axial_clearance_mm", "magnet_pitch_mm", "magnet_wall_mm",
+                       "magnet_floor_mm", "magnet_lid_mm", "magnet_lip_mm", "magnet_guide_mm",
+                       "magnet_guide_height_mm", "magnet_guide_clearance_mm",
+                       "magnet_mount_hole_mm", "magnet_strap_width_mm"],
+        "parts": ["base", "base_lid", "mate", "mate_lid"],
+    },
 }
 
 
@@ -112,6 +133,18 @@ def parameters(report, overrides=None):
         (result["hinge_pin_mm"] + c + 3 < result["hinge_barrel_mm"], "Stifthuelse hat zu wenig Wand"),
         (result["fastener_head_mm"] >= result["fastener_shaft_mm"] + 1, "Schraubenkopf muss groesser als Schaft sein"),
         (result["fastener_counterbore_mm"] + 1 <= result["hinge_plate_mm"], "Kopfsenkung laesst zu wenig Boden"),
+        (result["magnet_pitch_mm"] >= result["magnet_diameter_mm"] + result["magnet_clearance_mm"] + 2*result["magnet_wall_mm"], "Magnettaschen haben zu wenig Zwischenwand"),
+    ]
+    width = max(result["magnet_diameter_mm"] + result["magnet_clearance_mm"] + 2*result["magnet_wall_mm"],
+                2*result["magnet_guide_mm"] + 4*result["magnet_wall_mm"] + 6)
+    guide_y = width/2 - result["magnet_wall_mm"] - (result["magnet_guide_mm"]+result["magnet_guide_clearance_mm"])/2
+    socket_depth = max(0, result["magnet_guide_height_mm"]-result["magnet_lid_mm"]+result["magnet_guide_clearance_mm"])
+    length = result["magnet_pitch_mm"] + result["magnet_diameter_mm"] + result["magnet_clearance_mm"] + 2*result["magnet_wall_mm"]
+    checks += [
+        (math.hypot(result["magnet_pitch_mm"]/2, guide_y) >=
+         (result["magnet_diameter_mm"]+result["magnet_clearance_mm"]+result["magnet_guide_mm"]+result["magnet_guide_clearance_mm"])/2 + result["magnet_wall_mm"], "Magnettasche und Fuehrungsaufnahme ueberschneiden sich"),
+        (socket_depth <= result["magnet_thickness_mm"]+result["magnet_axial_clearance_mm"], "Fuehrungsaufnahme durchbricht den Boden"),
+        (length/2+2-(result["magnet_strap_width_mm"]+0.4)/2 >= result["magnet_mount_hole_mm"]/2+result["magnet_wall_mm"], "Zuglasche schneidet Montagebohrung"),
     ]
     for valid, reason in checks:
         if not valid:
@@ -144,7 +177,36 @@ def component_readme(key, spec, values):
     lines += [f"| {name} | {json.dumps(values[name])} |" for name in spec["parameters"]]
     lines += ["", "## Export", "", "Im erzeugten Ordner:", "", "```bash",
               f"openscad --hardwarnings -D 'component=\"{key}\"' -o {key}.stl ComponentKit.scad",
-              "```", "", "## Passprobe", "", spec["test"], "",
+              "```"]
+    if key == "magnet_mount":
+        lines += ["", "Die Uebersicht enthaelt vier getrennte Druckteile. Einzelteile:", "", "```bash"]
+        lines += [f"openscad --hardwarnings -D 'component=\"magnet_mount\"' -D 'magnet_part=\"{part}\"' -o magnet_{part}.stl ComponentKit.scad"
+                  for part in spec["parts"]]
+        lines += ["```", "", "## Druck und Montage", "",
+                  "Alle vier Teile mit der vorhandenen ebenen Unterseite auf Z=0 drucken;",
+                  "Magnettaschen, Deckelfenster und Fuehrungsstifte zeigen nach oben.",
+                  "Keine Magnete waehrend des Drucks einlegen. Magnete nach Polprobe in die",
+                  "beiden Taschen jedes Traegers einsetzen. Der Boden ist geschlossen.",
+                  "Vor dem Verschrauben pruefen, dass sich beide Magnetpaare in der unten",
+                  "beschriebenen gewendeten Einbaulage anziehen; Kontaktpole passend markieren.",
+                  "Deckel base_lid auf base, mate_lid auf mate setzen. Die kleineren Fenster",
+                  "halten die Magnete zur Kontaktseite zurueck; Kleber ist nicht erforderlich.",
+                  "Die zwei aeusseren Schrauben je Haelfte halten den Deckel und befestigen",
+                  "zugleich den Traeger am verstaerkten Musteruntergrund. Unterlegscheiben",
+                  "und Muttern verwenden; keine Schraube nur in eine duenne Druckwand drehen.",
+                  "Schraubkoepfe bleiben ausserhalb der gegenueberliegenden Kontaktschale.",
+                  "Textilband durch den gemeinsamen Schlitz in mate und mate_lid faedeln und",
+                  "zu einer greifbaren Schlaufe vernaehen. Die Schlaufe hebt eine Kante ab.",
+                  "mate samt Deckel um 180 Grad um X wenden; Stifte in die offenen Fuehrungen",
+                  "einfuehren. magnet_part=\"assembly\" zeigt die geschlossene Einbaulage",
+                  "ohne Magnete, Schrauben oder Untergrund; diese Ansicht nicht als ein Teil drucken.", "",
+                  f"Magnetkontaktabstand bei aufliegenden Deckeln: mindestens {2*values['magnet_lid_mm']:g} mm;",
+                  f"bei am Taschenboden liegenden Magneten {2*(values['magnet_lid_mm']+values['magnet_axial_clearance_mm']):g} mm.",
+                  "Dieser Abstand beeinflusst die reale Haltekraft und gehoert in die Probe.",
+                  "Bei 12-mm-Magneten magnet_diameter_mm anpassen; Dicke separat messen.",
+                  "Stahlgegenstuecke brauchen einen eigenen gemessenen Aufbau und werden hier",
+                  "nicht automatisch durch die Magnetparameter abgedeckt."]
+    lines += ["", "## Passprobe", "", spec["test"], "",
               "Parameter, Drucker, Materialcharge, Orientierung, Finish, Istmasse und Ergebnis",
               "im projektbezogenen Pruefprotokoll festhalten. Erst nach der Tischprobe ueber",
               "die Integration entscheiden. Diese Datei erteilt keine Fertigungsfreigabe.", ""]
@@ -180,7 +242,8 @@ def export(profile_path, out, concept=False, config_path=None):
                 "config_sha256": hashlib.sha256(config_bytes).hexdigest() if config_bytes is not None else None,
                 "parameter_origin": {key: "explicit_config" if key in overrides else (
                     "half_helmet_envelope_width_only" if key == "visor_radius_mm" else "generic_coupon_default") for key in values},
-                "components": list(COMPONENTS), "parameters": values}
+                "components": list(COMPONENTS), "parameters": values,
+                "component_parts": {key: spec["parts"] for key, spec in COMPONENTS.items() if "parts" in spec}}
     texts = {"ComponentKit.scad": source_bytes.decode("utf-8"),
              "Parameters.scad": "// GENERATED: unvalidated component coupons; units mm except angle.\n" +
                  "\n".join(f"{key} = {json.dumps(value)};" for key, value in values.items()) + "\n",

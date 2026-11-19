@@ -385,8 +385,9 @@
         updateJourneyFoot(file);
         window.scrollTo(0, 0);
       })
-      .catch(function () {
+      .catch(function (error) {
         if (currentFile !== file) return;
+        if (window.HaloMonitoring) window.HaloMonitoring.captureException(error, 'guide-load');
         $("#journey-foot").style.display = "none";
         docEl.innerHTML = '<h1>Nicht gefunden</h1><p>Die Datei <code>' + esc(file) +
           '</code> konnte nicht geladen werden. Laeuft die Seite ueber einen Webserver (nicht per file://)?</p>';

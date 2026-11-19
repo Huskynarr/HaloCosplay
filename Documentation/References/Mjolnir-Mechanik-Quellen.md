@@ -1,6 +1,7 @@
 # Primaerquellen: Exoskelett und oeffnende Ruestung
 
-Geprueft am 2026-09-08. Herstellerangaben werden als solche behandelt;
+Grundrecherche vom 2026-09-08, Ergaenzung vom 2026-11-17 unten.
+Herstellerangaben werden als solche behandelt;
 ein Herstellerdatenblatt oder Creator-Video beweist nicht die Passform und
 Festigkeit der hier entworfenen Konstruktion.
 
@@ -24,3 +25,26 @@ Dateien ohne Lizenz in das Repository aufgenommen.
 Halo-Optik: vorhandene [Cosplay-Referenzen](../../Resources/CosplayGuides/README.md).
 Die lokalen Mark-VII-Guides duerfen nicht als individuelles Koerpermassblatt
 oder als Mark-VI-GEN3-Schnittmuster ausgegeben werden.
+
+## Ergaenzung 2026-11-17: Bodenrahmen und Visieroptik
+
+Nutzerentscheidung: Ruestungsgewicht ueber ein Gestell zum Boden ableiten.
+Die beiden X-Referenzen wurden anhand der oeffentlichen
+[Twitter-Syndication-Metadaten zum Exoskelett](https://cdn.syndication.twimg.com/tweet-result?id=2119925518107574551&lang=en&token=1)
+und [zur DIY-Brille](https://cdn.syndication.twimg.com/tweet-result?id=2121833860010807304&lang=en&token=1)
+zugeordnet. Das ist eine Pruefung von Text und Datum, keine vollstaendige
+Videoanalyse oder Bestaetigung der darin beworbenen Leistung.
+
+| Quelle | Belegter Inhalt | Verwendung / Grenze |
+| --- | --- | --- |
+| [X: Exoskelett, 2026-11-09](https://x.com/Ronald_vanLoon/status/2119925518107574551) | Beitrag nennt Atalante X und Gehrehabilitation | Nutzerreferenz; keine Konstruktionsmasse daraus abgeleitet |
+| [Wandercraft: Atalante](https://www.wandercraft.eu/atalante) | Selbstbalancierende Rehabilitation, 12 Motoren | Aktives System; nicht mit einem passiven Cosplay-Rahmen gleichsetzen |
+| [Mawashi: UPRISE](https://www.mawashi.net/en/uprise) | Passiver Lastpfad durch gelenkige Struktur zum Boden | Funktionsreferenz; prozentuale Herstellerwerte sind keine Projektmessung |
+| [Mehler Protection: ExoM](https://mehler-protection.com/products/exom-exoskeleton/) | Integration passiver Lastabstuetzung mit Schutzbekleidung, Zusammenarbeit mit Mawashi | Architekturvergleich; kein bestaetigter Halo-Anbaupunkt |
+| [Originalstudie: Effectiveness of a passive military exoskeleton in off-loading weight during static and dynamic load carriage: A randomised cross-over study](https://pubmed.ncbi.nlm.nih.gov/38703721/) | Experimentelle Untersuchung eines passiven Militaer-Exoskeletts bei Stand und Gang | Ergebnisse gelten fuer die untersuchte Konfiguration; beides im Projekt getrennt pruefen |
+| [Festool: ExoActive EXO 18](https://www.festool.de/produkte/exoskelett/exoskelett/577339---exo-18-hpc-4,0-i-plus) | Ueberkopf-Armunterstuetzung, bis 50 N pro Arm | Korrektur der frueheren unbelegten 18-kg-/500-EUR-Angaben; kein Bodenrahmen |
+| [X: DIY-Brille, 2026-11-15](https://x.com/Ronald_vanLoon/status/2121833860010807304) | Beitrag bewirbt DIY-AR-Brille fuer 8 USD | Original-BOM, Gesamtpreis und exakte Optik nicht unabhaengig verifiziert |
+| [Knight Optical: Head-Up Display Optics](https://www.knightoptical.com/application/head-up-display-hud-optics/) | Abbildungs-/Kollimationsoptik und Zusammenfuehrung von Bild und Durchsicht | Optisches Grundprinzip; keine Stueckliste oder Passformzusage fuer den Helm |
+
+Umsetzung: [Bodenrahmen-Konzept](../Guides/Exoskelett.md#3a-neues-entwicklungsziel-ruestungslast-zum-boden)
+und [Spiegel-HUD-Versuch](../Guides/Elektronik-AR-Display.md#11-neue-referenz-diy-brille-und-spiegel-hud).

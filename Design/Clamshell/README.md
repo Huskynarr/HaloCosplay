@@ -10,6 +10,11 @@ Rastverschluesse, Haut-/Gelenkabstaende und authentische Oberflaechen sind nicht
 in diesen vereinfachten Zylinderschalen konstruiert. Die virtuelle Drehachse
 wird nur in der Vorschau gezeigt; sie ist kein gedrucktes Gelenk.
 
+Die am 2026-11-17 gewaehlte
+[Bodenrahmen-Variante](../../Documentation/Guides/Exoskelett.md#3a-neues-entwicklungsziel-ruestungslast-zum-boden)
+ist hier noch nicht modelliert. Diese Schalen sind keine lasttragenden
+Beinstreben, Kniemodule oder Fussaufnahmen.
+
 ## Eigenes Profil exportieren
 
 Ab Repository-Wurzel, ausschliesslich in einen neuen Ausgabeordner:
@@ -51,7 +56,7 @@ Manifest gespeicherten SHA-256-Werte gelten nur fuer den unveraenderten Export.
 
 - [Selbststaendiges An- und Ausziehen](../../Documentation/Guides/Mjolnir-Selbstanziehen.md)
 - [Torso, Einstieg und Station](../../Documentation/Guides/Mjolnir-Einstieg.md)
-- [Fuenf lokale Komponentenproben](../Components/README.md)
+- [Sechs lokale Komponentenproben inklusive Magnethalter](../Components/README.md)
 
 ClamshellPlan.json laesst Kaufteile, Massen, Kraefte und Tests bewusst offen.
 Checklists.csv enthaelt acht Kassetten und zwei uebergreifende Nachweise.

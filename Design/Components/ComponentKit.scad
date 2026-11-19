@@ -1,7 +1,8 @@
 // Parametrische Passproben. Keine tragenden Bauteile oder fertigen Ruestungsschalen.
-// Komponenten: visor_retainer, fan_bracket, seam_coupon, joint_cover, hinge_coupon.
+// Komponenten: visor_retainer, fan_bracket, seam_coupon, joint_cover, hinge_coupon, magnet_mount.
 include <Parameters.scad>
 component = "layout";
+magnet_part = "layout"; // base, base_lid, mate, mate_lid, assembly, layout
 $fn = 72;
 eps = 0.02;
 
@@ -54,6 +55,37 @@ assert(hinge_pin_mm + max(clearances_mm) + 3 < hinge_barrel_mm);
 assert(fastener_head_mm + max(clearances_mm) + 2 < 20);
 assert(fastener_head_mm >= fastener_shaft_mm + 1, "Schraubenkopf zu klein");
 assert(fastener_counterbore_mm + 1 <= hinge_plate_mm);
+assert(bounded(magnet_diameter_mm, 8, 16));
+assert(bounded(magnet_thickness_mm, 2, 5));
+assert(bounded(magnet_clearance_mm, 0.1, 0.8));
+assert(bounded(magnet_axial_clearance_mm, 0.1, 0.5));
+assert(bounded(magnet_pitch_mm, 20, 50));
+assert(bounded(magnet_wall_mm, 1.5, 4));
+assert(bounded(magnet_floor_mm, 1.5, 4));
+assert(bounded(magnet_lid_mm, 0.8, 2));
+assert(bounded(magnet_lip_mm, 0.6, 2));
+assert(bounded(magnet_guide_mm, 3, 6));
+assert(bounded(magnet_guide_height_mm, 2, 5));
+assert(bounded(magnet_guide_clearance_mm, 0.2, 0.8));
+assert(bounded(magnet_mount_hole_mm, 3, 5));
+assert(bounded(magnet_strap_width_mm, 8, 20));
+
+magnet_length = magnet_pitch_mm + magnet_diameter_mm + magnet_clearance_mm + 2*magnet_wall_mm;
+magnet_width = max(magnet_diameter_mm + magnet_clearance_mm + 2*magnet_wall_mm,
+                   2*magnet_guide_mm + 4*magnet_wall_mm + 6);
+magnet_height = magnet_floor_mm + magnet_thickness_mm + magnet_axial_clearance_mm;
+magnet_guide_y = magnet_width/2 - magnet_wall_mm - (magnet_guide_mm+magnet_guide_clearance_mm)/2;
+magnet_socket_depth = max(0, magnet_guide_height_mm - magnet_lid_mm + magnet_guide_clearance_mm);
+magnet_ear_radius = max(6, magnet_mount_hole_mm/2 + magnet_wall_mm + 1);
+assert(magnet_pitch_mm >= magnet_diameter_mm + magnet_clearance_mm + 2*magnet_wall_mm,
+       "Magnettaschen haben zu wenig Zwischenwand");
+assert(sqrt(pow(magnet_pitch_mm/2,2) + pow(magnet_guide_y,2)) >=
+       (magnet_diameter_mm + magnet_clearance_mm + magnet_guide_mm + magnet_guide_clearance_mm)/2
+       + magnet_wall_mm, "Magnettasche und Fuehrungsaufnahme ueberschneiden sich");
+assert(magnet_socket_depth <= magnet_thickness_mm + magnet_axial_clearance_mm,
+       "Fuehrungsaufnahme durchbricht den Boden");
+assert(magnet_length/2 + 2 - (magnet_strap_width_mm+0.4)/2 >=
+       magnet_mount_hole_mm/2 + magnet_wall_mm, "Zuglasche schneidet Montagebohrung");
 
 module slot(travel, diameter, height) {
     hull() for (x=[-travel/2,travel/2])
@@ -162,16 +194,115 @@ module hinge_coupon() {
     }
 }
 
+// Vier flach druckbare Einzelteile. Zwei Magnete je Traeger; Schrauben und
+// Muttern halten die Lochdeckel und befestigen zugleich das Muster am Aufbau.
+// Die kleineren Deckelfenster halten die Magnete formschluessig in den Taschen.
+module magnet_outline(mate, height) {
+    union() {
+        hull() for (x=[-1,1], y=[-1,1])
+            translate([x*(magnet_length/2-2),y*(magnet_width/2-2),0])
+                cylinder(r=2,h=height);
+        for (side=[-1,1]) {
+            if (mate) {
+                translate([-magnet_ear_radius,side > 0 ? magnet_width/2-2 :
+                          -magnet_width/2-magnet_ear_radius+1,0])
+                    cube([2*magnet_ear_radius,magnet_ear_radius+1,height]);
+                translate([0,side*(magnet_width/2+magnet_ear_radius-1),0])
+                    cylinder(r=magnet_ear_radius,h=height);
+            } else {
+                translate([side > 0 ? magnet_length/2-2 :
+                          -magnet_length/2-magnet_ear_radius+1,-magnet_ear_radius,0])
+                    cube([magnet_ear_radius+1,2*magnet_ear_radius,height]);
+                translate([side*(magnet_length/2+magnet_ear_radius-1),0,0])
+                    cylinder(r=magnet_ear_radius,h=height);
+            }
+        }
+        if (mate) hull() for (x=[-1,1], y=[-1,1])
+            translate([magnet_length/2+2 + x*((magnet_strap_width_mm+6)/2-2),
+                       magnet_width/2+6+y*6,0]) cylinder(r=2,h=height);
+    }
+}
+
+module magnet_mounting_holes(mate, height) {
+    for (side=[-1,1])
+        translate([mate ? 0 : side*(magnet_length/2+magnet_ear_radius-1),
+                   mate ? side*(magnet_width/2+magnet_ear_radius-1) : 0,-eps])
+            cylinder(d=magnet_mount_hole_mm,h=height+2*eps);
+    if (mate)
+        translate([magnet_length/2+2,magnet_width/2+6,-eps])
+            slot(magnet_strap_width_mm+0.4-3.4,3.4,height+2*eps);
+}
+
+module magnet_carrier(mate=false) {
+    difference() {
+        magnet_outline(mate,magnet_height);
+        magnet_mounting_holes(mate,magnet_height);
+        for (side=[-1,1])
+            translate([side*magnet_pitch_mm/2,0,magnet_floor_mm])
+                cylinder(d=magnet_diameter_mm+magnet_clearance_mm,
+                         h=magnet_thickness_mm+magnet_axial_clearance_mm+eps);
+        if (mate && magnet_socket_depth > 0)
+            for (side=[-1,1]) translate([0,side*magnet_guide_y,magnet_height-magnet_socket_depth])
+                cylinder(d=magnet_guide_mm+magnet_guide_clearance_mm,h=magnet_socket_depth+eps);
+    }
+}
+
+module magnet_lid(mate=false) {
+    difference() {
+        union() {
+            magnet_outline(mate,magnet_lid_mm);
+            if (!mate) for (side=[-1,1])
+                translate([0,side*magnet_guide_y,magnet_lid_mm-eps])
+                    cylinder(d1=magnet_guide_mm,d2=magnet_guide_mm-1,
+                             h=magnet_guide_height_mm+eps);
+        }
+        magnet_mounting_holes(mate,magnet_lid_mm);
+        for (side=[-1,1]) translate([side*magnet_pitch_mm/2,0,-eps])
+            cylinder(d=magnet_diameter_mm-2*magnet_lip_mm,h=magnet_lid_mm+2*eps);
+        if (mate) for (side=[-1,1]) translate([0,side*magnet_guide_y,-eps])
+            cylinder(d=magnet_guide_mm+magnet_guide_clearance_mm,h=magnet_lid_mm+2*eps);
+    }
+}
+
+module magnet_half(mate=false) {
+    magnet_carrier(mate);
+    translate([0,0,magnet_height]) magnet_lid(mate);
+}
+
+module magnet_mount() {
+    assert(magnet_part == "layout" || magnet_part == "base" || magnet_part == "base_lid"
+           || magnet_part == "mate" || magnet_part == "mate_lid" || magnet_part == "assembly",
+           "Unbekanntes Magnetteil");
+    if (magnet_part == "base") magnet_carrier(false);
+    else if (magnet_part == "base_lid") magnet_lid(false);
+    else if (magnet_part == "mate") magnet_carrier(true);
+    else if (magnet_part == "mate_lid") magnet_lid(true);
+    else if (magnet_part == "assembly") {
+        color("SteelBlue") magnet_half(false);
+        color("DarkOrange") translate([0,0,2*(magnet_height+magnet_lid_mm)])
+            rotate([180,0,0]) magnet_half(true);
+    } else {
+        step_x = magnet_length+2*magnet_ear_radius+12;
+        step_y = magnet_width+2*magnet_ear_radius+28;
+        magnet_carrier(false);
+        translate([step_x,0,0]) magnet_lid(false);
+        translate([0,step_y,0]) magnet_carrier(true);
+        translate([step_x,step_y,0]) magnet_lid(true);
+    }
+}
+
 module layout() {
     visor_retainer();
     translate([95,35,0]) fan_bracket();
     translate([150,0,0]) seam_coupon();
     translate([300,0,0]) joint_cover();
     translate([300,joint_width_mm+20,0]) hinge_coupon();
+    translate([430,0,0]) magnet_mount();
 }
 
 assert(component == "layout" || component == "visor_retainer" || component == "fan_bracket"
-       || component == "seam_coupon" || component == "joint_cover" || component == "hinge_coupon",
+       || component == "seam_coupon" || component == "joint_cover" || component == "hinge_coupon"
+       || component == "magnet_mount",
        "Unbekannte Komponente");
 if (component == "layout") layout();
 else if (component == "visor_retainer") visor_retainer();
@@ -179,3 +310,4 @@ else if (component == "fan_bracket") fan_bracket();
 else if (component == "seam_coupon") seam_coupon();
 else if (component == "joint_cover") joint_cover();
 else if (component == "hinge_coupon") hinge_coupon();
+else if (component == "magnet_mount") magnet_mount();

@@ -107,7 +107,7 @@ def generate(profile_path, out, concept=False, integration_path=None, hardware_p
                '| profile.local.json / Fit/ | Profilsnapshot und getrennt berechnete Bauraumhuelle |',
                '| Reference.json / Parts.csv | Referenzansichten und kompletter Teileumfang |',
                '| assets.local.json | Eigene Modelldateien, Quellen, Lizenzen, Einheiten und Hashes eintragen |',
-               '| Components/ | Fuenf parametrisierte Halter-/Passproben mit Stuecklisten und Montagehinweisen |',
+               '| Components/ | Sechs parametrisierte Halter-/Passproben inklusive Magnetpaar mit Stuecklisten und Montagehinweisen |',
                '| Clamshell/ | Acht aufklappbare Arm-/Beinhuellen, eigene Seiten und Selbstanzieh-Prueffolge |',
                '| Hardware/ | Sechs Einbaumodelle mit Einzelteilen und elektrischen Referenzschaltplaenen; Geraetemasse bleiben unabhaengig vom Koerper |',
                '| integration.local.json / Integration.* | Ausgewaehlte Einbauzonen, zugaengliche Akkus und getrennte Stromkreise |',

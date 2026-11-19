@@ -8,6 +8,12 @@ geplanten Aufbau. Der Entwurf ist fuer mechanisch oeffnende, vormontierte
 Baugruppen gedacht; Materialweg, Halo-Referenz und Elektronik sind getrennte
 Entscheidungen. Kein Profil erbt feste Koerpermasse oder bestandene Tests.
 
+**Entscheidung vom 2026-11-17:** Gewuenscht ist die Ableitung von Ruestungslast
+ueber ein Gestell zum Boden. Der neue
+[Bodenrahmen-Entwurf](Exoskelett.md#3a-neues-entwicklungsziel-ruestungslast-zum-boden)
+erweitert die Architektur um lasttragende Beine und Fussaufnahmen. Das
+vorhandene CAD modelliert diesen Lastpfad noch nicht.
+
 ## 1. Welche Angaben den Entwurf bestimmen
 
 | Eingabe | Umsetzung | Grenze |
@@ -45,28 +51,33 @@ Das CAD zeigt technische Huellen. Finale Panzerkonturen werden nach der
 Passprobe an ein rechtmaessig beschafftes Oberflaechenmodell angepasst.
 Das Repository enthaelt kein fertiges, individuell passendes Halo-STL-Set.
 
-## 3. Vier voneinander getrennte Funktionen
+## 3. Funktionen und gewaehlter Ausbau
 
 | Ebene | Aufgabe | Physische Kopplung |
 | --- | --- | --- |
 | Unteranzug + gepolsterter Traeger | Kontakt, Lastverteilung, Komfort | Textile Gurte und Hersteller-Trageschnittstellen |
-| Eigener Ruestungsrahmen | Torso und leichte Anbauteile halten | Rueckenstege, Hueftauflage, kippsichernde Schultergurte |
+| Vorhandener T01-Traeger | Torso und leichte Anbauteile am Koerper halten | Rueckenstege, Hueftauflage, kippsichernde Schultergurte |
+| Neuer Bodenrahmen B01-B05 | Angeschlossene Ruestungslast zum Boden fuehren | Becken, bewegliche Beinstrukturen, tragende Fussaufnahmen; noch zu konstruieren |
 | Geh-Exoskelett | Optional aktiv Hueftbewegung unterstuetzen | Originalgurt und Original-Beinmanschetten des Geraets |
 | Ruestungsschalen + Einstieg | Halo-Optik und reproduzierbares Anlegen | Scharniere, Fuehrungen, formschluessige Handverschluesse |
 
-Der eigene Rahmen verteilt Ruestungslast auf den Koerper. Er leitet sie **nicht
-am Koerper vorbei in den Boden**. Dazu waeren Fussplatten, lasttragende
-Beinstrukturen und nachgewiesene Gelenkkinematik notwendig. Diese Funktion wird
-weder einem Wander-Exoskelett noch dem CAD zugesprochen.
+Der vorhandene T01 verteilt Ruestungslast auf den Koerper. Der neue Bodenrahmen
+soll angeschlossene Last ueber eine eigene Struktur abstuetzen. Restlasten,
+Gelenkfuehrung und einbeiniger Stand beim Gehen muessen dafuer eigens
+nachgewiesen werden. Ein Wander-Exoskelett oder die Auswahl `exoskeleton` im
+Profil implementiert diesen Ausbau nicht.
 
 ```mermaid
 flowchart TD
-    A["Torso und Ruestung"] --> B["Eigener Rueckentraeger"]
+    A["Torso und Ruestung"] --> B["Vorhandener T01-Traeger"]
     B --> C["Gepolsterter Hueftgurt"]
     B --> D["Schultergurte gegen Kippen"]
     C --> E["Koerper traegt Gewicht"]
     F["Separates Geh-Exoskelett"] --> G["Hueftbewegung unterstuetzen"]
     H["Anziehstation"] --> I["Ungetragene Baugruppen halten"]
+    A -.-> J["Neuer B01-B05: noch zu konstruieren"]
+    J -.-> K["Becken, bewegliche Beine, Fussaufnahmen"]
+    K -.-> L["Gewuenschter Lastpfad zum Boden"]
 ```
 
 ## 4. Baugruppen statt loser Einzelplatten
@@ -86,6 +97,12 @@ flowchart TD
 Die Textilverbindungen positionieren Teile beim Anziehen. Sie sind im Betrieb
 locker genug fuer reale Gelenkbewegung und loesen fuer den Notausstieg einzeln.
 Ein verbundenes Arm-/Beinpaket bedeutet keine starre Kette ueber mehrere Gelenke.
+
+Diese Baugruppentabelle beschreibt den vorhandenen T01-/Schalenaufbau. Die
+Baugruppen B01-B05 sind im [Bodenrahmen-Entwurf](Exoskelett.md#3a-neues-entwicklungsziel-ruestungslast-zum-boden)
+definiert. L01-Schalen und F01-Schuhcover sind keine tragenden Rahmenbeine oder
+Fussaufnahmen. Einstieg, Sohlenaufbau und Gelenkfreiraeume werden fuer die neue
+Variante erneut entwickelt.
 
 ## 5. Oeffnung und Reihenfolge
 
@@ -137,7 +154,7 @@ Projekt dokumentiert. Keine Zahl bestaetigt eine individuelle Belastbarkeit.
 
 1. [Messdefinitionen und Skalierung](Mjolnir-Massanpassung.md)
 2. [Einstieg, Scharniere, Verschluesse und Station](Mjolnir-Einstieg.md)
-3. [Aktives Exoskelett und passiver Traeger](Exoskelett.md)
+3. [Bodenrahmen, aktives Exoskelett und passiver Traeger](Exoskelett.md)
 4. [Elektronik und optionale Aktorik](Mjolnir-Elektronik.md)
 5. [Parametrisches CAD](../../Design/Parametric/README.md)
 6. [Bauphasen und Abnahmeprotokoll](../../BuildGuides/Armor/Mjolnir-Prototypen.md)

@@ -2,8 +2,11 @@ import copy
 import hashlib
 import json
 import math
+import os
 from pathlib import Path
 import re
+import shutil
+import subprocess
 import sys
 import tempfile
 import unittest
@@ -12,6 +15,9 @@ ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT / "tools"))
 import suit_components as kit
 import suit_fit
+import suit_assets
+
+OPENSCAD = os.environ.get("OPENSCAD") or shutil.which("openscad")
 
 
 class ComponentTests(unittest.TestCase):
@@ -75,7 +81,9 @@ class ComponentTests(unittest.TestCase):
             for component in kit.COMPONENTS:
                 self.assertIn(component + '.stl', (out / (component + ".md")).read_text())
             bom = json.loads((out / "BOM.json").read_text())
-            self.assertEqual(len(bom["components"]), 5)
+            self.assertEqual(len(bom["components"]), 6)
+            self.assertEqual(result["component_parts"]["magnet_mount"],
+                             ["base", "base_lid", "mate", "mate_lid"])
             self.assertTrue(all(item["measured_mass_g"] is None and not item["physical_test_passed"]
                                 for item in bom["components"]))
 
@@ -121,6 +129,68 @@ class ComponentTests(unittest.TestCase):
                     self.assertTrue((Path(tmp) / "build" / name / "Components" / "Manifest.json").exists())
             finally:
                 kit.ROOT = previous_root
+
+    def test_magnet_sizes_export_without_body_scaling_and_with_assembly_instructions(self):
+        for diameter in (10, 12):
+            with self.subTest(diameter=diameter), tempfile.TemporaryDirectory() as tmp:
+                config = Path(tmp) / "config.json"
+                config.write_text(json.dumps({"magnet_diameter_mm": diameter}))
+                out = Path(tmp) / "kit"
+                report = kit.export(suit_fit.DEMO_PROFILE, out, concept=True, config_path=config)
+                self.assertEqual(report["parameters"]["magnet_diameter_mm"], diameter)
+                self.assertEqual(report["parameter_origin"]["magnet_diameter_mm"], "explicit_config")
+                instructions = (out / "magnet_mount.md").read_text()
+                for part in report["component_parts"]["magnet_mount"]:
+                    self.assertIn(f'magnet_part="{part}"', instructions)
+                self.assertIn("2.4 mm", instructions)
+                self.assertIn("Muttern", instructions)
+
+    def test_magnet_pockets_and_guide_sockets_keep_separate_walls_and_floor(self):
+        for overrides, reason in [
+            ({"magnet_diameter_mm": 16, "magnet_pitch_mm": 20}, "Zwischenwand"),
+            ({"magnet_guide_height_mm": 5, "magnet_thickness_mm": 2}, "Boden"),
+        ]:
+            with self.subTest(overrides=overrides), self.assertRaisesRegex(ValueError, reason):
+                kit.parameters(self.fit, overrides)
+        for field in (key for key in kit.DEFAULTS if key.startswith("magnet_")):
+            for invalid in (True, "10", math.nan, math.inf, 0):
+                with self.subTest(field=field, value=invalid), self.assertRaises(ValueError):
+                    kit.parameters(self.fit, {field: invalid})
+
+    @unittest.skipUnless(OPENSCAD, "OpenSCAD fuer reale Magnet-STL-Pruefung erforderlich")
+    def test_magnet_parts_are_closed_meshes_and_mating_halves_do_not_intersect(self):
+        env = dict(os.environ, QT_QPA_PLATFORM="offscreen")
+        for diameter in (10, 12):
+            with self.subTest(diameter=diameter), tempfile.TemporaryDirectory() as tmp:
+                config = Path(tmp) / "config.json"
+                config.write_text(json.dumps({"magnet_diameter_mm": diameter}))
+                out = Path(tmp) / "kit"
+                kit.export(suit_fit.DEMO_PROFILE, out, concept=True, config_path=config)
+                for part in kit.COMPONENTS["magnet_mount"]["parts"]:
+                    mesh = out / (part + ".stl")
+                    result = subprocess.run([OPENSCAD, "--hardwarnings", "--export-format", "asciistl",
+                                             "-D", 'component="magnet_mount"',
+                                             "-D", f'magnet_part="{part}"', "-o", str(mesh),
+                                             str(out / "ComponentKit.scad")],
+                                            capture_output=True, text=True, env=env, timeout=60)
+                    self.assertEqual(result.returncode, 0, result.stderr)
+                    self.assertNotIn("ERROR:", result.stderr)
+                    self.assertTrue(mesh.is_file(), result.stderr)
+                    inspected = suit_assets.inspect_stl(mesh.read_bytes(), 1)
+                    self.assertTrue(inspected["edge_checks_complete"], (part, inspected))
+                    self.assertAlmostEqual(inspected["bounds_mm"]["min"][2], 0, places=3)
+                # Use the same modules, excluding the final selector dispatch. A tiny
+                # separation avoids a shared contact plane being mistaken for volume.
+                collision = out / "Collision.scad"
+                source = (out / "ComponentKit.scad").read_text().split("module layout() {")[0]
+                collision.write_text(source + "\nintersection() {\nmagnet_half(false);\n"
+                                     "translate([0,0,2*(magnet_height+magnet_lid_mm)+0.02])\n"
+                                     "rotate([180,0,0]) magnet_half(true);\n}\n")
+                result = subprocess.run([OPENSCAD, "--hardwarnings", "-o", str(out/"collision.stl"), str(collision)],
+                                        capture_output=True, text=True, env=env, timeout=60)
+                self.assertIn("Current top level object is empty", result.stderr)
+                self.assertNotIn("ERROR:", result.stderr)
+                self.assertFalse((out/"collision.stl").exists())
 
 
 if __name__ == "__main__":

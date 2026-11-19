@@ -7,10 +7,11 @@ Projekt, Profil und Bauteilrevision. Details im
 
 ## Bereits digital umgesetzt
 
+- [x] Entwicklungsziel vom 2026-11-17 dokumentiert: [Lastpfad zum Boden](Guides/Exoskelett.md#3a-neues-entwicklungsziel-ruestungslast-zum-boden) und [optischer Spiegel-HUD-Versuch](Guides/Elektronik-AR-Display.md#11-neue-referenz-diy-brille-und-spiegel-hud); noch keine entsprechende Hardware
 - [x] [Baupaket-Generator](Guides/Mjolnir-Baupaket.md) mit getrennten Projekten und Revisionen
 - [x] Referenzkatalog mit 23 Bauteilen je Variante und kontrolliertem Modellimport
 - [x] [Detailgestaltung](Guides/Mjolnir-Detailgestaltung.md) fuer Silhouette, weiche Uebergaenge, Visier und Finish
-- [x] Fuenf editierbare [CAD-Komponentenproben](../Design/Components/README.md)
+- [x] Sechs editierbare [CAD-Komponentenproben](../Design/Components/README.md), inklusive gefangenem Magnetpaar mit Fuehrung und Zuglasche
 - [x] [Technikrechner](Guides/Mjolnir-Technik-Auslegung.md) fuer Schienen, Akkus, Scharniere und Staender
 - [x] Erzeugbare Bauteil-, Bewegungs- und Finishprotokolle sowie Montage-/Transportablauf
 - [x] [Einbauplan](Guides/Mjolnir-Einbauplan.md) mit separater Komfort-/Effektversorgung und konfigurierbaren Verbrauchern
@@ -42,12 +43,18 @@ wenn digitale Vorlagen oder passende Rechenwerkzeuge bereits vorhanden sind.
 
 ## 3. Mechanik und Traeger
 
+- [ ] Fuer Bodenrahmen B01-B05: Teilmassen/Schwerpunkte und zusaetzliche Gelenk-/Bein-/Fussmasse aufnehmen
+- [ ] Bodenrahmen-Kinematik fuer Huefte, Knieausgleich, Knoechel und Abrollen entwickeln; Gelenke und Aufnahmen fachlich bemessen
+- [ ] Ungetragenen Lastpfad im beidbeinigen und einbeinigen Stand mit Ersatzmassen pruefen
+- [ ] Leichten Kinematik-Prototyp und eigenen Einstieg mit tragenden Fussaufnahmen pruefen
+- [ ] Entlastung im Stehen und Gehen getrennt messen; Rahmenmasse und Restlast am Koerper bilanzieren
 - [ ] Eigenen Traeger und reale Lastpfade auslegen
 - [ ] Tuerlagerung, Seitenfuehrung, Verschluesse und Gegenplatten bemessen
 - [ ] Eine komplette Tuereinheit ungetragen pruefen
 - [ ] Handzugang, Parkpositionen, Anschlaege und werkzeuglose Trennung nachweisen
 - [ ] Helm-Torso-Schulter-Prototyp testen
 - [ ] Je eine Arm-/Beinkassette bauen, Gegenseite individuell anpassen
+- [ ] Magnethalter am realen Untergrund montieren; Halte-/Abhebekraft, 50 Tischzyklen und beide Gegenhaende mit Handschuhen pruefen
 - [ ] Drei Anzieh- und stromlose Ausstiegsproben dokumentieren
 - [ ] Letzte Armschale, beide Gegenhaende, Schuhcover und alle Innengurte ohne Durchschluepfen pruefen
 - [ ] Powerbankwechsel, OEM-Neblerbedienung und Helmkabel mit Handschuhen selbst erreichen
@@ -71,6 +78,8 @@ wenn digitale Vorlagen oder passende Rechenwerkzeuge bereits vorhanden sind.
 - [ ] Komfortluft, Elektronikabluft und trockene Duesenluft am Gesamtaufbau getrennt testen
 - [ ] Bei Audio: Sprachverstaendlichkeit und Rueckkopplung mit Helm pruefen
 - [ ] Bei HUD: Sicht ohne Anzeige sowie Befestigung und Laufzeit pruefen
+- [ ] Spiegel-HUD: Display/Abbildungsoptik/Combiner als Tischmuster auf Fokus, Eyebox, Durchsicht und Helligkeit pruefen
+- [ ] Spiegel-HUD: wegklappbare Helmkassette nach optischer Passprobe konstruieren; Doppelbilder mit Goldvisier pruefen
 - [ ] Bei Exoskelett: Hersteller-Passmasse, Anprobe und getrennte Integration nachweisen
 - [ ] Bei Show-Aktorik: eigenes ungetragenes Testmodul und Ausfallverhalten entwickeln
 - [ ] Optional: Sprachsteuerung + Kamera-Erkennung auf Pi 5 (siehe [Elektronik-Sprachsteuerung.md](Guides/Elektronik-Sprachsteuerung.md))
