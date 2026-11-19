@@ -86,7 +86,7 @@ Diese Liste ist nach Kategorien gegliedert. Preise sind Richtwerte (EUR).
 | --- | --- | --- |
 | 10.000 mAh USB Powerbank (schlank) | 15-25 EUR | LED/Luefter Power |
 | Optional: 2. Powerbank | 15-25 EUR | Fuer 8+ Stunden |
-| Sicherungen (2-3A, 5-10A) | 3-5 EUR | Nahe Batterie |
+| Sicherungen (2-3 A, 3-5 A je nach Pfad) | 3-5 EUR | Nahe Batterie; nie groesser als Stecker/Kabel |
 
 ## Elektronik - Luefter und Audio
 

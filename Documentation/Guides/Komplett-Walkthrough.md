@@ -118,7 +118,8 @@ Modulmatrix (was pro Variante sinnvoll ist): `Documentation/Guides/ElectronicsGu
 
 1. [P] Gesamtsystem planen (Module, Stromschienen, Ausfall-Verhalten):
    `Documentation/Guides/V3-Systemarchitektur.md`
-2. [P] Exoskelett bauen, auf der Ruestung montieren, Geh-/Lasttest: `Documentation/Guides/Exoskelett.md`
+2. [P] Tragstruktur nur als Entwicklungsprojekt: Es gibt keine fertige, getestete
+   Konstruktion. Architektur und Prueffolge: `Documentation/Guides/Exoskelett.md`
 3. [P] AR-Display planen (Stufen A/B/C, Sicherheit): `Documentation/Guides/Elektronik-AR-Display.md`
 4. [P] AR-Passthrough-Code aufsetzen und testen: `Code/HelmetControl/AR/README.md`
 5. [P] Schubduesen + Nebler, Audio, optionale POV-Kamera Modul fuer Modul in

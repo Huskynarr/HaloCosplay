@@ -70,11 +70,11 @@ verschieben sich die Zeitfresser:
 
 ### V3 (Exoskelett)
 
-- Zusaetzlich zur V2-Spine: **Exoskelett-Prototyp (PVC) -> Alu/Carbon-Rahmen -> Einlaufen/
-  Bewegungstraining**. Plane dafuer **+4-8 Wochen** zusaetzlich ein.
-- Exoskelett-Bau laeuft parallel zum Druck, der **Geh-/Lasttest** muss aber vor Lackierung
-  und Integration abgeschlossen sein (Aenderungen am Rahmen sind danach teuer).
-- Details: `Documentation/Guides/Exoskelett.md`.
+- Fuer eine tragende Struktur gibt es keinen belastbaren Zeitansatz:
+  `Exoskelett.md` beschreibt Architektur und Pruefplan; eine tragende, getestete Konstruktion existiert noch nicht.
+- Wer daran entwickelt, plant Auslegung, Prototyp und **Geh-/Lasttest** vor Lackierung und
+  Integration ein (Aenderungen am Rahmen sind danach teuer).
+- Stand und Prueffolge: `Documentation/Guides/Exoskelett.md`.
 
 ## Meilensteine setzen
 

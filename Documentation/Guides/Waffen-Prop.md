@@ -19,10 +19,16 @@ Ziel ist eine sichere, konforme Prop-Waffe mit authentischer Silhouette.
 **Par. 42a WaffG:** Anscheinswaffen (Gegenstaende die Schusswaffen aehneln) duerfen NICHT offen in der Oeffentlichkeit getragen werden. Bussgelder bis 10.000 EUR.
 
 **Fuer Convention-Props:**
-- IMMER in geschlossener, blickdichter Tasche transportieren
+- IMMER in einem verschlossenen, blickdichten Behaeltnis transportieren
+  (das Gesetz verlangt verschlossen, nicht nur geschlossen: Schloss oder
+  Kabelbinder am Reissverschluss)
 - Am Veranstaltungsort auspacken, NICHT vorher
-- Con-Regeln vorab pruefen (Gamescom verbietet ALLE Waffen-Props!)
+- Regeln der konkreten Veranstaltung und Ausgabe vorab pruefen; manche
+  Veranstaltungen lassen keine Waffen-Props zu. Pruefliste: `Convention-Regeln.md`
 - Fotos vorab an Con senden fuer Freigabe
+
+Keine Rechtsberatung; im Zweifel beim Veranstalter oder der zustaendigen
+Behoerde nachfragen.
 
 **Sicherste Waffen:** Energy Sword und Gravity Hammer - offensichtlich nicht-realistisch.
 

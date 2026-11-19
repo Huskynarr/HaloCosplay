@@ -21,9 +21,9 @@ ist dein Einstieg leicht anders:
   (Abschnitt "Foam-Finishing").
 - **V2 (Fortgeschritten, 3D-Druck/H2C):** Folge dieser Spine 1:1 (Helm -> Ruestung ->
   Elektronik), Druckdetails in `Documentation/Guides/3D-Druck.md`.
-- **V3 (Profi, Exoskelett + AR):** Wie V2, zusaetzlich Exoskelett-Aufbau und -Montage in
-  `Documentation/Guides/Exoskelett.md` sowie AR-Display in
-  `Documentation/Guides/Elektronik-AR-Display.md`.
+- **V3 (Profi, erweiterte Technik + AR):** Wie V2, zusaetzlich AR-Display in
+  `Documentation/Guides/Elektronik-AR-Display.md`. Eine Tragstruktur ist ein offenes
+  Entwicklungsthema ohne fertige Bauanleitung (`Documentation/Guides/Exoskelett.md`).
 
 Alle drei Varianten enden im selben Convention-Abschluss: `Documentation/Guides/Checklisten.md`,
 `Documentation/Guides/Transport.md`, `Documentation/Guides/Convention-Regeln.md`.
