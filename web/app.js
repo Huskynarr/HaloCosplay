@@ -681,15 +681,15 @@
 
     function useSpartan() {
       banner.style.display = "none";
-      credit.innerHTML = 'Modell: „Spartan Armour MKV" von McCarthy3D - ' +
-        '<a href="https://sketchfab.com/3d-models/spartan-armour-mkv-halo-reach-57070b2fd9ff472c8988e76d8c5cbe66" target="_blank" rel="noopener">Sketchfab</a>, CC-BY 4.0.';
+      credit.innerHTML = 'Modell: eigene MJOLNIR-Hüllenkonstruktion aus ' +
+        '<a href="#Design/Armor/README.md">Design/Armor</a> (Konstruktionsmodell, kein Halo-Detailmodell).';
     }
     function usePlaceholder() {
       banner.style.display = "block";
       banner.innerHTML = 'Hinweis: Aktuell wird ein <strong>Platzhalter-Modell</strong> gezeigt. Lege deine eigene ' +
         '<code>web/models/spartan.glb</code> ab (siehe <a href="' + ROOT + 'web/models/README.md" target="_blank" rel="noopener">Kurzanleitung</a>), ' +
         'um die echte Spartan-Rüstung zu sehen. Danach ggf. „Kalibrieren" nutzen, um die Marker neu zu setzen.';
-      credit.innerHTML = 'Platzhalter-Modell: „Astronaut" © Google, CC-BY. Echtes Modell: „Spartan Armour MKV" von McCarthy3D, CC-BY 4.0.';
+      credit.innerHTML = 'Platzhalter-Modell: „Astronaut" © Google, CC-BY.';
     }
 
     mv.addEventListener("error", function () {
