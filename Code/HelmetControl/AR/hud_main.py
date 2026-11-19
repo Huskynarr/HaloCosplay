@@ -1,6 +1,4 @@
 import cv2
-import numpy as np
-import time
 
 # Kamera initialisieren (0 ist meistens die Standard-Pi-Kamera oder USB-Kamera)
 cap = cv2.VideoCapture(0)

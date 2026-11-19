@@ -58,7 +58,9 @@ klicken - die ausgegebenen `pos`/`normal`-Werte in `web/app.js` beim passenden
 
 ## Lizenz / Namensnennung
 
-Bei CC-BY ist die Namensnennung Pflicht. Der Viewer zeigt die Quelle automatisch
-unter dem Modell an. Bitte diese Angabe nicht entfernen. Beachte ausserdem, dass
+Die enthaltene `spartan.glb` ist die eigene Konstruktion aus `Design/Armor`; der
+Viewer nennt sie unter dem Modell. Wer stattdessen ein fremdes CC-BY-Modell
+ablegt, muss dessen Namensnennung dort eintragen (`useSpartan()` in
+`web/app.js`), weil sie bei CC-BY Pflicht ist. Beachte ausserdem, dass
 "Halo", "Master Chief" und "MJOLNIR" Marken von Microsoft/343 Industries sind -
 die Nutzung hier erfolgt als nicht-kommerzielles Fan-Projekt.
