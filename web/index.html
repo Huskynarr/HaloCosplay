@@ -2,7 +2,7 @@
 <html lang="de">
 <head>
 <meta charset="UTF-8" />
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cdn.tailwindcss.com https://browser.sentry-cdn.com https://unpkg.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: blob: https:; connect-src 'self' blob: data: https://logging.gardenpiratez.de https://modelviewer.dev; worker-src 'self' blob:; frame-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://browser.sentry-cdn.com; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data: blob: https:; connect-src 'self' blob: data: https://logging.gardenpiratez.de https://modelviewer.dev; worker-src 'self' blob:; frame-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'">
 <script src="monitoring.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Halo Master Chief Cosplay bauen: MJOLNIR Anleitung V1-V3 (Foam, 3D-Druck, Elektronik)</title>
@@ -29,13 +29,9 @@
 <meta name="twitter:description" content="Kostenlose Schritt-für-Schritt-Anleitung: EVA-Foam, 3D-Druck, Elektronik & Exoskelett. Mit Materiallisten und Kauflinks." />
 <meta name="twitter:image" content="https://huskynarr.github.io/HaloCosplay/web/og-image.svg" />
 
-<script src="https://cdn.tailwindcss.com"></script>
 <script src="vendor/marked-12.0.2.min.js"></script>
 <script src="vendor/purify-3.4.17.min.js"></script>
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link rel="preconnect" href="https://unpkg.com" />
-<link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=Barlow:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="fonts/fonts.css" />
 
 <style>
   :root {
@@ -250,6 +246,7 @@
     body::after { display: none; }
   }
 </style>
+<link rel="stylesheet" href="vendor/tailwind.css" />
 
 <script type="application/ld+json">
 {

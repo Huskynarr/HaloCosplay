@@ -50,8 +50,19 @@ nur - inhaltliche Aenderungen erfolgen weiterhin in den .md-Dateien des Repos.
   dort eingetragen bzw. vermieden werden. Das Inline-Skript des Cortana-Viewers
   ist per SHA-256 freigegeben; nach einer Aenderung nennt
   `node --test Tests/Automation/guide.test.cjs` den neuen Hash.
-- **Noch extern:** Tailwind-CDN, Google Fonts, Sentry-CDN und model-viewer
-  (unpkg) werden weiterhin von Dritten geladen.
+- **Lokal ausgeliefert:** Tailwind-CSS (`vendor/tailwind.css`, gebaut aus den
+  tatsaechlich verwendeten Klassen), Schriften (`fonts/`) und model-viewer.
+  Nach neuen Tailwind-Klassen in `index.html`, `app.js`, `content.js`,
+  `guide.js` oder `products/products.js` das CSS neu bauen, siehe
+  [vendor/README.md](vendor/README.md).
+- **Offline:** `sw.js` im Repository-Wurzelverzeichnis speichert nach dem ersten
+  Online-Besuch die Seite, den Konfigurator, Budget, Katalog und alle Guides aus
+  `content.js`. Online wird immer zuerst das Netz gefragt; der Speicher dient nur
+  als Rueckfall bei fehlendem oder haengendem Netz (zum Beispiel in der Messehalle).
+  PDFs, STL- und CAD-Dateien werden nicht gespeichert. Neue Dateien, die die
+  Hauptseite direkt laedt, in die Liste `SHELL` in `sw.js` eintragen.
+- **Noch extern:** Nur das Sentry-SDK (`monitoring.js`) und, falls
+  `models/spartan.glb` fehlt, das Platzhaltermodell von modelviewer.dev.
 
 ## V4-Baukasten
 

@@ -1,5 +1,4 @@
 """Equipment selection must produce complete, separate and unapproved plans."""
-from copy import deepcopy
 import json
 from pathlib import Path
 import tempfile

@@ -74,5 +74,7 @@ Three legacy material-reference variants exist: V1 Einsteiger (foam), V2 Fortges
 - All documentation is in **German** (ASCII-safe: ae/oe/ue instead of umlauts)
 - Markdown files use `#` heading hierarchy; no frontmatter
 - File and folder names use PascalCase (e.g., `BuildGuides`, `ShoppingList.md`); `web/`, `tools/`, `docs/` are lowercase exceptions
+- Python lint in CI: `ruff check --select E9,F tools Code Tests Design`
+- The main page loads no third-party assets except the Sentry SDK; Tailwind is prebuilt (`web/vendor/README.md` has the rebuild command, needed after adding new utility classes), fonts live in `web/fonts/`
 - No 0-byte placeholder files; CI enforces ASCII in `.md`, `.ino`, `.py` and checks relative links
 - Contributions follow fork-and-PR workflow (see CONTRIBUTING.md)
