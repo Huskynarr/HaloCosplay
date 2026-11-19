@@ -7,7 +7,7 @@ Funktion als Waffe.
 ## Waffenrecht
 
 Vor jedem Bau und Transport die WaffG- und Con-Regeln pruefen. Siehe
-[Waffen-Prop-Guide](../Documentation/Guides/Waffen-Prop.md). Der Transport
+[Waffen-Prop-Guide](../../Documentation/Guides/Waffen-Prop.md). Der Transport
 erfolgt immer blickdicht und am Veranstaltungsort erst ausgepackt.
 
 ## Teile

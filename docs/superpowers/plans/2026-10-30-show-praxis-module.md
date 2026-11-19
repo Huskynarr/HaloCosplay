@@ -734,9 +734,9 @@ aus, faellt nur die Erinnerung aus - die Ruestung bleibt voll funktionsfaehig.
 
 ## Verwandte Guides
 
-- Ruestungs-LEDs: `Code/ArmorControl/MultiEffects.ino`, [LED-Effekte.md](LED-Effekte.md)
-- Sprachbefehle: [Elektronik-Sprachsteuerung.md](Elektronik-Sprachsteuerung.md)
-- Sicherheit: [Sicherheit.md](Sicherheit.md)
+- Ruestungs-LEDs: `Code/ArmorControl/MultiEffects.ino`, [LED-Effekte.md](../../../Documentation/Guides/LED-Effekte.md)
+- Sprachbefehle: [Elektronik-Sprachsteuerung.md](../../../Documentation/Guides/Elektronik-Sprachsteuerung.md)
+- Sicherheit: [Sicherheit.md](../../../Documentation/Guides/Sicherheit.md)
 ```
 
 - [ ] **Step 2: Querverweise ergaenzen**
@@ -744,7 +744,7 @@ aus, faellt nur die Erinnerung aus - die Ruestung bleibt voll funktionsfaehig.
 `Documentation/TODO.md` - nach der Sprachsteuerung-Zeile in Phase 6 einfuegen:
 
 ```markdown
-- [ ] Optional: Shield-Hit, Handler-Alert, Trink-Erinnerung (siehe [Elektronik-Show-Praxis-Module.md](Guides/Elektronik-Show-Praxis-Module.md))
+- [ ] Optional: Shield-Hit, Handler-Alert, Trink-Erinnerung (siehe [Elektronik-Show-Praxis-Module.md](../../../Documentation/Guides/Elektronik-Show-Praxis-Module.md))
 ```
 
 `sitemap.xml` - nach der Elektronik-Sprachsteuerung-URL einfuegen:
