@@ -16,9 +16,17 @@
  * I2C Kommandos vom Pi:
  *   Byte 0: Kommando-Typ
  *     0x01 = Visor Helligkeit (Byte 1 = 0-255)
- *     0x02 = Luefter Speed (Byte 1 = 0-255)
+ *     0x02 = Luefter Speed (Byte 1 = 0-255, 0 = aus)
  *     0x03 = Effekt waehlen (Byte 1 = 0-4)
  *     0x04 = Visor-Farbe (Byte 1-3 = R, G, B) - z.B. per Sprachbefehl
+ *
+ * Luefter-Failsafe: Werte unter FAN_DEFAULT (gedrosselt oder aus) gelten nur,
+ * solange der Pi sich meldet. Kommt FAN_FAILSAFE_MS lang kein gueltiges
+ * I2C-Kommando, laeuft der Luefter wieder mit FAN_DEFAULT. Der Pi bestaetigt
+ * gedrosselte Werte deshalb alle paar Sekunden (voice_control.py bzw.
+ * helmet_control.py fan <wert> --hold). Werte ab FAN_DEFAULT bleiben bestehen.
+ * Werte zwischen 1 und FAN_MIN_SPIN-1 werden auf FAN_MIN_SPIN angehoben, weil
+ * ein 5V-Luefter darunter stehen bleiben kann.
  *
  * Pegel: Der Pi arbeitet mit 3.3V-I2C. Die internen 5V-Pull-Ups des Nano
  * werden in setup() abgeschaltet, die Pull-Ups des Pi (3.3V) reichen.
@@ -34,6 +42,10 @@
 #define I2C_ADDR     0x08
 #define NUM_MODES    5
 
+#define FAN_DEFAULT      180      // PWM beim Start und nach dem Failsafe
+#define FAN_MIN_SPIN     80       // kleinster PWM-Wert, bei dem der Luefter sicher anlaeuft (am eigenen Luefter pruefen)
+#define FAN_FAILSAFE_MS  10000UL  // so lange darf der Pi schweigen, bevor gedrosselte Werte verfallen
+
 // Visor-Farbe: Warm-Gold/Amber
 #define VIS_R  255
 #define VIS_G  180
@@ -42,7 +54,9 @@
 Adafruit_NeoPixel visor(VISOR_COUNT, VISOR_PIN, NEO_GRB + NEO_KHZ800);
 
 volatile uint8_t visorBrightness = 128;
-volatile uint8_t fanSpeed = 180;
+volatile uint8_t fanSpeed = FAN_DEFAULT;
+volatile bool i2cActivity = false;   // in onReceive gesetzt, in loop() ausgewertet
+unsigned long lastI2cMs = 0;
 volatile uint8_t currentMode = 1;
 volatile uint8_t visR = VIS_R;   // per I2C (0x04) aenderbar
 volatile uint8_t visG = VIS_G;
@@ -61,9 +75,13 @@ void onReceive(int numBytes) {
   }
   uint8_t cmd = Wire.read();
   uint8_t val = Wire.read();
+  if (cmd >= 0x01 && cmd <= 0x04) i2cActivity = true;   // Pi lebt
   switch (cmd) {
     case 0x01: visorBrightness = val; break;
-    case 0x02: fanSpeed = val; break;
+    case 0x02:
+      if (val > 0 && val < FAN_MIN_SPIN) val = FAN_MIN_SPIN;
+      fanSpeed = val;
+      break;
     case 0x03: if (val < NUM_MODES) currentMode = val; break;
     case 0x04:
       if (numBytes >= 4) {
@@ -94,8 +112,24 @@ void setup() {
   bootSequence();
 }
 
+// Gedrosselter Luefter ohne Lebenszeichen vom Pi -> zurueck auf Standard.
+// unsigned-Subtraktion ist auch beim millis()-Ueberlauf (ca. 49 Tage) korrekt.
+void fanFailsafe() {
+  unsigned long now = millis();
+  noInterrupts();   // kurz sperren: onReceive darf nicht zwischen Pruefung und Ruecksetzen feuern
+  if (i2cActivity) {
+    i2cActivity = false;
+    lastI2cMs = now;
+  }
+  if (fanSpeed < FAN_DEFAULT && now - lastI2cMs > FAN_FAILSAFE_MS) {
+    fanSpeed = FAN_DEFAULT;
+  }
+  interrupts();
+}
+
 void loop() {
   checkButton();
+  fanFailsafe();
   analogWrite(FAN_PIN, fanSpeed);
   visor.setBrightness(visorBrightness);
 

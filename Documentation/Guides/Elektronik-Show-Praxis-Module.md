@@ -18,6 +18,9 @@ Handler-Alert laufen autark auf dem Ruestungs-Arduino - ohne Pi, ohne Helm.
 | 4x TP223 kapazitiv | 6-8 EUR | D4 Brust, D6 Ruecken, D7 Schulter L, D8 Schulter R | Empfindlichkeit per Poti |
 | Passiver Piezo-Buzzer | 1-2 EUR | D9 (ueber 100 Ohm) | Square-Wave, kein MP3 |
 
+- Die Sensoren sind im Sketch standardmaessig aus: in `MultiEffects.ino`
+  `TOUCH_ENABLED` auf 1 setzen, sobald alle vier Eingaenge bestueckt oder mit
+  10 kOhm nach GND abgeschlossen sind.
 - TP223 unter dem Foam platzieren, ca. 1-2 mm unter der Oberflaeche, auf
   sauberer, fester Flaeche (nicht auf losem Schaumstoff - sonst Dauertrigger).
 - Justage: Anstossen durch Kleidung loest NICHT aus, fester Tipp schon.

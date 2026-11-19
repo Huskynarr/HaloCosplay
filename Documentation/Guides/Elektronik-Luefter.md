@@ -77,6 +77,24 @@ Motorstrom durch einen GPIO. RPM-Signale mehrerer Luefter werden nicht
 zusammengelegt. Ein Grafikrechner-Absturz darf den Komfortzweig nicht
 softwareseitig ausschalten; Reset und Ausfallverhalten werden real geprueft.
 
+### Luefter-Failsafe im Helm-Sketch
+
+`Code/HelmetControl/HelmetMultiEffects.ino` setzt diese Regel softwareseitig um
+(noch nicht an Hardware nachgewiesen):
+
+- Start und Rueckfallwert ist `FAN_DEFAULT` (PWM 180).
+- Gedrosselte Werte und "aus" (PWM unter 180) gelten nur, solange der Pi sich
+  meldet. Kommt `FAN_FAILSAFE_MS` (10 s) lang kein gueltiges I2C-Kommando,
+  laeuft der Luefter wieder mit dem Standardwert.
+- `voice_control.py` bestaetigt einen gedrosselten Wert deshalb alle 3 s.
+  Von Hand: `python3 helmet_control.py fan 0 --hold`.
+- Werte von 1 bis 79 werden auf `FAN_MIN_SPIN` (80) angehoben, weil ein
+  5-V-Luefter darunter stehen bleiben kann. Den Wert am eigenen Luefter pruefen.
+- Werte ab 180 bleiben ohne Bestaetigung bestehen.
+
+Der Failsafe deckt nur einen ausgefallenen oder haengenden Pi ab. Faellt der
+Arduino oder die Komfortversorgung aus, steht der Luefter: Helm absetzen.
+
 ## Einbauversuche
 
 1. Luftwege im offenen Rohbau mit leichtem Prueffaehnchen sichtbar machen;
