@@ -27,11 +27,104 @@ Da eine geschlossene Ruestung (Foam oder 3D-Druck) stark isoliert und Waerme sta
 
 ### Neodym-Magnete
 
-- **10x3 mm** oder **12x3 mm** Scheibenmagnete - gaengigste Groessen
-- In 3D-gedruckten Haltern einbetten (z.B. "Armor Helpers" auf Thingiverse/Cults3D)
-- Mit CA-Kleber oder Zweikomponenten-Epoxy einkleben
-- Magnete in Ruestung paaren mit Magneten im Unteranzug oder an Harness
-- **WICHTIG: Polaritaet markieren** vor dem Einkleben - falsche Pole = Abstossung statt Halt
+Neodym-Magnete werden als passive Anlegehilfe eingeplant: Bauteil ansetzen,
+ueber eine kurze Fuehrung ausrichten lassen und bei tragenden Baugruppen den
+mechanischen Verschluss schliessen. Zum Abnehmen dient eine erreichbare
+Zuglasche. Das ist ein Konstruktionsvorschlag; Halter und Magnetanzahl sind
+noch nicht am realen Anzug erprobt.
+
+Die digitale Umsetzung liegt als
+[Magnetpaar mit vier CAD-Druckteilen](../../Design/Components/README.md#magnetpaar-zum-leichteren-anlegen)
+vor: zwei Traeger mit wechselbaren, verschraubten Lochdeckeln, zwei
+Fuehrungsstiften und einer Aufnahme fuer die Textil-Zugschlaufe. 10 x 3 mm
+ist voreingestellt; eine Vergleichskonfiguration fuer 12 x 3 mm ist enthalten.
+Diese Variante verwendet Magnetpaare mit formschluessiger Rueckhaltung ohne
+Kleber. Sie hat konstruktionsbedingt einen Abstand zwischen den Magnetflaechen,
+der bei der realen Halteprobe beruecksichtigt werden muss.
+
+#### Zuordnung am Anzug
+
+| Bauteil | Vorgesehener Magneteinsatz | Zusaetzliche Halterung |
+| --- | --- | --- |
+| Handrueckenplatte, kleine Blende | Abnehmbare leichte Kosmetikplatte ansetzen | Kurze Positionierlaschen; bei Verlustgefahr loesbares textiles Fangband |
+| Serviceklappe | Deckel anziehen und geschlossen halten | Gefangenes Scharnier oder Fangband; erreichbare Griffkante |
+| Schulterhaube, Oberarmplatte | Ausrichten an der bereits verbundenen Textilaufnahme | Gurt-/Scharnieraufhaengung traegt das Teil; vordere Sicherung bleibt bedienbar |
+| Unterarm-/Schienbeinkassette | Geoeffnete Schalen beim Zuklappen zueinander fuehren | Scharnier und manuell loesbarer Rast-/Spannverschluss |
+| Brust, Ruecken, Oberschenkel | Kosmetikplatten ausrichten, Fugen zusammenfuehren | Eigener Traeger, Gurte und mechanische Verschluesse tragen die Last |
+
+#### Magnetgroesse und Gegenstueck
+
+Fuer erste Vergleichsmuster **axial magnetisierte Scheiben mit 10 x 3 mm**
+verwenden; **12 x 3 mm** ist eine zweite Versuchsgroesse, wenn Bauraum und
+gewollte Loesekraft passen. Als Herstellerbeispiele dienen S-10-03-N (N42)
+und S-12-03-N (N45). Das sind reale Abmessungen und Gueten, keine bereits
+passende Lastbemessung. Nicht pauschal die staerkste Magnetisierung auswaehlen.
+Siehe [10-x-3-mm-Datenblatt](https://www.supermagnete.de/data_sheet_S-10-03-N.pdf)
+und [12-x-3-mm-Herstellerdaten](https://www.supermagnete.de/scheibenmagnete-neodym/scheibenmagnet-12mm-3mm_S-12-03-N).
+
+Je Kontaktpunkt entweder zwei Magnete mit anziehender Polung oder einen Magneten
+mit ferromagnetischem Stahlgegenstueck verwenden. Stahl muss tatsaechlich
+magnetisch sein; Material und Dicke am Muster pruefen. Bei Magnetpaaren beide
+zusammengehoerenden Kontaktflaechen vor dem Einbau markieren und trocken
+zusammenstecken. Die benoetigte Stueckzahl verdoppelt sich gegenueber der Anzahl
+der Kontaktpunkte; Magnet/Stahl braucht nur einen Magneten je Kontaktpunkt.
+
+Die Shop-Haftkraft gilt fuer Zug senkrecht zur Kontaktflaeche unter den jeweiligen
+Messbedingungen. Seitliches Verschieben, Abheben an einer Kante sowie Stoff,
+Lack und Druckteilwaende zwischen den Kontaktflaechen muessen separat geprueft
+werden. Aus einer Angabe wie "haelt 1,8 kg" folgt keine zulaessige Ruestungsmasse.
+Grundlagen: [Haftkraft und Scherkraft](https://www.supermagnete.ch/faq/Wie-unterscheiden-sich-Haftkraft-und-Verschiebekraft-Scherkraft)
+sowie [Einfluss von Abstand, Werkstoff und Oberflaeche](https://live-katalog.ganternorm.com/pdf/ganter/DE/magnete_intro.pdf?dispositiontype=attachment).
+
+#### Halter, Fuehrung und Loeselasche
+
+1. Magnet in eine separate Aufnahme mit mechanischer Rueckhaltung einsetzen,
+   etwa eine Tasche mit verschraubtem Deckel. Die Aufnahme breit an Schale
+   oder Gurtband befestigen; nicht den nackten Magneten auf dehnbares Lycra kleben.
+2. Kurze, abgerundete Fuehrungslaschen mit Freigang gegen seitliches Verrutschen
+   vorsehen. Sie muessen sich beim Oeffnen direkt freigeben und duerfen keinen
+   geschlossenen Ring um Arm oder Bein bilden. Magnete ziehen die Kontaktflaechen
+   zusammen; die Fuehrung richtet das Bauteil aus.
+3. Kontaktabstand klein und reproduzierbar halten. Jede Schutzlage zwischen den
+   Kontaktflaechen gehoert in die Halteprobe. Koerperseitig bleiben Magnet und
+   Gegenstueck abgedeckt; keine freiliegenden Metallkanten auf der Haut.
+4. Klebstoff passend zu Magnetbeschichtung und Halterwerkstoff waehlen und nach
+   Herstellerangabe aushaerten lassen. Geeigneten Polymer- oder 2K-Epoxidkleber
+   am Materialrest testen. Sekundenkleber ist keine pauschale Empfehlung;
+   Heisskleber nicht fuer Neodym verwenden. Grundlage:
+   [Herstellerhinweise zum Kleben](https://www.supermagnete.de/faq/Wie-kann-ich-Magnete-kleben).
+5. Eine mit Handschuhen greifbare Textillasche an der kosmetischen Platte
+   vorsehen. Sie hebt eine Kante kontrolliert ab, waehrend Scharnier oder
+   Aufhaengung das Teil haelt. Bei Kassetten zuerst die mechanische Sicherung
+   loesen; die Magnetlasche ersetzt deren Entriegelung nicht.
+
+Fuer Gurtverbindungen kann alternativ ein fertiger magnetisch gefuehrter,
+mechanisch verriegelnder Verschluss verglichen werden, etwa aus dem
+[FIDLOCK-Komponentensystem](https://www.fidlock.com/components/en).
+Die konkrete Ausfuehrung muss zu Gurtbreite, Last und erreichbarer
+Entriegelungsrichtung passen; eine reine Magnetpaarung ist kein Rastverschluss.
+
+#### Erste Anlegeprobe
+
+Zuerst eine leichte Blende und eine Unterarmkassette mit echten Haltern bauen.
+Als eigenes Versuchssetup zwei raeumlich getrennte Magnetkontakte gegen
+Verdrehen vergleichen; Anzahl und Abstand danach anhand der Probe festlegen.
+Die [kleine Materialauswahl](../../Materials/Mjolnir-Einkauf-Prototyp.md#magnetmuster-fuer-das-leichtere-anlegen)
+ist fuer diesen Versuch gedacht.
+
+- Reale Teilemasse, Kontaktabstand, Magnettyp, Polung und Halterrevision notieren.
+- Am ungetragenen Aufbau senkrechtes Loesen, seitliches Verschieben und Abheben
+  an der Lasche pruefen; Kraefte und Versuchsaufbau dokumentieren.
+- 50-mal am Tisch ansetzen und loesen; danach auf gelockerte Magnete,
+  Beschaedigungen, verrutschte Aufnahmen und veraenderte Loesekraft pruefen.
+- Mit vorgesehenem Unteranzug, Polster und Handschuhen beide Seiten einzeln
+  anlegen. Gerade die zweite Armschale mit bereits geruesteter Gegenhand pruefen.
+- Erst nach unauffaelliger Tischprobe den vollstaendigen
+  [An-/Ausziehversuch](Mjolnir-Selbstanziehen.md) durchfuehren; normale Bewegung
+  darf keine Platte unbeabsichtigt loesen. Ausziehen bleibt stromlos moeglich.
+
+50 Wiederholungen sind eine erste Funktionsprobe, kein Lebensdauer- oder
+Lastnachweis. Bis zur dokumentierten realen Probe bleiben die Ergebnisse offen.
 
 ### Klettverschluss (Hook and Loop)
 
@@ -47,11 +140,11 @@ Da eine geschlossene Ruestung (Foam oder 3D-Druck) stark isoliert und Waerme sta
 
 ### Kombinations-Ansatz (Empfohlen)
 
-| Gewicht | Befestigung | Beispiel-Teile |
+| Funktion | Befestigung | Beispiel-Teile |
 | --- | --- | --- |
-| Schwer | Gurte + Schnallen an Harness | Brust, Ruecken, Oberschenkel |
-| Mittel | Klett + Magnete | Schultern, Oberarme, Schienbeine |
-| Leicht | Magnete allein | Handplatten, Codpiece, Detailteile |
+| Last tragen | Gurte + mechanische Schnallen am Harness; Magnete als Anlegehilfe | Brust, Ruecken, Oberschenkel |
+| Bewegliche Schale fuehren und schliessen | Textil-/Scharnieraufnahme + mechanischer Verschluss; Magnete zur Ausrichtung | Schultern, Oberarme, Unterarm-/Schienbeinkassetten |
+| Leichte Kosmetik abnehmen | Gefangene Magnethalter + Positionierlaschen, gegebenenfalls Fangband | Handplatten, Blenden, Serviceabdeckungen |
 
 ## Polsterung
 

@@ -49,3 +49,60 @@ Der Nachweisbericht im V4-Baukasten bleibt davon unabhaengig. Die separate
 Beide Seiten benoetigen fuer lokale JSON-Referenzen einen HTTP-Server wie oben.
 Sie versenden keine Formulardaten. Ein Export bleibt ein Entwicklungsprofil,
 keine Druck-, Sicherheits- oder Zulassungsfreigabe.
+
+## Fehlererfassung mit Sentry
+
+Seit 2026-11-19 verwenden Bauhandbuch, Konfigurator, Budgetplaner, Produktkatalog
+und Cortana-Viewer die gemeinsame [Initialisierung](monitoring.js). Sentry-Projekt:
+`gardenpiratez/halocosplay-frontend`, Projekt-ID `57`, Plattform `javascript`,
+Server `https://logging.gardenpiratez.de`. Die vollstaendige oeffentliche DSN
+steht in `monitoring.js`; der Hostname allein ist keine DSN. Der API-Token aus
+`~/.config/sentry-token` dient ausschliesslich der Administration und wird weder
+versioniert noch an Browser oder GitHub Pages uebergeben.
+
+Das offizielle Fehler-Bundle `11.14.0` wird asynchron von Sentrys CDN geladen:
+feste Version, offizieller SHA-384-Integritaetshash, anonyme CORS-Anfrage, kein
+Referrer. Unbehandelte JavaScript-Fehler und Promise-Rejections werden erfasst;
+bis zum SDK-Start werden maximal 20 Fehler gepuffert. Ein blockiertes CDN oder
+eine fehlgeschlagene Initialisierung verhindert nicht die Nutzung der App.
+Ladefehler von Anleitungen, Konfigurator-Schema und den beiden Budgetbeispielen
+werden auch nach ihrer Fehlerbehandlung gemeldet. Validierungsfehler beim Import
+eigener Dateien, ein bereits eingefuegtes Nebelmodul und gewoehnliche BLE-Abbrueche
+werden nicht eigens gemeldet.
+
+Die Konfiguration aktiviert ausschliesslich Fehlererfassung: keine Replay-,
+Tracing-, Sitzungs-, Konsolen- oder Klickaufzeichnung. Automatisches Sammeln
+von Benutzerdaten, Cookies, HTTP-Headern/-Bodies und lokalen Stackvariablen ist
+abgeschaltet. `beforeSend` entfernt zudem Benutzer, Extras, Breadcrumbs und
+Kontexte; gemeldet werden Fehlertext/Stack und die Seitenadresse ohne Query
+und Hash. Stackdatei-URLs werden ebenfalls bereinigt. Profilobjekte,
+Formularwerte und LocalStorage werden nicht ausgelesen oder angehaengt.
+Fehlermeldungen selbst sollten deshalb weiterhin keine privaten Eingaben
+enthalten. Die separate Offline-Messeanzeige laedt kein Sentry.
+
+Auf oeffentlichen HTTPS-Seiten ist die Umgebung `production`. Lokal, per HTTP
+und bei `file://` wird standardmaessig weder das SDK geladen noch ein Ereignis
+gesendet. Ein gezielter lokaler Test kann vor `monitoring.js` setzen:
+
+```js
+window.HaloMonitoringOptions = {enabled: true, environment: 'development'};
+```
+
+Nach dem SDK-Start laesst sich ein einzelner Testfehler senden:
+
+```js
+HaloMonitoring.captureException(new Error('HaloCosplay Sentry test'), 'manual-test');
+await Sentry.flush(5000);
+```
+
+`window.HaloMonitoringOptions = {enabled: false}` vor der Initialisierung
+deaktiviert das Monitoring. Ohne geladene Integration ist die Erfassungsfunktion
+ein No-op. Die vorhandenen Dateien werden unminifiziert ausgeliefert;
+zusaetzliche Source-Map-Uploads und ein API-Token im Deploy sind nicht notwendig.
+
+Automatisierte Pruefung ohne Netzwerk oder Token:
+`node --test Tests/Automation/monitoring.test.cjs`.
+Die Sentry-Konfiguration folgt den offiziellen
+[CDN-Bundles](https://docs.sentry.io/platforms/javascript/install/loader/#cdn),
+[Optionen](https://docs.sentry.io/platforms/javascript/configuration/options/)
+und [Integrationen](https://docs.sentry.io/platforms/javascript/configuration/integrations/).

@@ -7,6 +7,14 @@ sein. Eine Hilfsperson ist bei Entwicklungsproben als Beobachter und zur
 Lastuebernahme vorhanden; deren Eingriff zaehlt als nicht bestandene Solo-Probe.
 Der spaetere normale Ablauf allein bleibt ein zu pruefendes Ziel.
 
+**Variante mit Bodenrahmen:** Seit 2026-11-17 ist zusaetzlich ein
+[Gestell zur Lastableitung bis zum Boden](Exoskelett.md#3a-neues-entwicklungsziel-ruestungslast-zum-boden)
+als Entwicklungsziel gewaehlt. Dieser Guide beschreibt den vorhandenen
+Schalen-/Textilaufbau. Tragende Beinstrukturen und Fussaufnahmen benoetigen
+einen eigenen Einstiegs- und Entlastungsablauf; die bisherigen Aussagen zu
+normalen Schuhen und fehlenden starren Gelenkketten gelten fuer den bisherigen
+Aufbau. Ein erreichter Solo-Einstieg wird nicht auf den Bodenrahmen uebertragen.
+
 Eine [offene Station](Mjolnir-Einstieg.md) darf ungetragene Kassetten halten und
 das Anlegen erleichtern. Sie verriegelt weder eine Person noch deren Schuhe
 und benoetigt keine Motoren. Eine gegen Umkippen geeignete Konstruktion wird
@@ -31,9 +39,24 @@ der ausgewaehlten Referenz; Achsen und Innenaufnahmen folgen der Bedienbarkeit.
 | Kabel | Leitung an Auflage; Scharnierquerung nur mit geschuetzter beweglicher Reserve und Zugentlastung | Biegeradius, kompletter Bewegungsweg und austauschbarer Stecker |
 | Entkopplung | Textil oder weiche Abdeckung zwischen benachbarten Schalen | Knie-/Ellbogenbewegung ohne gemeinsame starre Koerperachse |
 
-Magnete koennen die Fuge ausrichten oder eine leichte kosmetische Abdeckung
-halten. Der eigentliche Schalenverschluss bleibt mechanisch eindeutig. Ein
-Motor, Magnetstrom oder Funkbefehl darf zum Oeffnen nicht notwendig sein.
+Passive Neodym-Magnete sind als Anlegehilfe vorgesehen: Beim Zuklappen ziehen
+sie die Fugen zusammen, kurze Fuehrungslaschen richten die Schalen aus. Danach
+wird der erreichbare mechanische Rast-/Spannverschluss geschlossen. Leichte
+kosmetische Abdeckungen koennen abnehmbar magnetisch gehalten werden. Der
+eigentliche Schalenverschluss bleibt mechanisch eindeutig. Ein Motor,
+Magnetstrom oder Funkbefehl darf zum Oeffnen nicht notwendig sein.
+
+Magnethalter erhalten eine mechanische Rueckhaltung und eine mit Handschuhen
+bedienbare Loeselasche. Bei der Kassette zuerst die mechanische Verriegelung
+oeffnen, dann die Magnetkontakte durch kontrolliertes Abheben trennen und die
+Schale offen parken. Magnete duerfen weder den Offenhalter zuziehen noch den
+radialen Ausstieg durch zusaetzliche geschlossene Haltebaender verhindern.
+[Magnetgroessen, Halteraufbau und Vergleichsprobe](Unteranzug-Befestigung.md#neodym-magnete)
+sind im Befestigungs-Guide beschrieben. Der separate
+[Magnetbaukasten](../../Design/Components/README.md#magnetpaar-zum-leichteren-anlegen)
+liefert vier parametrisierte Druckteile fuer die erste Passprobe. Deren Montage
+an verstaerkten Flaechen ist am jeweiligen Schalenmodell noch anzupassen;
+die Clamshell-Bauraumhuellen enthalten diese Aufnahmen nicht automatisch.
 
 Kein Innengurt darf beim Oeffnen einen geschlossenen Ring hinterlassen. Ein
 Gurtende bleibt an der Kassette, das andere wird vollstaendig ausgeklinkt und
@@ -166,6 +189,9 @@ Die folgenden Punkte muessen in drei aufeinanderfolgenden Gesamtfolgen gelten:
 - Serviceklappen, Hauptschalter und Ausstiegsgriffe bleiben im fertigen Kostuem erreichbar.
 - Keine eingeschlossenen Textilien, Kabel, Finger oder unter Druck geratene Gelenkzonen.
 - An- und Ausziehen funktionieren stromlos; eventuelle Beobachtereingriffe werden vermerkt.
+- Magnetkontakte finden mit Fuehrung ihre Position; beide Loeselaschen bleiben
+  mit Handschuhen erreichbar. Kein Magnethalter loest sich und keine Platte
+  faellt bei den vorgesehenen Bewegungen ab.
 
 Bis dahin bleiben `solo_donning_verified` und alle physischen Ergebnisse false
 beziehungsweise open. Erzeugte STL-Dateien oder bestandene Softwaretests

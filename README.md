@@ -6,7 +6,7 @@ Materialweg und Ausstattung. Ein Projektprofil haelt die Entscheidungen zusammen
 Es gibt keine vorgegebene Person, Koerpergroesse oder Schuhgroesse.
 
 **Stand:** Erzeugbares digitales Baupaket mit Referenzkatalog, parametrischem
-Bauraum-CAD, fuenf Komponentenproben, Modelldateipruefung, Technikrechnungen und
+Bauraum-CAD, sechs Komponentenproben, Modelldateipruefung, Technikrechnungen und
 Elektronikbeispielen. Vollstaendige Halo-Detailmodelle und nachgewiesene tragende
 Mechanik fehlen weiterhin. Ein ausgefuelltes Profil erzeugt keine fertige
 Druckruestung; reale Pass-, Last- und Funktionstests bleiben erforderlich.
@@ -69,6 +69,13 @@ Anziehstation haelt ausschliesslich ungetragene Ruestung. Der eigene Traeger
 verteilt Ruestungsgewicht auf den Koerper; ein optionales Hueft-Exoskelett
 ist ein separat anzupassendes System.
 
+Die am 2026-11-17 gewaehlte Entwicklungsrichtung ist ein
+[lasttragender Bodenrahmen](Documentation/Guides/Exoskelett.md#3a-neues-entwicklungsziel-ruestungslast-zum-boden)
+mit beweglichen Beinen und tragenden Fussaufnahmen. Dafuer liegen Architektur
+und Prueffolge vor; tragende Detailkonstruktion und Gehversuche stehen aus.
+Das [Visierkonzept](Documentation/Guides/Elektronik-AR-Display.md#11-neue-referenz-diy-brille-und-spiegel-hud)
+ergaenzt einen optischen Versuch mit Display, Abbildungsoptik und Combiner.
+
 ## Bau und Technik
 
 - [Digitales Baupaket: Dateien, Modellimport und Baufolge](Documentation/Guides/Mjolnir-Baupaket.md)
@@ -78,7 +85,7 @@ ist ein separat anzupassendes System.
 - [Acht bewegliche Clamshell-Bauraumhuellen](Design/Clamshell/README.md)
 - [LED-Kuehlkoerper und gemessene Luftwege berechnen](Design/Thermal/README.md)
 - [Detailgestaltung, Unteranzug, Visier und Finish](Documentation/Guides/Mjolnir-Detailgestaltung.md)
-- [Fuenf editierbare CAD-Komponentenproben](Design/Components/README.md)
+- [Sechs editierbare CAD-Komponentenproben inklusive Magnethalter](Design/Components/README.md)
 - [Strom-, Laufzeit-, Scharnier- und Staenderauslegung](Documentation/Guides/Mjolnir-Technik-Auslegung.md)
 - [Systementwurf und Baugruppen](Documentation/Guides/Mjolnir-Systementwurf.md)
 - [Einstieg, Verriegelung und Anziehstation](Documentation/Guides/Mjolnir-Einstieg.md)

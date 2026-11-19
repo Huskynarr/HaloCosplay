@@ -1,4 +1,11 @@
-# Exoskelett und eigener Ruestungstraeger
+# Exoskelett, Bodenrahmen und eigener Ruestungstraeger
+
+**Zielpraezisierung vom 2026-11-17:** Gewuenscht ist ein Gestell, das
+Ruestungsgewicht ueber eine eigene Beinstruktur zum Boden leitet. Dieser
+[Bodenrahmen](#3a-neues-entwicklungsziel-ruestungslast-zum-boden)
+ist die neue mechanische Entwicklungsrichtung. Der vorhandene Hueft-/Rueckentraeger
+und die CAD-Bauraumhuellen leisten diese Funktion noch nicht. Eine motorisierte
+Gehhilfe oder automatische Balance ist damit nicht ausgewaehlt.
 
 Das [Projektprofil](Mjolnir-Konfiguration.md) legt fest, ob ein Exoskelett
 ueberhaupt zum Aufbau gehoert. Der manuelle Einstieg und der eigene
@@ -11,14 +18,14 @@ Ein Serien-Exoskelett zur Gehunterstuetzung bleibt ein separat auszulegender Aus
 | --- | --- | --- |
 | Gepolsterter Ruestungstraeger | Verteilt Ruestungsgewicht zwischen Huefte und Oberkoerper | Grundaufbau, individuell angepasst |
 | Aktives Hueft-Exoskelett | Unterstuetzt die Beinbewegung mit eigenen Motoren | Separates Seriengeraet nach Pass- und Integrationsprobe |
-| Lasttragendes Ganzkoerper-Exoskelett | Koennte bei entsprechender Konstruktion Last zum Boden fuehren | Nicht Bestandteil des vorliegenden Entwurfs |
+| Lasttragender Rahmen mit Beinstruktur und Fussaufnahmen | Soll Ruestungslast zum Boden fuehren | Neues Entwicklungsziel; Kinematik, Detail-CAD und reale Entlastung offen |
 | Skeletonics/Pantograph/Stelzen | Vergroessert Reichweite und Silhouette | Keine Basisfunktion; eigener Entwicklungsaufwand und eigener Nachweis |
 
 Ein Wander-Exoskelett traegt nicht automatisch eine schwere Ruestung.
 Hypershell schliesst in seinen Safety Guidelines v2.0 Gewichtsabstuetzung,
 Balancehilfe und Sturzverhinderung ausdruecklich aus. [Herstellerdokument](https://cdn.shopify.com/s/files/1/0746/6326/4492/files/GL_Hypershell_SafetyGuidelines_v2.0_Printed.pdf?v=1782804835)
-Der eigene Traeger bleibt deshalb fuer Ruestungsgewicht verantwortlich; der
-Koerper traegt dieses Gewicht weiterhin. Auch Gurte an den Schultern nehmen
+Im bisherigen T01-Aufbau bleibt der eigene Traeger fuer Ruestungsgewicht
+verantwortlich; der Koerper traegt dieses Gewicht weiterhin. Auch Gurte an den Schultern nehmen
 reale Kraefte auf, vor allem beim Kippen. Eine Lastverteilung nur anhand der
 Bezeichnung H-Harness oder Klettergurt anzunehmen, ist unzureichend.
 
@@ -48,117 +55,34 @@ Cosplay-Einsatz. [DNSYS FAQ](https://dnsys.ai/pages/faq)
 Herstellerleistungen wie Reichweite, Watt oder Ermuedungsreduktion werden nicht
 in ein angeblich tragbares Ruestungsgewicht umgerechnet.
 
-## 2a. Tragende Exoskelette als Ruestungstraeger
+## 2a. Referenzen fuer einen Lastpfad bis zum Boden
 
-Geh-Exoskelette (Abschnitt 2) unterstuetzen die Hueftbewegung, tragen aber
-kein Ruestungsgewicht zum Boden. Tragende Industrie-Exoskelette verfolgen einen
-anderen Ansatz: Sie leiten Last von den Schultern oder vom Ruecken ueber eine
-starre Struktur in eine Hueft- oder Beinauflage. Genau diese Funktion braucht
-ein schwerer MJOLNIR-Aufbau.
+Nachrecherche: 2026-11-17. Die folgende Einordnung ersetzt die bisherige
+unzutreffende Empfehlung, Festool EXO 18 als tragenden Ruestungskern zu verwenden.
 
-### 2a.1 Festool EXO 18 als konkreter Kandidat
-
-**Festool Akku-Exoskelett EXO 18 HPC 4,0 I-Plus** (18 V):
-
-| Angabe | Wert | Quelle |
+| Referenz | Belegte Funktion | Bedeutung fuer diesen Aufbau |
 | --- | --- | --- |
-| Unterstuetzte Last | bis 18 kg | [Festool Produktseite](https://www.festool.de/produkte/exo-18-hpc-40-i-plus/576000) |
-| Eigengewicht | ca. 3.2 kg (mit Akku) | [Festool Produktseite](https://www.festool.de/produkte/exo-18-hpc-40-i-plus/576000) |
-| Akku | 18 V, 4.0 Ah HighPower | [Festool Akku-Exoskelett EXO 18 HPC 4,0 I-Plus](https://www.festool.de/produkte/exo-18-hpc-40-i-plus/576000) |
-| Passform | Schultergurte, Hueftgurt, verstellbar | [Festool Produktseite](https://www.festool.de/produkte/exo-18-hpc-40-i-plus/576000) |
-| Preis | ca. 500 EUR | Festool Haendler |
+| [Wandercraft Atalante X](https://www.wandercraft.eu/atalante) | Selbstbalancierendes Rehabilitationssystem mit 12 Motoren | Im verlinkten X-Beitrag benannt; keine passive Vorlage oder Freigabe fuer DIY-Gelenke und eigene Balance-Regelung |
+| [Mawashi UPRISE](https://www.mawashi.net/en/uprise) | Passives System mit gelenkiger Lastleitung zum Boden | Passende Funktionsreferenz fuer einen Bodenrahmen; keine uebertragbaren Last-/Passformwerte fuer unseren Entwurf |
+| [Mehler Protection ExoM](https://mehler-protection.com/products/exom-exoskeleton/) | Schutzsystem mit integriertem passivem Exoskelett auf UPRISE-Basis | Referenz fuer die Verbindung von Verkleidung und Laststruktur, kein Halo-Bausatz |
+| [Festool ExoActive EXO 18](https://www.festool.de/produkte/exoskelett/exoskelett/577339---exo-18-hpc-4,0-i-plus) | Aktive Ueberkopf-Armunterstuetzung, laut Hersteller bis 50 N pro Arm | Kein Bodenrahmen; die frueheren Angaben zu 18 kg Ruestungslast und ca. 500 EUR werden nicht weiterverwendet |
 
-Angaben sind Herstellerangaben, keine Messung am Projekt. Aktueller Preis,
-Revision und Lieferumfang sind vor Kauf zu pruefen. Das EXO 18 ist ein
-Werkzeug-Exoskelett fuer wiederholtes Heben, kein Ruestungstraeger. Die
-18-kg-Angabe gilt fuer zentrisch gefuehrte Lasten, nicht fuer eine
-Ruestungsschale mit ungleichmaessiger Lastverteilung.
+Herstellerangaben zur prozentualen Entlastung werden nicht zum Projektziel
+umgerechnet. Die [Studie zu passiver Lastabstuetzung beim Stehen und Gehen](https://pubmed.ncbi.nlm.nih.gov/38703721/)
+zeigt, warum beide Lastfaelle getrennt gemessen werden muessen: Die untersuchte
+Konfiguration entlastete im Stehen, zeigte beim Gehen aber keine entsprechende
+Verringerung der gemessenen Belastung der Person. Auch ein passiver Rahmen
+kann Zusatzmasse und Bewegungswiderstand verursachen.
 
-**Was das EXO 18 nicht leistet:**
+Der erste [X-Beitrag vom 2026-11-09](https://x.com/Ronald_vanLoon/status/2119925518107574551)
+bezeichnet das gezeigte System als Atalante X. Diese Zuordnung wurde anhand
+der oeffentlichen Beitragsmetadaten geprueft; das Video wurde nicht vollstaendig
+analysiert und liefert keine uebernommenen Konstruktionsmasse.
 
-- Es ersetzt keinen eigenen Tragerahmen: Ruestungsschalen brauchen eigene
-  Befestigungspunkte, die das EXO 18 nicht mitbringt.
-- Es traegt nicht das gesamte Ruestungsgewicht zum Boden: Der Koerper traegt
-  weiterhin einen Teil, und die Lastverteilung haengt von der Schalenform ab.
-- Es hat keine Freigabe fuer verkleideten Einsatz oder Umbauten. Originalgurte,
-  Akkufach und Elektronik bleiben unveraendert.
-
-### 2a.2 Konzept: EXO 18 als tragender Kern des eigenen Traegers
-
-Das EXO 18 wird als tragender Kern des eigenen Tragers T01 verwendet, ohne
-mechanische oder elektrische Veraenderung am Geraet. Die Ruestungsschale
-bekommt eigene Anbaupunkte, die nur an den vom Hersteller vorgesehenen
-Montagepunkten oder an einer separat bemessenen Kostuemhalterung ansetzen.
-
-Konzept in fuenf Schritten:
-
-1. **Lastpfad klaeren:** Ruestungsgewicht fliesst von der Schale ueber eigene
-   Anbaupunkte in die EXO-Schultergurte und von dort ueber die EXO-Struktur in
-   die Hueftauflage. Keine Last ueber Gelenke, Motoren oder Sensoren des Geraets.
-2. **Freihaltebereiche aufnehmen:** Motoren, bewegte Hebel, Akkuentriegelung
-   und Bedienelemente als CAD-Volumina erfassen, inklusive Bewegungsraum und
-   Wartungszugang. Keine dichte Verkleidung um die Lueftung.
-3. **Schale aufteilen:** Ruestungsschalen um die Freihaltebereiche aufteilen,
-   mit loesbaren Verbindungen zum Trager. Schnellabwurf bleibt moeglich.
-4. **Gurtlage pruefen:** EXO-Originalgurte und eigene Polsterung gemeinsam
-   anprobieren. Ueberlagern sich Druckzonen oder rutschen Gurte, ist dieser
-   Aufbau nicht kompatibel.
-5. **Passprobe unter Last:** Zuerst stromlos mit Mockup-Gewicht, dann mit
-   realer Ruestungslast und Temperatur. Erst nach bestandener Probe wird der
-   Aufbau als tragend bezeichnet.
-
-### 2a.3 Notausstieg und Nachweise
-
-Das EXO 18 bleibt jederzeit stromlos entfernbar. Der eigene Trager und die
-Schale muessen getrennt vom Geraet abnehmbar sein, ohne dass Motoren, Gurte
-oder Akku blockieren. Ein Notausstieg unter Zeitdruck wird mit Handschuhen und
-ohne Werkzeug geuebt.
-
-| Pruefung | Ergebnis derzeit | Abbruchkriterium |
-| --- | --- | --- |
-| EXO 18 passt nach Originalanleitung | Offen | Ausserhalb Herstellerbereich / Passform ungeklaert |
-| Eigene Schale an vom Hersteller vorgesehenen Punkten | Offen | Kein dokumentierter Anbaupunkt / Lastpfad ungeklaert |
-| Volle Bewegung ohne Fremdkontakt | Offen | Schale beruehrt Hebel, Motor oder Sensor |
-| Akku und Abschaltung erreichbar | Offen | Ruestung muss dafuer demontiert werden |
-| Notausstieg stromlos mit Handschuhen | Offen | Befreiung erfordert Werkzeug oder Demontage |
-
-Alternative tragende Systeme wie German Bionic Apogee sind grosser, teurer und
-ebenfalls nicht fuer verkleideten Einsatz freigegeben. Sie bleiben hier als
-Referenz genannt, nicht als Kaufkandidat.
-
-### 2a.4 zEXO BodyOS als offene Exo-Plattform (Referenz)
-
-Ascentiz hat auf der IFA 2026 **BodyOS** vorgestellt, eine offene
-Entwicklerplattform fuer tragbare Robotik rund um die eigenen Hueft-Exos
-(H PRO / H Ultra). Konzept:
-
-- **Mechanische Ebene:** Der Exo-Guertel ist eine definierte Schnittstelle fuer
-  selbst gedruckte oder gefraesste Anbauteile. Sensorhalter, Zubehoertraeger
-  oder Schutzbuegel lassen sich montieren, ohne das Exo umzubauen.
-- **Hardware-Ebene:** Das Rechenmodul (B-Core Pi 1) bietet Bluetooth, USB,
-  RJ45, Kameraeingang, CAN-FD und RS485 fuer externe Sensoren und Aktoren.
-- **Daten-Ebene:** Eine offene API gibt qualifizierten Entwicklern Zugriff auf
-  Exoskelett-Bewegungsdaten (Gang, Hueftwinkel, Kraftprofile).
-- **Software-Ebene:** BodyOS-SDK mit Bibliotheken, Beispielen und Dokumentation.
-
-[Hersteller-Blog: BodyOS auf der IFA 2026](https://ascentizexo.com/de-de/blogs/news/bodyos-wearable-robotics-developer-platform/)
-
-**Relevanz fuer dieses Projekt:** Das Konzept deckt sich mit der T01-Idee
-(eigener Trager als mechanische Schnittstelle, Geraet bleibt unveraendert).
-Anders als beim Festool EXO 18 gibt es hier eine offene API und eine
-entwicklerfreundliche Hardware-Schnittstelle. Fuer den MJOLNIR-Einsatz waere
-das interessant, wenn:
-
-1. Das Hueft-Exo (H PRO/Ultra) nach Herstellerangabe Ruestungsgewicht
-   unterstuetzt (Geh-Unterstuetzung ist dokumentiert, Lastabstuetzung wie beim
-   Hypershell ausdrücklich NICHT im Funktionsumfang).
-2. Die offene API auch ohne kommerzielle Entwicklerlizenz fuer ein
-   nicht-kommerzielles Fan-Projekt nutzbar ist.
-3. Das Rechenmodul in das Strombudget passt (keine Angaben im Blog).
-
-**Status:** Referenz, kein Kaufkandidat. Preis, Verfuegbarkeit und
-API-Bedingungen sind im Blog nicht genannt. Bei Interesse vor einem Kauf
-direkt beim Hersteller anfragen (API-Lizenz, Lastangaben, Stromverbrauch).
+Die zuvor erwaehnte BodyOS-/Ascentiz-Plattform ist fuer diesen Entwurf nicht
+als Schnittstelle ausgewaehlt. Konkrete API-, Hardware-, Lizenz- und Lastangaben
+sind hier nicht durch gepruefte Originalunterlagen belegt. Sie begruenden
+weder eine Anbauentscheidung noch eine Lastabstuetzung.
 
 ## 3. Eigener passiver Traeger T01
 
@@ -182,6 +106,103 @@ verschraubte oder angenaehte Fremdanbauten. Original-Trageprodukte werden nicht
 umgebaut; geeignete Hersteller-Anbaupunkte oder ein separat bemessener
 Kostuemtraeger sind erforderlich. Ohne realen Lastfall wird kein Aluquerschnitt
 oder Filament als fertig bemessen bezeichnet.
+
+## 3a. Neues Entwicklungsziel: Ruestungslast zum Boden
+
+**Entscheidung vom 2026-11-17:** Der gewuenschte Ausbau soll Ruestungsgewicht
+ueber ein Gestell zum Boden ableiten. Als erste zu untersuchende Architektur
+wird ein passiver Bodenrahmen vorgesehen. Motoren, Kraftverstaerkung und
+Selbstbalance sind keine Voraussetzung dieses Lastpfadkonzepts und keine
+bereits implementierte Funktion.
+
+```mermaid
+flowchart TD
+    A["Ruestung und Servicepod"] --> B["Mechanische Schalenaufnahmen"]
+    B --> C["Ruecken- und Beckenrahmen B01"]
+    C --> D["Hueftmodule B02 L/R"]
+    D --> E["Oberschenkelstreben und Kniemodule B03 L/R"]
+    E --> F["Unterschenkelstreben und Sprunggelenkmodule B04 L/R"]
+    F --> G["Tragende Fussaufnahmen B05 L/R"]
+    G --> H["Bodenkontakt des jeweiligen Standbeins"]
+    C -.-> I["Koerperkontakte: Fuehrung, Restlast und Kippmomente"]
+```
+
+Das Diagramm zeigt den gewuenschten Lastpfad. Es ist kein Nachweis, dass jede
+Schale bereits daran angeschlossen ist oder dass alle Lasten am Koerper
+vorbeigefuehrt werden. Arm- und Beinschalen bleiben am Koerper getragen, bis
+fuer sie eine eigene bewegliche Lastaufnahme entwickelt und geprueft ist.
+
+### Bauraeume und noch zu konstruierende Schnittstellen
+
+Die B-IDs bezeichnen neue Konzeptbaugruppen, keine vorhandenen CAD-Teile.
+
+| ID | Aufgabe | Erforderliche Klaerung vor Detail-CAD |
+| --- | --- | --- |
+| B01 | Ruecken-/Beckenrahmen nimmt Torso und Akku auf | Teilmassen, Schwerpunkt, Torsion, erreichbare Einstiegsoeffnung und Lastumleitung bei einseitigem Stand |
+| B02-L/R | Bewegliche Verbindung vom Becken zu den Beinen | Hueftbeugung, seitliche Bewegung und Rotation; keine auf eine Achse reduzierte Huefte |
+| B03-L/R | Oberschenkellastpfad und bewegliche Kniekopplung | Veraenderliche Kniekinematik und notwendiger Ausgleich; kein beliebig platzierter einfacher Scharnierbolzen |
+| B04-L/R | Unterschenkellastpfad und bewegliche Knoechelkopplung | Abrollen, seitliche Anpassung und Kollisionsfreiheit; Standbein- und Schwungbeinverhalten |
+| B05-L/R | Kraftuebergang vom Rahmen bis zur Laufflaeche | Tatsaechlich tragende Schuh-/Sohlenschnittstelle mit Abrollen, Traktion und werkzeuglosem Ausstieg |
+
+Kosmetische Schuhcover F01 und vorhandene Schuhe bilden allein noch keine
+Rahmenabstuetzung. Ob ein geeigneter Schuh in B05 integriert werden kann oder
+eine eigene Fusskonstruktion notwendig ist, bleibt offen. Sohlendicke,
+Bodenfreiheit und veraenderte Standhoehe werden gemessen; die bisherige Zusage
+eines unveraenderten normalen Schuhaufbaus gilt fuer diese Variante nicht.
+
+Gelenkpositionen, Beinlaengen und Bewegungsraeume muessen an der konkreten
+Person aufgenommen werden; die 32 vorhandenen Profilmasse reichen dafuer
+nicht aus. Ein starrer Rahmen darf keine abweichende Gelenkachse erzwingen.
+Ausgleichsfreiheiten und Abstimmung zwischen Stabilitaet und Beweglichkeit
+sind eigene Konstruktionsarbeit. Passiv bedeutet nicht automatisch frei
+beweglich oder gegen Einknicken und Umkippen gesichert.
+
+### Stehen, Gehen und Einstieg getrennt entwickeln
+
+Beim beidbeinigen Stand kann der Rahmen Last auf zwei Fussaufnahmen verteilen.
+Im Schritt muss die angeschlossene Last ueber das jeweilige Standbein
+abgestuetzt werden; das Schwungbein hat keinen Bodenkontakt. Wie der passive
+Rahmen diese Umverteilung erlaubt, ohne Knie/Huefte zu blockieren oder die
+Last wieder auf den Koerper zu geben, ist die zentrale offene Konstruktionsfrage.
+Ein im Stehen tragendes Mockup ist daher noch kein gehfaehiges Exoskelett.
+
+Die aufklappenden Schalen und Neodym-Anlegehilfen bleiben als Bedienprinzip
+erhalten. Fuer den tragenden Lastpfad sind bemessene mechanische Verbindungen
+mit definierter Sicherung erforderlich; die vorhandenen gedruckten Magnethalter
+positionieren abnehmbare Dekorteile. Sie tragen weder Rahmenlast noch dienen
+sie als Gelenkverriegelung. Lasttragende Trennstellen werden erst entlastet und
+dann geoeffnet; ein Panel-Abwurf darf keinen belasteten Rahmen entriegeln.
+
+Der [bisherige Solo-Einstieg](Mjolnir-Selbstanziehen.md) ist eine Vorlage fuer
+die Schalen, kein bestandener Anziehversuch mit Bodenrahmen. Rahmen,
+Beinaufnahmen und Fussverschluesse brauchen einen eigenen erreichbaren
+Einstiegs- und Befreiungsablauf, auch sitzend und ohne Strom.
+
+### Nachweisfolge fuer den ersten Prototyp
+
+1. Massenblatt anlegen: jede Schale, Elektronik, Kabel, Schuhe und Rahmen wiegen;
+   Position und Schwerpunkt festhalten. Erwartete Entlastung nicht vorab von
+   diesem Gesamtgewicht abziehen.
+2. Ungetragenen Lastpfad mit Ersatzmassen pruefen: zunaechst beidseitige, dann
+   einseitige Bodenabstuetzung und seitliche Momente. Aufnahmen, Gelenkspiel,
+   Verformung und Entlastungsablauf dokumentieren. Querschnitte, Lager und
+   Befestigungen nach diesen Lastfaellen fachlich auslegen.
+3. Leichten, unbelasteten Kinematik-Prototyp pruefen: Beweglichkeit, Flucht der
+   Gelenke, Knieausgleich, Abrollen, Sitzen, Einstieg und vollstaendige Befreiung.
+   Keine schweren Ruestungsteile als erste Lastprobe am Menschen verwenden.
+4. Erst nach passender Mechanik kleine, dokumentierte Zusatzlasten mit
+   unabhaengiger Lastuebernahme und Hilfsperson erproben. Zuerst Stand,
+   Gewichtswechsel und einzelne Schritte auf ebener Flaeche; keine Treppen
+   aus einem bestandenen Standversuch ableiten.
+5. Restlasten an allen Koerperkontakten und Lasten im Rahmen gemeinsam erfassen.
+   Eine Waage unter den Fuessen misst auch das Koerpergewicht und kann allein
+   keine Entlastung belegen. Gleiche Ruestung ohne Rahmen als Vergleich nutzen,
+   das Eigengewicht des Rahmens mitbilanzieren und Stand/Gang separat berichten.
+
+**Aktueller Status:** Architektur und Pruefplan dokumentiert. Individuelle
+Kinematik, tragende CAD-Bauteile, Materialdimensionierung, Lastmessungen und
+gehfaehiger Hardwareprototyp fehlen noch. Die Option `exoskeleton` im
+Projektprofil erzeugt diesen Bodenrahmen nicht.
 
 ## 4. Integrationsraum fuer das Seriengeraet
 
@@ -225,6 +246,9 @@ und Passphase ist keine Veranstaltungserlaubnis erforderlich.
 
 ## 6. Entscheidungsfolge
 
+Fuer den gewaehlten Bodenrahmen gilt zuerst die Nachweisfolge aus Abschnitt 3a.
+Der T01-Entwurf bleibt eine separate, am Koerper getragene Variante.
+Fuer einen optionalen aktiven Hueftausbau gelten dagegen folgende Schritte:
 Zuerst Masse des ausgewaehlten Profils und Torso-Mockup, dann eigener leichter Traeger.
 Parallel kann eine Anprobe der beiden Seriengeraete erfolgen. Ergibt die Probe
 eine eindeutige Kompatibilitaet, werden die realen Geraetevolumina aufgenommen

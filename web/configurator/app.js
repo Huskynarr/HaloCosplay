@@ -247,6 +247,7 @@
       if (!active) active = records[0].id;
       events(); render(); $('workspace').hidden = false;
     } catch (error) {
+      if (window.HaloMonitoring) window.HaloMonitoring.captureException(error, 'configurator-start');
       message('Konfigurator konnte nicht starten. Das Repository ueber einen lokalen HTTP-Server oder GitHub Pages oeffnen; file:// unterstuetzt das Nachladen des Schemas nicht. ' + error.message, true);
     }
   }

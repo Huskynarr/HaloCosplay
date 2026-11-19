@@ -25,6 +25,49 @@ Auch ein transparentes Display reduziert oder veraendert die Durchsicht durch
 Rahmen, Leiterbahnen, Tinte, Reflexionen und leuchtende Bildinhalte. Die fruehere
 pauschale Zusage einer vollstaendig erhaltenen Sicht entfaellt.
 
+### 1.1 Neue Referenz: DIY-Brille und Spiegel-HUD
+
+Der [X-Beitrag vom 2026-11-15](https://x.com/Ronald_vanLoon/status/2121833860010807304)
+bewirbt eine DIY-AR-Brille fuer 8 USD. Beitragstext und Datum wurden am
+2026-11-17 ueber die oeffentlichen Beitragsmetadaten geprueft. Originalbauplan,
+vollstaendige Stueckliste, konkrete Optik und Gesamtpreis sind nicht
+unabhaengig bestaetigt; das Video wurde nicht vollstaendig analysiert. Daraus
+wird weder ein 8-USD-Helmbudget noch eine bereits nachgebaute Konstruktion.
+
+Als eigener Versuch ist folgende prinzipielle Anordnung vorgesehen. Sie wird
+nicht als identische Optik des verlinkten Videos ausgegeben:
+
+```mermaid
+flowchart LR
+    D["Kleines Display seitlich im Helm"] --> L["Abbildungs-/Kollimationsoptik"]
+    L --> C["Kleiner teildurchlaessiger Combiner"]
+    U["Reale Umgebung durch Visier"] --> C
+    C --> A["Ein Auge: Umgebung und virtuelles Statusbild"]
+```
+
+Die Abbildungsoptik erzeugt die gewuenschte virtuelle Bildweite; ein
+teildurchlaessiger Spiegel fuehrt das Bild zur Durchsicht hinzu. Ein Spiegel
+allein macht ein nahe gelegenes Display nicht zu einem bequem fokussierbaren
+HUD. Das optische Grundprinzip ist beispielsweise in den
+[HUD-Optiken von Knight Optical](https://www.knightoptical.com/application/head-up-display-hud-optics/)
+beschrieben. Brennweite, Displaylage, Combinerwinkel und Eyebox werden gemeinsam
+ausgelegt; hier wird kein pauschaler Montagewinkel als fertig passend angegeben.
+
+Fuer den ersten Tischversuch wird ein kleiner separater, ebener Combiner
+vorgesehen. Das gekruemmte Goldvisier wird zunaechst nur als aeussere
+Durchsicht behandelt; seine Eignung als reflektierende Abbildungsflaeche ist
+nicht nachgewiesen. Doppelbilder und Verzerrungen werden am realen Visiermuster
+geprueft. Mehrere transparente Panels im Sichtfeld sind vorerst nicht vorgesehen.
+
+Der Versuch beginnt ausserhalb des Helms mit einem Statussymbol. Erst wenn
+Bildschaerfe, nutzbare Augenpositionen, Helligkeit und Durchsicht passen, folgt
+eine justierbare, von Hand wegklappbare Helmkassette. Zentraler Blick und
+Bodensicht bleiben frei. Innen lesbares HUD und von aussen sichtbare
+Visiereffekte sind getrennte Anforderungen; ein bestandener Dekoversuch
+bestaetigt keine Lesbarkeit am Auge. Teileauswahl und Kosten folgen dem
+optischen Tischmuster; die Reserve in Abschnitt 2.1 gehoert zum vollstaendigen
+Optik-/Brillenpfad und ist kein ermittelter Preis dieses DIY-Versuchs.
+
 ## 2. Fertige Near-Eye-Optik als bevorzugter Ausbau
 
 Stand der Herstellerrecherche: 2026-10-28. Fuer das funktionsfaehige Helm-HUD
