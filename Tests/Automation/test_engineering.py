@@ -83,6 +83,17 @@ class EngineeringTests(unittest.TestCase):
         self.assertLess(edges[0]["restoring_moment_nm"], 0)
         self.assertEqual(edges[0]["finding"], "nonpositive_static_moment_difference")
 
+    def test_stand_reports_ratio_and_flags_thin_margin(self):
+        edge = {e["edge"]: e for e in engineering.calculate(self.demo)["stand_edges"]}["+x"]
+        self.assertAlmostEqual(edge["stability_ratio"], 30 * 9.80665 * 0.35 / 30)
+        self.assertEqual(edge["finding"], "positive_static_moment_difference")
+        # Restoring moment only just above the overturning moment is not "fine".
+        self.demo["stand"]["force_x_n"] *= edge["stability_ratio"] / 1.2
+        thin = {e["edge"]: e for e in engineering.calculate(self.demo)["stand_edges"]}["+x"]
+        self.assertGreater(thin["moment_difference_nm"], 0)
+        self.assertEqual(thin["finding"], "below_reference_stability_factor")
+        self.assertIn("below_reference_stability_factor", engineering.render(engineering.calculate(self.demo)))
+
     def test_no_load_does_not_produce_infinite_runtime(self):
         for rail in self.demo["rails"]:
             rail["idle_input_w"] = 0

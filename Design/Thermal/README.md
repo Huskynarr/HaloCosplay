@@ -73,6 +73,11 @@ positiven Widerstand als scheinbar brauchbaren Zielwert. Ohne Waermeleistung
 entsteht keine sinnvolle Widerstandsobergrenze. Die jeweils konkrete Begruendung
 steht in `surface_resistance_bound_note`.
 
+Der Rechner gibt keine Grenzwerte vor, meldet aber unter `input_notes`
+auffaellige Eingaben: eine Oberflaechengrenze ueber 48 Grad C (nur fuer
+unberuehrbare Flaechen sinnvoll) sowie Luftdichte oder Waermekapazitaet
+ausserhalb ueblicher Werte fuer Luft (Einheitenfehler).
+
 Ein Katalogwert Junction-to-case darf nicht als kompletter Junction-to-sink-Pfad
 uebernommen werden. Leiterplatte, Isolierfolie, Kontakt, Klebung und Geometrie
 gehoeren zum Pfad. Das vereinfachte Modell nimmt einen gleichmaessig temperierten

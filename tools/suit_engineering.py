@@ -10,6 +10,9 @@ import sys
 
 ROOT = Path(__file__).resolve().parents[1]
 GRAVITY_M_S2 = 9.80665
+# Restoring/overturning moment below this ratio is flagged; a bare positive
+# difference leaves no room for dynamic pushes or uneven floors.
+STAND_REFERENCE_FACTOR = 1.5
 NAME = re.compile(r"[A-Za-z0-9][A-Za-z0-9 ._-]{0,63}\Z")
 
 
@@ -179,11 +182,14 @@ def calculate(data):
             lever = None if None in (width, offset) else width / 2 - sign * offset
             restoring = product(values["total_mass_kg"], GRAVITY_M_S2, lever)
             margin = None if None in (restoring, overturning) else restoring - overturning
+            ratio = None if margin is None or overturning <= 0 else restoring / overturning
             edges.append({"edge": direction + axis, "gravity_lever_m": lever,
                           "restoring_moment_nm": restoring, "overturning_moment_nm": overturning,
-                          "moment_difference_nm": margin,
+                          "moment_difference_nm": margin, "stability_ratio": ratio,
                           "finding": "missing_inputs" if margin is None else
-                          "positive_static_moment_difference" if margin > 0 else "nonpositive_static_moment_difference"})
+                          "nonpositive_static_moment_difference" if margin <= 0 else
+                          "below_reference_stability_factor" if ratio is not None and ratio < STAND_REFERENCE_FACTOR else
+                          "positive_static_moment_difference"})
     result = {"schema_version": 1, "project": project, "input_status": data["status"],
               "hardware_approved": False, "model": "electrical_average_and_quasistatic_only",
               "gravity_m_s2": GRAVITY_M_S2, "missing_inputs": missing,
@@ -231,10 +237,12 @@ def render(report):
     lines += ["", "## Sockel: vier Kippkanten", "",
               "Vier getrennte unguenstige Richtungsfaelle: Jeder Kraftbetrag wird gegen beide",
               "Kanten seiner Achse angesetzt. Kein einzelner gleichzeitiger Kraftvektor.", "",
-              "| Kante | Gewichtskraft-Hebel m | Rueckstellmoment Nm | Kippmoment Nm | Differenz Nm | Befund |",
-              "| --- | ---: | ---: | ---: | ---: | --- |"]
+              f"Verhaeltnis = Rueckstell-/Kippmoment; unter {STAND_REFERENCE_FACTOR:g} gilt der Fall als knapp",
+              "(`below_reference_stability_factor`). Der Wert ist ein Rechenhinweis, kein Nachweis.", "",
+              "| Kante | Gewichtskraft-Hebel m | Rueckstellmoment Nm | Kippmoment Nm | Differenz Nm | Verhaeltnis | Befund |",
+              "| --- | ---: | ---: | ---: | ---: | ---: | --- |"]
     for edge in report["stand_edges"]:
-        keys = ("gravity_lever_m", "restoring_moment_nm", "overturning_moment_nm", "moment_difference_nm")
+        keys = ("gravity_lever_m", "restoring_moment_nm", "overturning_moment_nm", "moment_difference_nm", "stability_ratio")
         lines.append("| " + edge["edge"] + " | " + " | ".join(display(edge[k]) for k in keys) + " | `" + edge["finding"] + "` |")
     lines += ["", "## Fehlende Eingaben", ""]
     lines += [f"- `{field}`" for field in report["missing_inputs"]] or ["Keine leeren Eingabefelder. Die Daten sind dadurch nicht praktisch bestaetigt."]

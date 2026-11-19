@@ -134,6 +134,33 @@ class FitTests(unittest.TestCase):
                                  (ROOT/"Design/Parametric/Generated"/name).read_bytes(), name)
             ET.parse(Path(tmp)/"OpeningEnvelope.svg")
 
+    def test_plausibility_warnings_do_not_block_but_are_reported(self):
+        profile = self.complete()
+        self.assertEqual(suit_fit.derive(profile)["plausibility_warnings"], [])
+        profile["measurements_mm"]["upperarm_length_r"] = profile["measurements_mm"]["upperarm_length_l"] * 1.4
+        report = suit_fit.derive(profile)
+        self.assertTrue(any(text.startswith("upperarm_length:") for text in report["plausibility_warnings"]))
+        self.assertIn("Plausibilitaetshinweise", suit_fit.report_md(report))
+
+    def test_oversized_entry_slide_fails_before_any_file_is_written(self):
+        profile = self.complete()
+        low, high = suit_fit.bounds("shoulder_width")
+        profile["measurements_mm"]["shoulder_width"] = high
+        for key in ("chest_width", "abdomen_width", "hip_width"):
+            profile["measurements_mm"][key] = suit_fit.bounds(key)[0]
+        with self.assertRaisesRegex(ValueError, "Seitenauszug"):
+            suit_fit.derive(profile)
+
+    def test_huge_integer_is_a_value_error_and_synthetic_needs_concept(self):
+        profile = self.complete()
+        profile["measurements_mm"]["height"] = 10 ** 400
+        with self.assertRaises(ValueError):
+            suit_fit.derive(profile)
+        with tempfile.TemporaryDirectory() as tmp:
+            out = Path(tmp)/"absent"
+            self.assertEqual(suit_fit.main(["--profile", str(suit_fit.DEMO_PROFILE), "--out", str(out)]), 2)
+            self.assertFalse(out.exists())
+
     def test_cli_refuses_unknowns_without_creating_output(self):
         with tempfile.TemporaryDirectory() as tmp:
             out = Path(tmp)/"absent"

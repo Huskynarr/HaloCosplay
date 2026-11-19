@@ -40,7 +40,8 @@ class HardwarePackageTests(unittest.TestCase):
         defaults, _ = suit_hardware.configuration()
         key = next(iter(defaults))
         for value in ({'invented_key': 2}, {key: '1; cube(999);'},
-                      {key: float('nan')}, {key: True}, {key: float('inf')}, []):
+                      {key: float('nan')}, {key: True}, {key: float('inf')}, [],
+                      {'wall': -50}, {'clearance': 0}, {key: defaults[key]*6}, {key: defaults[key]/6}):
             with self.subTest(value=value):
                 config = self.root/'input.json'; config.write_text(json.dumps(value))
                 out = self.root/'invalid'
