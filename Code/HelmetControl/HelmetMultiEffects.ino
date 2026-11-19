@@ -107,6 +107,7 @@ void setup() {
   // (kein hoerbares Pfeifen des Luefters direkt am Ohr)
   TCCR1B = (TCCR1B & 0b11111000) | 0x01;
 
+  analogWrite(FAN_PIN, fanSpeed);   // Luefter laeuft schon waehrend der Boot-Animation
   visor.begin();
   visor.setBrightness(visorBrightness);
   bootSequence();

@@ -71,16 +71,35 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+
+      # Der Job laeuft immer (bleibt als Pflicht-Check nutzbar), kompiliert bei
+      # Pull Requests aber nur, wenn Sketches oder dieser Workflow geaendert wurden.
+      - name: Betroffene Dateien pruefen
+        id: changed
+        run: |
+          if [ "${{ github.event_name }}" != "pull_request" ]; then
+            echo "run=true" >> "$GITHUB_OUTPUT"
+          elif git diff --name-only HEAD^1 HEAD | grep -qE '\.(ino|h|cpp)$|^\.github/workflows/ci\.yml$'; then
+            echo "run=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "run=false" >> "$GITHUB_OUTPUT"
+            echo "Keine Sketch-Aenderungen, Kompilierung uebersprungen."
+          fi
 
       - uses: arduino/setup-arduino-cli@v2
+        if: steps.changed.outputs.run == 'true'
 
       - name: Cores und Libraries cachen
+        if: steps.changed.outputs.run == 'true'
         uses: actions/cache@v4
         with:
           path: ~/.arduino15
           key: arduino15-avr-esp32-3.3.13
 
       - name: Cores installieren
+        if: steps.changed.outputs.run == 'true'
         run: |
           arduino-cli core update-index --additional-urls https://espressif.github.io/arduino-esp32/package_esp32_index.json
           arduino-cli core install arduino:avr
@@ -88,9 +107,11 @@ jobs:
           arduino-cli core install esp32:esp32@3.3.13 --additional-urls https://espressif.github.io/arduino-esp32/package_esp32_index.json
 
       - name: Libraries installieren
+        if: steps.changed.outputs.run == 'true'
         run: arduino-cli lib install "Adafruit NeoPixel" "Adafruit GFX Library" "Adafruit SSD1306" "JC_Button" "ArduinoJson"
 
       - name: AVR-Sketches kompilieren (Arduino Nano)
+        if: steps.changed.outputs.run == 'true'
         run: |
           fail=0
           for f in Code/HelmetControl/MainControlCode.ino \
@@ -111,9 +132,11 @@ jobs:
           exit $fail
 
       - name: ESP32-Sketch kompilieren (SensorFeeder)
+        if: steps.changed.outputs.run == 'true'
         run: arduino-cli compile --fqbn esp32:esp32:esp32 Code/HelmetControl/AR/SensorFeeder
 
       - name: ESP32-S3-Sketch kompilieren (Cortana-Chip)
+        if: steps.changed.outputs.run == 'true'
         run: |
           tmp=$(mktemp -d)
           mkdir "$tmp/cortana_chip"
