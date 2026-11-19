@@ -65,7 +65,8 @@
   }
 
   function render() {
-    element('reserve').value = data.contingency_fraction * 100;
+    // 0.07 * 100 is 7.000000000000001 in binary floating point; show the entered percentage.
+    element('reserve').value = Number((data.contingency_fraction * 100).toFixed(6));
     element('target').value = data.wearable_target_g;
     element('excluded').value = data.excluded.join('\n');
     const container = element('items');
