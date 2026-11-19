@@ -798,5 +798,20 @@
     });
     window.addEventListener("hashchange", route);
     route();
+    registerOffline();
   });
+
+  // Offline copy of the guides (sw.js at the site root). Optional: every failure is ignored.
+  function registerOffline() {
+    if (!("serviceWorker" in navigator) || !window.isSecureContext) return;
+    navigator.serviceWorker.register(ROOT + "sw.js", { scope: ROOT }).then(function () {
+      return navigator.serviceWorker.ready;
+    }).then(function (registration) {
+      navigator.serviceWorker.addEventListener("message", function (ev) {
+        if (ev.data && ev.data.type === "precached") document.documentElement.setAttribute("data-offline-guides", String(ev.data.stored));
+      });
+      var files = collectSearchFiles().map(function (entry) { return entry.file; });
+      if (registration.active) registration.active.postMessage({ type: "precache", files: files });
+    }).catch(function () {});
+  }
 })();

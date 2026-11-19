@@ -33,7 +33,8 @@ async function downloadJSON(page, button) {
   let browser;
   try {
     browser = await chromium.launch({headless: true});
-    const context = await browser.newContext({viewport: {width: 1440, height: 1000}, acceptDownloads: true});
+    // Service workers are blocked here so page.route() sees every request; the offline test below uses its own context.
+    const context = await browser.newContext({viewport: {width: 1440, height: 1000}, acceptDownloads: true, serviceWorkers: 'block'});
     const page = await context.newPage();
     const errors = [];
     page.on('pageerror', error => errors.push(error.message));
@@ -283,7 +284,22 @@ async function downloadJSON(page, button) {
     await page.locator('#project-clear').click();
     assert.doesNotMatch(await page.locator('#project-title').textContent(), /Suit-A/);
     assert.deepEqual(errors, [], 'No uncaught browser errors');
-    console.log('Browser smoke passed: profile isolation, persistence consent, schema-upgrade backup, JSON round trips, sanitized guides, section links, route validation, CSP, budget totals, mobile width, product filters/affiliate/selection export-import, exhibition reset.');
+    // Offline: after one online visit the shell and every guide of content.js are readable without network.
+    const offlineContext = await browser.newContext({viewport: {width: 1280, height: 900}});
+    const offlinePage = await offlineContext.newPage();
+    await offlinePage.goto(base + '/web/index.html');
+    await offlinePage.waitForFunction(() => Number(document.documentElement.dataset.offlineGuides) > 50, null, {timeout: 60000});
+    await offlineContext.setOffline(true);
+    await offlinePage.goto(base + '/web/index.html#Documentation/Guides/Sicherheit.md');
+    await offlinePage.locator('#doc h1').waitFor();
+    assert.equal(await offlinePage.evaluate(() => document.fonts.check('16px Barlow')), true, 'Fonts come from the offline cache');
+    await offlinePage.goto(base + '/web/index.html#Documentation/Guides/Checklisten.md');
+    await offlinePage.locator('#doc h1').waitFor();
+    await offlinePage.goto(base + '/web/configurator/');
+    await offlinePage.locator('h1').first().waitFor();
+    await offlineContext.close();
+
+    console.log('Browser smoke passed: profile isolation, persistence consent, schema-upgrade backup, JSON round trips, sanitized guides, section links, route validation, CSP, budget totals, mobile width, product filters/affiliate/selection export-import, exhibition reset, offline guides.');
   } finally {
     if (browser) await browser.close();
     await new Promise(resolve => server.close(resolve));
