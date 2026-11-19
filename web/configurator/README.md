@@ -43,6 +43,15 @@ wird bei erneutem Oeffnen wiederhergestellt; die Einstellung bleibt sichtbar.
 Das Deaktivieren entfernt ausschliesslich die Profilkopie dieses Konfigurators,
 nicht den Lesefortschritt des Bauhandbuchs oder bereits exportierte Dateien.
 
+Aendert sich das Formular (neue oder entfallene Felder), wird eine gespeicherte
+Kopie angepasst: fehlende Messwerte bleiben leer, unbekannte Felder entfallen,
+Werte werden weiterhin streng geprueft. Die unveraenderte fruehere Kopie und
+jede nicht lesbare Kopie bleibt als Sicherung im Browser und kann ueber
+"Sicherung der frueheren Browserkopie herunterladen" gesichert werden. Das
+Deaktivieren der Speicherung entfernt auch diese Sicherung. Kann die Browserkopie
+nach dem Entfernen eines Profils nicht aktualisiert werden, sagt die Meldung das
+ausdruecklich.
+
 Es werden keine Messwerte ueber das Netzwerk gesendet. Lediglich das gemeinsame
 Schema und nach ausdruecklicher Auswahl die synthetische Demo werden lokal vom
 gleichen Server geladen. Die Browser-Speicherung ist nicht verschluesselt und

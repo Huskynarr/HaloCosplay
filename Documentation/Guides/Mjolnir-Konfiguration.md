@@ -110,8 +110,11 @@ Reale Bauteilmasse und aktuelle Angebote ersetzen spaeter die Planwerte.
 Fuer das konkrete Projekt einen leeren Nachweisdatensatz anlegen:
 
 ```bash
-python3 tools/suit_readiness.py --init build/MySuit-readiness.local.json --project "My Suit" --revision "prototype-01"
+python3 tools/suit_readiness.py --init build/MySuit-readiness.local.json --project "My Suit" --revision "prototype-01" --profile build/MySuit.local.json
 ```
+
+Ohne Projektname und Profilbindung (`--profile`) kann kein Gate als bestanden
+gewertet werden.
 
 Die [Nachweisanleitung](../../Tests/TestReports/Mjolnir-Abnahme.md) beschreibt
 Pruefungen und Belege. Ein neuer Name oder ein ausgefuelltes Profil setzt

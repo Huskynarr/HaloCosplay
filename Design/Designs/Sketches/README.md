@@ -1,3 +1,4 @@
 # Sketches
 
-Skizzen und Konzeptzeichnungen fuer Helm und Ruestung. Einige Dateien sind Platzhalter.
+Ablage fuer eigene Skizzen und Konzeptzeichnungen zu Helm und Ruestung.
+Aktuell liegen hier keine Dateien.

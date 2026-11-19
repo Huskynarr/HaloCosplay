@@ -103,14 +103,49 @@ def log(*args):
     print(time.strftime("%H:%M:%S"), *args, flush=True)
 
 
+# Unter diesem PWM-Wert gilt der Luefter als gedrosselt: HelmetMultiEffects.ino
+# haelt solche Werte nur, solange der Pi sie regelmaessig bestaetigt (Failsafe).
+FAN_DEFAULT = 180
+FAN_KEEPALIVE_S = 3.0
+
+# Wird gesetzt, wenn ein Hintergrund-Thread unerwartet endet. main() beendet
+# sich dann mit Fehlercode, damit systemd (Restart=on-failure) neu startet -
+# sonst liefe der Prozess ohne Spracherkennung/Scanner scheinbar gesund weiter.
+WORKER_CRASHED = threading.Event()
+
+
+def spawn(name, target, *args):
+    """Daemon-Thread starten, dessen Absturz nicht unbemerkt bleibt."""
+    def runner():
+        try:
+            target(*args)
+        except Exception as exc:
+            log(f"Thread '{name}' abgestuerzt: {type(exc).__name__}: {exc}")
+            WORKER_CRASHED.set()
+    thread = threading.Thread(target=runner, name=name, daemon=True)
+    thread.start()
+    return thread
+
+
+def finite(value, default=0.0):
+    """Zahl als endlicher float; None, Text, NaN und inf ergeben default."""
+    try:
+        number = float(value)
+    except (TypeError, ValueError, OverflowError):
+        return default
+    return number if number == number and abs(number) != float("inf") else default
+
+
 def load_config(path):
     config = json.loads(json.dumps(DEFAULTS))
     if path and os.path.exists(path):
         with open(path, "r", encoding="utf-8") as handle:
             config.update(json.load(handle))
-    for key in ("vosk_model", "piper_voice", "state_path"):
+    for key in ("vosk_model", "piper_voice"):
         if config[key] and not os.path.isabs(config[key]):
             config[key] = os.path.join(BASE_DIR, config[key])
+    # Laufzeitdatei: folgt HUD_STATE_DIR wie HUD und Bruecken
+    config["state_path"] = hud_state.runtime_path(config["state_path"])
     if isinstance(config["helmet_addr"], str):
         config["helmet_addr"] = int(config["helmet_addr"], 0)
     return config
@@ -261,7 +296,10 @@ class HydrationTimer:
         self.enabled = True
         self.wake = threading.Event()
         self.stop = threading.Event()
-        threading.Thread(target=self._loop, daemon=True).start()
+        # Altes Flag aus einem frueheren Lauf (Absturz, Stromverlust) entfernen,
+        # sonst blinkt das Banner, bis jemand "wasser" sagt.
+        hud_state.merge(self.state_path, remove=("hydration_due",))
+        spawn("hydration", self._loop)
 
     def _loop(self):
         while not self.stop.is_set():
@@ -274,9 +312,12 @@ class HydrationTimer:
                 continue        # neu gestartet (getrunken/snooze) -> Intervall neu
             if not self.enabled:
                 continue        # deaktiviert
-            hud_state.merge(self.state_path, {"hydration_due": True})
-            self.out.say("Hydration erforderlich.")
-            self.out.beep("ok")
+            try:
+                hud_state.merge(self.state_path, {"hydration_due": True})
+                self.out.say("Hydration erforderlich.")
+                self.out.beep("ok")
+            except Exception as exc:   # Audiofehler darf den Timer nicht beenden
+                log("Hydration-Erinnerung fehlgeschlagen:", exc)
 
     def done(self):
         """Getrunken: Flag weg, Timer voll neu starten."""
@@ -399,7 +440,9 @@ class AudioEngine:
         self.ptt = False
         self.voice_on = True
         self.recognizer_ok = False
-        self.cmd_q = queue.Queue()
+        # Begrenzt: 3000 Bloecke = 30 s Sprache. Ohne Erkenner (Modell fehlt)
+        # wuerde die Schlange sonst bei jedem Tastendruck endlos wachsen.
+        self.cmd_q = queue.Queue(maxsize=3000)
         self.out_q = queue.Queue(maxsize=6)
 
         mic = self._find(cfg["mic_device"], "max_input_channels")
@@ -422,7 +465,7 @@ class AudioEngine:
         for stream in self.streams:
             stream.start()
         log(f"Audio laeuft ({self.rate} Hz, Helmfunk {'an' if self.fx else 'aus'})")
-        threading.Thread(target=self._vosk_loop, args=(cfg["vosk_model"],), daemon=True).start()
+        spawn("vosk", self._vosk_loop, cfg["vosk_model"])
 
     def _find(self, name, key):
         for i, dev in enumerate(self.sd.query_devices()):
@@ -445,8 +488,11 @@ class AudioEngine:
     # Echtzeit-Callbacks: nur rechnen, nie blockieren
     def _in_cb(self, indata, frames, t, status):
         x = indata[:, 0].copy()
-        if self.ptt:
-            self.cmd_q.put((np.clip(x, -1, 1) * 32767).astype(np.int16).tobytes())
+        if self.ptt and self.recognizer_ok:
+            try:
+                self.cmd_q.put_nowait((np.clip(x, -1, 1) * 32767).astype(np.int16).tobytes())
+            except queue.Full:              # Echtzeit-Callback: nie blockieren
+                pass
         if not self.out_ch:
             return
         y = self.fx.process(x) if (self.voice_on and not self.ptt) else np.zeros_like(x)
@@ -474,7 +520,12 @@ class AudioEngine:
 
     def ptt_up(self):
         self.ptt = False
-        self.cmd_q.put(None)
+        if not self.recognizer_ok:
+            return
+        try:
+            self.cmd_q.put(None, timeout=0.5)
+        except queue.Full:
+            log("Sprachpuffer voll - Aufnahme verworfen")
 
     def _vosk_loop(self, model_path):
         if not os.path.isdir(model_path):
@@ -493,14 +544,19 @@ class AudioEngine:
         parts = []
         while True:
             item = self.cmd_q.get()
-            if item is None:                 # Taster losgelassen -> auswerten
-                parts.append(json.loads(rec.FinalResult()).get("text", ""))
-                text = " ".join(parts).replace("[unk]", " ")
+            try:
+                if item is None:                 # Taster losgelassen -> auswerten
+                    parts.append(json.loads(rec.FinalResult()).get("text", ""))
+                    text = " ".join(parts).replace("[unk]", " ")
+                    parts = []
+                    rec.Reset()
+                    self.on_text(" ".join(text.split()))
+                elif rec.AcceptWaveform(item):
+                    parts.append(json.loads(rec.Result()).get("text", ""))
+            except Exception as exc:
+                # Ein fehlerhafter Befehl darf die Erkennung nicht beenden.
+                log(f"Befehl fehlgeschlagen: {type(exc).__name__}: {exc}")
                 parts = []
-                rec.Reset()
-                self.on_text(" ".join(text.split()))
-            elif rec.AcceptWaveform(item):
-                parts.append(json.loads(rec.Result()).get("text", ""))
 
 
 class Helmet:
@@ -518,7 +574,8 @@ class Helmet:
         self.commander = Commander(self)
         self.hydration_timer = self._try("Hydration-Timer", lambda: HydrationTimer(cfg, self))
         self._setup_gpio()
-        threading.Thread(target=self._scanner_loop, daemon=True).start()
+        spawn("scanner", self._scanner_loop)
+        spawn("fan-keepalive", self._fan_keepalive_loop)
 
     @staticmethod
     def _try(name, factory):
@@ -555,7 +612,7 @@ class Helmet:
         self.audio = self._try("Audio", lambda: AudioEngine(self.cfg, self.commander.handle))
 
     # --- Ausgaben fuer den Commander ---
-    def helmet(self, cmd, value):
+    def helmet(self, cmd, value, quiet=False):
         if self.bus is None:
             return
         values = value if isinstance(value, list) else [value]
@@ -566,8 +623,30 @@ class Helmet:
                 return
             except OSError:
                 time.sleep(0.05)
+        if not quiet or self.helmet_ok is not False:
+            log("Helm-Arduino antwortet nicht")
         self.helmet_ok = False
-        log("Helm-Arduino antwortet nicht")
+
+    def fan_keepalive(self):
+        """Gedrosselten/abgeschalteten Luefter bestaetigen (siehe FAN_DEFAULT).
+
+        Der Arduino kehrt ohne diese Bestaetigung nach ca. 10 s auf den
+        Standardwert zurueck. So bleibt "luefter aus" nur aus, solange dieser
+        Prozess lebt; stirbt der Pi, laeuft der Luefter wieder an.
+        """
+        fan = self.commander.fan
+        if fan < FAN_DEFAULT:
+            self.helmet(CMD_FAN, fan, quiet=True)
+            return True
+        return False
+
+    def _fan_keepalive_loop(self):
+        while True:
+            time.sleep(FAN_KEEPALIVE_S)
+            try:
+                self.fan_keepalive()
+            except Exception as exc:
+                log("Luefter-Keepalive fehlgeschlagen:", exc)
 
     def pulse(self, name):
         dev = self.outputs.get(name)
@@ -614,7 +693,7 @@ class Helmet:
 
     def status(self):
         state = hud_state.load(self.cfg["state_path"])
-        cam = "aktiv" if time.time() - float(state.get("vision_ts") or 0) < 3 else "aus"
+        cam = "aktiv" if time.time() - finite(state.get("vision_ts")) < 3 else "aus"
         helm = {True: "verbunden", False: "getrennt", None: "unbekannt"}[self.helmet_ok]
         self.say(f"Temperatur {cpu_temp():.0f} Grad. Helm {helm}. Kamera {cam}.")
 
@@ -626,7 +705,15 @@ class Helmet:
             self.pulse("boost")
             time.sleep(6.0)
             self.commander.set_effect(previous)
-        threading.Thread(target=run, daemon=True).start()
+        threading.Thread(target=self._guard, args=("show", run), daemon=True).start()
+
+    @staticmethod
+    def _guard(name, fn):
+        """Kurzlebige Aktion: Fehler protokollieren, Prozess nicht beenden."""
+        try:
+            fn()
+        except Exception as exc:
+            log(f"{name} fehlgeschlagen: {type(exc).__name__}: {exc}")
 
     # --- PTT ---
     def _ptt_down(self):
@@ -648,19 +735,28 @@ class Helmet:
             time.sleep(0.5)
             if not self.scanner:
                 continue
-            state = hud_state.load(self.cfg["state_path"])
-            if time.time() - float(state.get("vision_ts") or 0) > 2:
+            try:
+                self.scan_once(pause)
+            except Exception as exc:   # kaputte hud_state.json o.ae.: weiterlaufen
+                log(f"Scanner-Durchlauf fehlgeschlagen: {type(exc).__name__}: {exc}")
+
+    def scan_once(self, pause):
+        state = hud_state.load(self.cfg["state_path"])
+        if time.time() - finite(state.get("vision_ts")) > 2:
+            return
+        now = time.time()
+        contacts = state.get("vision_contacts")
+        for contact in contacts if isinstance(contacts, list) else []:
+            label = contact.get("label") if isinstance(contact, dict) else None
+            if not isinstance(label, str):
                 continue
-            now = time.time()
-            for contact in state.get("vision_contacts") or []:
-                label = contact.get("label") if isinstance(contact, dict) else None
-                name = self.cfg["announce"].get(label)
-                if not name or now - self.last_announce.get(label, 0) < pause:
-                    continue
-                self.last_announce[label] = now
-                bearing = float(contact.get("bearing") or 0)
-                side = "links" if bearing < -10 else "rechts" if bearing > 10 else "voraus"
-                self.say(f"{name} {side}.")
+            name = self.cfg["announce"].get(label)
+            if not name or now - self.last_announce.get(label, 0) < pause:
+                continue
+            self.last_announce[label] = now
+            bearing = finite(contact.get("bearing"))
+            side = "links" if bearing < -10 else "rechts" if bearing > 10 else "voraus"
+            self.say(f"{name} {side}.")
 
 
 # ============================== Selftest / Main ==============================
@@ -683,16 +779,71 @@ def test_hydration_timer():
     if os.path.exists(state):
         os.remove(state)
     rec = Recorder()
+    hud_state.merge(state, {"hydration_due": True, "ammo": 7})   # Rest eines frueheren Laufs
     timer = HydrationTimer({"state_path": state}, rec, interval_min=0.01)  # 0,6 s
+    after_start = hud_state.load(state)
+    ok_startup = "hydration_due" not in after_start and after_start.get("ammo") == 7
     time.sleep(0.9)
     ok_announce = ("say", "Hydration erforderlich.") in rec.calls
     ok_flag = hud_state.load(state).get("hydration_due") is True
     timer.done()
     ok_cleared = "hydration_due" not in hud_state.load(state)
     timer.stop.set()
-    failed = sum(not x for x in (ok_announce, ok_flag, ok_cleared))
+    failed = sum(not x for x in (ok_startup, ok_announce, ok_flag, ok_cleared))
     print(f"  [{'ok' if failed == 0 else 'FEHLER'}] Hydration-Timer: "
-          f"Ansage={ok_announce} Flag={ok_flag} done()={ok_cleared}")
+          f"Start-raeumt-auf={ok_startup} Ansage={ok_announce} Flag={ok_flag} done()={ok_cleared}")
+    return failed
+
+
+def test_robustness():
+    """Fehler in Threads/Eingaben duerfen nichts still beenden."""
+    failed = 0
+
+    def check(name, ok):
+        nonlocal failed
+        failed += not ok
+        print(f"  [{'ok' if ok else 'FEHLER'}] {name}")
+
+    state = os.path.join(tempfile.gettempdir(), "voice_robust_selftest.json")
+    helmet = Helmet(dict(DEFAULTS, state_path=state, piper_voice="/nonexistent"))
+    helmet.hydration_timer.stop.set()
+    said = []
+    helmet.say = said.append
+    hud_state.merge(state, {"vision_ts": "kaputt", "vision_contacts": "kein-array"})
+    try:
+        helmet.scan_once(1.0)
+        helmet.status()
+        ok = True
+    except Exception as exc:
+        print(f"      {type(exc).__name__}: {exc}")
+        ok = False
+    check("Scanner/Status vertragen kaputte vision-Werte", ok)
+    hud_state.merge(state, {"vision_ts": time.time(), "vision_contacts": [
+        {"label": ["liste"], "bearing": 0}, {"label": "person", "bearing": float("nan")}]})
+    try:
+        helmet.scan_once(1.0)
+        ok = True
+    except Exception as exc:
+        print(f"      {type(exc).__name__}: {exc}")
+        ok = False
+    check("Scanner vertraegt kaputte Kontakte", ok)
+
+    sent = []
+    helmet.bus = object()
+    helmet.helmet = lambda cmd, value, quiet=False: sent.append((cmd, value, quiet))
+    helmet.commander.fan = 0
+    kept = helmet.fan_keepalive()
+    helmet.commander.fan = 255
+    not_kept = helmet.fan_keepalive()
+    check("Luefter-Keepalive nur fuer gedrosselte Werte",
+          kept and not not_kept and sent == [(CMD_FAN, 0, True)])
+
+    WORKER_CRASHED.clear()
+    def boom():
+        raise RuntimeError("selftest")
+    spawn("selftest-crash", boom).join(1.0)
+    check("Abgestuerzter Thread wird gemeldet", WORKER_CRASHED.is_set())
+    WORKER_CRASHED.clear()
     return failed
 
 
@@ -741,6 +892,7 @@ def run_selftest():
         print(f"  [{'ok' if ok else 'FEHLER'}] {asciify(text):<18} -> {rec.calls}")
     failed += test_hydration_timer()
     failed += test_helmet_hydration_wiring()
+    failed += test_robustness()
     missing = [w for w in WORDS if SPOKEN.get(w, w) not in VOCAB]
     if missing or failed:
         sys.exit(f"Selftest fehlgeschlagen ({failed} Faelle, fehlende Woerter: {missing})")
@@ -768,10 +920,13 @@ def main():
     helmet.start_audio()
     helmet.say("Sprachsteuerung bereit.")
     try:
-        while True:
-            time.sleep(1)
+        while not WORKER_CRASHED.wait(1.0):
+            pass
     except KeyboardInterrupt:
         log("beendet")
+        return
+    log("Hintergrund-Thread ausgefallen - beende mit Fehlercode fuer systemd-Neustart")
+    sys.exit(1)
 
 
 if __name__ == "__main__":

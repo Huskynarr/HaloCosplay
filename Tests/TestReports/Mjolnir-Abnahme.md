@@ -58,7 +58,12 @@ python3 tools/suit_readiness.py --manifest build/SuitA/readiness.local.json --ou
 
 Das Profil muss bereits existieren. Standardwurzel fuer Profil-/Nachweisdateien
 ist das Repository; `--root` erlaubt eine eigene Projektwurzel. Alle referenzierten
-Dateien muessen darin liegen. Die optionale Profilbindung speichert SHA-256:
+Dateien muessen darin liegen. Die Profilbindung (`--profile`) ist Pflicht, sobald
+ein Gate als bestanden gelten soll; sie speichert SHA-256:
 Aenderungen an Mass- oder Baukonfiguration machen vorhandene Nachweise unvollstaendig,
 bis diese fuer die neue Revision bewertet werden. Keine bestehenden Register
-werden durch `--init` ueberschrieben. Pruefdatum als UTC-Kalendertag dokumentieren.
+werden durch `--init` ueberschrieben. Pruefdatum als lokalen Kalendertag dokumentieren.
+
+Als Nachweis zaehlen nur eigene Pruefberichte, Fotos oder Messprotokolle. Vom
+Baupaket erzeugte Dateien (in `Package.json` gelistet oder mit `GENERATED`-Kennung)
+und das Profil selbst lehnt das Werkzeug ab.

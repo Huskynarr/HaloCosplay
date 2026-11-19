@@ -8,16 +8,16 @@
 **Welche Variante soll ich waehlen?**
 - V1 fuer den Einstieg (Foam, guenstig, schnell)
 - V2 fuer detaillierte Builds mit HUD und 3D-Druck (empfohlen mit Bambu Lab H2C)
-- V3 fuer Showpiece-Exoskelette (Profi-Level)
+- V3 fuer erweiterte Technik (Profi-Level); ein tragendes Exoskelett ist noch Entwicklungsthema ohne fertige Anleitung
 
 **Wo finde ich die TODO-Liste fuer das ganze Projekt?**
-- `Documentation/TODO.md` - 9 Phasen mit Checkboxen von Planung bis Convention.
+- `Documentation/TODO.md` - 7 Abschnitte mit Checkboxen von Planung bis Betrieb.
 
 ## Kosten und Zeit
 
 **Was kostet das Ganze?**
-- V1: 800-2.700 EUR, V2: ~680-1.140 EUR Materialkosten (ohne Tools/Fehlversuche), V3: 615-1.630 EUR (Exo+Ruestung). Realistisch: 1.5-2x der Materialkosten.
-- Detaillierte Aufstellung: `Documentation/Guides/Kosten.md` und `Materials/ShoppingList.md`
+- Gesamtbudget inklusive Werkzeug und Fehlversuchen: V1 800-2.700 EUR, V2 2.400-6.600 EUR, V3 6.000+ EUR (`Documentation/Guides/Kosten.md`).
+- Reine Materialkosten V2 bei vorhandenem Drucker: ca. 750-1.270 EUR (`Materials/ShoppingList.md`).
 
 **Wie lange dauert es?**
 - Hobby-Tempo (10-15h/Woche): 5-8 Monate fuer V2
@@ -54,8 +54,8 @@
 - Ja, ein einfarbiger LED-Akzent im Visor wirkt bereits stark, kostet <20 EUR und spart Strom. Das volle OLED-HUD kostet ca. 85-115 EUR an Elektronik.
 
 **Wie lange haelt der Akku?**
-- PiSugar 3 Plus (5000 mAh) allein: ca. 3.3 Stunden
-- Mit 2x 10.000 mAh Powerbank: 13+ Stunden - mehr als genug fuer eine Convention
+- PiSugar 3 Plus (5000 mAh) allein: ca. 2.5 Stunden
+- Mit 2x 10.000 mAh Powerbank: ca. 9.9 Stunden (Rechenwert; mit Reserve ein Convention-Tag)
 - Details: `Documentation/Guides/Elektronik-Batterie.md`
 
 **Brauche ich Arduino UND Raspberry Pi?**
@@ -67,7 +67,7 @@
 - Fuer V2 mit eingeschraenkter Helm-Sicht: empfohlen. Fuer V3 oder Exo: **Pflicht**.
 
 **Darf ich eine Prop-Waffe mitbringen?**
-- Kommt auf die Convention an. **Gamescom verbietet ALLE Waffen-Props.** DoKomi/MCC erlauben Foam/Kunststoff mit Einschraenkungen. Props IMMER in blickdichter Tasche transportieren (Waffengesetz!). Details: `Documentation/Guides/Convention-Regeln.md`
+- Kommt auf die Veranstaltung und die jeweilige Ausgabe an; manche lassen keine Waffen-Props zu. Regeln vorab beim Veranstalter pruefen. Waffenaehnliche Props in einem verschlossenen Behaeltnis (Par. 42a WaffG; blickdicht allein genuegt nicht) transportieren. Pruefliste: `Documentation/Guides/Convention-Regeln.md`
 
 **Wie gehe ich auf Toilette in voller Ruestung?**
 - Helm ab, Handschuhe ab, Codpiece ab (Quick-Release!). Plane 10-15 Minuten ein. Handler wartet mit den Teilen. Details: `Documentation/Guides/Convention-Alltag.md`

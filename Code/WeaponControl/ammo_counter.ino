@@ -7,7 +7,7 @@
 // Display-Spezifikationen
 #define SCREEN_WIDTH 128
 #define SCREEN_HEIGHT 64
-#define OLED_RESET 4
+#define OLED_RESET -1   // kein Reset-Pin: D4 gehoert dem Reload-Schalter
 #define TEXT_SIZE 8
 
 // Pin-Belegung fuer den Arduino

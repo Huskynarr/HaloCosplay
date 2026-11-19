@@ -17,6 +17,7 @@
   "status": "CONCEPT_NOT_MEASURED",
   "fabrication_approved": false,
   "missing_measurements": [],
+  "plausibility_warnings": [],
   "measurement_sources": {
     "height": "synthetic_concept",
     "shoulder_width": "synthetic_concept",

@@ -104,3 +104,38 @@ test('browser export contract is accepted by Python with preserved provenance an
   assert.deepEqual(result.build, profile.build);
   assert.equal(result.input_status, 'synthetic');
 });
+
+test('stored copies from an older schema are upgraded structurally, values stay validated', () => {
+  const old = core.create(schema, 'Altes-Profil');
+  old.measurements_mm.height = 1780;
+  delete old.measurements_mm.boot_width_l;
+  delete old.allowances_mm.edge_clearance;
+  old.measurements_mm.removed_field = 12;
+  old.build.retired_option = 'x';
+  old.build.features.retired_feature = true;
+  const before = copy(old);
+  assert.throws(() => core.imported(old, schema), /Feld fehlt|Unbekannt/);
+  const upgraded = core.migrate(old, schema);
+  assert.deepEqual(old, before, 'input is not mutated');
+  assert.deepEqual(upgraded.added.sort(), ['allowances_mm.edge_clearance', 'measurements_mm.boot_width_l']);
+  assert.deepEqual(upgraded.dropped.sort(), ['build.features.retired_feature', 'build.retired_option', 'measurements_mm.removed_field']);
+  const profile = core.imported(upgraded.profile, schema);
+  assert.equal(profile.measurements_mm.height, 1780);
+  assert.equal(profile.measurements_mm.boot_width_l, null);
+  assert.equal(profile.allowances_mm.edge_clearance, schema.allowances.edge_clearance.default);
+  assert.equal(Object.keys(profile.measurements_mm).length, 32);
+});
+
+test('upgrading never fabricates measurements or keeps a stale measured status', () => {
+  const measured = copy(demo);
+  measured.status = 'measured';
+  delete measured.measurements_mm.height;
+  const upgraded = core.migrate(measured, schema);
+  assert.equal(upgraded.profile.measurements_mm.height, null);
+  assert.equal(upgraded.profile.status, 'measurements_pending');
+  const invalid = core.create(schema, 'Kaputt');
+  invalid.measurements_mm.height = 'gross';
+  assert.throws(() => core.imported(core.migrate(invalid, schema).profile, schema), /Koerpergroesse|Zahl zwischen/);
+  assert.throws(() => core.migrate(null, schema));
+  assert.throws(() => core.imported(core.migrate({profile: 'x'}, schema).profile, schema));
+});

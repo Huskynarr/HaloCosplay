@@ -134,7 +134,7 @@ Im Helm:
 
 ## Sicherheits-Checkliste
 
-- [ ] Sicherungen nahe der Batterie (2-3A Logik, 5-10A LEDs)
+- [ ] Sicherungen nahe der Batterie (2-3 A Logik, 3 A LEDs an Powerbank; nie groesser als Stecker/Kabel des Pfads)
 - [ ] Keine blanken Kontakte (Schrumpfschlauch, Isolierband)
 - [ ] Kabel gegen Zug gesichert (Strain-Relief an jedem Stecker)
 - [ ] GND aller Systeme verbunden (gemeinsame Masse!)

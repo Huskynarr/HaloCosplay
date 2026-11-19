@@ -2,6 +2,7 @@
 <html lang="de">
 <head>
 <meta charset="utf-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' 'sha256-1ZVAiawVgT1yF7TUA7NZRbMTPSVI1ELca94SWFCYcmw=' https://browser.sentry-cdn.com; style-src 'unsafe-inline'; connect-src https://logging.gardenpiratez.de; base-uri 'none'; form-action 'none'">
 <script src="../monitoring.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Cortana-Chip Viewer</title>
@@ -65,17 +66,22 @@ document.getElementById("connect").onclick = async () => {
 };
 
 function handleData(e) {
-  const data = JSON.parse(new TextDecoder().decode(e.target.value));
+  // Daten kommen von einem Funkgeraet: nur gueltiges JSON mit erwarteten Typen anzeigen.
+  let data;
+  try { data = JSON.parse(new TextDecoder().decode(e.target.value)); } catch (_) { log("Unlesbares Datenpaket verworfen."); return; }
+  if (!data || typeof data !== "object" || Array.isArray(data)) { log("Unerwartetes Datenformat verworfen."); return; }
+  const text = (value) => (typeof value === "string" || typeof value === "number") ? String(value).slice(0, 80) : "--";
+  const percent = (value) => Math.max(0, Math.min(100, Number.isFinite(Number(value)) ? Number(value) : 0)) + "%";
   document.getElementById("card").style.display = "block";
-  document.getElementById("name").textContent = data.name;
-  document.getElementById("status").textContent = "Status: " + data.status;
-  document.getElementById("shield").style.width = data.shield + "%";
-  document.getElementById("energy").style.width = data.energy + "%";
-  document.getElementById("mode").textContent = data.mode;
+  document.getElementById("name").textContent = text(data.name);
+  document.getElementById("status").textContent = "Status: " + text(data.status);
+  document.getElementById("shield").style.width = percent(data.shield);
+  document.getElementById("energy").style.width = percent(data.energy);
+  document.getElementById("mode").textContent = text(data.mode);
   const card = document.getElementById("card");
-  card.classList.toggle("husky", data.id.startsWith("husky"));
+  card.classList.toggle("husky", typeof data.id === "string" && data.id.startsWith("husky"));
   // Tagline kommt nur im statischen JSON; im BLE-Status optional
-  if (data.tagline) document.getElementById("tagline").textContent = data.tagline;
+  if (typeof data.tagline === "string") document.getElementById("tagline").textContent = data.tagline.slice(0, 160);
 }
 
 function log(msg) { document.getElementById("log").textContent = msg; }

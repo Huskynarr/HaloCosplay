@@ -29,6 +29,8 @@ import time
 
 from PIL import Image, ImageDraw
 
+import hud_state
+
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
 DEFAULTS = {
@@ -43,21 +45,50 @@ DEFAULTS = {
     "voltage_field": "voltage",
     "state_path": "hud_state.json",
     "low_battery_percent": 20,
+    # Akkuwerte aelter als dieser Wert gelten als unbekannt ("AKKU ?").
+    # 0 schaltet die Pruefung ab (z.B. fuer eine von Hand gepflegte Datei).
+    "battery_max_age_s": 30,
     "boot_animation": True,
     "log_path": "",
     "log_interval_s": 5,
 }
 
 
-def load_config():
+CONFIG_WARNING = ""   # set when config.json was unusable; shown on the HUD
+
+
+def load_config(config_path=None):
+    """Read config.json; a broken file must not stop the HUD from starting.
+
+    Invalid JSON or wrong types fall back to DEFAULTS per key and set
+    CONFIG_WARNING so the wearer sees "CFG?" instead of a crash loop.
+    """
+    global CONFIG_WARNING
+    CONFIG_WARNING = ""
     config = DEFAULTS.copy()
-    config_path = os.path.join(BASE_DIR, "config.json")
+    config_path = config_path or os.path.join(BASE_DIR, "config.json")
     if os.path.exists(config_path):
-        with open(config_path, "r", encoding="utf-8") as handle:
-            data = json.load(handle)
-        config.update(data)
-    if isinstance(config.get("i2c_address"), str):
-        config["i2c_address"] = int(config["i2c_address"], 0)
+        try:
+            with open(config_path, "r", encoding="utf-8") as handle:
+                data = json.load(handle)
+            if not isinstance(data, dict):
+                raise ValueError("config.json muss ein JSON-Objekt sein")
+            config.update(data)
+        except (OSError, ValueError) as exc:
+            CONFIG_WARNING = f"config.json unbrauchbar, nutze Standardwerte: {exc}"
+    try:
+        if isinstance(config.get("i2c_address"), str):
+            config["i2c_address"] = int(config["i2c_address"], 0)
+        for key in ("i2c_port", "i2c_address", "width", "height"):
+            config[key] = int(config[key])
+        if config["width"] <= 0 or config["height"] <= 0:
+            raise ValueError("width/height muessen positiv sein")
+    except (TypeError, ValueError) as exc:
+        CONFIG_WARNING = f"config.json: ungueltiger Wert, nutze Standardwerte: {exc}"
+        for key in ("i2c_port", "i2c_address", "width", "height"):
+            config[key] = DEFAULTS[key]
+    if CONFIG_WARNING:
+        print("hud_display: " + CONFIG_WARNING, file=sys.stderr, flush=True)
     return config
 
 
@@ -67,10 +98,13 @@ HEIGHT = CONFIG["height"]
 
 
 def resolve_path(path_value):
+    """Relative runtime files follow HUD_STATE_DIR (see hud_state.runtime_path)."""
     if not path_value:
         return ""
     if os.path.isabs(path_value):
         return path_value
+    if os.path.basename(path_value) == path_value and path_value.endswith(".json"):
+        return hud_state.runtime_path(path_value)
     return os.path.join(BASE_DIR, path_value)
 
 
@@ -83,15 +117,34 @@ def read_json_file(path_value):
             raw = handle.read().strip()
         if not raw:
             return None
-        return json.loads(raw) if raw.startswith("{") else {"value": float(raw)}
+        data = json.loads(raw) if raw.startswith("{") else {"value": float(raw)}
+        return data if isinstance(data, dict) else None
     except (OSError, ValueError, json.JSONDecodeError):
         return None
 
 
-def read_battery(config):
-    data = read_json_file(config.get("battery_path", ""))
+def read_battery(config, now=None):
+    """Battery reading, or {"stale": True} when the source stopped updating.
+
+    A dead SensorFeeder/bridge must not leave the last percentage on screen
+    forever: data older than battery_max_age_s is reported as unknown. Age is
+    the file mtime, or a "ts"/"timestamp" field (epoch seconds) if present.
+    """
+    path_value = resolve_path(config.get("battery_path", ""))
+    data = read_json_file(path_value)
     if data is None:
         return None
+    max_age = safe_float(config.get("battery_max_age_s"), 30.0)
+    if max_age > 0:
+        stamp = safe_float(data.get("ts"), safe_float(data.get("timestamp")))
+        if stamp is None:
+            try:
+                stamp = os.path.getmtime(path_value)
+            except OSError:
+                stamp = None
+        now = time.time() if now is None else now
+        if stamp is None or now - stamp > max_age:
+            return {"percent": None, "voltage": None, "stale": True}
     if "value" in data:
         return {"percent": data["value"], "voltage": None}
     return {
@@ -101,13 +154,18 @@ def read_battery(config):
 
 
 def safe_float(value, default=None):
-    """Parse value to float; tolerate None, strings, junk."""
-    if value is None:
+    """Parse value to a finite float; tolerate None, strings, junk, NaN, inf.
+
+    json.load accepts NaN/Infinity and "1e999" parses to inf; both would
+    raise later in int()/modulo and kill the HUD loop, so they count as junk.
+    """
+    if value is None or isinstance(value, bool):
         return default
     try:
-        return float(value)
-    except (TypeError, ValueError):
+        number = float(value)
+    except (TypeError, ValueError, OverflowError):
         return default
+    return number if math.isfinite(number) else default
 
 
 def read_state(config, t):
@@ -158,7 +216,7 @@ def read_state(config, t):
             dist = safe_float(c.get("distance"))
             if bearing is None or dist is None:
                 continue
-            state["contacts"].append((bearing, max(0.0, min(1.0, dist))))
+            state["contacts"].append((bearing % 360.0, max(0.0, min(1.0, dist))))
 
     # Trink-Erinnerung (voice_control.py): Flag -> blinkendes Banner
     if data.get("hydration_due"):
@@ -258,8 +316,17 @@ def draw_ammo(draw, ammo):
     draw.text((92, 48), f"{ammo:02d}", fill=1)
 
 
-def draw_battery(draw, battery, low_threshold, t):
+def draw_battery(draw, battery, low_threshold, t, show_value=True):
+    """Battery warnings are always drawn; the plain readout only if enabled.
+
+    "AKKU!" (low) and "AKKU ?" (reading stale/unknown) are safety information
+    and must not disappear because show_battery is off.
+    """
     if not battery:
+        return
+    if battery.get("stale"):
+        draw.rectangle((44, 38, 86, 48), outline=1, fill=0)
+        draw.text((47, 40), "AKKU ?", fill=1)
         return
     text = None
     percent = safe_float(battery.get("percent"))
@@ -272,12 +339,14 @@ def draw_battery(draw, battery, low_threshold, t):
             text = f"{voltage:.2f}V"
     if text is None:
         return
-    if percent is not None and percent <= low_threshold:
+    low = safe_float(low_threshold, 20.0)
+    if percent is not None and percent <= low:
         if int(t * 2) % 2 == 0:  # flash
-            draw.rectangle((44, 38, 86, 48), outline=1)
+            draw.rectangle((44, 38, 86, 48), outline=1, fill=0)
             draw.text((48, 40), "AKKU!", fill=1)
-    # default font is ~8 px tall; y=54 keeps the glyph within the 64 px height
-    draw.text((48, 54), text, fill=1)
+    if show_value:
+        # default font is ~8 px tall; y=54 keeps the glyph within the 64 px height
+        draw.text((48, 54), text, fill=1)
 
 
 def draw_hydration_banner(draw, t):
@@ -294,10 +363,12 @@ def draw_hud(t, battery, state, config):
     draw_shield(draw, state["shield"], t)
     draw_motion_tracker(draw, t, state.get("robot"), state.get("contacts"))
     draw_ammo(draw, state["ammo"])
-    if config.get("show_battery"):
-        draw_battery(draw, battery, config.get("low_battery_percent", 20), t)
+    draw_battery(draw, battery, config.get("low_battery_percent", 20), t,
+                 show_value=bool(config.get("show_battery")))
     if state.get("hydration_due"):
         draw_hydration_banner(draw, t)
+    if CONFIG_WARNING:
+        draw.text((100, 28), "CFG?", fill=1)
     return image
 
 
@@ -334,6 +405,76 @@ def run_selftest(out_path):
     if not ok_banner:
         sys.exit("Selftest fehlgeschlagen: Hydration-Banner fehlt")
     print(f"Selftest-Frames gespeichert: {base}_boot{ext}, {base}_0{ext}, {base}_1{ext}, {base}_2{ext}")
+    run_robustness_selftest()
+
+
+def run_robustness_selftest():
+    """Bad inputs must degrade per field, never raise (no hardware needed)."""
+    import tempfile
+    global CONFIG_WARNING
+    failures = []
+
+    def check(name, ok):
+        print(f"  [{'ok' if ok else 'FEHLER'}] {name}")
+        if not ok:
+            failures.append(name)
+
+    with tempfile.TemporaryDirectory() as tmp:
+        state_path = os.path.join(tmp, "hud_state.json")
+        battery_path = os.path.join(tmp, "battery.json")
+        cfg = dict(CONFIG, state_path=state_path, battery_path=battery_path, show_battery=False)
+        # json.loads accepts NaN/Infinity; "1e999" becomes inf
+        with open(state_path, "w", encoding="utf-8") as handle:
+            handle.write('{"heading": NaN, "ammo": 1e999, "shield_percent": "1e999",'
+                         ' "robot_distance_m": 2, "robot_bearing": NaN, "robot_battery": Infinity,'
+                         ' "vision_ts": %r, "vision_contacts": [{"bearing": NaN, "distance": 0.5},'
+                         ' {"bearing": 1e999, "distance": 1}, {"bearing": 30, "distance": 0.4}]}'
+                         % time.time())
+        try:
+            state = read_state(cfg, 3.0)
+            draw_hud(3.0, None, state, cfg)
+            ok = (math.isfinite(state["heading"]) and state["ammo"] == 32
+                  and state["contacts"] == [(30.0, 0.4)] and state["robot"]["bearing"] == 0.0)
+        except Exception as exc:  # the point of the test: nothing may escape
+            print(f"      {type(exc).__name__}: {exc}")
+            ok = False
+        check("NaN/inf in hud_state.json faellt pro Feld zurueck", ok)
+
+        with open(battery_path, "w", encoding="utf-8") as handle:
+            json.dump({"battery_percent": 12, "voltage": 6.5}, handle)
+        fresh = read_battery(cfg)
+        frame = draw_hud(0.0, fresh, read_state(cfg, 0.0), cfg).convert("L")
+        check("Akku-Warnung auch ohne show_battery",
+              fresh.get("percent") == 12 and frame.getpixel((44, 38)) == 255)
+        stale = read_battery(cfg, now=time.time() + 120)
+        frame = draw_hud(0.5, stale, read_state(cfg, 0.5), cfg).convert("L")
+        check("Veralteter Akkustand wird als AKKU ? gezeigt",
+              stale == {"percent": None, "voltage": None, "stale": True}
+              and frame.getpixel((44, 38)) == 255)
+        check("battery_max_age_s=0 schaltet die Alterspruefung ab",
+              read_battery(dict(cfg, battery_max_age_s=0), now=time.time() + 1e6).get("percent") == 12)
+        with open(battery_path, "w", encoding="utf-8") as handle:
+            handle.write('{"battery_percent": NaN}')
+        draw_hud(0.0, read_battery(cfg), read_state(cfg, 0.0), cfg)
+        check("NaN im Akkustand zeichnet ohne Fehler", True)
+
+        bad_config = os.path.join(tmp, "config.json")
+        for raw in ("{kaputt", '["liste"]', '{"width": "breit", "i2c_address": "zz"}'):
+            with open(bad_config, "w", encoding="utf-8") as handle:
+                handle.write(raw)
+            try:
+                loaded = load_config(bad_config)
+                ok = (bool(CONFIG_WARNING) and loaded["width"] == DEFAULTS["width"]
+                      and loaded["i2c_address"] == DEFAULTS["i2c_address"])
+            except Exception as exc:
+                print(f"      {type(exc).__name__}: {exc}")
+                ok = False
+            check(f"Kaputte config.json ({raw[:10]}) -> Standardwerte + Warnung", ok)
+        frame = draw_hud(0.0, None, read_state(cfg, 0.0), cfg).convert("L")
+        check("CFG?-Hinweis sichtbar", any(frame.getpixel((x, y)) for x in range(100, 124) for y in range(28, 38)))
+        CONFIG_WARNING = ""
+    if failures:
+        sys.exit("Selftest fehlgeschlagen: " + ", ".join(failures))
 
 
 def main():
@@ -350,24 +491,52 @@ def main():
     from luma.core.interface.serial import i2c
     from luma.oled.device import ssd1309
 
-    serial = i2c(port=CONFIG["i2c_port"], address=CONFIG["i2c_address"])
-    device = ssd1309(serial, width=WIDTH, height=HEIGHT)
+    def open_device():
+        serial = i2c(port=CONFIG["i2c_port"], address=CONFIG["i2c_address"])
+        return ssd1309(serial, width=WIDTH, height=HEIGHT)
+
+    # A missing display at boot still exits (systemd restarts us); a glitch
+    # while running is handled in the loop below without losing the process.
+    device = open_device()
 
     start = time.time()
     if CONFIG.get("boot_animation", True):
         boot_duration = 2.5
-        while time.time() - start < boot_duration:
-            device.display(draw_boot_frame((time.time() - start) / boot_duration))
-            time.sleep(0.05)
+        try:
+            while time.time() - start < boot_duration:
+                device.display(draw_boot_frame((time.time() - start) / boot_duration))
+                time.sleep(0.05)
+        except Exception as exc:  # boot animation is cosmetic
+            print(f"hud_display: Boot-Animation abgebrochen: {exc}", file=sys.stderr, flush=True)
 
-    refresh = max(10, int(CONFIG.get("refresh_ms", 100))) / 1000.0
-    log_interval = max(1, int(CONFIG.get("log_interval_s", 5)))
+    refresh = max(10.0, safe_float(CONFIG.get("refresh_ms"), 100.0)) / 1000.0
+    log_interval = max(1.0, safe_float(CONFIG.get("log_interval_s"), 5.0))
     last_log = 0.0
+    failures = 0          # consecutive bad frames
+    last_report = 0.0     # rate limit for the error line
     while True:
         t = time.time() - start
-        battery = read_battery(CONFIG)
-        state = read_state(CONFIG, t)
-        device.display(draw_hud(t, battery, state, CONFIG))
+        battery = None
+        try:
+            battery = read_battery(CONFIG)
+            state = read_state(CONFIG, t)
+            device.display(draw_hud(t, battery, state, CONFIG))
+            failures = 0
+        except Exception as exc:
+            # One bad value or one I2C glitch costs a frame, not the HUD.
+            failures += 1
+            now = time.time()
+            if now - last_report >= 5.0:
+                print(f"hud_display: Frame uebersprungen ({failures}x in Folge): "
+                      f"{type(exc).__name__}: {exc}", file=sys.stderr, flush=True)
+                last_report = now
+            if failures >= 5:
+                # Display probably lost its bus: back off and reopen it.
+                time.sleep(min(5.0, 0.5 * (failures - 4)))
+                try:
+                    device = open_device()
+                except Exception:
+                    pass  # still gone; keep trying with the capped backoff
         now = time.time()
         if CONFIG.get("log_path") and now - last_log >= log_interval:
             write_log(CONFIG.get("log_path"), battery)

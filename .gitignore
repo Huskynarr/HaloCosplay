@@ -31,3 +31,6 @@ tools/amazon-creators/.env
 *.local.json
 *.local.md
 build/
+
+# IDE
+.idea/

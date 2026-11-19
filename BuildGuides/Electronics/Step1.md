@@ -43,7 +43,7 @@
 | --- | --- | --- |
 | 10.000 mAh USB Powerbank (schlank) | 1-2 | LED/Luefter/Audio Power |
 | Sicherungen (2-3A fuse) | 2 | Logik-Schutz |
-| Sicherungen (5-10A fuse) | 1 | LED-Schutz |
+| Sicherungen (3 A an Powerbank, 5 A nur an LiPo-Regler) | 1 | LED-Schutz |
 
 ### Kabel und Stecker
 
@@ -74,7 +74,7 @@ Detailliert: `Documentation/Guides/Elektronik-Strombudget.md` und `Documentation
 | Audio (intermittierend) | 0.10 A |
 | **Gesamt** | **~1.27 A** |
 
-**Laufzeit mit 2x 10.000 mAh Powerbank:** ca. 13+ Stunden - mehr als genug fuer eine Convention.
+**Laufzeit mit 2x 10.000 mAh Powerbank:** ca. 9.9 Stunden (ueber Wh gerechnet, siehe `Elektronik-Strombudget.md`); vor dem Einsatz messen.
 
 ## 3. Verkabelungs-Schema planen
 

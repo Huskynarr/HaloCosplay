@@ -38,7 +38,7 @@ import time
 import hud_state
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-DEFAULT_STATE = os.path.join(BASE_DIR, "hud_state.json")
+DEFAULT_STATE = hud_state.runtime_path("hud_state.json")
 DEFAULT_PORT = 9009
 DEFAULT_LISTEN = "127.0.0.1"
 ROBOT_KEYS = ("robot_distance_m", "robot_bearing", "robot_battery", "robot_state")

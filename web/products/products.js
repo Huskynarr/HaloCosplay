@@ -48,7 +48,7 @@
     return quantities;
   }
   function csv(list) {
-    const cell = v => '"' + String(v ?? '').replace(/^[=+@-]/, "'$&").replace(/"/g, '""') + '"';
+    const cell = v => '"' + String(v ?? '').replace(/^[\s]*[=+@-]/, "'$&").replace(/"/g, '""') + '"';
     const rows = [['ID', 'Produkt', 'Menge', 'Preis EUR (offen)', 'Status', 'Kompatibilitaet', 'Quellen']];
     list.items.forEach(p => rows.push([p.id, p.name, p.qty, '', status[p.status], p.compatibility, p.links.map(l => l.url).join(' | ')]));
     return '\uFEFF' + rows.map(row => row.map(cell).join(';')).join('\r\n') + '\r\n';
