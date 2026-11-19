@@ -146,7 +146,10 @@ def generate(profile_path, out, concept=False, integration_path=None, hardware_p
         write_json(out/'Package.json',{'schema_version':1,'project':fit['profile'],'reference':reference['id'],
                                       'status':'WORKSHOP_PACKAGE_NOT_PHYSICALLY_VALIDATED',
                                       'profile_sha256':hashlib.sha256(raw).hexdigest(),
-                                      'fabrication_approved':False,'parts':len(reference['parts'])})
+                                      'fabrication_approved':False,'parts':len(reference['parts']),
+                                      # Lets suit_readiness reject generated output as test evidence.
+                                      'generated_sha256':{path.relative_to(out).as_posix():hashlib.sha256(path.read_bytes()).hexdigest()
+                                                          for path in sorted(out.rglob('*')) if path.is_file() and path.name!='readiness.local.json'}})
     except Exception:
         (out/'BUILD_INCOMPLETE.md').write_text('# Unvollstaendige Ausgabe\n\nErzeugung fehlgeschlagen; Fehler beheben und ein neues Ausgabeverzeichnis verwenden.\n',encoding='utf-8')
         raise
