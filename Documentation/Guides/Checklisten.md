@@ -89,7 +89,7 @@ Diese Listen helfen, nichts zu vergessen. Drucke sie aus oder nutze sie als Issu
 - [ ] CamelBak/Trinkblase
 - [ ] Wasser, Elektrolyte, Snacks
 - [ ] Transport-Boxen mit Polsterung
-- [ ] Props in blickdichten Taschen (Waffengesetz!)
+- [ ] Waffenaehnliche Props in einem verschlossenen Behaeltnis (Par. 42a WaffG; blickdicht allein genuegt nicht)
 
 ## Reparatur-Kit (Convention)
 
@@ -138,4 +138,4 @@ Diese Listen helfen, nichts zu vergessen. Drucke sie aus oder nutze sie als Issu
 - [ ] Poolnudeln als Abstandhalter
 - [ ] Faltbarer Transportwagen/Sackkarre
 - [ ] Am Veranstaltungsort umziehen - NICHT zu Hause
-- [ ] Oeffentliche Verkehrsmittel: Props in geschlossenen, blickdichten Taschen
+- [ ] Oeffentliche Verkehrsmittel: waffenaehnliche Props in verschlossenem, blickdichtem Behaeltnis
