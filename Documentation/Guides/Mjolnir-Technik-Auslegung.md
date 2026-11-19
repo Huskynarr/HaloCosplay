@@ -188,6 +188,11 @@ Kraftbetrag mal Angriffshoehe. Die Differenz wird mit Vorzeichen ausgegeben.
 Ein Schwerpunkt ausserhalb einer Kippkante erzeugt bereits ein negatives
 Rueckstellmoment.
 
+Zusaetzlich gibt der Rechner das Verhaeltnis Rueckstell- zu Kippmoment aus.
+Liegt es unter 1,5, lautet der Befund `below_reference_stability_factor`: Eine
+knapp positive Differenz laesst keine Reserve fuer Stoesse oder unebenen Boden.
+Der Faktor ist ein Rechenhinweis und ersetzt keinen Kippversuch.
+
 Die fuer die Rechnung verwendeten Kraefte benoetigen eine nachvollziehbare
 Projektvorgabe. Die synthetische Demo legt keine erlaubte Besucherkraft fest.
 Eine positive Momentdifferenz ist nur das Ergebnis dieses Lastfalls. Sie

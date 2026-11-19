@@ -92,6 +92,11 @@ def finding(headroom):
         "nonpositive_model_headroom" if headroom <= 0 else "positive_model_headroom")
 
 
+# Reference values for non-blocking input notes; the tool sets no limits itself.
+TOUCH_REFERENCE_C = 48      # prolonged skin contact with a warm surface
+AIR_DENSITY_RANGE = (0.9, 1.4)   # kg/m3
+AIR_CP_RANGE = (990, 1030)       # J/(kg K)
+
 def calculate(data):
     record(data, new_project().keys(), "input")
     if isinstance(data["schema_version"], bool) or data["schema_version"] != 1:
@@ -101,7 +106,7 @@ def calculate(data):
         raise ValueError("status must be inputs_pending, synthetic or entered")
     if not isinstance(data["notes"], str) or len(data["notes"]) > 4000:
         raise ValueError("notes: text of at most 4000 characters required")
-    missing, modules, vents = [], [], []
+    missing, modules, vents, input_notes = [], [], [], []
     for module in collection(data["modules"], "modules"):
         record(module, new_project()["modules"][0].keys(), "module")
         prefix = "modules." + module["id"]
@@ -109,6 +114,9 @@ def calculate(data):
         ambient = number(module["ambient_c"], prefix + ".ambient_c", missing, temperature=True)
         resistance = number(module["sink_ambient_k_per_w"], prefix + ".sink_ambient_k_per_w", missing, positive=True)
         limit = number(module["surface_limit_c"], prefix + ".surface_limit_c", missing, temperature=True)
+        if limit is not None and limit > TOUCH_REFERENCE_C:
+            input_notes.append(f"{prefix}.surface_limit_c: {limit:g} C liegt ueber {TOUCH_REFERENCE_C:g} C; "
+                               "nur fuer Flaechen zulaessig, die weder Haut noch Unteranzug beruehren koennen")
         sink = None if None in (heat, ambient, resistance) else ambient + heat * resistance
         headroom = difference(limit, sink)
         max_resistance, bound_note = None, "missing_inputs"
@@ -154,6 +162,9 @@ def calculate(data):
         ambient = number(vent["ambient_c"], prefix + ".ambient_c", missing, temperature=True)
         density = number(vent["rho_kg_m3"], prefix + ".rho_kg_m3", missing, positive=True)
         capacity = number(vent["cp_j_kg_k"], prefix + ".cp_j_kg_k", missing, positive=True)
+        for label, value, (low, high) in (("rho_kg_m3", density, AIR_DENSITY_RANGE), ("cp_j_kg_k", capacity, AIR_CP_RANGE)):
+            if value is not None and not low <= value <= high:
+                input_notes.append(f"{prefix}.{label}: {value:g} ausserhalb {low:g}..{high:g} fuer Luft; Einheit pruefen")
         rise, note = None, "missing_inputs"
         if flow == 0:
             note = "zero_flow_unbounded_in_this_model" if heat is not None and heat > 0 else "zero_flow_no_advective_solution"
@@ -169,7 +180,7 @@ def calculate(data):
     report = {"schema_version": 1, "project": project, "input_status": data["status"],
               "hardware_approved": False, "fabrication_approved": False,
               "model": "steady_shared_sink_and_sensible_electronics_airflow_only",
-              "missing_inputs": missing, "modules": modules, "vents": vents,
+              "missing_inputs": missing, "input_notes": input_notes, "modules": modules, "vents": vents,
               "omitted_sections": (["modules"] if not modules else []) + (["vents"] if not vents else []),
               "limitations": [
                   "Planrechnung ohne Hardware-, Fertigungs- oder Beruehrungsschutzfreigabe.",
@@ -220,6 +231,8 @@ def render(report):
     for vent in report["vents"]:
         keys = ("heat_w", "measured_flow_m3_h", "ambient_c", "air_temperature_rise_k", "model_outlet_temperature_c")
         lines.append("| " + vent["id"] + " | " + " | ".join(display(vent[k]) for k in keys) + " | `" + vent["finding"] + "` |")
+    if report["input_notes"]:
+        lines += ["", "## Eingabehinweise", ""] + ["- " + text for text in report["input_notes"]]
     lines += ["", "## Fehlende Eingaben", ""]
     lines += ["- `" + item + "`" for item in report["missing_inputs"]] or ["Keine leeren Felder. Die Eingabedaten sind dadurch nicht praktisch bestaetigt."]
     lines += ["", "Explizit ausgelassene Bereiche: " + (", ".join(report["omitted_sections"]) or "keine") + ".", "", "## Modellgrenzen", ""]

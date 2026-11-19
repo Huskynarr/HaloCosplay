@@ -62,9 +62,36 @@ def new_profile(name="New-profile"):
 def number(value, name, low, high):
     if isinstance(value, bool) or not isinstance(value, (int, float)):
         raise ValueError(f"{name}: endliche Zahl in mm erforderlich")
-    if not math.isfinite(value) or not low <= value <= high:
+    try:
+        finite = math.isfinite(value)
+    except OverflowError:  # integers beyond float range
+        finite = False
+    if not finite or not low <= value <= high:
         raise ValueError(f"{name}: ausserhalb {low}..{high} mm; Einheit pruefen")
     return float(value)
+
+
+SIDE_DEVIATION_WARN = 0.15  # left/right differ by more than 15 %: likely a typo
+ENTRY_SLIDE_MAX_MM = 300
+
+
+def plausibility_warnings(m):
+    """Non-blocking hints for values inside the schema range that look mistyped."""
+    warnings = []
+    for key in sorted(m):
+        if key.endswith("_l"):
+            left, right = m[key], m[key[:-2] + "_r"]
+            if abs(left - right) > SIDE_DEVIATION_WARN * max(left, right):
+                warnings.append(f"{key[:-2]}: links {left:g} mm / rechts {right:g} mm weichen stark ab; Messung pruefen")
+    for side in ("l", "r"):
+        for length, circ in (("upperarm_length", "upperarm_circumference"), ("forearm_length", "forearm_circumference"),
+                             ("thigh_length", "thigh_circumference"), ("shin_length", "calf_circumference")):
+            ratio = m[f"{circ}_{side}"] / m[f"{length}_{side}"]
+            if not 0.4 <= ratio <= 2.5:
+                warnings.append(f"{circ}_{side}: Verhaeltnis Umfang/Laenge {ratio:.2f} ungewoehnlich; Einheit und Messstelle pruefen")
+    if m["shoulder_width"] < m["head_width"] * 1.5:
+        warnings.append("shoulder_width: kaum breiter als der Kopf; Messdefinition pruefen")
+    return warnings
 
 
 def bounds(key):
@@ -126,6 +153,10 @@ def derive(profile, concept=False):
     # requirement, not a validated telescopic joint or human passage proof.
     p["entry_slide_each_side"] = max(0, (p["entry_width_required"] -
                                             (p["torso_width"] - 2*wall)) / 2)
+    # Checked here, not during export, so no partial output is written.
+    if p["entry_slide_each_side"] > ENTRY_SLIDE_MAX_MM:
+        raise ValueError(f"Einstieg: Seitenauszug {p['entry_slide_each_side']:.0f} mm ueber {ENTRY_SLIDE_MAX_MM} mm; "
+                         "Schulter-/Brustbreite und Zuschlaege pruefen")
     for side in ("l", "r"):
         for part, circ in (("upperarm", "upperarm"), ("forearm", "forearm"),
                            ("thigh", "thigh"), ("shin", "calf")):
@@ -145,6 +176,7 @@ def derive(profile, concept=False):
             "MEASURED_ENVELOPE_NOT_VALIDATED" if status == "measured" else "INPUT_ENVELOPE_NOT_VALIDATED"),
         "fabrication_approved": False,
         "missing_measurements": missing,
+        "plausibility_warnings": plausibility_warnings(m),
         "measurement_sources": {k: "synthetic_concept" if k in missing or profile.get("status") == "synthetic" else "profile_input" for k in m},
         "measurements_mm": m, "allowances_mm": a,
         "parameters_mm": {k: round(v, 3) if not isinstance(v, bool) else v for k, v in p.items()},
@@ -165,7 +197,7 @@ def opening_envelope(width, depth, angle_deg, slide_each_side=0):
     """
     w = number(width, "width", 1, 3000)
     d = number(depth, "depth", 1, 3000)
-    slide = number(slide_each_side, "slide_each_side", 0, 300)
+    slide = number(slide_each_side, "slide_each_side", 0, ENTRY_SLIDE_MAX_MM)
     angle = math.radians(number(angle_deg, "angle", 0, 110))
     c, s = math.cos(angle), math.sin(angle)
     points = []
@@ -188,6 +220,9 @@ def report_md(report):
              "Die Auswahl dokumentiert den Baupfad; sie erzeugt keine fertigen Referenzschalen oder Kaufteilintegration.", "",
              "Keine Fertigungsfreigabe. Zahlen mit Quelle synthetic_concept sind Beispielwerte.", "",
              "| Eingabe | mm | Herkunft |", "| --- | ---: | --- |"]
+    if report.get("plausibility_warnings"):
+        lines[-2:-2] = ["## Plausibilitaetshinweise", "",
+                        *("- " + text for text in report["plausibility_warnings"]), ""]
     for key, value in report["measurements_mm"].items():
         lines.append(f"| {key} | {value:g} | {report['measurement_sources'][key]} |")
     lines += ["", "## Abgeleitete Huelle", "", "| Parameter | mm |", "| --- | ---: |"]
@@ -288,10 +323,14 @@ def main(argv=None):
                 (out / name).resolve() for name in
                 ("fit-report.json", "FitReport.md", "parameters.scad", "OpeningEnvelope.svg", "MjolnirEntry.scad")}:
             raise ValueError("Ausgabe darf das Eingabeprofil nicht ueberschreiben")
+        if report["input_status"] == "synthetic" and not args.concept:
+            raise ValueError("Synthetisches Profil nur mit --concept exportierbar")
         export(report, out)
-    except (ValueError, OSError, TypeError) as exc:
+    except (ValueError, OSError, TypeError, OverflowError) as exc:
         print(f"Fit-Fehler: {exc}", file=sys.stderr)
         return 2
+    for text in report["plausibility_warnings"]:
+        print("Hinweis: " + text, file=sys.stderr)
     print(f"{report['status']}: {out}; {len(report['missing_measurements'])} offene Masse")
     return 0
 
