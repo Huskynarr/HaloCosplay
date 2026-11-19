@@ -19,6 +19,17 @@ SCOPES = {
     'wearable': ('REF', 'FIT', 'CAD', 'MECH', 'EXIT', 'VISION', 'THERMAL', 'POWER', 'FINISH'),
     'exhibition': tuple(GATES),
 }
+GENERATED_MARKER = b'GENERATED'
+
+
+def generated_hashes(root):
+    """Hashes of files a generator wrote into this package (Package.json)."""
+    try:
+        package = json.loads((root / 'Package.json').read_text(encoding='utf-8'))
+        listed = package.get('generated_sha256', {})
+        return set(listed.values()) if isinstance(listed, dict) else set()
+    except (OSError, ValueError, AttributeError):
+        return set()
 
 
 def evaluate(data, root=ROOT):
@@ -35,9 +46,17 @@ def evaluate(data, root=ROOT):
     if len(set(ids)) != len(ids) or set(ids) != set(GATES):
         raise ValueError('Unknown, duplicate or missing gate')
     root = Path(root).resolve()
+    # Evidence belongs to one project and one exact profile; without both a
+    # passed gate cannot be attributed and therefore does not count.
     binding_reasons = []
+    excluded = generated_hashes(root)
+    project = data.get('project')
+    if not isinstance(project, str) or not project.strip():
+        binding_reasons.append('Projektname fehlt')
     binding = data.get('profile_binding')
-    if binding is not None:
+    if binding is None:
+        binding_reasons.append('Profilbindung fehlt')
+    else:
         try:
             rel = Path(binding['path'])
             source = (root / rel).resolve()
@@ -45,6 +64,7 @@ def evaluate(data, root=ROOT):
                 raise ValueError('Profil ausserhalb Nachweiswurzel')
             if hashlib.sha256(source.read_bytes()).hexdigest() != binding['sha256']:
                 raise ValueError('Profil seit Registrierung geaendert; Nachweise neu bewerten')
+            excluded.add(binding['sha256'])
         except (KeyError, TypeError, ValueError, OSError) as exc:
             binding_reasons.append(str(exc))
     results = []
@@ -63,7 +83,8 @@ def evaluate(data, root=ROOT):
                 reasons.append('Nachweis gehoert nicht zur aktuellen Revision')
             try:
                 date = dt.date.fromisoformat(row.get('date', ''))
-                if date > dt.datetime.now(dt.timezone.utc).date():
+                # Local calendar day counts; UTC alone rejects tests logged after local midnight.
+                if date > max(dt.date.today(), dt.datetime.now(dt.timezone.utc).date()):
                     raise ValueError()
             except (ValueError, TypeError):
                 reasons.append('Pruefdatum fehlt oder liegt in der Zukunft')
@@ -79,14 +100,19 @@ def evaluate(data, root=ROOT):
                             raise ValueError('Nachweis ausserhalb Projekt')
                         if not path.is_file() or path.stat().st_size == 0:
                             raise ValueError('Nachweis fehlt oder ist leer')
-                        if hashlib.sha256(path.read_bytes()).hexdigest() != item['sha256']:
+                        content = path.read_bytes()
+                        digest = hashlib.sha256(content).hexdigest()
+                        if digest != item['sha256']:
                             raise ValueError('Nachweis-Hash stimmt nicht')
+                        # Software output is never hardware evidence.
+                        if digest in excluded or GENERATED_MARKER in content[:512]:
+                            raise ValueError('Nachweis ist eine erzeugte Datei oder das Profil, kein realer Pruefbericht')
                     except (KeyError, TypeError, ValueError, OSError) as exc:
                         reasons.append(str(exc))
         results.append({'id': row['id'], 'name': GATES[row['id']],
                         'complete': not reasons, 'reasons': reasons})
     done = {r['id'] for r in results if r['complete']}
-    return {'project': str(data.get('project', 'Allgemeines Musterregister')), 'revision': data['revision'], 'gates': results,
+    return {'project': project.strip() if isinstance(project, str) and project.strip() else 'Allgemeines Musterregister', 'revision': data['revision'], 'gates': results,
             'scopes': {scope: all(g in done for g in gates) for scope, gates in SCOPES.items()}}
 
 
@@ -94,7 +120,9 @@ def render(report):
     lines = ['# V4: Nachweisstatus', '', 'GENERATED: tools/suit_readiness.py.', '',
              'Prueft dokumentierte Nachweise, keine Sicherheit oder Veranstalterfreigabe.',
              'Ein Status passed ist eine menschliche Bewertung; Hash und Datum beweisen',
-             'keine inhaltliche Richtigkeit. Vorlagen und Softwaretests zaehlen nicht als Hardwaretest.', '',
+             'keine inhaltliche Richtigkeit. Vorlagen und Softwaretests zaehlen nicht als Hardwaretest.',
+             'Erzeugte Dateien und das Profil selbst werden als Nachweis abgelehnt; ein bestandenes',
+             'Gate braucht Projektname und Profilbindung.', '',
              'Projekt: ' + report['project'].replace('|', '/').replace('\n', ' '),
              'Revision: ' + report['revision'].replace('|', '/').replace('\n', ' '), '',
              '| Gate | Nachweis | Dokumentation |', '| --- | --- | --- |']
