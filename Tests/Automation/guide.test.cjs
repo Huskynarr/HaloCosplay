@@ -75,8 +75,11 @@ test('sanitizer wrapper fails closed and keeps only checkbox inputs', () => {
 test('main page loads pinned local libraries and has no inline script handlers', () => {
   const html = read('index.html'), app = read('app.js');
   assert.doesNotMatch(html, /cdn\.jsdelivr\.net/);
-  assert.match(html, /<script src="vendor\/marked-12\.0\.2\.min\.js"><\/script>\s*<script src="vendor\/purify-3\.4\.17\.min\.js"><\/script>/);
+  assert.match(html, /<script src="vendor\/marked-12\.0\.2\.min\.js" defer><\/script>\s*<script src="vendor\/purify-3\.4\.17\.min\.js" defer><\/script>/);
   assert.ok(html.indexOf('guide.js') < html.indexOf('"app.js"'));
+  // Deferred scripts run in document order; a mix of deferred and blocking scripts would break that order.
+  const scripts = [...html.matchAll(/<script src="([^"]+)"( defer)?><\/script>/g)];
+  assert.deepEqual(scripts.filter(match => !match[2]).map(match => match[1]), ['monitoring.js']);
   for (const source of [html, app, read('configurator/index.html'), read('budget/index.html'), read('products/index.html')]) {
     assert.doesNotMatch(source, /\son(click|error|load|change|input|submit)\s*=\s*["']/i);
   }
