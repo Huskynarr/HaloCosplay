@@ -1,3 +1,4 @@
 # Halo Cortana Data Chip
 
-Referenzbilder fuer den Data Chip. Platzhalterdateien bitte ersetzen.
+Ablage fuer Referenzbilder zum Data Chip. Aktuell liegen hier keine Dateien.
+Das eigene Chip-Modell steht unter `Design/Props/CortanaChip/`.

@@ -1,20 +1,16 @@
 # 3D-Modelle (STL)
 
-## Neues parametrisches Konzept
+Ablage fuer fremde oder eigene STL-Dateien zu Helm, Ruestung und Props.
+Aktuell liegen hier keine Dateien.
 
-Das [MJOLNIR-Einstiegsmodell](../../Parametric/README.md) zeigt Oeffnung und Bauraum. Die hier liegenden leeren STL-Platzhalter sind keine fertigen Ruestungsmodelle.
-
-Dieses Verzeichnis enthaelt STL-Dateien fuer Helm, Ruestung und Props.
-
-## Hinweise
-
-- Aktuelle STL-Dateien sind Platzhalter und sollten durch echte Dateien ersetzt werden.
-- Bitte jede Datei mit Quelle, Lizenz und Skalierung dokumentieren.
+- Parametrisches Einstiegsmodell: [Design/Parametric](../../Parametric/README.md)
+- Eigene Ruestungshuellen: [Design/Armor](../../Armor/README.md)
 - Quellenliste: `Resources/STL-Quellen.md`
 
-## Vorlage (Bitte ausfuellen)
+## Vorlage fuer abgelegte Dateien
+
+Jede Datei mit Quelle, Lizenz und Skalierung dokumentieren:
 
 | Datei | Quelle | Lizenz | Skalierung/Notizen |
 | --- | --- | --- | --- |
-| Armor-Model.stl | [Link] | [CC/Custom] | z.B. 1.02, Armorsmith Profil XYZ |
 | Helmet-Model.stl | [Link] | [CC/Custom] | z.B. 1.00, Visor separat |
