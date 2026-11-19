@@ -786,6 +786,8 @@
     });
     renderProgress();
     $("#menu-toggle").addEventListener("click", openNav);
+    // Skip link: focus the article without touching the hash (the hash is the guide route).
+    $("#skip-link").addEventListener("click", function (ev) { ev.preventDefault(); docEl.focus(); docEl.scrollIntoView(); });
     $("#backdrop").addEventListener("click", closeNav);
     $("#reset-btn").addEventListener("click", function () {
       if (confirm("Gespeicherten Fortschritt (Schritte, Einkaufs-Haken) in diesem Browser loeschen?")) {
