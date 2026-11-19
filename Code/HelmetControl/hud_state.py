@@ -14,6 +14,21 @@ import json
 import os
 import sys
 
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+
+
+def runtime_path(name):
+    """Pfad fuer Laufzeitdateien (hud_state.json, battery.json).
+
+    Standard ist das Skriptverzeichnis. Mit der Umgebungsvariable
+    HUD_STATE_DIR (z.B. /run/halo-hud, ein tmpfs) landen relative Namen dort:
+    Die Bruecken schreiben 10-15 mal pro Sekunde, das schont die SD-Karte.
+    Absolute Pfade bleiben unveraendert.
+    """
+    if not name or os.path.isabs(name):
+        return name
+    return os.path.join(os.environ.get("HUD_STATE_DIR") or BASE_DIR, name)
+
 
 def load(path):
     """Aktuellen Stand lesen; fehlende oder kaputte Datei ergibt {}."""
