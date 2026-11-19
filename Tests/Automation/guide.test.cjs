@@ -114,3 +114,22 @@ test('Cortana viewer CSP hash matches its inline script', () => {
   assert.match(inline[0], /try \{ data = JSON\.parse/);
   assert.match(inline[0], /typeof data\.id === "string"/);
 });
+
+test('service worker shell lists only files that exist and skips large downloads', () => {
+  const repo = path.resolve(__dirname, '../..');
+  const source = fs.readFileSync(path.join(repo, 'sw.js'), 'utf8');
+  const shell = source.match(/const SHELL = \[([\s\S]*?)\];/)[1].match(/'[^']+'/g).map(item => item.slice(1, -1));
+  assert.ok(shell.length > 20);
+  for (const entry of shell) {
+    const file = path.join(repo, entry.endsWith('/') ? entry + 'index.html' : entry);
+    assert.ok(fs.existsSync(file), 'missing shell file: ' + entry);
+  }
+  // Every local asset the main page references directly must be in the shell.
+  const html = fs.readFileSync(path.join(repo, 'web/index.html'), 'utf8');
+  for (const match of html.matchAll(/<(?:script|link)[^>]+(?:src|href)="([^"#:]+\.(?:js|css))"/g)) {
+    assert.ok(shell.includes('web/' + match[1]), 'not cached for offline use: ' + match[1]);
+  }
+  const skip = new RegExp(source.match(/const SKIP = \/(.*)\/i;/)[1], 'i');
+  assert.ok(skip.test('Resources/CosplayGuides/MK7_CosplayGuide_Full.pdf'));
+  assert.ok(!skip.test('Documentation/Guides/Sicherheit.md'));
+});

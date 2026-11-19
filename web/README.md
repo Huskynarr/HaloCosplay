@@ -55,6 +55,12 @@ nur - inhaltliche Aenderungen erfolgen weiterhin in den .md-Dateien des Repos.
   Nach neuen Tailwind-Klassen in `index.html`, `app.js`, `content.js`,
   `guide.js` oder `products/products.js` das CSS neu bauen, siehe
   [vendor/README.md](vendor/README.md).
+- **Offline:** `sw.js` im Repository-Wurzelverzeichnis speichert nach dem ersten
+  Online-Besuch die Seite, den Konfigurator, Budget, Katalog und alle Guides aus
+  `content.js`. Online wird immer zuerst das Netz gefragt; der Speicher dient nur
+  als Rueckfall bei fehlendem oder haengendem Netz (zum Beispiel in der Messehalle).
+  PDFs, STL- und CAD-Dateien werden nicht gespeichert. Neue Dateien, die die
+  Hauptseite direkt laedt, in die Liste `SHELL` in `sw.js` eintragen.
 - **Noch extern:** Nur das Sentry-SDK (`monitoring.js`) und, falls
   `models/spartan.glb` fehlt, das Platzhaltermodell von modelviewer.dev.
 
