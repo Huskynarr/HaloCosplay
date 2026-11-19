@@ -23,5 +23,8 @@ vorkommen. Nach neuen Klassen ab Repository-Wurzel neu bauen:
 npx --yes tailwindcss@3.4.17 -c tools/tailwind.config.cjs -i tools/tailwind.input.css -o web/vendor/tailwind.css --minify
 ```
 
+Die CI (`suit-design.yml`, Job `browser`) baut das CSS neu und schlaegt fehl, wenn
+die eingecheckte Datei abweicht.
+
 Die Datei wird in `web/index.html` nach dem Inline-Stylesheet eingebunden;
 diese Reihenfolge entspricht dem frueheren Play-CDN und muss erhalten bleiben.
