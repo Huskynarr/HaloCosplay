@@ -124,7 +124,9 @@ Show-Effekt 20-30% Reserve, wie es der Mess-Pflicht-Abschnitt unten fordert.
   auf 600 mA; das reicht, weil Soundkarte + Nano nur ca. 150 mA ziehen.
 - **Beide Schienen trennen:** LEDs nie an die Pi-Rail haengen - Spannungseinbrueche
   beim LED-Anlauf wuerden den Pi abstuerzen lassen.
-- **Sicherungen** siehe Tabelle unten; FX-Rail mit 3 A sichern.
+- **Sicherungen** siehe Tabelle unten; FX-Rail mit 3 A sichern. Der Peak von
+  4,4 A steht an dieser Schiene nicht zur Verfuegung: LED-Helligkeit in der
+  Firmware so begrenzen, dass die Schiene unter ca. 2,5 A bleibt.
 
 ### Kuehlung des Pi 5 im Helm
 
@@ -152,7 +154,7 @@ Show-Effekt 20-30% Reserve, wie es der Mess-Pflicht-Abschnitt unten fordert.
 
 Laufzeit mit PiSugar 3 Plus (5000 mAh):
 ```
-5000 / 440 * 0.85 = ca. 9.7 Stunden
+5000 / 1000 * 3,7 * 0,85 = 15,7 Wh;  15,7 Wh / (0,44 A * 5 V) = ca. 7.1 Stunden
 ```
 
 ### Standard V2 Setup (ohne Audio)
@@ -168,7 +170,7 @@ Laufzeit mit PiSugar 3 Plus (5000 mAh):
 
 Laufzeit mit 2x 10.000 mAh Powerbank:
 ```
-20000 / 1170 * 0.85 = ca. 14.5 Stunden
+20000 / 1000 * 3,7 * 0,85 = 62,9 Wh;  62,9 Wh / (1,17 A * 5 V) = ca. 10.8 Stunden
 ```
 
 ### Voll-Setup (HUD + LEDs + Audio)
@@ -185,32 +187,36 @@ Laufzeit mit 2x 10.000 mAh Powerbank:
 
 Laufzeit mit 2x 10.000 mAh Powerbank:
 ```
-20000 / 1270 * 0.85 = ca. 13.4 Stunden
+20000 / 1000 * 3,7 * 0,85 = 62,9 Wh;  62,9 Wh / (1,27 A * 5 V) = ca. 9.9 Stunden
 ```
 
 ## Laufzeit-Formel
 
 ```
-Laufzeit (h) = Kapazitaet (mAh) / Strom (mA) * Effizienz
+Nutzbare Energie (Wh) = Kapazitaet (mAh) / 1000 * 3,7 V * 0,85
+Laufzeit (h)          = Nutzbare Energie (Wh) / (Strom (A) * 5 V)
 ```
 
-Effizienz = 0.85 (15% Verlust durch Spannungsregelung, Kabel, Waerme)
+Die mAh-Angabe gilt fuer die 3,7-V-Zelle. mAh direkt durch den 5-V-Strom zu
+teilen ergibt rund 35 % zu lange Laufzeiten. 0,85 = Verlust durch
+Spannungswandlung, Kabel und Waerme.
 
 ## Laufzeit-Tabelle (Schnellreferenz)
 
 | Batterie | 0.5 A | 1.0 A | 1.3 A | 1.5 A | 2.0 A |
 | --- | --- | --- | --- | --- | --- |
-| 5.000 mAh (PiSugar) | 8.5 h | 4.3 h | 3.3 h | 2.8 h | 2.1 h |
-| 10.000 mAh (1x Powerbank) | 17.0 h | 8.5 h | 6.5 h | 5.7 h | 4.3 h |
-| 15.000 mAh (PiSugar + PB) | 25.5 h | 12.8 h | 9.8 h | 8.5 h | 6.4 h |
-| 20.000 mAh (2x Powerbank) | 34.0 h | 17.0 h | 13.1 h | 11.3 h | 8.5 h |
+| 5.000 mAh (PiSugar) | 6.3 h | 3.1 h | 2.4 h | 2.1 h | 1.6 h |
+| 10.000 mAh (1x Powerbank) | 12.6 h | 6.3 h | 4.8 h | 4.2 h | 3.1 h |
+| 15.000 mAh (PiSugar + PB) | 18.9 h | 9.4 h | 7.3 h | 6.3 h | 4.7 h |
+| 20.000 mAh (2x Powerbank) | 25.2 h | 12.6 h | 9.7 h | 8.4 h | 6.3 h |
 
 ## Tipps fuer mehr Laufzeit
 
 ### Groesster Hebel: LEDs
 
 - LEDs sind der groesste Verbraucher (60 LEDs bei 100% weiss = 3.6 A!)
-- **50% Helligkeit spart 75% Strom** (nicht-lineare Wahrnehmung)
+- **50% Helligkeit halbiert den Strom** (annaehernd linear); wegen der
+  nicht-linearen Wahrnehmung wirkt das kaum dunkler
 - Nur gruenen Kanal nutzen = 1/3 des Stroms von weiss
 - Weniger LEDs: 30 statt 60 halbiert den Verbrauch
 - LEDs in nicht-sichtbaren Bereichen ausschalten
@@ -248,7 +254,13 @@ Effizienz = 0.85 (15% Verlust durch Spannungsregelung, Kabel, Waerme)
 | Schiene | Sicherung | Schuetzt |
 | --- | --- | --- |
 | Logik (Pi, Arduino, OLED) | 2-3 A Feinsicherung | Ueberlast, Kurzschluss |
-| LEDs | 5-10 A Feinsicherung | LED-Strip Kurzschluss |
-| Gesamt (nahe Batterie) | 10 A | Alles |
+| LEDs an Powerbank (max. 3 A) | 3 A traege | Kabel und JST-Stecker (3 A) |
+| LEDs an LiPo + 5V/5A-Regler | 5 A hinter dem Regler | LED-Strip Kurzschluss; Pfad ohne JST-XH, Kabel mind. 0,75 mm2 |
+| Roher LiPo (vor dem Regler) | passend zum Reglereingang, z.B. 5 A bei 3S | Akkukurzschluss; Pflicht |
 
-Sicherungen so nah wie moeglich an der Batterie montieren.
+Auslegungsregel: Die Sicherung muss kleiner sein als das schwaechste Glied
+ihres Pfads (Stecker, Kabel, Quelle) und rund 25 % ueber dem gemessenen
+Dauerstrom liegen. Eine 10-A-Sicherung hinter einer 3-A-Powerbank oder vor
+einem 3-A-JST-Stecker loest nie aus und schuetzt nichts. Powerbanks begrenzen
+den Strom selbst; die Sicherung schuetzt dort vor allem duenne Kabel und
+Stecker. Sicherungen so nah wie moeglich an der Quelle montieren.

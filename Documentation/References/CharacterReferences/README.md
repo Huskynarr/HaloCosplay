@@ -1,3 +1,4 @@
 # Character References
 
-Bildreferenzen fuer Master Chief und Cortana. Einige Dateien sind Platzhalter.
+Ablage fuer eigene Bildreferenzen zu Master Chief und Cortana. Aktuell liegen
+hier keine Dateien; Bildrechte vor dem Einchecken klaeren.

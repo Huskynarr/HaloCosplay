@@ -1,5 +1,4 @@
 # Guides (Externe Dateien)
 
-Hier liegen externe PDF/DOCX-Guides. Aktuell sind einige Dateien Platzhalter.
-
-Bitte ersetzen durch eigene Quellen oder offiziell lizenzierte Dokumente.
+Ablage fuer externe PDF/DOCX-Guides. Aktuell liegen hier keine Dateien.
+Nur eigene Quellen oder offiziell lizenzierte Dokumente ablegen.
