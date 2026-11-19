@@ -2,7 +2,7 @@
 
 **Konzept-Prototyp.** Keine Passfreigabe, keine Lastfreigabe, keine
 Beschaffung. Alle Bauteile sind Einzelnachweise; der ST60 ist Profi-Level.
-Vollstaendige Einordnung: [Elektronik-Cortana-Chip.md](../../Documentation/Guides/Elektronik-Cortana-Chip.md)
+Vollstaendige Einordnung: [Elektronik-Cortana-Chip.md](../../../Documentation/Guides/Elektronik-Cortana-Chip.md)
 
 ## Funktionsweise
 
@@ -21,9 +21,9 @@ Spalt zwischen Chip und Dock. Bis dahin ist BLE der ehrliche Weg.
 | --- | --- |
 | [CortanaChip.scad](CortanaChip.scad) | Gehaeuse mit ESP32-Ausschnitt, Antennenfenster, USB- und Gurtschlitzen |
 | [STL/](STL/) | Druckteile: back, frame, front, assembly |
-| [cortana_chip.ino](cortana_chip.ino) | ESP32-S3-Firmware: OLED, BLE-Service, Charakter-JSON |
-| [characters/](characters/) | Charakter-Daten (cortana_v1.json, husky_v1.json) |
-| [../../web/cortana/index.html](../../web/cortana/index.html) | Web-App: Web-BLE-Client fuer Smartphone/Laptop |
+| [cortana_chip.ino](../../../Code/CortanaChip/cortana_chip.ino) | ESP32-S3-Firmware: OLED, BLE-Service, Charakter-JSON |
+| [characters/](../../../Code/CortanaChip/characters/) | Charakter-Daten (cortana_v1.json, husky_v1.json) |
+| [web/cortana/index.html](../../../web/cortana/index.html) | Web-App: Web-BLE-Client fuer Smartphone/Laptop |
 
 ## Bauplan
 
