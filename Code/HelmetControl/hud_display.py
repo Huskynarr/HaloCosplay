@@ -51,6 +51,9 @@ DEFAULTS = {
     "boot_animation": True,
     "log_path": "",
     "log_interval_s": 5,
+    # Ab dieser Groesse wird das Log nach <name>.1 verschoben (eine Generation),
+    # damit es die SD-Karte nicht fuellt. 0 = unbegrenzt.
+    "log_max_kb": 512,
 }
 
 
@@ -224,10 +227,15 @@ def read_state(config, t):
     return state
 
 
-def write_log(log_path, battery):
+def write_log(log_path, battery, max_kb=512):
     if not log_path:
         return
     path_value = resolve_path(log_path)
+    try:
+        if max_kb and max_kb > 0 and os.path.getsize(path_value) > max_kb * 1024:
+            os.replace(path_value, path_value + ".1")
+    except OSError:
+        pass  # no log yet, or not movable: keep appending
     timestamp = time.strftime("%Y-%m-%d %H:%M:%S")
     percent = battery.get("percent") if battery else ""
     voltage = battery.get("voltage") if battery else ""
@@ -473,6 +481,11 @@ def run_robustness_selftest():
         frame = draw_hud(0.0, None, read_state(cfg, 0.0), cfg).convert("L")
         check("CFG?-Hinweis sichtbar", any(frame.getpixel((x, y)) for x in range(100, 124) for y in range(28, 38)))
         CONFIG_WARNING = ""
+        log_path = os.path.join(tmp, "hud_log.txt")
+        for _ in range(60):
+            write_log(log_path, {"percent": 50, "voltage": 3.9}, max_kb=1)
+        check("Log wird ab log_max_kb rotiert",
+              os.path.exists(log_path + ".1") and os.path.getsize(log_path) <= 2048)
     if failures:
         sys.exit("Selftest fehlgeschlagen: " + ", ".join(failures))
 
@@ -515,7 +528,8 @@ def main():
     failures = 0          # consecutive bad frames
     last_report = 0.0     # rate limit for the error line
     while True:
-        t = time.time() - start
+        frame_start = time.time()
+        t = frame_start - start
         battery = None
         try:
             battery = read_battery(CONFIG)
@@ -539,9 +553,10 @@ def main():
                     pass  # still gone; keep trying with the capped backoff
         now = time.time()
         if CONFIG.get("log_path") and now - last_log >= log_interval:
-            write_log(CONFIG.get("log_path"), battery)
+            write_log(CONFIG.get("log_path"), battery, safe_float(CONFIG.get("log_max_kb"), 512.0))
             last_log = now
-        time.sleep(refresh)
+        # refresh_ms is the frame period, not a pause on top of render + I2C time.
+        time.sleep(max(0.005, refresh - (time.time() - frame_start)))
 
 
 if __name__ == "__main__":

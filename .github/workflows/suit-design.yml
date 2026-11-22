@@ -49,6 +49,11 @@ jobs:
         run: |
           npm install --no-save --prefix build/browser playwright@1.62.1
           node build/browser/node_modules/playwright/cli.js install --with-deps chromium --only-shell
+      - name: Prebuilt Tailwind stylesheet is current
+        run: |
+          npx --yes tailwindcss@3.4.17 -c tools/tailwind.config.cjs -i tools/tailwind.input.css -o build/tailwind-check.css --minify
+          cmp build/tailwind-check.css web/vendor/tailwind.css || {
+            echo '::error::web/vendor/tailwind.css is stale; rebuild it (command in web/vendor/README.md)'; exit 1; }
       - name: Verify interactive project workflows
         env:
           NODE_PATH: ${{ github.workspace }}/build/browser/node_modules
