@@ -17,7 +17,7 @@ jobs:
     name: Doku-Checks (ASCII + Links)
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
 
       - name: ASCII-Konvention pruefen
         run: |
@@ -49,7 +49,7 @@ jobs:
     name: Python Syntax-Check
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
@@ -75,7 +75,7 @@ jobs:
     name: Arduino-Sketches kompilieren
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
         with:
           fetch-depth: 2
 
@@ -98,7 +98,7 @@ jobs:
 
       - name: Cores und Libraries cachen
         if: steps.changed.outputs.run == 'true'
-        uses: actions/cache@v4
+        uses: actions/cache@v6
         with:
           path: ~/.arduino15
           key: arduino15-avr-esp32-3.3.13
