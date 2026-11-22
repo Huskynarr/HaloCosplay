@@ -103,15 +103,17 @@ sudo systemctl disable bluetooth avahi-daemon triggerhappy
 
 ### LED-Steuerung
 
-Der vorhandene Code (`Code/HelmetControl/MainControlCode.ino`) empfaengt Helligkeit per I2C:
+Fuer den Bau `Code/HelmetControl/HelmetMultiEffects.ino` (Effekte, Luefter, I2C) flashen.
+Zum ersten Test reicht das Minimalbeispiel `Code/Examples/HelmetControl/MainControlCode.ino`; es empfaengt Helligkeit per I2C:
 - I2C-Adresse: 0x08
 - Empfaengt 1 Byte = Helligkeit (0-255)
 - Steuert LED an Pin 6
 
 ### LED-Effekte
 
-`Code/HelmetControl/LightingEffectsCode.ino` - einfacher LED-Lauf
-`Code/ArmorControl/LightingEffectsCode.ino` - LED-Chase-Effekt
+Fuer die Ruestung `Code/ArmorControl/MultiEffects.ino` verwenden. Minimalbeispiele zum Testen eines Streifens:
+`Code/Examples/HelmetControl/LightingEffectsCode.ino` - einfacher LED-Lauf
+`Code/Examples/ArmorControl/LightingEffectsCode.ino` - LED-Chase-Effekt
 
 ### Flashen
 

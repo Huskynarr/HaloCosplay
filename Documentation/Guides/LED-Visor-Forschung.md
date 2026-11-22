@@ -317,7 +317,7 @@ Mode 4: Effekte     - Breathing/Boot-Up/Chase bei 70%
 Mode 5: Aus         - Alles aus (Spar-Modus)
 ```
 
-**Arduino-Implementierung:** Siehe `Code/HelmetControl/MainControlCode.ino` fuer das bestehende Setup. Ein Taster an einem digitalen Pin, der bei jedem Druck den Modus hochzaehlt.
+**Arduino-Implementierung:** Siehe `Code/HelmetControl/HelmetMultiEffects.ino`: ein Taster an einem digitalen Pin, der bei jedem Druck den Modus hochzaehlt.
 
 ### Empfehlungen fuer Fotografen
 

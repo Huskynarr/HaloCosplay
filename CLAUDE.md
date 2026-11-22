@@ -28,7 +28,7 @@ Three legacy material-reference variants exist: V1 Einsteiger (foam), V2 Fortges
 - `Documentation/Guides/Convention-Regeln.md` - per-event verification checklist; blanket con/weapon-law claims were withdrawn on purpose, do not reintroduce them
 - `Documentation/Guides/Transport.md` - packing and transporting armor to conventions
 - `BuildGuides/` - step-by-step build phases for Armor, Helmet, and Electronics
-- `Code/` - Arduino/ESP32 (.ino) and Python code: `HelmetControl/` (HUD, bridges, voice, `AR/`), `ArmorControl/`, `WeaponControl/` (ammo counter), `CortanaChip/` (ESP32-S3 BLE prop), `Exhibition/` (offline booth display)
+- `Code/` - Arduino/ESP32 (.ino) and Python code: `Examples/` (minimal test sketches), `HelmetControl/` (HUD, bridges, voice, `AR/`), `ArmorControl/`, `WeaponControl/` (ammo counter), `CortanaChip/` (ESP32-S3 BLE prop), `Exhibition/` (offline booth display)
 - `tools/suit_*.py` - stdlib-only generators: fit, project package, budget, catalog, readiness, engineering, thermal, hardware, components, clamshell
 - `tools/amazon-creators/` - local affiliate link updater (Node)
 - `web/` - static site: guide viewer (`app.js`), `configurator/`, `budget/`, `products/`, `cortana/`, Sentry in `monitoring.js`
@@ -60,12 +60,10 @@ Three legacy material-reference variants exist: V1 Einsteiger (foam), V2 Fortges
 - Guide: `Documentation/Guides/Elektronik-Sprachsteuerung.md`
 
 ### Arduino Controllers
-- `Code/HelmetControl/MainControlCode.ino` - basic I2C slave; accepts the same `[cmd, value]` protocol as HelmetMultiEffects but only applies brightness (0x01)
+- `Code/Examples/HelmetControl/MainControlCode.ino` - basic I2C slave; accepts the same `[cmd, value]` protocol as HelmetMultiEffects but only applies brightness (0x01)
 - `Code/HelmetControl/HelmetMultiEffects.ino` - **advanced**: 5 visor effects + I2C commands + fan PWM + button switching
 - `Code/ArmorControl/MultiEffects.ino` - **advanced**: 5 LED effects + button switching + boot sequence + shield-hit touch sensors + handler alert
-- `Code/HelmetControl/LightingEffectsCode.ino` - simple LED running effect
-- `Code/ArmorControl/MainControlCode.ino` - simple LED breathing effect
-- `Code/ArmorControl/LightingEffectsCode.ino` - simple LED chase effect
+- `Code/Examples/` - four minimal test sketches (helmet/armor `MainControlCode.ino`, `LightingEffectsCode.ino`); builds use the MultiEffects controllers
 - Compiled via Arduino IDE or `arduino-cli compile`; pin assignments must be adapted per build. CI compiles every sketch (AVR Nano, ESP32 SensorFeeder, ESP32-S3 Cortana chip); add new sketches to `.github/workflows/ci.yml`
 - LED effect patterns documented in `Documentation/Guides/LED-Effekte.md`
 
