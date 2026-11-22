@@ -98,7 +98,7 @@ jobs:
 
       - name: Cores und Libraries cachen
         if: steps.changed.outputs.run == 'true'
-        uses: actions/cache@v4
+        uses: actions/cache@v6
         with:
           path: ~/.arduino15
           key: arduino15-avr-esp32-3.3.13
