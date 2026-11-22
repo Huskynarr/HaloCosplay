@@ -33,7 +33,7 @@ import time
 import hud_state
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-DEFAULT_STATE = os.path.join(BASE_DIR, "hud_state.json")
+DEFAULT_STATE = hud_state.runtime_path("hud_state.json")
 DEFAULT_MODEL = ("/usr/share/imx500-models/"
                  "imx500_network_ssd_mobilenetv2_fpnlite_320x320_pp.rpk")
 DEFAULT_LABELS = os.path.join(BASE_DIR, "coco_labels.txt")

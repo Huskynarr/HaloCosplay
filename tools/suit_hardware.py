@@ -44,6 +44,11 @@ def configuration(config_path=None):
             finite = False
         if not finite or abs(value) > 10000:
             raise ValueError(key+': Zahl ausserhalb des Geometriebereichs')
+        # Every kit dimension is a positive length/diameter. Without per-key
+        # limits, stay within a fifth to five times the example part.
+        low, high = defaults[key] / 5, defaults[key] * 5
+        if not low <= value <= high:
+            raise ValueError(f'{key}: {value:g} ausserhalb {low:g}..{high:g}; Einheit (mm) pruefen')
     return values, {key: 'explicit_config' if key in overrides else 'generic_example' for key in values}
 
 

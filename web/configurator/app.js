@@ -3,6 +3,8 @@
   const CORE = window.SuitProfile;
   const DATA_KEY = 'mjolnir:configurator:profiles:v1';
   const CONSENT_KEY = 'mjolnir:configurator:consent:v1';
+  // Raw copy of a stored collection that could not be loaded unchanged.
+  const BACKUP_KEY = 'mjolnir:configurator:profiles:v1:backup';
   const MAX_BYTES = 1024 * 1024;
   const $ = id => document.getElementById(id);
   const LABELS = {
@@ -31,11 +33,12 @@
     records.push(record); active = record.id;
     render(); save();
   }
+  /* Returns false when the browser copy does not match the session. */
   function save() {
-    if (!persistent) return;
+    if (!persistent) return true;
     if (records.some(record => CORE.inspect(record.data, schema).errors.length)) {
       $('privacy').textContent = 'Mindestens ein Profil enthaelt Eingabefehler. Die letzte gueltige Browserkopie bleibt bestehen; aktuelle Aenderungen sind noch nicht gespeichert.';
-      return;
+      return false;
     }
     try {
       const data = JSON.stringify({schema_version: 1, active, profiles: records.map(({id: key, data: profile}) => ({id: key, data: profile}))});
@@ -44,31 +47,73 @@
       localStorage.setItem(CONSENT_KEY, 'yes');
       records.forEach(record => { record.dirty = false; });
       $('privacy').textContent = 'Aktuelle gueltige Profile werden nur in diesem Browser gespeichert. JSON-Export bleibt die portable Sicherung.';
+      return true;
     } catch (error) {
       $('privacy').textContent = 'Browser-Speicherung fehlgeschlagen. Aktuelle Eingaben bleiben nur im Arbeitsspeicher. JSON-Export verwenden.';
       message('Speichern nicht moeglich: ' + error.message, true);
+      return false;
     }
   }
+  function keepBackup(raw) {
+    try { localStorage.setItem(BACKUP_KEY, raw); return true; } catch (error) { return false; }
+  }
+  function backupControl() {
+    let raw = null;
+    try { raw = localStorage.getItem(BACKUP_KEY); } catch (error) { raw = null; }
+    const existing = $('backup-download');
+    if (!raw) { if (existing) existing.remove(); return; }
+    if (existing) return;
+    const button = document.createElement('button');
+    button.type = 'button'; button.id = 'backup-download';
+    button.textContent = 'Sicherung der frueheren Browserkopie herunterladen';
+    button.addEventListener('click', () => {
+      let stored = null;
+      try { stored = localStorage.getItem(BACKUP_KEY); } catch (error) { stored = null; }
+      if (!stored) { message('Keine Sicherung mehr vorhanden.', true); backupControl(); return; }
+      const url = URL.createObjectURL(new Blob([stored], {type: 'application/json'})), link = document.createElement('a');
+      link.href = url; link.download = 'mjolnir-browserkopie-sicherung.local.json';
+      document.body.appendChild(link); link.click(); link.remove(); setTimeout(() => URL.revokeObjectURL(url), 1000);
+      message('Download gestartet: ' + link.download + '. Die Datei enthaelt die damals gespeicherten Koerpermasse.');
+    });
+    $('privacy').insertAdjacentElement('afterend', button);
+  }
   function restore() {
+    let raw = null;
     try {
       if (localStorage.getItem(CONSENT_KEY) !== 'yes') return;
-      const raw = localStorage.getItem(DATA_KEY);
+      raw = localStorage.getItem(DATA_KEY);
       if (!raw || raw.length > MAX_BYTES) throw new Error('Browserkopie fehlt oder ist zu gross.');
       const saved = JSON.parse(raw);
       if (saved.schema_version !== 1 || !Array.isArray(saved.profiles) || !saved.profiles.length || saved.profiles.length > 100) throw new Error('Unbekanntes Speicherformat.');
       const ids = new Set();
+      let added = 0, dropped = 0;
       const restored = saved.profiles.map(record => {
         if (!record || typeof record.id !== 'string' || !/^[A-Za-z0-9-]{1,80}$/.test(record.id) || ids.has(record.id)) throw new Error('Ungueltige Profil-ID.');
         ids.add(record.id);
-        return {id: record.id, data: CORE.imported(record.data, schema), dirty: false};
+        try { return {id: record.id, data: CORE.imported(record.data, schema), dirty: false}; }
+        catch (strict) {
+          // Written under an older schema: upgrade the structure, then validate again.
+          const upgraded = CORE.migrate(record.data, schema);
+          const data = CORE.imported(upgraded.profile, schema);
+          added += upgraded.added.length; dropped += upgraded.dropped.length;
+          return {id: record.id, data, dirty: true};
+        }
       });
       records = restored;
       active = ids.has(saved.active) ? saved.active : records[0].id;
       persistent = true; $('persist').checked = true;
       $('privacy').textContent = 'Zuvor aktivierte Browser-Speicherung ist eingeschaltet. Gespeicherte Profile wurden geladen.';
+      if (added || dropped) {
+        const kept = keepBackup(raw);
+        message('Gespeicherte Profile wurden an das aktuelle Formular angepasst: ' + added + ' Felder leer ergaenzt, ' + dropped + ' unbekannte Felder entfernt. ' +
+          (kept ? 'Die unveraenderte fruehere Kopie bleibt als Sicherung im Browser.' : 'Eine Sicherung der frueheren Kopie konnte nicht angelegt werden; vor dem Weiterarbeiten exportieren.'), !kept);
+      }
     } catch (error) {
-      message('Browserkopie konnte nicht geladen werden; sie wurde nicht ueberschrieben. ' + error.message, true);
+      // Keep the unreadable copy: enabling storage again would otherwise replace it.
+      const kept = raw ? keepBackup(raw) : false;
+      message('Browserkopie konnte nicht geladen werden. ' + (kept ? 'Sie bleibt als Sicherung im Browser erhalten und kann unten heruntergeladen werden. ' : 'Sie wurde nicht ueberschrieben; Speicherung erst nach einem Export wieder einschalten. ') + error.message, true);
     }
+    backupControl();
   }
   function options(select, values, selected) {
     select.replaceChildren();
@@ -223,15 +268,16 @@
     $('delete').addEventListener('click', () => {
       if (!window.confirm('Aktives Profil aus dieser Sitzung und gegebenenfalls der Browserkopie entfernen? Exportierte Dateien bleiben erhalten.')) return;
       records = records.filter(record => record.id !== active);
-      if (!records.length) add(CORE.create(schema));
-      else { active = records[0].id; render(); save(); }
-      message('Profil entfernt.');
+      if (!records.length) records.push({id: id(), data: CORE.create(schema), dirty: false});
+      active = records[0].id; render();
+      if (save()) message(persistent ? 'Profil aus Sitzung und Browserkopie entfernt.' : 'Profil entfernt.');
+      else message('Profil aus dieser Sitzung entfernt. Die Browserkopie enthaelt es noch, weil sie gerade nicht aktualisiert werden kann. Eingabefehler in den uebrigen Profilen beheben oder die Browser-Speicherung ausschalten.', true);
     });
     $('persist').addEventListener('change', () => {
       persistent = $('persist').checked;
       if (persistent) save();
       else {
-        try { localStorage.removeItem(DATA_KEY); localStorage.removeItem(CONSENT_KEY); message('Browserkopie entfernt. Aktuelle Profile bleiben bis zum Neuladen im Arbeitsspeicher.'); }
+        try { localStorage.removeItem(DATA_KEY); localStorage.removeItem(CONSENT_KEY); localStorage.removeItem(BACKUP_KEY); backupControl(); message('Browserkopie entfernt. Aktuelle Profile bleiben bis zum Neuladen im Arbeitsspeicher.'); }
         catch (error) { message('Browserkopie konnte nicht entfernt werden. Website-Daten in den Browser-Einstellungen loeschen.', true); }
         records.forEach(record => { record.dirty = true; });
         $('privacy').textContent = 'Nur Arbeitsspeicher: Eingaben gehen beim Neuladen verloren. JSON-Export sichert das aktive Profil.';

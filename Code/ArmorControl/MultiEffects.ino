@@ -19,8 +19,11 @@
  *   LED Data     -> Pin 5 (ueber 330 Ohm Widerstand)
  *   Modus-Taster -> Pin 2 (gegen GND, interner Pull-Up)
  *   TP223        -> Pins 4 (Brust), 6 (Ruecken), 7 (Schulter L), 8 (Schulter R)
- *                   Ausgang HIGH bei Beruehrung; nicht angeschlossene Sensoren
- *                   brauchen 10 kOhm Pulldown, sonst zufaellige Treffer
+ *                   Ausgang HIGH bei Beruehrung. Nur aktiv mit TOUCH_ENABLED 1
+ *                   (Standard 0): offene Eingaenge floaten und loesen sonst
+ *                   zufaellige Treffer aus. Der AVR hat keine internen
+ *                   Pulldowns - jeder nicht bestueckte Sensor-Pin braucht
+ *                   10 kOhm nach GND, bevor TOUCH_ENABLED auf 1 gesetzt wird.
  *   Alert-Taster -> Pin 3 (gegen GND, interner Pull-Up)
  *   Buzzer       -> Pin 9 (passiver Piezo, Plus-Seite, ueber 100 Ohm)
  *   +5V/GND      -> LED Strip Power (1000 uF Elko!)
@@ -37,6 +40,7 @@
 #define BUZZER_PIN  9
 #define NUM_MODES   5
 #define BRIGHTNESS  128   // 50% = guter Convention-Wert (0-255)
+#define TOUCH_ENABLED 0   // 1 = Shield-Hit-Sensoren auswerten (siehe Verkabelung oben)
 
 // Farbe: Gruen-Cyan (MJOLNIR Tech-Glow)
 #define COLOR_R  0
@@ -83,7 +87,9 @@ void loop() {
     alertEffect();
     return;                 // Alarm hat Vorrang, Treffer werden ignoriert
   }
+#if TOUCH_ENABLED
   checkTouches();
+#endif
   switch (currentMode) {
     case 0: staticGlow(); break;
     case 1: breathing();  break;
@@ -176,32 +182,47 @@ void checkTouches() {
   }
 }
 
+// Wie delay(), fragt aber alle 5 ms Modus- und Alert-Taster ab. So geht ein
+// kurzer Tastendruck (z.B. 200 ms Optokoppler-Puls vom Pi) waehrend eines
+// laengeren Effekts nicht verloren. Gibt true zurueck, wenn der Alarm aktiv
+// ist - der laufende Effekt soll dann sofort enden.
+bool waitMs(unsigned long ms) {
+  unsigned long start = millis();
+  while (millis() - start < ms) {
+    checkButton();
+    checkAlertButton();
+    if (alertActive) return true;
+    delay(5);
+  }
+  return alertActive;
+}
+
 // Zap: 2x cyan-weisser Blitz + zwei fallende Toene. Bei depleted stattdessen
-// rotes Flackern + tiefer Ton ("Schild leer"). Blockiert wie bootSequence -
-// akzeptabel, weil der Effekt Sekunden-Dauer hat und danach der Modus weiterlaeuft.
+// rotes Flackern + tiefer Ton ("Schild leer"). Dauert bis ca. 1,9 s; waitMs()
+// haelt Taster und Handler-Alarm waehrenddessen bedienbar.
 void shieldHitEffect(bool depleted) {
   if (depleted) {
     hitCount = 0;
     for (uint8_t f = 0; f < 6; f++) {
       setAllColor(255, 0, 0, 255);
       tone(BUZZER_PIN, 300, 100);
-      delay(125);
+      if (waitMs(125)) return;
       setAllColor(0, 0, 0, 0);
-      delay(125);
+      if (waitMs(125)) return;
     }
     tone(BUZZER_PIN, 300, 400);
-    delay(400);
+    waitMs(400);
   } else {
     for (uint8_t b = 0; b < 2; b++) {
       setAllColor(180, 255, 255, 255);
-      delay(120);
+      if (waitMs(120)) return;
       setAllColor(0, 0, 0, 0);
-      delay(80);
+      if (waitMs(80)) return;
     }
     tone(BUZZER_PIN, 1800, 60);
-    delay(60);
+    if (waitMs(60)) return;
     tone(BUZZER_PIN, 900, 60);
-    delay(60);
+    waitMs(60);
   }
 }
 
@@ -243,16 +264,16 @@ void bootSequence() {
   for (int i = 0; i < LED_COUNT; i++) {
     strip.setPixelColor(i, COLOR_R, COLOR_G, COLOR_B);
     strip.show();
-    delay(60);
+    if (waitMs(60)) return;   // Handler-Alarm schon waehrend des Bootens moeglich
   }
   // Dreifaches Aufblitzen
   for (int b = 0; b < 3; b++) {
     strip.setBrightness(255);
     strip.show();
-    delay(80);
+    if (waitMs(80)) return;
     strip.setBrightness(BRIGHTNESS);
     strip.show();
-    delay(80);
+    if (waitMs(80)) return;
   }
 }
 
@@ -260,10 +281,11 @@ void bootSequence() {
 
 void setAllColor(uint8_t r, uint8_t g, uint8_t b, uint8_t br) {
   for (int i = 0; i < LED_COUNT; i++) {
+    // uint16_t: 255 * 255 passt nicht in den 16-bit-int des AVR
     strip.setPixelColor(i,
-      (uint8_t)(r * br / 255),
-      (uint8_t)(g * br / 255),
-      (uint8_t)(b * br / 255));
+      (uint8_t)((uint16_t)r * br / 255),
+      (uint8_t)((uint16_t)g * br / 255),
+      (uint8_t)((uint16_t)b * br / 255));
   }
   strip.show();
 }

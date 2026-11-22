@@ -45,7 +45,13 @@ pip3 install luma.oled
 
 ## 5. HUD-Software testen
 
+Das Repository liegt in dieser Anleitung unter `/home/pi/HaloCosplay`. HUD und
+alle Bruecken laufen aus demselben Verzeichnis `Code/HelmetControl`, damit sie
+dieselbe `hud_state.json` verwenden.
+
 ```bash
+cd /home/pi/HaloCosplay/Code/HelmetControl
+
 # config.json erstellen
 cp config.example.json config.json
 
@@ -67,7 +73,9 @@ After=multi-user.target
 [Service]
 Type=idle
 User=pi
-ExecStart=/usr/bin/python3 -u /home/pi/hud_display.py
+WorkingDirectory=/home/pi/HaloCosplay/Code/HelmetControl
+Environment=HUD_STATE_DIR=/run/halo-hud
+ExecStart=/usr/bin/python3 -u /home/pi/HaloCosplay/Code/HelmetControl/hud_display.py
 Restart=on-failure
 RestartSec=5
 StandardOutput=append:/var/log/hud.log
@@ -77,17 +85,64 @@ StandardError=inherit
 WantedBy=multi-user.target
 ```
 
+### Laufzeitdateien auf tmpfs
+
+Die Bruecken schreiben `hud_state.json` und `battery.json` 10-15 mal pro
+Sekunde. Auf der SD-Karte kostet das Lebensdauer. `HUD_STATE_DIR` legt beide
+Dateien fuer HUD und Bruecken in ein gemeinsames Verzeichnis; `/run` ist ein
+tmpfs im Arbeitsspeicher. Das Verzeichnis beim Booten anlegen lassen, Datei
+`/etc/tmpfiles.d/halo-hud.conf`:
+
+```
+d /run/halo-hud 0755 pi pi -
+```
+
+Einmalig sofort anlegen: `sudo systemd-tmpfiles --create /etc/tmpfiles.d/halo-hud.conf`.
+Die Werte sind nach einem Neustart weg; das ist gewollt, weil alte Live-Werte
+nach dem Booten falsch waeren. Ohne `HUD_STATE_DIR` liegen die Dateien wie
+bisher neben den Skripten. Alle Dienste muessen denselben Wert verwenden.
+
+### Sensor-Bruecke (optional, mit SensorFeeder)
+
+Ohne diesen Dienst bleiben Kompass und Akkuanzeige in der Demo bzw. zeigen
+nach 30 s `AKKU ?`. Erstelle `/etc/systemd/system/hud-sensors.service`
+(seriellen Port anpassen):
+
+```ini
+[Unit]
+Description=Halo HUD Sensor Bridge
+After=multi-user.target
+
+[Service]
+User=pi
+WorkingDirectory=/home/pi/HaloCosplay/Code/HelmetControl
+Environment=HUD_STATE_DIR=/run/halo-hud
+ExecStart=/usr/bin/python3 -u /home/pi/HaloCosplay/Code/HelmetControl/sensor_bridge.py --port /dev/ttyUSB0
+Restart=always
+RestartSec=3
+
+[Install]
+WantedBy=multi-user.target
+```
+
+Weitere Bruecken (`robot_bridge.py`, `vision_bridge.py`, `voice_control.py`)
+bekommen bei Bedarf eigene Units nach demselben Muster: gleiches
+`WorkingDirectory`, gleiches `HUD_STATE_DIR`.
+
 Aktivieren:
 ```bash
 sudo systemctl daemon-reload
-sudo systemctl enable hud.service
-sudo systemctl start hud.service
+sudo systemctl enable hud.service hud-sensors.service
+sudo systemctl start hud.service hud-sensors.service
 ```
 
 **Hinweise:**
 - `-u` Flag deaktiviert Output-Buffering fuer korrektes Logging
 - `Type=idle` wartet bis alle anderen Boot-Services fertig sind
 - `Restart=on-failure` startet bei Absturz automatisch neu
+- Das HUD faengt Einzelfehler selbst ab: ein kaputter Wert in `hud_state.json`
+  oder ein kurzer I2C-Aussetzer kostet einen Frame, nicht den Prozess. Eine
+  kaputte `config.json` fuehrt zu Standardwerten und dem Hinweis `CFG?`.
 
 ## 7. Stromspar-Optimierungen
 

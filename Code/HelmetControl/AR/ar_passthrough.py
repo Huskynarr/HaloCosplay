@@ -7,9 +7,12 @@ Zielschleife: moeglichst unter 20-30 ms pro Frame (siehe
 
 SICHERHEIT (zwingend lesen): Dieses Programm ersetzt bei Stufe C die direkte
 Sicht. Ein Ausfall = Blindheit mitten in der Bewegung. Darum:
-  - Watchdog: bleibt ein frischer Frame aus oder steigt die Latenz, wird ein
-    grosser Warnbanner eingeblendet ("VISOR HOCH"). Das Bild wird NIE einfach
-    schwarz, ohne zu warnen.
+  - Watchdog: Die Kamera wird in einem eigenen Thread gelesen. Ist der letzte
+    Frame aelter als frame_timeout_ms (Kamera liefert Fehler ODER haengt), wird
+    ein grosser Warnbanner eingeblendet ("VISOR HOCH"). Grenzen: Der Banner
+    setzt voraus, dass dieser Prozess, die Grafikausgabe und das Display noch
+    laufen. Haengt der Rechner selbst oder faellt das Display aus, warnt
+    niemand - dagegen hilft nur der mechanische Notausblick.
   - Mechanischer Notausblick (hochklappbarer/absetzbarer Visor) und ein Handler
     sind PFLICHT. Software ersetzt das nicht.
   - Luefter und Notbeleuchtung muessen unabhaengig von diesem Rechner laufen.
@@ -21,18 +24,23 @@ genutzt, sonst faellt das Programm auf eine OpenCV-VideoCapture zurueck.
 Aufruf:
   python3 ar_passthrough.py                 # normaler Betrieb
   python3 ar_passthrough.py --selftest out.png   # ohne Kamera/Display, schreibt ein PNG
+  python3 ar_passthrough.py --selftest-logic     # Watchdog/Sensor-Logik, ohne OpenCV
 """
 
 import argparse
 import json
+import math
 import os
 import sys
+import threading
 import time
-from collections import deque
 
-import cv2
-
-import hud_overlay
+try:
+    import cv2
+    import hud_overlay
+except ImportError:  # --selftest-logic laeuft auch ohne OpenCV
+    cv2 = None
+    hud_overlay = None
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
@@ -50,6 +58,7 @@ DEFAULTS = {
     "low_battery_percent": 15,    # darunter: Warnbanner
     "sensor_serial_port": "",     # z.B. "/dev/ttyUSB0" fuer ESP32-Feeder; leer = aus
     "sensor_baud": 115200,
+    "sensor_timeout_ms": 3000,    # aeltere Feeder-Werte gelten als unbekannt
     "default_shield": 100,
     "default_ammo": 32,
     "window_name": "MJOLNIR AR",
@@ -60,9 +69,27 @@ def load_config():
     config = DEFAULTS.copy()
     path = os.path.join(BASE_DIR, "ar_config.json")
     if os.path.exists(path):
-        with open(path, "r", encoding="utf-8") as handle:
-            config.update(json.load(handle))
+        try:
+            with open(path, "r", encoding="utf-8") as handle:
+                data = json.load(handle)
+            if not isinstance(data, dict):
+                raise ValueError("kein JSON-Objekt")
+            config.update(data)
+        except (OSError, ValueError) as exc:
+            print(f"WARNUNG: ar_config.json unbrauchbar ({exc}), nutze Standardwerte.",
+                  file=sys.stderr)
     return config
+
+
+def finite(value, default=None):
+    """Zahl als endlicher float, sonst default (None, Text, NaN, inf)."""
+    if value is None or isinstance(value, bool):
+        return default
+    try:
+        number = float(value)
+    except (TypeError, ValueError, OverflowError):
+        return default
+    return number if math.isfinite(number) else default
 
 
 # --------------------------------------------------------------------------
@@ -143,6 +170,53 @@ class CameraSource:
 
 
 # --------------------------------------------------------------------------
+# Kamera-Thread: camera.read() kann blockieren (haengende CSI-Pipeline, USB-
+# Kamera abgezogen). Laeuft das Lesen im Hauptthread, friert die Anzeige ohne
+# Warnung ein. Darum liest ein eigener Thread, der Hauptthread prueft nur das
+# Alter des letzten Frames und kann so auch bei haengender Kamera warnen.
+# --------------------------------------------------------------------------
+class FrameGrabber:
+    def __init__(self, camera, clock=time.monotonic):
+        self._camera = camera
+        self._clock = clock
+        self._lock = threading.Lock()
+        self._frame = None
+        self._stamp = None
+        self._seq = 0
+        self._stop = threading.Event()
+        self._thread = threading.Thread(target=self._run, name="camera", daemon=True)
+
+    def start(self):
+        self._thread.start()
+        return self
+
+    def _run(self):
+        while not self._stop.is_set():
+            try:
+                ok, frame = self._camera.read()
+            except Exception:
+                ok, frame = False, None
+            if ok and frame is not None:
+                with self._lock:
+                    self._frame, self._stamp = frame, self._clock()
+                    self._seq += 1
+            else:
+                self._stop.wait(0.01)  # Fehlerfall: nicht heisslaufen
+
+    def latest(self):
+        """(frame, alter_in_s, laufende_nummer); frame None = noch kein Bild."""
+        with self._lock:
+            if self._frame is None:
+                return None, None, 0
+            return self._frame, self._clock() - self._stamp, self._seq
+
+    def stop(self):
+        # Daemon-Thread: haengt read() fuer immer, endet er mit dem Prozess.
+        self._stop.set()
+        self._thread.join(timeout=0.5)
+
+
+# --------------------------------------------------------------------------
 # Optionaler Sensor-Feeder (ESP32) ueber serielle Schnittstelle.
 # Erwartet JSON-Zeilen, z.B. {"heading":123,"battery":78,"temp":41}
 # Laeuft bewusst getrennt: faellt der Feeder aus, laeuft das Passthrough weiter.
@@ -153,6 +227,7 @@ class SensorReader:
         self._serial = None
         self._buf = b""
         self.latest = {}
+        self.latest_time = None   # time.monotonic() der letzten gueltigen Zeile
 
     def open(self):
         port = self.config.get("sensor_serial_port", "")
@@ -176,12 +251,32 @@ class SensorReader:
                 line, self._buf = self._buf.split(b"\n", 1)
                 line = line.strip()
                 if line.startswith(b"{"):
-                    try:
-                        self.latest = json.loads(line.decode("utf-8", "ignore"))
-                    except ValueError:
-                        pass
+                    self.feed(line)
+            if len(self._buf) > 4096:   # Datenmuell ohne Zeilenende
+                self._buf = b""
         except Exception:
             return
+
+    def feed(self, line, now=None):
+        """Eine JSON-Zeile uebernehmen (auch fuer den Selbsttest)."""
+        try:
+            data = json.loads(line.decode("utf-8", "ignore"))
+        except ValueError:
+            return
+        if isinstance(data, dict):
+            self.latest = data
+            self.latest_time = time.monotonic() if now is None else now
+
+    def fresh(self, now=None):
+        """Letzte Werte, oder {} wenn der Feeder zu lange schweigt.
+
+        Ein ausgefallener ESP32 darf nicht ewig "Akku 78 %" anzeigen lassen.
+        """
+        if self.latest_time is None:
+            return {}
+        now = time.monotonic() if now is None else now
+        limit = finite(self.config.get("sensor_timeout_ms"), 3000.0) / 1000.0
+        return self.latest if now - self.latest_time <= limit else {}
 
     def close(self):
         try:
@@ -215,16 +310,91 @@ def run_selftest(config, out_path):
     return 0 if ok else 1
 
 
+def frame_warning(age_s, frame_timeout_s):
+    """Warntext, wenn es kein ausreichend frisches Kamerabild gibt."""
+    if age_s is None or age_s > frame_timeout_s:
+        return "SICHT PRUEFEN - VISOR HOCH"
+    return None
+
+
+def battery_warning(battery, low_percent):
+    return "AKKU SCHWACH - VISOR HOCH" if battery is not None and battery <= low_percent else None
+
+
+def run_logic_selftest():
+    """Watchdog- und Sensorlogik ohne Kamera, Display und OpenCV pruefen."""
+    failures = []
+
+    def check(name, ok):
+        print(f"  [{'ok' if ok else 'FEHLER'}] {name}")
+        if not ok:
+            failures.append(name)
+
+    class HangingCamera:
+        """Liefert zwei Frames und blockiert dann wie eine haengende Pipeline."""
+        def __init__(self):
+            self.calls = 0
+            self.release = threading.Event()
+
+        def read(self):
+            self.calls += 1
+            if self.calls <= 2:
+                return True, f"frame{self.calls}"
+            self.release.wait(5)
+            return False, None
+
+    cam = HangingCamera()
+    grabber = FrameGrabber(cam).start()
+    deadline = time.monotonic() + 1.0
+    while grabber.latest()[2] < 2 and time.monotonic() < deadline:
+        time.sleep(0.005)
+    frame, age, seq = grabber.latest()
+    check("Grabber liefert Frames", frame == "frame2" and seq == 2 and frame_warning(age, 0.25) is None)
+    time.sleep(0.12)   # Kamera haengt jetzt in read(); Hauptthread laeuft weiter
+    frame, age, seq = grabber.latest()
+    check("Haengende Kamera: Hauptthread blockiert nicht, Warnung nach Timeout",
+          seq == 2 and age > 0.1 and frame_warning(age, 0.1) is not None)
+    cam.release.set()
+    grabber.stop()
+    check("Noch kein Bild -> Warnung", frame_warning(None, 0.25) is not None)
+
+    sensors = SensorReader({"sensor_timeout_ms": 3000})
+    check("Ohne Feeder keine Werte", sensors.fresh(now=0.0) == {})
+    sensors.feed(b'{"heading":123,"battery":12}', now=100.0)
+    check("Frische Feeder-Werte werden genutzt", sensors.fresh(now=101.0).get("battery") == 12)
+    check("Veraltete Feeder-Werte gelten als unbekannt", sensors.fresh(now=104.5) == {})
+    sensors.feed(b'[1,2,3]', now=200.0)
+    check("Nicht-Objekt-Zeilen werden ignoriert", sensors.latest.get("battery") == 12)
+    check("Akkuwarnung nur bei gueltiger Zahl",
+          battery_warning(finite(12), 15.0) is not None
+          and battery_warning(finite("leer"), 15.0) is None
+          and battery_warning(finite(float("nan")), 15.0) is None
+          and battery_warning(finite(80), 15.0) is None)
+    if failures:
+        print("Logik-Selbsttest FEHLGESCHLAGEN: " + ", ".join(failures))
+        return 1
+    print("Logik-Selbsttest OK")
+    return 0
+
+
 def main():
     parser = argparse.ArgumentParser(description="MJOLNIR AR-Passthrough-Demo")
     parser.add_argument("--selftest", metavar="OUT.png", default=None,
                         help="HUD ohne Hardware rendern und als PNG speichern")
+    parser.add_argument("--selftest-logic", action="store_true",
+                        help="Watchdog-/Sensorlogik pruefen (ohne OpenCV)")
     args = parser.parse_args()
+
+    if args.selftest_logic:
+        return run_logic_selftest()
+    if cv2 is None:
+        print("FEHLER: OpenCV (cv2) fehlt. Installation: siehe README.md.", file=sys.stderr)
+        return 2
 
     config = load_config()
 
     if args.selftest:
-        return run_selftest(config, args.selftest)
+        return run_logic_selftest() or run_selftest(config, args.selftest)
 
     camera = CameraSource(config)
     if not camera.open():
@@ -244,59 +414,73 @@ def main():
     if config.get("fullscreen"):
         cv2.setWindowProperty(window, cv2.WND_PROP_FULLSCREEN, cv2.WINDOW_FULLSCREEN)
 
-    target_dt = 1.0 / max(1, int(config.get("target_fps", 60)))
-    frame_timeout = float(config.get("frame_timeout_ms", 250)) / 1000.0
-    low_batt = float(config.get("low_battery_percent", 15))
+    target_dt = 1.0 / max(1.0, finite(config.get("target_fps"), 60.0))
+    frame_timeout = finite(config.get("frame_timeout_ms"), 250.0) / 1000.0
+    low_batt = finite(config.get("low_battery_percent"), 15.0)
 
-    latencies = deque(maxlen=30)
-    last_good_frame = None
-    last_good_time = time.monotonic()
+    grabber = FrameGrabber(camera).start()
+    startup = time.monotonic()
+    last_seq = 0
+    fps = 0.0
+    fps_window_start = startup
+    fps_frames = 0
 
     try:
         while True:
             loop_start = time.monotonic()
-            ok, frame = camera.read()
-            now = time.monotonic()
+            raw, age, seq = grabber.latest()
 
-            warning = None
-            if ok and frame is not None:
-                frame = apply_flips(frame, config)
-                last_good_frame = frame
-                last_good_time = now
+            if raw is None:
+                # noch nie ein Frame bekommen -> leeres Warnbild (nach Anlaufzeit)
+                frame = hud_overlay.make_test_frame(config["width"], config["height"])
+                age = None if loop_start - startup > frame_timeout else 0.0
             else:
-                # Kein frischer Frame: letzten zeigen, aber warnen sobald zu alt
-                frame = last_good_frame
-                if frame is None:
-                    # noch nie ein Frame bekommen -> leeres Warnbild
-                    frame = hud_overlay.make_test_frame(config["width"], config["height"])
-                if now - last_good_time > frame_timeout:
-                    warning = "SICHT PRUEFEN - VISOR HOCH"
+                # Kopie: der Grabber-Frame wird sonst bei stehender Kamera
+                # mehrfach uebermalt
+                frame = apply_flips(raw.copy(), config)
+            warning = frame_warning(age, frame_timeout)
+
+            if seq != last_seq:
+                fps_frames += seq - last_seq
+                last_seq = seq
+            if loop_start - fps_window_start >= 1.0:
+                fps = fps_frames / (loop_start - fps_window_start)
+                fps_window_start, fps_frames = loop_start, 0
 
             sensors.poll()
-            s = sensors.latest
+            s = sensors.fresh()
 
-            # Latenz (Schleifenzeit) gleitend mitteln -> Pflicht-Latenztest
-            dt_ms = (now - loop_start) * 1000.0
-            latencies.append(dt_ms)
-            avg_latency = sum(latencies) / len(latencies)
-            fps = 1000.0 / avg_latency if avg_latency > 0 else 0.0
+            # Anzeige-Latenz = Alter des gezeigten Kamerabilds (Aufnahme fertig
+            # bis Anzeige), nicht nur die Schleifenzeit. Glas-zu-Glas kommt
+            # noch Sensor- und Displayzeit dazu (Pflicht-Latenztest im Guide).
+            latency_ms = age * 1000.0 if age is not None else None
 
-            battery = s.get("battery")
-            if battery is not None and float(battery) <= low_batt and warning is None:
-                warning = "AKKU SCHWACH - VISOR HOCH"
+            battery = finite(s.get("battery"))
+            if warning is None:
+                warning = battery_warning(battery, low_batt)
 
+            contacts = s.get("contacts")
             state = {
-                "shield": s.get("shield", config["default_shield"]),
-                "ammo": s.get("ammo", config["default_ammo"]),
+                "shield": finite(s.get("shield"), config["default_shield"]),
+                "ammo": int(finite(s.get("ammo"), config["default_ammo"])),
                 "battery_percent": battery,
-                "heading_deg": s.get("heading", 0),
+                "heading_deg": finite(s.get("heading"), 0.0),
                 "fps": fps,
-                "latency_ms": avg_latency,
+                "latency_ms": latency_ms,
                 "latency_limit_ms": config["latency_limit_ms"],
-                "contacts": s.get("contacts"),
+                "contacts": contacts if isinstance(contacts, list) else None,
                 "warning": warning,
             }
-            hud_overlay.draw_hud(frame, state)
+            try:
+                hud_overlay.draw_hud(frame, state)
+            except Exception as exc:
+                # HUD-Fehler duerfen das Kamerabild nicht kosten
+                print(f"HUD-Overlay uebersprungen: {type(exc).__name__}: {exc}", file=sys.stderr)
+                if warning:   # der Warnbanner hat Vorrang vor allem anderen
+                    try:
+                        hud_overlay.draw_warning_banner(frame, warning)
+                    except Exception:
+                        pass
             cv2.imshow(window, frame)
 
             # auf Zielbildrate einregeln (nicht heisslaufen lassen)
@@ -309,6 +493,7 @@ def main():
             if key in (27, ord("q")):  # ESC oder q
                 break
     finally:
+        grabber.stop()
         camera.close()
         sensors.close()
         cv2.destroyAllWindows()

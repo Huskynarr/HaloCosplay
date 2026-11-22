@@ -88,6 +88,42 @@
     return profile;
   }
 
+  /* Tolerant structural upgrade for a browser copy written under an older
+   * schema: unknown fields are dropped, missing ones are added empty or with
+   * their default. Values are not repaired; imported() still validates them.
+   * Returns {profile, added, dropped}; never mutates the input. */
+  function migrate(value, schema) {
+    if (!object(value)) throw new Error('Das Profil muss ein JSON-Objekt sein.');
+    const profile = clone(value), added = [], dropped = [];
+    function section(key, fields, fill) {
+      const source = object(profile[key]) ? profile[key] : {}, next = {};
+      Object.keys(source).forEach(field => { if (!own(fields, field)) dropped.push(key + '.' + field); });
+      Object.entries(fields).forEach(([field, definition]) => {
+        if (own(source, field)) next[field] = source[field];
+        else { next[field] = fill(definition); added.push(key + '.' + field); }
+      });
+      profile[key] = next;
+    }
+    section('measurements_mm', schema.measurements, () => null);
+    section('allowances_mm', schema.allowances, definition => definition.default);
+    if (profile.status === 'measured' && Object.values(profile.measurements_mm).some(entry => entry === null)) profile.status = 'measurements_pending';
+    if (object(profile.build)) {
+      const build = {};
+      Object.entries(profile.build).forEach(([key, entry]) => {
+        if (key === 'features') return;
+        if (own(schema.build_fields, key)) build[key] = entry; else dropped.push('build.' + key);
+      });
+      if (object(profile.build.features)) {
+        build.features = {};
+        Object.entries(profile.build.features).forEach(([key, entry]) => {
+          if (own(schema.feature_fields, key)) build.features[key] = entry; else dropped.push('build.features.' + key);
+        });
+      }
+      profile.build = build;
+    }
+    return {profile, added, dropped};
+  }
+
   function updateMeasurement(profile, key, value, schema) {
     if (!own(schema.measurements, key)) throw new Error('Unbekanntes Messfeld.');
     const next = clone(profile);
@@ -103,5 +139,5 @@
     return {...clone(profile), status: 'measured'};
   }
 
-  return {create, inspect, imported, updateMeasurement, confirmMeasurements};
+  return {create, inspect, imported, migrate, updateMeasurement, confirmMeasurements};
 }));
