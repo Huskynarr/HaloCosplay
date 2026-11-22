@@ -27,8 +27,8 @@ We expect all participants to be respectful and courteous. Discrimination and of
 ## Contact
 For questions, suggestions, or bug reports, please open an issue on GitHub:
 https://github.com/Huskynarr/HaloCosplay/issues
-For anything that does not fit a public issue, reach the maintainer at
-admin@huskynarr.de.
+For anything that does not fit a public issue (for example a security problem),
+open an issue that asks for a private contact channel and leave out the details.
 
 ## Acknowledgements
 We thank everyone who contributes to this project, sharing their passion and talent.

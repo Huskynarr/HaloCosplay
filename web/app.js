@@ -564,7 +564,7 @@
     mvLoading = true;
     var s = document.createElement("script");
     s.type = "module";
-    s.src = "https://unpkg.com/@google/model-viewer@3.5.0/dist/model-viewer.min.js";
+    s.src = "vendor/model-viewer-3.5.0.min.js";
     s.onerror = function () { cb(new Error("load failed")); };
     document.head.appendChild(s);
     customElements.whenDefined("model-viewer").then(function () { cb(); });
@@ -681,15 +681,15 @@
 
     function useSpartan() {
       banner.style.display = "none";
-      credit.innerHTML = 'Modell: „Spartan Armour MKV" von McCarthy3D - ' +
-        '<a href="https://sketchfab.com/3d-models/spartan-armour-mkv-halo-reach-57070b2fd9ff472c8988e76d8c5cbe66" target="_blank" rel="noopener">Sketchfab</a>, CC-BY 4.0.';
+      credit.innerHTML = 'Modell: eigene MJOLNIR-Hüllenkonstruktion aus ' +
+        '<a href="#Design/Armor/README.md">Design/Armor</a> (Konstruktionsmodell, kein Halo-Detailmodell).';
     }
     function usePlaceholder() {
       banner.style.display = "block";
       banner.innerHTML = 'Hinweis: Aktuell wird ein <strong>Platzhalter-Modell</strong> gezeigt. Lege deine eigene ' +
         '<code>web/models/spartan.glb</code> ab (siehe <a href="' + ROOT + 'web/models/README.md" target="_blank" rel="noopener">Kurzanleitung</a>), ' +
         'um die echte Spartan-Rüstung zu sehen. Danach ggf. „Kalibrieren" nutzen, um die Marker neu zu setzen.';
-      credit.innerHTML = 'Platzhalter-Modell: „Astronaut" © Google, CC-BY. Echtes Modell: „Spartan Armour MKV" von McCarthy3D, CC-BY 4.0.';
+      credit.innerHTML = 'Platzhalter-Modell: „Astronaut" © Google, CC-BY.';
     }
 
     mv.addEventListener("error", function () {
@@ -798,5 +798,20 @@
     });
     window.addEventListener("hashchange", route);
     route();
+    registerOffline();
   });
+
+  // Offline copy of the guides (sw.js at the site root). Optional: every failure is ignored.
+  function registerOffline() {
+    if (!("serviceWorker" in navigator) || !window.isSecureContext) return;
+    navigator.serviceWorker.register(ROOT + "sw.js", { scope: ROOT }).then(function () {
+      return navigator.serviceWorker.ready;
+    }).then(function (registration) {
+      navigator.serviceWorker.addEventListener("message", function (ev) {
+        if (ev.data && ev.data.type === "precached") document.documentElement.setAttribute("data-offline-guides", String(ev.data.stored));
+      });
+      var files = collectSearchFiles().map(function (entry) { return entry.file; });
+      if (registration.active) registration.active.postMessage({ type: "precache", files: files });
+    }).catch(function () {});
+  }
 })();

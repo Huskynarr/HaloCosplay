@@ -19,7 +19,7 @@ def guides(root=ROOT):
         relative = path.relative_to(root)
         if relative.parts[0] in EXCLUDED_DIRS or relative.as_posix() in EXCLUDED_FILES:
             continue
-        if relative.parts[:2] in (("Tests", "Automation"), ("Tests", "Browser"), ("web", "vendor")):
+        if relative.parts[:2] in (("Tests", "Automation"), ("Tests", "Browser"), ("web", "vendor"), ("web", "fonts")):
             continue
         result.append(relative.as_posix())
     return sorted(result)
