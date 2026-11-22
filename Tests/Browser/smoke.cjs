@@ -226,7 +226,22 @@ async function downloadJSON(page, button) {
     assert.equal(await page.evaluate(() => document.fonts.check('16px Barlow') && document.fonts.check('600 16px "Chakra Petch"')), true, 'Local fonts load');
     assert.equal(await page.evaluate(() => getComputedStyle(document.querySelector('.hidden') || document.body).boxSizing), 'border-box', 'Local Tailwind build applies');
     assert.deepEqual(external, [], 'Main page loads nothing from third-party hosts');
+    // Mobile: the closed menu is not reachable by keyboard, the skip link focuses the article and keeps the route.
+    await page.setViewportSize({width: 390, height: 800});
+    await page.goto(base + '/web/index.html#Documentation/Guides/Sicherheit.md');
+    await page.locator('#doc h1').waitFor();
+    await page.waitForFunction(() => getComputedStyle(document.querySelector('#sidebar')).visibility === 'hidden');
+    await page.locator('#skip-link').focus();
+    await page.keyboard.press('Enter');
+    assert.equal(await page.evaluate(() => document.activeElement.id), 'doc');
+    assert.match(page.url(), /#Documentation\/Guides\/Sicherheit\.md$/);
+    await page.locator('#menu-toggle').click();
+    await page.locator('#sidebar a.navlink').first().waitFor({state: 'visible'});
+    await page.setViewportSize({width: 1440, height: 1000});
+    assert.equal(await page.locator('#sidebar').evaluate(node => getComputedStyle(node).visibility), 'visible');
     page.off('request', recordExternal);
+    await page.goto(base + '/web/index.html#3d-viewer');
+    await page.locator('.part-row[data-id="hud"]').click();
     await page.locator('#part-panel a[href="products/?part=hud"]').click();
     await page.locator('.card').first().waitFor();
     assert.equal(await page.locator('.card').count(), 3);
