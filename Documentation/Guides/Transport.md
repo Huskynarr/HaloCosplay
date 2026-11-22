@@ -38,7 +38,8 @@ Wie man eine volle Master Chief Ruestung sicher zur Convention transportiert.
 
 ## Oeffentliche Verkehrsmittel (wenn noetig)
 
-- Props muessen in **geschlossenen, blickdichten Behaeltern** sein (Waffengesetz!)
+- Waffenaehnliche Props gehoeren in ein **verschlossenes, blickdichtes Behaeltnis**
+  (Par. 42a WaffG verlangt verschlossen, z.B. Schloss oder Kabelbinder am Reissverschluss)
 - Stosszeiten vermeiden
 - Grosse IKEA-Taschen (Frakta) fuer leichtere Ruestungsteile
 - Helm in separater gepolsterter Tasche

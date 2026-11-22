@@ -77,6 +77,11 @@ Die Akku-Prozentrechnung geht von einem **2S LiPo** aus (8.4 V voll, 6.4 V leer)
 Fuer 3S oder andere Chemie `BATT_FULL`/`BATT_EMPTY` (und ggf. `DIVIDER`) im
 Sketch anpassen, sonst stimmt die Anzeige nicht.
 
+**Spannungsteiler:** Am ADC-Pin (GPIO34) duerfen nie mehr als 3.3 V anliegen.
+Fuer 2S gilt 200k (Akku-Plus -> Pin) und 100k (Pin -> GND), also `DIVIDER = 3.0`
+und maximal 2.8 V am Pin. Ein 100k/100k-Teiler waere mit 4.2 V zu hoch. Fuer 3S
+(12.6 V) z.B. 330k/100k mit `DIVIDER = 4.3` verwenden.
+
 Bewusst getrennter Controller: Akkuanzeige, Heading und (in deiner Erweiterung)
 Luefter laufen unabhaengig vom Grafik-Rechner weiter, wenn der Pi abstuerzt.
 

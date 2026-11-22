@@ -17,7 +17,8 @@ Sicherheit hat Prioritaet. Teste jede Baugruppe einzeln und plane immer einen sc
 - Akkus nie im Kostuem laden, immer extern
 - Kabel gegen Zug sichern (Klett, Kabelkanaele)
 - Not-Aus-Schalter oder Schnelltrennung vorsehen
-- Sicherungen nahe der Batterie (2-3 A fuer Logik, 5-10 A fuer LEDs)
+- Sicherungen nahe der Batterie, kleiner als das schwaechste Glied des Pfads
+  (2-3 A Logik, 3 A LEDs an Powerbank; siehe `Elektronik-Strombudget.md`)
 - Strom vor Einbau mit Multimeter messen
 
 ## Hitze-Management (Convention)
@@ -64,7 +65,7 @@ Sicherheit hat Prioritaet. Teste jede Baugruppe einzeln und plane immer einen sc
 - Regeln vorher pruefen (siehe `Convention-Regeln.md`)
 - Prop-Waffen deklarieren
 - Kein Metall an Kanten/Spitzen
-- Props in geschlossenen Taschen transportieren (Waffengesetz)
+- Waffenaehnliche Props in einem verschlossenen Behaeltnis (Par. 42a WaffG; blickdicht allein genuegt nicht) transportieren
 
 ## Hitze- und Belastungsmanagement
 

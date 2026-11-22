@@ -54,6 +54,9 @@ hier ist der Ueberblick, die ShoppingList die Bestellgrundlage.
 
 ## Exoskelett (V3)
 
+Nur Versuchsmaterial fuer Prototypen; eine tragende, getestete Konstruktion
+existiert nicht (siehe `Exoskelett.md`).
+
 - Aluminium-Profile (20x20, 30x30)
 - Kugellager, Schrauben, Gelenke
 - PVC-Rohre fuer leichte Prototypen

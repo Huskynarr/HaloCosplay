@@ -68,16 +68,17 @@ jobs:
         uses: actions/cache@v4
         with:
           path: ~/.arduino15
-          key: arduino15-avr-esp32-v1
+          key: arduino15-avr-esp32-3.3.13
 
       - name: Cores installieren
         run: |
           arduino-cli core update-index --additional-urls https://espressif.github.io/arduino-esp32/package_esp32_index.json
           arduino-cli core install arduino:avr
-          arduino-cli core install esp32:esp32 --additional-urls https://espressif.github.io/arduino-esp32/package_esp32_index.json
+          # Fest auf 3.3.x: Core 4.0 ersetzt die BLEDevice-API (cortana_chip.ino) durch BLE.h
+          arduino-cli core install esp32:esp32@3.3.13 --additional-urls https://espressif.github.io/arduino-esp32/package_esp32_index.json
 
       - name: Libraries installieren
-        run: arduino-cli lib install "Adafruit NeoPixel" "Adafruit GFX Library" "Adafruit SSD1306" "JC_Button"
+        run: arduino-cli lib install "Adafruit NeoPixel" "Adafruit GFX Library" "Adafruit SSD1306" "JC_Button" "ArduinoJson"
 
       - name: AVR-Sketches kompilieren (Arduino Nano)
         run: |
@@ -101,3 +102,10 @@ jobs:
 
       - name: ESP32-Sketch kompilieren (SensorFeeder)
         run: arduino-cli compile --fqbn esp32:esp32:esp32 Code/HelmetControl/AR/SensorFeeder
+
+      - name: ESP32-S3-Sketch kompilieren (Cortana-Chip)
+        run: |
+          tmp=$(mktemp -d)
+          mkdir "$tmp/cortana_chip"
+          cp Code/CortanaChip/cortana_chip.ino "$tmp/cortana_chip/"
+          arduino-cli compile --fqbn esp32:esp32:esp32s3 "$tmp/cortana_chip"

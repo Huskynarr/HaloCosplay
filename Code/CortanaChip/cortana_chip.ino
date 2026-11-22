@@ -1,6 +1,8 @@
 // Cortana-Chip Firmware - ESP32-S3 (Arduino).
 // Stellt Charakter-Daten per BLE bereit und zeigt Status auf dem OLED.
-// Bibliotheken: Adafruit SSD1306, Adafruit GFX, BLEDevice (ESP32-Core).
+// Bibliotheken: Adafruit SSD1306, Adafruit GFX, ArduinoJson, BLEDevice (ESP32-Core).
+// ESP32-Arduino-Core 3.3.x verwenden: Core 4.0 ersetzt die BLEDevice-API durch
+// BLE.h, dafuer ist dieser Sketch noch nicht portiert.
 //
 // Verhalten:
 //  - Charakter-Daten (cortana_v1.json / husky_v1.json) aus LittleFS lesen
@@ -84,6 +86,16 @@ void loadCharacter(const char* path) {
   character.mode = doc["mode"].as<String>();
 }
 
+// Muss vor setupBLE() stehen: die Arduino-IDE erzeugt nur fuer Funktionen
+// automatische Prototypen, nicht fuer Klassen.
+class ServerCallbacks : public BLEServerCallbacks {
+  void onConnect(BLEServer* s) override { deviceConnected = true; }
+  void onDisconnect(BLEServer* s) override {
+    deviceConnected = false;
+    pServer->getAdvertising()->start();
+  }
+};
+
 void setupBLE() {
   BLEDevice::init(character.id.c_str());
   pServer = BLEDevice::createServer();
@@ -113,14 +125,6 @@ void updateDataChar() {
   pDataChar->setValue(out.c_str());
   pDataChar->notify();
 }
-
-class ServerCallbacks : public BLEServerCallbacks {
-  void onConnect(BLEServer* s) override { deviceConnected = true; }
-  void onDisconnect(BLEServer* s) override {
-    deviceConnected = false;
-    pServer->getAdvertising()->start();
-  }
-};
 
 void drawPage() {
   display.clearDisplay();

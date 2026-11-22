@@ -9,7 +9,7 @@ Wie man genug Strom fuer einen ganzen Convention-Tag mitbringt.
 
 ### Gesamtstromverbrauch (V2 Voll-Setup mit Audio)
 
-Entspricht dem "Voll-Setup" in `Elektronik-Strombudget.md` (1.27 A). Ohne Audio rechne mit 1.17 A (ca. 14.5 h bei 20.000 mAh).
+Entspricht dem "Voll-Setup" in `Elektronik-Strombudget.md` (1.27 A). Ohne Audio rechne mit 1.17 A (ca. 10.8 h bei 20.000 mAh).
 
 | Komponente | Strom (A) |
 | --- | --- |
@@ -23,20 +23,28 @@ Entspricht dem "Voll-Setup" in `Elektronik-Strombudget.md` (1.27 A). Ohne Audio 
 
 ### Formel
 
+Die mAh-Angabe einer Powerbank gilt fuer die 3,7-V-Zelle, nicht fuer den
+5-V-Ausgang. Deshalb ueber die Energie (Wh) rechnen, nicht mAh direkt durch den
+5-V-Strom teilen (das ergaebe rund 35 % zu lange Laufzeiten):
+
 ```
-Laufzeit (h) = Kapazitaet (mAh) / Strom (mA) x Effizienz (0.85)
+Nutzbare Energie (Wh) = Kapazitaet (mAh) / 1000 x 3,7 V x 0,85 (Wandlungsverlust)
+Laufzeit (h)          = Nutzbare Energie (Wh) / (Strom (A) x 5 V)
 ```
 
 ### Beispielrechnungen
 
 | Batterie-Setup | Kapazitaet | Laufzeit bei 1.27 A |
 | --- | --- | --- |
-| PiSugar 3 Plus allein | 5.000 mAh | ~3.3 h |
-| 1x 10.000 mAh Powerbank | 10.000 mAh | ~6.7 h |
-| 2x 10.000 mAh Powerbank | 20.000 mAh | ~13.4 h |
-| PiSugar + 10.000 mAh Powerbank | 15.000 mAh | ~10 h |
+| PiSugar 3 Plus allein | 5.000 mAh | ~2.5 h |
+| 1x 10.000 mAh Powerbank | 10.000 mAh | ~5.0 h |
+| 2x 10.000 mAh Powerbank | 20.000 mAh | ~9.9 h |
+| PiSugar + 10.000 mAh Powerbank | 15.000 mAh | ~7.4 h |
 
-## Batterie-Strategien fuer 8+ Stunden
+Rechenwerte fuer neue Akkus bei Raumtemperatur; vor dem Einsatz am eigenen
+Aufbau messen und 20-30 % Reserve einplanen.
+
+## Batterie-Strategien fuer einen Convention-Tag
 
 ### Option A: Dual-Powerbank (Empfohlen, sicherste Variante)
 
@@ -57,12 +65,19 @@ Laufzeit (h) = Kapazitaet (mAh) / Strom (mA) x Effizienz (0.85)
 - Einzelner Akku, leichter, kompakter
 - Nachteil: Ladeelektronik und BMS erforderlich, mehr Fachwissen noetig
 - **Nur mit Schutzschaltung/BMS!**
+- Nur mit Balancer-Ladegeraet laden, nie unbeaufsichtigt und nie im Kostuem;
+  Laden und Lagern in feuerfester Tasche oder Metallbox
+- Lagerspannung ca. 3,8 V pro Zelle; nicht unter 3,3 V pro Zelle entladen
+- Aufgeblaehte, verformte oder gestuerzte Packs nicht mehr verwenden
+- Hauptsicherung direkt am Akku ist hier Pflicht (ein LiPo liefert im
+  Kurzschluss weit ueber 100 A)
 
 ## Spannungsregler
 
 - **USB-Powerbanks:** eingebaute 5V-Regelung, einfach nutzen
 - **Roher LiPo:** Pololu 5V 5A Step-Down (D24V50F5) oder UBEC 5V/5A (~10-15 EUR)
-- Sicherung nahe der Batterie: 2-3 A fuer Logik, 5-10 A fuer LED-Power
+- Sicherung nahe der Batterie, ausgelegt auf das schwaechste Glied des Pfads
+  (Tabelle in `Elektronik-Strombudget.md`, Abschnitt Sicherungen)
 
 ## Pi Zero 2 W Stromsparen
 
@@ -103,4 +118,4 @@ sudo systemctl disable triggerhappy
 | 10.000 mAh USB Powerbank (schlank) | 15-25 EUR |
 | Pololu 5V 5A Step-Down (optional) | 10-15 EUR |
 | UBEC 5V/5A (Alternative) | 8-12 EUR |
-| Sicherungen (2-3A, 5-10A) | 3-5 EUR |
+| Sicherungen (2-3 A, 3-5 A je nach Pfad) | 3-5 EUR |

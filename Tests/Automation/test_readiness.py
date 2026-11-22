@@ -16,7 +16,12 @@ class ReadinessTests(unittest.TestCase):
         self.root = Path(self.tmp.name)
         self.report = self.root / 'test.md'
         self.report.write_text('Actual test observations for unit fixture')
-        self.data = {'schema_version': 1, 'revision': 'test-r1', 'gates': [
+        self.profile = self.root / 'bound.local.json'
+        self.profile.write_text('{"profile":"Fixture"}')
+        self.data = {'schema_version': 1, 'project': 'Fixture suit', 'revision': 'test-r1',
+                     'profile_binding': {'path': 'bound.local.json',
+                                         'sha256': hashlib.sha256(self.profile.read_bytes()).hexdigest()},
+                     'gates': [
             {'id': g, 'status': 'passed', 'reviewer': 'Test fixture', 'summary': 'Recorded observations',
              'revision': 'test-r1', 'date': dt.datetime.now(dt.timezone.utc).date().isoformat(),
              'evidence': [{'path': 'test.md', 'sha256': hashlib.sha256(self.report.read_bytes()).hexdigest()}]}
@@ -73,6 +78,36 @@ class ReadinessTests(unittest.TestCase):
         self.assertTrue(evaluate(self.data, self.root)['scopes']['exhibition'])
         profile.write_text('{"profile":"Suit B"}')
         self.assertFalse(evaluate(self.data, self.root)['scopes']['wearable'])
+
+    def test_passed_gates_need_project_and_profile_binding(self):
+        for key in ('project', 'profile_binding'):
+            data = copy.deepcopy(self.data)
+            del data[key]
+            self.assertFalse(any(g['complete'] for g in evaluate(data, self.root)['gates']), key)
+        self.data['project'] = '  '
+        self.assertFalse(evaluate(self.data, self.root)['scopes']['wearable'])
+
+    def _use_evidence(self, path):
+        for gate in self.data['gates']:
+            gate['evidence'] = [{'path': path.name, 'sha256': hashlib.sha256(path.read_bytes()).hexdigest()}]
+
+    def test_generated_files_are_not_evidence(self):
+        marked = self.root / 'Budget.md'
+        marked.write_text('# Budget\n\nGENERATED: tools/suit_budget.py.\n')
+        self._use_evidence(marked)
+        self.assertFalse(any(g['complete'] for g in evaluate(self.data, self.root)['gates']))
+        listed = self.root / 'BuildPlan.md'
+        listed.write_text('Plan without marker')
+        (self.root / 'Package.json').write_text(json.dumps(
+            {'generated_sha256': {'BuildPlan.md': hashlib.sha256(listed.read_bytes()).hexdigest()}}))
+        self._use_evidence(listed)
+        self.assertFalse(any(g['complete'] for g in evaluate(self.data, self.root)['gates']))
+        self._use_evidence(self.report)
+        self.assertTrue(evaluate(self.data, self.root)['scopes']['exhibition'])
+
+    def test_bound_profile_is_not_evidence(self):
+        self._use_evidence(self.profile)
+        self.assertFalse(any(g['complete'] for g in evaluate(self.data, self.root)['gates']))
 
     def test_bound_profile_cannot_escape_root(self):
         self.data['profile_binding'] = {'path': '../suit.json', 'sha256': '0'*64}
