@@ -47,6 +47,7 @@ Three legacy material-reference variants exist: V1 Einsteiger (foam), V2 Fortges
 - Config: copy `config.example.json` to `config.json`; battery status via `battery.example.json` to `battery.json`
 - Hardware tests remain manual; fit/budget/readiness tests: `python3 -m unittest discover -s Tests/Automation -v`
 - Web/exhibition unit tests: `node --test Tests/Automation/*.test.cjs`
+- Firmware logic on the host: `python3 Tests/Firmware/run.py` compiles the two MultiEffects sketches unchanged against mock Arduino headers (g++); not a hardware test
 - Stale-output checks: `python3 tools/suit_catalog.py --check`, `tools/suit_budget.py --check`, `tools/suit_readiness.py --check`, `tools/suit_sitemap.py --check` (regenerate `sitemap.xml` after adding or removing any `.md`)
 - `Design/Parametric/Generated/` is committed output of `tools/suit_fit.py --profile Design/Parametric/Profiles/Demo.json --concept --out Design/Parametric/Generated`; a test compares it byte for byte
 - Pages deploy (`.github/workflows/pages.yml`) runs the tests first and publishes tracked files only, without `.github/`, `docs/`, `Tests/Automation`, `Tests/Browser`, `CLAUDE.md`
