@@ -711,6 +711,11 @@
     });
   }
 
+  var MOVED = {
+    "Documentation/Guides/Elektronik-Batterie.md": "Documentation/Guides/Elektronik-Strombudget.md#batterie-strategien-fuer-einen-convention-tag",
+    "Documentation/Guides/Messblatt.md": "Documentation/Guides/Mjolnir-Massanpassung.md#messblatt-aufnahme-in-sechs-schritten"
+  };
+
   function route() {
     var parsed = G.parseRoute(location.hash);
     if (parsed.error) { notFound(parsed.raw); return; }
@@ -723,6 +728,8 @@
     if (file === COSPLAY) { renderCosplayGuides(); return; }
     if (file === CORTANA) { renderCortanaViewer(); return; }
     if (parsed.sentinel) { notFound(file); return; }
+    // Merged guides: keep old bookmarks and external links working.
+    if (MOVED[file]) { location.replace("#" + MOVED[file]); return; }
     // Section link inside the guide that is already on screen: only scroll.
     if (file === currentFile && docEl.getAttribute("data-loaded") === file) {
       if (!scrollToAnchor(parsed.anchor)) window.scrollTo(0, 0);
