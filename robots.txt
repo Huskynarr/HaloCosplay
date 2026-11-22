@@ -15,4 +15,4 @@ Allow: /
 User-agent: Google-Extended
 Allow: /
 
-Sitemap: https://huskynarr.github.io/HaloCosplay/sitemap.xml
+Sitemap: https://huskynarr.is-a.dev/HaloCosplay/sitemap.xml
