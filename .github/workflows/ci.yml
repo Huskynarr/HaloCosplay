@@ -71,6 +71,14 @@ jobs:
           python vision_bridge.py --selftest --state /tmp/v.json
           python voice_control.py --selftest
 
+  firmware:
+    name: Firmware-Logik auf dem Host
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - name: Sketches gegen Mock-Arduino uebersetzen und testen
+        run: python3 Tests/Firmware/run.py
+
   arduino:
     name: Arduino-Sketches kompilieren
     runs-on: ubuntu-latest

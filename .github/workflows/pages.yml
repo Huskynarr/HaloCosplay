@@ -52,7 +52,7 @@ jobs:
         run: |
           mkdir _site
           git ls-files -z \
-            | grep -zvE '^(\.github/|docs/|Tests/Automation/|Tests/Browser/|CLAUDE\.md$|\.gitignore$)' \
+            | grep -zvE '^(\.github/|docs/|Tests/Automation/|Tests/Browser/|Tests/Firmware/|CLAUDE\.md$|\.gitignore$)' \
             | xargs -0 cp --parents -t _site
           test -f _site/index.html && test -f _site/web/index.html
           du -sh _site
