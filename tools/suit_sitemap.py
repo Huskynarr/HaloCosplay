@@ -6,7 +6,7 @@ import sys
 from xml.sax.saxutils import escape
 
 ROOT = Path(__file__).resolve().parents[1]
-BASE = "https://huskynarr.github.io/HaloCosplay/"
+BASE = "https://huskynarr.is-a.dev/HaloCosplay/"
 PAGES = ("", "web/", "web/configurator/", "web/budget/", "web/products/", "web/cortana/")
 # Not published or not meant for readers (see the copy step in .github/workflows/pages.yml).
 EXCLUDED_DIRS = {".git", ".github", "build", "docs", "node_modules", "tools"}

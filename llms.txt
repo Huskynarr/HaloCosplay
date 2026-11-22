@@ -5,16 +5,16 @@
 > Enthalten sind Bauraum-CAD, Konfigurator, Budget-Editor, Bauanleitungen und
 > Elektronikbeispiele. Keine fertigen Halo-Detailmodelle oder Hardwarefreigaben.
 
-Web-App: https://huskynarr.github.io/HaloCosplay/
+Web-App: https://huskynarr.is-a.dev/HaloCosplay/
 Repository: https://github.com/Huskynarr/HaloCosplay
 
 ## Einstieg und Konfiguration
 
-- [Eigenes Projekt konfigurieren](https://huskynarr.github.io/HaloCosplay/Documentation/Guides/Mjolnir-Konfiguration.md)
-- [Mehrprofil-Konfigurator](https://huskynarr.github.io/HaloCosplay/web/configurator/)
-- [Budget-Editor](https://huskynarr.github.io/HaloCosplay/web/budget/)
-- [Messdefinitionen](https://huskynarr.github.io/HaloCosplay/Documentation/Guides/Mjolnir-Massanpassung.md)
-- [Parametrisches CAD](https://huskynarr.github.io/HaloCosplay/Design/Parametric/README.md)
+- [Eigenes Projekt konfigurieren](https://huskynarr.is-a.dev/HaloCosplay/Documentation/Guides/Mjolnir-Konfiguration.md)
+- [Mehrprofil-Konfigurator](https://huskynarr.is-a.dev/HaloCosplay/web/configurator/)
+- [Budget-Editor](https://huskynarr.is-a.dev/HaloCosplay/web/budget/)
+- [Messdefinitionen](https://huskynarr.is-a.dev/HaloCosplay/Documentation/Guides/Mjolnir-Massanpassung.md)
+- [Parametrisches CAD](https://huskynarr.is-a.dev/HaloCosplay/Design/Parametric/README.md)
 
 Template.json enthaelt 32 unbekannte Masse, Demo.json ausschliesslich
 synthetische Beispiele. Eigene Profile und Ausgabeordner getrennt halten.
@@ -24,22 +24,22 @@ Festigkeitsbemessung oder Herstellerintegration.
 
 ## Bau und Technik
 
-- [Systementwurf](https://huskynarr.github.io/HaloCosplay/Documentation/Guides/Mjolnir-Systementwurf.md)
-- [Fertigung und Schnittstellen](https://huskynarr.github.io/HaloCosplay/Documentation/Guides/Mjolnir-Fertigung.md)
-- [Ruestungsreferenz](https://huskynarr.github.io/HaloCosplay/Documentation/Guides/Authentizitaet-Referenz.md)
-- [Bauwege](https://huskynarr.github.io/HaloCosplay/Documentation/Guides/Varianten.md)
-- [Exoskelett und eigener Traeger](https://huskynarr.github.io/HaloCosplay/Documentation/Guides/Exoskelett.md)
-- [Elektronik](https://huskynarr.github.io/HaloCosplay/Documentation/Guides/Mjolnir-Elektronik.md)
-- [Einkauf fuer einen Prototyp](https://huskynarr.github.io/HaloCosplay/Materials/Mjolnir-Einkauf-Prototyp.md)
+- [Systementwurf](https://huskynarr.is-a.dev/HaloCosplay/Documentation/Guides/Mjolnir-Systementwurf.md)
+- [Fertigung und Schnittstellen](https://huskynarr.is-a.dev/HaloCosplay/Documentation/Guides/Mjolnir-Fertigung.md)
+- [Ruestungsreferenz](https://huskynarr.is-a.dev/HaloCosplay/Documentation/Guides/Authentizitaet-Referenz.md)
+- [Bauwege](https://huskynarr.is-a.dev/HaloCosplay/Documentation/Guides/Varianten.md)
+- [Exoskelett und eigener Traeger](https://huskynarr.is-a.dev/HaloCosplay/Documentation/Guides/Exoskelett.md)
+- [Elektronik](https://huskynarr.is-a.dev/HaloCosplay/Documentation/Guides/Mjolnir-Elektronik.md)
+- [Einkauf fuer einen Prototyp](https://huskynarr.is-a.dev/HaloCosplay/Materials/Mjolnir-Einkauf-Prototyp.md)
 
 ## Nachweise und Betrieb
 
-- [Projektaufgaben](https://huskynarr.github.io/HaloCosplay/Documentation/TODO.md)
-- [Physische Abnahme](https://huskynarr.github.io/HaloCosplay/Tests/TestReports/Mjolnir-Abnahme.md)
-- [Messebetrieb](https://huskynarr.github.io/HaloCosplay/Documentation/Guides/Mjolnir-Messebetrieb.md)
-- [Messeanzeige](https://huskynarr.github.io/HaloCosplay/Code/Exhibition/README.md)
-- [Sicherheit](https://huskynarr.github.io/HaloCosplay/Documentation/Guides/Sicherheit.md)
-- [Convention-Regeln](https://huskynarr.github.io/HaloCosplay/Documentation/Guides/Convention-Regeln.md)
+- [Projektaufgaben](https://huskynarr.is-a.dev/HaloCosplay/Documentation/TODO.md)
+- [Physische Abnahme](https://huskynarr.is-a.dev/HaloCosplay/Tests/TestReports/Mjolnir-Abnahme.md)
+- [Messebetrieb](https://huskynarr.is-a.dev/HaloCosplay/Documentation/Guides/Mjolnir-Messebetrieb.md)
+- [Messeanzeige](https://huskynarr.is-a.dev/HaloCosplay/Code/Exhibition/README.md)
+- [Sicherheit](https://huskynarr.is-a.dev/HaloCosplay/Documentation/Guides/Sicherheit.md)
+- [Convention-Regeln](https://huskynarr.is-a.dev/HaloCosplay/Documentation/Guides/Convention-Regeln.md)
 
 Nachweise gehoeren zum jeweiligen Projekt und zur dokumentierten Revision.
 Softwaretests, Beispielpreise und Zielmassen sind keine realen Pass-, Last-,

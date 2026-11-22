@@ -7,7 +7,7 @@ const vm = require('node:vm');
 const root = path.resolve(__dirname, '../..');
 const source = fs.readFileSync(path.join(root, 'web/monitoring.js'), 'utf8');
 
-function browser(url = 'https://huskynarr.github.io/HaloCosplay/web/', options) {
+function browser(url = 'https://huskynarr.is-a.dev/HaloCosplay/web/', options) {
   const listeners = new Map(), scripts = [], captured = [];
   let config;
   const sentry = {
@@ -117,22 +117,22 @@ test('error-only settings do not install replay, tracing, sessions, logs or brea
 });
 
 test('beforeSend removes private scope data and query/hash parts while retaining useful stack locations', () => {
-  const b = browser('https://huskynarr.github.io/HaloCosplay/web/configurator/?profile=PRIVATE#PRIVATE');
+  const b = browser('https://huskynarr.is-a.dev/HaloCosplay/web/configurator/?profile=PRIVATE#PRIVATE');
   b.load();
   const event = {
     user: {email: 'PRIVATE'}, extra: {measurements_mm: {height: 1740}},
     breadcrumbs: [{message: 'PRIVATE'}], contexts: {profile: {name: 'PRIVATE'}},
     request: {url: 'PRIVATE', headers: {Cookie: 'PRIVATE'}, data: 'PRIVATE'},
     exception: {values: [{type: 'Error', value: 'schema failed', stacktrace: {frames: [
-      {filename: 'https://huskynarr.github.io/HaloCosplay/web/app.js?token=PRIVATE#PRIVATE', lineno: 12, colno: 8, vars: {profile: 'PRIVATE'}},
+      {filename: 'https://huskynarr.is-a.dev/HaloCosplay/web/app.js?token=PRIVATE#PRIVATE', lineno: 12, colno: 8, vars: {profile: 'PRIVATE'}},
       {filename: 'blob:https://example.invalid/PRIVATE'}
     ]}}]}, tags: {app: 'halocosplay-frontend'}
   };
   const sent = b.config().beforeSend(event);
   assert.doesNotMatch(JSON.stringify(sent), /PRIVATE|measurements_mm/);
-  assert.equal(sent.request.url, 'https://huskynarr.github.io/HaloCosplay/web/configurator/');
+  assert.equal(sent.request.url, 'https://huskynarr.is-a.dev/HaloCosplay/web/configurator/');
   const frame = sent.exception.values[0].stacktrace.frames[0];
-  assert.equal(frame.filename, 'https://huskynarr.github.io/HaloCosplay/web/app.js');
+  assert.equal(frame.filename, 'https://huskynarr.is-a.dev/HaloCosplay/web/app.js');
   assert.equal(frame.lineno, 12);
   assert.equal(frame.colno, 8);
   assert.equal(sent.exception.values[0].value, 'schema failed');
