@@ -248,6 +248,15 @@ async function downloadJSON(page, button) {
     await page.goto(base + '/web/index.html#product-catalog');
     await page.waitForURL('**/web/products/');
 
+    // Bookmarks to merged guides land on the section that took over their content.
+    await page.goto(base + '/web/index.html#Documentation/Guides/Elektronik-Batterie.md');
+    await page.waitForURL('**#Documentation/Guides/Elektronik-Strombudget.md#batterie-strategien-fuer-einen-convention-tag');
+    await page.locator('#doc h1').waitFor();
+    assert.match(await page.locator('#doc h1').textContent(), /Strombudget, Batterie/);
+    await page.waitForFunction(() => scrollY > 500);
+    await page.goto(base + '/web/index.html#Documentation/Guides/Messblatt.md');
+    await page.waitForURL('**#messblatt-aufnahme-in-sechs-schritten');
+
     // Rendered Markdown is untrusted: nothing in a guide may execute or restyle the page.
     const hostile = ['# Titel', '## Abschnitt Zwei', '<img src="x" onerror="window.__xss=1">', '<script>window.__xss=2</script>',
       '[klick](javascript:window.__xss=3)', '<a href="https://example.org/" onclick="window.__xss=4" id="search" style="position:fixed">extern</a>',
