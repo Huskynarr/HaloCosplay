@@ -45,3 +45,8 @@ test('import is atomic and uses current catalog instead of imported URLs or pric
   list.items.push(list.items[0]); assert.throws(() => lib.importSelection(data, list));
   assert.throws(() => lib.importSelection(data, {schema_version:1, kind:'budget',items:[]}));
 });
+test('CSV cells cannot start a spreadsheet formula, even after whitespace', () => {
+  const row = name => lib.csv({items: [{id: 'x', name, qty: 1, status: 'candidate', compatibility: '', links: []}]}).split('\r\n')[1];
+  for (const name of ['=1+1', '+1', '-1', '@SUM(A1)', ' =1+1', '\t=1+1', '\r\n@x']) assert.ok(row(name).startsWith('"x";"\''), JSON.stringify(name));
+  assert.ok(row('Noctua - 5V').startsWith('"x";"Noctua - 5V"'));
+});

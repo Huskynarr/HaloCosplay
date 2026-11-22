@@ -32,6 +32,27 @@ vorhanden. Ein "Reset"-Knopf in der App loescht den gespeicherten Stand wieder.
 Die Markdown-Dateien bleiben die Single Source of Truth. Die Web-App rendert sie
 nur - inhaltliche Aenderungen erfolgen weiterhin in den .md-Dateien des Repos.
 
+## Sicherheit der Darstellung
+
+- **Markdown ist nicht vertrauenswuerdig:** Jede Anleitung wird mit `marked`
+  gerendert und danach mit DOMPurify bereinigt ([guide.js](guide.js)). Fehlt der
+  Sanitizer, wird nichts eingefuegt. Formulare, Skripte, Styles, `id`, `class`
+  und Inline-Handler aus Markdown werden entfernt; nur Aufgaben-Checkboxen bleiben.
+- **Feste lokale Bibliotheken:** `marked` und DOMPurify liegen mit Version und
+  SHA-256 in [vendor/](vendor/README.md); jsdelivr wird nicht mehr geladen.
+- **Adressen:** Nur repo-relative `.md`-Pfade ohne `..`, Schema oder fuehrenden
+  Schraegstrich werden geladen. Ungueltige oder fehlerhaft kodierte Adressen
+  zeigen "Nicht gefunden".
+- **Abschnittslinks:** `#abschnitt` und `Guide.md#abschnitt` werden zu
+  `#Pfad/Guide.md#abschnitt` und springen innerhalb der App zur Ueberschrift.
+- **Content-Security-Policy:** Jede Seite setzt per `<meta>` eine CSP ohne
+  `unsafe-inline` fuer Skripte. Neue externe Hosts oder Inline-Handler muessen
+  dort eingetragen bzw. vermieden werden. Das Inline-Skript des Cortana-Viewers
+  ist per SHA-256 freigegeben; nach einer Aenderung nennt
+  `node --test Tests/Automation/guide.test.cjs` den neuen Hash.
+- **Noch extern:** Tailwind-CDN, Google Fonts, Sentry-CDN und model-viewer
+  (unpkg) werden weiterhin von Dritten geladen.
+
 ## V4-Baukasten
 
 V4 ist der Standard fuer neue Browserprofile. Bestehende V1-V3-Auswahl bleibt
@@ -43,6 +64,9 @@ Der Nachweisbericht im V4-Baukasten bleibt davon unabhaengig. Die separate
 
 - [Profil-Konfigurator](configurator/index.html): mehrere Profile, leere Messfelder,
   explizites Demobeispiel und JSON-Import/-Export. Lokale Speicherung nur nach Wahl.
+  Browserkopien aus einem aelteren Formularstand werden angepasst; die unveraenderte
+  oder unlesbare Kopie bleibt als herunterladbare Sicherung, bis die Speicherung
+  ausgeschaltet wird.
 - [Stuecklisten-Editor](budget/index.html): eigene Mengen, Budgetpreise und Zielmassen;
   JSON-Dateien fuer `tools/suit_budget.py`. Keine automatische Preissuche.
 

@@ -2,6 +2,11 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://huskynarr.github.io/HaloCosplay/</loc><priority>1.0</priority></url>
   <url><loc>https://huskynarr.github.io/HaloCosplay/web/</loc><priority>1.0</priority></url>
+  <url><loc>https://huskynarr.github.io/HaloCosplay/web/configurator/</loc><priority>1.0</priority></url>
+  <url><loc>https://huskynarr.github.io/HaloCosplay/web/budget/</loc><priority>1.0</priority></url>
+  <url><loc>https://huskynarr.github.io/HaloCosplay/web/products/</loc><priority>1.0</priority></url>
+  <url><loc>https://huskynarr.github.io/HaloCosplay/web/cortana/</loc><priority>1.0</priority></url>
+  <url><loc>https://huskynarr.github.io/HaloCosplay/BuildGuides/Armor/Mjolnir-Prototypen.md</loc><priority>0.7</priority></url>
   <url><loc>https://huskynarr.github.io/HaloCosplay/BuildGuides/Armor/Step1.md</loc><priority>0.7</priority></url>
   <url><loc>https://huskynarr.github.io/HaloCosplay/BuildGuides/Armor/Step2.md</loc><priority>0.7</priority></url>
   <url><loc>https://huskynarr.github.io/HaloCosplay/BuildGuides/Electronics/Step1.md</loc><priority>0.7</priority></url>
@@ -9,14 +14,26 @@
   <url><loc>https://huskynarr.github.io/HaloCosplay/BuildGuides/Helmet/Step1.md</loc><priority>0.7</priority></url>
   <url><loc>https://huskynarr.github.io/HaloCosplay/BuildGuides/Helmet/Step2.md</loc><priority>0.7</priority></url>
   <url><loc>https://huskynarr.github.io/HaloCosplay/BuildGuides/README.md</loc><priority>0.7</priority></url>
-  <url><loc>https://huskynarr.github.io/HaloCosplay/CLAUDE.md</loc><priority>0.7</priority></url>
+  <url><loc>https://huskynarr.github.io/HaloCosplay/CONTRIBUTING.md</loc><priority>0.7</priority></url>
+  <url><loc>https://huskynarr.github.io/HaloCosplay/Code/Exhibition/README.md</loc><priority>0.7</priority></url>
   <url><loc>https://huskynarr.github.io/HaloCosplay/Code/HelmetControl/AR/README.md</loc><priority>0.7</priority></url>
   <url><loc>https://huskynarr.github.io/HaloCosplay/Code/README.md</loc><priority>0.7</priority></url>
-  <url><loc>https://huskynarr.github.io/HaloCosplay/CONTRIBUTING.md</loc><priority>0.7</priority></url>
+  <url><loc>https://huskynarr.github.io/HaloCosplay/Design/Armor/README.md</loc><priority>0.7</priority></url>
+  <url><loc>https://huskynarr.github.io/HaloCosplay/Design/Clamshell/README.md</loc><priority>0.7</priority></url>
+  <url><loc>https://huskynarr.github.io/HaloCosplay/Design/Components/README.md</loc><priority>0.7</priority></url>
   <url><loc>https://huskynarr.github.io/HaloCosplay/Design/Designs/3D-Models/README.md</loc><priority>0.7</priority></url>
   <url><loc>https://huskynarr.github.io/HaloCosplay/Design/Designs/IdeasReferences.md</loc><priority>0.7</priority></url>
   <url><loc>https://huskynarr.github.io/HaloCosplay/Design/Designs/README.md</loc><priority>0.7</priority></url>
   <url><loc>https://huskynarr.github.io/HaloCosplay/Design/Designs/Sketches/README.md</loc><priority>0.7</priority></url>
+  <url><loc>https://huskynarr.github.io/HaloCosplay/Design/Electrical/BOM.md</loc><priority>0.7</priority></url>
+  <url><loc>https://huskynarr.github.io/HaloCosplay/Design/Electrical/Connectors.md</loc><priority>0.7</priority></url>
+  <url><loc>https://huskynarr.github.io/HaloCosplay/Design/Electrical/README.md</loc><priority>0.7</priority></url>
+  <url><loc>https://huskynarr.github.io/HaloCosplay/Design/HardwareKit/README.md</loc><priority>0.7</priority></url>
+  <url><loc>https://huskynarr.github.io/HaloCosplay/Design/Parametric/Generated/FitReport.md</loc><priority>0.7</priority></url>
+  <url><loc>https://huskynarr.github.io/HaloCosplay/Design/Parametric/README.md</loc><priority>0.7</priority></url>
+  <url><loc>https://huskynarr.github.io/HaloCosplay/Design/Props/CortanaChip/README.md</loc><priority>0.7</priority></url>
+  <url><loc>https://huskynarr.github.io/HaloCosplay/Design/Props/README.md</loc><priority>0.7</priority></url>
+  <url><loc>https://huskynarr.github.io/HaloCosplay/Design/Thermal/README.md</loc><priority>0.7</priority></url>
   <url><loc>https://huskynarr.github.io/HaloCosplay/Documentation/Guides/3D-Druck.md</loc><priority>0.7</priority></url>
   <url><loc>https://huskynarr.github.io/HaloCosplay/Documentation/Guides/Anfaengerfehler.md</loc><priority>0.7</priority></url>
   <url><loc>https://huskynarr.github.io/HaloCosplay/Documentation/Guides/Authentizitaet-Referenz.md</loc><priority>0.7</priority></url>
@@ -31,12 +48,13 @@
   <url><loc>https://huskynarr.github.io/HaloCosplay/Documentation/Guides/Elektronik-Audio.md</loc><priority>0.7</priority></url>
   <url><loc>https://huskynarr.github.io/HaloCosplay/Documentation/Guides/Elektronik-Autostart.md</loc><priority>0.7</priority></url>
   <url><loc>https://huskynarr.github.io/HaloCosplay/Documentation/Guides/Elektronik-Batterie.md</loc><priority>0.7</priority></url>
+  <url><loc>https://huskynarr.github.io/HaloCosplay/Documentation/Guides/Elektronik-Cortana-Chip.md</loc><priority>0.7</priority></url>
   <url><loc>https://huskynarr.github.io/HaloCosplay/Documentation/Guides/Elektronik-HUD.md</loc><priority>0.7</priority></url>
+  <url><loc>https://huskynarr.github.io/HaloCosplay/Documentation/Guides/Elektronik-Indoor-Navigation.md</loc><priority>0.7</priority></url>
   <url><loc>https://huskynarr.github.io/HaloCosplay/Documentation/Guides/Elektronik-Luefter.md</loc><priority>0.7</priority></url>
   <url><loc>https://huskynarr.github.io/HaloCosplay/Documentation/Guides/Elektronik-Schubduesen.md</loc><priority>0.7</priority></url>
-  <url><loc>https://huskynarr.github.io/HaloCosplay/Documentation/Guides/Elektronik-Sprachsteuerung.md</loc><priority>0.7</priority></url>
   <url><loc>https://huskynarr.github.io/HaloCosplay/Documentation/Guides/Elektronik-Show-Praxis-Module.md</loc><priority>0.7</priority></url>
-  <url><loc>https://huskynarr.github.io/HaloCosplay/Documentation/Guides/Elektronik-Indoor-Navigation.md</loc><priority>0.7</priority></url>
+  <url><loc>https://huskynarr.github.io/HaloCosplay/Documentation/Guides/Elektronik-Sprachsteuerung.md</loc><priority>0.7</priority></url>
   <url><loc>https://huskynarr.github.io/HaloCosplay/Documentation/Guides/Elektronik-Strombudget.md</loc><priority>0.7</priority></url>
   <url><loc>https://huskynarr.github.io/HaloCosplay/Documentation/Guides/Elektronik-Verdrahtung.md</loc><priority>0.7</priority></url>
   <url><loc>https://huskynarr.github.io/HaloCosplay/Documentation/Guides/Exoskelett.md</loc><priority>0.7</priority></url>
@@ -47,11 +65,27 @@
   <url><loc>https://huskynarr.github.io/HaloCosplay/Documentation/Guides/Klebetechniken.md</loc><priority>0.7</priority></url>
   <url><loc>https://huskynarr.github.io/HaloCosplay/Documentation/Guides/Komplett-Walkthrough.md</loc><priority>0.7</priority></url>
   <url><loc>https://huskynarr.github.io/HaloCosplay/Documentation/Guides/Kosten.md</loc><priority>0.7</priority></url>
-  <url><loc>https://huskynarr.github.io/HaloCosplay/Documentation/Guides/Lackierung-Finishing.md</loc><priority>0.7</priority></url>
   <url><loc>https://huskynarr.github.io/HaloCosplay/Documentation/Guides/LED-Effekte.md</loc><priority>0.7</priority></url>
   <url><loc>https://huskynarr.github.io/HaloCosplay/Documentation/Guides/LED-Visor-Forschung.md</loc><priority>0.7</priority></url>
+  <url><loc>https://huskynarr.github.io/HaloCosplay/Documentation/Guides/Lackierung-Finishing.md</loc><priority>0.7</priority></url>
   <url><loc>https://huskynarr.github.io/HaloCosplay/Documentation/Guides/Materialien.md</loc><priority>0.7</priority></url>
   <url><loc>https://huskynarr.github.io/HaloCosplay/Documentation/Guides/Messblatt.md</loc><priority>0.7</priority></url>
+  <url><loc>https://huskynarr.github.io/HaloCosplay/Documentation/Guides/Mjolnir-Baupaket.md</loc><priority>0.7</priority></url>
+  <url><loc>https://huskynarr.github.io/HaloCosplay/Documentation/Guides/Mjolnir-CAD-Schaltplaene.md</loc><priority>0.7</priority></url>
+  <url><loc>https://huskynarr.github.io/HaloCosplay/Documentation/Guides/Mjolnir-Detailgestaltung.md</loc><priority>0.7</priority></url>
+  <url><loc>https://huskynarr.github.io/HaloCosplay/Documentation/Guides/Mjolnir-Einbauplan.md</loc><priority>0.7</priority></url>
+  <url><loc>https://huskynarr.github.io/HaloCosplay/Documentation/Guides/Mjolnir-Einstieg.md</loc><priority>0.7</priority></url>
+  <url><loc>https://huskynarr.github.io/HaloCosplay/Documentation/Guides/Mjolnir-Elektronik.md</loc><priority>0.7</priority></url>
+  <url><loc>https://huskynarr.github.io/HaloCosplay/Documentation/Guides/Mjolnir-Fertigung.md</loc><priority>0.7</priority></url>
+  <url><loc>https://huskynarr.github.io/HaloCosplay/Documentation/Guides/Mjolnir-Helmintegration.md</loc><priority>0.7</priority></url>
+  <url><loc>https://huskynarr.github.io/HaloCosplay/Documentation/Guides/Mjolnir-Konfiguration.md</loc><priority>0.7</priority></url>
+  <url><loc>https://huskynarr.github.io/HaloCosplay/Documentation/Guides/Mjolnir-Lichtmodule.md</loc><priority>0.7</priority></url>
+  <url><loc>https://huskynarr.github.io/HaloCosplay/Documentation/Guides/Mjolnir-Massanpassung.md</loc><priority>0.7</priority></url>
+  <url><loc>https://huskynarr.github.io/HaloCosplay/Documentation/Guides/Mjolnir-Messebetrieb.md</loc><priority>0.7</priority></url>
+  <url><loc>https://huskynarr.github.io/HaloCosplay/Documentation/Guides/Mjolnir-Nebeltechnik.md</loc><priority>0.7</priority></url>
+  <url><loc>https://huskynarr.github.io/HaloCosplay/Documentation/Guides/Mjolnir-Selbstanziehen.md</loc><priority>0.7</priority></url>
+  <url><loc>https://huskynarr.github.io/HaloCosplay/Documentation/Guides/Mjolnir-Systementwurf.md</loc><priority>0.7</priority></url>
+  <url><loc>https://huskynarr.github.io/HaloCosplay/Documentation/Guides/Mjolnir-Technik-Auslegung.md</loc><priority>0.7</priority></url>
   <url><loc>https://huskynarr.github.io/HaloCosplay/Documentation/Guides/Pflege-Wartung.md</loc><priority>0.7</priority></url>
   <url><loc>https://huskynarr.github.io/HaloCosplay/Documentation/Guides/Praxis-Tipps-Fortgeschritten.md</loc><priority>0.7</priority></url>
   <url><loc>https://huskynarr.github.io/HaloCosplay/Documentation/Guides/Sicherheit.md</loc><priority>0.7</priority></url>
@@ -65,19 +99,27 @@
   <url><loc>https://huskynarr.github.io/HaloCosplay/Documentation/README.md</loc><priority>0.7</priority></url>
   <url><loc>https://huskynarr.github.io/HaloCosplay/Documentation/References/CharacterReferences/README.md</loc><priority>0.7</priority></url>
   <url><loc>https://huskynarr.github.io/HaloCosplay/Documentation/References/HaloCortanaDataChip/README.md</loc><priority>0.7</priority></url>
+  <url><loc>https://huskynarr.github.io/HaloCosplay/Documentation/References/Mjolnir-Mechanik-Quellen.md</loc><priority>0.7</priority></url>
   <url><loc>https://huskynarr.github.io/HaloCosplay/Documentation/References/README.md</loc><priority>0.7</priority></url>
   <url><loc>https://huskynarr.github.io/HaloCosplay/Documentation/TODO.md</loc><priority>0.7</priority></url>
-  <url><loc>https://huskynarr.github.io/HaloCosplay/.github/ISSUE_TEMPLATE/feature_request.md</loc><priority>0.7</priority></url>
   <url><loc>https://huskynarr.github.io/HaloCosplay/License/LicenseText.md</loc><priority>0.7</priority></url>
   <url><loc>https://huskynarr.github.io/HaloCosplay/Materials/Einkaufsliste-Links.md</loc><priority>0.7</priority></url>
   <url><loc>https://huskynarr.github.io/HaloCosplay/Materials/Electronics/README.md</loc><priority>0.7</priority></url>
+  <url><loc>https://huskynarr.github.io/HaloCosplay/Materials/Mjolnir-BOM.md</loc><priority>0.7</priority></url>
+  <url><loc>https://huskynarr.github.io/HaloCosplay/Materials/Mjolnir-Begleitsystem.md</loc><priority>0.7</priority></url>
+  <url><loc>https://huskynarr.github.io/HaloCosplay/Materials/Mjolnir-Einkauf-Prototyp.md</loc><priority>0.7</priority></url>
+  <url><loc>https://huskynarr.github.io/HaloCosplay/Materials/Mjolnir-Licht-Einkauf.md</loc><priority>0.7</priority></url>
+  <url><loc>https://huskynarr.github.io/HaloCosplay/Materials/Mjolnir-Messebudget.md</loc><priority>0.7</priority></url>
+  <url><loc>https://huskynarr.github.io/HaloCosplay/Materials/Mjolnir-Nebel-Einkauf.md</loc><priority>0.7</priority></url>
   <url><loc>https://huskynarr.github.io/HaloCosplay/Materials/Shoes.md</loc><priority>0.7</priority></url>
   <url><loc>https://huskynarr.github.io/HaloCosplay/Materials/ShoppingList.md</loc><priority>0.7</priority></url>
+  <url><loc>https://huskynarr.github.io/HaloCosplay/Progress/Mjolnir-Readiness.md</loc><priority>0.7</priority></url>
   <url><loc>https://huskynarr.github.io/HaloCosplay/Progress/WeeklyReports/README.md</loc><priority>0.7</priority></url>
   <url><loc>https://huskynarr.github.io/HaloCosplay/Progress/WeeklyReports/Week1.md</loc><priority>0.7</priority></url>
   <url><loc>https://huskynarr.github.io/HaloCosplay/Progress/WeeklyReports/Week2.md</loc><priority>0.7</priority></url>
   <url><loc>https://huskynarr.github.io/HaloCosplay/README.md</loc><priority>0.7</priority></url>
   <url><loc>https://huskynarr.github.io/HaloCosplay/Resources/Community.md</loc><priority>0.7</priority></url>
+  <url><loc>https://huskynarr.github.io/HaloCosplay/Resources/CosplayGuides/README.md</loc><priority>0.7</priority></url>
   <url><loc>https://huskynarr.github.io/HaloCosplay/Resources/Guides/README.md</loc><priority>0.7</priority></url>
   <url><loc>https://huskynarr.github.io/HaloCosplay/Resources/README.md</loc><priority>0.7</priority></url>
   <url><loc>https://huskynarr.github.io/HaloCosplay/Resources/STL-Quellen.md</loc><priority>0.7</priority></url>
@@ -86,7 +128,18 @@
   <url><loc>https://huskynarr.github.io/HaloCosplay/Support/Contact.md</loc><priority>0.7</priority></url>
   <url><loc>https://huskynarr.github.io/HaloCosplay/Support/FAQ.md</loc><priority>0.7</priority></url>
   <url><loc>https://huskynarr.github.io/HaloCosplay/Tests/README.md</loc><priority>0.7</priority></url>
+  <url><loc>https://huskynarr.github.io/HaloCosplay/Tests/TestReports/Mjolnir-Abnahme.md</loc><priority>0.7</priority></url>
+  <url><loc>https://huskynarr.github.io/HaloCosplay/Tests/TestReports/Mjolnir-Baukasten-Verification.md</loc><priority>0.7</priority></url>
+  <url><loc>https://huskynarr.github.io/HaloCosplay/Tests/TestReports/Mjolnir-Digital-Verification.md</loc><priority>0.7</priority></url>
+  <url><loc>https://huskynarr.github.io/HaloCosplay/Tests/TestReports/Mjolnir-Exhibition-Digital.md</loc><priority>0.7</priority></url>
+  <url><loc>https://huskynarr.github.io/HaloCosplay/Tests/TestReports/Mjolnir-Nebel-Abnahme.md</loc><priority>0.7</priority></url>
+  <url><loc>https://huskynarr.github.io/HaloCosplay/Tests/TestReports/Mjolnir-Produktkatalog.md</loc><priority>0.7</priority></url>
   <url><loc>https://huskynarr.github.io/HaloCosplay/Tests/TestReports/Test1.md</loc><priority>0.7</priority></url>
   <url><loc>https://huskynarr.github.io/HaloCosplay/Tests/TestReports/Test2.md</loc><priority>0.7</priority></url>
   <url><loc>https://huskynarr.github.io/HaloCosplay/web/README.md</loc><priority>0.7</priority></url>
+  <url><loc>https://huskynarr.github.io/HaloCosplay/web/budget/README.md</loc><priority>0.7</priority></url>
+  <url><loc>https://huskynarr.github.io/HaloCosplay/web/configurator/README.md</loc><priority>0.7</priority></url>
+  <url><loc>https://huskynarr.github.io/HaloCosplay/web/img/parts/README.md</loc><priority>0.7</priority></url>
+  <url><loc>https://huskynarr.github.io/HaloCosplay/web/models/README.md</loc><priority>0.7</priority></url>
+  <url><loc>https://huskynarr.github.io/HaloCosplay/web/products/README.md</loc><priority>0.7</priority></url>
 </urlset>

@@ -47,7 +47,9 @@ Three legacy material-reference variants exist: V1 Einsteiger (foam), V2 Fortges
 - Config: copy `config.example.json` to `config.json`; battery status via `battery.example.json` to `battery.json`
 - Hardware tests remain manual; fit/budget/readiness tests: `python3 -m unittest discover -s Tests/Automation -v`
 - Web/exhibition unit tests: `node --test Tests/Automation/*.test.cjs`
-- Stale-output checks: `python3 tools/suit_catalog.py --check`, `tools/suit_budget.py --check`, `tools/suit_readiness.py --check`
+- Stale-output checks: `python3 tools/suit_catalog.py --check`, `tools/suit_budget.py --check`, `tools/suit_readiness.py --check`, `tools/suit_sitemap.py --check` (regenerate `sitemap.xml` after adding or removing any `.md`)
+- `Design/Parametric/Generated/` is committed output of `tools/suit_fit.py --profile Design/Parametric/Profiles/Demo.json --concept --out Design/Parametric/Generated`; a test compares it byte for byte
+- Pages deploy (`.github/workflows/pages.yml`) runs the tests first and publishes tracked files only, without `.github/`, `docs/`, `Tests/Automation`, `Tests/Browser`, `CLAUDE.md`
 - Readiness: a passed gate needs project name, profile binding and real evidence; generated files and the profile itself are rejected as evidence
 - Runtime math: powerbank mAh refer to 3.7 V cells; always compute runtime from Wh (see `Elektronik-Strombudget.md`), never mAh / load current at 5 V
 - All writers of `hud_state.json` must use `hud_state.merge()` (file lock + atomic replace) so modules don't clobber each other's keys

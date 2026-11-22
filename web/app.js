@@ -36,16 +36,10 @@
   // ---- helpers ----
   function $(sel) { return document.querySelector(sel); }
   function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]; }); }
-  function dirOf(f) { var i = f.lastIndexOf("/"); return i < 0 ? "" : f.slice(0, i + 1); }
-  function normalize(p) {
-    var out = [];
-    p.split("/").forEach(function (seg) { if (seg === "..") out.pop(); else if (seg !== "." && seg !== "") out.push(seg); });
-    return out.join("/");
-  }
-  function resolveHref(href, currentF) {
-    for (var i = 0; i < TOP_DIRS.length; i++) { if (href.indexOf(TOP_DIRS[i]) === 0) return normalize(href); }
-    return normalize(dirOf(currentF) + href);
-  }
+  var G = window.SuitGuide;
+  // Markdown is repository content, but it is still rendered as untrusted
+  // input: parse, then sanitize, and fail closed if the sanitizer is missing.
+  function renderMarkdown(md) { return G.sanitize(window.DOMPurify, marked.parse(md)); }
   function hashStr(s) { var h = 0, i; for (i = 0; i < s.length; i++) { h = (h << 5) - h + s.charCodeAt(i); h |= 0; } return Math.abs(h).toString(36); }
   var toastT;
   function toast(msg) {
@@ -156,9 +150,10 @@
       fetch(ROOT + entry.file, { cache: "force-cache" })
         .then(function (r) { if (!r.ok) throw 0; return r.text(); })
         .then(function (md) {
-          var tmp = document.createElement("div");
-          try { tmp.innerHTML = marked.parse(md); } catch (e) { tmp.textContent = md; }
-          entry.text = (tmp.textContent || "").toLowerCase().replace(/\s+/g, " ").trim();
+          // Inert document: indexing must not load images or run handlers.
+          var text = md;
+          try { text = new DOMParser().parseFromString(renderMarkdown(md), "text/html").body.textContent || ""; } catch (e) {}
+          entry.text = text.toLowerCase().replace(/\s+/g, " ").trim();
         })
         .catch(function () { entry.text = ""; })
         .then(function () {
@@ -247,25 +242,44 @@
   }
 
   // ---- rendering ----
+  function headingId(anchor) { return "h-" + anchor; } // prefix: headings must not shadow page ids like #search
+  function scrollToAnchor(anchor) {
+    var target = anchor ? document.getElementById(headingId(anchor)) : null;
+    if (!target || !docEl.contains(target)) return false;
+    target.scrollIntoView();
+    target.setAttribute("tabindex", "-1");
+    try { target.focus({ preventScroll: true }); } catch (e) {}
+    return true;
+  }
   function postProcess(root, file) {
+    var heads = root.querySelectorAll("h1, h2, h3, h4, h5, h6");
+    var ids = G.headingIds(Array.prototype.map.call(heads, function (h) { return h.textContent; }));
+    Array.prototype.forEach.call(heads, function (h, i) { if (ids[i]) h.id = headingId(ids[i]); });
     root.querySelectorAll("a[href]").forEach(function (a) {
-      var href = a.getAttribute("href");
-      if (/^(https?:|mailto:)/.test(href)) {
+      var link = G.rewriteLink(a.getAttribute("href"), file, TOP_DIRS);
+      if (link.kind === "external") {
         a.target = "_blank"; a.rel = "noopener noreferrer";
-        if (window.SuitProducts && window.SuitProductData && SuitProducts.affiliate(href, SuitProductData.affiliate.amazon_de_tag)) {
+        if (window.SuitProducts && window.SuitProductData && SuitProducts.affiliate(link.href, SuitProductData.affiliate.amazon_de_tag)) {
           a.rel += " sponsored nofollow";
           if (!/affiliate/i.test(a.textContent)) a.appendChild(document.createTextNode(" (Affiliate)"));
         }
-        return;
+      } else if (link.kind === "anchor" || link.kind === "doc") {
+        // "#File.md#section" keeps section links shareable; route() scrolls.
+        a.setAttribute("href", link.href);
+        a.removeAttribute("target");
+      } else if (link.kind === "asset") {
+        a.setAttribute("href", ROOT + link.path); a.target = "_blank"; a.rel = "noopener";
+      } else {
+        a.removeAttribute("href");
       }
-      if (href.charAt(0) === "#") return;
-      var res = resolveHref(href, file);
-      if (/\.md$/i.test(res)) { a.setAttribute("href", "#" + res); }
-      else { a.setAttribute("href", ROOT + res); a.target = "_blank"; a.rel = "noopener"; }
     });
     root.querySelectorAll("img[src]").forEach(function (img) {
       var src = img.getAttribute("src");
-      if (!/^(https?:|data:)/.test(src)) img.setAttribute("src", ROOT + resolveHref(src, file));
+      if (/^data:/i.test(src)) { if (!/^data:image\/(png|jpeg|gif|webp);/i.test(src)) img.remove(); }
+      else if (!/^https?:/i.test(src)) {
+        var asset = G.rewriteLink(src, file, TOP_DIRS);
+        if (asset.kind === "asset") img.setAttribute("src", ROOT + asset.path); else { img.remove(); return; }
+      }
       img.setAttribute("loading", "lazy");
       img.setAttribute("decoding", "async");
       if (!img.getAttribute("alt")) img.setAttribute("alt", "");
@@ -371,24 +385,34 @@
     docEl.appendChild(section);
   }
 
-  function loadDoc(file) {
+  function notFound(label) {
+    currentFile = ""; setActive(""); closeNav();
+    $("#journey-foot").style.display = "none";
+    docEl.innerHTML = '<h1>Nicht gefunden</h1><p>Die Adresse <code>' + esc(label) +
+      '</code> gehoert zu keiner Anleitung.</p><p><a class="btn" href="#">Zur Startseite</a></p>';
+    window.scrollTo(0, 0);
+  }
+
+  function loadDoc(file, anchor) {
     currentFile = file; setActive(file); closeNav();
     docEl.innerHTML = '<p class="font-mono" style="color:var(--dim)">// lade ' + esc(file) + ' ...</p>';
     fetch(ROOT + file, { cache: "no-cache" })
       .then(function (r) { if (!r.ok) throw new Error(r.status); return r.text(); })
       .then(function (md) {
         if (currentFile !== file) return;
-        docEl.innerHTML = marked.parse(md);
+        docEl.innerHTML = renderMarkdown(md);
         docEl.classList.remove("glitch-in"); void docEl.offsetWidth; docEl.classList.add("glitch-in");
         postProcess(docEl, file);
         appendProducts(file);
         updateJourneyFoot(file);
-        window.scrollTo(0, 0);
+        docEl.setAttribute("data-loaded", file);
+        if (!scrollToAnchor(anchor)) window.scrollTo(0, 0);
       })
       .catch(function (error) {
         if (currentFile !== file) return;
         if (window.HaloMonitoring) window.HaloMonitoring.captureException(error, 'guide-load');
         $("#journey-foot").style.display = "none";
+        docEl.removeAttribute("data-loaded");
         docEl.innerHTML = '<h1>Nicht gefunden</h1><p>Die Datei <code>' + esc(file) +
           '</code> konnte nicht geladen werden. Laeuft die Seite ueber einen Webserver (nicht per file://)?</p>';
       });
@@ -549,10 +573,8 @@
   function showPart(p) {
     var panel = $("#part-panel");
     if (!panel || !p) return;
-    // Optional reference photo: shows only if web/img/parts/<id>.jpg exists,
-    // otherwise the <img> removes itself on error (no broken-image icon).
     var img = '<img class="pp-img" src="' + ROOT + 'web/img/parts/' + p.id + '.jpg" alt="' + esc(p.label) +
-      '" loading="lazy" decoding="async" onerror="this.remove()">';
+      '" loading="lazy" decoding="async">';
     var buy = "";
     if (window.SuitProducts && window.SuitProductData) {
       var products = SuitProducts.filter(SuitProductData, {part: p.id});
@@ -569,6 +591,9 @@
       '<p class="pp-desc">' + esc(p.desc) + '</p>' +
       '<a class="btn btn-accent pp-link" href="#' + esc(p.guide) + '">Zum Guide &gt;</a>' +
       buy;
+    // Optional photo: remove the element if web/img/parts/<id>.jpg is missing.
+    var photo = panel.querySelector(".pp-img");
+    if (photo) photo.addEventListener("error", function () { photo.remove(); });
     document.querySelectorAll(".mv-hotspot, .part-row").forEach(function (el) {
       el.classList.toggle("active", el.getAttribute("data-id") === p.id);
     });
@@ -712,12 +737,16 @@
       var panel = $("#part-panel");
       panel.innerHTML = '<div class="pp-head font-disp">Kalibrierung</div>' +
         '<p class="pp-desc">Position erfasst. In <code>app.js</code> beim passenden <code>ARMOR_PARTS</code>-Eintrag einsetzen:</p>' +
-        '<textarea class="calib-out font-mono" readonly rows="3" onclick="this.select()">' + esc(snippet) + '</textarea>';
+        '<textarea class="calib-out font-mono" readonly rows="3">' + esc(snippet) + '</textarea>';
+      var out = panel.querySelector(".calib-out");
+      if (out) out.addEventListener("click", function () { out.select(); });
     });
   }
 
   function route() {
-    var file = decodeURIComponent(location.hash.replace(/^#/, ""));
+    var parsed = G.parseRoute(location.hash);
+    if (parsed.error) { notFound(parsed.raw); return; }
+    var file = parsed.file;
     if (file === "profile-configurator") { location.href = "configurator/"; return; }
     if (file === "budget-planner") { location.href = "budget/"; return; }
     if (file === "product-catalog") { location.href = "products/"; return; }
@@ -725,13 +754,19 @@
     if (file === VIEWER) { render3DViewer(); return; }
     if (file === COSPLAY) { renderCosplayGuides(); return; }
     if (file === CORTANA) { renderCortanaViewer(); return; }
-    loadDoc(file);
+    if (parsed.sentinel) { notFound(file); return; }
+    // Section link inside the guide that is already on screen: only scroll.
+    if (file === currentFile && docEl.getAttribute("data-loaded") === file) {
+      if (!scrollToAnchor(parsed.anchor)) window.scrollTo(0, 0);
+      return;
+    }
+    loadDoc(file, parsed.anchor);
   }
 
   // ---- mobile nav ----
   function openNav() { $("#sidebar").classList.add("open"); $("#backdrop").classList.add("open"); }
   function closeNav() { $("#sidebar").classList.remove("open"); $("#backdrop").classList.remove("open"); }
-  window.__closeNav = closeNav;
+
 
   // ---- init ----
   document.addEventListener("DOMContentLoaded", function () {
@@ -751,6 +786,7 @@
     });
     renderProgress();
     $("#menu-toggle").addEventListener("click", openNav);
+    $("#backdrop").addEventListener("click", closeNav);
     $("#reset-btn").addEventListener("click", function () {
       if (confirm("Gespeicherten Fortschritt (Schritte, Einkaufs-Haken) in diesem Browser loeschen?")) {
         store.reset();

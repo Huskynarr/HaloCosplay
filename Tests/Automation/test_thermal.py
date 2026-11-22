@@ -17,6 +17,16 @@ class ThermalTests(unittest.TestCase):
     def setUp(self):
         self.demo = json.loads((ROOT / "Design/Thermal/Demo.json").read_text())
 
+    def test_implausible_inputs_are_noted_without_changing_results(self):
+        baseline = thermal.calculate(self.demo)
+        self.assertEqual(baseline["input_notes"], [])
+        self.demo["modules"][0]["surface_limit_c"] = 200
+        self.demo["vents"][0]["rho_kg_m3"] = 1200
+        report = thermal.calculate(self.demo)
+        self.assertEqual(len(report["input_notes"]), 2)
+        self.assertIn("Eingabehinweise", thermal.render(report))
+        self.assertEqual(report["modules"][0]["sink_temperature_c"], baseline["modules"][0]["sink_temperature_c"])
+
     def test_shared_sink_and_independent_junction_paths_do_not_double_count_heat(self):
         report = thermal.calculate(self.demo)
         sink = report["modules"][0]

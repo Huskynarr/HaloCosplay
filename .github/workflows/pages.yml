@@ -8,16 +8,37 @@ on:
 
 permissions:
   contents: read
-  pages: write
-  id-token: write
 
 concurrency:
   group: pages
   cancel-in-progress: false
 
 jobs:
-  deploy:
+  verify:
+    name: Tests vor dem Deploy
     runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: python -m unittest discover -s Tests/Automation
+      - run: node --test Tests/Automation/*.test.cjs
+      - run: python tools/suit_catalog.py --check
+      - run: python tools/suit_budget.py --check
+      - run: python tools/suit_readiness.py --check
+      - run: python tools/suit_sitemap.py --check
+
+  deploy:
+    needs: verify
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
@@ -26,10 +47,19 @@ jobs:
         uses: actions/checkout@v4
       - name: Configure Pages
         uses: actions/configure-pages@v5
+      - name: Collect published files
+        # Only tracked files, without agent notes, CI config and test code.
+        run: |
+          mkdir _site
+          git ls-files -z \
+            | grep -zvE '^(\.github/|docs/|Tests/Automation/|Tests/Browser/|CLAUDE\.md$|\.gitignore$)' \
+            | xargs -0 cp --parents -t _site
+          test -f _site/index.html && test -f _site/web/index.html
+          du -sh _site
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: '.'
+          path: '_site'
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4

@@ -28,8 +28,8 @@ import hud_state
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 DEFAULT_BAUD = 115200
-DEFAULT_STATE = os.path.join(BASE_DIR, "hud_state.json")
-DEFAULT_BATTERY = os.path.join(BASE_DIR, "battery.json")
+DEFAULT_STATE = hud_state.runtime_path("hud_state.json")
+DEFAULT_BATTERY = hud_state.runtime_path("battery.json")
 
 
 def parse_line(line):

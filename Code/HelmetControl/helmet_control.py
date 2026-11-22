@@ -10,10 +10,15 @@ The Arduino listens as I2C slave (default address 0x08) and understands:
 Usage examples:
     python3 helmet_control.py brightness 128
     python3 helmet_control.py fan 180
+    python3 helmet_control.py fan 0 --hold   # gedrosselt halten bis Ctrl+C
     python3 helmet_control.py effect heartbeat
     python3 helmet_control.py effect 3
     python3 helmet_control.py color 255 180 20
     python3 helmet_control.py demo
+
+Fan failsafe: values below the Arduino default (180) are only kept while the
+Pi keeps confirming them; without a resend the Arduino returns to the default
+after about 10 s. `--hold` resends every 3 s until interrupted.
 
 Wiring and protocol: see Code/README.md and
 Documentation/Guides/Elektronik-Verdrahtung.md.
@@ -112,6 +117,9 @@ def main():
     p_bright.add_argument("value")
     p_fan = sub.add_parser("fan", help="Luefter-Speed 0-255")
     p_fan.add_argument("value")
+    p_fan.add_argument("--hold", action="store_true",
+                       help="Wert alle 3 s erneut senden (noetig fuer Werte unter 180, "
+                            "sonst kehrt der Arduino nach ca. 10 s zum Standard zurueck)")
     p_effect = sub.add_parser("effect",
                               help="Effekt: " + ", ".join(EFFECTS) + " oder 0-4")
     p_effect.add_argument("value")
@@ -139,6 +147,16 @@ def main():
     try:
         if action:
             send(bus, args.addr, action[0], action[1])
+            if args.command == "fan" and args.hold:
+                print("Halte Luefterwert, Ctrl+C beendet (danach Rueckkehr zum Standard).")
+                try:
+                    while True:
+                        time.sleep(3.0)
+                        send(bus, args.addr, action[0], action[1])
+                except KeyboardInterrupt:
+                    pass
+            elif args.command == "fan" and action[1] < 180:
+                print("Hinweis: Werte unter 180 gelten ohne --hold nur ca. 10 s (Luefter-Failsafe).")
         else:
             run_demo(bus, args.addr)
     finally:
