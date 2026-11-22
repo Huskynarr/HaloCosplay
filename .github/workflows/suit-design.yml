@@ -58,7 +58,7 @@ jobs:
         env:
           NODE_PATH: ${{ github.workspace }}/build/browser/node_modules
         run: node Tests/Browser/smoke.cjs
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v7
         if: always()
         with:
           name: project-interface-screenshots
@@ -130,7 +130,7 @@ jobs:
               done
             done
           done
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v7
         with:
           name: concept-only-not-fabrication-approved
           path: build/
