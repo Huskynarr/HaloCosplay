@@ -23,7 +23,7 @@ jobs:
       - run: python tools/suit_catalog.py --check
       - run: python tools/suit_budget.py --check
       - run: python tools/suit_readiness.py --check
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v7
         with:
           node-version: '22'
       - run: node --test Tests/Automation/*.test.cjs
@@ -33,7 +33,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v7
         with:
           node-version: '22'
       - name: Exclude unused Chrome apt repository from runner dependencies
