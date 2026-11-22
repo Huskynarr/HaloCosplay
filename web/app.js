@@ -418,21 +418,17 @@
       });
   }
 
-  // ---- official 343 cosplay guides (PDF preview + source attribution) ----
-  // PDFs live at Resources/CosplayGuides/ and are served alongside the repo.
-  // <iframe> embed gives a free online preview (browser-native PDF viewer).
+  // ---- official 343 cosplay guides (links to the publisher, no copies in the repo) ----
   var COSPLAY_PDFS = [
     {
-      id: "full",
       label: "Mark VII GEN3 - Full",
-      file: "Resources/CosplayGuides/MK7_CosplayGuide_Full.pdf",
+      url: "https://content.halocdn.com/media/Default/community/CosplayGuides/mk7_cosplayguide_fullsize-a95f71a129ae4094aef3ea0b6121fca4.pdf",
       size: "ca. 40 MB",
       note: "Vollaufloesung - Masszeichnungen, Turnaround, Detail-Views. Am PC/Tablet nutzen."
     },
     {
-      id: "mobile",
       label: "Mark VII GEN3 - Mobile",
-      file: "Resources/CosplayGuides/MK7_CosplayGuide_Mobile.pdf",
+      url: "https://content.halocdn.com/media/Default/community/CosplayGuides/mk7_cosplayguide_mobile-c9b71de988af42f9b6f6010ef44a2417.pdf",
       size: "ca. 25 MB",
       note: "Komprimierte Version fuer Smartphones (gleicher Inhalt)."
     }
@@ -442,23 +438,16 @@
     currentFile = COSPLAY; setActive(COSPLAY); closeNav();
     $("#journey-foot").style.display = "none";
 
-    var tabs = COSPLAY_PDFS.map(function (p, i) {
-      return '<button class="btn ' + (i === 0 ? "btn-accent" : "") +
-        '" data-cg="' + p.id + '">' + esc(p.label) + '</button>';
-    }).join(" ");
-
-    var first = COSPLAY_PDFS[0];
     docEl.innerHTML =
       '<h1>Offizielle Cosplay-Guides (343 Industries)</h1>' +
       '<p style="color:var(--dim)">Die offiziellen Referenz-PDFs von 343 Industries zum Mark VII (MJOLNIR GEN3) - ' +
-      'mit Turnaround-Ansichten und Detail-Views. Mark VII ist keine exakte Vorlage fuer Chiefs Mark VI GEN3. Direkt aus dem Repo, ' +
-      'funktioniert auch offline (z.B. auf der Convention ohne Wlan).</p>' +
-      '<div class="mv-toolbar" style="margin-bottom:10px">' + tabs + '</div>' +
-      '<div id="cg-frame-wrap" class="cg-wrap">' +
-        '<iframe id="cg-frame" src="' + ROOT + first.file + '#view=FitH" title="' + esc(first.label) + '" ' +
-        'loading="lazy" allow="fullscreen" class="cg-frame"></iframe>' +
-      '</div>' +
-      '<p id="cg-note" class="font-mono" style="color:var(--dim);font-size:13px;margin-top:.6em">' + esc(first.note) + '</p>' +
+      'mit Turnaround-Ansichten und Detail-Views. Mark VII ist keine exakte Vorlage fuer Chiefs Mark VI GEN3. ' +
+      'Die Dateien liegen beim Herausgeber; fuer die Convention ohne Wlan vorher herunterladen.</p>' +
+      '<div class="part-legend">' + COSPLAY_PDFS.map(function (p) {
+        return '<a class="part-row" href="' + esc(p.url) + '" target="_blank" rel="noopener noreferrer">' +
+          '<span class="part-name">' + esc(p.label) + ' &#8599;<br><span style="color:var(--dim);font-size:13px">' + esc(p.note) + '</span></span>' +
+          '<span class="part-var font-mono">PDF, ' + esc(p.size) + '</span></a>';
+      }).join("") + '</div>' +
       '<div class="cg-credit hud ticks">' +
         '<div class="cg-credit-head font-disp">Quelle &amp; Lizenz</div>' +
         '<p><strong>Autor:</strong> Andy Salisbury (Community Communications Manager, 343 Industries)</p>' +
@@ -467,36 +456,15 @@
         '<p><strong>Original-Artikel:</strong> ' +
         '<a href="https://www.halowaypoint.com/en-us/news/official-cosplay-guide-mark-vii" target="_blank" rel="noopener">' +
         'Halo Waypoint Blog &#8599;</a></p>' +
-        '<p><strong>Lokale Kopie:</strong> <code>Resources/CosplayGuides/</code> - ' +
-        'Details siehe <a href="#Resources/CosplayGuides/README.md">README</a></p>' +
+        '<p><strong>Kapitelindex und Hinweise:</strong> ' +
+        '<a href="#Resources/CosplayGuides/README.md">README</a></p>' +
         '<p class="cg-lic" style="color:var(--dim);font-size:12px;margin-top:.5em">' +
         '"Halo", "Master Chief" und "MJOLNIR" sind Marken von Microsoft/343 Industries. ' +
         'Nutzung als nicht-kommerzielles Fan-Projekt. Kein kommerzieller Vertrieb.</p>' +
-      '</div>' +
-      '<h2>Download</h2>' +
-      '<p style="color:var(--dim);margin-top:-.3em">Falls der Browser-PDF-Viewer nicht klappen will, direkt herunterladen:</p>' +
-      '<div class="part-legend">' + COSPLAY_PDFS.map(function (p) {
-        return '<a class="part-row" href="' + ROOT + p.file + '" target="_blank" rel="noopener" download>' +
-          '<span class="part-name">' + esc(p.label) + ' &#8599;</span>' +
-          '<span class="part-var font-mono">' + esc(p.size) + '</span></a>';
-      }).join("") + '</div>';
+      '</div>';
 
     docEl.classList.remove("glitch-in"); void docEl.offsetWidth; docEl.classList.add("glitch-in");
     window.scrollTo(0, 0);
-
-    document.querySelectorAll("[data-cg]").forEach(function (btn) {
-      btn.addEventListener("click", function () {
-        var id = btn.getAttribute("data-cg");
-        var p = null;
-        for (var i = 0; i < COSPLAY_PDFS.length; i++) { if (COSPLAY_PDFS[i].id === id) p = COSPLAY_PDFS[i]; }
-        if (!p) return;
-        var frame = $("#cg-frame");
-        if (frame) { frame.src = ROOT + p.file + "#view=FitH"; frame.title = p.label; }
-        var note = $("#cg-note");
-        if (note) note.textContent = p.note;
-        document.querySelectorAll("[data-cg]").forEach(function (b) { b.classList.toggle("btn-accent", b === btn); });
-      });
-    });
   }
 
   // ---- 3D armor viewer (model-viewer + clickable component hotspots) ----

@@ -34,7 +34,7 @@ eines Helm-Komplettpakets uebernommen. Keine Datei wird automatisch gekauft.
 ## 2. Offizielle Formreferenz getrennt vom Druckmodell
 
 - [Mark-VII-Cosplay-Guide](https://www.halowaypoint.com/news/official-cosplay-guide-mark-vii):
-  offizielle Bild- und Materialreferenz. Lokale PDFs unter
+  offizielle Bild- und Materialreferenz. Download-Links unter
   [CosplayGuides](CosplayGuides/README.md); Kapitelzuordnung in
   [Authentizitaet-Referenz](../Documentation/Guides/Authentizitaet-Referenz.md).
 - [Kolby Jukes: Master Chief, Halo Infinite](https://kolbyjukes.artstation.com/projects/OyBR0w):

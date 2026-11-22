@@ -62,7 +62,7 @@ nicht als Beleg fuer Originalgeometrie.
 ## Mark-VII-Index fuer die vorhandenen Unterlagen
 
 Die Seitenzahlen gelten fuer die 106-seitige
-[Full-PDF](../../Resources/CosplayGuides/MK7_CosplayGuide_Full.pdf), ab Seite 1
+Full-PDF (Link in [CosplayGuides](../../Resources/CosplayGuides/README.md)), ab Seite 1
 gezaehlt. Die Kapitelzuordnung wurde aus dem PDF-Text gewonnen. Seiten 6, 34 und
 83 wurden zusaetzlich visuell geprueft; dies ist kein vollstaendiger Bildaudit.
 

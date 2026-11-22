@@ -116,9 +116,9 @@ wenn du jedes Modul einzeln in Betrieb genommen hast.
 - HUD-Display: `Code/HelmetControl/hud_display.py`
 - Konfig: `Code/HelmetControl/config.example.json`
 - Batterie-Input: `Code/HelmetControl/battery.example.json`
-- Arduino Helm: `Code/HelmetControl/MainControlCode.ino`
-- Arduino LEDs Helm: `Code/HelmetControl/LightingEffectsCode.ino`
+- Minimalbeispiel Helm: `Code/Examples/HelmetControl/MainControlCode.ino`
+- Minimalbeispiel LEDs Helm: `Code/Examples/HelmetControl/LightingEffectsCode.ino`
 - Arduino Helm (erweitert, Effekte + Luefter): `Code/HelmetControl/HelmetMultiEffects.ino`
-- Arduino Ruestung: `Code/ArmorControl/MainControlCode.ino`
-- Arduino LEDs Ruestung: `Code/ArmorControl/LightingEffectsCode.ino`
+- Minimalbeispiel Ruestung: `Code/Examples/ArmorControl/MainControlCode.ino`
+- Minimalbeispiel LEDs Ruestung: `Code/Examples/ArmorControl/LightingEffectsCode.ino`
 - Arduino Ruestung (erweitert, Effekte + Bootsequenz): `Code/ArmorControl/MultiEffects.ino`
