@@ -1,1 +1,1 @@
-// Hinweis: Beispielcode liegt unter Code/HelmetControl/MainControlCode.ino
+// Hinweis: Beispielcode liegt unter Code/Examples/HelmetControl/MainControlCode.ino

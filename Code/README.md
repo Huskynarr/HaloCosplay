@@ -69,9 +69,6 @@ Hintergrund und **Sicherheit**: `Documentation/Guides/Elektronik-AR-Display.md`.
 
 ### Arduino (Helm)
 
-- `MainControlCode.ino` - I2C-Slave (Adresse 0x08), versteht `[cmd, wert]` wie
-  HelmetMultiEffects, setzt aber nur die Helligkeit (0x01) um
-- `LightingEffectsCode.ino` - Einfacher LED-Lauf (12 LEDs, Pin 6)
 - **`HelmetMultiEffects.ino`** - Erweiterter Controller mit:
   - 5 Visor-LED-Effekte (Static, Breathing, Heartbeat, Chase, Flicker), 10 LEDs an Pin 6 (`VISOR_COUNT` anpassen)
   - Taster-Umschaltung zwischen Effekten
@@ -82,8 +79,6 @@ Hintergrund und **Sicherheit**: `Documentation/Guides/Elektronik-AR-Display.md`.
 
 ## ArmorControl
 
-- `MainControlCode.ino` - LED-Breathing (24 LEDs, Pin 5)
-- `LightingEffectsCode.ino` - LED-Chase (24 LEDs, Pin 5)
 - **`MultiEffects.ino`** - Erweiterter Controller mit:
   - 5 Effekte (Static, Breathing, Heartbeat, Chase, Flicker)
   - Taster-Umschaltung (Pin 2)
@@ -164,3 +159,14 @@ Helm und Waffe haben **getrennte** I2C-Busse - die doppelte Adresse 0x3C ist dah
 - AR-Display (V3, Passthrough): `Documentation/Guides/Elektronik-AR-Display.md`
 - Verdrahtung: `Documentation/Guides/Elektronik-Verdrahtung.md`
 - Pi-Autostart: `Documentation/Guides/Elektronik-Autostart.md`
+
+## Examples
+
+Minimale Lern- und Testsketches. Fuer den Bau die erweiterten Controller oben
+verwenden; diese Dateien dienen nur zum Pruefen einzelner Bauteile.
+
+- `Examples/HelmetControl/MainControlCode.ino` - I2C-Slave (Adresse 0x08), versteht
+  `[cmd, wert]` wie HelmetMultiEffects, setzt aber nur die Helligkeit (0x01) um
+- `Examples/HelmetControl/LightingEffectsCode.ino` - Einfacher LED-Lauf (12 LEDs, Pin 6)
+- `Examples/ArmorControl/MainControlCode.ino` - LED-Breathing (24 LEDs, Pin 5)
+- `Examples/ArmorControl/LightingEffectsCode.ino` - LED-Chase (24 LEDs, Pin 5)

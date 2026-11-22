@@ -36,7 +36,7 @@ Begriffe unklar? `Documentation/Guides/Glossar.md`.
 
 ## Phase 1 - Vermessung und Skalierung (alle, [A])
 
-1. [A] Koerpermasse nehmen (mit Unteranzug, zweite Person): `Documentation/Guides/Messblatt.md`
+1. [A] Koerpermasse nehmen (mit Unteranzug, zweite Person): `Documentation/Guides/Mjolnir-Massanpassung.md`
 2. [A]/(V2,V3) STL-Set waehlen und auf die Masse skalieren: `Resources/STL-Quellen.md`,
    `BuildGuides/Armor/Step1.md`
 3. [A]/(V1) Foam-Templates (Pepakura/Patterns) auf die Masse skalieren:
@@ -97,7 +97,7 @@ Reihenfolge strikt einhalten: erst Strom, dann Module einzeln. Uebersicht und
 Modulmatrix (was pro Variante sinnvoll ist): `Documentation/Guides/ElectronicsGuide.md`.
 
 1. [F] Strombudget rechnen: `Documentation/Guides/Elektronik-Strombudget.md`
-2. [F] Batterie/Stromverteilung waehlen: `Documentation/Guides/Elektronik-Batterie.md`
+2. [F] Batterie/Stromverteilung waehlen: `Documentation/Guides/Elektronik-Strombudget.md` (Abschnitt Batterie-Strategien)
 3. [F] Verdrahtung und Power-Verteilung (Sicherung, Stecker): `Documentation/Guides/Elektronik-Verdrahtung.md`
 4. [A]/(V1) Einfache LEDs; [F]/(V2,V3) adressierbare LED-Effekte: `Documentation/Guides/LED-Effekte.md`,
    `Code/` (Arduino-Sketches)

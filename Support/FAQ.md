@@ -56,7 +56,7 @@
 **Wie lange haelt der Akku?**
 - PiSugar 3 Plus (5000 mAh) allein: ca. 2.5 Stunden
 - Mit 2x 10.000 mAh Powerbank: ca. 9.9 Stunden (Rechenwert; mit Reserve ein Convention-Tag)
-- Details: `Documentation/Guides/Elektronik-Batterie.md`
+- Details: `Documentation/Guides/Elektronik-Strombudget.md`
 
 **Brauche ich Arduino UND Raspberry Pi?**
 - Pi fuer HUD-Display (braucht Grafik-Library). Arduino fuer LEDs (braucht Echtzeit-Timing). I2C-Verbindung zwischen beiden. Details: `Documentation/Guides/Elektronik-HUD.md`

@@ -16,7 +16,7 @@ Fotos koennen hier abgelegt werden.
 - Elektronik-Uebersicht: `Documentation/Guides/Elektronik-HUD.md`
 - Verdrahtung: `Documentation/Guides/Elektronik-Verdrahtung.md`
 - Strombudget: `Documentation/Guides/Elektronik-Strombudget.md`
-- Batterie: `Documentation/Guides/Elektronik-Batterie.md`
+- Batterie: `Documentation/Guides/Elektronik-Strombudget.md`
 - Luefter: `Documentation/Guides/Elektronik-Luefter.md`
 - Audio: `Documentation/Guides/Elektronik-Audio.md`
 - LED-Effekte: `Documentation/Guides/LED-Effekte.md`
