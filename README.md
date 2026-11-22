@@ -109,7 +109,7 @@ und zur dokumentierten Revision. Softwarepruefungen sind keine Hardwarefreigabe.
 
 ## Web-Version und lokale Nutzung
 
-[Web-Version](https://huskynarr.github.io/HaloCosplay/) mit Guides,
+[Web-Version](https://huskynarr.is-a.dev/HaloCosplay/) mit Guides,
 [Konfigurator](web/configurator/) und lokaler Fortschrittsverwaltung.
 Der Konfigurator unterstuetzt mehrere Profile, JSON-Import/-Export und
 optionales Speichern im Browser. Die Bedienung ist in

@@ -14,7 +14,7 @@ jobs:
   calculations:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
@@ -32,7 +32,7 @@ jobs:
   browser:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - uses: actions/setup-node@v7
         with:
           node-version: '22'
@@ -58,7 +58,7 @@ jobs:
         env:
           NODE_PATH: ${{ github.workspace }}/build/browser/node_modules
         run: node Tests/Browser/smoke.cjs
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v7
         if: always()
         with:
           name: project-interface-screenshots
@@ -68,7 +68,7 @@ jobs:
   cad:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - name: Exclude unused Chrome apt repository from runner dependencies
         run: |
           sudo python3 - <<'PY'
@@ -130,7 +130,7 @@ jobs:
               done
             done
           done
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v7
         with:
           name: concept-only-not-fabrication-approved
           path: build/
