@@ -39,6 +39,8 @@ Dieses Verzeichnis enthaelt Beispielcode fuer Helm- und Ruestungs-LEDs sowie das
 - `requirements.txt` - Python-Dependencies (`pip install -r requirements.txt`)
 - `config.example.json` - Beispiel-Konfiguration (als `config.json` kopieren).
   Eine kaputte `config.json` stoppt das HUD nicht: Standardwerte + Hinweis `CFG?`
+  `refresh_ms` ist die Bildperiode (Render- und I2C-Zeit eingerechnet). Mit
+  `log_path` wird das Log ab `log_max_kb` (Standard 512) nach `<name>.1` verschoben
 - `battery.example.json` - Beispiel fuer Batteriestatus-Datei. Wird die Datei
   laenger als `battery_max_age_s` (Standard 30 s) nicht aktualisiert, zeigt das
   HUD `AKKU ?` statt des letzten Werts; `0` schaltet die Pruefung ab (nur fuer
