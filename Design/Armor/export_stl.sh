@@ -16,10 +16,10 @@ parts=(helmet visor chest back shoulder_l shoulder_r
 for part in "${parts[@]}"; do
     echo "Exportiere ${part} ..."
     if [[ "${part}" == boot_* ]]; then
-        "${OPENSCAD}" -o "${OUT_DIR}/armor-${part}.stl" -D 'part="${part}"' -D '$fn=24' \
+        "${OPENSCAD}" -o "${OUT_DIR}/armor-${part}.stl" -D "part=\"${part}\"" -D '$fn=24' \
             "${SCRIPT_DIR}/MasterChiefArmor.scad"
     else
-        "${OPENSCAD}" -o "${OUT_DIR}/armor-${part}.stl" -D 'part="${part}"' \
+        "${OPENSCAD}" -o "${OUT_DIR}/armor-${part}.stl" -D "part=\"${part}\"" \
             "${SCRIPT_DIR}/MasterChiefArmor.scad"
     fi
 done

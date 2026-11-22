@@ -4,6 +4,8 @@
 Beschaffung. Alle Bauteile sind Einzelnachweise; der ST60 ist Profi-Level.
 Vollstaendige Einordnung: [Elektronik-Cortana-Chip.md](../../../Documentation/Guides/Elektronik-Cortana-Chip.md)
 
+![Gehaeuseteile aus den STL-Dateien](Preview.png)
+
 ## Funktionsweise
 
 Der gedruckte Cortana-Chip enthaelt einen ESP32-S3 und eine kleine OLED.

@@ -5,6 +5,15 @@ parametrische OpenSCAD-Schalen, proportioniert nach Master-Chief-Referenzen
 und skaliert auf die Profilmasse aus Design/Parametric. Es liegt keine
 Vermessung einer Person, keine Passfreigabe und keine Lastpruefung vor.
 
+![Uebersicht der 18 Huellen aus den STL-Dateien](Preview.png)
+
+Die Uebersicht entsteht direkt aus den STLs und zeigt den tatsaechlichen Stand:
+einfache Grundkoerper ohne Halo-Details.
+
+```bash
+python3 Design/Armor/RenderPreview.py --stl-dir Design/Armor/STL --output Design/Armor/Preview.png
+```
+
 ## Teile
 
 | Teil | Datei | Hinweis |

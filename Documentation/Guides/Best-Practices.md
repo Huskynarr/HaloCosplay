@@ -73,7 +73,7 @@ Bewaehrte Methoden aus der 405th, RPF, Punished Props und Kamui Cosplay Communit
 - Prop-Regeln vorher pruefen, Fotos fuer Freigabe senden
 - Keine scharfen Kanten, keine Metallspitzen
 - Handler bei eingeschraenkter Sicht oder Exo - **Pflicht, nicht optional**
-- Props in blickdichten Taschen transportieren (Waffengesetz!)
+- Waffenaehnliche Props in einem verschlossenen Behaeltnis (Par. 42a WaffG; blickdicht allein genuegt nicht) transportieren
 - **3-4 Stunden Bloecke** tragen, dann Pause (Helm ab, trinken, essen)
 - Reparatur-Kit und Ersatz-Akkus immer dabei
 - CamelBak-Trinkblase mit Schlauch zum Helm

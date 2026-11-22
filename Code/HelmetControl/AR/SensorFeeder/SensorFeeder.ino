@@ -33,7 +33,10 @@ const uint8_t  MPU_ADDR    = 0x68;   // MPU6050 I2C-Adresse (AD0 = GND)
 const uint8_t  BATT_PIN    = 34;     // ADC-Pin am Spannungsteiler
 const float    ADC_REF     = 3.30;   // ESP32 ADC-Referenz (Volt)
 const int      ADC_MAX     = 4095;   // 12-bit ADC
-const float    DIVIDER     = 2.0;    // Teilerfaktor (z.B. 100k/100k = 2.0)
+// Teiler so waehlen, dass die volle Akkuspannung am Pin unter 3.3 V bleibt:
+// 2S (8.4 V) mit 200k (oben) / 100k (unten) = Faktor 3.0 -> 2.8 V am Pin.
+// Ein 100k/100k-Teiler (Faktor 2.0) legt 4.2 V an GPIO34 und beschaedigt den ADC.
+const float    DIVIDER     = 3.0;    // Teilerfaktor (R_oben + R_unten) / R_unten
 const float    BATT_FULL   = 8.40;   // 2S LiPo voll (Volt)
 const float    BATT_EMPTY  = 6.40;   // 2S LiPo leer (Volt)
 const uint32_t SEND_EVERY  = 100;    // ms zwischen Ausgaben (10 Hz)

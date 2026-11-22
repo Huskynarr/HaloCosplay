@@ -81,7 +81,7 @@ drei getrennt abgesicherte 5V-Schienen ab:
 | Schiene | Verbraucher | Spitzenlast ca. | Sicherung |
 | --- | --- | --- | --- |
 | 1: Rechner | Pi 4/5 + AR-Display + Kamera, SensorFeeder | 1.5-3.0 A | 3 A |
-| 2: Effekte | Visor-/Armor-/Duesen-LEDs und Luefter | 2.0-3.5 A (Boost) | 5-10 A |
+| 2: Effekte | Visor-/Armor-/Duesen-LEDs und Luefter | 2.0-3.5 A (Boost) | 5 A (Kabel und Stecker dafuer auslegen) |
 | 3: Audio | Voice Changer + Verstaerker + Lautsprecher | 0.3-0.8 A | 2 A |
 
 Warum getrennt: LED-Spitzen und Luefter-Anlauf erzeugen Spannungseinbrueche,

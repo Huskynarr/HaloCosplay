@@ -1,16 +1,13 @@
 # Electronics Materials
 
-Dieses Verzeichnis enthaelt Schaltplaene, Referenzbilder und LED-Beispiele.
+Ablage fuer eigene Schaltplaene und Elektronik-Referenzen.
 
 ## Inhalt
 
-- `CircuitDiagram.png` - Platzhalter fuer eigenen Schaltplan (ersetzen mit Fritzing-Export oder Foto)
 - `Arduino-Code.ino` - Verweis auf den eigentlichen Code in `Code/HelmetControl/`
-- `LED-Strips/` - Referenzbilder fuer LED-Strip-Typen (Platzhalter)
 
-## Hinweis
-
-Bilddateien sind Platzhalter (0 Bytes) und sollten durch eigene Schaltplaene und Fotos ersetzt werden.
+Erzeugte Schaltplaene liegen unter `Design/Electrical/`. Eigene Schaltplaene und
+Fotos koennen hier abgelegt werden.
 
 **Empfehlung:** Nutze Fritzing (https://fritzing.org/) fuer Verdrahtungsdiagramme und exportiere als PNG hierher.
 
