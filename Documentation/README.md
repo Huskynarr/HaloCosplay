@@ -27,7 +27,7 @@ Dieses Verzeichnis sammelt alle Kerninhalte fuer das Halo MJOLNIR Cosplay Projek
 - Start hier: `Documentation/Guides/Start-Hier.md`
 - Variantenvergleich und Auswahl: `Documentation/Guides/Varianten.md`
 - **Ruestungsreferenz und optische Abnahme:** `Documentation/Guides/Authentizitaet-Referenz.md`
-- **Messblatt (Koerpermasse):** `Documentation/Guides/Messblatt.md`
+- **Messblatt (Koerpermasse):** `Documentation/Guides/Mjolnir-Massanpassung.md`
 - **Anfaengerfehler (Top 15):** `Documentation/Guides/Anfaengerfehler.md`
 - Checklisten: `Documentation/Guides/Checklisten.md`
 - **TODO-Liste (Gesamtprojekt):** `Documentation/TODO.md`
@@ -57,8 +57,7 @@ Dieses Verzeichnis sammelt alle Kerninhalte fuer das Halo MJOLNIR Cosplay Projek
 
 - HUD und Systemuebersicht: `Documentation/Guides/Elektronik-HUD.md`
 - **Pi-Einrichtung und Autostart:** `Documentation/Guides/Elektronik-Autostart.md`
-- Strombudget: `Documentation/Guides/Elektronik-Strombudget.md`
-- **Batterieloesungen (8+ Stunden):** `Documentation/Guides/Elektronik-Batterie.md`
+- **Strombudget und Batterieloesungen (8+ Stunden):** `Documentation/Guides/Elektronik-Strombudget.md`
 - Verdrahtung: `Documentation/Guides/Elektronik-Verdrahtung.md`
 - **Helm-Belueftung (Luefter):** `Documentation/Guides/Elektronik-Luefter.md`
 - **Audio und Voice Changer:** `Documentation/Guides/Elektronik-Audio.md`

@@ -77,7 +77,7 @@ Reihenfolge so, dass du nie auf einer unsicheren Stromversorgung aufbaust:
 1. **Strombudget rechnen.** Bevor irgendetwas verloetet wird: erwarteten Verbrauch und
    Laufzeit kalkulieren. Siehe `Documentation/Guides/Elektronik-Strombudget.md`.
 2. **Batterie und Stromverteilung waehlen.** Akku, Buck-Converter, Sicherung und
-   Verteilung festlegen. Siehe `Documentation/Guides/Elektronik-Batterie.md` und
+   Verteilung festlegen. Siehe `Documentation/Guides/Elektronik-Strombudget.md` (Abschnitt Batterie-Strategien) und
    `Documentation/Guides/Elektronik-Verdrahtung.md`.
 3. **Power leer testen.** Verteilung ohne Module unter Last messen (Multimeter):
    stimmen 5V/12V stabil, haelt die Sicherung, wird etwas heiss?
@@ -103,8 +103,7 @@ wenn du jedes Modul einzeln in Betrieb genommen hast.
 - LED-Effekte (Muster, Code-Bezug): `Documentation/Guides/LED-Effekte.md`
 - Schubduesen-Effekte (LED + Nebel): [Elektronik-Schubduesen.md](Elektronik-Schubduesen.md)
 - Pi-Einrichtung und Autostart: `Documentation/Guides/Elektronik-Autostart.md`
-- Strombudget und Laufzeit: `Documentation/Guides/Elektronik-Strombudget.md`
-- Batterieloesungen (8+ Stunden): `Documentation/Guides/Elektronik-Batterie.md`
+- Strombudget, Batterie und Laufzeit: `Documentation/Guides/Elektronik-Strombudget.md`
 - Verdrahtung und Power-Verteilung: `Documentation/Guides/Elektronik-Verdrahtung.md`
 - Helm-Belueftung (Luefter): `Documentation/Guides/Elektronik-Luefter.md`
 - Audio und Voice Changer: `Documentation/Guides/Elektronik-Audio.md`

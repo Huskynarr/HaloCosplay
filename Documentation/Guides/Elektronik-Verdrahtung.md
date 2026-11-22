@@ -1,7 +1,7 @@
 # Elektronik: Verdrahtung und Power-Verteilung
 
 > **Level:** [F] Fortgeschritten | [P] Profi  |  **Varianten:** V2/V3
-> **Voraussetzungen:** Strombudget und Batterie gewaehlt (`Documentation/Guides/Elektronik-Strombudget.md`, `Documentation/Guides/Elektronik-Batterie.md`), Loetkolben und Multimeter, Grundlagen Steckverbinder (XT60/XT30/JST).
+> **Voraussetzungen:** Strombudget und Batterie gewaehlt (`Documentation/Guides/Elektronik-Strombudget.md`), Loetkolben und Multimeter, Grundlagen Steckverbinder (XT60/XT30/JST).
 
 Ziel: sichere, modulare Verkabelung mit sauberer Trennung von Logik und Leistung.
 

@@ -478,7 +478,7 @@
       "compatibility": "15 V am verwendeten Port unter Last nachweisen. Dauerleistung aus LED-, Luefter- und Steuerungsbudget plus Reserve bestimmen; keine Parallel-Port-Garantie.",
       "quantity_note": "1 separate Effektversorgung",
       "guides": [
-        "Documentation/Guides/Elektronik-Batterie.md",
+        "Documentation/Guides/Elektronik-Strombudget.md",
         "Documentation/Guides/Mjolnir-Einbauplan.md",
         "Documentation/Guides/Mjolnir-Lichtmodule.md"
       ],
@@ -505,7 +505,7 @@
       "compatibility": "Abschaltautomatik bei kleiner Last und Dauerbetrieb testen. Entnehmbar nahe Huefte oder seitlich tief am Rumpf; Entriegelung frei halten.",
       "quantity_note": "1 getrennte Komfortversorgung",
       "guides": [
-        "Documentation/Guides/Elektronik-Batterie.md",
+        "Documentation/Guides/Elektronik-Strombudget.md",
         "Documentation/Guides/Mjolnir-Einbauplan.md"
       ],
       "parts": [

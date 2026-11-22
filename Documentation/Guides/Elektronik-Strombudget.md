@@ -1,8 +1,9 @@
-# Elektronik: Strombudget und Laufzeit
+# Elektronik: Strombudget, Batterie und Laufzeit
 
 > **Level:** [A] Anfaenger | [F] Fortgeschritten | [P] Profi  |  **Varianten:** alle
 
-Dieser Guide hilft beim realistischen Power-Budget und bei der Laufzeitplanung.
+Dieser Guide hilft beim realistischen Power-Budget, bei der Laufzeitplanung und
+bei der Wahl der Batterieloesung fuer einen ganzen Convention-Tag.
 
 ## Typische Stromwerte (Richtwerte)
 
@@ -228,6 +229,25 @@ Spannungswandlung, Kabel und Waerme.
 - GPU-Speicher auf 16 MB (kein Desktop)
 - Siehe `Elektronik-Autostart.md` fuer Details
 
+In `/boot/config.txt`:
+```
+# HDMI deaktivieren (spart ~25 mA)
+hdmi_blanking=2
+
+# Bluetooth deaktivieren
+dtoverlay=disable-bt
+
+# GPU-Speicher reduzieren
+gpu_mem=16
+```
+
+Unnoetige Dienste deaktivieren:
+```bash
+sudo systemctl disable bluetooth
+sudo systemctl disable avahi-daemon
+sudo systemctl disable triggerhappy
+```
+
 ### Luefter optimieren
 
 - Noctua statt Billig-Luefter (50 mA vs 150 mA pro Stueck)
@@ -239,6 +259,64 @@ Spannungswandlung, Kabel und Waerme.
 - Zweiten Akku als Backup nutzen (Hot-Swap waehrend Pause)
 - Display-Helligkeit reduzieren (OLED braucht wenig, aber jedes mA zaehlt)
 - Audio nur bei Bedarf (Taster statt Dauerbetrieb)
+
+## Batterie-Strategien fuer einen Convention-Tag
+
+Rechenwerte gelten fuer neue Akkus bei Raumtemperatur; vor dem Einsatz am eigenen
+Aufbau messen und 20-30 % Reserve einplanen. Fuer Option C ist Wissen zu
+BMS/Schutzschaltung (Batterie-Management-System, schuetzt vor Ueberladung und
+Tiefentladung) Voraussetzung.
+
+### Option A: Dual-Powerbank (Empfohlen, sicherste Variante)
+
+- **2x 10.000 mAh schlanke USB-Powerbanks** im Backpack
+- Eine fuer Pi/HUD/Luefter, eine fuer LEDs/Audio
+- Sicherste Loesung (eingebaute Schutzschaltungen)
+- Gesamt ca. 20-40 EUR
+
+### Option B: PiSugar + externe Powerbank
+
+- **PiSugar 3 Plus** fuer Pi (UPS-Funktion, sauberer Neustart bei Stromausfall)
+- **10.000 mAh Powerbank** fuer LEDs/Luefter/Audio
+- Vorteil: Pi hat unterbrechungsfreie Versorgung
+
+### Option C: 3S LiPo + Step-Down
+
+- **3S LiPo 5.000 mAh (11.1V)** + **5V 5A Step-Down Regler** (z.B. Pololu D24V50F5)
+- Einzelner Akku, leichter, kompakter
+- Nachteil: Ladeelektronik und BMS erforderlich, mehr Fachwissen noetig
+- **Nur mit Schutzschaltung/BMS!**
+- Nur mit Balancer-Ladegeraet laden, nie unbeaufsichtigt und nie im Kostuem;
+  Laden und Lagern in feuerfester Tasche oder Metallbox
+- Lagerspannung ca. 3,8 V pro Zelle; nicht unter 3,3 V pro Zelle entladen
+- Aufgeblaehte, verformte oder gestuerzte Packs nicht mehr verwenden
+- Hauptsicherung direkt am Akku ist hier Pflicht (ein LiPo liefert im
+  Kurzschluss weit ueber 100 A)
+
+### Spannungsregler
+
+- **USB-Powerbanks:** eingebaute 5V-Regelung, einfach nutzen
+- **Roher LiPo:** Pololu 5V 5A Step-Down (D24V50F5) oder UBEC 5V/5A (~10-15 EUR)
+- Sicherung nahe der Batterie, ausgelegt auf das schwaechste Glied des Pfads
+  (Abschnitt Sicherungen unten)
+
+### Sicherheitsregeln fuer Akkus
+
+- **Akkus NIE im Kostuem laden** - immer extern
+- USB-Powerbanks sind am sichersten (eingebaute Schutzkreise)
+- LiPo nur mit BMS/Schutzschaltung
+- Batterien im Backpack/Torso montieren (Gewichtsverteilung)
+- Not-Aus oder Schnelltrennung einplanen
+
+### Einkaufsliste Batterie/Strom
+
+| Komponente | Preis ca. |
+| --- | --- |
+| PiSugar 3 Plus (5000 mAh) | 40-50 EUR |
+| 10.000 mAh USB Powerbank (schlank) | 15-25 EUR |
+| Pololu 5V 5A Step-Down (optional) | 10-15 EUR |
+| UBEC 5V/5A (Alternative) | 8-12 EUR |
+| Sicherungen (2-3 A, 3-5 A je nach Pfad) | 3-5 EUR |
 
 ## Strom messen (Pflicht vor Einbau!)
 
