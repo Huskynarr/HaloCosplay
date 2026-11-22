@@ -118,6 +118,26 @@ int main() {
   CHECK(TOUCH_ENABLED == 0);
   CHECK(mock_tone_count == before && hitCount == 0);
 
+  TEST("Prellen beim Loslassen nach langem Halten zaehlt nicht als zweiter Druck");
+  boot();
+  run_for(300);
+  mock_input[BUTTON_PIN] = LOW; run_for(1000);
+  CHECK(currentMode == 2);
+  mock_input[BUTTON_PIN] = HIGH; run_for(10);  // released ...
+  mock_input[BUTTON_PIN] = LOW; run_for(10);   // ... contact bounces closed once more
+  mock_input[BUTTON_PIN] = HIGH; run_for(500);
+  CHECK(currentMode == 2);
+
+  TEST("Ein 200-ms-Puls (Optokoppler vom Pi) zaehlt in jedem Effekt genau einmal, zwei Druecke zweimal");
+  boot();
+  run_for(300);
+  for (int i = 0; i < 2 * NUM_MODES; i++) {
+    uint8_t before = currentMode;
+    mock_input[BUTTON_PIN] = LOW; run_for(200);
+    mock_input[BUTTON_PIN] = HIGH; run_for(400);
+    CHECK(currentMode == (before + 1) % NUM_MODES);
+  }
+
   TEST("Kein Effekt schreibt ausserhalb des LED-Streifens");
   boot();
   for (uint8_t m = 0; m < NUM_MODES; m++) { currentMode = m; run_for(3000); }
