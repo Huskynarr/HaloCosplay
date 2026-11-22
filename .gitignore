@@ -34,3 +34,6 @@ build/
 
 # IDE
 .idea/
+
+# Local copies of the official 343 PDFs (see Resources/CosplayGuides/README.md)
+Resources/CosplayGuides/*.pdf

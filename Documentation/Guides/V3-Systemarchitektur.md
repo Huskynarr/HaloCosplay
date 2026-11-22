@@ -96,7 +96,7 @@ Versorgungsleitungen einstreuen.
   fangen genau das ab. Rechne dein konkretes Setup mit `Elektronik-Strombudget.md`
   durch, plane 20-30% Reserve ein und MISS vor dem Einbau.
 - Akku-Optionen: 2x 20.000 mAh Powerbanks (eine fuer Schiene 1, eine fuer 2+3)
-  oder 3S LiPo mit zwei 5V/5A Step-Downs - siehe `Elektronik-Batterie.md`.
+  oder 3S LiPo mit zwei 5V/5A Step-Downs - siehe `Elektronik-Strombudget.md` (Batterie-Strategien).
 - Stufe-C-AR halbiert die Laufzeit gegenueber Stufe A. Fuer einen vollen Con-Tag
   Hot-Swap in der Mittagspause einplanen (Wechselakku in der Tasche).
 - Pro Schiene ein eigener, von aussen erreichbarer Hauptschalter. Dickere
@@ -178,7 +178,7 @@ Luefter-Ausfall im geschlossenen Helm (Hitzestau - siehe `Sicherheit.md`).
 - AR-Display und Sicherheitsregeln: `Elektronik-AR-Display.md`
 - Schubduesen + Nebler: `Elektronik-Schubduesen.md`
 - Audio/Voice Changer: `Elektronik-Audio.md`
-- Strombudget: `Elektronik-Strombudget.md` | Batterien: `Elektronik-Batterie.md`
+- Strombudget und Batterien: `Elektronik-Strombudget.md`
 - Verdrahtung: `Elektronik-Verdrahtung.md` | Luefter: `Elektronik-Luefter.md`
 - Exoskelett (mechanischer V3-Teil): `Exoskelett.md`
 

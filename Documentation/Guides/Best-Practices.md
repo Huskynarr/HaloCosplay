@@ -17,7 +17,7 @@ Bewaehrte Methoden aus der 405th, RPF, Punished Props und Kamui Cosplay Communit
 - Teile segmentieren und Naehte an natuerlichen Panel-Linien verstecken
 - **Testdruck** eines kleinen Teils (Unterarm) bevor das ganze Set gedruckt wird
 - Skalierung pro Koerperregion individuell - nicht pauschal X% auf alles
-- Bei Skalierung Unteranzug + Polsterung einrechnen (+10-15 mm Umfang)
+- Bei Skalierung Unteranzug + Polsterung als radialen Zuschlag einrechnen (Rechenweg in `Mjolnir-Massanpassung.md`; wenige Millimeter am Umfang reichen nicht)
 - Gyroid-Infill fuer omnidirektionale Festigkeit
 
 ## Ruestung und Foam

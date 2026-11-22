@@ -60,7 +60,7 @@
 
 ## 2. Strombudget kalkulieren
 
-Detailliert: `Documentation/Guides/Elektronik-Strombudget.md` und `Documentation/Guides/Elektronik-Batterie.md`
+Detailliert: `Documentation/Guides/Elektronik-Strombudget.md`
 
 **Schnell-Uebersicht (V2 typisch):**
 

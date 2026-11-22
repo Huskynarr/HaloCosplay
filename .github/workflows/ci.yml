@@ -119,12 +119,12 @@ jobs:
         if: steps.changed.outputs.run == 'true'
         run: |
           fail=0
-          for f in Code/HelmetControl/MainControlCode.ino \
+          for f in Code/Examples/HelmetControl/MainControlCode.ino \
                    Code/HelmetControl/HelmetMultiEffects.ino \
-                   Code/HelmetControl/LightingEffectsCode.ino \
-                   Code/ArmorControl/MainControlCode.ino \
+                   Code/Examples/HelmetControl/LightingEffectsCode.ino \
+                   Code/Examples/ArmorControl/MainControlCode.ino \
                    Code/ArmorControl/MultiEffects.ino \
-                   Code/ArmorControl/LightingEffectsCode.ino \
+                   Code/Examples/ArmorControl/LightingEffectsCode.ino \
                    Code/WeaponControl/ammo_counter.ino; do
             name=$(basename "$f" .ino)
             tmp=$(mktemp -d)

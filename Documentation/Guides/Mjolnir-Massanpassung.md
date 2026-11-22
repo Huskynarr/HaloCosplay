@@ -107,6 +107,32 @@ nicht durch starre prozentuale Gesamt-Skalierung ausgeglichen.
 Die Fortschritte bleiben in [Prototypen und Abnahme](../../BuildGuides/Armor/Mjolnir-Prototypen.md)
 offen, bis echte Messungen und Versuche dokumentiert sind.
 
+## Messblatt: Aufnahme in sechs Schritten
+
+1. Koerpergroesse barfuss messen. Schalenmasse im geplanten Unteranzug aufnehmen.
+2. Eine zweite Person fuehrt die Messung durch; Endpunkte und Haltung dokumentieren.
+3. Gerade Breiten und Tiefen mit parallelen Messschenkeln abnehmen. Ein Massband
+   ueber einer Rundung misst eine Bogenlaenge und ist keine gerade Kopfbreite.
+4. Umfaenge an der definierten groessten Stelle horizontal anliegend messen,
+   ohne Einschnueren oder zusaetzlichen Fingerabstand. Polsterzuschlag separat erfassen.
+5. Seiten getrennt messen; starke Unterschiede zwischen Wiederholungen durch
+   erneute Messung der Endpunkte klaeren, nicht blind mitteln.
+6. Bereits enthaltene Polster nicht erneut addieren. Nach Aenderungen an
+   Unteranzug, Polsterung, Schuhen oder Traeger betroffene Masse erneut aufnehmen.
+
+| Bereich | Generatorwerte |
+| --- | --- |
+| Gesamt | Koerpergroesse |
+| Torso | Schulterbreite, Brustbreite/-tiefe, Bauchbreite/-tiefe, Torsohoehe, Hueftbreite/-tiefe |
+| Kopf | Gerade Breite, Stirn-Hinterkopf-Tiefe, Kinn-Scheitel-Hoehe |
+| Arme je Seite | Oberarmlaenge/-umfang, Unterarmlaenge/-umfang |
+| Beine je Seite | Oberschenkellaenge/-umfang, Knie-Knoechel-Laenge, Wadenumfang |
+| Schuhe je Seite | Tatsaechliche Schuh-Aussenlaenge und groesste Aussenbreite |
+
+Ein vollstaendiger Datensatz ist die Grundlage einer Passprobe, kein Nachweis
+fuer Tragbarkeit oder fertige Schalen. Der Generator stoppt ohne `--concept`,
+solange erforderliche Messwerte fehlen.
+
 ## Ausfuellbares Messprotokoll
 
 [CSV-Messblatt](../../Design/Parametric/Profiles/Messprotokoll.csv) enthaelt alle
