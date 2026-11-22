@@ -39,6 +39,7 @@
 #define ALERT_PIN   3
 #define BUZZER_PIN  9
 #define NUM_MODES   5
+#define DEBOUNCE_MS 50    // laenger als Kontaktprellen, kuerzer als der 200-ms-Puls vom Pi
 #define BRIGHTNESS  128   // 50% = guter Convention-Wert (0-255)
 #define TOUCH_ENABLED 0   // 1 = Shield-Hit-Sensoren auswerten (siehe Verkabelung oben)
 
@@ -294,13 +295,20 @@ void setAll(uint8_t br) {
   setAllColor(COLOR_R, COLOR_G, COLOR_B, br);
 }
 
+// Entprellt beide Flanken: ein Zustandswechsel gilt erst, wenn der letzte
+// uebernommene Wechsel DEBOUNCE_MS zurueckliegt. So zaehlt auch Prellen beim
+// Loslassen nach langem Halten nicht als zweiter Druck. lastButtonState ist der
+// entprellte Zustand, nicht der zuletzt gelesene Pegel.
 void checkButton() {
   bool reading = digitalRead(BUTTON_PIN);
-  if (reading == LOW && lastButtonState == HIGH && millis() - lastDebounce > 200) {
-    currentMode = (currentMode + 1) % NUM_MODES;
-    lastDebounce = millis();
-    strip.clear();
-    strip.show();
+  unsigned long now = millis();
+  if (reading != lastButtonState && now - lastDebounce > DEBOUNCE_MS) {
+    lastDebounce = now;
+    lastButtonState = reading;
+    if (reading == LOW) {
+      currentMode = (currentMode + 1) % NUM_MODES;
+      strip.clear();
+      strip.show();
+    }
   }
-  lastButtonState = reading;
 }

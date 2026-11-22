@@ -41,6 +41,7 @@
 #define FAN_PIN      9
 #define I2C_ADDR     0x08
 #define NUM_MODES    5
+#define DEBOUNCE_MS  50   // laenger als Kontaktprellen, kuerzer als der 200-ms-Puls vom Pi
 
 #define FAN_DEFAULT      180      // PWM beim Start und nach dem Failsafe
 #define FAN_MIN_SPIN     80       // kleinster PWM-Wert, bei dem der Luefter sicher anlaeuft (am eigenen Luefter pruefen)
@@ -231,11 +232,16 @@ void setVisor(uint8_t br) {
   visor.show();
 }
 
+// Entprellt beide Flanken: ein Zustandswechsel gilt erst, wenn der letzte
+// uebernommene Wechsel DEBOUNCE_MS zurueckliegt. So zaehlt auch Prellen beim
+// Loslassen nach langem Halten nicht als zweiter Druck. lastButtonState ist der
+// entprellte Zustand, nicht der zuletzt gelesene Pegel.
 void checkButton() {
   bool reading = digitalRead(BUTTON_PIN);
-  if (reading == LOW && lastButtonState == HIGH && millis() - lastDebounce > 200) {
-    currentMode = (currentMode + 1) % NUM_MODES;
-    lastDebounce = millis();
+  unsigned long now = millis();
+  if (reading != lastButtonState && now - lastDebounce > DEBOUNCE_MS) {
+    lastDebounce = now;
+    lastButtonState = reading;
+    if (reading == LOW) currentMode = (currentMode + 1) % NUM_MODES;
   }
-  lastButtonState = reading;
 }
