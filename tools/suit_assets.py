@@ -6,7 +6,6 @@ import hashlib
 import json
 import math
 from pathlib import Path
-import re
 import struct
 import sys
 from urllib.parse import urlparse

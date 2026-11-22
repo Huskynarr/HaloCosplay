@@ -7,7 +7,7 @@ const path = require('node:path');
 const {chromium} = require('playwright');
 const root = path.resolve(__dirname, '../..');
 const output = path.join(root, 'build/browser-results');
-const mime = {'.html': 'text/html', '.js': 'text/javascript', '.css': 'text/css', '.json': 'application/json', '.svg': 'image/svg+xml'};
+const mime = {'.html': 'text/html', '.js': 'text/javascript', '.css': 'text/css', '.json': 'application/json', '.svg': 'image/svg+xml', '.woff2': 'font/woff2'};
 const server = http.createServer(async (request, response) => {
   try {
     const pathname = decodeURIComponent(new URL(request.url, 'http://localhost').pathname);
@@ -33,7 +33,8 @@ async function downloadJSON(page, button) {
   let browser;
   try {
     browser = await chromium.launch({headless: true});
-    const context = await browser.newContext({viewport: {width: 1440, height: 1000}, acceptDownloads: true});
+    // Service workers are blocked here so page.route() sees every request; the offline test below uses its own context.
+    const context = await browser.newContext({viewport: {width: 1440, height: 1000}, acceptDownloads: true, serviceWorkers: 'block'});
     const page = await context.newPage();
     const errors = [];
     page.on('pageerror', error => errors.push(error.message));
@@ -202,9 +203,10 @@ async function downloadJSON(page, button) {
     await page.locator('#reset').click();
     assert.equal(await page.locator('.card').count(), 52);
 
-    // Main page: markdown parser and sanitizer are served from web/vendor, the other CDNs are stubbed.
-    await page.route('https://cdn.tailwindcss.com**', route => route.fulfill({body:'', contentType:'application/javascript'}));
-    await page.route('https://fonts.googleapis.com/**', route => route.fulfill({body:'', contentType:'text/css'}));
+    // Main page: styles, fonts, markdown parser and sanitizer are served locally.
+    const external = [];
+    const recordExternal = request => { if (/^https?:/.test(request.url()) && !request.url().startsWith(base)) external.push(request.url()); };
+    page.on('request', recordExternal);
     await page.goto(base + '/web/index.html#Documentation/Guides/Mjolnir-Nebeltechnik.md');
     await page.locator('.catalog-context').waitFor();
     assert.equal(await page.locator('.catalog-context li').count(), 6);
@@ -215,11 +217,16 @@ async function downloadJSON(page, button) {
     await page.locator('#doc a[rel~="sponsored"]').first().waitFor();
     assert.match(await page.locator('#doc a[rel~="sponsored"]').first().textContent(), /Affiliate/);
     assert.equal(await page.locator('#doc a[href*="pololu.com"]').getAttribute('rel'), 'noopener noreferrer');
-    await page.route('https://unpkg.com/**', route => route.abort());
+    await page.route('**/vendor/model-viewer-*.js', route => route.abort());
     await page.goto(base + '/web/index.html#3d-viewer');
     await page.waitForFunction(() => document.querySelector('#mv-banner')?.textContent.includes('konnte nicht geladen'));
     await page.locator('.part-row[data-id="hud"]').click();
     assert.match(await page.locator('#part-panel').textContent(), /XREAL One Pro/);
+    await page.evaluate(() => document.fonts.ready);
+    assert.equal(await page.evaluate(() => document.fonts.check('16px Barlow') && document.fonts.check('600 16px "Chakra Petch"')), true, 'Local fonts load');
+    assert.equal(await page.evaluate(() => getComputedStyle(document.querySelector('.hidden') || document.body).boxSizing), 'border-box', 'Local Tailwind build applies');
+    assert.deepEqual(external, [], 'Main page loads nothing from third-party hosts');
+    page.off('request', recordExternal);
     await page.locator('#part-panel a[href="products/?part=hud"]').click();
     await page.locator('.card').first().waitFor();
     assert.equal(await page.locator('.card').count(), 3);
@@ -277,7 +284,22 @@ async function downloadJSON(page, button) {
     await page.locator('#project-clear').click();
     assert.doesNotMatch(await page.locator('#project-title').textContent(), /Suit-A/);
     assert.deepEqual(errors, [], 'No uncaught browser errors');
-    console.log('Browser smoke passed: profile isolation, persistence consent, schema-upgrade backup, JSON round trips, sanitized guides, section links, route validation, CSP, budget totals, mobile width, product filters/affiliate/selection export-import, exhibition reset.');
+    // Offline: after one online visit the shell and every guide of content.js are readable without network.
+    const offlineContext = await browser.newContext({viewport: {width: 1280, height: 900}});
+    const offlinePage = await offlineContext.newPage();
+    await offlinePage.goto(base + '/web/index.html');
+    await offlinePage.waitForFunction(() => Number(document.documentElement.dataset.offlineGuides) > 50, null, {timeout: 60000});
+    await offlineContext.setOffline(true);
+    await offlinePage.goto(base + '/web/index.html#Documentation/Guides/Sicherheit.md');
+    await offlinePage.locator('#doc h1').waitFor();
+    assert.equal(await offlinePage.evaluate(() => document.fonts.check('16px Barlow')), true, 'Fonts come from the offline cache');
+    await offlinePage.goto(base + '/web/index.html#Documentation/Guides/Checklisten.md');
+    await offlinePage.locator('#doc h1').waitFor();
+    await offlinePage.goto(base + '/web/configurator/');
+    await offlinePage.locator('h1').first().waitFor();
+    await offlineContext.close();
+
+    console.log('Browser smoke passed: profile isolation, persistence consent, schema-upgrade backup, JSON round trips, sanitized guides, section links, route validation, CSP, budget totals, mobile width, product filters/affiliate/selection export-import, exhibition reset, offline guides.');
   } finally {
     if (browser) await browser.close();
     await new Promise(resolve => server.close(resolve));
