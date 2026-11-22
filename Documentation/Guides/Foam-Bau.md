@@ -1,6 +1,6 @@
 # Foam-Bau (V1 Einsteiger, EVA-Foam)
 
-> **Level:** [A] Anfaenger  |  **Varianten:** V1 (Foam-Korpus auch in V2 nutzbar)  |  **Voraussetzungen:** Koerpermasse (siehe `Documentation/Guides/Messblatt.md`), Templates, Grundwerkzeug; keine Vorerfahrung noetig. Fachbegriffe siehe `Documentation/Guides/Glossar.md`.
+> **Level:** [A] Anfaenger  |  **Varianten:** V1 (Foam-Korpus auch in V2 nutzbar)  |  **Voraussetzungen:** Koerpermasse (siehe `Documentation/Guides/Mjolnir-Massanpassung.md`), Templates, Grundwerkzeug; keine Vorerfahrung noetig. Fachbegriffe siehe `Documentation/Guides/Glossar.md`.
 
 Dieser Guide deckt den kompletten preiswerten Weg ueber EVA-Foam ab - die empfohlene
 Methode fuer das **erste** Halo-Cosplay (Variante V1, siehe `Documentation/Guides/Varianten.md`).
@@ -47,15 +47,17 @@ Foam-Bau lebt von Vorlagen. Drei Wege:
 
 1. **Pepakura** (kostenlose Templates aus der Community) - Pepakura Designer entfaltet ein
    3D-Modell in flache Papierteile. Auf Koerpergroesse skalieren (siehe
-   `Documentation/Guides/Messblatt.md`), ausdrucken, ausschneiden, auf Foam uebertragen.
+   `Documentation/Guides/Mjolnir-Massanpassung.md`), ausdrucken, ausschneiden, auf Foam uebertragen.
    Quellen: 405th Foam-Datenbank (siehe `Resources/STL-Quellen.md`).
 2. **Fertige Foam-Patterns** (z.B. kostenpflichtige PDF-Sets) - bereits foam-optimiert,
    weniger Teile als Pepakura.
 3. **Eigene Muster** - fuer einfache Teile (Schienbein, Unterarm) reicht Klopapier/Frischhaltefolie
    um die Gliedmasse, aufschneiden, flach auf Papier uebertragen.
 
-**Skalierung:** Pepakura-Teile vor dem Druck auf die eigenen Masse anpassen. Bei Umfang
-immer +10-15 mm fuer Unteranzug + Polsterung dazurechnen (siehe Messblatt).
+**Skalierung:** Pepakura-Teile vor dem Druck auf die eigenen Masse anpassen. Unteranzug,
+Polster und Bewegungsraum als radialen Zuschlag rechnen (siehe
+`Mjolnir-Massanpassung.md`, Zuschlaege): 10-15 mm mehr Umfang entsprechen nur
+rund 2 mm Luft rundum.
 
 ## 5. Uebertragen und Schneiden
 

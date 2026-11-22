@@ -20,7 +20,7 @@ Gesammelt aus der 405th, RPF und Punished Props Community. Jeder dieser Fehler k
 
 **Fehler:** STLs auf nackte Koerpermasse skalieren. Dann passen sie nicht ueber Morphsuit + Klettergurt + Polsterung.
 
-**Loesung:** Bei Umfangsmassen 10-15 mm dazurechnen fuer Unteranzug und Polsterung.
+**Loesung:** Im spaeteren Unteranzug messen und Polster plus Bewegungsraum als radialen Zuschlag rechnen: 8 mm Polster und 12 mm Freiraum rundum bedeuten rund 126 mm mehr Umfang, nicht 10-15 mm. Rechenweg: `Mjolnir-Massanpassung.md` (Zuschlaege richtig anwenden).
 
 ## 4. Zu viel Infill
 
