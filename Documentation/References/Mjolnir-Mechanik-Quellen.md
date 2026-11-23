@@ -48,3 +48,15 @@ Videoanalyse oder Bestaetigung der darin beworbenen Leistung.
 
 Umsetzung: [Bodenrahmen-Konzept](../Guides/Exoskelett.md#3a-neues-entwicklungsziel-ruestungslast-zum-boden)
 und [Spiegel-HUD-Versuch](../Guides/Elektronik-AR-Display.md#11-neue-referenz-diy-brille-und-spiegel-hud).
+
+## Ergaenzung vom 2026-11-23: Eigenbau-Beinantrieb E01
+
+| Quelle | Tatsaechlich belegter Inhalt | Verwendung / Grenze |
+| --- | --- | --- |
+| [Hypershell Halo, Herstellerseite](https://ca.hypershell.tech/pages/hypershell-halo-exoskeleton) | Vier Motoren an Hueften und Knien, 1490 W Spitze (uneinheitlich bezeichnet), 2,6 kg ohne Tragesystem und Akku, 72 Wh, kein Medizinprodukt | Vorbild fuer das Prinzip; kein Drehmoment je Gelenk angegeben, keine Konstruktionsdaten |
+| [OpenExo, Projektseite](https://theopenexo.nau.edu/) und [Science Robotics 2025](https://doi.org/10.1126/scirobotics.adt1591) | Offenes Exoskelett-Baukastensystem mit CubeMars-AK-Antrieben, Bauunterlagen und Software; 1000 bis 2000 USD Material je Gelenk | Vorlage fuer Mechanik und Elektronik; Unterlagen selbst nicht im Detail ausgewertet |
+| [CubeMars AK80-9 V3.0, Produktseite](https://www.cubemars.com/product/ak80-9-kv100-robotic-actuator.html) | Nenn-/Spitzenmoment, Masse, Uebersetzung; Vergleichstabelle AK60-6 und AK70-10 | Antriebsauswahl; Werte je Version verschieden |
+| [CubeMars V3 Drive Software User Manual V1.0.1](https://www.cubemars.com/data/cms/202610/ak-series-motor-module-v3-driver-software-user-manual-en.pdf) | CAN-Rahmen der Kraftregelung (Abschnitt 2.2), Rueckmeldung und Fehlercodes (2.3.1), Wertebereiche je Antrieb | Grundlage fuer `exo_core.h`; Verhalten ohne Kommandos dort nicht beschrieben |
+| [Lim et al.: Delayed Output Feedback Control for Gait Assistance With a Robotic Hip Exoskeleton](https://dblp.org/rec/journals/trob/LimLJKPSS19.html) | Bibliografischer Nachweis (IEEE Transactions on Robotics 35(4), 2019) | Herkunft der Regelidee; Volltext nicht ausgewertet, Umsetzung ist eine eigene Vereinfachung |
+
+Umsetzung: [Eigenbau-Beinantrieb E01](../Guides/Exoskelett-Eigenbau.md).

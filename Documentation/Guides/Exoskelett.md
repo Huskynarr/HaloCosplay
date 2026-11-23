@@ -18,6 +18,7 @@ Ein Serien-Exoskelett zur Gehunterstuetzung bleibt ein separat auszulegender Aus
 | --- | --- | --- |
 | Gepolsterter Ruestungstraeger | Verteilt Ruestungsgewicht zwischen Huefte und Oberkoerper | Grundaufbau, individuell angepasst |
 | Aktives Hueft-Exoskelett | Unterstuetzt die Beinbewegung mit eigenen Motoren | Separates Seriengeraet nach Pass- und Integrationsprobe |
+| Eigenbau-Beinantrieb E01 (Huefte, spaeter Knie) | Wie oben, aber selbst gebaut nach dem Vorbild Hypershell Halo | [Entwicklungsentwurf](Exoskelett-Eigenbau.md): Steuerlogik und Host-Tests vorhanden, Mechanik und Hardware-Nachweise offen |
 | Lasttragender Rahmen mit Beinstruktur und Fussaufnahmen | Soll Ruestungslast zum Boden fuehren | Neues Entwicklungsziel; Kinematik, Detail-CAD und reale Entlastung offen |
 | Skeletonics/Pantograph/Stelzen | Vergroessert Reichweite und Silhouette | Keine Basisfunktion; eigener Entwicklungsaufwand und eigener Nachweis |
 
@@ -255,5 +256,7 @@ eine eindeutige Kompatibilitaet, werden die realen Geraetevolumina aufgenommen
 und die Schalen angepasst. Ein Geraet passt erst dann zum Projekt, wenn sowohl
 sein Originalbetrieb als auch der getrennte Ruestungseinstieg funktionieren.
 Das ist ein optionaler aktiver Ausbau, kein als fertig ausgegebenes DIY-Power-Exo.
+Der selbst gebaute Antrieb hat eine eigene Nachweisfolge:
+[Eigenbau-Beinantrieb E01](Exoskelett-Eigenbau.md).
 
 Systemzusammenhang: [MJOLNIR-Systementwurf](Mjolnir-Systementwurf.md).

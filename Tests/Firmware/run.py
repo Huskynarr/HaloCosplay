@@ -17,6 +17,10 @@ SUITES = [
     ("Code/HelmetControl/HelmetMultiEffects.ino", "helmet_test.cpp"),
     ("Code/ArmorControl/MultiEffects.ino", "armor_test.cpp"),
 ]
+# Hardwarefreie Header mit eigenem main() in der Testdatei: (Include-Verzeichnis, Testdatei)
+HEADER_SUITES = [
+    ("Code/ExoControl/LegAssist", "exo_test.cpp"),
+]
 PROTOTYPE = re.compile(r"^((?:void|bool|int|long|float|uint8_t|uint16_t|uint32_t|unsigned long)\s+\w+\s*\([^)]*\))\s*\{", re.M)
 
 
@@ -33,6 +37,13 @@ def main():
             print("== %s" % sketch, flush=True)
             build = subprocess.run(["g++", "-std=c++17", "-Wall", "-Wextra", "-Wno-unused-function", "-O1",
                                     "-I", str(HERE / "mock"), "-I", str(HERE), str(unit), "-o", str(binary)])
+            if build.returncode or subprocess.run([str(binary)]).returncode:
+                failed = True
+        for include, test in HEADER_SUITES:
+            binary = Path(tmp) / Path(test).stem
+            print("== %s" % include, flush=True)
+            build = subprocess.run(["g++", "-std=c++17", "-Wall", "-Wextra", "-O1", "-I", str(ROOT / include),
+                                    "-I", str(HERE), str(HERE / test), "-o", str(binary)])
             if build.returncode or subprocess.run([str(binary)]).returncode:
                 failed = True
     sys.exit(1 if failed else 0)
