@@ -148,6 +148,10 @@ jobs:
         if: steps.changed.outputs.run == 'true'
         run: arduino-cli compile --fqbn esp32:esp32:esp32 Code/HelmetControl/AR/SensorFeeder
 
+      - name: ESP32-Sketch kompilieren (Beinantrieb E01)
+        if: steps.changed.outputs.run == 'true'
+        run: arduino-cli compile --fqbn esp32:esp32:esp32 Code/ExoControl/LegAssist
+
       - name: ESP32-S3-Sketch kompilieren (Cortana-Chip)
         if: steps.changed.outputs.run == 'true'
         run: |

@@ -28,7 +28,7 @@ Three legacy material-reference variants exist: V1 Einsteiger (foam), V2 Fortges
 - `Documentation/Guides/Convention-Regeln.md` - per-event verification checklist; blanket con/weapon-law claims were withdrawn on purpose, do not reintroduce them
 - `Documentation/Guides/Transport.md` - packing and transporting armor to conventions
 - `BuildGuides/` - step-by-step build phases for Armor, Helmet, and Electronics
-- `Code/` - Arduino/ESP32 (.ino) and Python code: `Examples/` (minimal test sketches), `HelmetControl/` (HUD, bridges, voice, `AR/`), `ArmorControl/`, `WeaponControl/` (ammo counter), `CortanaChip/` (ESP32-S3 BLE prop), `Exhibition/` (offline booth display)
+- `Code/` - Arduino/ESP32 (.ino) and Python code: `Examples/` (minimal test sketches), `HelmetControl/` (HUD, bridges, voice, `AR/`), `ArmorControl/`, `WeaponControl/` (ammo counter), `ExoControl/` (self-built leg drive E01, untested on hardware), `CortanaChip/` (ESP32-S3 BLE prop), `Exhibition/` (offline booth display)
 - `tools/suit_*.py` - stdlib-only generators: fit, project package, budget, catalog, readiness, engineering, thermal, hardware, components, clamshell
 - `tools/amazon-creators/` - local affiliate link updater (Node)
 - `web/` - static site: guide viewer (`app.js`), `configurator/`, `budget/`, `products/`, `cortana/`, Sentry in `monitoring.js`
@@ -47,7 +47,7 @@ Three legacy material-reference variants exist: V1 Einsteiger (foam), V2 Fortges
 - Config: copy `config.example.json` to `config.json`; battery status via `battery.example.json` to `battery.json`
 - Hardware tests remain manual; fit/budget/readiness tests: `python3 -m unittest discover -s Tests/Automation -v`
 - Web/exhibition unit tests: `node --test Tests/Automation/*.test.cjs`
-- Firmware logic on the host: `python3 Tests/Firmware/run.py` compiles the two MultiEffects sketches unchanged against mock Arduino headers (g++); not a hardware test
+- Firmware logic on the host: `python3 Tests/Firmware/run.py` compiles the two MultiEffects sketches unchanged against mock Arduino headers (g++) and tests `Code/ExoControl/LegAssist/exo_core.h`; not a hardware test
 - Stale-output checks: `python3 tools/suit_catalog.py --check`, `tools/suit_budget.py --check`, `tools/suit_readiness.py --check`, `tools/suit_sitemap.py --check` (regenerate `sitemap.xml` after adding or removing any `.md`)
 - `Design/Parametric/Generated/` is committed output of `tools/suit_fit.py --profile Design/Parametric/Profiles/Demo.json --concept --out Design/Parametric/Generated`; a test compares it byte for byte
 - Pages deploy (`.github/workflows/pages.yml`) runs the tests first and publishes tracked files only, without `.github/`, `docs/`, `Tests/Automation`, `Tests/Browser`, `CLAUDE.md`
@@ -66,6 +66,7 @@ Three legacy material-reference variants exist: V1 Einsteiger (foam), V2 Fortges
 - `Code/ArmorControl/MultiEffects.ino` - **advanced**: 5 LED effects + button switching + boot sequence + shield-hit touch sensors + handler alert
 - `Code/Examples/` - four minimal test sketches (helmet/armor `MainControlCode.ino`, `LightingEffectsCode.ino`); builds use the MultiEffects controllers
 - Compiled via Arduino IDE or `arduino-cli compile`; pin assignments must be adapted per build. CI compiles every sketch (AVR Nano, ESP32 SensorFeeder, ESP32-S3 Cortana chip); add new sketches to `.github/workflows/ci.yml`
+- `Code/ExoControl/LegAssist/` - ESP32 + CAN controller for the self-built hip/knee drive E01; all control and safety logic lives in the hardware-free `exo_core.h`. Concept only: never describe it as built, tested on a person or safe; guide `Documentation/Guides/Exoskelett-Eigenbau.md`
 - LED effect patterns documented in `Documentation/Guides/LED-Effekte.md`
 
 ## Conventions

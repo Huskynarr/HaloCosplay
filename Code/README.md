@@ -88,6 +88,16 @@ Hintergrund und **Sicherheit**: `Documentation/Guides/Elektronik-AR-Display.md`.
   - Shield-Hit ueber 4 TP223-Sensoren, nur mit `TOUCH_ENABLED 1` (Standard 0,
     weil offene Sensor-Pins zufaellige Treffer ausloesen)
 
+## ExoControl
+
+- **`LegAssist/LegAssist.ino`** - ESP32-Steuerung des Eigenbau-Beinantriebs E01
+  (2 Hueft-, optional 2 Knieantriebe ueber CAN). **Entwicklungsstand, an keiner
+  Hardware erprobt.** Vor jedem Betrieb die Nachweisfolge in
+  `Documentation/Guides/Exoskelett-Eigenbau.md` durchlaufen
+- `LegAssist/exo_core.h` - Regel- und Sicherheitslogik ohne Hardwarebezug
+  (Momentengrenze, Anstiegsbegrenzung, Stoerungen, CAN-Rahmenformat);
+  Host-Tests: `python3 Tests/Firmware/run.py`
+
 ## WeaponControl
 
 - **`ammo_counter.ino`** - Arduino-Steuerung fuer den Munitionszaehler (MA40/MA5):
