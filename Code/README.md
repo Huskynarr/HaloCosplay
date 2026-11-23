@@ -90,7 +90,7 @@ Hintergrund und **Sicherheit**: `Documentation/Guides/Elektronik-AR-Display.md`.
 
 ## ExoControl
 
-- **`LegAssist/LegAssist.ino`** - ESP32-Steuerung des Eigenbau-Beinantriebs E01
+- **`LegAssist/LegAssist.ino`** - ESP32-Steuerung des Eigenbau-Beinantriebs X01
   (2 Hueft-, optional 2 Knieantriebe ueber CAN). **Entwicklungsstand, an keiner
   Hardware erprobt.** Vor jedem Betrieb die Nachweisfolge in
   `Documentation/Guides/Exoskelett-Eigenbau.md` durchlaufen

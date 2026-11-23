@@ -1,4 +1,4 @@
-// LegAssist.ino - Steuerung des Eigenbau-Beinantriebs E01 (ESP32 + CAN)
+// LegAssist.ino - Steuerung des Eigenbau-Beinantriebs X01 (ESP32 + CAN)
 //
 // ENTWICKLUNGSSTAND, AN KEINER HARDWARE ERPROBT. Nicht am Koerper betreiben,
 // bevor die Nachweisfolge in Documentation/Guides/Exoskelett-Eigenbau.md

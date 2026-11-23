@@ -1,4 +1,4 @@
-// exo_core.h - Regel- und Sicherheitslogik des Eigenbau-Beinantriebs E01
+// exo_core.h - Regel- und Sicherheitslogik des Eigenbau-Beinantriebs X01
 //
 // Hardwarefrei: keine Arduino- oder CAN-Aufrufe. LegAssist.ino bindet diese
 // Datei ein, Tests/Firmware/exo_test.cpp prueft sie auf dem Host.

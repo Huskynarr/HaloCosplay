@@ -107,7 +107,7 @@ Dieses Verzeichnis sammelt alle Kerninhalte fuer das Halo MJOLNIR Cosplay Projek
 - Waffen-Prop: `Documentation/Guides/Waffen-Prop.md`
 - **Pflege und Wartung:** `Documentation/Guides/Pflege-Wartung.md`
 - Exoskelett (Profi): `Documentation/Guides/Exoskelett.md`
-- Eigenbau-Beinantrieb E01 (Entwurf): `Documentation/Guides/Exoskelett-Eigenbau.md`
+- Eigenbau-Beinantrieb X01 (Entwurf): `Documentation/Guides/Exoskelett-Eigenbau.md`
 - Begleit-Roboter ins HUD integrieren (Konzept): `Documentation/Guides/Begleitroboter-Integration.md`
 - Best Practices: `Documentation/Guides/Best-Practices.md`
 - Fehlerbehebung: `Documentation/Guides/Fehlerbehebung.md`

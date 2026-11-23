@@ -1,4 +1,4 @@
-# Eigenbau-Beinantrieb E01: aktive Hueft- und Knieunterstuetzung
+# Eigenbau-Beinantrieb X01: aktive Hueft- und Knieunterstuetzung
 
 **Status 2026-11-23: Entwicklungsentwurf.** Es gibt kein gebautes Geraet, keine
 Messung und keinen Tragetest. Vorhanden sind dieses Konzept, die Steuerlogik
@@ -31,8 +31,8 @@ Quelle: [Hypershell Halo, Herstellerseite](https://ca.hypershell.tech/pages/hype
 Presseberichte nennen 2299 USD als Preis; auf der abgerufenen Herstellerseite
 stand kein Preis.
 
-E01 uebernimmt davon nur das Prinzip: Antriebe seitlich an Huefte und Knie,
-die beim Gehen ein kleines Moment in Bewegungsrichtung geben. E01 ist
+X01 uebernimmt davon nur das Prinzip: Antriebe seitlich an Huefte und Knie,
+die beim Gehen ein kleines Moment in Bewegungsrichtung geben. X01 ist
 ausdruecklich **nicht**:
 
 - ein Traggestell fuer die Ruestung. Das Gewicht bleibt am Koerper; der
@@ -48,33 +48,33 @@ ausdruecklich **nicht**:
 
 ```mermaid
 flowchart TD
-    P["E01-P Akku, Sicherung, Not-Aus"] --> M["Motorversorgung"]
+    P["X01-P Akku, Sicherung, Not-Aus"] --> M["Motorversorgung"]
     P --> L["Logikversorgung 5 V"]
-    L --> S["E01-S Steuerung ESP32 + CAN"]
-    S -- "CAN, Moment" --> HR["E01-H Hueftantrieb R"]
-    S -- "CAN, Moment" --> HL["E01-H Hueftantrieb L"]
-    S -. "Stufe K" .-> KR["E01-K Knieantrieb R"]
-    S -. "Stufe K" .-> KL["E01-K Knieantrieb L"]
+    L --> S["X01-S Steuerung ESP32 + CAN"]
+    S -- "CAN, Moment" --> HR["X01-H Hueftantrieb R"]
+    S -- "CAN, Moment" --> HL["X01-H Hueftantrieb L"]
+    S -. "Stufe K" .-> KR["X01-K Knieantrieb R"]
+    S -. "Stufe K" .-> KL["X01-K Knieantrieb L"]
     M --> HR
     M --> HL
     M -.-> KR
     M -.-> KL
-    B["E01-B Beckenrahmen"] --- HR
+    B["X01-B Beckenrahmen"] --- HR
     B --- HL
-    HR --- O["E01-O Oberschenkelstrebe + Manschette"]
+    HR --- O["X01-O Oberschenkelstrebe + Manschette"]
     O -.- KR
-    KR -.- U["E01-U Unterschenkelstrebe + Manschette"]
+    KR -.- U["X01-U Unterschenkelstrebe + Manschette"]
 ```
 
 | ID | Baugruppe | Aufgabe | Stand |
 | --- | --- | --- | --- |
-| E01-B | Beckenrahmen | Steifer Bogen ueber Ruecken und Beckenkamm, traegt beide Hueftantriebe und stuetzt deren Gegenmoment am Becken ab | Konzept, kein CAD |
-| E01-H | Hueftmodul L/R | Antrieb auf der Beuge-/Streckachse der Huefte, darueber ein freies Gelenk fuer das Abspreizen | Konzept, kein CAD |
-| E01-O | Oberschenkelstrebe | Laengenverstellbare Strebe mit gepolsterter Manschette oberhalb des Knies | Konzept, kein CAD |
-| E01-K | Kniemodul L/R | Zweiter Antrieb auf der Knieachse (nur Stufe K) | Konzept, kein CAD |
-| E01-U | Unterschenkelstrebe | Strebe und Manschette unterhalb des Knies (nur Stufe K) | Konzept, kein CAD |
-| E01-S | Steuerung | ESP32, CAN-Transceiver, Taster, Status-LED | Sketch und Host-Tests vorhanden |
-| E01-P | Energie | Akku mit BMS, Sicherung, Not-Aus in der Motorleitung | Konzept, nicht ausgelegt |
+| X01-B | Beckenrahmen | Steifer Bogen ueber Ruecken und Beckenkamm, traegt beide Hueftantriebe und stuetzt deren Gegenmoment am Becken ab | Konzept, kein CAD |
+| X01-H | Hueftmodul L/R | Antrieb auf der Beuge-/Streckachse der Huefte, darueber ein freies Gelenk fuer das Abspreizen | Konzept, kein CAD |
+| X01-O | Oberschenkelstrebe | Laengenverstellbare Strebe mit gepolsterter Manschette oberhalb des Knies | Konzept, kein CAD |
+| X01-K | Kniemodul L/R | Zweiter Antrieb auf der Knieachse (nur Stufe K) | Konzept, kein CAD |
+| X01-U | Unterschenkelstrebe | Strebe und Manschette unterhalb des Knies (nur Stufe K) | Konzept, kein CAD |
+| X01-S | Steuerung | ESP32, CAN-Transceiver, Taster, Status-LED | Sketch und Host-Tests vorhanden |
+| X01-P | Energie | Akku mit BMS, Sicherung, Not-Aus in der Motorleitung | Konzept, nicht ausgelegt |
 
 Gebaut wird in zwei Stufen. **Stufe H** hat nur die beiden Hueftantriebe.
 **Stufe K** ergaenzt die Knie und entspricht erst damit dem Vorbild. Stufe K

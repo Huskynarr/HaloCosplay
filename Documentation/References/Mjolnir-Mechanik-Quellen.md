@@ -49,7 +49,7 @@ Videoanalyse oder Bestaetigung der darin beworbenen Leistung.
 Umsetzung: [Bodenrahmen-Konzept](../Guides/Exoskelett.md#3a-neues-entwicklungsziel-ruestungslast-zum-boden)
 und [Spiegel-HUD-Versuch](../Guides/Elektronik-AR-Display.md#11-neue-referenz-diy-brille-und-spiegel-hud).
 
-## Ergaenzung vom 2026-11-23: Eigenbau-Beinantrieb E01
+## Ergaenzung vom 2026-11-23: Eigenbau-Beinantrieb X01
 
 | Quelle | Tatsaechlich belegter Inhalt | Verwendung / Grenze |
 | --- | --- | --- |
@@ -59,4 +59,4 @@ und [Spiegel-HUD-Versuch](../Guides/Elektronik-AR-Display.md#11-neue-referenz-di
 | [CubeMars V3 Drive Software User Manual V1.0.1](https://www.cubemars.com/data/cms/202610/ak-series-motor-module-v3-driver-software-user-manual-en.pdf) | CAN-Rahmen der Kraftregelung (Abschnitt 2.2), Rueckmeldung und Fehlercodes (2.3.1), Wertebereiche je Antrieb | Grundlage fuer `exo_core.h`; Verhalten ohne Kommandos dort nicht beschrieben |
 | [Lim et al.: Delayed Output Feedback Control for Gait Assistance With a Robotic Hip Exoskeleton](https://dblp.org/rec/journals/trob/LimLJKPSS19.html) | Bibliografischer Nachweis (IEEE Transactions on Robotics 35(4), 2019) | Herkunft der Regelidee; Volltext nicht ausgewertet, Umsetzung ist eine eigene Vereinfachung |
 
-Umsetzung: [Eigenbau-Beinantrieb E01](../Guides/Exoskelett-Eigenbau.md).
+Umsetzung: [Eigenbau-Beinantrieb X01](../Guides/Exoskelett-Eigenbau.md).
