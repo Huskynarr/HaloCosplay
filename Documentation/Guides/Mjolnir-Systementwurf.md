@@ -82,6 +82,10 @@ flowchart TD
 
 ## 4. Baugruppen statt loser Einzelplatten
 
+Angezogen wird in [sechs Modulen](Mjolnir-Selbstanziehen.md#0-zielbild-sechs-module-zum-zuklemmen)
+(zwei Beine, Torso, zwei Arme, Helm). Die folgenden Baugruppen sind deren
+Bausteine und bleiben innerhalb eines Moduls dauerhaft verbunden.
+
 | ID | Einheit | Bleibt vormontiert | Oeffnung / Trennung |
 | --- | --- | --- | --- |
 | T01 | Traeger + Ruecken | Rueckenstege, Gurtaufnahme, Elektronikpod | Zwei von vorn erreichbare Gurtverschluesse |

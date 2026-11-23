@@ -198,7 +198,7 @@ const CONTENT = {
         { title: "Unteranzug + Befestigung", file: "Documentation/Guides/Unteranzug-Befestigung.md" },
         { title: "Waffen-Prop", file: "Documentation/Guides/Waffen-Prop.md" },
         { title: "Exoskelett (V3)", file: "Documentation/Guides/Exoskelett.md" },
-        { title: "Exoskelett-Eigenbau (E01)", file: "Documentation/Guides/Exoskelett-Eigenbau.md" },
+        { title: "Exoskelett-Eigenbau (X01)", file: "Documentation/Guides/Exoskelett-Eigenbau.md" },
       ],
     },
     {

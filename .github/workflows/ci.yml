@@ -148,7 +148,7 @@ jobs:
         if: steps.changed.outputs.run == 'true'
         run: arduino-cli compile --fqbn esp32:esp32:esp32 Code/HelmetControl/AR/SensorFeeder
 
-      - name: ESP32-Sketch kompilieren (Beinantrieb E01)
+      - name: ESP32-Sketch kompilieren (Beinantrieb X01)
         if: steps.changed.outputs.run == 'true'
         run: arduino-cli compile --fqbn esp32:esp32:esp32 Code/ExoControl/LegAssist
 

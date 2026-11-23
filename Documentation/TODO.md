@@ -81,7 +81,8 @@ wenn digitale Vorlagen oder passende Rechenwerkzeuge bereits vorhanden sind.
 - [ ] Spiegel-HUD: Display/Abbildungsoptik/Combiner als Tischmuster auf Fokus, Eyebox, Durchsicht und Helligkeit pruefen
 - [ ] Spiegel-HUD: wegklappbare Helmkassette nach optischer Passprobe konstruieren; Doppelbilder mit Goldvisier pruefen
 - [ ] Bei Exoskelett: Hersteller-Passmasse, Anprobe und getrennte Integration nachweisen
-- [ ] Eigenbau-Beinantrieb E01: Mechanik konstruieren und Nachweisfolge P1-P7 durchlaufen ([Guide](Guides/Exoskelett-Eigenbau.md)); bisher nur Steuerlogik und Host-Tests
+- [ ] Sechs-Module-Zielbild umsetzen: Armmodul als erster Prototyp, danach Bein, Torso, Helm ([Guide](Guides/Mjolnir-Selbstanziehen.md#0-zielbild-sechs-module-zum-zuklemmen)); Modul-CAD fehlt
+- [ ] Eigenbau-Beinantrieb X01: Mechanik konstruieren und Nachweisfolge P1-P7 durchlaufen ([Guide](Guides/Exoskelett-Eigenbau.md)); bisher nur Steuerlogik und Host-Tests
 - [ ] Bei Show-Aktorik: eigenes ungetragenes Testmodul und Ausfallverhalten entwickeln
 - [ ] Optional: Sprachsteuerung + Kamera-Erkennung auf Pi 5 (siehe [Elektronik-Sprachsteuerung.md](Guides/Elektronik-Sprachsteuerung.md))
 - [ ] Optional: Shield-Hit, Handler-Alert, Trink-Erinnerung (siehe [Elektronik-Show-Praxis-Module.md](Guides/Elektronik-Show-Praxis-Module.md))

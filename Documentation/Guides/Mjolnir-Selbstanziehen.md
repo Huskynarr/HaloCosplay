@@ -20,6 +20,68 @@ das Anlegen erleichtern. Sie verriegelt weder eine Person noch deren Schuhe
 und benoetigt keine Motoren. Eine gegen Umkippen geeignete Konstruktion wird
 mit realen Massen und Bedienkraeften separat ausgelegt.
 
+## 0. Zielbild: sechs Module zum Zuklemmen
+
+**Entscheidung vom 2026-11-23:** Angezogen wird in sechs vormontierten Modulen,
+nicht in Einzelteilen. Jedes Modul wird offen angelegt und von Hand
+zugeklemmt. Die Kassetten aus den folgenden Abschnitten bleiben die Bausteine;
+neu ist, dass sie zwischen den Einsaetzen zu Modulen verbunden bleiben.
+
+| Modul | Enthaelt (IDs aus dem [Systementwurf](Mjolnir-Systementwurf.md)) | Oeffnet | Zielwert Handverschluesse |
+| --- | --- | --- | --- |
+| M1 Bein links | Oberschenkel, Kniepad, Schienbein (L01-L), Schuhcover (F01-L) | Entlang einer durchgehenden Seite; Bein wird seitlich eingelegt | 3 |
+| M2 Bein rechts | Wie M1 (L01-R, F01-R) | Wie M1 | 3 |
+| M3 Torso | Traeger und Ruecken (T01), Seitenfluegel mit Fronttueren (T02), Schulterhauben (S01), Guertelschuerze (H01), Servicepod (E01) | Vorn, wie in [Einstieg](Mjolnir-Einstieg.md) | 3 |
+| M4 Arm links | Oberarm, Ellbogenabdeckung, Unterarm (A01-L); Handplatte sitzt am Handschuh | Entlang der Innenseite; Arm wird eingelegt | 2 |
+| M5 Arm rechts | Wie M4 (A01-R) | Wie M4 | 2 |
+| M6 Helm | Helm mit Halsabdeckung | Hintere/untere Schale | 1 |
+
+Die 14 Handverschluesse sind ein Zielwert fuer die Konstruktion, kein
+gemessenes Ergebnis. Ob ein Modul mit so wenigen Verschluessen sicher sitzt,
+zeigt erst der Prototyp.
+
+Regeln fuer jedes Modul:
+
+1. **Bleibt montiert.** Schalen, Polster, Scharniere, Gurte und Kabel eines
+   Moduls werden nach dem Tragen nicht getrennt. Lagerung und Transport
+   erfolgen modulweise.
+2. **Gelenke bleiben weich.** Innerhalb eines Moduls verbinden Textil oder
+   weiche Abdeckungen die Schalen ueber Knie, Ellbogen und Knoechel. Ein Modul
+   ist keine starre Roehre und keine starre Gelenkkette.
+3. **Eine Oeffnungsseite.** Alle Schalen eines Moduls oeffnen zur selben Seite
+   und parken dort selbsthaltend, damit Arm oder Bein in einem Zug eingelegt
+   wird. Kein Durchschluepfen, auch nicht durch das Schuhcover.
+4. **Verschluesse vorn und einzeln loesbar.** Jeder Verschluss ist im
+   angelegten Kostuem erreichbar und oeffnet ohne Strom und ohne Werkzeug.
+5. **Ein Einhaengepunkt zum Nachbarn.** Beinmodule haengen am Hueftgurt des
+   Torsomoduls, Armmodule an dessen Schulteraufnahme. Die Verbindung traegt
+   das Modulgewicht und loest einzeln.
+6. **Elektrik je Modul.** Hoechstens ein Stecker zum Torso; ein nicht
+   gestecktes Modul darf nichts anderes ausser Betrieb setzen.
+
+Reihenfolge: Unteranzug, Schuhe und Handschuhe anziehen, dann M1 und M2 im
+Sitzen, M3 an der Station, M4 und M5 (der weniger geschickte Arm zuerst), M6
+zuletzt. Ausziehen in umgekehrter Reihenfolge. Die Einzelschritte in
+Abschnitt 4 gelten weiter; sie fallen innerhalb eines Moduls zusammen.
+
+**Sammelverschluss (Entwicklungsoption).** Ein Hebel je Modul, der alle
+Schalen dieses Moduls gemeinsam spannt, wuerde die Zahl der Handgriffe auf
+sechs senken. Er kommt erst in Frage, wenn das Modul mit Einzelverschluessen
+funktioniert, und jede Schale behaelt ihre eigene Freigabe: Ein klemmender
+Hebel darf kein ganzes Bein einschliessen.
+
+**Mit Eigenbau-Beinantrieb X01.** Das [Gestell](Exoskelett-Eigenbau.md) wird
+vor den Beinmodulen angelegt und zaehlt als eigenes, siebtes Modul. Ob die
+Beinschalen spaeter direkt an dessen Streben sitzen und Bein und Antrieb zu
+einem Modul werden, ist offen; dafuer muessen Achslage und Freigang am
+gebauten Gestell feststehen.
+
+**Stand:** Zielbild und Regeln sind festgelegt. Es gibt kein Modul-CAD: Der
+[Clamshell-Generator](../../Design/Clamshell/README.md) erzeugt weiterhin acht
+einzelne Bauraumhuellen ohne Verbindungen, Schuhcover und Einhaengepunkte.
+Der erste Prototyp ist ein Armmodul (Abschnitt 6), weil es am leichtesten ist
+und das Gegenhandproblem sofort zeigt.
+
 ## 1. Gemeinsame Konstruktion jeder Kassette
 
 Jede Baugruppe besteht aus einer gepolsterten hinteren Auflage, einer
