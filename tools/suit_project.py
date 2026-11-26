@@ -108,7 +108,7 @@ def generate(profile_path, out, concept=False, integration_path=None, hardware_p
                '| Reference.json / Parts.csv | Referenzansichten und kompletter Teileumfang |',
                '| assets.local.json | Eigene Modelldateien, Quellen, Lizenzen, Einheiten und Hashes eintragen |',
                '| Components/ | Sechs parametrisierte Halter-/Passproben inklusive Magnetpaar mit Stuecklisten und Montagehinweisen |',
-               '| Clamshell/ | Acht aufklappbare Arm-/Beinhuellen, eigene Seiten und Selbstanzieh-Prueffolge |',
+               '| Clamshell/ | Acht aufklappbare Arm-/Beinhuellen, Armmodul je Seite und Selbstanzieh-Prueffolge |',
                '| Hardware/ | Sechs Einbaumodelle mit Einzelteilen und elektrischen Referenzschaltplaenen; Geraetemasse bleiben unabhaengig vom Koerper |',
                '| integration.local.json / Integration.* | Ausgewaehlte Einbauzonen, zugaengliche Akkus und getrennte Stromkreise |',
                '| engineering.local.json / Engineering/ | Reale Verbraucher, Akkus, Tuergewicht und Staender-Geometrie eintragen und Berichte aktualisieren |',

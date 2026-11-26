@@ -61,9 +61,30 @@ class ClamshellTests(unittest.TestCase):
                                 not part["physical_test_passed"] for part in plan["parts"]))
             with (out / "Checklists.csv").open() as handle:
                 checks = list(csv.DictReader(handle))
-            self.assertEqual(len(checks), 66)
+            self.assertEqual(len(checks), 78)
             self.assertTrue(all(row["status"] == "open" for row in checks))
-            self.assertEqual({row["part_id"] for row in checks}, set(report["parts"]) | {"complete_suit"})
+            self.assertEqual({row["part_id"] for row in checks},
+                             set(report["parts"]) | set(report["modules"]) | {"complete_suit"})
+            self.assertEqual((out / "ArmModule.scad").read_bytes(), (clamshell.SOURCE / "ArmModule.scad").read_bytes())
+            self.assertEqual(report["module_source_sha256"],
+                             hashlib.sha256((out / "ArmModule.scad").read_bytes()).hexdigest())
+            self.assertEqual([module["id"] for module in plan["modules"]], report["modules"])
+            self.assertTrue(all(module["hardware_model"] is None and module["measured_mass_g"] is None and
+                                module["measured_elbow_flex_deg"] is None and not module["physical_test_passed"]
+                                for module in plan["modules"]))
+
+    def test_arm_module_joins_one_side_and_reports_a_geometric_elbow_estimate(self):
+        values = clamshell.parameters(suit_fit.derive(json.loads(suit_fit.DEMO_PROFILE.read_text()), concept=True))
+        left, right = clamshell.modules(values)
+        self.assertEqual(left["segments"], ["upperarm_l", "forearm_l"])
+        self.assertEqual(right["segments"], ["upperarm_r", "forearm_r"])
+        upper, fore = values["limbs_mm"][0], values["limbs_mm"][2]
+        self.assertAlmostEqual(left["overall_length_mm"], upper[1] + fore[1] + values["elbow_gap_mm"])
+        self.assertEqual(left["target_hand_latches"], 2)
+        # Gap and relief equal to the forearm radius give exactly a right angle.
+        self.assertEqual(clamshell.elbow_free_flex_deg(120, 60, 30), 90.0)
+        self.assertLess(clamshell.elbow_free_flex_deg(120, 60, 0), clamshell.elbow_free_flex_deg(120, 60, 30))
+        self.assertLess(clamshell.elbow_free_flex_deg(160, 60, 30), 90.0)
 
     def test_incomplete_and_synthetic_profiles_need_explicit_concept(self):
         with tempfile.TemporaryDirectory() as tmp:

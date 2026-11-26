@@ -130,6 +130,20 @@ jobs:
               done
             done
           done
+          for side in l r; do
+            for pose in 0 1; do
+              file="build/WorkshopDemo/Clamshell/arm_module_${side}_${pose}.stl"
+              openscad --hardwarnings -D "side=\"${side}\"" -D "open_fraction=${pose}" -D "elbow_flex_deg=$((pose * 60))" -o "$file" build/WorkshopDemo/Clamshell/ArmModule.scad
+              test -s "$file"
+            done
+            for segment in upperarm forearm; do
+              for piece in rear front; do
+                file="build/WorkshopDemo/Clamshell/arm_module_${side}_${segment}_${piece}.stl"
+                openscad --hardwarnings -D "side=\"${side}\"" -D "segment=\"${segment}\"" -D "piece=\"${piece}\"" -o "$file" build/WorkshopDemo/Clamshell/ArmModule.scad
+                test -s "$file"
+              done
+            done
+          done
       - uses: actions/upload-artifact@v7
         with:
           name: concept-only-not-fabrication-approved
