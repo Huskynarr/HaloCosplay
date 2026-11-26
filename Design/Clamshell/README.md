@@ -52,6 +52,44 @@ lassen sich elliptische oder sich verjuengende Gliedmassen nicht nachweisen.
 Beispiel. Ein Export enthaelt seine eigenen Parameter und Quellen. Die im
 Manifest gespeicherten SHA-256-Werte gelten nur fuer den unveraenderten Export.
 
+## Armmodul
+
+`ArmModule.scad` setzt Oberarm- und Unterarmhuelle einer Seite zu einem Modul
+zusammen, dem ersten Baustein des
+[Sechs-Module-Zielbilds](../../Documentation/Guides/Mjolnir-Selbstanziehen.md#0-zielbild-sechs-module-zum-zuklemmen).
+Beide Schalen oeffnen zur Innenseite. Neu gegenueber den Einzelhuellen:
+
+- Gurtlasche oben an der hinteren Oberarmschale als Einhaengepunkt zur Schulter
+- je eine Gurtlasche am Ellbogenende beider hinteren Schalen fuer die textile
+  Verbindung; der Ellbogen selbst bleibt ohne starres Teil
+- je eine ebene Flaeche an beiden Haelften jeder Schale fuer einen Kaufverschluss
+  (zwei Verschluesse je Modul)
+- Freischnitt der vorderen Haelften am Ellbogen, damit der Arm beugen kann
+
+```bash
+openscad --hardwarnings -D 'side="l"' -D 'open_fraction=1' -D 'elbow_flex_deg=45' -o arm_l_open.stl ArmModule.scad
+openscad --hardwarnings -D 'side="r"' -D 'segment="forearm"' -D 'piece="rear"' -o forearm_r_rear.stl ArmModule.scad
+```
+
+| Selektor | Werte | Bedeutung |
+| --- | --- | --- |
+| side | l, r | Seite mit eigenen Profilmassen |
+| open_fraction | 0 bis 1 | Geschlossen bis offen |
+| elbow_flex_deg | 0 bis 150 | Beugung des Ellbogens in der Ansicht |
+| piece | assembly, rear, front | Alles, nur hintere oder nur vordere Haelften |
+| segment | both, upperarm, forearm | Zum Drucken ein einzelnes Segment waehlen |
+
+Laschen und Verschlussflaechen sind **nicht bemessen**: Gurtbreite
+(25 mm), Ellbogenspalt (60 mm) und Freischnitt (40 mm) sind Annahmen, Lochbilder
+fehlen, weil kein Verschluss ausgewaehlt ist. Die Lasche oben muss spaeter das
+ganze Modul tragen; ob ein Druckteil das kann, zeigt erst eine Belastungsprobe.
+
+`ClamshellPlan.json` nennt je Modul einen geschaetzten freien Beugewinkel. Er
+gilt fuer zwei gerade Rundhuellen: der Winkel, bei dem die Vorderkante des
+Unterarms die Ebene der Oberarm-Vorderkante erreicht. Mit den Demo-Werten sind
+das 92 Grad. Polster, Weichteile und echte Panzerkonturen aendern den Wert;
+gemessen wird am Prototyp (Pruefpunkt MOD04).
+
 ## Einbau und Bedienung
 
 - [Selbststaendiges An- und Ausziehen](../../Documentation/Guides/Mjolnir-Selbstanziehen.md)
@@ -59,6 +97,6 @@ Manifest gespeicherten SHA-256-Werte gelten nur fuer den unveraenderten Export.
 - [Sechs lokale Komponentenproben inklusive Magnethalter](../Components/README.md)
 
 ClamshellPlan.json laesst Kaufteile, Massen, Kraefte und Tests bewusst offen.
-Checklists.csv enthaelt acht Kassetten und zwei uebergreifende Nachweise.
+Checklists.csv enthaelt acht Kassetten, zwei Armmodule und zwei uebergreifende Nachweise.
 Softwareerfolg bestaetigt nur den Export. Selbststaendiges Anziehen entsteht
 erst durch erreichbare Verschluesse und dokumentierte reale Gesamtproben.

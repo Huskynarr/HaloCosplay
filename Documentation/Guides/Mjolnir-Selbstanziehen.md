@@ -76,11 +76,14 @@ Beinschalen spaeter direkt an dessen Streben sitzen und Bein und Antrieb zu
 einem Modul werden, ist offen; dafuer muessen Achslage und Freigang am
 gebauten Gestell feststehen.
 
-**Stand:** Zielbild und Regeln sind festgelegt. Es gibt kein Modul-CAD: Der
-[Clamshell-Generator](../../Design/Clamshell/README.md) erzeugt weiterhin acht
-einzelne Bauraumhuellen ohne Verbindungen, Schuhcover und Einhaengepunkte.
-Der erste Prototyp ist ein Armmodul (Abschnitt 6), weil es am leichtesten ist
-und das Gegenhandproblem sofort zeigt.
+**Stand:** Zielbild und Regeln sind festgelegt. Als erstes Modul erzeugt der
+[Clamshell-Generator](../../Design/Clamshell/README.md#armmodul) das Armmodul
+als Bauraummodell: Ober- und Unterarmhuelle mit Einhaengelasche, Laschen fuer
+die textile Ellbogenverbindung, Flaechen fuer zwei Verschluesse und
+Freischnitt am Ellbogen. Laschen und Flaechen sind nicht bemessen, ein
+Verschluss ist nicht ausgewaehlt. Bein, Torso und Helm haben noch kein
+Modul-CAD. Das Armmodul ist der erste Prototyp (Abschnitt 6), weil es am
+leichtesten ist und das Gegenhandproblem sofort zeigt.
 
 ## 1. Gemeinsame Konstruktion jeder Kassette
 

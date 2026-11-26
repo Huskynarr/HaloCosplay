@@ -19,6 +19,15 @@ SOURCE = ROOT / "Design/Clamshell"
 PARTS = ("upperarm", "forearm", "thigh", "shin")
 LABELS = ("Oberarm", "Unterarm", "Oberschenkel", "Schienbein")
 SIDES = ("l", "r")
+MODULE_SOURCE = "ArmModule.scad"
+MODULE_CHECKS = (
+    ("MOD01", "Modul bleibt nach dem Ablegen vollstaendig verbunden; kein loses Teil, kein Werkzeug"),
+    ("MOD02", "Beide Schalen parken zur selben Seite offen; Arm in einem Zug radial einlegen"),
+    ("MOD03", "Einhaengepunkt an der Schulter traegt das gewogene Modul und loest einzeln"),
+    ("MOD04", "Ellbogen bis zur benoetigten Beugung bewegen; kein Schalenkontakt, kein Zug am Textil"),
+    ("MOD05", "Beide Verschluesse mit der Gegenhand schliessen und oeffnen, auch geruestet und mit Handschuh"),
+    ("MOD06", "Zeit und Zahl der Handgriffe fuer An- und Ablegen des Moduls festhalten"),
+)
 CHECKS = (
     ("OPEN01", "Alle Schalen und innenliegenden Gurte vollstaendig oeffnen; kein geschlossener Ring bleibt"),
     ("OPEN02", "Arm oder Bein radial einlegen und entnehmen; Hand/Fuss muss keine Schale durchqueren"),
@@ -45,11 +54,43 @@ def front_point(x, y, radius, hinge_offset, angle_deg, side):
             math.sin(angle) * dx + math.cos(angle) * y)
 
 
+def elbow_free_flex_deg(forearm_diameter, gap, relief):
+    """Flexion at which the forearm front edge reaches the plane of the upper-arm front edge.
+
+    Geometry of two straight round envelopes only; soft tissue, padding and real
+    armor contours are not considered.
+    """
+    return round(math.degrees(2 * math.atan((gap / 2 + relief) / (forearm_diameter / 2))), 1)
+
+
+def modules(values):
+    result = []
+    for column, side in enumerate(SIDES):
+        upper_l = values["limbs_mm"][column][1]
+        fore_d, fore_l = values["limbs_mm"][2 + column]
+        result.append({
+            "id": f"arm_module_{side}", "label": "Armmodul", "side": side,
+            "segments": [f"upperarm_{side}", f"forearm_{side}"],
+            "overall_length_mm": round(upper_l + values["elbow_gap_mm"] + fore_l, 3),
+            "elbow_gap_mm": values["elbow_gap_mm"], "elbow_relief_mm": values["elbow_relief_mm"],
+            "elbow_free_flex_estimate_deg": elbow_free_flex_deg(fore_d, values["elbow_gap_mm"], values["elbow_relief_mm"]),
+            "opening_side": "Beide Schalen oeffnen zur Innenseite; virtuelle Achsen aussen",
+            "hang_point": "Gurtlasche oben an der hinteren Oberarmschale; Aufnahme am Torso offen",
+            "elbow_link": "Gurtband zwischen zwei Laschen an den hinteren Schalen; kein starres Gelenk",
+            "latch_lands": 2, "target_hand_latches": 2,
+            "hardware_model": None, "measured_mass_g": None, "measured_donning_time_s": None,
+            "measured_elbow_flex_deg": None, "physical_test_passed": False,
+        })
+    return result
+
+
 def parameters(report):
     p = report["parameters_mm"]
     return {
         "wall_mm": p["wall"], "seam_gap_mm": 2.0,
         "hinge_offset_mm": 8.0, "opening_deg": 110.0,
+        "elbow_gap_mm": 60.0, "elbow_relief_mm": 40.0, "strap_width_mm": 25.0,
+        "latch_pad_mm": [30.0, 18.0, 4.0],
         "limbs_mm": [[p[f"{part}_diameter_{side}"], p[f"{part}_length_{side}"]]
                      for part in PARTS for side in SIDES],
     }
@@ -79,7 +120,9 @@ def plan(report, values):
             "status": "CLAMSHELL_ENVELOPES_NOT_VALIDATED",
             "fit_status": report["status"], "fabrication_approved": False,
             "solo_donning_verified": False, "parts": parts,
+            "modules": modules(values),
             "limits": [
+                "Armmodul: Laschen und Verschlussflaechen sind unbemessene Platzhalter; Ellbogenspalt, Freischnitt und Beugewinkel sind Annahmen.",
                 "Runde, gerade Huellen aus Umfaengen; reale Breite, Tiefe und anatomische Verjuengung fehlen.",
                 "Bewegliche Schalenhaelften, keine konstruierten Scharniere oder integrierten Kaufverschluesse.",
                 "Keine 3D-Kollisionspruefung, Lastbemessung, Passform- oder Alleinanziehfreigabe.",
@@ -110,6 +153,21 @@ def readme(report):
         "Die Vorschau markiert die virtuelle Achse; sie ist nicht Teil der STL-Ausgabe.",
         "Nach Parameterbearbeitung gelten die Manifest-Hashes des Originalexports nicht",
         "fuer die geaenderte Geometrie. Fuer eine neue Profilrevision neu exportieren.", "",
+        "## Armmodul", "",
+        "ArmModule.scad setzt Oberarm- und Unterarmhuelle einer Seite zu einem Modul",
+        "zusammen: beide oeffnen zur Innenseite, dazwischen bleibt der Ellbogen frei.",
+        "Die hinteren Schalen tragen Gurtlaschen (oben Einhaengepunkt zur Schulter,",
+        "am Ellbogen die textile Verbindung), beide Haelften je eine ebene Flaeche fuer",
+        "einen Kaufverschluss. Die vorderen Haelften sind am Ellbogen freigeschnitten.",
+        "Laschen und Flaechen sind nicht bemessen; Lochbilder fehlen bewusst.", "",
+        "```bash",
+        "openscad --hardwarnings -D 'side=\"l\"' -D 'open_fraction=1' -o arm_l_open.stl ArmModule.scad",
+        "openscad --hardwarnings -D 'side=\"r\"' -D 'segment=\"forearm\"' -D 'piece=\"rear\"' -o forearm_r_rear.stl ArmModule.scad",
+        "```", "",
+        "Selektoren: side=l/r; open_fraction=0..1; elbow_flex_deg=0..150;",
+        "piece=assembly/rear/front; segment=both/upperarm/forearm. Zum Drucken ein",
+        "einzelnes segment und piece waehlen. Der im Plan genannte freie Beugewinkel",
+        "ist eine Schaetzung fuer gerade Rundhuellen, kein gemessener Wert.", "",
         "## Reale Mechanik", "",
         "ClamshellPlan.json beschreibt alle acht Kassetten und laesst Kaufteile, Kraefte",
         "und Testergebnisse unbekannt. Ein ungemessener Standardwinkel von 110 Grad",
@@ -142,6 +200,7 @@ def export(profile_path, out, concept=False):
     if out.exists() or out.is_symlink():
         raise ValueError("Ausgabe existiert bereits; neuen Revisionsordner waehlen")
     source = (SOURCE / "LimbClamshell.scad").read_bytes()
+    module_source = (SOURCE / MODULE_SOURCE).read_bytes()
     parameter_bytes = ("// GENERATED: opening envelopes only; mm except opening_deg.\n" +
                        "\n".join(f"{key} = {json.dumps(value)};" for key, value in values.items()) +
                        "\n").encode("utf-8")
@@ -150,12 +209,16 @@ def export(profile_path, out, concept=False):
                 "fabrication_approved": False, "solo_donning_verified": False,
                 "profile_sha256": hashlib.sha256(profile_bytes).hexdigest(),
                 "source_sha256": hashlib.sha256(source).hexdigest(),
+                "module_source_sha256": hashlib.sha256(module_source).hexdigest(),
                 "parameters_sha256": hashlib.sha256(parameter_bytes).hexdigest(),
                 "parts": [f"{part}_{side}" for part in PARTS for side in SIDES],
+                "modules": [f"arm_module_{side}" for side in SIDES],
                 "parameters": values,
                 "parameter_origin": {"wall_mm": "profile_allowance", "limbs_mm": "profile_circular_envelope",
                                      "seam_gap_mm": "concept_assumption", "hinge_offset_mm": "concept_assumption",
-                                     "opening_deg": "concept_assumption"}}
+                                     "opening_deg": "concept_assumption", "elbow_gap_mm": "concept_assumption",
+                                     "elbow_relief_mm": "concept_assumption", "strap_width_mm": "concept_assumption",
+                                     "latch_pad_mm": "concept_assumption"}}
     rows = io.StringIO(newline="")
     writer = csv.writer(rows)
     writer.writerow(["test_id", "part_id", "task", "revision", "observer", "status", "evidence", "notes"])
@@ -163,12 +226,16 @@ def export(profile_path, out, concept=False):
         for key, task in CHECKS:
             if (part == "complete_suit") == (key in ("OPEN09", "OPEN10")):
                 writer.writerow([key, part, task, "", "", "open", "", ""])
+    for module in manifest["modules"]:
+        for key, task in MODULE_CHECKS:
+            writer.writerow([key, module, task, "", "", "open", "", ""])
     texts = {"Manifest.json": json.dumps(manifest, indent=2, ensure_ascii=True) + "\n",
              "ClamshellPlan.json": json.dumps(plan(report, values), indent=2, ensure_ascii=True) + "\n",
              "Checklists.csv": rows.getvalue(), "README.md": readme(report)}
     out.mkdir(parents=True, exist_ok=False)
     (out / "Profile.json").write_bytes(profile_bytes)
     (out / "LimbClamshell.scad").write_bytes(source)
+    (out / MODULE_SOURCE).write_bytes(module_source)
     (out / "Parameters.scad").write_bytes(parameter_bytes)
     for name, content in texts.items():
         (out / name).write_text(content, encoding="utf-8")
@@ -183,7 +250,8 @@ def main(argv=None):
     args = parser.parse_args(argv)
     try:
         result = export(args.profile, args.out, concept=args.concept)
-        print(json.dumps({"out": str(args.out), "status": result["status"], "parts": result["parts"]}))
+        print(json.dumps({"out": str(args.out), "status": result["status"], "parts": result["parts"],
+                          "modules": result["modules"]}))
         return 0
     except (ValueError, OSError, TypeError, KeyError) as exc:
         print("Clamshell-Fehler: " + str(exc), file=sys.stderr)
