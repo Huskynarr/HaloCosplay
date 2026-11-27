@@ -19,15 +19,35 @@ SOURCE = ROOT / "Design/Clamshell"
 PARTS = ("upperarm", "forearm", "thigh", "shin")
 LABELS = ("Oberarm", "Unterarm", "Oberschenkel", "Schienbein")
 SIDES = ("l", "r")
-MODULE_SOURCE = "ArmModule.scad"
-MODULE_CHECKS = (
-    ("MOD01", "Modul bleibt nach dem Ablegen vollstaendig verbunden; kein loses Teil, kein Werkzeug"),
-    ("MOD02", "Beide Schalen parken zur selben Seite offen; Arm in einem Zug radial einlegen"),
-    ("MOD03", "Einhaengepunkt an der Schulter traegt das gewogene Modul und loest einzeln"),
-    ("MOD04", "Ellbogen bis zur benoetigten Beugung bewegen; kein Schalenkontakt, kein Zug am Textil"),
-    ("MOD05", "Beide Verschluesse mit der Gegenhand schliessen und oeffnen, auch geruestet und mit Handschuh"),
-    ("MOD06", "Zeit und Zahl der Handgriffe fuer An- und Ablegen des Moduls festhalten"),
-)
+MODULE_SOURCES = ("ModuleCommon.scad", "ArmModule.scad", "LegModule.scad", "TorsoModule.scad", "HelmetModule.scad")
+MODULE_CHECKS = {
+    "common": (
+        ("MOD01", "Modul bleibt nach dem Ablegen vollstaendig verbunden; kein loses Teil, kein Werkzeug"),
+        ("MOD05", "Alle Verschluesse des Moduls selbst schliessen und oeffnen, auch geruestet, mit Handschuh und stromlos"),
+        ("MOD06", "Zeit und Zahl der Handgriffe fuer An- und Ablegen des Moduls festhalten"),
+    ),
+    "arm": (
+        ("MOD02", "Beide Schalen parken zur selben Seite offen; Arm in einem Zug radial einlegen"),
+        ("MOD03", "Einhaengepunkt an der Schulter traegt das gewogene Modul und loest einzeln"),
+        ("MOD04", "Ellbogen bis zur benoetigten Beugung bewegen; kein Schalenkontakt, kein Zug am Textil"),
+    ),
+    "leg": (
+        ("MOD02", "Beide Schalen parken zur selben Seite offen; Bein im Sitzen in einem Zug einlegen, der Fuss durchquert kein geschlossenes Teil"),
+        ("MOD03", "Einhaengepunkt am Hueftgurt traegt das gewogene Modul und loest einzeln"),
+        ("MOD04", "Knie fuer Sitzen, Treppe und Hocke beugen; kein Schalenkontakt in der Kniekehle, kein Zug am Textil"),
+        ("MOD07", "Gehen, Abrollen und Knien: Schuhcover bleibt am Schuh, Sohle und Fersengurt bleiben frei"),
+    ),
+    "torso": (
+        ("MOD02", "Fluegel und Tueren parken offen; Einstieg und Ausstieg ohne Hilfe, auch bei blockierter Tuer"),
+        ("MOD03", "Jede der vier Aufnahmen traegt ihr gewogenes Arm- oder Beinmodul und loest einzeln"),
+        ("MOD04", "Tief atmen, vorbeugen, sitzen und Arme heben; kein Druck auf Rippen, Hals oder Huefte"),
+    ),
+    "helmet": (
+        ("MOD02", "Hintere Schale parkt offen; Kopf ohne Zwang einsetzen, auch mit Brille oder Hoerschutz"),
+        ("MOD03", "Helm sitzt ohne Halten; hintere Schale kann nicht unbeabsichtigt aufgehen"),
+        ("MOD04", "Kopf drehen und nicken; Sichtfeld, Atmung und Hoeren am geschlossenen Helm pruefen"),
+    ),
+}
 CHECKS = (
     ("OPEN01", "Alle Schalen und innenliegenden Gurte vollstaendig oeffnen; kein geschlossener Ring bleibt"),
     ("OPEN02", "Arm oder Bein radial einlegen und entnehmen; Hand/Fuss muss keine Schale durchqueren"),
@@ -54,34 +74,87 @@ def front_point(x, y, radius, hinge_offset, angle_deg, side):
             math.sin(angle) * dx + math.cos(angle) * y)
 
 
-def elbow_free_flex_deg(forearm_diameter, gap, relief):
-    """Flexion at which the forearm front edge reaches the plane of the upper-arm front edge.
+def free_flex_deg(diameter, gap, relief):
+    """Flexion at which the cut-back edges of two straight round envelopes meet.
 
-    Geometry of two straight round envelopes only; soft tissue, padding and real
-    armor contours are not considered.
+    diameter is the envelope whose edge closes the joint: the forearm at the elbow,
+    the larger of thigh and shin at the knee. Soft tissue, padding, the real joint
+    axis and real armor contours are not considered.
     """
-    return round(math.degrees(2 * math.atan((gap / 2 + relief) / (forearm_diameter / 2))), 1)
+    return round(math.degrees(2 * math.atan((gap / 2 + relief) / (diameter / 2))), 1)
+
+
+elbow_free_flex_deg = free_flex_deg
+
+
+def module_checks(kind):
+    return sorted(MODULE_CHECKS["common"] + MODULE_CHECKS[kind])
 
 
 def modules(values):
-    result = []
+    open_fields = {"hardware_model": None, "measured_mass_g": None, "measured_donning_time_s": None,
+                   "physical_test_passed": False}
+    arms, legs = [], []
     for column, side in enumerate(SIDES):
         upper_l = values["limbs_mm"][column][1]
         fore_d, fore_l = values["limbs_mm"][2 + column]
-        result.append({
-            "id": f"arm_module_{side}", "label": "Armmodul", "side": side,
+        thigh_d, thigh_l = values["limbs_mm"][4 + column]
+        shin_d, shin_l = values["limbs_mm"][6 + column]
+        arms.append({
+            "id": f"arm_module_{side}", "module": "M4" if side == "l" else "M5", "kind": "arm",
+            "label": "Armmodul", "side": side, "source": "ArmModule.scad",
             "segments": [f"upperarm_{side}", f"forearm_{side}"],
             "overall_length_mm": round(upper_l + values["elbow_gap_mm"] + fore_l, 3),
             "elbow_gap_mm": values["elbow_gap_mm"], "elbow_relief_mm": values["elbow_relief_mm"],
-            "elbow_free_flex_estimate_deg": elbow_free_flex_deg(fore_d, values["elbow_gap_mm"], values["elbow_relief_mm"]),
+            "elbow_free_flex_estimate_deg": free_flex_deg(fore_d, values["elbow_gap_mm"], values["elbow_relief_mm"]),
             "opening_side": "Beide Schalen oeffnen zur Innenseite; virtuelle Achsen aussen",
-            "hang_point": "Gurtlasche oben an der hinteren Oberarmschale; Aufnahme am Torso offen",
+            "hang_point": "Gurtlasche oben an der hinteren Oberarmschale; Gegenstueck am Rueckenfluegel des Torsomoduls",
             "elbow_link": "Gurtband zwischen zwei Laschen an den hinteren Schalen; kein starres Gelenk",
-            "latch_lands": 2, "target_hand_latches": 2,
-            "hardware_model": None, "measured_mass_g": None, "measured_donning_time_s": None,
-            "measured_elbow_flex_deg": None, "physical_test_passed": False,
+            "latch_lands": 2, "target_hand_latches": 2, "measured_elbow_flex_deg": None, **open_fields,
         })
-    return result
+        legs.append({
+            "id": f"leg_module_{side}", "module": "M1" if side == "l" else "M2", "kind": "leg",
+            "label": "Beinmodul", "side": side, "source": "LegModule.scad",
+            "segments": [f"thigh_{side}", f"shin_{side}", f"kneepad_{side}", f"shoe_cover_{side}"],
+            "overall_length_mm": round(thigh_l + values["knee_gap_mm"] + shin_l + values["ankle_gap_mm"] +
+                                       values["boot_height_mm"], 3),
+            "knee_gap_mm": values["knee_gap_mm"], "knee_relief_mm": values["knee_relief_mm"],
+            "knee_free_flex_estimate_deg": free_flex_deg(max(thigh_d, shin_d), values["knee_gap_mm"],
+                                                         values["knee_relief_mm"]),
+            "shoe_cover_mm": values["boots_mm"][column] + [values["boot_height_mm"]],
+            "opening_side": "Beide Schalen oeffnen zur Innenseite; Schuhcover wird von vorn aufgesetzt",
+            "hang_point": "Gurtlasche oben aussen an der hinteren Oberschenkelschale; Gegenstueck am Guertel des Torsomoduls",
+            "knee_link": "Gurtband aussen-hinten zwischen zwei Laschen; Kniepad haengt textil davor, kein starres Gelenk",
+            "ankle_link": "Gurtband von der unteren Schienbeinlasche zum Schuhcover; Fersengurt durch zwei Schlitze",
+            "latch_lands": 2, "target_hand_latches": 3, "measured_knee_flex_deg": None, **open_fields,
+        })
+    width, depth, height = values["torso_mm"]
+    torso = {
+        "id": "torso_module", "module": "M3", "kind": "torso", "label": "Torsomodul", "side": None,
+        "source": "TorsoModule.scad",
+        "segments": ["rear_wing_l", "rear_wing_r", "door_l", "door_r",
+                     "belt_rear_l", "belt_rear_r", "belt_door_l", "belt_door_r"],
+        "overall_height_mm": round(height + values["belt_gap_mm"] + values["belt_height_mm"], 3),
+        "clear_entry_width_mm": round(width - 2 * values["wall_mm"] + 2 * values["entry_slide_mm"], 3),
+        "opening_side": "Rueckenfluegel fahren seitlich aus, danach schwenken die Fronttueren nach aussen",
+        "hang_points": "Zwei Laschen oben an den Rueckenfluegeln (Armmodule), zwei unten am Guertel (Beinmodule)",
+        "belt_link": "Guertel haengt textil unter dem Brustteil; keine starre Verbindung ueber die Taille",
+        "not_modelled": "Traeger, Fuehrung der Fluegel, Schulterhauben, Kragen und Servicepod",
+        "latch_lands": 3, "target_hand_latches": 3, **open_fields,
+    }
+    h_width, h_depth, h_height = values["helmet_mm"]
+    # Section of the inner ellipsoid at the flat neck cut, see HelmetModule.scad.
+    neck = math.sqrt(1 - ((0.45 * h_height) / (0.55 * h_height - values["wall_mm"])) ** 2)
+    helmet = {
+        "id": "helmet_module", "module": "M6", "kind": "helmet", "label": "Helmmodul", "side": None,
+        "source": "HelmetModule.scad", "segments": ["helmet_front", "helmet_rear"],
+        "neck_opening_mm": [round((h_width - 2 * values["wall_mm"]) * neck, 1),
+                            round((h_depth - 2 * values["wall_mm"]) * neck, 1)],
+        "opening_side": "Hintere Schale schwenkt um eine seitliche virtuelle Achse; Verschluss auf der Gegenseite unten",
+        "not_modelled": "Visier, Polster, Halsabdeckung, Lueftung, Elektronik und jede Schutzwirkung",
+        "latch_lands": 1, "target_hand_latches": 1, **open_fields,
+    }
+    return legs + [torso] + arms + [helmet]
 
 
 def parameters(report):
@@ -89,10 +162,19 @@ def parameters(report):
     return {
         "wall_mm": p["wall"], "seam_gap_mm": 2.0,
         "hinge_offset_mm": 8.0, "opening_deg": 110.0,
-        "elbow_gap_mm": 60.0, "elbow_relief_mm": 40.0, "strap_width_mm": 25.0,
-        "latch_pad_mm": [30.0, 18.0, 4.0],
+        "elbow_gap_mm": 60.0, "elbow_relief_mm": 40.0,
+        "knee_gap_mm": 90.0, "knee_relief_mm": 70.0, "ankle_gap_mm": 40.0, "boot_height_mm": 110.0,
+        "belt_height_mm": 110.0, "belt_gap_mm": 20.0,
+        "helmet_opening_deg": 100.0, "helmet_split_fraction": 0.12,
+        "strap_width_mm": 25.0, "latch_pad_mm": [30.0, 18.0, 4.0],
+        "latch_hole_spacing_mm": 0.0, "latch_hole_d_mm": 0.0,
         "limbs_mm": [[p[f"{part}_diameter_{side}"], p[f"{part}_length_{side}"]]
                      for part in PARTS for side in SIDES],
+        "boots_mm": [[p[f"boot_width_{side}"], p[f"boot_length_{side}"]] for side in SIDES],
+        "torso_mm": [p["torso_width"], p["torso_depth"], p["torso_height"]],
+        "hip_mm": [p["hip_width"], p["hip_depth"]],
+        "shoulder_span_mm": p["shoulder_span"], "entry_slide_mm": p["entry_slide_each_side"],
+        "helmet_mm": [p["helmet_width"], p["helmet_depth"], p["helmet_height"]],
     }
 
 
@@ -122,11 +204,13 @@ def plan(report, values):
             "solo_donning_verified": False, "parts": parts,
             "modules": modules(values),
             "limits": [
-                "Armmodul: Laschen und Verschlussflaechen sind unbemessene Platzhalter; Ellbogenspalt, Freischnitt und Beugewinkel sind Annahmen.",
+                "Module: Laschen und Verschlussflaechen sind unbemessene Platzhalter; Gelenkspalte, Freischnitte und Beugewinkel sind Annahmen.",
+                "Verschluss-Lochbild entsteht nur aus eingetragenen Datenblattwerten; ohne Eintrag bleiben die Flaechen ungebohrt.",
+                "Torso und Helm sind Huellen aus Breite, Tiefe und Hoehe; Traeger, Fuehrungen, Visier und Polster fehlen.",
                 "Runde, gerade Huellen aus Umfaengen; reale Breite, Tiefe und anatomische Verjuengung fehlen.",
                 "Bewegliche Schalenhaelften, keine konstruierten Scharniere oder integrierten Kaufverschluesse.",
                 "Keine 3D-Kollisionspruefung, Lastbemessung, Passform- oder Alleinanziehfreigabe.",
-                "Schuhcover, Handschale, Torso, Schulter und Helm benoetigen separate offene Schnittstellen.",
+                "Handschale, Schulterhauben und Halsabdeckung benoetigen separate offene Schnittstellen.",
             ]}
 
 
@@ -153,21 +237,31 @@ def readme(report):
         "Die Vorschau markiert die virtuelle Achse; sie ist nicht Teil der STL-Ausgabe.",
         "Nach Parameterbearbeitung gelten die Manifest-Hashes des Originalexports nicht",
         "fuer die geaenderte Geometrie. Fuer eine neue Profilrevision neu exportieren.", "",
-        "## Armmodul", "",
-        "ArmModule.scad setzt Oberarm- und Unterarmhuelle einer Seite zu einem Modul",
-        "zusammen: beide oeffnen zur Innenseite, dazwischen bleibt der Ellbogen frei.",
-        "Die hinteren Schalen tragen Gurtlaschen (oben Einhaengepunkt zur Schulter,",
-        "am Ellbogen die textile Verbindung), beide Haelften je eine ebene Flaeche fuer",
-        "einen Kaufverschluss. Die vorderen Haelften sind am Ellbogen freigeschnitten.",
-        "Laschen und Flaechen sind nicht bemessen; Lochbilder fehlen bewusst.", "",
+        "## Sechs Module", "",
+        "Vier weitere Dateien setzen die Huellen zu den sechs Modulen des Zielbilds",
+        "zusammen; ModuleCommon.scad enthaelt die gemeinsamen Bausteine der Arm- und",
+        "Beinmodule. ArmModule.scad: Oberarm und Unterarm. LegModule.scad:",
+        "Oberschenkel, Kniepad, Schienbein und Schuhcover. TorsoModule.scad: zwei",
+        "Rueckenfluegel, zwei Fronttueren, Guertel und die vier Aufnahmen fuer Arm- und",
+        "Beinmodule. HelmetModule.scad: vordere Schale und seitlich schwenkende hintere",
+        "Schale. Gelenke bleiben frei; die Schalen verbindet Gurtband an Laschen.", "",
         "```bash",
         "openscad --hardwarnings -D 'side=\"l\"' -D 'open_fraction=1' -o arm_l_open.stl ArmModule.scad",
-        "openscad --hardwarnings -D 'side=\"r\"' -D 'segment=\"forearm\"' -D 'piece=\"rear\"' -o forearm_r_rear.stl ArmModule.scad",
+        "openscad --hardwarnings -D 'side=\"r\"' -D 'segment=\"shin\"' -D 'piece=\"rear\"' -o shin_r_rear.stl LegModule.scad",
+        "openscad --hardwarnings -D 'piece=\"door\"' -D 'side=\"l\"' -o door_l.stl TorsoModule.scad",
+        "openscad --hardwarnings -D 'piece=\"rear\"' -o helmet_rear.stl HelmetModule.scad",
         "```", "",
-        "Selektoren: side=l/r; open_fraction=0..1; elbow_flex_deg=0..150;",
-        "piece=assembly/rear/front; segment=both/upperarm/forearm. Zum Drucken ein",
-        "einzelnes segment und piece waehlen. Der im Plan genannte freie Beugewinkel",
-        "ist eine Schaetzung fuer gerade Rundhuellen, kein gemessener Wert.", "",
+        "Arm: side, open_fraction, elbow_flex_deg=0..150, piece=assembly/rear/front,",
+        "segment=both/upperarm/forearm. Bein: side, open_fraction, knee_flex_deg=0..150,",
+        "piece=assembly/rear/front, segment=all/thigh/shin/kneepad/shoe. Torso: side,",
+        "open_fraction, piece=assembly/rear/door/belt_rear/belt_door. Helm:",
+        "hinge_side=l/r, open_fraction, piece=assembly/front/rear. Zum Drucken ein",
+        "einzelnes Teil waehlen; assembly ist eine Bewegungsansicht.", "",
+        "Verschlussflaechen bleiben ungebohrt, solange latch_hole_spacing_mm und",
+        "latch_hole_d_mm null sind. Beide Werte stammen aus dem Datenblatt des",
+        "gekauften Verschlusses; latch_pad_mm muss dessen Grundflaeche aufnehmen.",
+        "Laschen sind nicht bemessen. Die im Plan genannten freien Beugewinkel sind",
+        "Schaetzungen fuer gerade Rundhuellen, keine gemessenen Werte.", "",
         "## Reale Mechanik", "",
         "ClamshellPlan.json beschreibt alle acht Kassetten und laesst Kaufteile, Kraefte",
         "und Testergebnisse unbekannt. Ein ungemessener Standardwinkel von 110 Grad",
@@ -200,7 +294,8 @@ def export(profile_path, out, concept=False):
     if out.exists() or out.is_symlink():
         raise ValueError("Ausgabe existiert bereits; neuen Revisionsordner waehlen")
     source = (SOURCE / "LimbClamshell.scad").read_bytes()
-    module_source = (SOURCE / MODULE_SOURCE).read_bytes()
+    module_sources = {name: (SOURCE / name).read_bytes() for name in MODULE_SOURCES}
+    module_plan = modules(values)
     parameter_bytes = ("// GENERATED: opening envelopes only; mm except opening_deg.\n" +
                        "\n".join(f"{key} = {json.dumps(value)};" for key, value in values.items()) +
                        "\n").encode("utf-8")
@@ -209,16 +304,27 @@ def export(profile_path, out, concept=False):
                 "fabrication_approved": False, "solo_donning_verified": False,
                 "profile_sha256": hashlib.sha256(profile_bytes).hexdigest(),
                 "source_sha256": hashlib.sha256(source).hexdigest(),
-                "module_source_sha256": hashlib.sha256(module_source).hexdigest(),
+                "module_sources_sha256": {name: hashlib.sha256(data).hexdigest()
+                                          for name, data in module_sources.items()},
                 "parameters_sha256": hashlib.sha256(parameter_bytes).hexdigest(),
                 "parts": [f"{part}_{side}" for part in PARTS for side in SIDES],
-                "modules": [f"arm_module_{side}" for side in SIDES],
+                "modules": [module["id"] for module in module_plan],
                 "parameters": values,
                 "parameter_origin": {"wall_mm": "profile_allowance", "limbs_mm": "profile_circular_envelope",
                                      "seam_gap_mm": "concept_assumption", "hinge_offset_mm": "concept_assumption",
                                      "opening_deg": "concept_assumption", "elbow_gap_mm": "concept_assumption",
                                      "elbow_relief_mm": "concept_assumption", "strap_width_mm": "concept_assumption",
-                                     "latch_pad_mm": "concept_assumption"}}
+                                     "latch_pad_mm": "concept_assumption",
+                                     "knee_gap_mm": "concept_assumption", "knee_relief_mm": "concept_assumption",
+                                     "ankle_gap_mm": "concept_assumption", "boot_height_mm": "concept_assumption",
+                                     "belt_height_mm": "concept_assumption", "belt_gap_mm": "concept_assumption",
+                                     "helmet_opening_deg": "concept_assumption",
+                                     "helmet_split_fraction": "concept_assumption",
+                                     "latch_hole_spacing_mm": "unset_until_latch_datasheet",
+                                     "latch_hole_d_mm": "unset_until_latch_datasheet",
+                                     "boots_mm": "profile_shoe_envelope", "torso_mm": "profile_box_envelope",
+                                     "hip_mm": "profile_box_envelope", "shoulder_span_mm": "profile_box_envelope",
+                                     "entry_slide_mm": "profile_allowance", "helmet_mm": "profile_box_envelope"}}
     rows = io.StringIO(newline="")
     writer = csv.writer(rows)
     writer.writerow(["test_id", "part_id", "task", "revision", "observer", "status", "evidence", "notes"])
@@ -226,16 +332,17 @@ def export(profile_path, out, concept=False):
         for key, task in CHECKS:
             if (part == "complete_suit") == (key in ("OPEN09", "OPEN10")):
                 writer.writerow([key, part, task, "", "", "open", "", ""])
-    for module in manifest["modules"]:
-        for key, task in MODULE_CHECKS:
-            writer.writerow([key, module, task, "", "", "open", "", ""])
+    for module in module_plan:
+        for key, task in module_checks(module["kind"]):
+            writer.writerow([key, module["id"], task, "", "", "open", "", ""])
     texts = {"Manifest.json": json.dumps(manifest, indent=2, ensure_ascii=True) + "\n",
              "ClamshellPlan.json": json.dumps(plan(report, values), indent=2, ensure_ascii=True) + "\n",
              "Checklists.csv": rows.getvalue(), "README.md": readme(report)}
     out.mkdir(parents=True, exist_ok=False)
     (out / "Profile.json").write_bytes(profile_bytes)
     (out / "LimbClamshell.scad").write_bytes(source)
-    (out / MODULE_SOURCE).write_bytes(module_source)
+    for name, data in module_sources.items():
+        (out / name).write_bytes(data)
     (out / "Parameters.scad").write_bytes(parameter_bytes)
     for name, content in texts.items():
         (out / name).write_text(content, encoding="utf-8")
