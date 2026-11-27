@@ -176,8 +176,9 @@ jobs:
           done
           # Latch hole pattern with example values: must still compile on every module type.
           for file in ArmModule LegModule TorsoModule HelmetModule; do
-            render "holes_${file}.stl" -D "latch_hole_spacing_mm=18" -D "latch_hole_d_mm=3.2" "${file}.scad"
+            render "holes_${file}.stl" -D "latch_hole_d_mm=3.3" -D "latch_holes_mm=[[5,0],[14,0]]" -D "keeper_holes_mm=[[8,-3],[8,3]]" "${file}.scad"
           done
+          render "suit_assembly.stl" SuitAssembly.scad
       - uses: actions/upload-artifact@v7
         with:
           name: concept-only-not-fabrication-approved

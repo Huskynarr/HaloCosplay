@@ -20,10 +20,14 @@ assert(is_num(entry_slide_mm) && entry_slide_mm >= 0, "nonnegative entry slide r
 assert(is_num(belt_height_mm) && belt_height_mm > 0 && is_num(belt_gap_mm) && belt_gap_mm > 0, "invalid belt band");
 assert(is_num(strap_width_mm) && strap_width_mm > 0, "positive strap width required");
 assert(len(latch_pad_mm) == 3, "latch pad needs [length, width, thickness]");
-assert(is_num(latch_hole_spacing_mm) && latch_hole_spacing_mm >= 0, "nonnegative latch hole spacing required");
 assert(is_num(latch_hole_d_mm) && latch_hole_d_mm >= 0, "nonnegative latch hole diameter required");
-assert(latch_hole_spacing_mm + latch_hole_d_mm < latch_pad_mm[0], "latch holes do not fit on the pad");
-assert(latch_hole_d_mm < latch_pad_mm[1], "latch hole wider than the pad");
+// Hole lists: [across, along] per hole. across = distance from the seam centre line on the
+// land, along = offset along the seam from the middle of the land. Empty lists leave it blank.
+function holes_fit(holes) = len([for (h = holes) if (!(len(h) == 2 && latch_hole_d_mm > 0 &&
+    h[0] - latch_hole_d_mm / 2 >= seam_gap_mm / 2 && h[0] + latch_hole_d_mm / 2 <= seam_gap_mm / 2 + latch_pad_mm[1] &&
+    abs(h[1]) + latch_hole_d_mm / 2 <= latch_pad_mm[0] / 2)) 1]) == 0;
+assert(is_list(latch_holes_mm) && holes_fit(latch_holes_mm), "latch holes need a diameter and must lie on the land");
+assert(is_list(keeper_holes_mm) && holes_fit(keeper_holes_mm), "keeper holes need a diameter and must lie on the land");
 
 chamfer = 18;
 lug_margin = 6;
@@ -57,14 +61,14 @@ module quadrant(w, d, h, sign, front) {
 }
 
 // Flat land for a purchased latch on the front of a door or belt half, next to the centre seam.
+// The right half carries the latch body (latch_holes_mm), the left half the keeper.
 module front_pad(d, sign, z) {
     x0 = sign > 0 ? seam_gap_mm / 2 : -seam_gap_mm / 2 - latch_pad_mm[1];
     difference() {
         translate([x0, -d / 2 - latch_pad_mm[2], z - latch_pad_mm[0] / 2])
             cube([latch_pad_mm[1], latch_pad_mm[2] + 1, latch_pad_mm[0]]);
-        if (latch_hole_spacing_mm > 0 && latch_hole_d_mm > 0)
-            for (offset = [-0.5, 0.5])
-                translate([x0 + latch_pad_mm[1] / 2, -d / 2, z + offset * latch_hole_spacing_mm])
+        for (hole = sign > 0 ? latch_holes_mm : keeper_holes_mm)
+                translate([sign * hole[0], -d / 2, z + hole[1]])
                     rotate([90, 0, 0]) cylinder(h = 2 * (latch_pad_mm[2] + wall_mm + 5), d = latch_hole_d_mm, center = true, $fn = 24);
     }
 }

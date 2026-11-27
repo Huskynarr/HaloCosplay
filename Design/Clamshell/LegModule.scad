@@ -41,7 +41,7 @@ want_rear = piece != "front";
 // Strap tabs sit on the outer rear quarter, away from the back of the knee.
 lug_azimuth = -handedness * 50;
 pad_radius = max(thigh[0], shin[0]) / 2 + 6;
-pad_height = knee_gap_mm + 40;
+pad_height = knee_gap_mm + 80;
 heel_y = boot[1] * 0.27;
 toe_y = -boot[1] * 0.73;
 

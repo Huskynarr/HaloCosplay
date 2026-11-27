@@ -87,12 +87,15 @@ openscad --hardwarnings -D 'piece="rear"' -o helmet_rear.stl HelmetModule.scad
 Beide Schalen oeffnen zur Innenseite. Oben an der hinteren Oberarmschale sitzt
 die Gurtlasche zum Einhaengen, am Ellbogenende beider hinteren Schalen je eine
 Lasche fuer die textile Verbindung. Die vorderen Haelften sind am Ellbogen
-freigeschnitten (40 mm), der Spalt betraegt 60 mm.
+freigeschnitten (50 mm). Der Spalt zwischen den Schalen ist das Doppelte des
+Kantenabstands aus dem Profil (2 x 20 mm), denn jede Schale endet um diesen
+Abstand vor der Gelenkmitte. Ein groesserer Spalt wuerde das Modul laenger
+machen als den Arm.
 
 ### Bein (M1, M2)
 
 Oberschenkel und Schienbein oeffnen wie die Armschalen. Am Knie sind die
-**hinteren** Haelften freigeschnitten (70 mm, Spalt 90 mm), damit die Kniekehle
+**hinteren** Haelften freigeschnitten (95 mm, Spalt 40 mm wie am Arm), damit die Kniekehle
 beim Beugen frei bleibt; die vorderen Haelften reichen bis an das Knie. Die
 Laschen sitzen aussen-hinten: oben zum Hueftgurt, am Knie und am Knoechel fuer
 Gurtband. Das Kniepad ist ein Bogen vor dem Knie ohne modellierte Befestigung.
@@ -100,8 +103,10 @@ Gurtband. Das Kniepad ist ein Bogen vor dem Knie ohne modellierte Befestigung.
 Das Schuhcover ist eine Kappe ueber dem getragenen Schuh: unten offen, an der
 Ferse offen und ueber dem Knoechel geschlitzt. Es wird von vorn aufgesetzt, der
 Fuss muss durch nichts hindurch. Ein Fersengurt durch zwei seitliche Schlitze
-haelt es; das ist der dritte Handgriff des Beinmoduls. Die Hoehe (110 mm) ist
-eine Annahme, weil das Profil nur Schuhlaenge und -breite kennt.
+haelt es; das ist der dritte Handgriff des Beinmoduls. Hoehe (110 mm) und
+Abstand zum Schienbein (25 mm) sind Annahmen, weil das Profil nur Schuhlaenge
+und -breite kennt. Beide zusammen muessen zur Knoechelhoehe im Schuh passen:
+Die Schienbeinschale endet 20 mm ueber der Knoechelmitte.
 
 Das Beinmodul ist eine Verkleidung. Es traegt keine Last zum Boden und ist
 nicht an den [Beinantrieb X01](../../Documentation/Guides/Exoskelett-Eigenbau.md)
@@ -135,22 +140,115 @@ kein Schutzhelm.
 
 ### Verschluss und Laschen
 
-Alle Verschlussflaechen sind eben und **ungebohrt**, solange
-`latch_hole_spacing_mm` und `latch_hole_d_mm` null sind. Ein Verschluss ist
-nicht ausgewaehlt. Nach dem Kauf:
+Alle Verschlussflaechen sind eben und **ungebohrt**, solange `latch_holes_mm`
+und `keeper_holes_mm` leer sind. Ein Verschluss ist nicht ausgewaehlt. Nach dem
+Kauf:
 
-1. Lochabstand und Schraubendurchmesser aus dem Datenblatt in
-   `Parameters.scad` eintragen; es entstehen zwei Durchgangsloecher je Flaeche.
-2. `latch_pad_mm` ([Laenge, Breite, Dicke]) an die Grundflaeche anpassen.
-3. Ein Segment drucken und pruefen, ob Haken und Gegenstueck ueber die 2 mm
-   breite Fuge greifen.
+1. `latch_hole_d_mm` auf den Bohrdurchmesser setzen.
+2. Lochbild des Verschlusskoerpers in `latch_holes_mm` und das des Gegenhalters
+   in `keeper_holes_mm` eintragen. Jeder Eintrag ist `[quer, laengs]`: Abstand
+   von der Fugenmitte und Versatz entlang der Fuge ab Flaechenmitte, in mm.
+   Der Abstand zwischen Verschluss und Gegenhalter ueber die Fuge steht im
+   Datenblatt; er verteilt sich auf beide `quer`-Werte.
+3. `latch_pad_mm` ([Laenge entlang der Fuge, Breite quer, Dicke]) so waehlen,
+   dass Grundflaeche und Lochbild darauf passen. Loecher ausserhalb der Flaeche
+   lehnt das Modell ab.
+4. Ein Segment drucken und pruefen, ob der Verschluss ueber die 2 mm breite
+   Fuge schliesst.
 
-Ein Verschluss mit mehr als zwei Schrauben oder versetztem Gegenstueck passt
-nicht in dieses Lochbild und braucht eine eigene Flaeche.
+Der Verschlusskoerper sitzt an der vorderen Schalenhaelfte, am Torso an der
+rechten Tuer und am Helm an der vorderen Schale; der Gegenhalter jeweils
+gegenueber.
+
+**Kandidaten.** Drei kleine Spannverschluesse mit veroeffentlichten Massen,
+recherchiert am 2026-11-28. Die Herstellerseiten waren nicht abrufbar; die
+Werte stammen aus Katalogseiten der Hersteller, die Haendler bereitstellen.
+Die Lage der Loecher zur Zugrichtung und der Montageabstand sind vor dem
+Eintragen aus der Zeichnung des gelieferten Teils zu nehmen. Keiner der drei
+ist bestellt, montiert oder erprobt.
+
+| Verschluss | Loecher Verschluss | Loecher Gegenhalter | Grundflaeche | Kraft laut Katalog | Hinweis |
+| --- | --- | --- | --- | --- | --- |
+| Southco 97-30-160-11/-12 mit Gegenhalter 97-37-103 | 2 x 3,3 mm, Abstand 9,5 mm | 2 x 3,3 mm, Abstand 5,5 mm | 21,6 x 12,6 mm | Spannkraft 135 N | Kleinster; passt auf die Standardflaeche. Sicherung nicht angegeben |
+| Southco 97-50 (leichte Ausfuehrung) mit Gegenhalter 97-57-103 | 2 x 4,3 mm, Abstand 17,5 mm | 2 x 4,3 mm, Abstand 9,5 mm | 38,1 x 22,6 mm | 310 N | Zusaetzliche Sicherung 97-58-101 erhaeltlich; braucht groessere Flaeche |
+| Ganter GN 831-100 (Gegenhalter liegt bei) | 2 x 4,2 mm, Abstand 14,3 mm quer zur Zugrichtung | 2 Loecher, Masse aus der Zeichnung nehmen | 26 x 25,5 mm, Gesamtlaenge 54 bis 67 mm | 1000 N Richtwert | Typ S mit Sicherung; 40 bis 60 g, groesste Bauform |
+
+Quellen: Southco-Handbuch Seiten 282 und 283
+([Kopie](https://www.marek.eu/katalog-obrazku/produkt-8375/19129-97-en.pdf)),
+Ganter-Datenblatt GN 831
+([Kopie](https://reiman.pt/pub/media/technical_data/GANTER/datasheets/GN%20831.pdf)).
+Welche Spannkraft eine Schale braucht, ist nicht ermittelt. Ein Verschluss
+ohne Sicherung kann beim Haengenbleiben aufgehen.
 
 Die Laschen sind **nicht bemessen**: Gurtbreite (25 mm), Stegbreite und
 Wandstaerke sind Annahmen. Die Laschen zum Torso tragen ein ganzes Modul; ob
-ein Druckteil das kann, zeigt erst eine Belastungsprobe.
+ein Druckteil das kann, zeigt erst eine Belastungsprobe. Die geschaetzte
+Schalenmasse je Modul steht im Plan (naechster Abschnitt) und ist die untere
+Grenze fuer diese Last.
+
+### Druckplan und Massen
+
+Der Export schreibt `PrintPlan.csv` mit einer Zeile je Druckteil: Huellmasse,
+ob das Teil achsparallel in den Bauraum passt, in wie viele Stuecke es quer zur
+laengsten Kante zu teilen waere, Schalenvolumen und geschaetzte Masse.
+
+```bash
+python3 tools/suit_clamshell.py --profile Design/Parametric/Profiles/Demo.json --concept \
+  --build-volume 325 320 325 --density 1.24 --out build/ClamshellDemo-r1
+```
+
+Bauraum und Dichte sind Eingaben. Die Voreinstellung (325 x 320 x 325 mm,
+1,24 g/cm3 fuer PLA) ist eine Annahme; den nutzbaren Bauraum am eigenen Drucker
+pruefen. Mit den Demo-Werten passen 22 von 30 Teilen. Zu lang sind die
+vorderen Oberschenkel- und Schienbeinhaelften sowie Tueren und Rueckenfluegel
+des Torsos; sie waeren je einmal zu teilen. Die Schalen wiegen nach dieser
+Rechnung zusammen etwa 8,9 kg: Torso 3,0 kg, je Bein 2,0 kg, je Arm 0,7 kg,
+Helm 0,6 kg.
+
+Grenzen der Rechnung:
+
+- Masse = Schalenvolumen mal Dichte bei massiver 3-mm-Wand. Fuellung, duennere
+  Waende oder anderes Material aendern den Wert direkt.
+- Nicht enthalten: Laschen, Verschlussflaechen, Verschluesse, Polster, Gurte,
+  Traeger, Lack, Elektronik und jede Halo-Detailform.
+- Schuhcover und Helm sind grob angenaehert; die uebrigen Volumen weichen bei
+  den Demo-Werten hoechstens 2 % vom OpenSCAD-Modell ab.
+- Der Bauraumvergleich dreht die Teile nur um die Maschinenachsen. Diagonale
+  Lage, Druckrichtung, Stuetzstruktur und die Gestaltung einer Teilungsfuge
+  sind nicht bewertet.
+
+### Gelenkbaender und Schnittstellen
+
+`ClamshellPlan.json` nennt je Arm- und Beinmodul die Bandlaenge der
+Gelenkverbindung: die gerade Strecke zwischen den beiden Gurtschlitzen bei
+gestrecktem Gelenk, bei 45 und 90 Grad und beim geschaetzten freien
+Beugewinkel. Mit den Demo-Werten:
+
+| Gelenk | gestreckt | 45 Grad | 90 Grad | Band mindestens |
+| --- | --- | --- | --- | --- |
+| Ellbogen | 25 mm | 77 mm | 117 mm | 119 mm |
+| Knie | 216 mm | 153 mm | 69 mm | 216 mm |
+
+Am Ellbogen oeffnet sich die Rueckseite beim Beugen: Ein Band, das die Beugung
+zulaesst, haengt gestreckt etwa 90 mm durch. Am Knie ist es umgekehrt. Ein
+festes Gurtband haelt die Schalen deshalb nur in einer Endlage auf Abstand;
+elastisches Band oder eine andere Lage der Laschen ist am Prototyp zu
+entscheiden. Die Werte sind eine untere Grenze, weil das echte Band um das
+Gelenk laeuft.
+
+`interface_checks` im Plan vergleicht vier Groessen: beide Oberschenkelschalen
+gegen die Hueftbreite der Huelle, den geschaetzten Beugewinkel gegen 90 Grad,
+die Einstiegsbreite des Torsos gegen den Bedarf und die Halsoeffnung gegen die
+Kopfbreite. `review` heisst: ansehen, nicht: unbrauchbar. Mit den Demo-Werten
+sind die Oberschenkelschalen zusammen 6 mm breiter als die Huefthuelle, sie
+beruehren sich also in der Mitte. Die Halsoeffnung ist erwartungsgemaess
+kleiner als der Kopf.
+
+`SuitAssembly.scad` zeigt alle sechs Module als einfache Koerper in einer Figur
+und faerbt Ueberschneidungen rot. Die Hoehen folgen dem Modulstapel; die
+seitliche Lage von Beinen und Armen (`leg_spread_mm`, `arm_gap_mm`) und die
+Hoehe von Guertel und Helm sind Anzeigeannahmen. Mit den Demo-Werten ist die
+Figur 1813 mm hoch bei 1800 mm Koerpergroesse im Profil.
 
 ### Schaetzwerte im Plan
 
@@ -171,5 +269,6 @@ Halsoeffnung.
 
 ClamshellPlan.json laesst Kaufteile, Massen, Kraefte und Tests bewusst offen.
 Checklists.csv enthaelt acht Kassetten, sechs Module und zwei uebergreifende Nachweise.
+PrintPlan.csv enthaelt 30 Druckteile mit Bauraumvergleich und Massenschaetzung.
 Softwareerfolg bestaetigt nur den Export. Selbststaendiges Anziehen entsteht
 erst durch erreichbare Verschluesse und dokumentierte reale Gesamtproben.
