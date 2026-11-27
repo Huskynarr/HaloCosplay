@@ -42,3 +42,10 @@ hole_pitch_mm = 25;
 cuff_h_mm = 60;
 cuff_padding_mm = 8;
 strap_width_mm = 40;
+
+// Test rig for one actuator (verification steps P1 and P2), see X01TestRig.scad.
+rig_axis_h_mm = 90;              // output axis above the base board
+rig_lever_mm = 250;              // output axis to the contact point on the scale
+rig_foot_depth_mm = 70;
+rig_board_screw_d_mm = 5;
+rig_stop_gap_mm = 12;            // free lever travel above and below level, at the tip

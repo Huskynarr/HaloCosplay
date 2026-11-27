@@ -20,6 +20,7 @@ SUITES = [
 # Hardwarefreie Header mit eigenem main() in der Testdatei: (Include-Verzeichnis, Testdatei)
 HEADER_SUITES = [
     ("Code/ExoControl/LegAssist", "exo_test.cpp"),
+    ("Code/ExoControl/LegAssist", "bench_test.cpp"),
 ]
 PROTOTYPE = re.compile(r"^((?:void|bool|int|long|float|uint8_t|uint16_t|uint32_t|unsigned long)\s+\w+\s*\([^)]*\))\s*\{", re.M)
 

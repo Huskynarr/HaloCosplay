@@ -3,9 +3,9 @@ name: MJOLNIR design checks
 on:
   push:
     branches: [main]
-    paths: ['Design/Parametric/**', 'Design/Components/**', 'Design/HardwareKit/**', 'Design/Electrical/**', 'Design/Clamshell/**', 'Design/Exo/**', 'Design/Engineering/**', 'Design/Thermal/**', 'Documentation/References/ArmorReferenceLibrary.json', 'web/configurator/**', 'web/budget/**', 'web/products/**', 'web/app.js', 'web/guide.js', 'web/vendor/**', 'web/fonts/**', 'sw.js', 'tools/tailwind.*', 'web/content.js', 'web/index.html', 'web/monitoring.js', 'web/cortana/**', 'Materials/ProductCatalog.json', 'Materials/Einkaufsliste-Links.md', 'Progress/Mjolnir-*', 'Code/Exhibition/**', 'tools/suit_*.py', 'Materials/Mjolnir*', 'Tests/Automation/**', 'Tests/Browser/**', '.github/workflows/suit-design.yml']
+    paths: ['Design/Parametric/**', 'Design/Components/**', 'Design/HardwareKit/**', 'Design/Electrical/**', 'Design/Clamshell/**', 'Design/Exo/**', 'Code/ExoControl/**', 'Design/Engineering/**', 'Design/Thermal/**', 'Documentation/References/ArmorReferenceLibrary.json', 'web/configurator/**', 'web/budget/**', 'web/products/**', 'web/app.js', 'web/guide.js', 'web/vendor/**', 'web/fonts/**', 'sw.js', 'tools/tailwind.*', 'web/content.js', 'web/index.html', 'web/monitoring.js', 'web/cortana/**', 'Materials/ProductCatalog.json', 'Materials/Einkaufsliste-Links.md', 'Progress/Mjolnir-*', 'Code/Exhibition/**', 'tools/suit_*.py', 'Materials/Mjolnir*', 'Tests/Automation/**', 'Tests/Browser/**', '.github/workflows/suit-design.yml']
   pull_request:
-    paths: ['Design/Parametric/**', 'Design/Components/**', 'Design/HardwareKit/**', 'Design/Electrical/**', 'Design/Clamshell/**', 'Design/Exo/**', 'Design/Engineering/**', 'Design/Thermal/**', 'Documentation/References/ArmorReferenceLibrary.json', 'web/configurator/**', 'web/budget/**', 'web/products/**', 'web/app.js', 'web/guide.js', 'web/vendor/**', 'web/fonts/**', 'sw.js', 'tools/tailwind.*', 'web/content.js', 'web/index.html', 'web/monitoring.js', 'web/cortana/**', 'Materials/ProductCatalog.json', 'Materials/Einkaufsliste-Links.md', 'Progress/Mjolnir-*', 'Code/Exhibition/**', 'tools/suit_*.py', 'Materials/Mjolnir*', 'Tests/Automation/**', 'Tests/Browser/**', '.github/workflows/suit-design.yml']
+    paths: ['Design/Parametric/**', 'Design/Components/**', 'Design/HardwareKit/**', 'Design/Electrical/**', 'Design/Clamshell/**', 'Design/Exo/**', 'Code/ExoControl/**', 'Design/Engineering/**', 'Design/Thermal/**', 'Documentation/References/ArmorReferenceLibrary.json', 'web/configurator/**', 'web/budget/**', 'web/products/**', 'web/app.js', 'web/guide.js', 'web/vendor/**', 'web/fonts/**', 'sw.js', 'tools/tailwind.*', 'web/content.js', 'web/index.html', 'web/monitoring.js', 'web/cortana/**', 'Materials/ProductCatalog.json', 'Materials/Einkaufsliste-Links.md', 'Progress/Mjolnir-*', 'Code/Exhibition/**', 'tools/suit_*.py', 'Materials/Mjolnir*', 'Tests/Automation/**', 'Tests/Browser/**', '.github/workflows/suit-design.yml']
 
 permissions:
   contents: read
@@ -125,6 +125,10 @@ jobs:
           for pose in "hip_flex_deg=0" "hip_flex_deg=-36" "hip_flex_deg=112" "abduction_deg=20"; do
             openscad --hardwarnings -D "$pose" -o "build/X01/assembly_${pose%%=*}_${pose##*=}.stl" Design/Exo/X01Frame.scad
             test -s "build/X01/assembly_${pose%%=*}_${pose##*=}.stl"
+          done
+          for part in assembly bracket lever limiter; do
+            openscad --hardwarnings -D "part=\"${part}\"" -o "build/X01/rig_${part}.stl" Design/Exo/X01TestRig.scad
+            test -s "build/X01/rig_${part}.stl"
           done
           for part in motor_plate output_arm strut cuff pelvis_frame; do
             for side in l r; do

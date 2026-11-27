@@ -9,8 +9,10 @@ nur einen Zaehler hoch), deshalb laufen auch lange Effekte sofort durch.
 
 Zusaetzlich prueft `exo_test.cpp` die hardwarefreie Logik des Eigenbau-Beinantriebs
 (`Code/ExoControl/LegAssist/exo_core.h`): CAN-Rahmen, Momentengrenzen, Stoerungen
-und das Verhalten bei einem nachgebildeten Gang. Der zugehoerige ESP32-Sketch
-wird nur in der CI kompiliert, nicht auf dem Host ausgefuehrt.
+und das Verhalten bei einem nachgebildeten Gang. `bench_test.cpp` prueft den
+Pruefstand-Modus (`bench_core.h`): Kommandos, Arbeitsgrenze, Anstiegsbegrenzung,
+Haltezeit und Not-Aus. Der zugehoerige ESP32-Sketch wird nur in der CI
+kompiliert (normal und mit `BENCH_TEST=1`), nicht auf dem Host ausgefuehrt.
 
 ## Was die Tests nicht belegen
 
