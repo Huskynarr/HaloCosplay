@@ -68,9 +68,9 @@ flowchart TD
 
 | ID | Baugruppe | Aufgabe | Stand |
 | --- | --- | --- | --- |
-| X01-B | Beckenrahmen | Steifer Bogen ueber Ruecken und Beckenkamm, traegt beide Hueftantriebe und stuetzt deren Gegenmoment am Becken ab | Konzept, kein CAD |
-| X01-H | Hueftmodul L/R | Antrieb auf der Beuge-/Streckachse der Huefte, darueber ein freies Gelenk fuer das Abspreizen | Konzept, kein CAD |
-| X01-O | Oberschenkelstrebe | Laengenverstellbare Strebe mit gepolsterter Manschette oberhalb des Knies | Konzept, kein CAD |
+| X01-B | Beckenrahmen | Steifer Bogen ueber Ruecken und Beckenkamm, traegt beide Hueftantriebe und stuetzt deren Gegenmoment am Becken ab | [Konzeptgeometrie](../../Design/Exo/README.md), nicht bemessen |
+| X01-H | Hueftmodul L/R | Antrieb auf der Beuge-/Streckachse der Huefte, darueber ein freies Gelenk fuer das Abspreizen | [Konzeptgeometrie](../../Design/Exo/README.md), nicht bemessen |
+| X01-O | Oberschenkelstrebe | Laengenverstellbare Strebe mit gepolsterter Manschette oberhalb des Knies | [Konzeptgeometrie](../../Design/Exo/README.md), nicht bemessen |
 | X01-K | Kniemodul L/R | Zweiter Antrieb auf der Knieachse (nur Stufe K) | Konzept, kein CAD |
 | X01-U | Unterschenkelstrebe | Strebe und Manschette unterhalb des Knies (nur Stufe K) | Konzept, kein CAD |
 | X01-S | Steuerung | ESP32, CAN-Transceiver, Taster, Status-LED | Sketch und Host-Tests vorhanden |
@@ -141,6 +141,15 @@ Diese Regeln gelten vor jedem Detail-CAD:
 - **Knie (Stufe K).** Die Knieachse wandert beim Beugen. Ein einfaches
   Scharnier auf einer festen Achse schiebt die Manschetten am Bein entlang
   oder belastet das Gelenk quer. Die Ausgleichsmechanik ist offen.
+
+**Konzeptgeometrie.** [Design/Exo](../../Design/Exo/README.md) enthaelt ein
+parametrisches OpenSCAD-Modell fuer Stufe H: Beckenrahmen, Motorplatte mit
+Abspreizgelenk und Anschlaegen, Abtriebsarm, Strebe und Manschette. Die
+Bohrbilder des Antriebs stammen aus der Herstellerzeichnung, alle Koerpermasse
+sind Platzhalter. Das Modell setzt die Regeln oben nur geometrisch um: Kein
+Teil ist fuer Last bemessen, die Anschlaege sind Platzhalter, und die
+Abstuetzung am Becken fehlt. Es ist eine Grundlage fuer die Konstruktion,
+keine Bauvorlage.
 
 ## 5. Elektrik
 
@@ -298,8 +307,10 @@ entscheidet der jeweilige Veranstalter ([Convention-Regeln](Convention-Regeln.md
 
 ## 11. Offene Punkte
 
-- Mechanik vollstaendig: Beckenrahmen, Hueftmodul, Streben, Manschetten,
-  Anschlaege, Knieausgleich. Kein CAD vorhanden.
+- Mechanik: Fuer Stufe H gibt es eine [Konzeptgeometrie](../../Design/Exo/README.md).
+  Offen sind Festigkeit und Werkstoff aller Teile, bemessene Anschlaege,
+  Abstuetzung am Becken, Lagerung des Abspreizgelenks, Polster und die ganze
+  Stufe K mit Knieausgleich.
 - Akku, Sicherung, Leitungen und Not-Aus-Schaltung auslegen.
 - Verhalten der Antriebe ohne Kommandos klaeren (P1).
 - Verzoegerung und Verstaerkung am Menschen einstellen; die Standardwerte sind
