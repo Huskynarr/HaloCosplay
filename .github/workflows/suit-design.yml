@@ -130,19 +130,38 @@ jobs:
               done
             done
           done
+          cd build/WorkshopDemo/Clamshell
+          render() { out="$1"; shift; openscad --hardwarnings "$@" -o "$out"; test -s "$out"; }
           for side in l r; do
             for pose in 0 1; do
-              file="build/WorkshopDemo/Clamshell/arm_module_${side}_${pose}.stl"
-              openscad --hardwarnings -D "side=\"${side}\"" -D "open_fraction=${pose}" -D "elbow_flex_deg=$((pose * 60))" -o "$file" build/WorkshopDemo/Clamshell/ArmModule.scad
-              test -s "$file"
+              render "arm_module_${side}_${pose}.stl" -D "side=\"${side}\"" -D "open_fraction=${pose}" -D "elbow_flex_deg=$((pose * 60))" ArmModule.scad
+              render "leg_module_${side}_${pose}.stl" -D "side=\"${side}\"" -D "open_fraction=${pose}" -D "knee_flex_deg=$((pose * 60))" LegModule.scad
             done
-            for segment in upperarm forearm; do
-              for piece in rear front; do
-                file="build/WorkshopDemo/Clamshell/arm_module_${side}_${segment}_${piece}.stl"
-                openscad --hardwarnings -D "side=\"${side}\"" -D "segment=\"${segment}\"" -D "piece=\"${piece}\"" -o "$file" build/WorkshopDemo/Clamshell/ArmModule.scad
-                test -s "$file"
+            for piece in rear front; do
+              for segment in upperarm forearm; do
+                render "arm_module_${side}_${segment}_${piece}.stl" -D "side=\"${side}\"" -D "segment=\"${segment}\"" -D "piece=\"${piece}\"" ArmModule.scad
+              done
+              for segment in thigh shin; do
+                render "leg_module_${side}_${segment}_${piece}.stl" -D "side=\"${side}\"" -D "segment=\"${segment}\"" -D "piece=\"${piece}\"" LegModule.scad
               done
             done
+            for segment in kneepad shoe; do
+              render "leg_module_${side}_${segment}.stl" -D "side=\"${side}\"" -D "segment=\"${segment}\"" LegModule.scad
+            done
+            for piece in rear door belt_rear belt_door; do
+              render "torso_module_${side}_${piece}.stl" -D "side=\"${side}\"" -D "piece=\"${piece}\"" TorsoModule.scad
+            done
+          done
+          for pose in 0 1; do
+            render "torso_module_${pose}.stl" -D "open_fraction=${pose}" TorsoModule.scad
+            render "helmet_module_${pose}.stl" -D "open_fraction=${pose}" HelmetModule.scad
+          done
+          for piece in front rear; do
+            render "helmet_module_${piece}.stl" -D "piece=\"${piece}\"" HelmetModule.scad
+          done
+          # Latch hole pattern with example values: must still compile on every module type.
+          for file in ArmModule LegModule TorsoModule HelmetModule; do
+            render "holes_${file}.stl" -D "latch_hole_spacing_mm=18" -D "latch_hole_d_mm=3.2" "${file}.scad"
           done
       - uses: actions/upload-artifact@v7
         with:
