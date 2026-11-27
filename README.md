@@ -83,6 +83,7 @@ ergaenzt einen optischen Versuch mit Display, Abbildungsoptik und Combiner.
 - [Einbauorte: Akkus, Luft, Kamera, Audio und Highpower-RGB](Documentation/Guides/Mjolnir-Einbauplan.md)
 - [Aufklappbare Arme/Beine und selbststaendiges Anlegen](Documentation/Guides/Mjolnir-Selbstanziehen.md)
 - [Acht bewegliche Clamshell-Bauraumhuellen](Design/Clamshell/README.md)
+- [X01-Mechanik als Konzeptgeometrie, nicht bemessen](Design/Exo/README.md)
 - [LED-Kuehlkoerper und gemessene Luftwege berechnen](Design/Thermal/README.md)
 - [Detailgestaltung, Unteranzug, Visier und Finish](Documentation/Guides/Mjolnir-Detailgestaltung.md)
 - [Sechs editierbare CAD-Komponentenproben inklusive Magnethalter](Design/Components/README.md)
