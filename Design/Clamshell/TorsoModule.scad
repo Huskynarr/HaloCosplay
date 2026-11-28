@@ -6,6 +6,10 @@ include <Parameters.scad>
 side = "l";
 open_fraction = 0;
 piece = "assembly";
+// Print split for rear wing or door: height of the lap joint above the lower edge (0 = off)
+// and which piece to keep.
+split_z_mm = 0;
+split_keep = "all";
 $fn = 48;
 
 assert(side == "l" || side == "r", "side must be l or r");
@@ -29,6 +33,9 @@ function holes_fit(holes) = len([for (h = holes) if (!(len(h) == 2 && latch_hole
 assert(is_list(latch_holes_mm) && holes_fit(latch_holes_mm), "latch holes need a diameter and must lie on the land");
 assert(is_list(keeper_holes_mm) && holes_fit(keeper_holes_mm), "keeper holes need a diameter and must lie on the land");
 
+assert(is_num(split_lap_mm) && split_lap_mm > 0, "positive split lap required");
+assert(is_num(split_z_mm) && split_z_mm >= 0, "split_z_mm must be 0 (off) or a height above the lower edge");
+assert(split_keep == "all" || split_keep == "lower" || split_keep == "upper", "split_keep must be all, lower or upper");
 chamfer = 18;
 lug_margin = 6;
 slot_height = 4;
@@ -60,6 +67,21 @@ module quadrant(w, d, h, sign, front) {
     }
 }
 
+// Keeps one side of a lap joint across a torso piece; see ModuleCommon.scad for the limb version.
+module split_region(w, d) {
+    if (split_z_mm <= 0 || split_keep == "all") children();
+    else intersection() {
+        children();
+        if (split_keep == "lower") union() {
+            translate([-w, -d, -1000]) cube([2 * w, 2 * d, 1000 + split_z_mm]);
+            translate([0, 0, split_z_mm - 0.01]) linear_extrude(split_lap_mm) offset(delta = -wall_mm / 2 - 0.1) outline(w, d);
+        } else difference() {
+            translate([-w, -d, split_z_mm + 0.1]) cube([2 * w, 2 * d, 2000]);
+            translate([0, 0, split_z_mm]) linear_extrude(split_lap_mm + 0.1) offset(delta = -wall_mm / 2 + 0.1) outline(w, d);
+        }
+    }
+}
+
 // Flat land for a purchased latch on the front of a door or belt half, next to the centre seam.
 // The right half carries the latch body (latch_holes_mm), the left half the keeper.
 module front_pad(d, sign, z) {
@@ -84,7 +106,7 @@ module hang_lug(x, y, z, up) {
 
 // Rear wing: carries the hang point of one arm module on top.
 module rear_wing(sign) {
-    color([0.19, 0.28, 0.20]) translate([0, 0, torso_z]) {
+    color([0.19, 0.28, 0.20]) translate([0, 0, torso_z]) split_region(torso_mm[0], torso_mm[1]) {
         quadrant(torso_mm[0], torso_mm[1], torso_mm[2], sign, false);
         hang_lug(sign * (torso_mm[0] / 2 - chamfer - lug_width / 2), torso_mm[1] / 2, torso_mm[2], true);
     }
@@ -92,7 +114,7 @@ module rear_wing(sign) {
 
 // Front door with two latch lands at the centre seam.
 module door(sign) {
-    color([0.45, 0.56, 0.28]) translate([0, 0, torso_z]) {
+    color([0.45, 0.56, 0.28]) translate([0, 0, torso_z]) split_region(torso_mm[0], torso_mm[1]) {
         quadrant(torso_mm[0], torso_mm[1], torso_mm[2], sign, true);
         for (z = [torso_mm[2] * 0.3, torso_mm[2] * 0.75]) front_pad(torso_mm[1], sign, z);
     }

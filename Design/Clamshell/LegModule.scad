@@ -2,6 +2,11 @@
 // Concept envelopes only. No authentic armor, real hinge, purchased latch or load approval.
 // Not a load-bearing leg strut and not part of the X01 drive.
 include <Parameters.scad>
+
+// Print split for one segment and half: height of the lap joint along that shell (0 = off)
+// and which piece to keep. Use together with a single segment and piece.
+split_z_mm = 0;
+split_keep = "all";
 include <ModuleCommon.scad>
 
 side = "l";
@@ -45,7 +50,7 @@ pad_height = knee_gap_mm + 80;
 heel_y = boot[1] * 0.27;
 toe_y = -boot[1] * 0.73;
 
-// Arc over the front of the knee. It hangs on textile; no strap points are modelled.
+// Arc over the front of the knee. It hangs on a strap through two slots.
 module knee_pad() {
     color([0.45, 0.56, 0.28]) intersection() {
         translate([0, 0, -pad_height / 2]) difference() {
@@ -54,6 +59,13 @@ module knee_pad() {
         }
         translate([0, 0, -pad_height / 2 - 1]) linear_extrude(pad_height + 2)
             polygon([[0, 0], [-2 * pad_radius, -2 * pad_radius], [2 * pad_radius, -2 * pad_radius]]);
+        // Two upright strap slots near the side edges.
+        difference() {
+            cylinder(h = pad_height + 2, r = 2 * pad_radius, center = true);
+            for (turn = [-33, 33]) rotate([0, 0, turn])
+                translate([-slot_height / 2, -pad_radius - wall_mm - 1, -strap_width_mm / 2 - 1])
+                    cube([slot_height, wall_mm + 2, strap_width_mm + 2]);
+        }
     }
 }
 

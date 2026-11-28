@@ -183,6 +183,11 @@ jobs:
             render "holes_${file}.stl" -D "latch_hole_d_mm=3.3" -D "latch_holes_mm=[[5,0],[14,0]]" -D "keeper_holes_mm=[[8,-3],[8,3]]" "${file}.scad"
           done
           render "suit_assembly.stl" SuitAssembly.scad
+          # Lap-joint split of the pieces the demo print plan marks as too long.
+          for keep in lower upper; do
+            render "split_thigh_${keep}.stl" -D 'segment="thigh"' -D 'piece="front"' -D "split_z_mm=215" -D "split_keep=\"${keep}\"" LegModule.scad
+            render "split_door_${keep}.stl" -D 'piece="door"' -D "split_z_mm=240" -D "split_keep=\"${keep}\"" TorsoModule.scad
+          done
       - uses: actions/upload-artifact@v7
         with:
           name: concept-only-not-fabrication-approved

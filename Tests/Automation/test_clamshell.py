@@ -95,6 +95,9 @@ class ClamshellTests(unittest.TestCase):
         self.assertTrue(all(module["source"] in clamshell.MODULE_SOURCES for module in result))
         leg, _, torso, left, right, helmet = result
         self.assertEqual(left["segments"], ["upperarm_l", "forearm_l"])
+        # One pin per shell, as long as the range both halves share plus 3 mm at each end.
+        self.assertEqual(left["hinge_pins_mm"], [values["limbs_mm"][0][1] - values["elbow_relief_mm"] + 6,
+                                                 values["limbs_mm"][2][1] - values["elbow_relief_mm"] + 6])
         self.assertEqual(right["segments"], ["upperarm_r", "forearm_r"])
         upper, fore = values["limbs_mm"][0], values["limbs_mm"][2]
         self.assertAlmostEqual(left["overall_length_mm"], upper[1] + fore[1] + values["elbow_gap_mm"])
@@ -136,11 +139,18 @@ class ClamshellTests(unittest.TestCase):
         self.assertTrue(rows["forearm_l_front"]["fits_build_volume"])
         self.assertFalse(rows["door_l"]["fits_build_volume"])
         self.assertEqual(rows["door_l"]["parts_if_cut_across_longest_edge"], 2)
+        # The proposed lap joint clears the latch land in the middle and both pieces fit.
+        cut = rows["thigh_l_front"]["suggested_split_z_mm"]
+        self.assertEqual(cut, thigh[1] / 2 + 25)
+        self.assertLessEqual(max(cut + values["split_lap_mm"], thigh[1] - cut), 325)
+        self.assertGreater(cut - values["latch_pad_mm"][0] / 2, thigh[1] / 2)
+        self.assertIsNone(rows["forearm_l_front"]["suggested_split_z_mm"])
         big = {row["id"]: row for row in clamshell.print_plan(values, (500, 500, 500), 1.05)}
         self.assertTrue(all(row["fits_build_volume"] for row in big.values()))
         self.assertLess(big["door_l"]["mass_estimate_g"], rows["door_l"]["mass_estimate_g"])
         tiny = {row["id"]: row for row in clamshell.print_plan(values, (100, 100, 100))}
         self.assertIsNone(tiny["door_l"]["parts_if_cut_across_longest_edge"])
+        self.assertIsNone(tiny["door_l"]["suggested_split_z_mm"])
         for bad in ((0, 300, 300), (300, 300)):
             with self.assertRaises(ValueError):
                 clamshell.print_plan(values, bad)
