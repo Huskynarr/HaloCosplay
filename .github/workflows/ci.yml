@@ -152,6 +152,10 @@ jobs:
         if: steps.changed.outputs.run == 'true'
         run: arduino-cli compile --fqbn esp32:esp32:esp32 Code/ExoControl/LegAssist
 
+      - name: ESP32-Sketch kompilieren (Beinantrieb X01, Pruefstand)
+        if: steps.changed.outputs.run == 'true'
+        run: arduino-cli compile --fqbn esp32:esp32:esp32 --build-property "compiler.cpp.extra_flags=-DBENCH_TEST=1" Code/ExoControl/LegAssist
+
       - name: ESP32-S3-Sketch kompilieren (Cortana-Chip)
         if: steps.changed.outputs.run == 'true'
         run: |

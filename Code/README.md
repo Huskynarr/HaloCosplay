@@ -95,6 +95,7 @@ Hintergrund und **Sicherheit**: `Documentation/Guides/Elektronik-AR-Display.md`.
   Hardware erprobt.** Vor jedem Betrieb die Nachweisfolge in
   `Documentation/Guides/Exoskelett-Eigenbau.md` durchlaufen
 - `LegAssist/exo_core.h` - Regel- und Sicherheitslogik ohne Hardwarebezug
+- `LegAssist/bench_core.h` - Pruefstand-Modus fuer einen einzelnen, fest eingespannten Antrieb (`#define BENCH_TEST 1`), siehe [Pruefstand](../Design/Exo/README.md#pruefstand-fuer-einen-antrieb)
   (Momentengrenze, Anstiegsbegrenzung, Stoerungen, CAN-Rahmenformat);
   Host-Tests: `python3 Tests/Firmware/run.py`
 

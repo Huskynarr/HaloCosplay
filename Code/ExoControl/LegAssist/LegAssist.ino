@@ -14,8 +14,17 @@
 
 #include "driver/twai.h"
 #include "exo_core.h"
+#include "bench_core.h"
 
 // ---------------- Aufbau anpassen ----------------
+// Pruefstand (Nachweisstufen P1/P2): 1 = nur der Antrieb BENCH_JOINT, fest
+// eingespannt, ohne Person; Bedienung ueber die serielle Schnittstelle
+// (t <Nm>, z, s, r). Der Gangregler laeuft dann nicht.
+#ifndef BENCH_TEST
+#define BENCH_TEST 0
+#endif
+#define BENCH_JOINT 0            // Index in DRIVE_ID
+#define BENCH_LIMIT_NM 2.0f      // Arbeitsgrenze am Pruefstand
 #define KNEES_INSTALLED 0        // 1 = vier Antriebe (Huefte + Knie)
 #define KNEE_ASSIST 0            // 1 erst nach bestandenem Hueft-Nachweis und mit Fersensensoren
 #define TORQUE_LIMIT_NM 3.0f     // Arbeitsgrenze; exo_core.h kappt bei 9 Nm
@@ -41,6 +50,9 @@ const float DRIVE_SIGN[exo::JOINT_COUNT] = {1.0f, -1.0f, 1.0f, -1.0f};
 #define LONG_PRESS_MS 2000
 
 exo::Controller ctrl;
+bench::Bench rig;
+char benchLine[24];
+uint8_t benchLen = 0;
 unsigned long nextTick = 0, lastLog = 0, lastEdge = 0, pressedAt = 0;
 bool buttonDown = false, longHandled = false, canOk = false;
 
@@ -99,6 +111,48 @@ void showState(unsigned long now) {
   digitalWrite(PIN_LED, on ? HIGH : LOW);
 }
 
+// Pruefstand: ein Antrieb, Sollmoment von der seriellen Schnittstelle. Die
+// Rohwerte fuer Drehzahl und Strom werden unveraendert ausgegeben; ihre
+// Einheit steht im Handbuch des Treibers und ist am Pruefstand zu bestaetigen.
+void benchLoop(unsigned long now) {
+  static int16_t speedRaw = 0, currentRaw = 0;
+  static exo::Feedback last = {0.0f, 0, 0};
+  twai_message_t msg;
+  while (canOk && twai_receive(&msg, 0) == ESP_OK) {
+    if (!msg.extd || msg.rtr || msg.data_length_code != 8) continue;
+    if ((msg.identifier >> 8) != exo::CAN_FEEDBACK || (msg.identifier & 0xFF) != DRIVE_ID[BENCH_JOINT]) continue;
+    last = exo::parseFeedback(msg.data);
+    speedRaw = (int16_t)((uint16_t)msg.data[2] << 8 | msg.data[3]);
+    currentRaw = (int16_t)((uint16_t)msg.data[4] << 8 | msg.data[5]);
+    rig.onFeedback(now);
+  }
+  while (Serial.available()) {
+    char c = (char)Serial.read();
+    if (c == '\n' || c == '\r') {
+      if (benchLen > 0) {
+        benchLine[benchLen] = 0;
+        if (!rig.command(benchLine, now)) Serial.println("{\"error\":\"command\"}");
+        benchLen = 0;
+      }
+    } else if (benchLen < sizeof(benchLine) - 1) {
+      benchLine[benchLen++] = c;
+    }
+  }
+  rig.setEstop(digitalRead(PIN_ESTOP) == HIGH);
+  rig.update(now);
+  if (canOk && rig.sending()) sendTorque(BENCH_JOINT, rig.torqueNm());
+  digitalWrite(PIN_LED, rig.torqueNm() != 0 ? HIGH : ((now / 500) % 2 ? HIGH : LOW));
+  if (now - lastLog >= 100) {
+    lastLog = now;
+    Serial.printf("{\"bench\":1,\"sending\":%u,\"estop\":%u,\"timeout\":%u,\"cmd\":%.2f,\"pos\":%.1f,"
+                  "\"speed_raw\":%d,\"current_raw\":%d,\"temp\":%d,\"err\":%u,\"frames\":%lu,\"dt\":%lu}\n",
+                  rig.sending(), rig.estop(), rig.timedOut(), rig.torqueNm(), last.positionDeg * DRIVE_SIGN[BENCH_JOINT],
+                  speedRaw, currentRaw, last.tempC, last.error, (unsigned long)rig.frames(),
+                  (unsigned long)rig.lastIntervalMs());
+    rig.clearTimedOut();
+  }
+}
+
 void setup() {
   Serial.begin(115200);
   pinMode(PIN_BUTTON, INPUT_PULLUP);
@@ -110,6 +164,8 @@ void setup() {
   ctrl.cfg.torqueLimitNm = TORQUE_LIMIT_NM;
   ctrl.cfg.periodMs = PERIOD_MS;
   ctrl.begin();
+  rig.limitNm = BENCH_LIMIT_NM;
+  rig.periodMs = PERIOD_MS;
 
   twai_general_config_t general = TWAI_GENERAL_CONFIG_DEFAULT((gpio_num_t)PIN_CAN_TX, (gpio_num_t)PIN_CAN_RX, TWAI_MODE_NORMAL);
   twai_timing_config_t timing = TWAI_TIMING_CONFIG_1MBITS();
@@ -124,6 +180,11 @@ void loop() {
   if ((long)(now - nextTick) < 0) return;
   nextTick += PERIOD_MS;
   if ((long)(now - nextTick) > PERIOD_MS) nextTick = now + PERIOD_MS;   // nach Haenger nicht aufholen
+
+#if BENCH_TEST
+  benchLoop(now);
+  return;
+#endif
 
   if (canOk) readCan(now);
   readButton(now);

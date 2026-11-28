@@ -3,9 +3,9 @@ name: MJOLNIR design checks
 on:
   push:
     branches: [main]
-    paths: ['Design/Parametric/**', 'Design/Components/**', 'Design/HardwareKit/**', 'Design/Electrical/**', 'Design/Clamshell/**', 'Design/Exo/**', 'Design/Engineering/**', 'Design/Thermal/**', 'Documentation/References/ArmorReferenceLibrary.json', 'web/configurator/**', 'web/budget/**', 'web/products/**', 'web/app.js', 'web/guide.js', 'web/vendor/**', 'web/fonts/**', 'sw.js', 'tools/tailwind.*', 'web/content.js', 'web/index.html', 'web/monitoring.js', 'web/cortana/**', 'Materials/ProductCatalog.json', 'Materials/Einkaufsliste-Links.md', 'Progress/Mjolnir-*', 'Code/Exhibition/**', 'tools/suit_*.py', 'Materials/Mjolnir*', 'Tests/Automation/**', 'Tests/Browser/**', '.github/workflows/suit-design.yml']
+    paths: ['Design/Parametric/**', 'Design/Components/**', 'Design/HardwareKit/**', 'Design/Electrical/**', 'Design/Clamshell/**', 'Design/Exo/**', 'Code/ExoControl/**', 'Design/Engineering/**', 'Design/Thermal/**', 'Documentation/References/ArmorReferenceLibrary.json', 'web/configurator/**', 'web/budget/**', 'web/products/**', 'web/app.js', 'web/guide.js', 'web/vendor/**', 'web/fonts/**', 'sw.js', 'tools/tailwind.*', 'web/content.js', 'web/index.html', 'web/monitoring.js', 'web/cortana/**', 'Materials/ProductCatalog.json', 'Materials/Einkaufsliste-Links.md', 'Progress/Mjolnir-*', 'Code/Exhibition/**', 'tools/suit_*.py', 'Materials/Mjolnir*', 'Tests/Automation/**', 'Tests/Browser/**', '.github/workflows/suit-design.yml']
   pull_request:
-    paths: ['Design/Parametric/**', 'Design/Components/**', 'Design/HardwareKit/**', 'Design/Electrical/**', 'Design/Clamshell/**', 'Design/Exo/**', 'Design/Engineering/**', 'Design/Thermal/**', 'Documentation/References/ArmorReferenceLibrary.json', 'web/configurator/**', 'web/budget/**', 'web/products/**', 'web/app.js', 'web/guide.js', 'web/vendor/**', 'web/fonts/**', 'sw.js', 'tools/tailwind.*', 'web/content.js', 'web/index.html', 'web/monitoring.js', 'web/cortana/**', 'Materials/ProductCatalog.json', 'Materials/Einkaufsliste-Links.md', 'Progress/Mjolnir-*', 'Code/Exhibition/**', 'tools/suit_*.py', 'Materials/Mjolnir*', 'Tests/Automation/**', 'Tests/Browser/**', '.github/workflows/suit-design.yml']
+    paths: ['Design/Parametric/**', 'Design/Components/**', 'Design/HardwareKit/**', 'Design/Electrical/**', 'Design/Clamshell/**', 'Design/Exo/**', 'Code/ExoControl/**', 'Design/Engineering/**', 'Design/Thermal/**', 'Documentation/References/ArmorReferenceLibrary.json', 'web/configurator/**', 'web/budget/**', 'web/products/**', 'web/app.js', 'web/guide.js', 'web/vendor/**', 'web/fonts/**', 'sw.js', 'tools/tailwind.*', 'web/content.js', 'web/index.html', 'web/monitoring.js', 'web/cortana/**', 'Materials/ProductCatalog.json', 'Materials/Einkaufsliste-Links.md', 'Progress/Mjolnir-*', 'Code/Exhibition/**', 'tools/suit_*.py', 'Materials/Mjolnir*', 'Tests/Automation/**', 'Tests/Browser/**', '.github/workflows/suit-design.yml']
 
 permissions:
   contents: read
@@ -126,6 +126,10 @@ jobs:
             openscad --hardwarnings -D "$pose" -o "build/X01/assembly_${pose%%=*}_${pose##*=}.stl" Design/Exo/X01Frame.scad
             test -s "build/X01/assembly_${pose%%=*}_${pose##*=}.stl"
           done
+          for part in assembly bracket lever limiter; do
+            openscad --hardwarnings -D "part=\"${part}\"" -o "build/X01/rig_${part}.stl" Design/Exo/X01TestRig.scad
+            test -s "build/X01/rig_${part}.stl"
+          done
           for part in motor_plate output_arm strut cuff pelvis_frame; do
             for side in l r; do
               openscad --hardwarnings -D "part=\"${part}\"" -D "side=\"${side}\"" -o "build/X01/${part}_${side}.stl" Design/Exo/X01Frame.scad
@@ -176,8 +180,9 @@ jobs:
           done
           # Latch hole pattern with example values: must still compile on every module type.
           for file in ArmModule LegModule TorsoModule HelmetModule; do
-            render "holes_${file}.stl" -D "latch_hole_spacing_mm=18" -D "latch_hole_d_mm=3.2" "${file}.scad"
+            render "holes_${file}.stl" -D "latch_hole_d_mm=3.3" -D "latch_holes_mm=[[5,0],[14,0]]" -D "keeper_holes_mm=[[8,-3],[8,3]]" "${file}.scad"
           done
+          render "suit_assembly.stl" SuitAssembly.scad
       - uses: actions/upload-artifact@v7
         with:
           name: concept-only-not-fabrication-approved

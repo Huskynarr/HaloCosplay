@@ -13,10 +13,14 @@ assert(is_num(opening_deg) && opening_deg > 0 && opening_deg <= 150, "opening an
 assert(len(limbs_mm) == 8, "eight independent limb dimension pairs required");
 assert(is_num(strap_width_mm) && strap_width_mm > 0, "positive strap width required");
 assert(len(latch_pad_mm) == 3, "latch pad needs [length, width, thickness]");
-assert(is_num(latch_hole_spacing_mm) && latch_hole_spacing_mm >= 0, "nonnegative latch hole spacing required");
 assert(is_num(latch_hole_d_mm) && latch_hole_d_mm >= 0, "nonnegative latch hole diameter required");
-assert(latch_hole_spacing_mm + latch_hole_d_mm < latch_pad_mm[0], "latch holes do not fit on the pad");
-assert(latch_hole_d_mm < latch_pad_mm[1], "latch hole wider than the pad");
+// Hole lists: [across, along] per hole. across = distance from the seam centre line on the
+// land, along = offset along the seam from the middle of the land. Empty lists leave it blank.
+function holes_fit(holes) = len([for (h = holes) if (!(len(h) == 2 && latch_hole_d_mm > 0 &&
+    h[0] - latch_hole_d_mm / 2 >= seam_gap_mm / 2 && h[0] + latch_hole_d_mm / 2 <= seam_gap_mm / 2 + latch_pad_mm[1] &&
+    abs(h[1]) + latch_hole_d_mm / 2 <= latch_pad_mm[0] / 2)) 1]) == 0;
+assert(is_list(latch_holes_mm) && holes_fit(latch_holes_mm), "latch holes need a diameter and must lie on the land");
+assert(is_list(keeper_holes_mm) && holes_fit(keeper_holes_mm), "keeper holes need a diameter and must lie on the land");
 
 // Model axes: Z along the limb (far end at 0), negative Y towards the front.
 // Each half covers low..high along Z so that a joint end can be cut back.
@@ -33,8 +37,8 @@ module half_shell(dims, front, low, high) {
 }
 
 // Flat mounting land for a purchased latch on the closing side, opposite the virtual hinge.
-// Two through holes appear only when latch_hole_spacing_mm and latch_hole_d_mm are set
-// from the datasheet of the chosen latch; the defaults leave the land blank.
+// The front half carries the latch body (latch_holes_mm), the rear half the keeper
+// (keeper_holes_mm). Holes appear only once the lists are filled from the datasheet.
 module latch_pad(dims, front) {
     radius = dims[0] / 2;
     pad_y = front ? -seam_gap_mm / 2 - latch_pad_mm[1] : seam_gap_mm / 2;
@@ -42,10 +46,8 @@ module latch_pad(dims, front) {
         translate([handedness > 0 ? -radius - latch_pad_mm[2] : radius - 6, pad_y, (dims[1] - latch_pad_mm[0]) / 2])
             cube([latch_pad_mm[2] + 6, latch_pad_mm[1], latch_pad_mm[0]]);
         translate([0, 0, -1]) cylinder(h = dims[1] + 2, r = radius - wall_mm);
-        if (latch_hole_spacing_mm > 0 && latch_hole_d_mm > 0)
-            for (offset = [-0.5, 0.5])
-                translate([-handedness * (radius - wall_mm - 2), pad_y + latch_pad_mm[1] / 2,
-                           dims[1] / 2 + offset * latch_hole_spacing_mm])
+        for (hole = front ? latch_holes_mm : keeper_holes_mm)
+                translate([-handedness * (radius - wall_mm - 2), (front ? -1 : 1) * hole[0], dims[1] / 2 + hole[1]])
                     rotate([0, 90, 0]) cylinder(h = 2 * (latch_pad_mm[2] + wall_mm + 10), d = latch_hole_d_mm, center = true, $fn = 24);
     }
 }

@@ -256,7 +256,14 @@ Pflicht und nicht durch Software ersetzbar.
   Hardwarebezug, dazu das CAN-Rahmenformat.
 - `Code/ExoControl/LegAssist/LegAssist.ino`: ESP32-Sketch mit CAN, Taster,
   Not-Aus-Rueckmeldung und Protokoll ueber die serielle Schnittstelle.
-- `Tests/Firmware/exo_test.cpp`: Host-Tests, Aufruf `python3 Tests/Firmware/run.py`.
+- `Code/ExoControl/LegAssist/bench_core.h`: Pruefstand-Modus fuer einen
+  einzelnen Antrieb (`#define BENCH_TEST 1`), Sollmoment ueber die serielle
+  Schnittstelle mit Arbeitsgrenze, Anstiegsbegrenzung und Haltezeit.
+- `Tests/Firmware/exo_test.cpp` und `bench_test.cpp`: Host-Tests, Aufruf
+  `python3 Tests/Firmware/run.py`.
+- `Tests/Automation/test_exo_mechanics.py`: prueft, dass die Anschlaege der
+  [Konzeptgeometrie](../../Design/Exo/README.md) ausserhalb der Stoergrenzen
+  der Steuerung liegen.
 
 Die Tests belegen das Rechenverhalten: Rahmenaufbau nach Handbuch, positive
 Leistung bei einem nachgebildeten Gang, Ausblenden im Stand, alle Stoerungen,
@@ -283,6 +290,11 @@ dann als Nachweis im [Readiness-Register](../../Progress/Mjolnir-Readiness.md).
 | P5 | Stufe 1, Arbeitsgrenze 2 Nm, ebene Flaeche | Moment wirkt in Bewegungsrichtung, Stehenbleiben blendet aus, Abschalten im Gehen ist beherrschbar. Hilfsperson am Not-Aus |
 | P6 | Mit Ruestungsschalen | Freigang aller bewegten Teile, Waerme, Zugang zu Not-Aus und Verschluessen |
 | P7 | Stufe K | Erst nach P1 bis P6 mit Stufe H; fuer die Knie alle Stufen erneut |
+
+Fuer P1 und P2 gibt es ein [Pruefstand-Konzept](../../Design/Exo/README.md#pruefstand-fuer-einen-antrieb)
+mit Halter, Hebel und Wegbegrenzung sowie den Pruefstand-Modus des Sketches.
+Fuer P3 steht dort der [Messbogen](../../Design/Exo/README.md#koerpermasse-und-messbogen)
+fuer Achslage und Bewegungsbereich. Beides ist unerprobt.
 
 Treppen, Laufen, Menschenmengen und Veranstaltungen sind kein Teil dieser
 Folge. Ob ein motorisiertes Gestell auf einer Veranstaltung erlaubt ist,
