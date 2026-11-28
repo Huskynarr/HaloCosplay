@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "notes": "Assumed inputs for a rough static estimate. Material values are typical handbook minimums, not test results of the purchased stock.",
+  "peak_torque_nm": 22.0,
+  "working_torque_nm": 9.0,
+  "safety_factor": 3.0,
+  "stop_impact_factor": 2.0,
+  "lateral_test_force_n": 10.0,
+  "materials": {
+    "EN AW-6061-T6": {"yield_mpa": 240.0, "e_mpa": 69000.0, "g_mpa": 26000.0},
+    "S235": {"yield_mpa": 235.0, "e_mpa": 210000.0, "g_mpa": 81000.0},
+    "PETG gedruckt (Annahme, quer zur Schicht)": {"yield_mpa": 20.0, "e_mpa": 2000.0, "g_mpa": 750.0}
+  },
+  "bolts": {
+    "yield_mpa": 640.0,
+    "stress_area_mm2": {"M3": 5.03, "M4": 8.78, "M6": 20.1, "M8": 36.6}
+  },
+  "hang_lugs": {
+    "dynamic_factor": 3.0,
+    "net_width_mm": 12.0,
+    "thickness_mm": 6.0,
+    "print_strength_mpa": 15.0,
+    "modules": {"Beinmodul": 3.0, "Armmodul": 1.1}
+  }
+}

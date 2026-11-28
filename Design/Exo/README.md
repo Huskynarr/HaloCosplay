@@ -15,7 +15,11 @@ bis P3 durchlaufen ist.
 
 | Teil (`part`) | ID | Aufgabe |
 | --- | --- | --- |
-| `pelvis_frame` | X01-B | Stab ueber den Ruecken, zwei Seitenarme nach vorn, je eine Gabel fuer das Abspreizgelenk, zwei Schlitze fuer den Hueftgurt |
+| `pelvis_frame` | X01-B | Ganzer Beckenrahmen aus den vier folgenden Teilen |
+| `pelvis_side` | X01-B | Seitenarm: Flachplatte von der Gelenkgabel nach hinten, zwei Schrauben in den Rohreinsatz |
+| `rear_tube` | X01-B | Vierkantrohr 30 x 2 mm ueber den Ruecken mit vier Querbohrungen |
+| `tube_insert` | X01-B | Klotz im Rohrende: Querbolzen durch das Rohr, zwei Gewinde fuer den Seitenarm |
+| `belt_loop` | X01-B | Platte an der Koerperseite des Rohrs mit zwei Schlitzen fuer den Hueftgurt; Traeger fuer ein Polster |
 | `motor_plate` | X01-H | Sitzt auf der Gehaeuseseite des Antriebs (8 x M3), traegt den Gelenkblock und beide Anschlaege |
 | `output_arm` | X01-H | Sitzt auf dem Abtriebsflansch (6 x M4), reicht mit einer Nabe durch die Motorplatte, nimmt die Strebe auf |
 | `strut` | X01-O | Flachstab mit Lochreihe im Raster 25 mm |
@@ -24,6 +28,12 @@ bis P3 durchlaufen ist.
 Reihenfolge von innen nach aussen: Abtriebsarm, 4 mm Luft fuer die
 Schraubenkoepfe, Motorplatte, Antrieb. Der Antrieb liegt damit ganz aussen;
 sein Abtrieb zeigt zum Koerper.
+
+**Rueckenrohr statt Flachstab.** Beim Gehen wirken die beiden Hueftmomente
+gegeneinander und verdrehen den Stab ueber dem Ruecken. Ein Flachstab 60 x 5 mm
+aus Aluminium wuerde sich bei 22 Nm um rund 7 Grad verdrehen, das Vierkantrohr
+um 0,4 Grad ([Lastabschaetzung](LoadEstimate.md), I01 und I02). Das verlorene
+Moment kaeme nicht am Bein an und der Rahmen wuerde auf dem Becken arbeiten.
 
 **Abspreizen.** Der Gelenkblock oben an der Motorplatte dreht in der Gabel des
 Beckenrahmens um eine Achse in Gehrichtung. Das Gelenk ist frei und nicht
@@ -45,6 +55,43 @@ Platzhalter fuer diese Stelle, keine bemessenen Anschlaege.
 **Stufe K.** `show_stage_k=true` blendet in der Vorschau einen Antrieb am Knie
 ein. Kniemodul, Unterschenkelstrebe und der Ausgleich der wandernden Knieachse
 sind nicht konstruiert.
+
+## Lastabschaetzung und Werkstoff
+
+`python3 tools/suit_loads.py` rechnet 14 Querschnitte und Schrauben fuer 22 Nm
+Spitzenmoment mit Sicherheitsfaktor 3 nach und schreibt
+[LoadEstimate.md](LoadEstimate.md). Eingaben sind `Parameters.scad` und
+[LoadCase.json](LoadCase.json); nach jeder Aenderung dort neu ausfuehren
+(`--check` meldet veraltete Ausgaben).
+
+Ergebnis mit den Standardwerten:
+
+- **Aluminium EN AW-6061-T6 und Stahl S235:** alle Querschnitte unter 0,5
+  Auslastung, die Schrauben unter 0,5. Am hoechsten liegen der Anschlagblock
+  (mit Stossfaktor 2) und die Schrauben des Rohreinsatzes.
+- **Gedrucktes PETG:** jeder tragende Querschnitt ueber 1, bis 5,4 am Anschlag.
+  Motorplatte, Abtriebsarm, Strebe, Seitenarm, Rohr und Einsatz sind deshalb
+  Metallteile. Gedruckt werden nur Manschettenpolster, Abdeckungen und die
+  Steuerbox.
+- Die Strebe ist seitlich weich: 10 N Querkraft an der Manschette lenken sie
+  in Aluminium rund 6 mm aus. Das gleicht kleine Fehler der Achslage aus,
+  fuehrt das Bein aber seitlich kaum.
+
+Das ist eine Ueberschlagsrechnung am Nennquerschnitt mit Handbuchwerten, keine
+Festigkeitsfreigabe. Ermuedung, Kerben, Lasten quer zur Bewegungsebene und ein
+Sturz sind nicht erfasst. Vor dem ersten Einsatz am Koerper stehen eine
+Belastungsprobe am Pruefstand und die Pruefung durch jemanden, der Tragwerke
+auslegt.
+
+## Steuerbox
+
+`X01ControlBox.scad` ist ein gedrucktes Gehaeuse fuer das ESP32-Board und den
+CAN-Transceiver: Wanne mit Auflageleisten, Deckel mit Bohrungen fuer Taster
+und Status-LED, Klemmstueck fuer das Rueckenrohr (`part` = tray, lid, clamp).
+Die Platinenmasse in `Parameters.scad` sind Platzhalter und am gekauften Board
+zu messen. Das Gehaeuse ist nicht dicht, hat keine ausgearbeitete
+Zugentlastung und liegt ausserhalb jedes Lastpfads. Akku, Sicherung und
+Not-Aus haben noch keinen Halter.
 
 ## Antriebsschnittstelle
 
@@ -168,13 +215,17 @@ openscad --hardwarnings -D 'part="lever"' -o rig_lever.stl Design/Exo/X01TestRig
 
 ## Was fehlt
 
-- Festigkeit: Werkstoff, Dicken und Querschnitte aller Teile. Ein gedrucktes
-  Teil gehoert ohne Belastungsprobe nicht in den Lastpfad.
+- Festigkeit: Es gibt eine Ueberschlagsrechnung, keinen Nachweis. Ermuedung,
+  Kerben, Querlasten und die Belastungsprobe fehlen.
 - Lagerung und Sicherung des Abspreizgelenks, Schraubensicherung, Passung der
   Zentrierung.
-- Abstuetzung des Gegenmoments am Becken: Der Rahmen haengt bisher nur an zwei
-  Gurtschlitzen. Polster, Beckenschalen und Gurt sind nicht konstruiert.
+- Abstuetzung des Gegenmoments am Becken: Der Rahmen haengt an zwei
+  Gurtplatten. Polster, Beckenschalen und der Gurt selbst sind nicht
+  konstruiert; ob das Becken das Moment ohne Verrutschen aufnimmt, ist offen.
 - Drehung der Manschette um die Beinachse, Polster, Schnellverschluss.
-- Kabelweg, Halter fuer Steuerung, Akku und Not-Aus.
+- Kabelweg, Halter fuer Akku, Sicherung und Not-Aus.
 - Freigang zu den Ruestungsschalen und zum Traeger T01.
-- Stufe K vollstaendig.
+- Stufe K vollstaendig. Sie ist bewusst nicht vorgezeichnet: Am Knie muss der
+  Anschlag gegen Ueberstreckung enger sitzen als die heutige Stoergrenze der
+  Steuerung (-10 Grad), und die wandernde Achse braucht einen Ausgleich. Beides
+  wird erst festgelegt, wenn Stufe H am Pruefstand und am Koerper gelaufen ist.

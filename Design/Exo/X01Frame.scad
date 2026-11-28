@@ -3,7 +3,7 @@
 // Stage K (knee) is a preview placeholder; its compensation mechanism is open.
 include <Parameters.scad>
 
-part = "assembly"; // assembly, motor_plate, output_arm, strut, cuff, pelvis_frame
+part = "assembly"; // assembly, motor_plate, output_arm, strut, cuff, pelvis_frame, pelvis_side, rear_tube, tube_insert, belt_loop
 side = "l";
 hip_flex_deg = 0;      // assembly: positive swings the thigh forwards
 abduction_deg = 0;     // assembly: positive swings the leg outwards
@@ -11,7 +11,8 @@ show_stage_k = false;  // assembly: knee actuator placeholder
 $fn = 72;
 
 assert(part == "assembly" || part == "motor_plate" || part == "output_arm" || part == "strut" ||
-       part == "cuff" || part == "pelvis_frame", "unknown part");
+       part == "cuff" || part == "pelvis_frame" || part == "pelvis_side" || part == "rear_tube" ||
+       part == "tube_insert" || part == "belt_loop", "unknown part");
 assert(side == "l" || side == "r", "side must be l or r");
 assert(is_num(abduction_deg) && abduction_deg >= 0 && abduction_deg <= 30, "abduction_deg must be 0..30");
 assert(stop_extension_deg > 0 && stop_flexion_deg > 0, "stops must be positive angles");
@@ -42,7 +43,6 @@ assert(bar_w_mm / 2 < stop_r_in, "arm bar too wide for the stop band");
 bar_half_deg = asin(bar_w_mm / 2 / stop_r_in);
 block_deg = 14;
 assert(stop_extension_deg + stop_flexion_deg + 2 * bar_half_deg + 2 * block_deg < 330, "stops overlap");
-assert(frame_bar_h_mm >= strap_width_mm + 14, "frame bar too low for the belt slots");
 
 arm_len = actuator_d_mm / 2 + 2 * hole_pitch_mm + 15;
 strut_len = hip_to_cuff_mm - arm_len + 2 * hole_pitch_mm + 15 + cuff_h_mm / 2;
@@ -53,8 +53,8 @@ first_hole_z = -arm_len + 15 + hole_pitch_mm;
 cuff_step = max(1, round((hip_to_cuff_mm + first_hole_z - hole_pitch_mm / 2) / hole_pitch_mm));
 cuff_z = first_hole_z - cuff_step * hole_pitch_mm - hole_pitch_mm / 2;
 assert(cuff_step + 1 <= strut_holes - 1, "cuff beyond the hole row");
-hinge_block = [18, 30, 22];   // lateral, fore-aft, vertical
-ear_t = 8;
+hinge_block = hinge_block_mm;
+ear_t = fork_ear_t_mm;
 frame_z = abduction_axis_z_mm + hinge_block[2] / 2 + 6;
 
 // 2D sketch in the side view (x2 = backwards, y2 = up), thickness outwards.
@@ -143,24 +143,72 @@ module cuff() {
     }
 }
 
-// X01-B: rear bar across the back, two side arms forwards, a fork at each end for the hinge block.
-module pelvis_frame() {
-    half = pelvis_clear_width_mm / 2 + plate_centre_x;
+// X01-B is built from four kinds of parts. A flat bar across the back would twist under the
+// opposite hip torques of walking, so the rear member is a closed square tube.
+frame_half = pelvis_clear_width_mm / 2 + plate_centre_x;
+tube_outer = frame_tube_mm[0];
+tube_wall = frame_tube_mm[1];
+tube_y = back_offset_mm + tube_outer / 2;
+tube_z = frame_z + frame_bar_h_mm / 2;
+tube_len = 2 * frame_half - bar_t_mm;
+insert_len = 30;
+insert_side = tube_outer - 2 * tube_wall - 0.4;
+loop_x = frame_half * 0.55;
+assert(len(frame_tube_mm) == 2 && tube_wall > 0 && tube_outer > 2 * tube_wall + 12, "invalid frame tube");
+assert(frame_bar_h_mm >= tube_outer, "side arm lower than the tube");
+
+// Side arm: flat plate from the hinge fork back to the tube end, two screws into the tube insert.
+module pelvis_side(sign) {
+    front = -hinge_block[1] / 2 - 1 - ear_t;
     difference() {
-        translate([-half - bar_t_mm / 2, back_offset_mm, frame_z]) cube([2 * half + bar_t_mm, bar_t_mm, frame_bar_h_mm]);
-        // Slots for the hip belt that carries the frame.
-        for (x = [-half * 0.55, half * 0.55]) translate([x - 2.5, back_offset_mm - 1, frame_z + (frame_bar_h_mm - strap_width_mm - 2) / 2])
-            cube([5, bar_t_mm + 2, strap_width_mm + 2]);
+        translate([sign * frame_half - bar_t_mm / 2, front, frame_z]) cube([bar_t_mm, back_offset_mm + tube_outer - front, frame_bar_h_mm]);
+        for (dz = [-insert_side / 4, insert_side / 4]) translate([sign * frame_half, tube_y - dz, tube_z + dz])
+            rotate([0, 90, 0]) cylinder(h = bar_t_mm + 2, d = joint_bolt_d_mm, center = true, $fn = 24);
     }
-    for (sign = [-1, 1]) {
-        front = -hinge_block[1] / 2 - 1 - ear_t;
-        translate([sign * half - bar_t_mm / 2, front, frame_z]) cube([bar_t_mm, back_offset_mm + bar_t_mm - front, frame_bar_h_mm]);
-        for (y = [front, hinge_block[1] / 2 + 1]) difference() {
-            translate([sign * half - hinge_block[0] / 2, y, abduction_axis_z_mm - hinge_block[2] / 2 - 2])
-                cube([hinge_block[0], ear_t, frame_z - abduction_axis_z_mm + hinge_block[2] / 2 + 2 + frame_bar_h_mm]);
-            translate([sign * half, y - 1, abduction_axis_z_mm]) rotate([-90, 0, 0]) cylinder(h = ear_t + 2, d = hinge_bolt_d_mm);
+    for (y = [front, hinge_block[1] / 2 + 1]) difference() {
+        translate([sign * frame_half - hinge_block[0] / 2, y, abduction_axis_z_mm - hinge_block[2] / 2 - 2])
+            cube([hinge_block[0], ear_t, frame_z - abduction_axis_z_mm + hinge_block[2] / 2 + 2 + frame_bar_h_mm]);
+        translate([sign * frame_half, y - 1, abduction_axis_z_mm]) rotate([-90, 0, 0]) cylinder(h = ear_t + 2, d = hinge_bolt_d_mm);
+    }
+}
+
+// Rear member: square tube with a cross hole at each end (insert) and two for the belt loops.
+module rear_tube() {
+    difference() {
+        translate([-tube_len / 2, tube_y - tube_outer / 2, tube_z - tube_outer / 2]) cube([tube_len, tube_outer, tube_outer]);
+        translate([-tube_len / 2 - 1, tube_y - tube_outer / 2 + tube_wall, tube_z - tube_outer / 2 + tube_wall])
+            cube([tube_len + 2, tube_outer - 2 * tube_wall, tube_outer - 2 * tube_wall]);
+        for (sign = [-1, 1]) {
+            translate([sign * (tube_len / 2 - insert_len / 2), tube_y, tube_z]) cylinder(h = tube_outer + 2, d = joint_bolt_d_mm, center = true, $fn = 24);
+            translate([sign * loop_x, tube_y, tube_z]) rotate([90, 0, 0]) cylinder(h = tube_outer + 2, d = joint_bolt_d_mm, center = true, $fn = 24);
         }
     }
+}
+
+// Block inside one tube end: cross bolt through the tube, two axial screws from the side arm.
+module tube_insert(sign) {
+    translate([sign * (tube_len / 2 - insert_len / 2), tube_y, tube_z]) difference() {
+        cube([insert_len, insert_side, insert_side], center = true);
+        cylinder(h = insert_side + 2, d = joint_bolt_d_mm, center = true, $fn = 24);
+        for (dz = [-insert_side / 4, insert_side / 4]) translate([sign * (insert_len / 2 - 6), -dz, dz])
+            rotate([0, 90, 0]) cylinder(h = 14, d = joint_bolt_d_mm - 1.4, center = true, $fn = 24);
+    }
+}
+
+// Plate on the body side of the tube: carries the hip belt in a slot and a pad on its face.
+module belt_loop(sign) {
+    height = tube_outer + strap_width_mm + 24;
+    translate([sign * loop_x - 30, back_offset_mm - bar_t_mm, tube_z + tube_outer / 2 - height]) difference() {
+        cube([60, bar_t_mm, height]);
+        translate([30, -1, height - tube_outer / 2]) rotate([-90, 0, 0]) cylinder(h = bar_t_mm + 2, d = joint_bolt_d_mm, $fn = 24);
+        translate([8, -1, 10]) cube([44, bar_t_mm + 2, 5]);
+        translate([8, -1, 10 + strap_width_mm]) cube([44, bar_t_mm + 2, 5]);
+    }
+}
+
+module pelvis_frame() {
+    rear_tube();
+    for (sign = [-1, 1]) { pelvis_side(sign); tube_insert(sign); belt_loop(sign); }
 }
 
 module actuator_envelope() {
@@ -196,4 +244,8 @@ if (part == "assembly") {
     }
     if (part == "strut") strut();
     if (part == "pelvis_frame") pelvis_frame();
+    if (part == "pelvis_side") pelvis_side(side == "l" ? -1 : 1);
+    if (part == "rear_tube") rear_tube();
+    if (part == "tube_insert") tube_insert(side == "l" ? -1 : 1);
+    if (part == "belt_loop") belt_loop(side == "l" ? -1 : 1);
 }

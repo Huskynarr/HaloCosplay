@@ -138,6 +138,39 @@ deshalb oeffnet die hintere Schale. Die Visieroeffnung ist ein einfacher
 Ausschnitt. Visier, Polster, Halsabdeckung und Lueftung fehlen. Die Huelle ist
 kein Schutzhelm.
 
+### Scharnier
+
+Arm- und Beinschalen tragen aussen abwechselnde Scharnieraugen: gerade Zaehlung
+an der hinteren, ungerade an der vorderen Haelfte, je etwa 20 mm lang mit
+0,4 mm Spiel. Ein durchgehender Stift von 3 mm (`hinge_pin_d_mm`) verbindet sie;
+seine Laenge je Schale steht im Plan (`hinge_pins_mm`). Die Augen reichen ueber
+die Laenge, die beide Haelften gemeinsam haben, also nicht in den Freischnitt
+am Gelenk. Eine Kollisionspruefung im Modell zeigt ueber den ganzen Weg von 0
+bis 110 Grad keine Durchdringung der Haelften.
+
+Gedruckt ist davon nichts. Offen sind das Spiel am eigenen Drucker, die
+Sicherung des Stifts, die Haltbarkeit der Augen quer zur Schicht und ein
+Offenhalter. Torso und Helm drehen weiter um virtuelle Achsen: Am Torso
+fehlt der Traeger, an dem Fluegel und Tueren laufen, am Helm folgt die Fuge
+einer gekruemmten Flaeche.
+
+### Teilung zu langer Teile
+
+`split_z_mm` und `split_keep` teilen eine Schalenhaelfte an einer
+Ueberlappungsfuge: Das untere Stueck traegt die innere Wandhaelfte 15 mm
+(`split_lap_mm`) weiter, das obere die aeussere. `PrintPlan.csv` schlaegt fuer
+jedes zu lange Teil eine Hoehe vor, 25 mm ueber der Mitte, damit die Fuge die
+Verschlussflaeche nicht trifft.
+
+```bash
+openscad --hardwarnings -D 'segment="thigh"' -D 'piece="front"' -D 'split_z_mm=215' -D 'split_keep="lower"' -o thigh_front_lower.stl LegModule.scad
+openscad --hardwarnings -D 'piece="door"' -D 'split_z_mm=240' -D 'split_keep="upper"' -o door_upper.stl TorsoModule.scad
+```
+
+Die Fuge wird geklebt. Klebstoff, Festigkeit der Klebung und der Verzug beider
+Stuecke sind nicht untersucht; eine Fuge quer durch ein Scharnierauge ist zu
+vermeiden.
+
 ### Verschluss und Laschen
 
 Alle Verschlussflaechen sind eben und **ungebohrt**, solange `latch_holes_mm`
@@ -184,7 +217,10 @@ Die Laschen sind **nicht bemessen**: Gurtbreite (25 mm), Stegbreite und
 Wandstaerke sind Annahmen. Die Laschen zum Torso tragen ein ganzes Modul; ob
 ein Druckteil das kann, zeigt erst eine Belastungsprobe. Die geschaetzte
 Schalenmasse je Modul steht im Plan (naechster Abschnitt) und ist die untere
-Grenze fuer diese Last.
+Grenze fuer diese Last. Eine
+[Ueberschlagsrechnung](../Exo/LoadEstimate.md#einhaengelaschen-der-ruestungsmodule)
+kommt fuer ein 3 kg schweres Beinmodul mit dynamischem Faktor 3 auf ein Viertel
+der angenommenen Druckfestigkeit; Kriechen und Schlag sind darin nicht erfasst.
 
 ### Druckplan und Massen
 

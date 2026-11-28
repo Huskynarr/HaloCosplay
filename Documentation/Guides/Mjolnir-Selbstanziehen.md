@@ -79,7 +79,9 @@ gebauten Gestell feststehen.
 **Stand:** Zielbild und Regeln sind festgelegt. Der
 [Clamshell-Generator](../../Design/Clamshell/README.md#sechs-module) erzeugt
 alle sechs Module als Bauraummodelle mit Laschen, Verschlussflaechen und
-Freischnitten an Ellbogen und Knie. Es sind Huellen aus den Profilmassen:
+Freischnitten an Ellbogen und Knie. Arm- und Beinschalen haben gedruckte
+Scharnieraugen fuer einen Stift, zu lange Teile lassen sich an einer
+Ueberlappungsfuge teilen, und der Export nennt Druckplan und Schalenmassen. Es sind Huellen aus den Profilmassen:
 Laschen sind nicht bemessen, ein Verschluss ist nicht ausgewaehlt (die Flaechen
 bleiben ungebohrt, bis dessen Lochbild eingetragen ist), dem Torso fehlen
 Traeger und Fuehrungen, dem Helm Visier und Polster. Gedruckt oder anprobiert

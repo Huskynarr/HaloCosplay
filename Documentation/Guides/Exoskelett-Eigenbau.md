@@ -146,10 +146,15 @@ Diese Regeln gelten vor jedem Detail-CAD:
 parametrisches OpenSCAD-Modell fuer Stufe H: Beckenrahmen, Motorplatte mit
 Abspreizgelenk und Anschlaegen, Abtriebsarm, Strebe und Manschette. Die
 Bohrbilder des Antriebs stammen aus der Herstellerzeichnung, alle Koerpermasse
-sind Platzhalter. Das Modell setzt die Regeln oben nur geometrisch um: Kein
-Teil ist fuer Last bemessen, die Anschlaege sind Platzhalter, und die
-Abstuetzung am Becken fehlt. Es ist eine Grundlage fuer die Konstruktion,
-keine Bauvorlage.
+sind Platzhalter. Eine [Ueberschlagsrechnung](../../Design/Exo/LoadEstimate.md)
+fuer 22 Nm Spitzenmoment zeigt: In Aluminium oder Stahl liegen alle
+gerechneten Querschnitte unter der Haelfte der zulaessigen Spannung, gedruckt
+reicht keiner. Die tragenden Teile sind deshalb Metallteile, und der Stab ueber
+dem Ruecken ist ein Vierkantrohr, weil sich ein Flachstab unter den
+gegenlaeufigen Hueftmomenten um mehrere Grad verdrehen wuerde. Die Rechnung
+ersetzt keinen Festigkeitsnachweis und keine Belastungsprobe; die Abstuetzung
+am Becken ist nicht geloest. Das Modell ist eine Grundlage fuer die
+Konstruktion, keine Bauvorlage.
 
 ## 5. Elektrik
 
@@ -320,9 +325,9 @@ entscheidet der jeweilige Veranstalter ([Convention-Regeln](Convention-Regeln.md
 ## 11. Offene Punkte
 
 - Mechanik: Fuer Stufe H gibt es eine [Konzeptgeometrie](../../Design/Exo/README.md).
-  Offen sind Festigkeit und Werkstoff aller Teile, bemessene Anschlaege,
-  Abstuetzung am Becken, Lagerung des Abspreizgelenks, Polster und die ganze
-  Stufe K mit Knieausgleich.
+  Offen sind der Festigkeitsnachweis (bisher nur Ueberschlagsrechnung),
+  Belastungsprobe, Abstuetzung am Becken, Lagerung des Abspreizgelenks, Polster
+  und die ganze Stufe K mit Knieausgleich.
 - Akku, Sicherung, Leitungen und Not-Aus-Schaltung auslegen.
 - Verhalten der Antriebe ohne Kommandos klaeren (P1).
 - Verzoegerung und Verstaerkung am Menschen einstellen; die Standardwerte sind
