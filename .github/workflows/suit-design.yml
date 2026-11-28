@@ -23,6 +23,7 @@ jobs:
       - run: python tools/suit_catalog.py --check
       - run: python tools/suit_budget.py --check
       - run: python tools/suit_readiness.py --check
+      - run: python tools/suit_loads.py --check
       - uses: actions/setup-node@v7
         with:
           node-version: '22'
@@ -130,7 +131,11 @@ jobs:
             openscad --hardwarnings -D "part=\"${part}\"" -o "build/X01/rig_${part}.stl" Design/Exo/X01TestRig.scad
             test -s "build/X01/rig_${part}.stl"
           done
-          for part in motor_plate output_arm strut cuff pelvis_frame; do
+          for part in assembly tray lid clamp; do
+            openscad --hardwarnings -D "part=\"${part}\"" -o "build/X01/box_${part}.stl" Design/Exo/X01ControlBox.scad
+            test -s "build/X01/box_${part}.stl"
+          done
+          for part in motor_plate output_arm strut cuff pelvis_frame pelvis_side rear_tube tube_insert belt_loop; do
             for side in l r; do
               openscad --hardwarnings -D "part=\"${part}\"" -D "side=\"${side}\"" -o "build/X01/${part}_${side}.stl" Design/Exo/X01Frame.scad
               test -s "build/X01/${part}_${side}.stl"
@@ -183,6 +188,11 @@ jobs:
             render "holes_${file}.stl" -D "latch_hole_d_mm=3.3" -D "latch_holes_mm=[[5,0],[14,0]]" -D "keeper_holes_mm=[[8,-3],[8,3]]" "${file}.scad"
           done
           render "suit_assembly.stl" SuitAssembly.scad
+          # Lap-joint split of the pieces the demo print plan marks as too long.
+          for keep in lower upper; do
+            render "split_thigh_${keep}.stl" -D 'segment="thigh"' -D 'piece="front"' -D "split_z_mm=215" -D "split_keep=\"${keep}\"" LegModule.scad
+            render "split_door_${keep}.stl" -D 'piece="door"' -D "split_z_mm=240" -D "split_keep=\"${keep}\"" TorsoModule.scad
+          done
       - uses: actions/upload-artifact@v7
         with:
           name: concept-only-not-fabrication-approved

@@ -197,7 +197,14 @@ def print_plan(values, build_volume=DEFAULT_BUILD_VOLUME_MM, density=DEFAULT_DEN
         fits = all(b <= v for b, v in zip(box, volume))
         # Cutting across the longest edge only; the two shorter edges must fit as they are.
         parts = 1 if fits else (math.ceil(box[2] / volume[2]) if box[0] <= volume[0] and box[1] <= volume[1] else None)
+        # One lap joint, placed 25 mm above the middle so it clears the latch land there.
+        split = None
+        if parts == 2 and piece["id"].split("_")[0] in ("thigh", "shin", "upperarm", "forearm", "rear", "door"):
+            cut = round(piece["bbox_mm"][2] / 2 + 25, 1)
+            if max(cut + values["split_lap_mm"], piece["bbox_mm"][2] - cut) <= volume[2]:
+                split = cut
         rows.append({**piece, "fits_build_volume": fits, "parts_if_cut_across_longest_edge": parts,
+                     "suggested_split_z_mm": split,
                      "mass_estimate_g": round(piece["shell_volume_cm3"] * density)})
     return rows
 
@@ -251,7 +258,9 @@ def modules(values):
             "overall_length_mm": round(upper_l + values["elbow_gap_mm"] + fore_l, 3),
             "elbow_gap_mm": values["elbow_gap_mm"], "elbow_relief_mm": values["elbow_relief_mm"],
             "elbow_free_flex_estimate_deg": free_flex_deg(fore_d, values["elbow_gap_mm"], values["elbow_relief_mm"]),
-            "opening_side": "Beide Schalen oeffnen zur Innenseite; virtuelle Achsen aussen",
+            "opening_side": "Beide Schalen oeffnen zur Innenseite; Scharniere aussen",
+            "hinge_pins_mm": [round(upper_l - values["elbow_relief_mm"] + 6, 1),
+                              round(fore_l - values["elbow_relief_mm"] + 6, 1)],
             "hang_point": "Gurtlasche oben an der hinteren Oberarmschale; Gegenstueck am Rueckenfluegel des Torsomoduls",
             "elbow_link": "Gurtband zwischen zwei Laschen an den hinteren Schalen; kein starres Gelenk",
             "elbow_link_length_mm": link_lengths(
@@ -270,6 +279,8 @@ def modules(values):
                                                          values["knee_relief_mm"]),
             "shoe_cover_mm": values["boots_mm"][column] + [values["boot_height_mm"]],
             "opening_side": "Beide Schalen oeffnen zur Innenseite; Schuhcover wird von vorn aufgesetzt",
+            "hinge_pins_mm": [round(thigh_l - values["knee_relief_mm"] + 6, 1),
+                              round(shin_l - values["knee_relief_mm"] + 6, 1)],
             "hang_point": "Gurtlasche oben aussen an der hinteren Oberschenkelschale; Gegenstueck am Guertel des Torsomoduls",
             "knee_link": "Gurtband aussen-hinten zwischen zwei Laschen; Kniepad haengt textil davor, kein starres Gelenk",
             "ankle_link": "Gurtband von der unteren Schienbeinlasche zum Schuhcover; Fersengurt durch zwei Schlitze",
@@ -316,6 +327,7 @@ def parameters(report):
     return {
         "wall_mm": p["wall"], "seam_gap_mm": 2.0,
         "hinge_offset_mm": 8.0, "opening_deg": 110.0,
+        "hinge_pin_d_mm": 3.0, "hinge_knuckle_mm": 20.0, "hinge_clearance_mm": 0.4, "split_lap_mm": 15.0,
         "elbow_gap_mm": joint_gap, "elbow_relief_mm": 50.0,
         "knee_gap_mm": joint_gap, "knee_relief_mm": 95.0, "ankle_gap_mm": 25.0, "boot_height_mm": 110.0,
         "belt_height_mm": 110.0, "belt_gap_mm": 20.0,
@@ -372,7 +384,8 @@ def plan(report, values, build_volume=DEFAULT_BUILD_VOLUME_MM, density=DEFAULT_D
                 "Verschluss-Lochbild entsteht nur aus eingetragenen Datenblattwerten; ohne Eintrag bleiben die Flaechen ungebohrt.",
                 "Torso und Helm sind Huellen aus Breite, Tiefe und Hoehe; Traeger, Fuehrungen, Visier und Polster fehlen.",
                 "Runde, gerade Huellen aus Umfaengen; reale Breite, Tiefe und anatomische Verjuengung fehlen.",
-                "Bewegliche Schalenhaelften, keine konstruierten Scharniere oder integrierten Kaufverschluesse.",
+                "Arm- und Beinmodule haben gedruckte Scharnieraugen fuer einen Kaufstift; Spiel, Stift und Haltbarkeit sind unerprobt.",
+                "Torso und Helm drehen weiter um virtuelle Achsen; Kaufverschluesse sind nirgends integriert.",
                 "Keine 3D-Kollisionspruefung, Lastbemessung, Passform- oder Alleinanziehfreigabe.",
                 "Handschale, Schulterhauben und Halsabdeckung benoetigen separate offene Schnittstellen.",
             ]}
@@ -428,6 +441,11 @@ def readme(report):
         "latch_pad_mm muss Grundflaeche und Lochbild aufnehmen. Laschen sind nicht",
         "bemessen. Die im Plan genannten freien Beugewinkel sind Schaetzungen fuer",
         "gerade Rundhuellen, keine gemessenen Werte.", "",
+        "Arm- und Beinschalen tragen aussen abwechselnde Scharnieraugen fuer einen",
+        "durchgehenden Stift (hinge_pin_d_mm, Laengen je Schale im Plan). Zu lange",
+        "Teile lassen sich mit split_z_mm und split_keep=lower/upper an einer",
+        "Ueberlappungsfuge teilen; PrintPlan.csv schlaegt die Hoehe vor. Beides ist",
+        "ungedruckt: Spiel, Klebung der Fuge und Haltbarkeit zeigt erst der Prototyp.", "",
         "SuitAssembly.scad zeigt alle sechs Module als einfache Koerper in einer Figur",
         "und faerbt Ueberschneidungen rot. Die seitliche Lage von Beinen und Armen ist",
         "dort eine Anzeigeannahme (leg_spread_mm, arm_gap_mm), kein Koerpermass.", "",
@@ -463,11 +481,13 @@ def print_csv(rows):
     handle = io.StringIO(newline="")
     writer = csv.writer(handle)
     writer.writerow(["piece", "module", "bbox_x_mm", "bbox_y_mm", "bbox_z_mm", "fits_build_volume",
-                     "parts_if_cut_across_longest_edge", "shell_volume_cm3", "mass_estimate_g"])
+                     "parts_if_cut_across_longest_edge", "suggested_split_z_mm", "shell_volume_cm3", "mass_estimate_g"])
     for row in rows:
         parts = row["parts_if_cut_across_longest_edge"]
         writer.writerow([row["id"], row["module"], *row["bbox_mm"], "yes" if row["fits_build_volume"] else "no",
-                         "" if parts is None else parts, row["shell_volume_cm3"], row["mass_estimate_g"]])
+                         "" if parts is None else parts,
+                         "" if row["suggested_split_z_mm"] is None else row["suggested_split_z_mm"],
+                         row["shell_volume_cm3"], row["mass_estimate_g"]])
     return handle.getvalue()
 
 
@@ -503,6 +523,8 @@ def export(profile_path, out, concept=False, build_volume=DEFAULT_BUILD_VOLUME_M
                 "parameter_origin": {"wall_mm": "profile_allowance", "limbs_mm": "profile_circular_envelope",
                                      "seam_gap_mm": "concept_assumption", "hinge_offset_mm": "concept_assumption",
                                      "opening_deg": "concept_assumption", "elbow_gap_mm": "profile_allowance",
+                                     "hinge_pin_d_mm": "concept_assumption", "hinge_knuckle_mm": "concept_assumption",
+                                     "hinge_clearance_mm": "concept_assumption", "split_lap_mm": "concept_assumption",
                                      "elbow_relief_mm": "concept_assumption", "strap_width_mm": "concept_assumption",
                                      "latch_pad_mm": "concept_assumption",
                                      "knee_gap_mm": "profile_allowance", "knee_relief_mm": "concept_assumption",

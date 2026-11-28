@@ -22,6 +22,55 @@ function holes_fit(holes) = len([for (h = holes) if (!(len(h) == 2 && latch_hole
 assert(is_list(latch_holes_mm) && holes_fit(latch_holes_mm), "latch holes need a diameter and must lie on the land");
 assert(is_list(keeper_holes_mm) && holes_fit(keeper_holes_mm), "keeper holes need a diameter and must lie on the land");
 
+assert(is_num(hinge_pin_d_mm) && hinge_pin_d_mm > 0, "positive hinge pin diameter required");
+assert(is_num(hinge_knuckle_mm) && hinge_knuckle_mm >= 8, "hinge knuckles need at least 8 mm");
+assert(is_num(hinge_clearance_mm) && hinge_clearance_mm >= 0, "nonnegative hinge clearance required");
+knuckle_r = hinge_pin_d_mm / 2 + 3;
+assert(hinge_offset_mm >= knuckle_r + 1.5, "hinge offset too small for the knuckle barrel");
+assert(is_num(split_lap_mm) && split_lap_mm > 0, "positive split lap required");
+assert(is_num(split_z_mm) && split_z_mm >= 0, "split_z_mm must be 0 (off) or a height along the shell");
+assert(split_keep == "all" || split_keep == "lower" || split_keep == "upper", "split_keep must be all, lower or upper");
+
+// Keeps one side of a lap joint across a shell: the lower piece carries the inner half of
+// the wall through the lap, the upper piece the outer half. split_z_mm = 0 or "all" keeps everything.
+module split_region(radius) {
+    if (split_z_mm <= 0 || split_keep == "all") children();
+    else intersection() {
+        children();
+        if (split_keep == "lower") union() {
+            translate([-2 * radius, -2 * radius, -1000]) cube([4 * radius, 4 * radius, 1000 + split_z_mm]);
+            translate([0, 0, split_z_mm - 0.01]) cylinder(h = split_lap_mm, r = radius - wall_mm / 2 - 0.1);
+        } else difference() {
+            translate([-2 * radius, -2 * radius, split_z_mm + 0.1]) cube([4 * radius, 4 * radius, 2000]);
+            translate([0, 0, split_z_mm]) cylinder(h = split_lap_mm + 0.1, r = radius - wall_mm / 2 + 0.1);
+        }
+    }
+}
+
+// One hinge knuckle on the outer side: a barrel around the pin axis, joined to the shell edge.
+module knuckle(dims, front, z0, z1) {
+    radius = dims[0] / 2;
+    hinge_x = handedness * (radius + hinge_offset_mm);
+    difference() {
+        hull() {
+            translate([hinge_x, 0, z0]) cylinder(h = z1 - z0, r = knuckle_r, $fn = 32);
+            translate([handedness > 0 ? radius - 1 : -radius - 1, front ? -seam_gap_mm / 2 - 5 : seam_gap_mm / 2, z0])
+                cube([2, 5, z1 - z0]);
+        }
+        translate([hinge_x, 0, z0 - 1]) cylinder(h = z1 - z0 + 2, d = hinge_pin_d_mm + 0.4, $fn = 24);
+        translate([0, 0, z0 - 1]) cylinder(h = z1 - z0 + 2, r = radius - 0.5);
+    }
+}
+
+// Alternating knuckles over the length both halves share: even ones on the rear half, odd ones on the front.
+module knuckles(dims, front, low, high) {
+    count = max(3, floor((high - low) / hinge_knuckle_mm));
+    step = (high - low) / count;
+    for (i = [0 : count - 1])
+        if ((i % 2 == 1) == front)
+            knuckle(dims, front, low + i * step + hinge_clearance_mm / 2, low + (i + 1) * step - hinge_clearance_mm / 2);
+}
+
 // Model axes: Z along the limb (far end at 0), negative Y towards the front.
 // Each half covers low..high along Z so that a joint end can be cut back.
 module half_shell(dims, front, low, high) {
@@ -69,19 +118,23 @@ module strap_lug(dims, direction, z_end, azimuth = 0) {
 // One opening shell. front_range and rear_range are [low, high] along Z.
 module shell_segment(dims, lug_top, lug_bottom, front_range, rear_range, lug_azimuth = 0) {
     hinge_x = handedness * (dims[0] / 2 + hinge_offset_mm);
-    if (want_rear) color([0.19, 0.28, 0.20]) {
+    hinge_low = max(front_range[0], rear_range[0]);
+    hinge_high = min(front_range[1], rear_range[1]);
+    if (want_rear) color([0.19, 0.28, 0.20]) split_region(dims[0] / 2) {
         half_shell(dims, false, rear_range[0], rear_range[1]);
+        knuckles(dims, false, hinge_low, hinge_high);
         latch_pad(dims, false);
         if (lug_top) strap_lug(dims, 1, rear_range[1], lug_azimuth);
         if (lug_bottom) strap_lug(dims, -1, rear_range[0], lug_azimuth);
     }
     if (want_front)
         translate([hinge_x, 0, 0]) rotate([0, 0, angle]) translate([-hinge_x, 0, 0])
-            color([0.45, 0.56, 0.28]) {
+            color([0.45, 0.56, 0.28]) split_region(dims[0] / 2) {
                 half_shell(dims, true, front_range[0], front_range[1]);
+                knuckles(dims, true, hinge_low, hinge_high);
                 latch_pad(dims, true);
             }
-    // Preview-only virtual pivot: excluded from render/STL, not a printed axle.
+    // Preview-only hinge pin: a purchased rod, excluded from render/STL.
     if ($preview && piece == "assembly")
-        %translate([hinge_x, 0, -5]) cylinder(h = dims[1] + 10, r = 1.5);
+        %translate([hinge_x, 0, hinge_low - 3]) cylinder(h = hinge_high - hinge_low + 6, d = hinge_pin_d_mm, $fn = 16);
 }

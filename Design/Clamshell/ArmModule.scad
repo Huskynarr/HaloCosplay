@@ -1,6 +1,11 @@
 // Arm module: upper-arm and forearm opening envelopes that stay together as one unit.
 // Concept envelopes only. No authentic armor, real hinge, purchased latch or load approval.
 include <Parameters.scad>
+
+// Print split for one segment and half: height of the lap joint along that shell (0 = off)
+// and which piece to keep. Use together with a single segment and piece.
+split_z_mm = 0;
+split_keep = "all";
 include <ModuleCommon.scad>
 
 side = "l";

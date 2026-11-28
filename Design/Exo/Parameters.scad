@@ -36,7 +36,10 @@ arm_gap_mm = 4;                  // room for the housing screw heads
 bar_w_mm = 30;
 bar_t_mm = 5;
 frame_bar_h_mm = 60;
+frame_tube_mm = [30, 2];         // rear member: square tube [outer, wall]
 hinge_bolt_d_mm = 8;
+hinge_block_mm = [18, 30, 22];   // abduction hinge block: lateral, fore-aft, vertical
+fork_ear_t_mm = 8;
 joint_bolt_d_mm = 6.4;           // M6 clearance
 hole_pitch_mm = 25;
 cuff_h_mm = 60;
@@ -49,3 +52,12 @@ rig_lever_mm = 250;              // output axis to the contact point on the scal
 rig_foot_depth_mm = 70;
 rig_board_screw_d_mm = 5;
 rig_stop_gap_mm = 12;            // free lever travel above and below level, at the tip
+
+// Control box on the rear tube, see X01ControlBox.scad. Board sizes are placeholders:
+// measure the purchased ESP32 board and CAN transceiver.
+box_board_mm = [56, 29, 14];     // ESP32 dev board: length, width, height with headers
+box_transceiver_mm = [24, 12, 6];
+box_wall_mm = 2.4;
+box_button_d_mm = 12.5;          // panel hole of the push button
+box_led_d_mm = 5.2;
+box_cable_d_mm = 8;

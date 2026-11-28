@@ -1,0 +1,287 @@
+{
+  "schema_version": 1,
+  "status": "ROUGH_ESTIMATE_NOT_A_STRENGTH_APPROVAL",
+  "peak_torque_nm": 22.0,
+  "safety_factor": 3.0,
+  "stop_impact_factor": 2.0,
+  "checks": [
+    {
+      "id": "E01",
+      "part": "Abtriebsarm",
+      "check": "Biegung am Nabenrand",
+      "kind": "normal",
+      "bolt": false,
+      "stress_mpa": 24.4,
+      "utilisation": {
+        "EN AW-6061-T6": 0.3,
+        "S235": 0.31,
+        "PETG gedruckt (Annahme, quer zur Schicht)": 3.66
+      }
+    },
+    {
+      "id": "E02",
+      "part": "Abtriebsarm",
+      "check": "Biegung im Lochquerschnitt",
+      "kind": "normal",
+      "bolt": false,
+      "stress_mpa": 24.7,
+      "utilisation": {
+        "EN AW-6061-T6": 0.31,
+        "S235": 0.32,
+        "PETG gedruckt (Annahme, quer zur Schicht)": 3.7
+      }
+    },
+    {
+      "id": "E03",
+      "part": "Strebe",
+      "check": "Biegung im Lochquerschnitt",
+      "kind": "normal",
+      "bolt": false,
+      "stress_mpa": 29.6,
+      "utilisation": {
+        "EN AW-6061-T6": 0.37,
+        "S235": 0.38,
+        "PETG gedruckt (Annahme, quer zur Schicht)": 4.44
+      }
+    },
+    {
+      "id": "E04",
+      "part": "Anschlagblock",
+      "check": "Scherung am Fuss, mit Stossfaktor",
+      "kind": "shear",
+      "bolt": false,
+      "stress_mpa": 20.7,
+      "utilisation": {
+        "EN AW-6061-T6": 0.45,
+        "S235": 0.46,
+        "PETG gedruckt (Annahme, quer zur Schicht)": 5.35
+      }
+    },
+    {
+      "id": "E05",
+      "part": "Flanschschrauben M4",
+      "check": "Scherung je Schraube",
+      "kind": "shear",
+      "bolt": true,
+      "stress_mpa": 29.8,
+      "utilisation": {
+        "Schraube 8.8": 0.24
+      }
+    },
+    {
+      "id": "E06",
+      "part": "Gehaeuseschrauben M3",
+      "check": "Scherung je Schraube",
+      "kind": "shear",
+      "bolt": true,
+      "stress_mpa": 12.9,
+      "utilisation": {
+        "Schraube 8.8": 0.1
+      }
+    },
+    {
+      "id": "E07",
+      "part": "Strebenschrauben M6",
+      "check": "Scherung je Schraube, Kraeftepaar im Lochraster",
+      "kind": "shear",
+      "bolt": true,
+      "stress_mpa": 43.8,
+      "utilisation": {
+        "Schraube 8.8": 0.35
+      }
+    },
+    {
+      "id": "E08",
+      "part": "Strebe",
+      "check": "Lochleibung an den Strebenschrauben",
+      "kind": "normal",
+      "bolt": false,
+      "stress_mpa": 27.5,
+      "utilisation": {
+        "EN AW-6061-T6": 0.34,
+        "S235": 0.35,
+        "PETG gedruckt (Annahme, quer zur Schicht)": 4.12
+      }
+    },
+    {
+      "id": "E09",
+      "part": "Motorplatte",
+      "check": "Biegung im Hals unter dem Gelenkblock",
+      "kind": "normal",
+      "bolt": false,
+      "stress_mpa": 29.3,
+      "utilisation": {
+        "EN AW-6061-T6": 0.37,
+        "S235": 0.37,
+        "PETG gedruckt (Annahme, quer zur Schicht)": 4.4
+      }
+    },
+    {
+      "id": "E10",
+      "part": "Gabel am Seitenarm",
+      "check": "Lochleibung am Gelenkbolzen",
+      "kind": "normal",
+      "bolt": false,
+      "stress_mpa": 9.0,
+      "utilisation": {
+        "EN AW-6061-T6": 0.11,
+        "S235": 0.11,
+        "PETG gedruckt (Annahme, quer zur Schicht)": 1.35
+      }
+    },
+    {
+      "id": "E11",
+      "part": "Gelenkbolzen M8",
+      "check": "Scherung je Gabelohr",
+      "kind": "shear",
+      "bolt": true,
+      "stress_mpa": 15.8,
+      "utilisation": {
+        "Schraube 8.8": 0.13
+      }
+    },
+    {
+      "id": "E12",
+      "part": "Seitenarm",
+      "check": "Biegung hochkant",
+      "kind": "normal",
+      "bolt": false,
+      "stress_mpa": 7.3,
+      "utilisation": {
+        "EN AW-6061-T6": 0.09,
+        "S235": 0.09,
+        "PETG gedruckt (Annahme, quer zur Schicht)": 1.09
+      }
+    },
+    {
+      "id": "E13",
+      "part": "Rueckenrohr",
+      "check": "Torsion, duennwandig",
+      "kind": "shear",
+      "bolt": false,
+      "stress_mpa": 7.0,
+      "utilisation": {
+        "EN AW-6061-T6": 0.15,
+        "S235": 0.15,
+        "PETG gedruckt (Annahme, quer zur Schicht)": 1.81
+      }
+    },
+    {
+      "id": "E14",
+      "part": "Schrauben Rohreinsatz M6",
+      "check": "Scherung je Schraube",
+      "kind": "shear",
+      "bolt": true,
+      "stress_mpa": 60.5,
+      "utilisation": {
+        "Schraube 8.8": 0.49
+      }
+    }
+  ],
+  "info": [
+    {
+      "id": "I01",
+      "material": "EN AW-6061-T6",
+      "text": "Verdrehung des Rueckenrohrs bei Spitzenmoment, Grad",
+      "value": 0.42
+    },
+    {
+      "id": "I02",
+      "material": "EN AW-6061-T6",
+      "text": "Zum Vergleich: Flachstab gleicher Hoehe statt Rohr, Grad",
+      "value": 7.37
+    },
+    {
+      "id": "I03",
+      "material": "EN AW-6061-T6",
+      "text": "Durchbiegung der Strebe an der Manschette in Bewegungsrichtung, mm",
+      "value": 1.03
+    },
+    {
+      "id": "I04",
+      "material": "EN AW-6061-T6",
+      "text": "Seitliche Auslenkung der Strebe an der Manschette je 10 N Querkraft, mm",
+      "value": 5.6
+    },
+    {
+      "id": "I01",
+      "material": "S235",
+      "text": "Verdrehung des Rueckenrohrs bei Spitzenmoment, Grad",
+      "value": 0.13
+    },
+    {
+      "id": "I02",
+      "material": "S235",
+      "text": "Zum Vergleich: Flachstab gleicher Hoehe statt Rohr, Grad",
+      "value": 2.37
+    },
+    {
+      "id": "I03",
+      "material": "S235",
+      "text": "Durchbiegung der Strebe an der Manschette in Bewegungsrichtung, mm",
+      "value": 0.34
+    },
+    {
+      "id": "I04",
+      "material": "S235",
+      "text": "Seitliche Auslenkung der Strebe an der Manschette je 10 N Querkraft, mm",
+      "value": 1.8
+    },
+    {
+      "id": "I01",
+      "material": "PETG gedruckt (Annahme, quer zur Schicht)",
+      "text": "Verdrehung des Rueckenrohrs bei Spitzenmoment, Grad",
+      "value": 14.55
+    },
+    {
+      "id": "I02",
+      "material": "PETG gedruckt (Annahme, quer zur Schicht)",
+      "text": "Zum Vergleich: Flachstab gleicher Hoehe statt Rohr, Grad",
+      "value": 255.46
+    },
+    {
+      "id": "I03",
+      "material": "PETG gedruckt (Annahme, quer zur Schicht)",
+      "text": "Durchbiegung der Strebe an der Manschette in Bewegungsrichtung, mm",
+      "value": 35.49
+    },
+    {
+      "id": "I04",
+      "material": "PETG gedruckt (Annahme, quer zur Schicht)",
+      "text": "Seitliche Auslenkung der Strebe an der Manschette je 10 N Querkraft, mm",
+      "value": 191.7
+    },
+    {
+      "id": "I05",
+      "material": null,
+      "text": "Kraft der Manschette am Oberschenkel bei Spitzenmoment, N",
+      "value": 66.7
+    },
+    {
+      "id": "I06",
+      "material": null,
+      "text": "Mittlerer Druck unter der Manschette bei Spitzenmoment, kPa",
+      "value": 7.4
+    },
+    {
+      "id": "I07",
+      "material": null,
+      "text": "Kraft am Anschlag ohne Stossfaktor, N",
+      "value": 786
+    }
+  ],
+  "hang_lugs": [
+    {
+      "module": "Beinmodul",
+      "mass_kg": 3.0,
+      "stress_mpa": 1.23,
+      "utilisation": 0.25
+    },
+    {
+      "module": "Armmodul",
+      "mass_kg": 1.1,
+      "stress_mpa": 0.45,
+      "utilisation": 0.09
+    }
+  ]
+}
